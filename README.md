@@ -7,6 +7,16 @@
 * 'npm install' ou 'yarn' para instalar as dependências
 * 'npm run dev' ou 'yarn dev' para subir a aplicação no **localhost:3000**
 
+Para executar o projeto por completo localmente, é preciso incluir as variáveis de ambiente para a configuração do Google Firebase.
+
+> NEXT_PUBLIC_FIREBASE_API_KEY=VALOR
+> NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=VALOR
+> NEXT_PUBLIC_FIREBASE_PROJECT_ID=VALOR
+> NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=VALOR
+> NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=VALOR
+> NEXT_PUBLIC_FIREBASE_APP_ID=VALOR
+> NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=VALOR
+
 ## Obs da base do projeto:
 
 Criada utilizando **Next.js** + **Styled Components**
@@ -29,10 +39,4 @@ Da branch **main**: https://ssi-2022.netlify.app/ <br />
 Estrutura do link de *preview* em **PRs**: https://deploy-preview-<ID_da_PR>--ssi-2022.netlify.app/
 
 Caso perceba-se que atualizações na *branch* **main** não refletiram no *deploy* ou o *link* de *preview* não tenha sido gerado, provavelmente algo causou uma falha na *build* do Netlify. Recomenda-se que seja executado o comando "npm run build" ou "yarn build" localmente para verificar se o problema se repete ao mesmo tempo que verifica-se os logs da *build* que falhou na plataforma. 
-
-## Links úteis:
-[Netlify](https://www.netlify.com/) <br /> 
-[Documentação do setor](https://docs.google.com/document/d/1SXZ-I_MBSsFQtib4uPdPxwx_aNzyl1eKyDnmX0w9NGM/edit?usp=sharing) <br /> 
-[Roadmap com os conhecimentos recomendados para contribuir com o projeto](https://docs.google.com/document/d/17O9_e9qij5y_2CURPS6QANTCTkd8YGS_RqMdUsHiHKM/edit?usp=sharing)
-
 
