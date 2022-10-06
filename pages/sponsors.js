@@ -73,7 +73,7 @@ const BackgroundWrapper = styled.div`
 
     .padrao-background {
         width: calc(100vw - 10px);
-        height: 20%;
+        height: 130rem;
         display: flex;
         position: absolute;
         top: -4.5rem;
@@ -86,6 +86,7 @@ const BackgroundWrapper = styled.div`
         @media (min-width:1000px) {
             height: 50%;
             background: url('./images/padrao_background_desktop.svg');
+            background-size: cover;
         }
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2);

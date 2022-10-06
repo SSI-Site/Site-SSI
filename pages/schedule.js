@@ -123,9 +123,10 @@ const ScheduleSection = styled.section`
             height: 100%;
             display: flex;
             position: absolute;
-            top: 0%;
+            top: -4.5rem;
+            mask-image: linear-gradient(to top, transparent 0%, black 20%);
             background: url(${background});
-            background-position: top left;
+            background-position: top center;
             background-size: cover;
             z-index:-2;
 

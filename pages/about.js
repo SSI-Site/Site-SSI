@@ -140,18 +140,22 @@ const BackgroundWrapper = styled.div`
 
     .padrao-background {
         width: calc(100vw - 10px);
-        height: 100%;
+        height: 40%;
         display: flex;
         position: absolute;
-        top: 0; /** match navbar height */
-        mask-image: linear-gradient(to top, transparent 0%, black 60%);
+        top: -4.5rem;
+        mask-image: linear-gradient(to top, transparent 0%, black 10%);
         background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top left;
+        background-position: top center;
         background-size: cover;
         z-index:-2;
 
         @media (min-width:1000px) {
             background: url('./images/padrao_background_desktop.svg');
+            background-size: cover;
+            height: 60%;
+            mask-image: linear-gradient(to top, transparent 0%, black 5%);
+            
         }
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
