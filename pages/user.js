@@ -36,20 +36,39 @@ const User = () => {
 
             <Meta title='SSI 2022 | Seu Perfil' />
             <BackgroundWrapper>
-                    <div className='padrao-background'></div>
+                <div className='padrao-background'></div>
 
-                <UserInfoSection>
+                { user ?
+                    <UserInfoSection>
+                        <UserInfoUpperWrapper>
+                            <PhotoNameWrapper>
+                                <img className='userPic' src={user.photoUrl} alt="user picture" />
+                                <h3>{user.name}</h3>
+                            </PhotoNameWrapper>
+                            
+                            <p>Palestras assistidas:<span className='bold-info'>&nbsp; 700 &#128293;</span></p>
+                        </UserInfoUpperWrapper>
+                        <UserInfoLowerWrapper>
+                            <TextInfo>
+                                <UserInformation>
+                                    <p>Email</p>
+                                    <p className='bold-info'>{user.email}</p>
+                                </UserInformation>
+                                <UserInformation>
+                                    <p>Número USP</p>
+                                    <p className='bold-info'>NUSP AQUI</p>
+                                </UserInformation>
+                            </TextInfo>
 
-                    { user ?
-                        <img className='userPic' src={user.photoUrl} alt="user picture" />
+                            <Button>Editar perfil</Button>
+                        </UserInfoLowerWrapper>
+
+                    </UserInfoSection>
                     :
-                        <h2>loading ...</h2>
-                    }
-
-                    <Button onClick={signOut}>Sair</Button>
-
-                    <Working />
-                </UserInfoSection>
+                    <h2>loading ...</h2>
+                }
+                <Button onClick={signOut}>Sair</Button>
+                <Working />
             </BackgroundWrapper>
         </>
     )
@@ -75,7 +94,7 @@ const BackgroundWrapper = styled.div`
         background-size: cover;
         z-index:-2;
 
-        @media (min-width:1000px) {
+        @media (min-width:1120px) {
             height: 50%;
             background: url('./images/padrao_background_desktop.svg');
             background-size: cover;
@@ -91,19 +110,108 @@ const UserInfoSection = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    padding: 62px 45px 200px 45px;
+    width: 90%;
+    
+    padding: 2rem 45px 250px 45px;
     margin: 15rem 3rem;
 
     background: linear-gradient(180deg, #1B162C 50%, rgba(21, 16, 35, 0) 100%);
+
+    p {
+        font-size: 22px;
+        font-weight: 400;
+        margin-top: 20px; 
+    }
+    .bold-info {
+        font-size: 22px;
+        font-weight: 400;
+        margin-bottom: 15px; 
+        font-weight: 600 !important;
+    }
+    @media (min-width:1120px) {
+        margin: 8rem 3rem;
+        padding-top: 0;
+
+    }
+    @media (min-width:1550px) {
+        width: 100%;
+    }
+`
+
+const UserInfoUpperWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 50px;
+
+    @media (min-width:1120px) {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+`
+const PhotoNameWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
     .userPic {
         border-radius: 100%;
         min-width: 150px;
         width: 10%;
+        margin-top: 3rem;
         margin-bottom: 50px;
     }
-    @media (min-width:1000px) {
-        
+    h3 {
+        font-size: 36px;
+        font-weight: 600;
+        text-align: center;
     }
+    @media (min-width:1120px) {
+        flex-direction: row;
+        max-width: 70%;
+
+        h3 {
+            text-align: left;
+            margin-left: 3rem;
+        }
+    }
+
+`
+const UserInfoLowerWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+
+    @media (min-width:1120px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+`
+const TextInfo = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 50px;
+
+    @media (min-width:1120px) {
+        max-width: 70%;
+        flex-direction: row;
+        gap: 25%;
+    }
+`
+
+const UserInformation = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-block: 20px;
+
+    p {
+        word-wrap: break-word;
+    }
+
 `
