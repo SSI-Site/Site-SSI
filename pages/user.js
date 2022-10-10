@@ -88,14 +88,13 @@ const BackgroundWrapper = styled.div`
         display: flex;
         position: absolute;
         top: -4.5rem;
-        mask-image: linear-gradient(to top, transparent 0%, black 7%);
+        mask-image: linear-gradient(to top, transparent 0%, black 40%);
         background: url('./images/padrao_background_mobile.svg') no-repeat;
         background-position: top center;
         background-size: cover;
         z-index:-2;
 
         @media (min-width:1120px) {
-            height: 50%;
             background: url('./images/padrao_background_desktop.svg');
             background-size: cover;
         }
@@ -111,6 +110,7 @@ const UserInfoSection = styled.section`
     justify-content: center;
     flex-direction: column;
     width: 90%;
+    max-width: 1200px;
     
     padding: 2rem 45px 250px 45px;
     margin: 15rem 3rem;
