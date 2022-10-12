@@ -5,14 +5,27 @@ import saphira from '../services/saphira';
 import useAuth from '../hooks/useAuth';
 
 //components
-import Working from '../src/components/Working'
 import Button from '../src/components/Button';
+import ModalTokenComponent from '../src/components/ModalTokenComponent'
+
+// lista com valores estáticos - a serem substituídos pelo saphira:
+const palestras = [
+    'Palestra 1 super foda 3 com convidados especiais',
+    'Palestra 2 super foda 3 com convidados especiais',
+    'Palestra 3 super foda 3 com convidados especiais',
+    'Palestra 4 super foda 3 com convidados especiais'
+]
 
 const User = () => {
 
     const { user, signOut } = useAuth();
-
+    
     const [example, setExample] = useState("");
+    const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
+
+    const toggleModalTokenIsOpen = () => {
+        setIsModalTokenOpen(!isModalTokenOpen);
+    }
 
     async function fetchExample() {
         const res = await saphira.getCatFact();
@@ -67,8 +80,36 @@ const User = () => {
                     :
                     <h2>loading ...</h2>
                 }
+                <ContainerLectures>
+
+                    <ListLectures>
+                        <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
+                        <tbody>
+                        {palestras.map((lecture, id) => (
+                            <tr key={id}>
+                                <td className={`lecture-id lecture-id-${id}`}>
+                                    <span></span>
+                                </td>
+                                <td className={`lecture-info lecture-info-${id}`}>
+                                    <p className='bold-info'>{lecture}</p>
+                                </td>
+                            </tr>
+                        ))
+                    }
+                        </tbody>
+                    </ListLectures>
+                    <UserInfoLowerWrapper>
+                        <span></span>
+                            { user && !isModalTokenOpen &&
+                                <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
+                            }
+
+                            { user && isModalTokenOpen &&
+                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen}/>
+                            }
+                    </UserInfoLowerWrapper>
+                </ContainerLectures>
                 <Button onClick={signOut}>Sair</Button>
-                <Working />
             </BackgroundWrapper>
         </>
     )
@@ -81,7 +122,18 @@ const BackgroundWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     position: relative;
+    padding-bottom: 5rem;
 
+    p {
+        font-size: 22px;
+        font-weight: 400;
+    }
+    .bold-info {
+        font-size: 22px;
+        font-weight: 400;
+        margin-bottom: 15px; 
+        font-weight: 600 !important;
+    }
     .padrao-background {
         width: calc(100vw - 10px);
         height: 120rem;
@@ -103,6 +155,7 @@ const BackgroundWrapper = styled.div`
         }
     }
 `
+
 const UserInfoSection = styled.section`
 
     display: flex;
@@ -113,23 +166,12 @@ const UserInfoSection = styled.section`
     max-width: 1200px;
     
     padding: 2rem 45px 250px 45px;
-    margin: 15rem 3rem;
+    margin: 15rem 3rem 0 3rem;
 
     background: linear-gradient(180deg, #1B162C 50%, rgba(21, 16, 35, 0) 100%);
 
-    p {
-        font-size: 22px;
-        font-weight: 400;
-        margin-top: 20px; 
-    }
-    .bold-info {
-        font-size: 22px;
-        font-weight: 400;
-        margin-bottom: 15px; 
-        font-weight: 600 !important;
-    }
     @media (min-width:1120px) {
-        margin: 8rem 3rem;
+        margin: 8rem 3rem 0 3rem;
         padding-top: 0;
 
     }
@@ -152,6 +194,7 @@ const UserInfoUpperWrapper = styled.div`
     }
 
 `
+
 const PhotoNameWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -180,11 +223,11 @@ const PhotoNameWrapper = styled.div`
     }
 
 `
+
 const UserInfoLowerWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-
     width: 100%;
 
     @media (min-width:1120px) {
@@ -192,6 +235,7 @@ const UserInfoLowerWrapper = styled.div`
         justify-content: space-between;
     }
 `
+
 const TextInfo = styled.div`
     display: flex;
     width: 100%;
@@ -214,4 +258,97 @@ const UserInformation = styled.div`
         word-wrap: break-word;
     }
 
+`
+
+const ContainerLectures = styled.section`
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    align-items: left;
+    flex-direction: column;
+    justify-content: left;
+    margin-bottom: 15rem;
+    padding-inline: 45px;
+
+    h4 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 5rem;
+    }
+    thead {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @media (min-width:1120px) {
+            align-items: flex-start;
+        }
+    }
+`
+
+const ListLectures = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: left;
+    margin-bottom: 5rem;
+
+    .lecture-id {
+        vertical-align: top;
+        text-align: right;
+        padding: 0.8em 1.08em 0 0;
+        span {
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                height: 10px;
+                width: 10px;
+                background-color: #211936;
+                border-radius: 50%;
+                right: calc(-2rem - 5px);
+                margin-top: auto;
+                margin-bottom: auto;
+                top: 0;
+                bottom: 0;
+            }
+        }
+    }
+    .lecture-id-0 {
+        vertical-align: top;
+        text-align: right;
+        padding: 0.8em 1.08em 0 0;
+        span {
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                height: 10px;
+                width: 10px;
+                background-color: #8744C2;
+                border-radius: 50%;
+                right: calc(-2rem - 5px);
+                margin-top: auto;
+                margin-bottom: auto;
+                top: 0;
+                bottom: 0;
+            }
+        }
+    }
+  
+    .lecture-info {
+        border-left: 2px solid #211936;
+        padding: 0 1em 1.5em 1em;
+        p {
+            color: #FFFFFF7A;
+        }
+    }
+
+    .lecture-info-0 {
+        p {
+            color: #FFF;
+        }
+    }
 `
