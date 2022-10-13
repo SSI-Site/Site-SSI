@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import LogoSemEstrela from '../../../public/images/logos/logo_sem_estrela.svg';
+import InstagramLogo from '../../../public/images/social_media/insta.png';
+import FacebookLogo from '../../../public/images/social_media/feice.png';
+import Linktree from '../../../public/images/social_media/linktree.png';
 
-const Footer = () =>{
+const Footer = () => {
     const router = useRouter();
 
-    return(
+    return (
         <>
             <FooterWrapper>
                 <div className='ssi'>
                     <div onClick={() => router.push('/')} className="logo-box">
-                        <img src="./images/logos/logo_sem_estrela.svg" alt="logo" />
+                        <img src={LogoSemEstrela} alt="logo" />
                         <p>
-                            Semana de Sistemas de <br/>Informação 2022
+                            Semana de Sistemas de <br />Informação 2022
                         </p>
                     </div>
                     <div className='footer-blur'></div>
@@ -23,17 +27,17 @@ const Footer = () =>{
                     <div className='logos_midia'>
                         <div>
                             <a href="https://www.instagram.com/semanadesi/" target="_blank" rel="noreferrer">
-                                <img src="./images/social_media/insta.png" alt="Instagram"></img>
+                                <img src={InstagramLogo} alt="Instagram"></img>
                             </a>
                         </div>
                         <div>
                             <a href="https://www.facebook.com/SSIUSP" target="_blank" rel="noreferrer">
-                                <img src="./images/social_media/feice.png" alt="Facebook"></img>
+                                <img src={FacebookLogo} alt="Facebook"></img>
                             </a>
                         </div>
                         <div>
                             <a href="https://linktr.ee/SemanaDeSI" target="_blank" rel="noreferrer">
-                                <img src="./images/social_media/linktree.png" alt="Linktree"></img>
+                                <img src={Linktree} alt="Linktree"></img>
                             </a>
                         </div>
                     </div>
