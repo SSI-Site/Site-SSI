@@ -1,19 +1,25 @@
 import { useState, useEffect } from 'react';
-import Meta from '../src/infra/Meta';
+import Meta from '../../src/infra/Meta';
 import styled from 'styled-components';
-import saphira from '../services/saphira';
-import background from '../public/images/padrao_background_desktop.svg';
+import saphira from '../../services/saphira';
+import background from '../../public/images/padrao_background_desktop.svg';
+
+import Link from 'next/link'
+
+import semana from '../../utils/semana'
+import '../../utils/slugify'
 
 //components
-import DateComponent from '../src/components/DateComponent';
+import DateComponent from '../../src/components/DateComponent';
 
-const dias = {
-    'Segunda-feira': 22,
-    'Terça-feira': 23,
-    'Quarta-feira': 24,
-    'Quinta-feira': 25,
-    'Sexta-feira': 26
-};
+import schedule from '../../services/schedule';
+
+const getScheduleDay = key => {
+    const date = new Date(`${key} 03:00Z`)
+    const day = date.getUTCDate()
+    const weekDay = semana[date.getDay()]
+    return { day, weekDay }
+}
 
 const Schedule = () => {
 
@@ -35,22 +41,28 @@ const Schedule = () => {
                 <div className='padrao-background'></div>
                 <h1>Programação</h1>
                 <div className='schedule-container-small'>
-                { Object.entries(dias).map(function(key, value) {
-                    return(
-                        <div key={value} className='day-selection'>
-                                <DateComponent day={key[1]} weekDay={key[0]} size='small' />
-                        </div>
-                    );
-                })}
+                    {Object.entries(schedule).map(([key]) => {
+                        const { day, weekDay } = getScheduleDay(key)
+                        return (
+                            <Link key={key} href={`/schedule/${weekDay.slugify()}`}>
+                                <div className='day-selection'>
+                                    <DateComponent day={day} weekDay={weekDay} size='small' />
+                                </div>
+                            </Link>
+                        )
+                    })}
                 </div>
                 <div className='schedule-container-medium'>
-                { Object.entries(dias).map(function(key, value) {
-                    return(
-                        <div key={value} className='day-selection'>
-                                <DateComponent day={key[1]} weekDay={key[0]} size='medium' />
-                        </div>
-                    );
-                })}
+                    {Object.entries(schedule).map(([key]) => {
+                        const { day, weekDay } = getScheduleDay(key)
+                        return (
+                            <Link key={key} href={`/schedule/${weekDay.slugify()}`}>
+                                <div className='day-selection'>
+                                    <DateComponent day={day} weekDay={weekDay} size='medium' />
+                                </div>
+                            </Link>
+                        )
+                    })}
                 </div>
             </ScheduleSection>
         </>
@@ -75,6 +87,7 @@ const ScheduleSection = styled.section`
 
     .day-selection  {
         margin: 8rem auto;
+        cursor: pointer;
     }
 
     .schedule-container-medium {
