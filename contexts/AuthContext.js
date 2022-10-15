@@ -44,28 +44,28 @@ export function AuthProvider({ children }) {
     }
 
     const signinGitHub = async () => {
-        try {
-            setLoading(true);
-            const response = await firebase
-                .auth()
-                .signInWithPopup(new firebase.auth.GithubAuthProvider());
-            handleUser(response.user);
+        // try {
+        //     setLoading(true);
+        //     const response = await firebase
+        //         .auth()
+        //         .signInWithPopup(new firebase.auth.GithubAuthProvider());
+        //     handleUser(response.user);
 
-        } finally {
-            setLoading(false);
-        }
+        // } finally {
+        //     setLoading(false);
+        // }
     }
 
     const signinGoogle = async () => {
-        try {
-            setLoading(true);
-            const response = await firebase
-                .auth()
-                .signInWithPopup(new firebase.auth.GoogleAuthProvider());
-            handleUser(response.user);
-        } finally {
-            setLoading(false);
-        }
+        // try {
+        //     setLoading(true);
+        //     const response = await firebase
+        //         .auth()
+        //         .signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        //     handleUser(response.user);
+        // } finally {
+        //     setLoading(false);
+        // }
     }
 
     const signOut = async () => {

@@ -57,8 +57,8 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            <Link href="/schedule"><a>Programação</a></Link>
-                            <div></div>
+                            {/* <Link href="/schedule" >*/}<span>Programação</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         <li>
@@ -67,13 +67,13 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            <Link href="/sponsors"><a>Apoiadores</a></Link>
-                            <div></div>
+                            {/* <Link href="/sponsors"> */}<span>Apoiadores</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         <li>
-                            <Link href="/co"><a>Comissão Organizadora</a></Link>
-                            <div></div>
+                            {/* <Link href="/co"> */}<span>Comissão Organizadora</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         {user ?
@@ -82,8 +82,8 @@ const Nav = () => {
                             </li>
                             :
                             <li className='logInBtnContainer'>
-                                <button onClick={handleShowAuthModal}><a>Entrar</a></button>
-                                <div></div>
+                                <button /* onClick={handleShowAuthModal} */><span>Entrar</span></button>
+                                {/* <div></div> */}
                             </li>
 
                         }
@@ -100,9 +100,9 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/schedule"><a>Programação</a></Link>
-                                <div></div>
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="/schedule"> */}<a style={{"color": "gray"}}>Programação</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
@@ -110,14 +110,14 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/sponsors"><a>Apoiadores</a></Link>
-                                <div></div>
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="/sponsors"> */}<a style={{"color": "gray"}}>Apoiadores</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/co"><a>Comissão Organizadora</a></Link>
-                                <div></div>
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="/co"> */}<a style={{"color": "gray"}}>Comissão Organizadora</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
                             {user ?
@@ -126,9 +126,9 @@ const Nav = () => {
                                     <div></div>
                                 </li>
                                 :
-                                <li onClick={() => setIsOpen(false)}>
-                                    <button><a>Entrar</a></button>
-                                    <div></div>
+                                <li /* 0nClick={() => setIsOpen(false)} */>
+                                    <button><a style={{"color": "gray"}}>Entrar</a></button>
+                                    {/* <div></div> */}
                                 </li>
                             }
                         </ul>
@@ -269,6 +269,15 @@ const NavMobile = styled.nav`
                     color: var(--color-text);
                     margin: 0 12px;
                     transition: all .2s;
+                }
+
+                span {
+                    font-family: 'Bebas Neue';
+                    font-size: 2.2rem;
+                    color: gray;
+                    margin: 0 12px;
+
+                    cursor: default;
                 }
 
                 img {
@@ -465,6 +474,15 @@ const NavDesktop = styled.nav`
             color: var(--color-text);
             margin: 0 12px;
             transition: all .2s;
+        }
+
+        span {
+            font-family: 'Bebas Neue';
+            font-size: 1.5rem;
+            color: gray;
+            margin: 0 12px;
+
+            cursor: default;
         }
 
         a:hover {

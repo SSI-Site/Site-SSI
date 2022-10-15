@@ -30,27 +30,37 @@ const Schedule = () => {
 
     return (
         <>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+
+                    window.location.href = "/"
+
+                `
+                }}
+            />
+
             <Meta title='SSI 2022 | Programação' />
             <ScheduleSection>
                 <div className='padrao-background'></div>
                 <h1>Programação</h1>
                 <div className='schedule-container-small'>
-                { Object.entries(dias).map(function(key, value) {
-                    return(
-                        <div key={value} className='day-selection'>
+                    {Object.entries(dias).map(function (key, value) {
+                        return (
+                            <div key={value} className='day-selection'>
                                 <DateComponent day={key[1]} weekDay={key[0]} size='small' />
-                        </div>
-                    );
-                })}
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className='schedule-container-medium'>
-                { Object.entries(dias).map(function(key, value) {
-                    return(
-                        <div key={value} className='day-selection'>
+                    {Object.entries(dias).map(function (key, value) {
+                        return (
+                            <div key={value} className='day-selection'>
                                 <DateComponent day={key[1]} weekDay={key[0]} size='medium' />
-                        </div>
-                    );
-                })}
+                            </div>
+                        );
+                    })}
                 </div>
             </ScheduleSection>
         </>

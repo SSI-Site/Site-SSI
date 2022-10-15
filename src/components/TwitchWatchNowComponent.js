@@ -22,12 +22,12 @@ const TwitchWatchNowComponent = () => {
 			})
 	}
 
-	useEffect(() => {
+	// useEffect(() => {
+	// 	setTimeout(fetchTwitch, 3000)
+	// }, [])
 
-		setTimeout(fetchTwitch, 3000)
-	}, [])
-
-	const isTwitchOnline = () => descLive.length > 0
+	// const isTwitchOnline = () => descLive.length > 0
+	const isTwitchOnline = () => false
 
 	return (
 		<>
@@ -41,7 +41,7 @@ const TwitchWatchNowComponent = () => {
 				) : (
 					<div>
 						<h4>Offline</h4>
-						<p>Aguarde por Mais...</p>
+						<p>Indicaremos aqui quando estiveros online na twitch.</p>
 					</div>
 				)}
 

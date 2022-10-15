@@ -16,6 +16,12 @@ const Button = styled.button`
 
   transition: background-color var(--transition-duration);
 
+  :disabled {
+    --background: RGBA(98,97,80,0.16);
+    --border: 1px solid gray;
+    cursor: unset;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -37,6 +43,7 @@ const Button = styled.button`
     --out-space: 0em;
     --background: transparent;
   }
+
 `
 
 export default Button;

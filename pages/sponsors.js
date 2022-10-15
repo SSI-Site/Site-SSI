@@ -8,6 +8,16 @@ const Sponsors = () => {
 
     return (
         <>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+
+                    window.location.href = "/"
+
+                `
+                }}
+            />
+
             <Meta title='SSI 2022 | Apoiadores' />
             <BackgroundWrapper>
 

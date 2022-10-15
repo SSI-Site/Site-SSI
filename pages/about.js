@@ -57,14 +57,14 @@ const About = () => {
                             image='./images/logo_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
-                            description='A SSI 2022 terá um total de X palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
                         <ActivityComponent
                             color='#FF7F5C'
                             image='./images/logo_minicursos.svg'
                             alt='Imagem Minicursos'
                             title='Minicursos'
-                            description='A SSI Online 2.0 terá um total de 34 palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            description='A Semana de 2022 terá diversas palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
                     </div>
                 </ActivitiesSection>

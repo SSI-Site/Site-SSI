@@ -39,6 +39,15 @@ const CO = () => {
 
     return (
         <>
+            <script
+                dangerouslySetInnerHTML={{
+                __html: `
+
+                    window.location.href = "/"
+
+                `
+            }} />
+
             <Meta title='SSI 2022 | CO' />
 
             <BackgroundWrapper>
