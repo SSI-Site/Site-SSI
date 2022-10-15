@@ -19,7 +19,7 @@ const palestras = [
 const User = () => {
 
     const { user, signOut } = useAuth();
-    
+
     const [example, setExample] = useState("");
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
 
@@ -58,7 +58,7 @@ const User = () => {
                                 <img className='userPic' src={user.photoUrl} alt="user picture" />
                                 <h3>{user.name}</h3>
                             </PhotoNameWrapper>
-                            
+
                             <p>Palestras assistidas:<span className='bold-info'>&nbsp; 700 &#128293;</span></p>
                         </UserInfoUpperWrapper>
                         <UserInfoLowerWrapper>
@@ -131,7 +131,7 @@ const BackgroundWrapper = styled.div`
     .bold-info {
         font-size: 22px;
         font-weight: 400;
-        margin-bottom: 15px; 
+        margin-bottom: 15px;
         font-weight: 600 !important;
     }
     .padrao-background {
@@ -164,7 +164,7 @@ const UserInfoSection = styled.section`
     flex-direction: column;
     width: 90%;
     max-width: 1200px;
-    
+
     padding: 2rem 45px 250px 45px;
     margin: 15rem 3rem 0 3rem;
 
@@ -173,6 +173,7 @@ const UserInfoSection = styled.section`
     @media (min-width:1120px) {
         margin: 8rem 3rem 0 3rem;
         padding-top: 0;
+        padding: 2rem 45px 120px 45px;
 
     }
     @media (min-width:1550px) {
@@ -191,6 +192,7 @@ const UserInfoUpperWrapper = styled.div`
         width: 100%;
         justify-content: space-between;
         flex-direction: row;
+        margin-bottom: 0px;
     }
 
 `
@@ -229,6 +231,7 @@ const UserInfoLowerWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
+    max-width: 1050px;
 
     @media (min-width:1120px) {
         flex-direction: row;
@@ -246,6 +249,7 @@ const TextInfo = styled.div`
         max-width: 70%;
         flex-direction: row;
         gap: 25%;
+        margin-bottom: 0px;
     }
 `
 
@@ -256,6 +260,10 @@ const UserInformation = styled.div`
 
     p {
         word-wrap: break-word;
+    }
+
+    @media (min-width:1120px) {
+        margin-block: 0px;
     }
 
 `
@@ -337,7 +345,7 @@ const ListLectures = styled.table`
             }
         }
     }
-  
+
     .lecture-info {
         border-left: 2px solid #211936;
         padding: 0 1em 1.5em 1em;
