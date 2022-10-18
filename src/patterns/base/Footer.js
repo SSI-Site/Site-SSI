@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import LogoSemEstrela from '../../../public/images/logos/logo_sem_estrela.svg';
 import InstagramLogo from '../../../public/images/social_media/insta.png';
 import FacebookLogo from '../../../public/images/social_media/feice.png';
-import Linktree from '../../../public/images/social_media/linktree.png';
+import LinktreeLogo from '../../../public/images/social_media/linktree.png';
 
 const Footer = () => {
     const router = useRouter();
@@ -37,7 +37,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <a href="https://linktr.ee/SemanaDeSI" target="_blank" rel="noreferrer">
-                                <img src={Linktree} alt="Linktree"></img>
+                                <img src={LinktreeLogo} alt="Linktree"></img>
                             </a>
                         </div>
                     </div>

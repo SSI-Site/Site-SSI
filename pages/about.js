@@ -57,14 +57,14 @@ const About = () => {
                             image='./images/logo_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
-                            description='A SSI 2022 terá um total de X palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
                         <ActivityComponent
                             color='#FF7F5C'
                             image='./images/logo_minicursos.svg'
                             alt='Imagem Minicursos'
                             title='Minicursos'
-                            description='A SSI Online 2.0 terá um total de 34 palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            description='A Semana de 2022 terá diversas palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
                     </div>
                 </ActivitiesSection>
@@ -72,14 +72,16 @@ const About = () => {
             </BackgroundWrapper>
 
             <LectureSection>
-
                 <div className='lecture-sample background-spotlight background-spotlight-1'>
                     <div className='lecture-image justify-left'>
                         <img src='./images/palestra.png' alt='Foto Palestra' />
                     </div>
                     <div className='lecture-sample-description'>
                         <h3>Palestras com experts da área</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor ultricies risus, vel elementum tortor gravida ut. Donec ultrices felis sodales tempor condimentum. Praesent sollicitudin est massa, mollis tempor ante condimentum a. Vivamus sed mi faucibus arcu fermentum auctor sit amet sed nunc. </p>
+                        <p>
+                            Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IOT, segurança da informação é muito mais!
+                            Não perca a oportunidade de conhecer e perguntar para direcionar  a sua carreira.
+                        </p>
                     </div>
                 </div>
             </LectureSection>
@@ -111,7 +113,10 @@ const About = () => {
                     </div>
                     <div className='lecture-sample-description'>
                         <h3>Workshops em laboratórios de informática</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor ultricies risus, vel elementum tortor gravida ut. Donec ultrices felis sodales tempor condimentum. Praesent sollicitudin est massa, mollis tempor ante condimentum a. Vivamus sed mi faucibus arcu fermentum auctor sit amet sed nunc. </p>
+                        <p>
+                            Já pensou em aplicar o que vemos e ouvimos nas palestras?
+                            As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops para que você não só saía da palestra conhecendo do assunto, mas sim, já dominando um pouco na prática!
+                        </p>
                     </div>
                 </div>
             </LectureSection>
@@ -123,7 +128,10 @@ const About = () => {
                     </div>
                     <div className='lecture-sample-description'>
                         <h3>Networking com participantes</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor ultricies risus, vel elementum tortor gravida ut. Donec ultrices felis sodales tempor condimentum. Praesent sollicitudin est massa, mollis tempor ante condimentum a. Vivamus sed mi faucibus arcu fermentum auctor sit amet sed nunc. </p>
+                        <p>
+                            Não perca a oportunidade de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
+                            Dica; conecte com os palestrantes no LinkedIn e anote os contatos de cada um para eventuais dúvidas.
+                        </p>
                     </div>
                 </div>
             </LectureSection>
@@ -140,18 +148,22 @@ const BackgroundWrapper = styled.div`
 
     .padrao-background {
         width: calc(100vw - 10px);
-        height: 100%;
+        height: 40%;
         display: flex;
         position: absolute;
-        top: 0; /** match navbar height */
-        mask-image: linear-gradient(to top, transparent 0%, black 60%);
+        top: -4.5rem;
+        mask-image: linear-gradient(to top, transparent 0%, black 10%);
         background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top left;
+        background-position: top center;
         background-size: cover;
         z-index:-2;
 
         @media (min-width:1000px) {
             background: url('./images/padrao_background_desktop.svg');
+            background-size: cover;
+            height: 60%;
+            mask-image: linear-gradient(to top, transparent 0%, black 5%);
+
         }
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
@@ -281,15 +293,15 @@ const LectureSection = styled.section`
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 80px;
 
     .lecture-sample {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
         text-align: left;
         padding-inline: 2rem;
-        margin-block: 5rem;
     }
 
     .lecture-image {
@@ -312,6 +324,15 @@ const LectureSection = styled.section`
 
     .lecture-sample-description {
         margin: 8rem 2.5rem;
+        max-width: 700px;
+    }
+
+    .middle-lecture {
+        margin-block: 0;
+
+        .lecture-sample-description {
+            margin: 0 2.5rem 8rem 2.5rem;
+        }
     }
 
     h3 {
@@ -344,6 +365,12 @@ const LectureSection = styled.section`
         .lecture-image {
             width: 450px;
             height: 370px;
+        }
+
+        .middle-lecture {
+            .lecture-sample-description {
+                margin: 8rem 0rem;
+            }
         }
 
         img {
@@ -419,6 +446,7 @@ const EventNumbersBanner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
 
     .event-info-container {
         width: 98vw;

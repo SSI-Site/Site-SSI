@@ -79,15 +79,17 @@ const Home = () => {
                     <div className='content'>
                         <div className='content-title'>
                             <h1>Semana de Sistemas de Informação</h1>
-                            <h3>30 Palestras do dia xx ao dia xx</h3>
+                            <h3>Palestras do dia 07/11 ao dia 11/11</h3>
                         </div>
 
-                        <div className='content-login'>
+                        {/* <div className='content-login'>
                             { user ?
                                 <WelcomeComponent>Bem-vindx{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
                                 : <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
                             }
-                        </div>
+                        </div> */}
+
+                        <WelcomeComponent>Bem-vindx</WelcomeComponent>
 
                         { showAuthModal &&
                             <AuthModal
@@ -120,7 +122,7 @@ const Home = () => {
                     <div className='content'>
 
                         <div className="details">
-                            <p>As palestras ocorrerão entre os dias <span>16 e 20 de agosto</span>, nos <span>auditórios da each</span>.</p>
+                            <p>As palestras ocorrerão entre os dias <span>07 e 11 de novembro</span>, nos <span>auditórios da each</span>.</p>
                             <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe nosso canal anotado no caderninho! </p>
                             <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
                         </div>
@@ -147,13 +149,13 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="24" weekDay="Quarta feira" size="small"/>
+                            <DateComponent day="11" weekDay="Sexta feira" size="small"/>
                         </div>
 
                         <ScheduleInformation
-                            speakerPicture={speakerPicture} speakerName="Palestrante"
-                            title="guaxinins 2"
-                            overview="Mussum Ipsum, cacilds vidis litro abertis. Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus"
+                            speakerPicture={speakerPicture} speakerName="Palestrante TOP"
+                            title="Palestra incrível"
+                            overview="Como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
                         />
 
                     </div>
@@ -167,14 +169,16 @@ const Home = () => {
                     <div className='starr star-four'></div>
 
                 </div>
-                <Button onClick={() => router.push('/schedule')}>Confira</Button>
+                <Button disabled onClick={() => router.push('/schedule')}>Confira</Button>
+                <span style={{"marginTop": "15px", "maxWidth": "70%", "textAlign": "center"}}>As informações sobre a programação serão divulgadas em breve.</span>
+
             </ScheduleSection>
 
             <Divider dividerSize="large"/>
 
             <SupportersSection>
                 <h2 className="section-title">Apoiadores</h2>
-                <ul>
+                {/* <ul>
                     {supporters.map((supporter, index) => (
                         <li key={index}>
                             <a
@@ -186,7 +190,8 @@ const Home = () => {
                             </a>
                         </li>
                     ))}
-                </ul>
+                </ul> */}
+                <h3 style={{"marginBottom": "15px", "maxWidth": "70%", "textAlign": "center"}}>Nossos apoiadores serão divulgados em breve.</h3>
                 <div className="background-blur" />
             </SupportersSection>
         </>
@@ -200,16 +205,18 @@ const BackgroundWrapper = styled.div`
 
     .padrao-background {
         width: calc(100vw - 10px);
-        height: 100%;
+        height: 80%;
         display: flex;
         position: absolute;
-        top: 0; /** match navbar height */
+        top: -4.5rem;
+        mask-image: linear-gradient(to top, transparent 0%, black 10%);
         background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top left;
+        background-position: top center;
         background-size: cover;
         z-index:-2;
 
         @media (min-width:1000px) {
+            height: 60%;
             background: url('./images/padrao_background_desktop.svg');
             background-size: cover;
         }

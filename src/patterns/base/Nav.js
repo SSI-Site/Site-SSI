@@ -7,6 +7,10 @@ import useAuth from '../../../hooks/useAuth';
 import Divider from '../../components/Divider';
 import AuthModal from '../../components/AuthModal';
 
+import InstagramLogo from '../../../public/images/social_media/insta.png';
+import FacebookLogo from '../../../public/images/social_media/feice.png';
+import LinktreeLogo from '../../../public/images/social_media/linktree.png';
+
 const pages = {
     "/": 1,
     "/schedule": 2,
@@ -57,8 +61,8 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            <Link href="/schedule"><a>Programação</a></Link>
-                            <div></div>
+                            {/* <Link href="/schedule" >*/}<span>Programação</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         <li>
@@ -67,13 +71,13 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            <Link href="/sponsors"><a>Apoiadores</a></Link>
-                            <div></div>
+                            {/* <Link href="/sponsors"> */}<span>Apoiadores</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         <li>
-                            <Link href="/co"><a>Comissão Organizadora</a></Link>
-                            <div></div>
+                            {/* <Link href="/co"> */}<span>Comissão Organizadora</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         {user ?
@@ -82,8 +86,8 @@ const Nav = () => {
                             </li>
                             :
                             <li className='logInBtnContainer'>
-                                <button onClick={handleShowAuthModal}><a>Entrar</a></button>
-                                <div></div>
+                                <button /* onClick={handleShowAuthModal} */><span>Entrar</span></button>
+                                {/* <div></div> */}
                             </li>
 
                         }
@@ -100,9 +104,9 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/schedule"><a>Programação</a></Link>
-                                <div></div>
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="/schedule"> */}<a style={{ "color": "gray" }}>Programação</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
@@ -110,25 +114,25 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/sponsors"><a>Apoiadores</a></Link>
-                                <div></div>
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="/sponsors"> */}<a style={{ "color": "gray" }}>Apoiadores</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/co"><a>Comissão Organizadora</a></Link>
-                                <div></div>
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="/co"> */}<a style={{ "color": "gray" }}>Comissão Organizadora</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
                             {user ?
                                 <li onClick={() => setIsOpen(false)}>
-                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer"/></a></Link>
+                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                                     <div></div>
                                 </li>
                                 :
-                                <li onClick={() => setIsOpen(false)}>
-                                    <button><a>Entrar</a></button>
-                                    <div></div>
+                                <li /* 0nClick={() => setIsOpen(false)} */>
+                                    <button><a style={{ "color": "gray" }}>Entrar</a></button>
+                                    {/* <div></div> */}
                                 </li>
                             }
                         </ul>
@@ -149,17 +153,17 @@ const Nav = () => {
                                 <div className='logos_midia'>
                                     <div>
                                         <a href="https://www.instagram.com/semanadesi/" target="_blank" rel="noreferrer">
-                                            <img src="./images/social_media/insta.png" alt="Instagram"></img>
+                                            <img src={InstagramLogo} alt="Instagram"></img>
                                         </a>
                                     </div>
                                     <div>
                                         <a href="https://www.facebook.com/SSIUSP" target="_blank" rel="noreferrer">
-                                            <img src="./images/social_media/feice.png" alt="Facebook"></img>
+                                            <img src={FacebookLogo} alt="Facebook"></img>
                                         </a>
                                     </div>
                                     <div>
                                         <a href="https://linktr.ee/SemanaDeSI" target="_blank" rel="noreferrer">
-                                            <img src="./images/social_media/linktree.png" alt="Linktree"></img>
+                                            <img src={LinktreeLogo} alt="Linktree"></img>
                                         </a>
                                     </div>
                                 </div>
@@ -269,6 +273,15 @@ const NavMobile = styled.nav`
                     color: var(--color-text);
                     margin: 0 12px;
                     transition: all .2s;
+                }
+
+                span {
+                    font-family: 'Bebas Neue';
+                    font-size: 2.2rem;
+                    color: gray;
+                    margin: 0 12px;
+
+                    cursor: default;
                 }
 
                 img {
@@ -465,6 +478,15 @@ const NavDesktop = styled.nav`
             color: var(--color-text);
             margin: 0 12px;
             transition: all .2s;
+        }
+
+        span {
+            font-family: 'Bebas Neue';
+            font-size: 1.5rem;
+            color: gray;
+            margin: 0 12px;
+
+            cursor: default;
         }
 
         a:hover {
