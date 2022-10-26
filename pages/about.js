@@ -392,7 +392,6 @@ const   LectureContent = styled.div`
         }
 
         .lecture-sample-description {
-            /* margin-block: 5rem; */
             max-width: 45%;
             margin-inline: 0;
             margin: 0;
