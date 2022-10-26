@@ -19,7 +19,7 @@ import Divider from '../src/components/Divider';
 import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'
 import borda from '../public/images/borda2.png';
 import star from '../public/images/star.svg';
-import speakerPicture from '../public/images/bojji.jpg';
+import speakerPicture from '../public/images/logos/logo_sem_estrela.svg';
 
 const supporters = [
     { title: 'KINGHOST', url: 'https://www.semanadesi.com.br' },
@@ -39,7 +39,6 @@ const Home = () => {
     const router = useRouter();
     const {user} = useAuth();
 
-    const [example, setExample] = useState("");
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
 
@@ -59,15 +58,6 @@ const Home = () => {
         // Coletar metricas de cliques
     }
 
-    async function fetchExample() {
-        const res = await saphira.getCatFact();
-        setExample(res.fact);
-    }
-
-    useEffect(() => {
-        fetchExample();
-    }, []);
-
     return (
         <>
             <Meta title='SSI 2022 | Início' />
@@ -75,7 +65,10 @@ const Home = () => {
                 <div className='padrao-background'></div>
 
                 <BannerSection>
-                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2022" />
+                    <figure>
+                        <img className='logo' src={LogoPrincipal} alt="Logo SSI 2022" />
+                    </figure>
+
                     <div className='content'>
                         <div className='content-title'>
                             <h1>Semana de Sistemas de Informação</h1>
@@ -89,7 +82,9 @@ const Home = () => {
                             }
                         </div> */}
 
-                        <WelcomeComponent>Bem-vindx</WelcomeComponent>
+                        <WelcomeComponent>Bem-vinde</WelcomeComponent>
+                        <span id="#temp-span" style={{"marginBottom": "60px", "maxWidth": "70%", "textAlign": "center"}}>
+                            O cadastro para o envento estará disponível em breve. Fique atento!</span>
 
                         { showAuthModal &&
                             <AuthModal
@@ -149,12 +144,12 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="11" weekDay="Sexta feira" size="small"/>
+                            <DateComponent day="7" weekDay="segunda feira" size="small"/>
                         </div>
 
                         <ScheduleInformation
-                            speakerPicture={speakerPicture} speakerName="Palestrante TOP"
-                            title="Palestra incrível"
+                            speakerPicture={speakerPicture} speakerName="Palestrante"
+                            title="Em breve"
                             overview="Como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
                         />
 
@@ -170,7 +165,7 @@ const Home = () => {
 
                 </div>
                 <Button disabled onClick={() => router.push('/schedule')}>Confira</Button>
-                <span style={{"marginTop": "15px", "maxWidth": "70%", "textAlign": "center"}}>As informações sobre a programação serão divulgadas em breve.</span>
+                <span id="#temp-span" style={{"marginTop": "15px", "maxWidth": "70%", "textAlign": "center"}}>As informações sobre a programação serão divulgadas em breve.</span>
 
             </ScheduleSection>
 
@@ -191,7 +186,7 @@ const Home = () => {
                         </li>
                     ))}
                 </ul> */}
-                <h3 style={{"marginBottom": "15px", "maxWidth": "70%", "textAlign": "center"}}>Nossos apoiadores serão divulgados em breve.</h3>
+                <h3 id="#temp-span" style={{"marginBottom": "15px", "maxWidth": "70%", "textAlign": "center"}}>Nossos apoiadores serão divulgados em breve.</h3>
                 <div className="background-blur" />
             </SupportersSection>
         </>
@@ -241,9 +236,9 @@ const WelcomeComponent = styled.div`
     padding: var(--padding);
     color: white;
     position: relative;
-    min-width: 290px;
+    text-align: center;
 
-    margin: 5rem 0;
+    margin: 40px 0 15px 0;
 
     font-family: 'Plaza';
     font-weight: 400;
@@ -281,25 +276,10 @@ const WelcomeComponent = styled.div`
         --out-space-bottom: 0em;
         --background: transparent;
     }
-    @media (max-width: 480px) {
-        --border: 2px solid var(--color-tertiary);
-        &::before {
-            top: var(--out-space-top);
-            bottom: calc(var(--out-space-bottom)*1.2);
-            left: calc(var(--out-space-top)*-3);
-            right: calc(var(--out-space-top) * 1);
-        }
 
-        &::after {
-            top: calc(var(--out-space-top) * -3);
-            bottom: calc(var(--out-space-top) * 1);
-            left: calc(var(--out-space-top) * 1);
-            right: calc(var(--out-space-top) * -3);
-        }
-    }
-
-    @media (min-width:1024px) {
+    @media (min-width:1023px) {
         pointer-events: unset;
+        margin: 80px 0 25px 0;
     }
 `
 const BannerSection = styled.header`
@@ -345,7 +325,9 @@ const BannerSection = styled.header`
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
-        height: 800px;
+        height: 60vh;
+        max-height: 700px;
+        padding-top: 50px;
 
         .logo {
             width: 15.5em;

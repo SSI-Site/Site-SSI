@@ -9,17 +9,6 @@ import ActivityComponent from '../src/components/ActivityComponent';
 
 const About = () => {
 
-    const [example, setExample] = useState("");
-
-    async function fetchExample() {
-        const res = await saphira.getCatFact();
-        setExample(res.fact);
-    }
-
-    useEffect(() => {
-        fetchExample();
-    }, []);
-
     return (
         <>
             <Meta title='SSI 2022 | Sobre' />
@@ -47,24 +36,24 @@ const About = () => {
 
                         <ActivityComponent
                             color='#4A46C5'
-                            image='./images/logo_capture_the_flag.svg'
+                            image='./images/about/icon_capture_the_flag.svg'
                             alt='Imagem Capture the Flag'
                             title='Capture the Flag'
                             description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
                         />
                         <ActivityComponent
                             color='#8744C2'
-                            image='./images/logo_palestras.svg'
+                            image='./images/about/icon_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
                             description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
                         <ActivityComponent
                             color='#FF7F5C'
-                            image='./images/logo_minicursos.svg'
+                            image='./images/about/icon_minicursos.svg'
                             alt='Imagem Minicursos'
-                            title='Minicursos'
-                            description='A Semana de 2022 terá diversas palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            title='Workshops'
+                            description='Este ano, estamos trabalhando para oferecer a você, workshops que ajudarão a conhecer na prática ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
                         />
                     </div>
                 </ActivitiesSection>
@@ -74,7 +63,7 @@ const About = () => {
             <LectureSection>
                 <div className='lecture-sample background-spotlight background-spotlight-1'>
                     <div className='lecture-image justify-left'>
-                        <img src='./images/palestra.png' alt='Foto Palestra' />
+                        <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
                     </div>
                     <div className='lecture-sample-description'>
                         <h3>Palestras com experts da área</h3>
@@ -109,7 +98,7 @@ const About = () => {
             <LectureSection>
                 <div className='lecture-sample middle-lecture background-spotlight background-spotlight-3'>
                     <div className='lecture-image justify-right'>
-                        <img src='./images/workshop.png' alt='Foto Palestra' />
+                        <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
                     </div>
                     <div className='lecture-sample-description'>
                         <h3>Workshops em laboratórios de informática</h3>
@@ -124,7 +113,7 @@ const About = () => {
             <LectureSection>
                 <div className='lecture-sample'>
                     <div className='lecture-image justify-left'>
-                        <img src='./images/networking.png' alt='Foto Palestra' />
+                        <img src='./images/about/networking.JPG' alt='Foto Palestra' />
                     </div>
                     <div className='lecture-sample-description'>
                         <h3>Networking com participantes</h3>
@@ -301,25 +290,21 @@ const LectureSection = styled.section`
         align-items: center;
         justify-content: center;
         text-align: left;
-        padding-inline: 2rem;
+        width: 95%;
     }
 
     .lecture-image {
         border-radius: 8px;
         display: flex;
-        width: 322px;
-        height: 258px;
+        max-width: 350px;
+        padding: 5px;
         align-items: center;
-        justify-items: flex-end;
+        justify-content: center;
         background: linear-gradient(90deg, rgba(146,76,208,1) 0%, rgba(66,64,168,1) 100%);
     }
 
-    .justify-left {
-        justify-content: left;
-    }
-
-    .justify-right {
-        justify-content: right;
+    img {
+        width: 100%;
     }
 
     .lecture-sample-description {
@@ -363,18 +348,13 @@ const LectureSection = styled.section`
         }
 
         .lecture-image {
-            width: 450px;
-            height: 370px;
+            max-width: 450px;
         }
 
         .middle-lecture {
             .lecture-sample-description {
                 margin: 8rem 0rem;
             }
-        }
-
-        img {
-            width: 420px;
         }
 
         .background-spotlight::after {
@@ -402,14 +382,12 @@ const LectureSection = styled.section`
             top: 65%;
             right: 10rem;
         }
-
     }
 
     @media (min-width: 1021px) {
         padding-inline: 5rem;
 
         .lecture-sample {
-            max-width: 1500px;
             flex-direction: row;
             justify-content: space-between;
             gap: 3rem;
@@ -427,15 +405,20 @@ const LectureSection = styled.section`
         }
 
         .lecture-image {
-            max-width: 650px;
-            max-height: 500px;
-            width: 39vw;
-            height: 31vw;
+            max-width: 600px;
+            padding: unset;
         }
 
         img {
-            max-width: 600px;
-            width: 37vw;
+            width: 100%;
+        }
+
+        .justify-left {
+            padding: 20px 20px 20px 0;
+        }
+
+        .justify-right {
+            padding: 20px 20px 20px 0;
         }
     }
 
