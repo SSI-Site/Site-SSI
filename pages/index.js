@@ -221,7 +221,7 @@ const BackgroundWrapper = styled.div`
     }
 `
 const WelcomeComponent = styled.div`
-    --border: 2.6px solid var(--color-tertiary);
+    --border: 1.75px solid var(--color-tertiary);
     --background: rgba(138, 69, 198, 0.6);
     --padding: 0.65em 2.65em;
     --out-space-top: 0.1em;
@@ -278,6 +278,7 @@ const WelcomeComponent = styled.div`
     }
 
     @media (min-width:1023px) {
+        --border: 2.6px solid var(--color-tertiary);
         pointer-events: unset;
         margin: 80px 0 25px 0;
     }
