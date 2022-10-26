@@ -411,7 +411,7 @@ const   LectureContent = styled.div`
         }
 
         .justify-right {
-            padding: 20px 20px 20px 0;
+            padding: 20px 0px 20px 20px;
         }
     }
 
