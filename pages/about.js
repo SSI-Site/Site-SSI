@@ -60,20 +60,52 @@ const About = () => {
 
             </BackgroundWrapper>
 
-            <LectureSection>
-                <div className='lecture-sample background-spotlight background-spotlight-1'>
-                    <div className='lecture-image justify-left'>
-                        <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
+            <section>
+                <LectureContent>
+                    <div className='lecture-sample background-spotlight background-spotlight-1'>
+                        <div className='lecture-image justify-left'>
+                            <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
+                        </div>
+                        <div className='lecture-sample-description'>
+                            <h3>Palestras com experts da área</h3>
+                            <p>
+                                Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IOT, segurança da informação é muito mais!
+                                Não perca a oportunidade de conhecer e perguntar para direcionar  a sua carreira.
+                            </p>
+                        </div>
                     </div>
-                    <div className='lecture-sample-description'>
-                        <h3>Palestras com experts da área</h3>
-                        <p>
-                            Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IOT, segurança da informação é muito mais!
-                            Não perca a oportunidade de conhecer e perguntar para direcionar  a sua carreira.
-                        </p>
+                </LectureContent>
+
+                <LectureContent>
+                    <div className='lecture-sample middle-lecture background-spotlight background-spotlight-3'>
+                        <div className='lecture-image justify-right'>
+                            <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
+                        </div>
+                        <div className='lecture-sample-description'>
+                            <h3>Workshops em laboratórios de informática</h3>
+                            <p>
+                                Já pensou em aplicar o que vemos e ouvimos nas palestras?
+                                As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops para que você não só saía da palestra conhecendo do assunto, mas sim, já dominando um pouco na prática!
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </LectureSection>
+                </LectureContent>
+
+                <LectureContent>
+                    <div className='lecture-sample'>
+                        <div className='lecture-image justify-left'>
+                            <img src='./images/about/networking.jpg' alt='Foto Palestra' />
+                        </div>
+                        <div className='lecture-sample-description'>
+                            <h3>Networking com participantes</h3>
+                            <p>
+                                Não perca a oportunidade de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
+                                Dica; conecte com os palestrantes no LinkedIn e anote os contatos de cada um para eventuais dúvidas.
+                            </p>
+                        </div>
+                    </div>
+                </LectureContent>
+            </section>
 
             <EventNumbersBanner>
                 <div className='event-info-container background-spotlight background-spotlight-2'>
@@ -94,36 +126,6 @@ const About = () => {
                     <p>De conteúdo</p>
                 </div>
             </EventNumbersBanner>
-
-            <LectureSection>
-                <div className='lecture-sample middle-lecture background-spotlight background-spotlight-3'>
-                    <div className='lecture-image justify-right'>
-                        <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
-                    </div>
-                    <div className='lecture-sample-description'>
-                        <h3>Workshops em laboratórios de informática</h3>
-                        <p>
-                            Já pensou em aplicar o que vemos e ouvimos nas palestras?
-                            As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops para que você não só saía da palestra conhecendo do assunto, mas sim, já dominando um pouco na prática!
-                        </p>
-                    </div>
-                </div>
-            </LectureSection>
-
-            <LectureSection>
-                <div className='lecture-sample'>
-                    <div className='lecture-image justify-left'>
-                        <img src='./images/about/networking.JPG' alt='Foto Palestra' />
-                    </div>
-                    <div className='lecture-sample-description'>
-                        <h3>Networking com participantes</h3>
-                        <p>
-                            Não perca a oportunidade de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
-                            Dica; conecte com os palestrantes no LinkedIn e anote os contatos de cada um para eventuais dúvidas.
-                        </p>
-                    </div>
-                </div>
-            </LectureSection>
         </>
     )
 }
@@ -275,7 +277,7 @@ const ActivitiesSection = styled.section`
     }
 `
 
-const LectureSection = styled.section`
+const   LectureContent = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -308,16 +310,12 @@ const LectureSection = styled.section`
     }
 
     .lecture-sample-description {
-        margin: 8rem 2.5rem;
+        margin: 0 2.5rem 8rem 2.5rem;
         max-width: 700px;
     }
 
     .middle-lecture {
         margin-block: 0;
-
-        .lecture-sample-description {
-            margin: 0 2.5rem 8rem 2.5rem;
-        }
     }
 
     h3 {
@@ -334,6 +332,7 @@ const LectureSection = styled.section`
     }
 
     @media (min-width:600px) {
+        margin-bottom: 20px;
 
         .lecture-sample {
             margin-block: 2rem;
@@ -349,12 +348,6 @@ const LectureSection = styled.section`
 
         .lecture-image {
             max-width: 450px;
-        }
-
-        .middle-lecture {
-            .lecture-sample-description {
-                margin: 8rem 0rem;
-            }
         }
 
         .background-spotlight::after {
@@ -399,9 +392,10 @@ const LectureSection = styled.section`
         }
 
         .lecture-sample-description {
-            margin-block: 5rem;
+            /* margin-block: 5rem; */
             max-width: 45%;
             margin-inline: 0;
+            margin: 0;
         }
 
         .lecture-image {
@@ -429,7 +423,7 @@ const EventNumbersBanner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin: 8rem auto;
 
     .event-info-container {
         width: 98vw;
@@ -467,6 +461,7 @@ const EventNumbersBanner = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         gap: 7rem;
+        width: 95%;
 
         .event-info-container {
             width: 340px;
