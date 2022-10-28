@@ -17,19 +17,19 @@ const CO = () => {
                 members.map(function(member, key) {
                     return(
                         <div className="card-container" key={key}>
-                            <MemberCardComponent name={member.name} image={member.image} department={member.department} />
+                            <MemberCardComponent name={member.name} image={member.image} departments={member.departments} />
                         </div>
                     );
                 })
 
             )
         } else {
-            const sectorMembers = members.filter(member => member.department === activeItem);
+            const sectorMembers = members.filter(member => member.departments.includes(activeItem))            
             return(
                 sectorMembers.map(function(member, key) {
                     return(
                         <div className="card-container" key={key}>
-                            <MemberCardComponent name={member.name} image={member.image} department={member.department} />
+                            <MemberCardComponent name={member.name} image={member.image} departments={member.departments} />
                         </div>
                     );
                 })
@@ -70,6 +70,14 @@ const CO = () => {
                                     Criação e Comunicação</NavItem>
                             </Link>
                             <Link href="#members">
+                                <NavItem active={activeItem === 'CTF'} onClick={() => setActiveItem('CTF')}>
+                                    CTF</NavItem>
+                            </Link>
+                            <Link href="#members">
+                                <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
+                                    Diretoria</NavItem>
+                            </Link>
+                            <Link href="#members">
                                 <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
                                     Infraestrutura</NavItem>
                             </Link>
@@ -104,6 +112,7 @@ const COSectionWrapper = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 10rem;
 
     padding-top: 50px;
 
@@ -122,16 +131,16 @@ const COSectionWrapper = styled.section`
     }
 
 
-    @media (min-width: 800px) {
+    @media (min-width: 660px) {
         .card-container {
-            margin: 0 29px 86px;
+            margin: 3rem 29px auto;
         }
     }
 
 `
 
 const SubMenu = styled.nav`
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     ul {
         list-style-type: none;
@@ -142,7 +151,7 @@ const SubMenu = styled.nav`
     }
 
     @media (min-width: 800px) {
-        margin-bottom: 100px;
+        margin-bottom: 0;
     }
 `
 

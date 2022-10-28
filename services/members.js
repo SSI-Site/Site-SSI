@@ -1,90 +1,109 @@
 const members = [
     {
-        name: 'SouDeSite1',
-        image: './images/bojji.jpg',
-        department: 'Site'
+        name: 'Alexandre Kenji Okamoto',
+        image: './images/co/AlexandreKenji.jpg',
+        departments: ['Palestrantes', 'Diretoria']
     },
     {
-        name: 'SouDeInfra1',
-        image: './images/bojji.jpg',
-        department: 'Infraestrutura'
+        name: 'Alexandre Kira',
+        image: './images/co/AlexandreKira.jpg',
+        departments: ['Site', 'Palestrantes']
     },
     {
-        name: 'SouDeComFin1',
-        image: './images/bojji.jpg',
-        department: 'Comercial e Financeiro'
+        name: 'Bruno Contreras',
+        image: './images/co/BrunoContreras.png',
+        departments: ['Site']
     },
     {
-        name: 'SouDeC&C1',
-        image: './images/bojji.jpg',
-        department: 'Criação e Comunicação'
+        name: 'Caio Fernando Gonçalves',
+        image: './images/co/CaioFernando.jpg',
+        departments: ['Patrocínios']
     },
     {
-        name: 'SouDePalestrantes1',
-        image: './images/bojji.jpg',
-        department: 'Palestrantes'
+        name: 'Caio Novais',
+        image: './images/co/CaioNovais.jpg',
+        departments: ['Palestrantes']
     },
     {
-        name: 'SouDePatrocinios1',
-        image: './images/bojji.jpg',
-        department: 'Patrocínios'
+        name: 'Danilo Romeira',
+        image: './images/co/DaniloAraujo.jpg',
+        departments: ['Palestrantes']
     },
     {
-        name: 'SouDeSite2',
-        image: './images/bojji.jpg',
-        department: 'Site'
+        name: 'Felipe Furquim',
+        image: './images/co/FelipeFurquim.jpg',
+        departments: ['Diretoria']
     },
     {
-        name: 'SouDeSite3',
-        image: './images/bojji.jpg',
-        department: 'Site'
+        name: 'Francisco Gomes Jr',
+        image: './images/co/FranciscoOliveira.jpeg',
+        departments: ['Infraestrutura']
     },
     {
-        name: 'SouDeSite4',
-        image: './images/bojji.jpg',
-        department: 'Site'
+        name: 'Giane Galhard',
+        image: './images/co/GianeGalhard.jpg',
+        departments: ['Palestrantes', 'Infraestrutura']
     },
     {
-        name: 'SouDeInfra2',
-        image: './images/bojji.jpg',
-        department: 'Infraestrutura'
+        name: 'Giovanna Arana',
+        image: './images/co/GiovannaArana.jpeg',
+        departments: ['Palestrantes', 'Infraestrutura', 'Diretoria']
     },
     {
-        name: 'SouDeInfra3',
-        image: './images/bojji.jpg',
-        department: 'Infraestrutura'
+        name: 'Giovanna Belasco',
+        image: './images/co/GiovannaBelasco.jpeg',
+        departments: ['Palestrantes', 'Diretoria']
     },
     {
-        name: 'SouDeComFin2',
-        image: './images/bojji.jpg',
-        department: 'Comercial e Financeiro'
+        name: 'Henrique Yara',
+        image: './images/co/HenriqueYara.jpeg',
+        departments: ['CTF']
     },
     {
-        name: 'SouDeC&C2',
-        image: './images/bojji.jpg',
-        department: 'Criação e Comunicação'
+        name: 'Jadno Barbosa',
+        image: './images/co/JadnoBarbosa.jpg',
+        departments: ['Infraestrutura']
     },
     {
-        name: 'SouDeC&C3',
-        image: './images/bojji.jpg',
-        department: 'Criação e Comunicação'
+        name: 'Larissa Maruyama',
+        image: './images/co/LarissaMaruyama.jpg',
+        departments: ['CTF', 'Diretoria']
     },
     {
-        name: 'SouDeC&C4',
-        image: './images/bojji.jpg',
-        department: 'Criação e Comunicação'
+        name: 'Lucas M. Sales',
+        image: './images/co/LucasSales.jpg',
+        departments: ['Site', 'Diretoria']
     },
     {
-        name: 'SouDeC&C5',
-        image: './images/bojji.jpg',
-        department: 'Criação e Comunicação'
+        name: 'Luiza Borghi de Mello',
+        image: './images/co/LuizaBorghi.jpeg',
+        departments: ['Site']
     },
     {
-        name: 'SouDePatrocinios2',
-        image: './images/bojji.jpg',
-        department: 'Patrocínios'
+        name: 'Rafael Nakata',
+        image: './images/co/RafaelNakata.png',
+        departments: ['CTF']
     },
-
+    {
+        name: 'Stefany Nohama',
+        image: './images/co/StefanyRamos.jpg',
+        departments: ['Criação e Comunicação', 'Diretoria']
+    },
+    {
+        name: 'Sungwon Yoon',
+        image: './images/co/SungwonYoon.jpg',
+        departments: ['Comercial e Financeiro', 'Infraestrutura', 'Diretoria']
+    },
+    {
+        name: 'Thaís Bonjorni Nobre ',
+        image: './images/co/ThaisBonjorni.jpg',
+        departments: ['Patrocínios', 'Diretoria']
+    },
+    {
+        name: 'Yago Silva',
+        image: './images/co/YagoSilva.jpg',
+        departments: ['Patrocínios', 'Infraestrutura', 'Criação e Comunicação', 'Diretoria']
+    },
 ]
 
 export default members;
