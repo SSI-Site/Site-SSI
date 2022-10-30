@@ -55,6 +55,11 @@ const members = [
         departments: ['Palestrantes', 'Diretoria']
     },
     {
+        name: 'Glaucia Pamponet',
+        image: './images/co/GlauciaPamponet.jpg',
+        departments: ['Comercial e Financeiro', 'Diretoria']
+    },
+    {
         name: 'Henrique Yara',
         image: './images/co/HenriqueYara.jpeg',
         departments: ['CTF']
@@ -70,6 +75,11 @@ const members = [
         departments: ['CTF', 'Diretoria']
     },
     {
+        name: 'Leonardo Boeing',
+        image: './images/co/LeonardoBoeing.jpg',
+        departments: ['Palestrantes', 'Criação e Comunicação']
+    },
+    {
         name: 'Lucas M. Sales',
         image: './images/co/LucasSales.jpg',
         departments: ['Site', 'Diretoria']
@@ -83,6 +93,11 @@ const members = [
         name: 'Rafael Nakata',
         image: './images/co/RafaelNakata.png',
         departments: ['CTF']
+    },
+    {
+        name: 'Rafael Varago',
+        image: './images/co/RafaelVarago.jpeg',
+        departments: ['Palestrantes', 'Patrocínios', 'Diretoria']
     },
     {
         name: 'Stefany Nohama',
