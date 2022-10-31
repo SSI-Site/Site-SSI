@@ -9,17 +9,6 @@ import ActivityComponent from '../src/components/ActivityComponent';
 
 const About = () => {
 
-    const [example, setExample] = useState("");
-
-    async function fetchExample() {
-        const res = await saphira.getCatFact();
-        setExample(res.fact);
-    }
-
-    useEffect(() => {
-        fetchExample();
-    }, []);
-
     return (
         <>
             <Meta title='SSI 2022 | Sobre' />
@@ -47,44 +36,76 @@ const About = () => {
 
                         <ActivityComponent
                             color='#4A46C5'
-                            image='./images/logo_capture_the_flag.svg'
+                            image='./images/about/icon_capture_the_flag.svg'
                             alt='Imagem Capture the Flag'
                             title='Capture the Flag'
                             description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
                         />
                         <ActivityComponent
                             color='#8744C2'
-                            image='./images/logo_palestras.svg'
+                            image='./images/about/icon_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
                             description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
                         <ActivityComponent
                             color='#FF7F5C'
-                            image='./images/logo_minicursos.svg'
+                            image='./images/about/icon_minicursos.svg'
                             alt='Imagem Minicursos'
-                            title='Minicursos'
-                            description='A Semana de 2022 terá diversas palestras que acontecerão de segunda à sexta. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            title='Workshops'
+                            description='Este ano, estamos trabalhando para oferecer a você, workshops que ajudarão a conhecer na prática ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
                         />
                     </div>
                 </ActivitiesSection>
 
             </BackgroundWrapper>
 
-            <LectureSection>
-                <div className='lecture-sample background-spotlight background-spotlight-1'>
-                    <div className='lecture-image justify-left'>
-                        <img src='./images/palestra.png' alt='Foto Palestra' />
+            <section>
+                <LectureContent>
+                    <div className='lecture-sample background-spotlight background-spotlight-1'>
+                        <div className='lecture-image justify-left'>
+                            <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
+                        </div>
+                        <div className='lecture-sample-description'>
+                            <h3>Palestras com experts da área</h3>
+                            <p>
+                                Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IOT, segurança da informação é muito mais!
+                                Não perca a oportunidade de conhecer e perguntar para direcionar  a sua carreira.
+                            </p>
+                        </div>
                     </div>
-                    <div className='lecture-sample-description'>
-                        <h3>Palestras com experts da área</h3>
-                        <p>
-                            Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IOT, segurança da informação é muito mais!
-                            Não perca a oportunidade de conhecer e perguntar para direcionar  a sua carreira.
-                        </p>
+                </LectureContent>
+
+                <LectureContent>
+                    <div className='lecture-sample middle-lecture background-spotlight background-spotlight-3'>
+                        <div className='lecture-image justify-right'>
+                            <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
+                        </div>
+                        <div className='lecture-sample-description'>
+                            <h3>Workshops em laboratórios de informática</h3>
+                            <p>
+                                Já pensou em aplicar o que vemos e ouvimos nas palestras?
+                                As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops para que você não só saía da palestra conhecendo do assunto, mas sim, já dominando um pouco na prática!
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </LectureSection>
+                </LectureContent>
+
+                <LectureContent>
+                    <div className='lecture-sample'>
+                        <div className='lecture-image justify-left'>
+                            <img src='./images/about/networking.jpg' alt='Foto Palestra' />
+                        </div>
+                        <div className='lecture-sample-description'>
+                            <h3>Networking com participantes</h3>
+                            <p>
+                                Não perca a oportunidade de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
+                                Dica; conecte com os palestrantes no LinkedIn e anote os contatos de cada um para eventuais dúvidas.
+                            </p>
+                        </div>
+                    </div>
+                </LectureContent>
+            </section>
 
             <EventNumbersBanner>
                 <div className='event-info-container background-spotlight background-spotlight-2'>
@@ -105,36 +126,6 @@ const About = () => {
                     <p>De conteúdo</p>
                 </div>
             </EventNumbersBanner>
-
-            <LectureSection>
-                <div className='lecture-sample middle-lecture background-spotlight background-spotlight-3'>
-                    <div className='lecture-image justify-right'>
-                        <img src='./images/workshop.png' alt='Foto Palestra' />
-                    </div>
-                    <div className='lecture-sample-description'>
-                        <h3>Workshops em laboratórios de informática</h3>
-                        <p>
-                            Já pensou em aplicar o que vemos e ouvimos nas palestras?
-                            As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops para que você não só saía da palestra conhecendo do assunto, mas sim, já dominando um pouco na prática!
-                        </p>
-                    </div>
-                </div>
-            </LectureSection>
-
-            <LectureSection>
-                <div className='lecture-sample'>
-                    <div className='lecture-image justify-left'>
-                        <img src='./images/networking.png' alt='Foto Palestra' />
-                    </div>
-                    <div className='lecture-sample-description'>
-                        <h3>Networking com participantes</h3>
-                        <p>
-                            Não perca a oportunidade de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
-                            Dica; conecte com os palestrantes no LinkedIn e anote os contatos de cada um para eventuais dúvidas.
-                        </p>
-                    </div>
-                </div>
-            </LectureSection>
         </>
     )
 }
@@ -286,7 +277,7 @@ const ActivitiesSection = styled.section`
     }
 `
 
-const LectureSection = styled.section`
+const   LectureContent = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -301,38 +292,30 @@ const LectureSection = styled.section`
         align-items: center;
         justify-content: center;
         text-align: left;
-        padding-inline: 2rem;
+        width: 95%;
     }
 
     .lecture-image {
         border-radius: 8px;
         display: flex;
-        width: 322px;
-        height: 258px;
+        max-width: 350px;
+        padding: 5px;
         align-items: center;
-        justify-items: flex-end;
+        justify-content: center;
         background: linear-gradient(90deg, rgba(146,76,208,1) 0%, rgba(66,64,168,1) 100%);
     }
 
-    .justify-left {
-        justify-content: left;
-    }
-
-    .justify-right {
-        justify-content: right;
+    img {
+        width: 100%;
     }
 
     .lecture-sample-description {
-        margin: 8rem 2.5rem;
+        margin: 0 2.5rem 8rem 2.5rem;
         max-width: 700px;
     }
 
     .middle-lecture {
         margin-block: 0;
-
-        .lecture-sample-description {
-            margin: 0 2.5rem 8rem 2.5rem;
-        }
     }
 
     h3 {
@@ -349,6 +332,7 @@ const LectureSection = styled.section`
     }
 
     @media (min-width:600px) {
+        margin-bottom: 20px;
 
         .lecture-sample {
             margin-block: 2rem;
@@ -363,18 +347,7 @@ const LectureSection = styled.section`
         }
 
         .lecture-image {
-            width: 450px;
-            height: 370px;
-        }
-
-        .middle-lecture {
-            .lecture-sample-description {
-                margin: 8rem 0rem;
-            }
-        }
-
-        img {
-            width: 420px;
+            max-width: 450px;
         }
 
         .background-spotlight::after {
@@ -402,14 +375,12 @@ const LectureSection = styled.section`
             top: 65%;
             right: 10rem;
         }
-
     }
 
     @media (min-width: 1021px) {
         padding-inline: 5rem;
 
         .lecture-sample {
-            max-width: 1500px;
             flex-direction: row;
             justify-content: space-between;
             gap: 3rem;
@@ -421,21 +392,26 @@ const LectureSection = styled.section`
         }
 
         .lecture-sample-description {
-            margin-block: 5rem;
             max-width: 45%;
             margin-inline: 0;
+            margin: 0;
         }
 
         .lecture-image {
-            max-width: 650px;
-            max-height: 500px;
-            width: 39vw;
-            height: 31vw;
+            max-width: 600px;
+            padding: unset;
         }
 
         img {
-            max-width: 600px;
-            width: 37vw;
+            width: 100%;
+        }
+
+        .justify-left {
+            padding: 20px 20px 20px 0;
+        }
+
+        .justify-right {
+            padding: 20px 0px 20px 20px;
         }
     }
 
@@ -446,7 +422,7 @@ const EventNumbersBanner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin: 8rem auto;
 
     .event-info-container {
         width: 98vw;
@@ -484,6 +460,7 @@ const EventNumbersBanner = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         gap: 7rem;
+        width: 95%;
 
         .event-info-container {
             width: 340px;

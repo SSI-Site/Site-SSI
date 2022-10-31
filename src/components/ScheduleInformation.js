@@ -38,8 +38,8 @@ const ScheduleInformationStyle = styled.div`
 
     .speaker-picture{
         width: 100px;
-        height: 120px;
-        border-radius: 75px 75px 0px 0px;
+        /* height: 120px; */
+        /* border-radius: 75px 75px 0px 0px; */
         margin-top: 3rem;
         object-fit: cover;
     }
