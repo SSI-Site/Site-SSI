@@ -84,7 +84,7 @@ const Home = () => {
 
                         <WelcomeComponent>Bem-vinde</WelcomeComponent>
                         <span id="#temp-span" style={{"marginBottom": "60px", "maxWidth": "70%", "textAlign": "center"}}>
-                            O cadastro para o envento estará disponível em breve. Fique atento!</span>
+                            O cadastro para o envento estará disponível em breve.</span>
 
                         { showAuthModal &&
                             <AuthModal
