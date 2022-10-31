@@ -24,7 +24,7 @@ const CO = () => {
 
             )
         } else {
-            const sectorMembers = members.filter(member => member.departments.includes(activeItem))            
+            const sectorMembers = members.filter(member => member.departments.includes(activeItem))
             return(
                 sectorMembers.map(function(member, key) {
                     return(
@@ -39,15 +39,6 @@ const CO = () => {
 
     return (
         <>
-            <script
-                dangerouslySetInnerHTML={{
-                __html: `
-
-                    window.location.href = "/"
-
-                `
-            }} />
-
             <Meta title='SSI 2022 | CO' />
 
             <BackgroundWrapper>
