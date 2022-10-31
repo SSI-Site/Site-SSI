@@ -1,6 +1,11 @@
 const members = [
     {
-        name: 'Alexandre Kenji Okamoto',
+        name: 'Ahmad Kamel',
+        image: './images/co/AhmadKamel.jpg',
+        departments: ['Site']
+    },
+    {
+        name: 'Alexandre Kenji',
         image: './images/co/AlexandreKenji.jpg',
         departments: ['Palestrantes', 'Diretoria']
     },
@@ -8,6 +13,11 @@ const members = [
         name: 'Alexandre Kira',
         image: './images/co/AlexandreKira.jpg',
         departments: ['Site', 'Palestrantes']
+    },
+    {
+        name: 'Aline Murai',
+        image: './images/co/AlineMurai.jpg',
+        departments: ['Comercial e Financeiro', 'Criação e Comunicação']
     },
     {
         name: 'Bruno Contreras',
@@ -118,6 +128,11 @@ const members = [
         name: 'Yago Silva',
         image: './images/co/YagoSilva.jpg',
         departments: ['Patrocínios', 'Infraestrutura', 'Criação e Comunicação', 'Diretoria']
+    },
+    {
+        name: 'Yesman Choque',
+        image: './images/co/YesmanChoque.png',
+        departments: ['Site', 'Criação e Comunicação']
     },
 ]
 
