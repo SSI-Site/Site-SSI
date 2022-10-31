@@ -1,47 +1,47 @@
 const members = [
     {
         name: 'Ahmad Kamel',
-        image: './images/co/AhmadKamel.jpg',
+        image: './images/co/AhmadKamel.jpeg',
         departments: ['Site']
     },
     {
         name: 'Alexandre Kenji',
-        image: './images/co/AlexandreKenji.jpg',
+        image: './images/co/AlexandreKenji.jpeg',
         departments: ['Palestrantes', 'Diretoria']
     },
     {
         name: 'Alexandre Kira',
-        image: './images/co/AlexandreKira.jpg',
+        image: './images/co/AlexandreKira.jpeg',
         departments: ['Site', 'Palestrantes']
     },
     {
         name: 'Aline Murai',
-        image: './images/co/AlineMurai.jpg',
+        image: './images/co/AlineMurai.jpeg',
         departments: ['Comercial e Financeiro', 'Criação e Comunicação']
     },
     {
         name: 'Bruno Contreras',
-        image: './images/co/BrunoContreras.png',
+        image: './images/co/BrunoContreras.jpeg',
         departments: ['Site']
     },
     {
         name: 'Caio Fernando Gonçalves',
-        image: './images/co/CaioFernando.jpg',
+        image: './images/co/CaioFernando.jpeg',
         departments: ['Patrocínios']
     },
     {
         name: 'Caio Novais',
-        image: './images/co/CaioNovais.jpg',
+        image: './images/co/CaioNovais.jpeg',
         departments: ['Palestrantes']
     },
     {
         name: 'Danilo Romeira',
-        image: './images/co/DaniloAraujo.jpg',
+        image: './images/co/DaniloAraujo.jpeg',
         departments: ['Palestrantes']
     },
     {
         name: 'Felipe Furquim',
-        image: './images/co/FelipeFurquim.jpg',
+        image: './images/co/FelipeFurquim.jpeg',
         departments: ['Diretoria']
     },
     {
@@ -51,7 +51,7 @@ const members = [
     },
     {
         name: 'Giane Galhard',
-        image: './images/co/GianeGalhard.jpg',
+        image: './images/co/GianeGalhard.jpeg',
         departments: ['Palestrantes', 'Infraestrutura']
     },
     {
@@ -66,7 +66,7 @@ const members = [
     },
     {
         name: 'Glaucia Pamponet',
-        image: './images/co/GlauciaPamponet.jpg',
+        image: './images/co/GlauciaPamponet.jpeg',
         departments: ['Comercial e Financeiro', 'Diretoria']
     },
     {
@@ -76,22 +76,22 @@ const members = [
     },
     {
         name: 'Jadno Barbosa',
-        image: './images/co/JadnoBarbosa.jpg',
+        image: './images/co/JadnoBarbosa.jpeg',
         departments: ['Infraestrutura']
     },
     {
         name: 'Larissa Maruyama',
-        image: './images/co/LarissaMaruyama.jpg',
+        image: './images/co/LarissaMaruyama.jpeg',
         departments: ['CTF', 'Diretoria']
     },
     {
         name: 'Leonardo Boeing',
-        image: './images/co/LeonardoBoeing.jpg',
+        image: './images/co/LeonardoBoeing.jpeg',
         departments: ['Palestrantes', 'Criação e Comunicação']
     },
     {
         name: 'Lucas M. Sales',
-        image: './images/co/LucasSales.jpg',
+        image: './images/co/LucasSales.jpeg',
         departments: ['Site', 'Diretoria']
     },
     {
@@ -101,7 +101,7 @@ const members = [
     },
     {
         name: 'Rafael Nakata',
-        image: './images/co/RafaelNakata.png',
+        image: './images/co/RafaelNakata.jpeg',
         departments: ['CTF']
     },
     {
@@ -111,27 +111,27 @@ const members = [
     },
     {
         name: 'Stefany Nohama',
-        image: './images/co/StefanyRamos.jpg',
+        image: './images/co/StefanyRamos.jpeg',
         departments: ['Criação e Comunicação', 'Diretoria']
     },
     {
         name: 'Sungwon Yoon',
-        image: './images/co/SungwonYoon.jpg',
+        image: './images/co/SungwonYoon.jpeg',
         departments: ['Comercial e Financeiro', 'Infraestrutura', 'Diretoria']
     },
     {
         name: 'Thaís Bonjorni Nobre ',
-        image: './images/co/ThaisBonjorni.jpg',
+        image: './images/co/ThaisBonjorni.jpeg',
         departments: ['Patrocínios', 'Diretoria']
     },
     {
         name: 'Yago Silva',
-        image: './images/co/YagoSilva.jpg',
+        image: './images/co/YagoSilva.jpeg',
         departments: ['Patrocínios', 'Infraestrutura', 'Criação e Comunicação', 'Diretoria']
     },
     {
         name: 'Yesman Choque',
-        image: './images/co/YesmanChoque.png',
+        image: './images/co/YesmanChoque.jpeg',
         departments: ['Site', 'Criação e Comunicação']
     },
 ]
