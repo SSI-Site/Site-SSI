@@ -6,7 +6,7 @@ const MemberCardComponent = ({ name, image, departments }) => {
     return (
         <MemberWrapper>
             <figure className='member-image'>
-                <img src={image} alt={`Foto de'${name}`}></img>
+                <img src={image} alt={`Foto de ${name}`}></img>
             </figure>
             <figcaption>
                 <p className='member-name'>{name}</p>
