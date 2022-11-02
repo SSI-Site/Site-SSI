@@ -33,7 +33,7 @@ const RegisterForm = (defaultValues = {}) => {
 
                     <DateInputBox>
                         <label htmlFor='birth_date'> Data de Nascimento * </label>
-                        <input id='birth_date' type='date' min="1930-01-01" max="2010-12-31" className={errors.birth_date && 'error-border'}
+                        <InputMask id='birth_date' type='text' mask='99/99/9999' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
                             {...register("birth_date", { required: true })} />
                         {errors.birth_date && <ErrorMessage> Data de nascimento inválida </ErrorMessage>}
                     </DateInputBox>
@@ -169,24 +169,24 @@ const RegisterForm = (defaultValues = {}) => {
                     }
 
                     {watch("course") !== "" &&
-                     watch("course") !== "ainda nao iniciei a graduacao" &&
-                     watch("course") !=="ja finalizei a graduacao" &&
-                     watch("course") !=="nao tenho interesse em fazer graduacao" &&
-                     <InputBoxLarge>
-                        <LabelLeft htmlFor='graduation_period'> Em qual período está? </LabelLeft>
-                        <select id='graduation_period' {...register("graduation_period")} >
-                            <option></option>
-                            <option value="primeiro"> Primeiro </option>
-                            <option value="segundo"> Segundo </option>
-                            <option value="terceiro"> Terceiro </option>
-                            <option value="quarto"> Quarto </option>
-                            <option value="quinto"> Quinto </option>
-                            <option value="sexto"> Sexto </option>
-                            <option value="setimo"> Sétimo </option>
-                            <option value="oitavo"> Oitavo </option>
-                            <option value="nono +"> Nono + </option>
-                        </select>
-                    </InputBoxLarge>
+                        watch("course") !== "ainda nao iniciei a graduacao" &&
+                        watch("course") !== "ja finalizei a graduacao" &&
+                        watch("course") !== "nao tenho interesse em fazer graduacao" &&
+                        <InputBoxLarge>
+                            <LabelLeft htmlFor='graduation_period'> Em qual período está? </LabelLeft>
+                            <select id='graduation_period' {...register("graduation_period")} >
+                                <option></option>
+                                <option value="primeiro"> Primeiro </option>
+                                <option value="segundo"> Segundo </option>
+                                <option value="terceiro"> Terceiro </option>
+                                <option value="quarto"> Quarto </option>
+                                <option value="quinto"> Quinto </option>
+                                <option value="sexto"> Sexto </option>
+                                <option value="setimo"> Sétimo </option>
+                                <option value="oitavo"> Oitavo </option>
+                                <option value="nono +"> Nono + </option>
+                            </select>
+                        </InputBoxLarge>
                     }
 
                     <BinarySelectionLarge>
@@ -471,7 +471,6 @@ const DateInputBox = styled.div`
         padding: 8px 15px;
         background-color: #241D3C;
 
-        color-scheme: dark;
         color: var(--color-text);
         font-size: 1.6rem;
     }
