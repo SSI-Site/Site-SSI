@@ -8,7 +8,7 @@ const Sponsors = () => {
 
     return (
         <>
-            {/* <script
+            <script
                 dangerouslySetInnerHTML={{
                     __html: `
 
@@ -16,7 +16,7 @@ const Sponsors = () => {
 
                 `
                 }}
-            /> */}
+            />
 
             <Meta title='SSI 2022 | Apoiadores' />
             <BackgroundWrapper>

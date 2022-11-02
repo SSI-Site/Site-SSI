@@ -6,7 +6,8 @@ import useAuth from '../hooks/useAuth';
 
 //components
 import Button from '../src/components/Button';
-import ModalTokenComponent from '../src/components/ModalTokenComponent'
+import ModalTokenComponent from '../src/components/ModalTokenComponent';
+import RegisterForm from '../src/components/RegisterForm';
 
 // lista com valores estáticos - a serem substituídos pelo saphira:
 const palestras = [
@@ -38,79 +39,87 @@ const User = () => {
 
     return (
         <>
-            <script
+            {/* <script
                 dangerouslySetInnerHTML={{
                 __html: `
                     if (!document.cookie || !document.cookie.includes('ssi-site-auth')) {
                         window.location.href = "/"
                     }
                 `
-            }} />
+            }} /> */}
 
             <Meta title='SSI 2022 | Seu Perfil' />
-            <BackgroundWrapper>
-                <div className='padrao-background'></div>
 
-                { user ?
-                    <UserInfoSection>
-                        <UserInfoUpperWrapper>
-                            <PhotoNameWrapper>
-                                <img className='userPic' src={user.photoUrl} alt="user picture" />
-                                <h3>{user.name}</h3>
-                            </PhotoNameWrapper>
+            {user ?
+                <>
+                    <BackgroundWrapper>
+                        <div className='padrao-background'></div>
+                        <UserInfoSection>
+                            <UserInfoUpperWrapper>
+                                <PhotoNameWrapper>
+                                    <img className='userPic' src={user.photoUrl} alt="user picture" />
+                                    <h3>{user.name}</h3>
+                                </PhotoNameWrapper>
 
-                            <p>Palestras assistidas:<span className='bold-info'>&nbsp; 700 &#128293;</span></p>
-                        </UserInfoUpperWrapper>
+                                <p>Palestras assistidas:<span className='bold-info'>&nbsp; 700 &#128293;</span></p>
+                            </UserInfoUpperWrapper>
+                            <UserInfoLowerWrapper>
+                                <TextInfo>
+                                    <UserInformation>
+                                        <p>Email</p>
+                                        <p className='bold-info'>{user.email}</p>
+                                    </UserInformation>
+                                    <UserInformation>
+                                        <p>Número USP</p>
+                                        <p className='bold-info'>NUSP AQUI</p>
+                                    </UserInformation>
+                                </TextInfo>
+
+                                <Button>Editar perfil</Button>
+                            </UserInfoLowerWrapper>
+
+                        </UserInfoSection>
+                    </BackgroundWrapper>
+
+                    <ContainerLectures>
+
+                        <ListLectures>
+                            <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
+                            <tbody>
+                                {palestras.map((lecture, id) => (
+                                    <tr key={id}>
+                                        <td className={`lecture-id lecture-id-${id}`}>
+                                            <span></span>
+                                        </td>
+                                        <td className={`lecture-info lecture-info-${id}`}>
+                                            <p className='bold-info'>{lecture}</p>
+                                        </td>
+                                    </tr>
+                                ))
+                                }
+                            </tbody>
+                        </ListLectures>
                         <UserInfoLowerWrapper>
-                            <TextInfo>
-                                <UserInformation>
-                                    <p>Email</p>
-                                    <p className='bold-info'>{user.email}</p>
-                                </UserInformation>
-                                <UserInformation>
-                                    <p>Número USP</p>
-                                    <p className='bold-info'>NUSP AQUI</p>
-                                </UserInformation>
-                            </TextInfo>
-
-                            <Button>Editar perfil</Button>
-                        </UserInfoLowerWrapper>
-
-                    </UserInfoSection>
-                    :
-                    <h2>loading ...</h2>
-                }
-                <ContainerLectures>
-
-                    <ListLectures>
-                        <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
-                        <tbody>
-                        {palestras.map((lecture, id) => (
-                            <tr key={id}>
-                                <td className={`lecture-id lecture-id-${id}`}>
-                                    <span></span>
-                                </td>
-                                <td className={`lecture-info lecture-info-${id}`}>
-                                    <p className='bold-info'>{lecture}</p>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                        </tbody>
-                    </ListLectures>
-                    <UserInfoLowerWrapper>
-                        <span></span>
-                            { user && !isModalTokenOpen &&
+                            <span></span>
+                            {user && !isModalTokenOpen &&
                                 <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
                             }
 
-                            { user && isModalTokenOpen &&
-                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen}/>
+                            {user && isModalTokenOpen &&
+                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
                             }
-                    </UserInfoLowerWrapper>
-                </ContainerLectures>
-                <Button onClick={signOut}>Sair</Button>
-            </BackgroundWrapper>
+                        </UserInfoLowerWrapper>
+                    </ContainerLectures>
+                    <Button onClick={signOut}>Sair</Button>
+                </>
+
+                :
+                // <h2>loading ...</h2>
+
+                <FormContainer>
+                    <RegisterForm />
+                </FormContainer>
+            }
         </>
     )
 }
@@ -154,6 +163,10 @@ const BackgroundWrapper = styled.div`
             left: calc((1500px - 100vw - 10px)/2);
         }
     }
+`
+
+const FormContainer = styled.section`
+    padding: 100px 0;
 `
 
 const UserInfoSection = styled.section`
