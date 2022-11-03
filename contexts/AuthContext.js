@@ -26,6 +26,7 @@ export function AuthProvider({ children }) {
             setSession(true);
             return formatedUser.email;
         }
+
         setUser(false);
         setSession(false);
         return false;

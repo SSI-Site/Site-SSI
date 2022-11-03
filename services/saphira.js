@@ -19,7 +19,9 @@ const saphira = {
   sendToken: async parameters => {
     const { token, user_id } = parameters;
 
-  }
+  },
+
+  testTimeout: async () => new Promise(resolve => setTimeout(resolve, 3000))
 
 }
 

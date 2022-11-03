@@ -1,14 +1,24 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { useForm } from "react-hook-form";
 import InputMask from 'react-input-mask';
 import { cpf } from 'cpf-cnpj-validator';
 
-import Divider from "../components/Divider"
 import Button from "../components/Button"
+import { useEffect } from 'react';
 
-const RegisterForm = (defaultValues = {}) => {
-    const { register, watch, formState: { errors }, handleSubmit } = useForm(defaultValues);
-    const onSubmit = data => console.log(data);
+const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
+    const router = useRouter();
+
+    const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: userInfo });
+    const onSubmit = data => {
+        console.log(data);
+        router.reload();
+    };
+
+    useEffect(() => {
+        console.log(userInfo)
+    }, [])
 
     return (
         <>
@@ -224,6 +234,9 @@ const RegisterForm = (defaultValues = {}) => {
 
                     <BtnContainer>
                         <Button type="submit" > Concluir </Button>
+                        {isEditing &&
+                            <Button type="submit" onClick={cancelCallback}> Voltar </Button>
+                        }
                     </BtnContainer>
                 </form>
             </FormWrapper >
@@ -297,6 +310,17 @@ const FormWrapper = styled.div`
         -webkit-text-fill-color: var(--color-text);
     }
 
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
     label {
         font-size: 1.4rem;
     }
@@ -306,6 +330,10 @@ const BtnContainer = styled.div`
     text-align: center;
     width: 100%;
     margin-top: 100px;
+
+    button {
+        margin: 15px 10%;
+    }
 `
 
 const ErrorMessage = styled.span`

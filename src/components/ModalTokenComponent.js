@@ -1,17 +1,15 @@
 import { useState } from 'react';
-
 import styled from 'styled-components';
 
 import saphira from '../../services/saphira';
-
 import flecha from '../../public/images/flecha.svg';
 
 const TOKEN_LENGTH = 6;
 
-const ModalTokenComponent = ({toggleVisibility}) => {
-
+const ModalTokenComponent = ({ toggleVisibility }) => {
     const [token, setToken] = useState('')
     const [isInvalid, setIsInvalid] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChangeToken = event => {
         const { value } = event.target
@@ -19,28 +17,31 @@ const ModalTokenComponent = ({toggleVisibility}) => {
         setToken(value)
     }
 
-    const handleSendToken = event => {
+    const handleSendToken = async event => {
         event.preventDefault()
+
         if (token.length < TOKEN_LENGTH) {
             setIsInvalid(true)
             return
         }
 
+        setIsLoading(true)
+        await saphira.testTimeout();
+
         saphira.sendToken({
             token: token,
             user_id: 'user_id'
         }).then(data => {
-
             alert(`Token [${token.toLocaleUpperCase()}] Validado`)
             setToken('')
             toggleVisibility();
         }).catch(error => {
-
             console.log(error)
             setIsInvalid(true)
         })
 
         setIsInvalid(false)
+        setIsLoading(false)
     }
 
     const closeModalToken = () => {
@@ -58,18 +59,33 @@ const ModalTokenComponent = ({toggleVisibility}) => {
                 <div className="leftright"></div>
                 <div className="rightleft"></div>
             </div>
-            <form onSubmit={handleSendToken}>
-                <input
-                    type="text"
-                    className={getClassInvalidToken()}
-                    onChange={handleChangeToken}
-                    value={token}
-                />
-                {isInvalid && <span>Token Inválido!</span>}
-                <button type="submit" className={getClassActiveBtn()}>
-                    <img src={flecha}></img>
-                </button>
-            </form>
+
+            {!isLoading ?
+                <form onSubmit={handleSendToken}>
+                    <input
+                        type="text"
+                        className={getClassInvalidToken()}
+                        onChange={handleChangeToken}
+                        value={token}
+                    />
+                    {isInvalid && <span>Token Inválido!</span>}
+
+                    {!isLoading ?
+                        <button type="submit" className={getClassActiveBtn()}>
+                            <img src={flecha}></img>
+                        </button>
+                        :
+                        <Loading>
+                            <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                        </Loading>
+                    }
+                </form>
+                :
+                <Loading>
+                    <img src='./loading.gif' alt='SSI 2022 - Loading' />
+                </Loading>
+            }
+
             <span className='modal-token corner-1' />
             <span className='modal-token corner-2' />
             <span className='modal-token corner-3' />
@@ -84,6 +100,14 @@ const ModalTokenComponent = ({toggleVisibility}) => {
 
 export default ModalTokenComponent;
 
+const Loading = styled.figure`
+    width: 100%;
+    text-align: center;
+
+    img {
+        width: 50px;
+    }
+`
 
 const ModalTokenWrapper = styled.div`
     background-color: #151023;

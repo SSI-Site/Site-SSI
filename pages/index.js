@@ -38,6 +38,8 @@ const Home = () => {
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
+    const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     const toggleModalTokenIsOpen = () => {
         setIsModalTokenOpen(!isModalTokenOpen);
@@ -54,6 +56,24 @@ const Home = () => {
     const handleClickSuporter = supporter => {
         // Coletar metricas de cliques
     }
+
+    const checkUser = async () => {
+        setIsLoading(true);
+        await saphira.testTimeout();
+
+        if (user && !isUserRegistered) {
+            console.log("Não registrado");
+            setIsUserRegistered(true);
+        } else if (user && isUserRegistered) {
+            console.log("Registrado")
+        }
+
+        setIsLoading(false);
+    }
+
+    useEffect(() => {
+        checkUser();
+    }, [user]);
 
     return (
         <>
@@ -72,35 +92,44 @@ const Home = () => {
                             <h3>Palestras do dia 07/11 ao dia 11/11</h3>
                         </div>
 
-                        <div className='content-login'>
-                            { user ?
-                                <WelcomeComponent>Bem-vinde{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
-                                : <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
-                            }
-                        </div>
+                        {!isLoading ?
+                            <>
+                                <div className='content-login'>
+                                    {user ?
+                                        <WelcomeComponent>Bem-vinde{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                        : <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                    }
+                                </div>
 
-                        {/* <WelcomeComponent>Bem-vinde!</WelcomeComponent>
-                        <span id="#temp-span" style={{"marginBottom": "60px", "maxWidth": "70%", "textAlign": "center"}}>
-                            O cadastro para o evento estará disponível em breve.</span> */}
+                                {showAuthModal &&
+                                    <AuthModal
+                                        onClose={() => setShowAuthModal(false)}
+                                        show={showAuthModal}
+                                    />
+                                }
 
-                        {showAuthModal &&
-                            <AuthModal
-                                onClose={() => setShowAuthModal(false)}
-                                show={showAuthModal}
-                            />
+                                <TwitchWatchNowComponent />
+
+                                <div className='content-token'>
+                                    {user && isUserRegistered && !isModalTokenOpen &&
+                                        <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
+                                    }
+
+                                    {user && isModalTokenOpen &&
+                                        <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
+                                    }
+
+                                    {user && !isUserRegistered &&
+                                        <Button onClick={() => router.push('/user')}>Conclua seu cadastro</Button>
+                                    }
+                                </div>
+                            </>
+                            :
+                            <Loading>
+                                <img src='./loading.svg' alt='SSI 2022 - Loading'/>
+                            </Loading>
                         }
 
-                        <TwitchWatchNowComponent />
-
-                        <div className='content-token'>
-                            {user && !isModalTokenOpen &&
-                                <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
-                            }
-
-                            {user && isModalTokenOpen &&
-                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
-                            }
-                        </div>
                     </div>
                 </BannerSection>
 
@@ -189,6 +218,19 @@ const Home = () => {
         </>
     )
 }
+
+const Loading = styled.figure`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    padding-top: 2rem;
+
+    img {
+        width: 25%;
+    }
+`
 
 const BackgroundWrapper = styled.div`
     display: flex;

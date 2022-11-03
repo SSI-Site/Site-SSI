@@ -10,47 +10,105 @@ import ModalTokenComponent from '../src/components/ModalTokenComponent';
 import RegisterForm from '../src/components/RegisterForm';
 
 // lista com valores estáticos - a serem substituídos pelo saphira:
-const palestras = [
-    'Palestra 1 super foda 3 com convidados especiais',
-    'Palestra 2 super foda 3 com convidados especiais',
-    'Palestra 3 super foda 3 com convidados especiais',
-    'Palestra 4 super foda 3 com convidados especiais'
-]
 
 const User = () => {
 
     const { user, signOut } = useAuth();
 
-    const [example, setExample] = useState("");
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
+    const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const [userInfo, setUserInfo] = useState({});
+    const [lectures, setLectures] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isEditing, setIsEditing] = useState(false);
 
     const toggleModalTokenIsOpen = () => {
         setIsModalTokenOpen(!isModalTokenOpen);
     }
 
-    async function fetchExample() {
-        const res = await saphira.getCatFact();
-        setExample(res.fact);
+    const checkUser = async () => {
+        if (!user) return;
+
+        setIsLoading(true);
+        await saphira.testTimeout();
+
+        if (user && !isUserRegistered) {
+            console.log("Não registrado");
+            setIsUserRegistered(true);
+        } else if (user && isUserRegistered) {
+            console.log("Registrado")
+        }
+
+        setIsLoading(false);
     }
 
+    const getUserInfo = () => {
+        return {
+            "name": "Lucas",
+            "last_name": "Mendes Sales",
+            "birth_date": "23/03/1997",
+            "documentType": "nusp",
+            "accepted_terms": true,
+            "gender": "outro",
+            "ethnicity": "outro",
+            "know_about": "outro",
+            "course": "outro",
+            "graduation_period": "nono +",
+            "is_in_internship": "true",
+            "accepted_recieve_emails": true,
+            "nusp_value": "11270736",
+            "custom_gender": "Único",
+            "custom_ethnicity": "Parda",
+            "custom_know_about": "Faço parte dela",
+            "custom_course": "Faculdade da vida"
+        }
+    }
+
+    const getLectures = () => {
+        return [
+            'Palestra 1 super foda 3 com convidados especiais',
+            'Palestra 2 super foda 3 com convidados especiais',
+            'Palestra 3 super foda 3 com convidados especiais',
+            'Palestra 4 super foda 3 com convidados especiais'
+        ]
+    }
+
+
     useEffect(() => {
-        fetchExample();
+        if (isUserRegistered) {
+            setUserInfo(getUserInfo());
+            setLectures(getLectures());
+        }
+    }, [isUserRegistered]);
+
+    useEffect(() => {
+        checkUser();
+    }, [user]);
+
+    useEffect(() => {
+        checkUser();
     }, []);
 
     return (
         <>
-            {/* <script
+            <script
                 dangerouslySetInnerHTML={{
-                __html: `
+                    __html: `
                     if (!document.cookie || !document.cookie.includes('ssi-site-auth')) {
                         window.location.href = "/"
                     }
                 `
-            }} /> */}
+                }} />
 
             <Meta title='SSI 2022 | Seu Perfil' />
 
-            {user ?
+            {isLoading &&
+                <Loading>
+                    <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                </Loading>
+            }
+
+            {!isLoading && !isEditing && user && isUserRegistered &&
                 <>
                     <BackgroundWrapper>
                         <div className='padrao-background'></div>
@@ -61,7 +119,12 @@ const User = () => {
                                     <h3>{user.name}</h3>
                                 </PhotoNameWrapper>
 
-                                <p>Palestras assistidas:<span className='bold-info'>&nbsp; 700 &#128293;</span></p>
+                                <p>Palestras assistidas:
+                                    <span className='bold-info'>&nbsp; {lectures.length}</span>
+                                    {lectures.length > 10 &&
+                                        <span>&#128293;</span>
+                                    }
+                                </p>
                             </UserInfoUpperWrapper>
                             <UserInfoLowerWrapper>
                                 <TextInfo>
@@ -75,56 +138,82 @@ const User = () => {
                                     </UserInformation>
                                 </TextInfo>
 
-                                <Button>Editar perfil</Button>
+                                <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
                             </UserInfoLowerWrapper>
 
                         </UserInfoSection>
-                    </BackgroundWrapper>
 
-                    <ContainerLectures>
+                        <ContainerLectures>
 
-                        <ListLectures>
-                            <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
-                            <tbody>
-                                {palestras.map((lecture, id) => (
-                                    <tr key={id}>
-                                        <td className={`lecture-id lecture-id-${id}`}>
-                                            <span></span>
-                                        </td>
-                                        <td className={`lecture-info lecture-info-${id}`}>
-                                            <p className='bold-info'>{lecture}</p>
-                                        </td>
-                                    </tr>
-                                ))
+                            <ListLectures>
+                                <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
+                                <tbody>
+                                    {lectures.map((lecture, id) => (
+                                        <tr key={id}>
+                                            <td className={`lecture-id lecture-id-${id}`}>
+                                                <span></span>
+                                            </td>
+                                            <td className={`lecture-info lecture-info-${id}`}>
+                                                <p className='bold-info'>{lecture}</p>
+                                            </td>
+                                        </tr>
+                                    ))
+                                    }
+                                </tbody>
+                            </ListLectures>
+                            <UserInfoLowerWrapper>
+                                <span></span>
+                                {user && !isModalTokenOpen &&
+                                    <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
                                 }
-                            </tbody>
-                        </ListLectures>
-                        <UserInfoLowerWrapper>
-                            <span></span>
-                            {user && !isModalTokenOpen &&
-                                <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
-                            }
 
-                            {user && isModalTokenOpen &&
-                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
-                            }
-                        </UserInfoLowerWrapper>
-                    </ContainerLectures>
-                    <Button onClick={signOut}>Sair</Button>
+                                {user && isModalTokenOpen &&
+                                    <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
+                                }
+                            </UserInfoLowerWrapper>
+                        </ContainerLectures>
+                        <Button onClick={signOut}>Sair</Button>
+                    </BackgroundWrapper>
                 </>
+            }
 
-                :
-                // <h2>loading ...</h2>
-
+            {!isLoading && user && !isUserRegistered &&
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
+            }
+
+            {isEditing &&
+                <>
+                    <FormContainer>
+                        <RegisterForm
+                            userInfo={userInfo}
+                            isEditing={true}
+                            cancelCallback={() => {
+                                setIsEditing(false);
+                                window.scrollTo(0, 0);
+                            }} />
+                    </FormContainer>
+                </>
             }
         </>
     )
 }
 
 export default User;
+
+
+const Loading = styled.figure`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+
+    img {
+        width: 50%;
+        max-width: 250px;
+    }
+`
 
 const BackgroundWrapper = styled.div`
     display: flex;
