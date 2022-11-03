@@ -79,9 +79,9 @@ const Home = () => {
                             }
                         </div> */}
 
-                        <WelcomeComponent>Bem-vinde</WelcomeComponent>
-                        <span id="#temp-span" style={{ "marginBottom": "60px", "maxWidth": "70%", "textAlign": "center" }}>
-                            O cadastro para o envento estará disponível em breve.</span>
+                        <WelcomeComponent>Bem-vinde!</WelcomeComponent>
+                        <span id="#temp-span" style={{"marginBottom": "60px", "maxWidth": "70%", "textAlign": "center"}}>
+                            O cadastro para o evento estará disponível em breve.</span>
 
                         {showAuthModal &&
                             <AuthModal
@@ -114,8 +114,8 @@ const Home = () => {
                     <div className='content'>
 
                         <div className="details">
-                            <p>As palestras ocorrerão entre os dias <span>07 e 11 de novembro</span>, nos <span>auditórios da each</span>.</p>
-                            <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe nosso canal anotado no caderninho! </p>
+                            <p>As palestras ocorrerão entre os dias <span>07 e 11 de novembro</span>, nos <span>auditórios da EACH</span>.</p>
+                            <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
                             <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
                         </div>
 
@@ -147,13 +147,13 @@ const Home = () => {
                         <ScheduleInformation
                             speakerPicture={speakerPicture} speakerName="Palestrante"
                             title="Em breve"
-                            overview="Como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
+                            overview="Assim como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
                         />
 
                     </div>
 
                     <div className='sechedule-text'>
-                        <p>Confira aqui o conteúdo detalhado de nossas palestras, para poder se programar ais quais você mais quer assistir</p>
+                        <p>Confira aqui o conteúdo detalhado das nossas palestras, para poder se programar e decidir quais você mais quer assistir!</p>
                     </div>
                     <div className='starr star-one'></div>
                     <div className='starr star-two'></div>

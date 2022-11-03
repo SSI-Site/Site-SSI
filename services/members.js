@@ -20,6 +20,11 @@ const members = [
         departments: ['Comercial e Financeiro', 'Criação e Comunicação']
     },
     {
+        name: 'Ana Clara Cavalcante',
+        image: './images/co/MemberShadow.png',
+        departments: ['Patrocínios']
+    },
+    {
         name: 'Bruno Contreras',
         image: './images/co/BrunoContreras.jpeg',
         departments: ['Site']
@@ -50,7 +55,7 @@ const members = [
         departments: ['Infraestrutura']
     },
     {
-        name: 'Gabriel Silva',
+        name: 'Gabriel Ventorim',
         image: './images/co/GabrielSilva.jpeg',
         departments: ['Patrocínios']
     },
@@ -60,7 +65,7 @@ const members = [
         departments: ['Criação e Comunicação', 'Diretoria']
     },
     {
-        name: 'Giane Galhard',
+        name: 'Giane Mayumi',
         image: './images/co/GianeGalhard.jpeg',
         departments: ['Infraestrutura', 'Palestrantes']
     },
@@ -85,8 +90,18 @@ const members = [
         departments: ['CTF']
     },
     {
+        name: 'Idemar Burssed',
+        image: './images/co/MemberShadow.png',
+        departments: ['Comercial e Financeiro',]
+    },
+    {
         name: 'Jadno Barbosa',
         image: './images/co/JadnoBarbosa.jpeg',
+        departments: ['Infraestrutura']
+    },
+    {
+        name: 'João Fukuda',
+        image: './images/co/MemberShadow.png',
         departments: ['Infraestrutura']
     },
     {
@@ -103,6 +118,11 @@ const members = [
         name: 'Leonardo Boeing',
         image: './images/co/LeonardoBoeing.jpeg',
         departments: ['Criação e Comunicação', 'Palestrantes']
+    },
+    {
+        name: 'Lizandro Raposo',
+        image: './images/co/MemberShadow.png',
+        departments: ['Patrocínios']
     },
     {
         name: 'Lucas M. Sales',
@@ -125,6 +145,11 @@ const members = [
         departments: ['Diretoria', 'Palestrantes', 'Patrocínios']
     },
     {
+        name: 'Rafaela Oliveira',
+        image: './images/co/MemberShadow.png',
+        departments: ['Comercial e Financeiro']
+    },
+    {
         name: 'Stefany Nohama',
         image: './images/co/StefanyRamos.jpeg',
         departments: ['Criação e Comunicação', 'Diretoria']
@@ -135,7 +160,7 @@ const members = [
         departments: ['Comercial e Financeiro', 'Diretoria', 'Infraestrutura']
     },
     {
-        name: 'Thaís Bonjorni Nobre ',
+        name: 'Thaís Bonjorni',
         image: './images/co/ThaisBonjorni.jpeg',
         departments: ['Diretoria', 'Patrocínios']
     },
