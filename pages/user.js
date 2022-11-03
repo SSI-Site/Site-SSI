@@ -85,7 +85,7 @@ const User = () => {
                     <ListLectures>
                         <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
                         <tbody>
-                        {palestras.map((lecture, id) => (
+                        {palestras.reverse().map((lecture, id) => (
                             <tr key={id}>
                                 <td className={`lecture-id lecture-id-${id}`}>
                                     <span></span>
