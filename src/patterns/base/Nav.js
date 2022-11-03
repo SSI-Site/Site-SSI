@@ -82,8 +82,8 @@ const Nav = () => {
                             </li>
                             :
                             <li className='logInBtnContainer'>
-                                <button /* onClick={handleShowAuthModal} */><span>Entrar</span></button>
-                                {/* <div></div> */}
+                                <button onClick={handleShowAuthModal}><a>Entrar</a></button>
+                                <div></div>
                             </li>
 
                         }
@@ -126,9 +126,9 @@ const Nav = () => {
                                     <div></div>
                                 </li>
                                 :
-                                <li /* 0nClick={() => setIsOpen(false)} */>
-                                    <button><a style={{"color": "gray"}}>Entrar</a></button>
-                                    {/* <div></div> */}
+                                <li onClick={() => setIsOpen(false)}>
+                                    <button onClick={handleShowAuthModal}><a>Entrar</a></button>
+                                    <div></div>
                                 </li>
                             }
                         </ul>

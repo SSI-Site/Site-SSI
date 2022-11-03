@@ -72,16 +72,16 @@ const Home = () => {
                             <h3>Palestras do dia 07/11 ao dia 11/11</h3>
                         </div>
 
-                        {/* <div className='content-login'>
+                        <div className='content-login'>
                             { user ?
-                                <WelcomeComponent>Bem-vindx{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                <WelcomeComponent>Bem-vinde{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
                                 : <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
                             }
-                        </div> */}
+                        </div>
 
-                        <WelcomeComponent>Bem-vinde!</WelcomeComponent>
+                        {/* <WelcomeComponent>Bem-vinde!</WelcomeComponent>
                         <span id="#temp-span" style={{"marginBottom": "60px", "maxWidth": "70%", "textAlign": "center"}}>
-                            O cadastro para o evento estará disponível em breve.</span>
+                            O cadastro para o evento estará disponível em breve.</span> */}
 
                         {showAuthModal &&
                             <AuthModal
@@ -183,7 +183,7 @@ const Home = () => {
                         </li>
                     ))}
                 </ul>
-                {/* <h3 id="#temp-span" style={{"marginBottom": "15px", "maxWidth": "70%", "textAlign": "center"}}>Nossos apoiadores serão divulgados em breve.</h3> */}
+
                 <div className="background-blur" />
             </SupportersSection>
         </>
@@ -297,6 +297,11 @@ const BannerSection = styled.header`
         align-items: center;
     }
 
+    .content-token {
+        width: 100%;
+        text-align: center;
+    }
+
     h1 {
         font-family: 'Plaza';
         font-style: normal;
@@ -323,8 +328,8 @@ const BannerSection = styled.header`
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
-        height: 60vh;
-        max-height: 700px;
+        height: 100vh;
+        max-height: 650px;
         padding-top: 50px;
 
         .logo {
@@ -355,7 +360,6 @@ const BannerSection = styled.header`
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 600px;
         }
     }
 `

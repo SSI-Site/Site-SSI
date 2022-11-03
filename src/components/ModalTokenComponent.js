@@ -95,10 +95,10 @@ const ModalTokenWrapper = styled.div`
 
     padding: 32px 32px 32px 32px;
     width: 90%;
-    max-width: 650px;
+    max-width: 400px;
     margin: 0 auto;
 
-    margin-top: 50px;
+    margin-top: 10px;
 
     position: relative;
 
@@ -234,6 +234,7 @@ const ModalTokenWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 90%;
 
         span {
             margin-top: 4px;
@@ -242,6 +243,8 @@ const ModalTokenWrapper = styled.div`
     }
 
     input[type=text] {
+        text-align: center;
+
         font-family: 'Bebas Neue';
         font-weight: 400;
         font-size: 2rem;
@@ -250,12 +253,12 @@ const ModalTokenWrapper = styled.div`
 
         z-index: 1;
 
+        width: 100%;
         padding: 8px 16px;
 
         background-color: #392055;
         border: 1px solid white;
 
-        text-align: center;
     }
 
     input[type=text].invalid-token {
@@ -302,13 +305,10 @@ const ModalTokenWrapper = styled.div`
         }
     }
 
-    @media (min-width:480px) {
-    }
-
     @media (min-width:600px) {
-        padding: 32px 140px 64px 140px;
+        padding: 32px 10% 64px 10%;
+        width: 90%;
         max-width: 650px;
-
 
         form {
             flex-direction: row;
@@ -328,25 +328,4 @@ const ModalTokenWrapper = styled.div`
             align-self: center;
         }
     }
-
-    @media (min-width:801px) {
-    }
-
-    @media (min-width:1021px) {
-
-    }
-
-    @media (min-width:1281px) {
-
-    }
-
-    @media (min-width:1400px) {
-        margin-top: 0;
-    }
-
-
-    @media (min-width:2200px) {
-        /* 4k */
-    }
-
 `
