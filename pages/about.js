@@ -428,6 +428,11 @@ const NumbersSection = styled.section`
     justify-content: center;
     flex-direction: column;
     width: 100%;
+
+    h2 {
+        text-align: center;
+        font-size: 48px;
+    }
 `
 
 const EventNumbersBanner = styled.div`
