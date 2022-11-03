@@ -59,8 +59,10 @@ const Sponsors = () => {
                         <SponsorCardComponent name='ey' image='./images/sponsors/ey.png' link="https://www.ey.com/pt_br" />
                         <SponsorCardComponent name='github' image='./images/sponsors/github.png' link="https://github.com/" />
                         <SponsorCardComponent name='globo' image='./images/sponsors/globo.png' link="https://www.globo.com/" />
-                        <SponsorCardComponent name='revelo' image='./images/sponsors/revelo.png' link="https://www.revelo.com.br/" />
+                        <SponsorCardComponent name='revelo' image='./images/sponsors/revelo.svg' link="https://www.revelo.com.br/" />
                     </div>
+
+                    <div className='divider-line'></div>
 
                     <h2 className='apoio-inst'>Apoio institucional</h2>
                     <div className='sponsors-wrapper'>
