@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import borda from '../../public/images/borda.png'
 
@@ -6,8 +7,13 @@ const ScheduleInformation = ({ speakerPicture, speakerName, title, overview }) =
         <>
             <ScheduleInformationStyle>
                 <div className='first-section-schedule-box'>
-                    <img className='speaker-picture' src={speakerPicture} />
+                    {speakerPicture ? 
+                        <img className='speaker-picture' src={speakerPicture} />
+                        : 
+                        <div className='space-div'></div>
+                    }
                     <h3 className='speakerName'>{speakerName}</h3>
+                    
                 </div>
 
                 <div className='second-section-schedule-box'>
@@ -38,10 +44,14 @@ const ScheduleInformationStyle = styled.div`
 
     .speaker-picture{
         width: 150px;
-        /* height: 120px; */
+        height: 150px;
         border-radius: 75px 75px 0px 0px;
         margin-top: 3rem;
         object-fit: cover;
+    }
+
+    .space-div {
+        height: 3.5rem;
     }
 
     .speakerName{
@@ -53,6 +63,7 @@ const ScheduleInformationStyle = styled.div`
         display:flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
     .speech-title{
         width: 90%;
@@ -80,6 +91,10 @@ const ScheduleInformationStyle = styled.div`
         /* flex-direction: row; */
         max-width: 500px;
 
+        .space-div {
+            height: 1.5rem;
+        }
+
         .first-section-schedule-box{
             margin: 20px;
             display: flex;
@@ -91,6 +106,7 @@ const ScheduleInformationStyle = styled.div`
         .speaker-picture{
             margin-top: 0px;
             width: 300px;
+            height: 300px;
             border-radius: 150px 150px 0px 0px;
         }
     }

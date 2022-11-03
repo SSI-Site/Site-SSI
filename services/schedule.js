@@ -86,7 +86,7 @@ const schedule = {
       image: LectureImage03
     },
     '14:40': {
-      title: 'Palestra 4 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -110,7 +110,7 @@ const schedule = {
       image: LectureImage05
     },
     '17:20': {
-      title: 'Palestra 6 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -122,7 +122,7 @@ const schedule = {
     '18:20': { message: 'Janta' },
 
     '19:20': {
-      title: 'Palestra 7 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -151,7 +151,7 @@ const schedule = {
       image: LectureImage09
     },
     '10:00': {
-      title: 'Palestra 10 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -181,7 +181,7 @@ const schedule = {
       image: LectureImage12
     },
     '14:40': {
-      title: 'Palestra 13 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -190,7 +190,7 @@ const schedule = {
       image: ''
     },
     '16:00': {
-      title: 'Palestra 14 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -199,7 +199,7 @@ const schedule = {
       image: ''
     },
     '17:20': {
-      title: 'Palestra 15 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -306,7 +306,7 @@ const schedule = {
     '18:20': { message: 'Janta' },
 
     '19:20': {
-      title: 'Palestra X - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -335,7 +335,7 @@ const schedule = {
       image: LectureImage27
     },
     '10:00': {
-      title: 'Palestra 28 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -383,7 +383,7 @@ const schedule = {
       image: LectureImage32
     },
     '17:20': {
-      title: 'Palestra 33 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
@@ -424,7 +424,7 @@ const schedule = {
       image: LectureImage36
     },
     '10:00': {
-      title: 'Palestra 37 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'online',
       speakers: [
@@ -458,7 +458,7 @@ const schedule = {
       image: ''
     },
     '14:40': {
-      title: 'Palestra 40 - A ser confirmada',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
