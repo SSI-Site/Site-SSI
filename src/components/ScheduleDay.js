@@ -64,15 +64,20 @@ const scheduleDay = ({ weekDay }) => {
                 <time>{time}</time>
               </td>
               {lecture.message ? (
-                <td className='schedule-message'>
-                  <h2>{lecture.message}</h2>
+                <td className='schedule-info'>
+                  <div className='schedule-time'>
+                    <time>{time}</time>
+                  </div>
+                  <td className='schedule-message'>
+                    <h2>{lecture.message}</h2>
+                  </td>
                 </td>
               ) : (
                 <td className='schedule-info'>
                   <div className='schedule-time'>
                     <time>{time}</time>
                   </div>
-                  <h2 onClick={() => handleShowLecture(time)}>{lecture.title}</h2>
+                  <h2 className='purple-hover-title' onClick={() => handleShowLecture(time)}>{lecture.title}</h2>
                   <span>
                     {lecture.speakers.map((speaker, index) => (
                       <React.Fragment key={index}>
@@ -108,6 +113,7 @@ const ContainerSchedule = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 4.5rem;
 
   .schedule-header {
     display: flex;
@@ -130,6 +136,7 @@ const ContainerSchedule = styled.div`
 
     span {
       font-family: 'Bebas Neue';
+      font-size: 2rem;
       margin-left: 1rem;
     }
 
@@ -161,10 +168,13 @@ const ContainerSchedule = styled.div`
 
 const ListSchedule = styled.table`
   border-collapse: collapse;
+  margin-bottom: 15rem;
   width: 80%;
+  max-width: 800px;
 
   td.schedule-time {
     display: none;
+    width: 200px;
   }
 
   .schedule-time {
@@ -197,9 +207,21 @@ const ListSchedule = styled.table`
     }
   }
 
+  thead {
+    display: none;
+  }
+
+  tr {
+    border-bottom: solid transparent 2rem;
+  }
+
+  td.schedule-message {
+    width: 1%;
+  }
+
   .schedule-message {
-    border-left: 2px solid #8744C2;
-    padding: 1em;
+    width: 100%;
+    max-width: 400px;
     
     h2 {
       color: #fff;
@@ -237,11 +259,13 @@ const ListSchedule = styled.table`
   }
 
   .schedule-info {
+    vertical-align: top;
     border-left: 2px solid #8744C2;
-    padding: 1em 1em 0 1em;
+    padding: 0 0 0 1em;
     font-family: 'Bebas Neue';
+    width: 100%;
 
-    h2 {
+    h2.purple-hover-title {
       font-size: 2rem;
 
       cursor: pointer;
@@ -255,10 +279,16 @@ const ListSchedule = styled.table`
     span {
       color: #8744C2;
       font-family: 'Bebas Neue';
+      font-size: 1.4rem;
 
       a {
         text-decoration: underline;
         color: inherit;
+        transition: .2s;
+
+        &:hover {
+          color: #d0cfd3;
+        }
       }
     }
   }
@@ -296,7 +326,10 @@ const ListSchedule = styled.table`
           right: calc(-1rem - 7px);
         }
       }
-      
+    }
+
+    h2.purple-hover-title {
+        margin-top: 1rem;
     }
   }
 `

@@ -37,9 +37,9 @@ const ScheduleInformationStyle = styled.div`
     border-image-repeat: stretch;
 
     .speaker-picture{
-        width: 100px;
+        width: 150px;
         /* height: 120px; */
-        /* border-radius: 75px 75px 0px 0px; */
+        border-radius: 75px 75px 0px 0px;
         margin-top: 3rem;
         object-fit: cover;
     }
@@ -55,9 +55,10 @@ const ScheduleInformationStyle = styled.div`
         align-items: center;
     }
     .speech-title{
-        font-size: 25px;
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
+        width: 90%;
+        font-size: 2rem;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
         text-align: center;
     }
 
@@ -76,7 +77,7 @@ const ScheduleInformationStyle = styled.div`
 
     @media (min-width:600px) {
 
-        flex-direction: row;
+        /* flex-direction: row; */
         max-width: 500px;
 
         .first-section-schedule-box{
@@ -89,6 +90,8 @@ const ScheduleInformationStyle = styled.div`
 
         .speaker-picture{
             margin-top: 0px;
+            width: 300px;
+            border-radius: 150px 150px 0px 0px;
         }
     }
 
