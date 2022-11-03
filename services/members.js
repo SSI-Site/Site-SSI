@@ -101,8 +101,8 @@ const members = [
     },
     {
         name: 'João Fukuda',
-        image: './images/co/MemberShadow.png',
-        departments: ['Infraestrutura']
+        image: './images/co/JoaoFukuda.jpeg',
+        departments: ['CTF', 'Infraestrutura']
     },
     {
         name: 'João Rodrigues',
@@ -121,8 +121,8 @@ const members = [
     },
     {
         name: 'Lizandro Raposo',
-        image: './images/co/MemberShadow.png',
-        departments: ['Patrocínios']
+        image: './images/co/LizandroRaposo.jpeg',
+        departments: ['Comercial e Financeiro', 'Patrocínios']
     },
     {
         name: 'Lucas M. Sales',
