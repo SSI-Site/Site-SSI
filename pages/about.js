@@ -107,25 +107,30 @@ const About = () => {
                 </LectureContent>
             </section>
 
-            <EventNumbersBanner>
-                <div className='event-info-container background-spotlight background-spotlight-2'>
-                    <h3><span className='purple-plus'>&#43;</span>2.6k</h3>
-                    <div className='orange-separator'></div>
-                    <p>Espectadores</p>
-                </div>
 
-                <div className='event-info-container'>
-                    <h3><span className='purple-plus'>&#43;</span>800</h3>
-                    <div className='orange-separator'></div>
-                    <p>Participantes</p>
-                </div>
+            <NumbersSection>
+                <h2> Números da SSI 2021 </h2>
+                <EventNumbersBanner>
 
-                <div className='event-info-container'>
-                    <h3><span className='purple-plus'>&#43;</span>34h</h3>
-                    <div className='orange-separator'></div>
-                    <p>De conteúdo</p>
-                </div>
-            </EventNumbersBanner>
+                    <div className='event-info-container background-spotlight background-spotlight-2'>
+                        <h3><span className='purple-plus'>&#43;</span>2.8k</h3>
+                        <div className='purple-separator'></div>
+                        <p>Espectadores</p>
+                    </div>
+
+                    <div className='event-info-container'>
+                        <h3><span className='purple-plus'>&#43;</span>800</h3>
+                        <div className='purple-separator'></div>
+                        <p>Inscritos</p>
+                    </div>
+
+                    <div className='event-info-container'>
+                        <h3><span className='purple-plus'>&#43;</span>34h</h3>
+                        <div className='purple-separator'></div>
+                        <p>De conteúdo</p>
+                    </div>
+                </EventNumbersBanner>
+            </NumbersSection>
         </>
     )
 }
@@ -277,7 +282,7 @@ const ActivitiesSection = styled.section`
     }
 `
 
-const   LectureContent = styled.div`
+const LectureContent = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -417,6 +422,14 @@ const   LectureContent = styled.div`
 
 `
 
+const NumbersSection = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+`
+
 const EventNumbersBanner = styled.div`
     display: flex;
     flex-direction: column;
@@ -441,11 +454,11 @@ const EventNumbersBanner = styled.div`
         line-height: 75px;
     }
 
-    .orange-separator {
+    .purple-separator {
         height: 2px;
         width: 100%;
         max-width: 340px;
-        background-color: #FF7F5C;
+        background-color: #8744C2;
         margin-top: 20px;
     }
 
