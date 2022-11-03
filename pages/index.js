@@ -22,22 +22,19 @@ import star from '../public/images/star.svg';
 import speakerPicture from '../public/images/logos/logo_sem_estrela.svg';
 
 const supporters = [
-    { title: 'KINGHOST', url: 'https://www.semanadesi.com.br' },
-    { title: 'DATA SCIENCE ACADEMY', url: 'https://www.semanadesi.com.br' },
-    { title: 'Semana de SI', url: 'https://www.semanadesi.com.br' },
-    { title: 'SANKYA', url: 'https://www.semanadesi.com.br' },
-    { title: 'AMERICANAS', url: 'https://www.semanadesi.com.br' },
-    { title: 'KINGHOST', url: 'https://www.semanadesi.com.br' },
-    { title: 'DATA SCIENCE ACADEMY', url: 'https://www.semanadesi.com.br' },
-    { title: 'Semana de SI', url: 'https://www.semanadesi.com.br' },
-    { title: 'SANKYA', url: 'https://www.semanadesi.com.br' },
-    { title: 'AMERICANAS', url: 'https://www.semanadesi.com.br' },
+    { title: 'ELO7', url: 'https://www.elo7.com.br/' },
+    { title: 'EY', url: 'https://www.ey.com/pt_br' },
+    { title: 'GITHUB', url: 'https://github.com/' },
+    { title: 'GLOBO', url: 'https://www.globo.com/' },
+    { title: 'REVELO', url: 'https://www.revelo.com.br/' },
+    { title: 'PET-SI', url: 'http://www.each.usp.br/petsi/' },
+    { title: 'EACH-USP', url: 'http://www5.each.usp.br/' }
 ].sort((a, b) => a.title > b.title ? 1 : -1)
 
 const Home = () => {
 
     const router = useRouter();
-    const {user} = useAuth();
+    const { user } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -47,7 +44,7 @@ const Home = () => {
     }
 
     const handleShowAuthModal = () => {
-        if(window.pageYOffset != 0) {
+        if (window.pageYOffset != 0) {
             setTimeout(() => { handleShowAuthModal() }, 50)
         } else {
             setShowAuthModal(true);
@@ -82,11 +79,11 @@ const Home = () => {
                             }
                         </div> */}
 
-                        <WelcomeComponent>Bem-vinde</WelcomeComponent>
+                        <WelcomeComponent>Bem-vinde!</WelcomeComponent>
                         <span id="#temp-span" style={{"marginBottom": "60px", "maxWidth": "70%", "textAlign": "center"}}>
-                            O cadastro para o envento estará disponível em breve. Fique atento!</span>
+                            O cadastro para o evento estará disponível em breve.</span>
 
-                        { showAuthModal &&
+                        {showAuthModal &&
                             <AuthModal
                                 onClose={() => setShowAuthModal(false)}
                                 show={showAuthModal}
@@ -96,12 +93,12 @@ const Home = () => {
                         <TwitchWatchNowComponent />
 
                         <div className='content-token'>
-                            { user && !isModalTokenOpen &&
+                            {user && !isModalTokenOpen &&
                                 <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
                             }
 
-                            { user && isModalTokenOpen &&
-                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen}/>
+                            {user && isModalTokenOpen &&
+                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
                             }
                         </div>
                     </div>
@@ -117,8 +114,8 @@ const Home = () => {
                     <div className='content'>
 
                         <div className="details">
-                            <p>As palestras ocorrerão entre os dias <span>07 e 11 de novembro</span>, nos <span>auditórios da each</span>.</p>
-                            <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe nosso canal anotado no caderninho! </p>
+                            <p>As palestras ocorrerão entre os dias <span>07 e 11 de novembro</span>, nos <span>auditórios da EACH</span>.</p>
+                            <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
                             <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
                         </div>
 
@@ -144,19 +141,19 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="7" weekDay="segunda feira" size="small"/>
+                            <DateComponent day="7" weekDay="segunda feira" size="small" />
                         </div>
 
                         <ScheduleInformation
                             speakerPicture={speakerPicture} speakerName="Palestrante"
                             title="Em breve"
-                            overview="Como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
+                            overview="Assim como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
                         />
 
                     </div>
 
                     <div className='sechedule-text'>
-                        <p>Confira aqui o conteúdo detalhado de nossas palestras, para poder se programar ais quais você mais quer assistir</p>
+                        <p>Confira aqui o conteúdo detalhado das nossas palestras, para poder se programar e decidir quais você mais quer assistir!</p>
                     </div>
                     <div className='starr star-one'></div>
                     <div className='starr star-two'></div>
@@ -165,15 +162,15 @@ const Home = () => {
 
                 </div>
                 <Button disabled onClick={() => router.push('/schedule')}>Confira</Button>
-                <span id="#temp-span" style={{"marginTop": "15px", "maxWidth": "70%", "textAlign": "center"}}>As informações sobre a programação serão divulgadas em breve.</span>
+                <span id="#temp-span" style={{ "marginTop": "15px", "maxWidth": "70%", "textAlign": "center" }}>As informações sobre a programação serão divulgadas em breve.</span>
 
             </ScheduleSection>
 
-            <Divider dividerSize="large"/>
+            <Divider dividerSize="large" />
 
             <SupportersSection>
-                <h2 className="section-title">Apoiadores</h2>
-                {/* <ul>
+                <h2 className="section-title">Apoio</h2>
+                <ul>
                     {supporters.map((supporter, index) => (
                         <li key={index}>
                             <a
@@ -185,8 +182,8 @@ const Home = () => {
                             </a>
                         </li>
                     ))}
-                </ul> */}
-                <h3 id="#temp-span" style={{"marginBottom": "15px", "maxWidth": "70%", "textAlign": "center"}}>Nossos apoiadores serão divulgados em breve.</h3>
+                </ul>
+                {/* <h3 id="#temp-span" style={{"marginBottom": "15px", "maxWidth": "70%", "textAlign": "center"}}>Nossos apoiadores serão divulgados em breve.</h3> */}
                 <div className="background-blur" />
             </SupportersSection>
         </>
@@ -605,20 +602,24 @@ const SupportersSection = styled.section`
     }
 
     ul {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.5em;
-        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-width: 800px;
+        margin: auto;
 
         li {
 
             text-align: center;
+            margin: 1rem 0;
 
             a {
                 color: #FFFFFF;
                 font-family: 'Bebas Neue';
                 font-weight: 400;
-                font-size: 2rem;
+                font-size: 3rem;
                 text-decoration: none;
                 border-color: #8744C2;
 
@@ -640,6 +641,7 @@ const SupportersSection = styled.section`
         ul {
             grid-template-columns: repeat(2, 1fr);
             gap: 1em 15vw;
+            flex-direction: unset;
         }
     }
 

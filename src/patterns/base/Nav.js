@@ -71,13 +71,13 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            {/* <Link href="/sponsors"> */}<span>Apoiadores</span>{/* </Link> */}
-                            {/* <div></div> */}
+                            <Link href="/sponsors"><a>Apoiadores</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
-                            {/* <Link href="/co"> */}<span>Comissão Organizadora</span>{/* </Link> */}
-                            {/* <div></div> */}
+                            <Link href="/co"><a>Comissão Organizadora</a></Link>
+                            <div></div>
                         </li>
 
                         {user ?
@@ -114,14 +114,14 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="/sponsors"> */}<a style={{ "color": "gray" }}>Apoiadores</a>{/* </Link> */}
-                                {/* <div></div> */}
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/sponsors"><a>Apoiadores</a></Link>
+                                <div></div>
                             </li>
 
-                            <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="/co"> */}<a style={{ "color": "gray" }}>Comissão Organizadora</a>{/* </Link> */}
-                                {/* <div></div> */}
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/co"><a>Comissão Organizadora</a></Link>
+                                <div></div>
                             </li>
 
                             {user ?

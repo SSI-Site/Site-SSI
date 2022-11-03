@@ -1,15 +1,18 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const MemberCardComponent = ({ name, image, department }) => {
+const MemberCardComponent = ({ name, image, departments }) => {
 
     return (
         <MemberWrapper>
             <figure className='member-image'>
-                <img src={image} alt={`Foto de'${name}`}></img>
+                <img src={image} alt={`Foto de ${name}`}></img>
             </figure>
             <figcaption>
-                <p>{name}</p>
-                <span>{department}</span>
+                <p className='member-name'>{name}</p>
+                {departments.map((department, index) =>
+                    <p className='member-department' key={index}>{department}</p>
+                )}
             </figcaption>
         </MemberWrapper>
     )
@@ -42,16 +45,33 @@ const MemberWrapper = styled.div`
 
     figcaption {
         text-align: center;
+        max-width: 280px;
     }
 
-    p {
+    .member-name {
         font-weight: bold;
         font-size: 24px;
-        margin-bottom: -.4rem;
+        line-height: 3rem;
+        margin-bottom: .5rem;
     }
 
-    span {
+    .member-department {
         font-size: 23px;
+        line-height: 2.5rem;
+    }
+    
+    @media (min-width: 800px) {
+
+        .member-name {
+            line-height: 2rem;
+
+        }
+
+        .member-department {
+            line-height: 2rem;
+
+        }
+        
     }
 `
 
