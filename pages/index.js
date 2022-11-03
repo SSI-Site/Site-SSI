@@ -27,8 +27,8 @@ const supporters = [
     { title: 'GITHUB', url: 'https://github.com/' },
     { title: 'GLOBO', url: 'https://www.globo.com/' },
     { title: 'REVELO', url: 'https://www.revelo.com.br/' },
-    { title: 'PET-SI', url: 'https://www.semanadesi.com.br' },
-    { title: 'EACH-USP', url: 'https://www.semanadesi.com.br' }
+    { title: 'PET-SI', url: 'http://www.each.usp.br/petsi/' },
+    { title: 'EACH-USP', url: 'http://www5.each.usp.br/' }
 ].sort((a, b) => a.title > b.title ? 1 : -1)
 
 const Home = () => {
