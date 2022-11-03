@@ -71,6 +71,15 @@ const RegisterForm = (defaultValues = {}) => {
                         }
                     </BinarySelectionSmall>
 
+                    <CheckboxContainer className={errors.accepted_terms && 'error-border'}>
+                        <input id="accepted_terms" type="checkbox" defaultChecked={false}
+                            {...register("accepted_terms", { required: true })}
+                        />
+                        <label htmlFor="accepted_terms"> Compreendo que a semana de sistema de informação é um evento aberto ao publico o qual poderei usufruir sem custo algum. Ademais, comprometo-me a respeitar todos sem distinção de classe, gênero, etnia, orientação sexual e religião. * </label>
+                    </CheckboxContainer>
+
+                    <Separator></Separator>
+
                     <h5> Os campos a seguir são opcionais. Se puder preencher, agradecemos por ajudar-nos a conhecer melhor o nosso público :) </h5>
 
                     <InputBoxSmall>
@@ -84,7 +93,6 @@ const RegisterForm = (defaultValues = {}) => {
                             <option value="mulher transgenero"> Mulher transgênero </option>
                             <option value="nao binario"> Não-binário </option>
                             <option value="outro"> Outro </option>
-                            <option value="prefiro nao informar"> Prefiro não informar </option>
                         </select>
                     </InputBoxSmall>
 
@@ -99,7 +107,6 @@ const RegisterForm = (defaultValues = {}) => {
                             <option value="preta"> Preta </option>
                             <option value="indígena"> Indígena </option>
                             <option value="outro"> Outro </option>
-                            <option value="prefiro nao informar"> Prefiro não informar </option>
                         </select>
                     </InputBoxSmall>
 
@@ -147,6 +154,7 @@ const RegisterForm = (defaultValues = {}) => {
                             <option value="ciencias da natureza"> Ciências da Natureza </option>
                             <option value="educacao fisica e saude"> Educação Física e saúde </option>
                             <option value="gerontologia"> Gerontologia </option>
+                            <option value="gestao de politicas publicas"> Gestão de Políticas Públicas </option>
                             <option value="gestao ambiental"> Gestão Ambiental </option>
                             <option value="lazer e turismo"> Lazer e Turismo </option>
                             <option value="marketing"> Marketing </option>
@@ -207,15 +215,8 @@ const RegisterForm = (defaultValues = {}) => {
                         </RadioBox>
                     </BinarySelectionLarge>
 
-                    <CheckboxContainer className={errors.accepted_terms && 'error-border'}>
-                        <input id="accepted_terms" type="checkbox" defaultChecked={false}
-                            {...register("accepted_terms", { required: true })}
-                        />
-                        <label htmlFor="accepted_terms"> Compreendo que a semana de sistema de informação é um evento aberto ao publico o qual poderei usufruir sem custo algum. Ademais, comprometo-me a respeitar todos sem distinção de classe, gênero, etnia, orientação sexual e religião. </label>
-                    </CheckboxContainer>
-
                     <CheckboxContainer>
-                        <input id="accepted_recieve_emails" type="checkbox" defaultChecked={true}
+                        <input id="accepted_recieve_emails" type="checkbox" defaultChecked={false}
                             {...register("accepted_recieve_emails")}
                         />
                         <label htmlFor="accepted_recieve_emails"> Aceito receber emails de divulgação. dessa forma, estou ciente de que meu email será compartilhado com as empresas apoiadoras do evento para possíveis divulgações de vagas de estágio, oportunidades de cursos e afins. </label>
@@ -285,6 +286,7 @@ const FormWrapper = styled.div`
     input, select {
         border: unset;
         background-color: #241D3C;
+        filter: brightness(130%);
     }
 
     input:-webkit-autofill,
@@ -324,6 +326,13 @@ const LabelSpecify = styled.label`
     text-align: left;
     margin-bottom: .5rem;
     text-decoration: underline;
+`
+
+const Separator = styled.div`
+    margin: 3rem auto;
+    width: 30%;
+    height: 1px;
+    background-color: white;
 `
 
 const InputBoxSmall = styled.div`
