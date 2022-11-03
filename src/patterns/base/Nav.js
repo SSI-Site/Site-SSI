@@ -67,8 +67,8 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            {/* <Link href="/sponsors"> */}<span>Apoiadores</span>{/* </Link> */}
-                            {/* <div></div> */}
+                            <Link href="/sponsors"><a>Apoiadores</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
@@ -110,9 +110,9 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="/sponsors"> */}<a style={{"color": "gray"}}>Apoiadores</a>{/* </Link> */}
-                                {/* <div></div> */}
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/sponsors"><a>Apoiadores</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
