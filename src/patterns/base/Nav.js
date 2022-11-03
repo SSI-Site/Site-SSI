@@ -61,8 +61,8 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            {/* <Link href="/schedule" >*/}<span>Programação</span>{/* </Link> */}
-                            {/* <div></div> */}
+                            <Link href="/schedule" ><a>Programação</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
