@@ -41,7 +41,7 @@ const TwitchWatchNowComponent = () => {
 				) : (
 					<div>
 						<h4>Offline</h4>
-						<p>Indicaremos aqui quando estiveros online na twitch.</p>
+						<p>Indicaremos aqui quando estivermos online na Twitch.</p>
 					</div>
 				)}
 

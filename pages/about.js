@@ -53,7 +53,7 @@ const About = () => {
                             image='./images/about/icon_minicursos.svg'
                             alt='Imagem Minicursos'
                             title='Workshops'
-                            description='Este ano, estamos trabalhando para oferecer a você, workshops que ajudarão a conhecer na prática ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
+                            description='Este ano, estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
                         />
                     </div>
                 </ActivitiesSection>
@@ -69,8 +69,8 @@ const About = () => {
                         <div className='lecture-sample-description'>
                             <h3>Palestras com experts da área</h3>
                             <p>
-                                Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IOT, segurança da informação é muito mais!
-                                Não perca a oportunidade de conhecer e perguntar para direcionar  a sua carreira.
+                                Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
+                                Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
                             </p>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ const About = () => {
                             <h3>Workshops em laboratórios de informática</h3>
                             <p>
                                 Já pensou em aplicar o que vemos e ouvimos nas palestras?
-                                As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops para que você não só saía da palestra conhecendo do assunto, mas sim, já dominando um pouco na prática!
+                                As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saía da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
                             </p>
                         </div>
                     </div>
@@ -99,8 +99,8 @@ const About = () => {
                         <div className='lecture-sample-description'>
                             <h3>Networking com participantes</h3>
                             <p>
-                                Não perca a oportunidade de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
-                                Dica; conecte com os palestrantes no LinkedIn e anote os contatos de cada um para eventuais dúvidas.
+                                Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
+                                Dica: conecte-se com os palestrantes no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
                             </p>
                         </div>
                     </div>
