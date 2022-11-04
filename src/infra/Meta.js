@@ -9,7 +9,7 @@ const Meta = ({ title, keywords, description }) => {
       <meta name='keywords' content={keywords} />
       <meta name='description' content={description} />
 
-      <meta property="og:url" content="https://www.semanadesi.com.br/" />
+      <meta property="og:url" content="https://www.semanadesi.com/" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -17,8 +17,8 @@ const Meta = ({ title, keywords, description }) => {
 
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta property="twitter:domain" content="semanadesi.com.br" />
-      <meta property="twitter:url" content="https://www.semanadesi.com.br/" />
+      <meta property="twitter:domain" content="semanadesi.com" />
+      <meta property="twitter:url" content="https://www.semanadesi.com/" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={img_src}></meta>
