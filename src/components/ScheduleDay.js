@@ -71,6 +71,7 @@ const scheduleDay = ({ weekDay }) => {
                   <td className='schedule-message'>
                     <h2>{lecture.message}</h2>
                   </td>
+                  <div className='lecture-spacing'></div>
                 </td>
               ) : (
                 <td className='schedule-info'>
@@ -96,6 +97,7 @@ const scheduleDay = ({ weekDay }) => {
                       overview={lecture.description}
                     />
                   </div>
+                  <div className='lecture-spacing'></div>
                 </td>
               )}
             </tr>
@@ -211,10 +213,6 @@ const ListSchedule = styled.table`
     display: none;
   }
 
-  tr {
-    border-bottom: solid transparent 2rem;
-  }
-
   td.schedule-message {
     width: 1%;
   }
@@ -274,6 +272,10 @@ const ListSchedule = styled.table`
         color: #8744C2;
         transition: color .2s;
       }
+    }
+
+    .lecture-spacing {
+      margin-bottom: 2rem;
     }
 
     span {
