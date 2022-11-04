@@ -222,7 +222,7 @@ const ListSchedule = styled.table`
   .schedule-message {
     width: 100%;
     max-width: 400px;
-    
+
     h2 {
       color: #fff;
       font-size: 2rem;
@@ -279,7 +279,7 @@ const ListSchedule = styled.table`
     span {
       color: #8744C2;
       font-family: 'Bebas Neue';
-      font-size: 1.4rem;
+      font-size: 1.7rem;
 
       a {
         text-decoration: underline;
@@ -303,7 +303,7 @@ const ListSchedule = styled.table`
   }
 
   @media (min-width: 800px) {
-  
+
     td.schedule-time {
       display: block;
     }

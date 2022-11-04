@@ -7,13 +7,13 @@ const ScheduleInformation = ({ speakerPicture, speakerName, title, overview }) =
         <>
             <ScheduleInformationStyle>
                 <div className='first-section-schedule-box'>
-                    {speakerPicture ? 
+                    {speakerPicture ?
                         <img className='speaker-picture' src={speakerPicture} />
-                        : 
+                        :
                         <div className='space-div'></div>
                     }
                     <h3 className='speakerName'>{speakerName}</h3>
-                    
+
                 </div>
 
                 <div className='second-section-schedule-box'>
@@ -80,7 +80,7 @@ const ScheduleInformationStyle = styled.div`
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
-        line-height: 19px;
+        line-height: 2rem;
         color: #FFFFFF;
         margin-bottom: 3rem;
         text-align: justify;
@@ -88,7 +88,6 @@ const ScheduleInformationStyle = styled.div`
 
     @media (min-width:600px) {
 
-        /* flex-direction: row; */
         max-width: 500px;
 
         .space-div {
