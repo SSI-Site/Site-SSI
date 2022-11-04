@@ -1,52 +1,44 @@
-
+import LectureImage01 from '../public/images/lecture_imgs/01-Mindsight.jpeg'
 import LectureImage02 from '../public/images/lecture_imgs/02-Lucas_Magon.png'
 import LectureImage03 from '../public/images/lecture_imgs/03-Rodrigo_Ferreira.jpg'
-
+import LectureImage04 from '../public/images/lecture_imgs/04-Luciano_Digiampietri.jpg'
 import LectureImage05 from '../public/images/lecture_imgs/05-Ana_Paula_Frizzo.jpg'
-
-
+import LectureImage06 from '../public/images/lecture_imgs/06-Fernando_Chiu_Hsieh.jpg'
+// 07 - Lab das Minas não enviou
 import LectureImage08 from '../public/images/lecture_imgs/08-Ana_Ferreira.jpeg'
 import LectureImage09 from '../public/images/lecture_imgs/09-Lavínia_Paganini.jpeg'
-
-
+import LectureImage10 from '../public/images/lecture_imgs/10-Isabel_Mendes.png'
+import LectureImage11 from '../public/images/lecture_imgs/11-Daniel_Batista.png'
 import LectureImage12 from '../public/images/lecture_imgs/12-Vencer_Agil.jpg'
-
-
-
-
+// 13 - Daninel Cordeiro não enviou
+import LectureImage14 from '../public/images/lecture_imgs/14-Larissa_Maruyama.jpg'
+// 15 - Ainda a decidir palestra(nte)
+// 16 - Tem 4 palestrantes
 import LectureImage17 from '../public/images/lecture_imgs/17-Giovanni_de_Carvalho.jpg'
 import LectureImage18 from '../public/images/lecture_imgs/18-Fabiano_Luiz_Caldas_Leite.jpg'
-
-
+// 19 - Tem 2 palestrantes
 import LectureImage20 from '../public/images/lecture_imgs/20-Marcelo_L._Perrucci.jpg'
-import LectureImage21 from '../public/images/lecture_imgs/21-Bruna_ZS.png'
+// 21 - Tem 2 palestrantes
 import LectureImage22 from '../public/images/lecture_imgs/22-Talita_Rodrigues.jpg'
-
+// 23 - Palestrante não enviou
 import LectureImage24 from '../public/images/lecture_imgs/24-William_Oliveira.jpg'
 import LectureImage26 from '../public/images/lecture_imgs/26-Caio_Novais_Fernandes_da_Silva.jpg'
-
-
 import LectureImage27 from '../public/images/lecture_imgs/27-Marylly_Silva.jpg'
-
+// 28 - Ainda a decidir palestra(nte) 
 import LectureImage29 from '../public/images/lecture_imgs/29-Fransuel_Nascimento.jpeg'
 import LectureImage30 from '../public/images/lecture_imgs/30-Gael_Sena.jpg'
-
+// 31 - Ana Clara Cavalcante não enviou (CodeLab)
 import LectureImage32 from '../public/images/lecture_imgs/32-Felipe_Voigtlaender_Furquim.jpg'
-
+// 33 - Totvs: ainda a decidir palestra(nte) 
 import LectureImage34 from '../public/images/lecture_imgs/34-Ricardo_Filho.jpg'
 import LectureImage35 from '../public/images/lecture_imgs/35-Jéderson_Freitas.jpg'
-
-
-
-
-
 import LectureImage36 from '../public/images/lecture_imgs/36-Gabul_DEV.png'
-// 37
+// 37 - Revelo: ainda a decidir palestra(nte) 
 import LectureImage38 from '../public/images/lecture_imgs/38-Beronalda_Silva.png'
-// 39
-// 40
-// 41
-// 42
+// 39 - Alexia Kattah não enviou 
+// 40 - Júlio de Freitas Ferreira não enviou (Síntese Jr.)
+// 41 - Rafaelli Harumi Mecenas Yabe não enviou 
+// 42 - Tem 2 palestrantes (PET-SI)
 import LectureImage43 from '../public/images/lecture_imgs/43-Téo_Calvo_(Téo).jpg'
 
 const schedule = {
@@ -54,15 +46,15 @@ const schedule = {
     '08:40': { message: 'Abertura' },
     '10:00': {
       title: 'Transformação digital: tecnologia como negócio',
-      description: '',
+      description: '"Como a construção de novos produtos pode gerar valor na transformação digital?" Discussão de como o time de desenvolvimento pode interpretar as necessidades dos clientes e traduzir isso em soluções robustas que agreguem valor.',
       local: 'presential',
       speakers: [
-        { name: 'Fernando Karchiloff' },
-        { name: 'Gabriel Brandão' },
-        { name: 'Guilherme Schützer' },
+        { name: 'Fernando Karchiloff', anchor: 'https://mindsight.com.br' },
+        { name: 'Gabriel Brandão', anchor: 'https://mindsight.com.br' },
+        { name: 'Guilherme Schützer', anchor: 'https://mindsight.com.br' },
         { name: 'Felipe Moreira', anchor: 'https://mindsight.com.br' }
       ],
-      image: ''
+      image: LectureImage01
     },
     '11:20': {
       title: 'O futuro dos jogos e simuladores médicos: cuidando de pacientes virtuais em AR, VR e MR',
@@ -81,18 +73,18 @@ const schedule = {
       description: 'A palestra "Construindo o ecossistema de tecnologias quânticas no Brasil" versa sobre os principais desafios e oportunidades que a Brazil Quantum detectou nos últimos anos de atuação. Falaremos sobre os nossos projetos, aprendizados e o que estamos planejando para o futuro.',
       local: 'online',
       speakers: [
-        { name: 'Rodrigo Ferreira' }
+        { name: 'Rodrigo Ferreira', anchor: 'https://www.linkedin.com/in/rodrigo-pires-ferreira/' }
       ],
       image: LectureImage03
     },
     '14:40': {
-      title: 'Em breve',
-      description: '',
+      title: 'Identificação de notícias falsas',
+      description: 'Atualmente, a propagação de notícias falsas tem se mostrado um grande desafio para a correta transmissão e compartilhamento de informações. Essa propagação pode causar diversos efeitos negativos para a sociedade sendo considerada, por muitos autores, uma das maiores inimigas da democracia moderna. Nesta palestra serão discutidos alguns aspectos relacionados ao processo de divulgação de notícias falsas e quais são as principais estratégias computacionais utilizadas para auxiliar na identificação de potenciais notícias falsas.',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Luciano Antonio Digiampietri', anchor: 'http://www.each.usp.br/digiampietri/' }
       ],
-      image: ''
+      image: LectureImage04
     },
     '16:00': {
       title: 'Soft Skills - Pilares que sustem o sucesso da sua carreira',
@@ -105,28 +97,28 @@ const schedule = {
       A falta destas habilidades podem sabotar uma carreira.`,
       local: 'online',
       speakers: [
-        { name: 'Ana Paula Frizzo', anchor: 'https://www.instagram.com/frizzoanapaula/' }
+        { name: 'Ana Paula Frizzo', anchor: 'https://www.linkedin.com/in/ana-paula-frizzo-68115984/' }
       ],
       image: LectureImage05
     },
     '17:20': {
-      title: 'Em breve',
-      description: '',
+      title: 'SSI Talks - Aprendizado por reforço: uma visão geral',
+      description: 'Egresso de sistemas de informação na each, possuo intercâmbio na Vrije Universiteit Amsterdam. Tenho mais de 4 anos de experiência na área de aprendizado por reforço, atualmente sou aluno de mestrado do PPGSI e o meu tema de pesquisa é em como utilizar modelos simbólicos do ambiente para acelerar o aprendizado por reforço em ambientes de recompensas esparsas.',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Fernando Chiu Hsieh', anchor: '' }
       ],
-      image: ''
+      image: LectureImage06
     },
 
     '18:20': { message: 'Janta' },
 
     '19:20': {
-      title: 'Em breve',
-      description: '',
+      title: 'SSI Talks - Apagamento de Mulheres na Ciência',
+      description: 'Egresso de sistemas de informação na each, possuo intercâmbio na Vrije Universiteit Amsterdam. Tenho mais de 4 anos de experiência na área de aprendizado por reforço, atualmente sou aluno de mestrado do PPGSI e o meu tema de pesquisa é em como utilizar modelos simbólicos do ambiente para acelerar o aprendizado por reforço em ambientes de recompensas esparsas.',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Lab das Minas', anchor: 'https://www.instagram.com/labdasminas/' }
       ],
       image: ''
     },
@@ -146,27 +138,27 @@ const schedule = {
       description: 'Já tentou subir uma aplicação e percebeu que o repositório não conseguia compilar? Você pode evitar isso com um workflow do GitHub Actions! Venha aprender mais sobre workflows, eventos, actions com Lavínia Paganini, estudante de mestrado em Ciência da Computação da UFPE, back-end Software Engineer na Gympass e GitHub Campus Expert.',
       local: 'online',
       speakers: [
-        { name: 'Lavínia Paganini', anchor: '' }
+        { name: 'Lavínia Paganini', anchor: 'https://www.linkedin.com/in/lavinia-paganini/' }
       ],
       image: LectureImage09
     },
     '10:00': {
-      title: 'Em breve',
+      title: 'Como iniciar as validações de acessibilidade mobile',
       description: '',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Isabel Mendes', anchor: 'https://www.linkedin.com/in/isabel-mendes-88489174/' }
       ],
-      image: ''
+      image: LectureImage10
     },
     '11:20': {
       title: 'Segurança de Redes de Computadores: do Hardware ao 6G passando pelas Cidades Inteligentes',
-      description: '',
+      description: 'Agora que as redes de telecomunicações móveis de quinta geração (5G) estão sendo implantadas ao redor do mundo, a academia e a indústria já começam a projetar a sexta geração (6G). A enorme dependência que a humanidade terá dessas novas redes, aliada com a altíssima capacidade de transmissão e com as novas legislações de proteção de dados, exigirá novas técnicas que garantam segurança desde o hardware até a nuvem. Nesta palestra serão apresentados alguns conceitos básicos e avanços recentes para a resolução de problemas de segurança de redes de computadores, passando pelo hardware, pela classificação do tráfego da rede até chegar em aplicações de cidades inteligentes, com foco no que está sendo planejado para 6G. Também serão divulgadas algumas oportunidades de pesquisa para estudantes de graduação e de pós-graduação em projetos nos quais o Grupo de Sistemas de Software do IME da USP participa.',
       local: 'presential',
       speakers: [
         { name: 'Daniel Batista', anchor: '' }
       ],
-      image: ''
+      image: LectureImage11
     },
 
     '12:20': { message: 'Almoço' },
@@ -176,27 +168,27 @@ const schedule = {
       description: 'A palestra tem como objetivo mostrar a diferença entre ser e fazer o ágil, demonstrando a importância do pensar ágil para ter acesso a todos os benefícios da prática.',
       local: 'presential',
       speakers: [
-        { name: 'Aryane Saito', anchor: '' }
+        { name: 'Aryane Saito', anchor: 'https://www.linkedin.com/in/aryane-saito-b24644157/' }
       ],
       image: LectureImage12
     },
     '14:40': {
-      title: 'Em breve',
+      title: 'Como SI pode melhorar a pegada de carbono de data centers',
       description: '',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Daniel Cordeiro', anchor: 'http://www.each.usp.br/dc/' }
       ],
       image: ''
     },
     '16:00': {
-      title: 'Em breve',
-      description: '',
+      title: 'SSI Talks - Carreiras em cybersecurity',
+      description: 'Jornalista e graduanda de Sistemas de Informação na EACH USP, atua como Red Team na Clavis Segurança da Informação e ajudou a fundar o grupo [E]ACH InTheShell_. Quando falamos de trabalho em segurança da informação, não imaginamos as muitas possibilidades de carreira na área e que há espaço para pessoas de tecnologia e de outras áreas.',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Larissa Maruyama', anchor: 'https://www.linkedin.com/in/larissamaruyama/' }
       ],
-      image: ''
+      image: LectureImage14
     },
     '17:20': {
       title: 'Em breve',
@@ -217,8 +209,8 @@ const schedule = {
       speakers: [
         { name: 'Gisele Craveiro', anchor: '' },
         { name: 'Renata Araújo', anchor: '' },
-        { name: 'Juliana Trevine', anchor: '' },
-        { name: 'Vanessa Nascimento', anchor: '' }
+        { name: 'Juliana Trevine', anchor: 'https://www.linkedin.com/in/juliana-trevine' },
+        { name: 'Vanessa Nascimento', anchor: 'https://www.linkedin.com/in/vanascimento-dev/' }
       ],
       image: ''
     },
@@ -239,7 +231,7 @@ const schedule = {
       description: 'Na palestra compartilharei minha experiência e os desafios de fazer uma empresa crescer de uma startup até ser uma grande empresa com ações na bolsa. ',
       local: 'presential',
       speakers: [
-        { name: 'Fabiano Luiz Caldas Leite', anchor: '' }
+        { name: 'Fabiano Luiz Caldas Leite', anchor: 'https://www.linkedin.com/in/fabianoleite/r' }
       ],
       image: LectureImage18
     },
@@ -270,17 +262,17 @@ const schedule = {
       description: 'Existem diferentes oportunidades e carreiras em Ciência de Dados, cada uma demandando habilidades e conhecimentos específicos. Nessa palestra nós detalharemos esses pontos, contaremos um pouco das nossas trajetórias, descreveremos o dia-a-dia de um cientista de dados e os desafios de se trabalhar na área.',
       local: 'online',
       speakers: [
-        { name: 'Bruna Zamith', anchor: '' },
-        { name: 'Michelle Gerez', anchor: '' }
+        { name: 'Bruna Zamith', anchor: 'https://www.linkedin.com/in/bruna-zamith' },
+        { name: 'Michelle Gerez', anchor: 'https://www.linkedin.com/in/michelle-gerez-5299a332/' }
       ],
-      image: LectureImage21
+      image: ''
     },
     '14:40': {
       title: 'Como mantemos dados seguros usando criptografia?',
       description: 'Na nossa palestra vamos falar sobre os diferentes usos que podemos ter de criptografia para garantir a segurança dos dados em seus diferentes momentos de vida (o tal do life cycle)',
       local: 'presential',
       speakers: [
-        { name: 'Talita Rodrigues', anchor: '' }
+        { name: 'Talita Rodrigues', anchor: 'https://www.linkedin.com/in/talirodrigues84/' }
       ],
       image: LectureImage22
     },
@@ -319,7 +311,7 @@ const schedule = {
       description: 'A finalidade dessa palestra é mostrar os principais vícios de programação Shell, como evitá-los e sempre comparando os tempos da forma usual com a forma correta de uso de cada item analisado. Se você assisti-la, verá que muito do que você faz, pode ser bastante otimizado. Ela não te transformará num "admin Raíz" mas, pelo menos um pouco menos "Nutella". :-)',
       local: 'online',
       speakers: [
-        { name: 'Julio Neves', anchor: '' }
+        { name: 'Julio Neves', anchor: 'https://www.linkedin.com/in/juliocezarneves/' }
       ],
       image: LectureImage26
     },
@@ -330,7 +322,7 @@ const schedule = {
       description: 'Engenheira de Software, Tech Lead, futura Arquiteta de Software e Cultivadora da Cultura DevOps na ThoughtWorks. Menina e mulher de família de cor simples da periferia de SP capital.',
       local: 'online',
       speakers: [
-        { name: 'Marylly Silva', anchor: '' }
+        { name: 'Marylly Silva', anchor: 'https://www.linkedin.com/in/marylly/' }
       ],
       image: LectureImage27
     },
@@ -348,7 +340,7 @@ const schedule = {
       description: 'Como diferentes práticas profissionais podem se beneficiar através de metodologias de Design.',
       local: 'presential',
       speakers: [
-        { name: 'Fransuel Nascimento', anchor: '' }
+        { name: 'Fransuel Nascimento', anchor: 'https://www.linkedin.com/in/fransuel-nascimento/' }
       ],
       image: LectureImage29
     },
@@ -360,7 +352,7 @@ const schedule = {
       description: 'Falaremos um pouco sobre o papel do teste feito pelo analista de quality assurance (Tester) e a sua influência na qualidade do software.',
       local: 'online',
       speakers: [
-        { name: 'Gael Sena', anchor: '' }
+        { name: 'Gael Sena', anchor: 'https://www.linkedin.com/in/gaelsena/' }
       ],
       image: LectureImage30
     },
@@ -387,7 +379,7 @@ const schedule = {
       description: '',
       local: 'presential',
       speakers: [
-        { name: 'TOTVS', anchor: '' }
+        { name: 'TOTVS', anchor: 'https://www.totvs.com/' }
       ],
       image: ''
     },
@@ -399,7 +391,7 @@ const schedule = {
       description: '',
       local: 'presential',
       speakers: [
-        { name: 'Ricardo di Lazzaro Filho', anchor: '' }
+        { name: 'Ricardo di Lazzaro Filho', anchor: 'https://www.linkedin.com/in/ricardo-di-lazzaro-filho/' }
       ],
       image: LectureImage34
     },
@@ -408,7 +400,7 @@ const schedule = {
       description: 'Na palestra, passarei a visão do que está acontecendo com relação aos inúmeros incidentes cibernéticos, os principais motivos pelos quais esses incidentes estão acontecendo e, ao final, como endereçar o desafio de criar e manter aplicações seguras.',
       local: 'online',
       speakers: [
-        { name: 'Jéderson Freitas', anchor: '' }
+        { name: 'Jéderson Freitas', anchor: 'https://www.linkedin.com/in/jedersonfreitas/' }
       ],
       image: LectureImage35
     },
@@ -419,7 +411,7 @@ const schedule = {
       description: 'Já pensou em entrar para o mundo da tecnoliga mobile que mais cresceu nesses últimos anos? Aprender a criar aplicativos como Nubank, Google Pay e vários outros que utilizam o Flutter? Então, na palestra de hoje vou lhe ensinar os caminhos para entrar no mundo incrível dessa tecnolgia da Google.',
       local: 'presential',
       speakers: [
-        { name: 'Gabul DEV', anchor: '' }
+        { name: 'Gabul DEV', anchor: 'https://www.linkedin.com/in/gabuldev/' }
       ],
       image: LectureImage36
     },
@@ -428,7 +420,7 @@ const schedule = {
       description: '',
       local: 'online',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Revelo', anchor: 'https://www.revelo.com.br/' }
       ],
       image: ''
     },
@@ -453,16 +445,16 @@ const schedule = {
       description: '',
       local: 'presential',
       speakers: [
-        { name: 'Alexia Kattah', anchor: '' }
+        { name: 'Alexia Kattah', anchor: 'https://www.instagram.com/alexiakattah/' }
       ],
       image: ''
     },
     '14:40': {
-      title: 'Em breve',
+      title: 'SSI Talks - Da venda até entrega: ganhe dinheiro com o curso de SI',
       description: '',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Júlio de Freitas Ferreira', anchor: 'https://www.sintesejr.com.br/' }
       ],
       image: ''
     },
@@ -481,7 +473,7 @@ const schedule = {
       local: 'presential',
       speakers: [
         { name: 'Giovanna Arana Paganotti', anchor: 'https://www.instagram.com/petsieach/' },
-        { name: 'Rafaela Oliveira da Silva Sá', anchor: '' }
+        { name: 'Rafaela Oliveira da Silva Sá', anchor: 'https://www.instagram.com/petsieach/' }
       ],
       image: ''
     },
@@ -493,7 +485,7 @@ const schedule = {
       description: 'Sou formado em Estatística na FCT-UNESP de Presidente Prudente - SP, cidade onde nasci, cresci, estudei e onde moro atualmente. Em 2018 encerrei uma pós graduação em Data Science & Big Data pela UFPR em Curitiba - PR, cidade onde passei frio por dois longos anos. Trabalho na área de dados desde 2014, descobrindo o que os dados podem nos ajudar com insights e predições nos negócios. De lá para cá passei por diferentes empresas e hoje sou Head de Dados na Gamers Club.',
       local: 'online',
       speakers: [
-        { name: 'Téo Calvo', anchor: '' }
+        { name: 'Téo Calvo', anchor: 'https://www.linkedin.com/in/teocalvo/' }
       ],
       image: LectureImage43
     },
