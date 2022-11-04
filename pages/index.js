@@ -145,8 +145,8 @@ const Home = () => {
                         </div>
 
                         <ScheduleInformation
-                            speakerPicture={speakerPicture} speakerName="Palestrante"
-                            title="Em breve"
+                            speakerPicture={speakerPicture}
+                            title="palestra"
                             overview="Assim como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
                         />
 
@@ -161,8 +161,7 @@ const Home = () => {
                     <div className='starr star-four'></div>
 
                 </div>
-                <Button disabled onClick={() => router.push('/schedule')}>Confira</Button>
-                <span id="#temp-span" style={{ "marginTop": "15px", "maxWidth": "70%", "textAlign": "center" }}>As informações sobre a programação serão divulgadas em breve.</span>
+                <Button onClick={() => router.push('/schedule')}>Confira</Button>
 
             </ScheduleSection>
 
@@ -183,7 +182,7 @@ const Home = () => {
                         </li>
                     ))}
                 </ul>
-                {/* <h3 id="#temp-span" style={{"marginBottom": "15px", "maxWidth": "70%", "textAlign": "center"}}>Nossos apoiadores serão divulgados em breve.</h3> */}
+
                 <div className="background-blur" />
             </SupportersSection>
         </>

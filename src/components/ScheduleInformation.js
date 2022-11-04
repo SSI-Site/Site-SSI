@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import borda from '../../public/images/borda.png'
 
@@ -6,8 +7,13 @@ const ScheduleInformation = ({ speakerPicture, speakerName, title, overview }) =
         <>
             <ScheduleInformationStyle>
                 <div className='first-section-schedule-box'>
-                    <img className='speaker-picture' src={speakerPicture} />
+                    {speakerPicture ?
+                        <img className='speaker-picture' src={speakerPicture} />
+                        :
+                        <div className='space-div'></div>
+                    }
                     <h3 className='speakerName'>{speakerName}</h3>
+
                 </div>
 
                 <div className='second-section-schedule-box'>
@@ -37,11 +43,15 @@ const ScheduleInformationStyle = styled.div`
     border-image-repeat: stretch;
 
     .speaker-picture{
-        width: 100px;
-        /* height: 120px; */
-        /* border-radius: 75px 75px 0px 0px; */
+        width: 150px;
+        height: 150px;
+        border-radius: 75px 75px 0px 0px;
         margin-top: 3rem;
         object-fit: cover;
+    }
+
+    .space-div {
+        height: 3.5rem;
     }
 
     .speakerName{
@@ -53,31 +63,32 @@ const ScheduleInformationStyle = styled.div`
         display:flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
     .speech-title{
-        font-size: 25px;
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
+        width: 90%;
+        font-size: 2rem;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
         text-align: center;
     }
 
     .speech-overview{
         width: 80%;
-        text-align: justify;
+        text-align: center;
 
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
-        line-height: 19px;
+        line-height: 2rem;
         color: #FFFFFF;
         margin-bottom: 3rem;
-        text-align: justify;
     }
 
     @media (min-width:600px) {
-
-        flex-direction: row;
-        max-width: 500px;
+        .space-div {
+            height: 1.5rem;
+        }
 
         .first-section-schedule-box{
             margin: 20px;
@@ -89,8 +100,13 @@ const ScheduleInformationStyle = styled.div`
 
         .speaker-picture{
             margin-top: 0px;
+            width: 300px;
+            height: 300px;
+            border-radius: 150px 150px 0px 0px;
+        }
+
+        .speech-overview {
+            text-align: justify;
         }
     }
-
-
 `
