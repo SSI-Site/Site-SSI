@@ -80,6 +80,11 @@ const Nav = () => {
                             <div></div>
                         </li>
 
+                        <li>
+                            <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
+                            <div></div>
+                        </li>
+
                         {user ?
                             <li className='userPicContainer'>
                                 <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
@@ -121,6 +126,11 @@ const Nav = () => {
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/co"><a>Comissão Organizadora</a></Link>
+                                <div></div>
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
                                 <div></div>
                             </li>
 
