@@ -105,7 +105,7 @@ const Nav = () => {
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
-                                <Link href="/schedule"><a style={{ "color": "gray" }}>Programação</a></Link>
+                                <Link href="/schedule"><a>Programação</a></Link>
                                 <div></div>
                             </li>
 
