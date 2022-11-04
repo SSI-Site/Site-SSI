@@ -172,7 +172,7 @@ const ListSchedule = styled.table`
   border-collapse: collapse;
   margin-bottom: 15rem;
   width: 80%;
-  max-width: 800px;
+  max-width: 950px;
 
   td.schedule-time {
     display: none;

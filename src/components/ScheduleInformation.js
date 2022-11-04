@@ -75,7 +75,7 @@ const ScheduleInformationStyle = styled.div`
 
     .speech-overview{
         width: 80%;
-        text-align: justify;
+        text-align: center;
 
         font-family: 'Roboto';
         font-style: normal;
@@ -83,13 +83,9 @@ const ScheduleInformationStyle = styled.div`
         line-height: 2rem;
         color: #FFFFFF;
         margin-bottom: 3rem;
-        text-align: justify;
     }
 
     @media (min-width:600px) {
-
-        max-width: 500px;
-
         .space-div {
             height: 1.5rem;
         }
@@ -108,7 +104,9 @@ const ScheduleInformationStyle = styled.div`
             height: 300px;
             border-radius: 150px 150px 0px 0px;
         }
+
+        .speech-overview {
+            text-align: justify;
+        }
     }
-
-
 `
