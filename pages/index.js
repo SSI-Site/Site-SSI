@@ -6,7 +6,6 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 
-//components
 import Button from '../src/components/Button'
 import DateComponent from '../src/components/DateComponent';
 import ScheduleInformation from '../src/components/ScheduleInformation';
@@ -15,7 +14,6 @@ import AuthModal from '../src/components/AuthModal'
 import ModalTokenComponent from '../src/components/ModalTokenComponent'
 import Divider from '../src/components/Divider';
 
-//assets
 import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'
 import borda from '../public/images/borda2.png';
 import star from '../public/images/star.svg';
@@ -32,7 +30,6 @@ const supporters = [
 ].sort((a, b) => a.title > b.title ? 1 : -1)
 
 const Home = () => {
-
     const router = useRouter();
     const { user } = useAuth();
 
@@ -53,26 +50,24 @@ const Home = () => {
         }
     }
 
-    const handleClickSuporter = supporter => {
-        // Coletar metricas de cliques
-    }
+    const checkUserRegister = async () => {
+        if (!user) return;
 
-    const checkUser = async () => {
         setIsLoading(true);
-        await saphira.testTimeout();
 
-        if (user && !isUserRegistered) {
-            console.log("Não registrado");
-            setIsUserRegistered(true);
-        } else if (user && isUserRegistered) {
-            console.log("Registrado")
-        }
-
-        setIsLoading(false);
+        saphira.getUser(user.email)
+            .then(() => {
+                setIsUserRegistered(true);
+                setIsLoading(false);
+            })
+            .catch(() => {
+                setIsUserRegistered(false);
+                setIsLoading(false);
+            });
     }
 
     useEffect(() => {
-        checkUser();
+        checkUserRegister();
     }, [user]);
 
     return (
@@ -96,8 +91,9 @@ const Home = () => {
                             <>
                                 <div className='content-login'>
                                     {user ?
-                                        <WelcomeComponent>Bem-vinde{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
-                                        : <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                        <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                        :
+                                        <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
                                     }
                                 </div>
 
@@ -126,7 +122,7 @@ const Home = () => {
                             </>
                             :
                             <Loading>
-                                <img src='./loading.svg' alt='SSI 2022 - Loading'/>
+                                <img src='./loading.svg' alt='SSI 2022 - Loading' />
                             </Loading>
                         }
 

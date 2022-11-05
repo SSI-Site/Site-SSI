@@ -1,24 +1,58 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import styled from 'styled-components';
 import { useForm } from "react-hook-form";
-import InputMask from 'react-input-mask';
 import { cpf } from 'cpf-cnpj-validator';
+import InputMask from 'react-input-mask';
+import styled from 'styled-components';
+import useAuth from '../../hooks/useAuth';
+
+import saphira from '../../services/saphira';
 
 import Button from "../components/Button"
-import { useEffect } from 'react';
 
 const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
     const router = useRouter();
+    const { user } = useAuth();
 
     const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: userInfo });
-    const onSubmit = data => {
-        console.log(data);
-        router.reload();
+
+    const onSubmit = async data => {
+        let isSuccess;
+
+        if(isEditing) {
+            isSuccess = await saphira.updateUser(formatUserData(data));
+
+            if(isSuccess) router.reload();
+            else console.log("\n #SAPH ERR -> on update \n");
+        } else {
+            saphira.registerUser(formatUserData(data))
+                .then((res) => {
+                    if(res) router.reload();
+                    else console.log("\n #SAPH ERR -> on register \n");
+                }).catch(err => {
+                    console.log(err);
+                })
+
+        }
     };
 
-    useEffect(() => {
-        console.log(userInfo)
-    }, [])
+    const formatUserData = (data) => {
+        const birthDateElements = data.birth_date.split('/');
+
+        return {
+            fullName: `${data.name} ${data.last_name}`,
+            email: user.email,
+            document: data.documentType === "nusp" ? data.nusp_value : data.cpf_value,
+            birthDate: `${birthDateElements[2]}-${birthDateElements[1]}-${birthDateElements[0]}`,
+            gender: data.gender === "outro" ? data.custom_gender : data.gender,
+            ethnicity: data.ethnicity === "outro" ? data.custom_ethnicity : data.ethnicity,
+            course: data.course === "outro" ? data.custom_course : data.course,
+            graduationPeriod: data.graduation_period,
+            knowAbout: data.know_about === "outro" ? data.custom_know_about : data.know_about,
+            isInInternship: data.is_in_internship,
+            acceptedRecieveEmails: data.accepted_recieve_emails
+        }
+    }
 
     return (
         <>

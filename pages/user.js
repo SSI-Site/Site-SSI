@@ -9,8 +9,6 @@ import Button from '../src/components/Button';
 import ModalTokenComponent from '../src/components/ModalTokenComponent';
 import RegisterForm from '../src/components/RegisterForm';
 
-// lista com valores estáticos - a serem substituídos pelo saphira:
-
 const User = () => {
 
     const { user, signOut } = useAuth();
@@ -30,37 +28,54 @@ const User = () => {
         if (!user) return;
 
         setIsLoading(true);
-        await saphira.testTimeout();
 
-        if (user && !isUserRegistered) {
-            console.log("Não registrado");
-            setIsUserRegistered(true);
-        } else if (user && isUserRegistered) {
-            console.log("Registrado")
-        }
+        saphira.getUser(user.email)
+            .then((res) => {
+                console.log("Registrado")
+                console.log(res);
 
-        setIsLoading(false);
+                setIsUserRegistered(true);
+                console.log(getFormatRegisteredUserData(res.data))
+                setUserInfo({ ...getFormatRegisteredUserData(res.data) });
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log("Não registrado");
+                console.log(err)
+                setIsUserRegistered(false);
+                setIsLoading(false);
+            });
     }
 
-    const getUserInfo = () => {
+    const getFormatRegisteredUserData = (userData) => {
+        const nameElements = getFullNameComponents(userData.full_name);
+        const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
+
         return {
-            "name": "Lucas",
-            "last_name": "Mendes Sales",
-            "birth_date": "23/03/1997",
-            "documentType": "nusp",
-            "accepted_terms": true,
-            "gender": "outro",
-            "ethnicity": "outro",
-            "know_about": "outro",
-            "course": "outro",
-            "graduation_period": "nono +",
-            "is_in_internship": "true",
-            "accepted_recieve_emails": true,
-            "nusp_value": "11270736",
-            "custom_gender": "Único",
-            "custom_ethnicity": "Parda",
-            "custom_know_about": "Faço parte dela",
-            "custom_course": "Faculdade da vida"
+            name: nameElements.name,
+            last_name: nameElements.lastName,
+            birth_date: userData.data_nascimento,
+            documentType: documentType,
+            accepted_terms: true,
+            is_in_internship: userData.em_estágio,
+            accepted_recieve_emails: userData.aceita_receber_email,
+            nusp_value: documentType === "nusp" ? userData.document : "",
+            cpf_value: documentType === "cpf" ? userData.document : ""
+        }
+    }
+
+    const getFullNameComponents = (fullName) => {
+        const fullNameParts = fullName.split(" ");
+        const name = fullNameParts[0];
+        let lastName = "";
+
+        for (let i = 1; i < fullNameParts.length; i++) {
+            lastName += ` ${fullNameParts[i]}`
+        }
+
+        return {
+            name,
+            lastName
         }
     }
 
@@ -76,9 +91,9 @@ const User = () => {
 
     useEffect(() => {
         if (isUserRegistered) {
-            setUserInfo(getUserInfo());
             setLectures(getLectures());
         }
+
     }, [isUserRegistered]);
 
     useEffect(() => {
@@ -133,12 +148,21 @@ const User = () => {
                                         <p className='bold-info'>{user.email}</p>
                                     </UserInformation>
                                     <UserInformation>
-                                        <p>Número USP</p>
-                                        <p className='bold-info'>NUSP AQUI</p>
+                                        {userInfo.documentType === "nusp" ?
+                                            <>
+                                                <p>Número USP</p>
+                                                <p className='bold-info'>{userInfo.nusp_value}</p>
+                                            </>
+                                            :
+                                            <>
+                                                <p>CPF</p>
+                                                <p className='bold-info'>{userInfo.cpf_value}</p>
+                                            </>
+                                        }
                                     </UserInformation>
                                 </TextInfo>
 
-                                <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
+                                {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
                             </UserInfoLowerWrapper>
 
                         </UserInfoSection>
