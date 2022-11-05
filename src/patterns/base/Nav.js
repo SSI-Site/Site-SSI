@@ -148,9 +148,6 @@ const Nav = () => {
 
                         </ul>
 
-
-                        <Divider dividerSize="medium" />
-
                         <NavFooter>
                             <div className="logo-container">
                                 <img src="./images/logos/logo_sem_estrela.svg" alt="SSI logo" />
