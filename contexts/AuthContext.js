@@ -4,8 +4,6 @@ import cookie from 'js-cookie';
 
 import firebase from '../lib/firebase';
 
-//--
-
 const AuthContext = createContext();
 
 const formatUser = async (user) => ({
@@ -28,6 +26,7 @@ export function AuthProvider({ children }) {
             setSession(true);
             return formatedUser.email;
         }
+
         setUser(false);
         setSession(false);
         return false;
@@ -44,28 +43,28 @@ export function AuthProvider({ children }) {
     }
 
     const signinGitHub = async () => {
-        // try {
-        //     setLoading(true);
-        //     const response = await firebase
-        //         .auth()
-        //         .signInWithPopup(new firebase.auth.GithubAuthProvider());
-        //     handleUser(response.user);
+        try {
+            setLoading(true);
+            const response = await firebase
+                .auth()
+                .signInWithPopup(new firebase.auth.GithubAuthProvider());
+            handleUser(response.user);
 
-        // } finally {
-        //     setLoading(false);
-        // }
+        } finally {
+            setLoading(false);
+        }
     }
 
     const signinGoogle = async () => {
-        // try {
-        //     setLoading(true);
-        //     const response = await firebase
-        //         .auth()
-        //         .signInWithPopup(new firebase.auth.GoogleAuthProvider());
-        //     handleUser(response.user);
-        // } finally {
-        //     setLoading(false);
-        // }
+        try {
+            setLoading(true);
+            const response = await firebase
+                .auth()
+                .signInWithPopup(new firebase.auth.GoogleAuthProvider());
+            handleUser(response.user);
+        } finally {
+            setLoading(false);
+        }
     }
 
     const signOut = async () => {
@@ -91,8 +90,6 @@ export function AuthProvider({ children }) {
         signOut
     }}>{children}</AuthContext.Provider>;
 }
-
-//--
 
 export const AuthConsumer = AuthContext.Consumer;
 export default AuthContext;

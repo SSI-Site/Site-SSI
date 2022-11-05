@@ -6,7 +6,6 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 
-//components
 import Button from '../src/components/Button'
 import DateComponent from '../src/components/DateComponent';
 import ScheduleInformation from '../src/components/ScheduleInformation';
@@ -15,7 +14,6 @@ import AuthModal from '../src/components/AuthModal'
 import ModalTokenComponent from '../src/components/ModalTokenComponent'
 import Divider from '../src/components/Divider';
 
-//assets
 import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'
 import borda from '../public/images/borda2.png';
 import star from '../public/images/star.svg';
@@ -32,12 +30,13 @@ const supporters = [
 ].sort((a, b) => a.title > b.title ? 1 : -1)
 
 const Home = () => {
-
     const router = useRouter();
-    const { user } = useAuth();
+    const { user, signOut } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
+    const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const toggleModalTokenIsOpen = () => {
         setIsModalTokenOpen(!isModalTokenOpen);
@@ -51,9 +50,25 @@ const Home = () => {
         }
     }
 
-    const handleClickSuporter = supporter => {
-        // Coletar metricas de cliques
+    const checkUserRegister = () => {
+        if (!user) return;
+
+        setIsLoading(true);
+
+        saphira.getUser(user.email)
+            .then(() => {
+                setIsUserRegistered(true);
+                setIsLoading(false);
+            })
+            .catch(() => {
+                setIsUserRegistered(false);
+                setIsLoading(false);
+            });
     }
+
+    useEffect(() => {
+        checkUserRegister();
+    }, [user]);
 
     return (
         <>
@@ -72,35 +87,48 @@ const Home = () => {
                             <h3>Palestras do dia 07/11 ao dia 11/11</h3>
                         </div>
 
-                        {/* <div className='content-login'>
-                            { user ?
-                                <WelcomeComponent>Bem-vindx{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
-                                : <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
-                            }
-                        </div> */}
+                        {!isLoading ?
+                            <>
+                                <div className='content-login'>
+                                    {user ?
+                                        <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                        :
+                                        <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                    }
+                                </div>
 
-                        <WelcomeComponent>Bem-vinde!</WelcomeComponent>
-                        <span id="#temp-span" style={{"marginBottom": "60px", "maxWidth": "70%", "textAlign": "center"}}>
-                            O cadastro para o evento estará disponível em breve.</span>
+                                {showAuthModal &&
+                                    <AuthModal
+                                        onClose={() => setShowAuthModal(false)}
+                                        show={showAuthModal}
+                                    />
+                                }
 
-                        {showAuthModal &&
-                            <AuthModal
-                                onClose={() => setShowAuthModal(false)}
-                                show={showAuthModal}
-                            />
+                                <TwitchWatchNowComponent />
+
+                                <div className='content-token'>
+                                    {user && isUserRegistered && !isModalTokenOpen &&
+                                        <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
+                                    }
+
+                                    {user && isModalTokenOpen &&
+                                        <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
+                                    }
+
+                                    {user && !isUserRegistered &&
+                                        <div className="complete-register-btns">
+                                            <Button onClick={() => router.push('/user')}>Conclua seu cadastro</Button>
+                                            <Button onClick={() => signOut()}>Sair</Button>
+                                        </div>
+                                    }
+                                </div>
+                            </>
+                            :
+                            <Loading>
+                                <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                            </Loading>
                         }
 
-                        <TwitchWatchNowComponent />
-
-                        <div className='content-token'>
-                            {user && !isModalTokenOpen &&
-                                <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
-                            }
-
-                            {user && isModalTokenOpen &&
-                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
-                            }
-                        </div>
                     </div>
                 </BannerSection>
 
@@ -188,6 +216,19 @@ const Home = () => {
         </>
     )
 }
+
+const Loading = styled.figure`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    padding-top: 2rem;
+
+    img {
+        width: 25%;
+    }
+`
 
 const BackgroundWrapper = styled.div`
     display: flex;
@@ -296,6 +337,21 @@ const BannerSection = styled.header`
         align-items: center;
     }
 
+    .content-token {
+        width: 100%;
+        text-align: center;
+    }
+
+    .complete-register-btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        button {
+            margin: 20px 10% 0 10%;
+        }
+    }
+
     h1 {
         font-family: 'Plaza';
         font-style: normal;
@@ -311,7 +367,7 @@ const BannerSection = styled.header`
         font-weight: 400;
         font-size: 2.25rem;
         text-align: center;
-        margin-bottom: 16px;
+        /* margin-bottom: 16px; */
     }
 
     button {
@@ -322,8 +378,8 @@ const BannerSection = styled.header`
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
-        height: 60vh;
-        max-height: 700px;
+        height: 100vh;
+        max-height: 650px;
         padding-top: 50px;
 
         .logo {
@@ -345,7 +401,7 @@ const BannerSection = styled.header`
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 200px;
+            height: 150px;
             width: 500px;
         }
 
@@ -354,7 +410,16 @@ const BannerSection = styled.header`
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 600px;
+        }
+
+        .complete-register-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            button {
+                margin: 0 10% 20px 10%;
+            }
         }
     }
 `

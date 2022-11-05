@@ -4,118 +4,230 @@ import styled from 'styled-components';
 import saphira from '../services/saphira';
 import useAuth from '../hooks/useAuth';
 
-//components
 import Button from '../src/components/Button';
-import ModalTokenComponent from '../src/components/ModalTokenComponent'
-
-// lista com valores estáticos - a serem substituídos pelo saphira:
-const palestras = [
-    'Palestra 1 super foda 3 com convidados especiais',
-    'Palestra 2 super foda 3 com convidados especiais',
-    'Palestra 3 super foda 3 com convidados especiais',
-    'Palestra 4 super foda 3 com convidados especiais'
-]
+import ModalTokenComponent from '../src/components/ModalTokenComponent';
+import RegisterForm from '../src/components/RegisterForm';
 
 const User = () => {
-
     const { user, signOut } = useAuth();
 
-    const [example, setExample] = useState("");
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
+    const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const [userInfo, setUserInfo] = useState({});
+    const [lectures, setLectures] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
     const toggleModalTokenIsOpen = () => {
         setIsModalTokenOpen(!isModalTokenOpen);
     }
 
-    async function fetchExample() {
-        const res = await saphira.getCatFact();
-        setExample(res.fact);
+    const checkUserRegister = () => {
+        if (!user) return;
+
+        setIsLoading(true);
+
+        saphira.getUser(user.email)
+            .then((res) => {
+                setIsUserRegistered(true);
+                setUserInfo({ ...saphiraUserDataToFormFormat(res.data) });
+                setIsLoading(false);
+            })
+            .catch(() => {
+                setIsUserRegistered(false);
+                setIsLoading(false);
+            });
     }
 
+    const saphiraUserDataToFormFormat = (userData) => {
+        const nameElements = getFullNameComponents(userData.full_name);
+        const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
+
+        return {
+            name: nameElements.name,
+            last_name: nameElements.lastName,
+            birth_date: userData.data_nascimento,
+            documentType: documentType,
+            accepted_terms: true,
+            is_in_internship: userData.em_estágio,
+            accepted_recieve_emails: userData.aceita_receber_email,
+            nusp_value: documentType === "nusp" ? userData.document : "",
+            cpf_value: documentType === "cpf" ? userData.document : ""
+        }
+    }
+
+    const getFullNameComponents = (fullName) => {
+        const fullNameParts = fullName.split(" ");
+        const name = fullNameParts[0];
+        let lastName = "";
+
+        for (let i = 1; i < fullNameParts.length; i++) {
+            lastName += ` ${fullNameParts[i]}`
+        }
+
+        return {
+            name,
+            lastName
+        }
+    }
+
+    const getLectures = () => {
+        return [];
+    }
+
+
     useEffect(() => {
-        fetchExample();
-    }, []);
+        if (isUserRegistered) {
+            setLectures(getLectures());
+        }
+
+    }, [isUserRegistered]);
+
+    useEffect(() => {
+        checkUserRegister();
+    }, [user]);
 
     return (
         <>
             <script
                 dangerouslySetInnerHTML={{
-                __html: `
+                    __html: `
                     if (!document.cookie || !document.cookie.includes('ssi-site-auth')) {
                         window.location.href = "/"
                     }
                 `
-            }} />
+                }} />
 
             <Meta title='SSI 2022 | Seu Perfil' />
-            <BackgroundWrapper>
-                <div className='padrao-background'></div>
 
-                { user ?
-                    <UserInfoSection>
-                        <UserInfoUpperWrapper>
-                            <PhotoNameWrapper>
-                                <img className='userPic' src={user.photoUrl} alt="user picture" />
-                                <h3>{user.name}</h3>
-                            </PhotoNameWrapper>
+            {isLoading &&
+                <Loading>
+                    <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                </Loading>
+            }
 
-                            <p>Palestras assistidas:<span className='bold-info'>&nbsp; 700 &#128293;</span></p>
-                        </UserInfoUpperWrapper>
-                        <UserInfoLowerWrapper>
-                            <TextInfo>
-                                <UserInformation>
-                                    <p>Email</p>
-                                    <p className='bold-info'>{user.email}</p>
-                                </UserInformation>
-                                <UserInformation>
-                                    <p>Número USP</p>
-                                    <p className='bold-info'>NUSP AQUI</p>
-                                </UserInformation>
-                            </TextInfo>
+            {!isLoading && user && !isUserRegistered &&
+                <FormContainer>
+                    <RegisterForm />
+                </FormContainer>
+            }
 
-                            <Button>Editar perfil</Button>
-                        </UserInfoLowerWrapper>
+            {isEditing &&
+                <>
+                    <FormContainer>
+                        <RegisterForm
+                            userInfo={userInfo}
+                            isEditing={true}
+                            cancelCallback={() => {
+                                setIsEditing(false);
+                                window.scrollTo(0, 0);
+                            }} />
+                    </FormContainer>
+                </>
+            }
 
-                    </UserInfoSection>
-                    :
-                    <h2>loading ...</h2>
-                }
-                <ContainerLectures>
+            {!isLoading && !isEditing && user && isUserRegistered &&
+                <>
+                    <BackgroundWrapper>
+                        <div className='padrao-background'></div>
+                        <UserInfoSection>
+                            <UserInfoUpperWrapper>
+                                <PhotoNameWrapper>
+                                    <img className='userPic' src={user.photoUrl} alt="user picture" />
+                                    {user.name ?
+                                        <h3>{user.name}</h3>
+                                        :
+                                        <h3>{userInfo.name}</h3>
+                                    }
+                                </PhotoNameWrapper>
 
-                    <ListLectures>
-                        <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
-                        <tbody>
-                        {palestras.reverse().map((lecture, id) => (
-                            <tr key={id}>
-                                <td className={`lecture-id lecture-id-${id}`}>
-                                    <span></span>
-                                </td>
-                                <td className={`lecture-info lecture-info-${id}`}>
-                                    <p className='bold-info'>{lecture}</p>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                        </tbody>
-                    </ListLectures>
-                    <UserInfoLowerWrapper>
-                        <span></span>
-                            { user && !isModalTokenOpen &&
-                                <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
-                            }
+                                <p>Palestras assistidas:
+                                    <span className='bold-info'>&nbsp; {lectures.length}</span>
+                                    {lectures.length > 10 &&
+                                        <span>&#128293;</span>
+                                    }
+                                </p>
+                            </UserInfoUpperWrapper>
+                            <UserInfoLowerWrapper>
+                                <TextInfo>
+                                    <UserInformation>
+                                        <p>Email</p>
+                                        <p className='bold-info'>{user.email}</p>
+                                    </UserInformation>
+                                    <UserInformation>
+                                        {userInfo.documentType === "nusp" ?
+                                            <>
+                                                <p>Número USP</p>
+                                                <p className='bold-info'>{userInfo.nusp_value}</p>
+                                            </>
+                                            :
+                                            <>
+                                                <p>CPF</p>
+                                                <p className='bold-info'>{userInfo.cpf_value}</p>
+                                            </>
+                                        }
+                                    </UserInformation>
+                                </TextInfo>
 
-                            { user && isModalTokenOpen &&
-                                <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen}/>
-                            }
-                    </UserInfoLowerWrapper>
-                </ContainerLectures>
-                <Button onClick={signOut}>Sair</Button>
-            </BackgroundWrapper>
+                                {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
+                            </UserInfoLowerWrapper>
+
+                        </UserInfoSection>
+
+                        <ContainerLectures>
+
+                            <ListLectures>
+
+                                <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
+                                <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
+
+                                <tbody>
+                                    {lectures.map((lecture, id) => (
+                                        <tr key={id}>
+                                            <td className={`lecture-id lecture-id-${id}`}>
+                                                <span></span>
+                                            </td>
+                                            <td className={`lecture-info lecture-info-${id}`}>
+                                                <p className='bold-info'>{lecture}</p>
+                                            </td>
+                                        </tr>
+                                    ))
+                                    }
+                                </tbody>
+                            </ListLectures>
+                            <UserInfoLowerWrapper>
+                                <span></span>
+                                {user && !isModalTokenOpen &&
+                                    <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
+                                }
+
+                                {user && isModalTokenOpen &&
+                                    <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
+                                }
+                            </UserInfoLowerWrapper>
+                        </ContainerLectures>
+                        <Button onClick={signOut}>Sair</Button>
+                    </BackgroundWrapper>
+                </>
+            }
         </>
     )
 }
 
 export default User;
+
+
+const Loading = styled.figure`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+
+    img {
+        width: 50%;
+        max-width: 250px;
+    }
+`
 
 const BackgroundWrapper = styled.div`
     display: flex;
@@ -136,7 +248,7 @@ const BackgroundWrapper = styled.div`
     }
     .padrao-background {
         width: calc(100vw - 10px);
-        height: 120rem;
+        height: 100vh;
         display: flex;
         position: absolute;
         top: -4.5rem;
@@ -156,6 +268,10 @@ const BackgroundWrapper = styled.div`
     }
 `
 
+const FormContainer = styled.section`
+    padding: 100px 0;
+`
+
 const UserInfoSection = styled.section`
 
     display: flex;
@@ -165,7 +281,7 @@ const UserInfoSection = styled.section`
     width: 90%;
     max-width: 1200px;
 
-    padding: 2rem 45px 250px 45px;
+    padding: 2rem 45px;
     margin: 15rem 3rem 0 3rem;
 
     background: linear-gradient(180deg, #1B162C 50%, rgba(21, 16, 35, 0) 100%);
@@ -303,6 +419,10 @@ const ListLectures = styled.table`
     justify-content: left;
     margin-bottom: 5rem;
 
+    .no-presences-message {
+        text-align: center;
+    }
+
     .lecture-id {
         vertical-align: top;
         text-align: right;
@@ -357,6 +477,12 @@ const ListLectures = styled.table`
     .lecture-info-0 {
         p {
             color: #FFF;
+        }
+    }
+
+    @media (min-width:1025px) {
+        .no-presences-message {
+            text-align: left;
         }
     }
 `

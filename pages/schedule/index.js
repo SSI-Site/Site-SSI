@@ -23,12 +23,12 @@ const getScheduleDay = key => {
 
 const Schedule = () => {
 
-    const [example, setExample] = useState("");
+    // const [example, setExample] = useState("");
 
-    async function fetchExample() {
-        const res = await saphira.getCatFact();
-        setExample(res.fact);
-    }
+    // async function fetchExample() {
+    //     const res = await saphira.getCatFact();
+    //     setExample(res.fact);
+    // }
 
     useEffect(() => {
         fetchExample();
