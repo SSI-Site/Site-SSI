@@ -4,13 +4,11 @@ import styled from 'styled-components';
 import saphira from '../services/saphira';
 import useAuth from '../hooks/useAuth';
 
-//components
 import Button from '../src/components/Button';
 import ModalTokenComponent from '../src/components/ModalTokenComponent';
 import RegisterForm from '../src/components/RegisterForm';
 
 const User = () => {
-
     const { user, signOut } = useAuth();
 
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -24,30 +22,24 @@ const User = () => {
         setIsModalTokenOpen(!isModalTokenOpen);
     }
 
-    const checkUser = async () => {
+    const checkUserRegister = () => {
         if (!user) return;
 
         setIsLoading(true);
 
         saphira.getUser(user.email)
             .then((res) => {
-                console.log("Registrado")
-                console.log(res);
-
                 setIsUserRegistered(true);
-                console.log(getFormatRegisteredUserData(res.data))
-                setUserInfo({ ...getFormatRegisteredUserData(res.data) });
+                setUserInfo({ ...saphiraUserDataToFormFormat(res.data) });
                 setIsLoading(false);
             })
-            .catch((err) => {
-                console.log("Não registrado");
-                console.log(err)
+            .catch(() => {
                 setIsUserRegistered(false);
                 setIsLoading(false);
             });
     }
 
-    const getFormatRegisteredUserData = (userData) => {
+    const saphiraUserDataToFormFormat = (userData) => {
         const nameElements = getFullNameComponents(userData.full_name);
         const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
 
@@ -80,12 +72,7 @@ const User = () => {
     }
 
     const getLectures = () => {
-        return [
-            'Palestra 1 super foda 3 com convidados especiais',
-            'Palestra 2 super foda 3 com convidados especiais',
-            'Palestra 3 super foda 3 com convidados especiais',
-            'Palestra 4 super foda 3 com convidados especiais'
-        ]
+        return [];
     }
 
 
@@ -97,12 +84,8 @@ const User = () => {
     }, [isUserRegistered]);
 
     useEffect(() => {
-        checkUser();
+        checkUserRegister();
     }, [user]);
-
-    useEffect(() => {
-        checkUser();
-    }, []);
 
     return (
         <>
@@ -121,6 +104,26 @@ const User = () => {
                 <Loading>
                     <img src='./loading.svg' alt='SSI 2022 - Loading' />
                 </Loading>
+            }
+
+            {!isLoading && user && !isUserRegistered &&
+                <FormContainer>
+                    <RegisterForm />
+                </FormContainer>
+            }
+
+            {isEditing &&
+                <>
+                    <FormContainer>
+                        <RegisterForm
+                            userInfo={userInfo}
+                            isEditing={true}
+                            cancelCallback={() => {
+                                setIsEditing(false);
+                                window.scrollTo(0, 0);
+                            }} />
+                    </FormContainer>
+                </>
             }
 
             {!isLoading && !isEditing && user && isUserRegistered &&
@@ -170,7 +173,10 @@ const User = () => {
                         <ContainerLectures>
 
                             <ListLectures>
+
                                 <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
+                                <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
+
                                 <tbody>
                                     {lectures.map((lecture, id) => (
                                         <tr key={id}>
@@ -198,26 +204,6 @@ const User = () => {
                         </ContainerLectures>
                         <Button onClick={signOut}>Sair</Button>
                     </BackgroundWrapper>
-                </>
-            }
-
-            {!isLoading && user && !isUserRegistered &&
-                <FormContainer>
-                    <RegisterForm />
-                </FormContainer>
-            }
-
-            {isEditing &&
-                <>
-                    <FormContainer>
-                        <RegisterForm
-                            userInfo={userInfo}
-                            isEditing={true}
-                            cancelCallback={() => {
-                                setIsEditing(false);
-                                window.scrollTo(0, 0);
-                            }} />
-                    </FormContainer>
                 </>
             }
         </>
@@ -258,7 +244,7 @@ const BackgroundWrapper = styled.div`
     }
     .padrao-background {
         width: calc(100vw - 10px);
-        height: 120rem;
+        height: 100vh;
         display: flex;
         position: absolute;
         top: -4.5rem;
@@ -291,7 +277,7 @@ const UserInfoSection = styled.section`
     width: 90%;
     max-width: 1200px;
 
-    padding: 2rem 45px 250px 45px;
+    padding: 2rem 45px;
     margin: 15rem 3rem 0 3rem;
 
     background: linear-gradient(180deg, #1B162C 50%, rgba(21, 16, 35, 0) 100%);
@@ -429,6 +415,10 @@ const ListLectures = styled.table`
     justify-content: left;
     margin-bottom: 5rem;
 
+    .no-presences-message {
+        text-align: center;
+    }
+
     .lecture-id {
         vertical-align: top;
         text-align: right;
@@ -483,6 +473,12 @@ const ListLectures = styled.table`
     .lecture-info-0 {
         p {
             color: #FFF;
+        }
+    }
+
+    @media (min-width:1025px) {
+        .no-presences-message {
+            text-align: left;
         }
     }
 `

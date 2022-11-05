@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
 import { cpf } from 'cpf-cnpj-validator';
@@ -7,36 +7,44 @@ import styled from 'styled-components';
 import useAuth from '../../hooks/useAuth';
 
 import saphira from '../../services/saphira';
+import selectOptions from '../../data/registerFormSelectOptions';
 
 import Button from "../components/Button"
 
 const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
     const router = useRouter();
     const { user } = useAuth();
-
     const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: userInfo });
 
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const internalErrorMessage = "Desculpe, estamos com problemas internos. Tente novamente mais tarde :/";
+
     const onSubmit = async data => {
-        let isSuccess;
+        setIsLoading(true);
+        setErrorMessage("");
 
-        if(isEditing) {
-            isSuccess = await saphira.updateUser(formatUserData(data));
-
-            if(isSuccess) router.reload();
-            else console.log("\n #SAPH ERR -> on update \n");
-        } else {
-            saphira.registerUser(formatUserData(data))
-                .then((res) => {
-                    if(res) router.reload();
-                    else console.log("\n #SAPH ERR -> on register \n");
-                }).catch(err => {
-                    console.log(err);
+        if (isEditing) {
+            saphira.updateUser(formDataToRequestFormat(data))
+                .then(() => {
+                    router.reload();
+                }).catch(() => {
+                    setErrorMessage(internalErrorMessage);
+                    setIsLoading(false);
                 })
-
+        } else {
+            saphira.registerUser(formDataToRequestFormat(data))
+                .then(() => {
+                    router.reload();
+                }).catch(() => {
+                    setErrorMessage(internalErrorMessage);
+                    setIsLoading(false);
+                })
         }
     };
 
-    const formatUserData = (data) => {
+    const formDataToRequestFormat = (data) => {
         const birthDateElements = data.birth_date.split('/');
 
         return {
@@ -130,13 +138,9 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <LabelLeft htmlFor='gender'> Como você se identifica? </LabelLeft>
                         <select id='gender' {...register("gender")} >
                             <option></option>
-                            <option value="agenero"> Agênero </option>
-                            <option value="homem cisgenero"> Homem cisgênero </option>
-                            <option value="homem transgenero"> Homem transgênero </option>
-                            <option value="mulher cisgenero"> Mulher cisgênero </option>
-                            <option value="mulher transgenero"> Mulher transgênero </option>
-                            <option value="nao binario"> Não-binário </option>
-                            <option value="outro"> Outro </option>
+                            {selectOptions.gender.map((gender, i) => (
+                                <option value={gender.value} key={i}>{gender.text}</option>
+                            ))}
                         </select>
                     </InputBoxSmall>
 
@@ -145,12 +149,9 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <LabelLeft htmlFor='ethnicity'> Qual a sua cor/raça? </LabelLeft>
                         <select id='ethnicity' {...register("ethnicity")} >
                             <option></option>
-                            <option value="amarela"> Amarela </option>
-                            <option value="branca"> Branca </option>
-                            <option value="parda"> Parda </option>
-                            <option value="preta"> Preta </option>
-                            <option value="indígena"> Indígena </option>
-                            <option value="outro"> Outro </option>
+                            {selectOptions.ethnicity.map((ethnicity, i) => (
+                                <option value={ethnicity.value} key={i}>{ethnicity.text}</option>
+                            ))}
                         </select>
                     </InputBoxSmall>
 
@@ -174,11 +175,9 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <LabelLeft htmlFor='know_about'> Como você conheceu a SSI? </LabelLeft>
                         <select id='know_about' {...register("know_about")} >
                             <option></option>
-                            <option value="amigos e ou familiares"> Amigos e/ou familiares </option>
-                            <option value="e-mail"> E-mail </option>
-                            <option value="instagram"> Instagram </option>
-                            <option value="linkedin"> LinkedIn </option>
-                            <option value="outro"> Outro </option>
+                            {selectOptions.knowAbout.map((knowAbout, i) => (
+                                <option value={knowAbout.value} key={i}>{knowAbout.text}</option>
+                            ))}
                         </select>
                     </InputBoxLarge>
 
@@ -194,21 +193,9 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <LabelLeft htmlFor='course'> Está na graduação? Qual o seu curso? </LabelLeft>
                         <select id='course' {...register("course")} >
                             <option></option>
-                            <option value="biotecnologia"> Biotecnologia </option>
-                            <option value="ciencias da natureza"> Ciências da Natureza </option>
-                            <option value="educacao fisica e saude"> Educação Física e saúde </option>
-                            <option value="gerontologia"> Gerontologia </option>
-                            <option value="gestao de politicas publicas"> Gestão de Políticas Públicas </option>
-                            <option value="gestao ambiental"> Gestão Ambiental </option>
-                            <option value="lazer e turismo"> Lazer e Turismo </option>
-                            <option value="marketing"> Marketing </option>
-                            <option value="obstetricia"> Obstetrícia </option>
-                            <option value="sistemas de informacao"> Sistemas de Informação </option>
-                            <option value="textil e moda"> Textil e Moda </option>
-                            <option value="outro"> Outro </option>
-                            <option value="ainda nao iniciei a graduacao"> Ainda não iniciei a graduação </option>
-                            <option value="ja finalizei a graduacao"> Já finalizei a graduação </option>
-                            <option value="nao tenho interesse em fazer graduacao"> Não tenho interesse em fazer graduação </option>
+                            {selectOptions.course.map((course, i) => (
+                                <option value={course.value} key={i}>{course.text}</option>
+                            ))}
                         </select>
                     </InputBoxLarge>
 
@@ -228,15 +215,9 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                             <LabelLeft htmlFor='graduation_period'> Em qual período está? </LabelLeft>
                             <select id='graduation_period' {...register("graduation_period")} >
                                 <option></option>
-                                <option value="primeiro"> Primeiro </option>
-                                <option value="segundo"> Segundo </option>
-                                <option value="terceiro"> Terceiro </option>
-                                <option value="quarto"> Quarto </option>
-                                <option value="quinto"> Quinto </option>
-                                <option value="sexto"> Sexto </option>
-                                <option value="setimo"> Sétimo </option>
-                                <option value="oitavo"> Oitavo </option>
-                                <option value="nono +"> Nono + </option>
+                                {selectOptions.graduation_period.map((graduation_period, i) => (
+                                    <option value={graduation_period.value} key={i}>{graduation_period.text}</option>
+                                ))}
                             </select>
                         </InputBoxLarge>
                     }
@@ -267,11 +248,21 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     </CheckboxContainer>
 
                     <BtnContainer>
-                        <Button type="submit" > Concluir </Button>
-                        {isEditing &&
-                            <Button type="submit" onClick={cancelCallback}> Voltar </Button>
+                        {isLoading ?
+                            <Loading>
+                                <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                            </Loading>
+                            :
+                            <>
+                                <Button type="submit" > Concluir </Button>
+                                {isEditing &&
+                                    <Button type="button" onClick={cancelCallback}> Voltar </Button>
+                                }
+                            </>
                         }
                     </BtnContainer>
+
+                    <RequestErrorMessage>{errorMessage}</RequestErrorMessage>
                 </form>
             </FormWrapper >
         </>
@@ -280,6 +271,25 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
 
 export default RegisterForm;
 
+const Loading = styled.figure`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 25%;
+        max-width: 150px;
+    }
+`
+
+const RequestErrorMessage = styled.span`
+    margin-top: 1rem;
+    padding: 0 10%;
+
+    text-align: center;
+    font-size: 1.6rem;
+    text-decoration: underline;
+`
 
 const FormWrapper = styled.div`
     width: 90%;

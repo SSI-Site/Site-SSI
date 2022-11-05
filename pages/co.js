@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
-import members from '../services/members';
+import members from '../data/members';
 
 //components
 import MemberCardComponent from '../src/components/MemberCardComponent'

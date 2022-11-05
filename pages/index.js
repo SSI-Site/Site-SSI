@@ -31,7 +31,7 @@ const supporters = [
 
 const Home = () => {
     const router = useRouter();
-    const { user } = useAuth();
+    const { user, signOut } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -116,8 +116,12 @@ const Home = () => {
                                     }
 
                                     {user && !isUserRegistered &&
-                                        <Button onClick={() => router.push('/user')}>Conclua seu cadastro</Button>
+                                        <div className="complete-register-btns">
+                                            <Button onClick={() => router.push('/user')}>Conclua seu cadastro</Button>
+                                            <Button onClick={() => signOut()}>Sair</Button>
+                                        </div>
                                     }
+
                                 </div>
                             </>
                             :
@@ -340,6 +344,16 @@ const BannerSection = styled.header`
         text-align: center;
     }
 
+    .complete-register-btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        button {
+            margin: 20px 10% 0 10%;
+        }
+    }
+
     h1 {
         font-family: 'Plaza';
         font-style: normal;
@@ -355,7 +369,7 @@ const BannerSection = styled.header`
         font-weight: 400;
         font-size: 2.25rem;
         text-align: center;
-        margin-bottom: 16px;
+        /* margin-bottom: 16px; */
     }
 
     button {
@@ -389,7 +403,7 @@ const BannerSection = styled.header`
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 200px;
+            height: 150px;
             width: 500px;
         }
 
@@ -398,6 +412,16 @@ const BannerSection = styled.header`
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .complete-register-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            button {
+                margin: 0 10% 20px 10%;
+            }
         }
     }
 `

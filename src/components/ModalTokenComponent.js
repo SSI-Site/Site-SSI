@@ -28,19 +28,8 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
         setIsLoading(true)
         await saphira.testTimeout();
 
-        saphira.sendToken({
-            token: token,
-            user_id: 'user_id'
-        }).then(data => {
-            alert(`Token [${token.toLocaleUpperCase()}] Validado`)
-            setToken('')
-            toggleVisibility();
-        }).catch(error => {
-            console.log(error)
-            setIsInvalid(true)
-        })
-
-        setIsInvalid(false)
+        setIsInvalid(true) //remove it
+        // setIsInvalid(false)
         setIsLoading(false)
     }
 
@@ -69,20 +58,14 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                         value={token}
                     />
                     {isInvalid && <span>Token Inválido!</span>}
+                    <button type="submit" className={getClassActiveBtn()}>
+                        <img src={flecha}></img>
+                    </button>
 
-                    {!isLoading ?
-                        <button type="submit" className={getClassActiveBtn()}>
-                            <img src={flecha}></img>
-                        </button>
-                        :
-                        <Loading>
-                            <img src='./loading.svg' alt='SSI 2022 - Loading' />
-                        </Loading>
-                    }
                 </form>
                 :
                 <Loading>
-                    <img src='./loading.gif' alt='SSI 2022 - Loading' />
+                    <img src='./loading.svg' alt='SSI 2022 - Loading' />
                 </Loading>
             }
 
