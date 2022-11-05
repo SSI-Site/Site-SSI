@@ -254,10 +254,13 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                             </Loading>
                             :
                             <>
-                                <Button type="submit" > Concluir </Button>
-                                {isEditing &&
+                                {isEditing ?
                                     <Button type="button" onClick={cancelCallback}> Voltar </Button>
+                                    :
+                                    <Button type="button" onClick={() => router.push('/')}> Voltar </Button>
                                 }
+
+                                <Button type="submit" > Concluir </Button>
                             </>
                         }
                     </BtnContainer>
