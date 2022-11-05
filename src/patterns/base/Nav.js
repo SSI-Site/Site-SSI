@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import useAuth from '../../../hooks/useAuth';
 
-import Divider from '../../components/Divider';
 import AuthModal from '../../components/AuthModal';
 
 import InstagramLogo from '../../../public/images/social_media/insta.png';
