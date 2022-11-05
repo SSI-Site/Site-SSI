@@ -15,7 +15,7 @@ const User = () => {
     const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [userInfo, setUserInfo] = useState({});
     const [lectures, setLectures] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
     const toggleModalTokenIsOpen = () => {
@@ -134,7 +134,11 @@ const User = () => {
                             <UserInfoUpperWrapper>
                                 <PhotoNameWrapper>
                                     <img className='userPic' src={user.photoUrl} alt="user picture" />
-                                    <h3>{user.name}</h3>
+                                    {user.name ?
+                                        <h3>{user.name}</h3>
+                                        :
+                                        <h3>{userInfo.name}</h3>
+                                    }
                                 </PhotoNameWrapper>
 
                                 <p>Palestras assistidas:

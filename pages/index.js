@@ -36,7 +36,7 @@ const Home = () => {
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
     const [isUserRegistered, setIsUserRegistered] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const toggleModalTokenIsOpen = () => {
         setIsModalTokenOpen(!isModalTokenOpen);
@@ -50,7 +50,7 @@ const Home = () => {
         }
     }
 
-    const checkUserRegister = async () => {
+    const checkUserRegister = () => {
         if (!user) return;
 
         setIsLoading(true);
@@ -121,7 +121,6 @@ const Home = () => {
                                             <Button onClick={() => signOut()}>Sair</Button>
                                         </div>
                                     }
-
                                 </div>
                             </>
                             :
@@ -174,8 +173,8 @@ const Home = () => {
                         </div>
 
                         <ScheduleInformation
-                            speakerPicture={speakerPicture} speakerName="Palestrante"
-                            title="Em breve"
+                            speakerPicture={speakerPicture}
+                            title="palestra"
                             overview="Assim como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
                         />
 
@@ -190,8 +189,7 @@ const Home = () => {
                     <div className='starr star-four'></div>
 
                 </div>
-                <Button disabled onClick={() => router.push('/schedule')}>Confira</Button>
-                <span id="#temp-span" style={{ "marginTop": "15px", "maxWidth": "70%", "textAlign": "center" }}>As informações sobre a programação serão divulgadas em breve.</span>
+                <Button onClick={() => router.push('/schedule')}>Confira</Button>
 
             </ScheduleSection>
 

@@ -7,13 +7,17 @@ import useAuth from '../../../hooks/useAuth';
 import Divider from '../../components/Divider';
 import AuthModal from '../../components/AuthModal';
 
+import InstagramLogo from '../../../public/images/social_media/insta.png';
+import FacebookLogo from '../../../public/images/social_media/feice.png';
+import LinktreeLogo from '../../../public/images/social_media/linktree.png';
+
 const pages = {
     "/": 1,
     "/schedule": 2,
     "/about": 3,
     "/sponsors": 4,
     "/co": 5,
-    "/user": 6
+    "/user": 7
 }
 
 const Nav = () => {
@@ -57,8 +61,8 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            {/* <Link href="/schedule" >*/}<span>Programação</span>{/* </Link> */}
-                            {/* <div></div> */}
+                            <Link href="/schedule" ><a>Programação</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
@@ -73,6 +77,11 @@ const Nav = () => {
 
                         <li>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
+                            <div></div>
+                        </li>
+
+                        <li>
+                            <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
                             <div></div>
                         </li>
 
@@ -100,9 +109,9 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="/schedule"> */}<a style={{"color": "gray"}}>Programação</a>{/* </Link> */}
-                                {/* <div></div> */}
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/schedule"><a>Programação</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
@@ -120,9 +129,14 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
+                                <div></div>
+                            </li>
+
                             {user ?
                                 <li onClick={() => setIsOpen(false)}>
-                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer"/></a></Link>
+                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                                     <div></div>
                                 </li>
                                 :
@@ -131,7 +145,9 @@ const Nav = () => {
                                     <div></div>
                                 </li>
                             }
+
                         </ul>
+
 
                         <Divider dividerSize="medium" />
 
@@ -149,17 +165,17 @@ const Nav = () => {
                                 <div className='logos_midia'>
                                     <div>
                                         <a href="https://www.instagram.com/semanadesi/" target="_blank" rel="noreferrer">
-                                            <img src="./images/social_media/insta.png" alt="Instagram"></img>
+                                            <img src={InstagramLogo} alt="Instagram"></img>
                                         </a>
                                     </div>
                                     <div>
                                         <a href="https://www.facebook.com/SSIUSP" target="_blank" rel="noreferrer">
-                                            <img src="./images/social_media/feice.png" alt="Facebook"></img>
+                                            <img src={FacebookLogo} alt="Facebook"></img>
                                         </a>
                                     </div>
                                     <div>
                                         <a href="https://linktr.ee/SemanaDeSI" target="_blank" rel="noreferrer">
-                                            <img src="./images/social_media/linktree.png" alt="Linktree"></img>
+                                            <img src={LinktreeLogo} alt="Linktree"></img>
                                         </a>
                                     </div>
                                 </div>
