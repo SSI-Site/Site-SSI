@@ -15,8 +15,8 @@ const pages = {
     "/schedule": 2,
     "/about": 3,
     "/sponsors": 4,
-    "/co": 5,
-    "/user": 7
+    "/co": 5/* ,
+    "/user": 7 */
 }
 
 const Nav = () => {
@@ -84,7 +84,7 @@ const Nav = () => {
                             <div></div>
                         </li>
 
-                        {user ?
+                        {/* {user ?
                             <li className='userPicContainer'>
                                 <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                             </li>
@@ -94,7 +94,7 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                        }
+                        } */}
                     </ul>
                 </NavDesktop >
 
@@ -133,7 +133,7 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            {user ?
+                            {/* {user ?
                                 <li onClick={() => setIsOpen(false)}>
                                     <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                                     <div></div>
@@ -143,8 +143,7 @@ const Nav = () => {
                                     <button onClick={handleShowAuthModal}><a>Entrar</a></button>
                                     <div></div>
                                 </li>
-                            }
-
+                            } */}
                         </ul>
 
                         <NavFooter>

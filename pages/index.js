@@ -91,11 +91,15 @@ const Home = () => {
                             <>
                                 <div className='content-login'>
                                     {user ?
-                                        <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                        <>
+                                            <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                        </>
                                         :
                                         <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
                                     }
                                 </div>
+
+                                <p className="logged-msg"> Em breve divulgaremos mais informações a respeito do registro e contagem de presenças. </p>
 
                                 {showAuthModal &&
                                     <AuthModal
@@ -104,24 +108,28 @@ const Home = () => {
                                     />
                                 }
 
-                                <TwitchWatchNowComponent />
 
                                 <div className='content-token'>
-                                    {user && isUserRegistered && !isModalTokenOpen &&
+                                    {/* {user && isUserRegistered && !isModalTokenOpen &&
                                         <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
-                                    }
+                                    } */}
 
-                                    {user && isModalTokenOpen &&
+                                    {/* {user && isModalTokenOpen &&
                                         <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
-                                    }
+                                    } */}
 
-                                    {user && !isUserRegistered &&
-                                        <div className="complete-register-btns">
-                                            <Button onClick={() => router.push('/user')}>Conclua seu cadastro</Button>
-                                            <Button onClick={() => signOut()}>Sair</Button>
-                                        </div>
-                                    }
+                                    <div className="complete-register-btns">
+                                        {user && !isUserRegistered &&
+                                            <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
+                                        }
+                                        {user &&
+                                            <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
+                                        }
+                                    </div>
+
                                 </div>
+
+                                <TwitchWatchNowComponent />
                             </>
                             :
                             <Loading>
@@ -317,7 +325,7 @@ const WelcomeComponent = styled.div`
     @media (min-width:1023px) {
         --border: 2.6px solid var(--color-tertiary);
         pointer-events: unset;
-        margin: 80px 0 25px 0;
+        /* margin: 80px 0 25px 0; */
     }
 `
 const BannerSection = styled.header`
@@ -326,6 +334,12 @@ const BannerSection = styled.header`
     justify-content: center;
     align-items: center;
     margin-top: 80px;
+
+    .logged-msg {
+        text-align: center;
+        margin: 2rem 0;
+        padding: 0 10%;
+    }
 
     .logo {
         width: 11.5em;
@@ -340,16 +354,24 @@ const BannerSection = styled.header`
     .content-token {
         width: 100%;
         text-align: center;
+        flex-direction: column;
+    }
+
+    .btn-sair {
+        max-width: 150px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .btn-complete-register {
+        max-width: 400px;
     }
 
     .complete-register-btns {
         display: flex;
-        flex-wrap: wrap;
+        align-items: center;
         justify-content: center;
-
-        button {
-            margin: 20px 10% 0 10%;
-        }
+        flex-direction: column;
     }
 
     h1 {
@@ -370,16 +392,12 @@ const BannerSection = styled.header`
         /* margin-bottom: 16px; */
     }
 
-    button {
-        margin: 5rem 0;
-    }
-
     @media (min-width:1281px) {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
         height: 100vh;
-        max-height: 650px;
+        max-height: 680px;
         padding-top: 50px;
 
         .logo {
@@ -407,19 +425,7 @@ const BannerSection = styled.header`
 
         .content-token {
             margin-top: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .complete-register-btns {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-
-            button {
-                margin: 0 10% 20px 10%;
-            }
+            flex-direction: column
         }
     }
 `
