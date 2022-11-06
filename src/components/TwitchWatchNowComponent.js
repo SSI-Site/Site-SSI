@@ -5,45 +5,56 @@ import styled from 'styled-components'
 // assets
 import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg'
 
-import saphira from '../../services/saphira'
+import twitch from '../../services/twitch';
 
 const TwitchWatchNowComponent = () => {
+	const [isLiveStreaming, setIsLiveStreaming] = useState(false);
+	const [streamData, setStreamData] = useState({});
 
-	const [descLive, setDescLive] = useState('')
+	const getStreamData = () => {
+		twitch.getStreamData()
+			.then((res) => {
+				const streamsData = res.data?.data;
 
-	const fetchTwitch = () => {
-		saphira.watchNowTwitch()
-			.then(data => {
+				console.log(streamsData);
 
-				setDescLive(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate, lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor. Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor. Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum. Suspendisse lacinia egestas felis a volutpat.`)
-			}).catch(error => {
-
-				console.log(error)
+				if (streamsData && streamsData.length > 0) {
+					setIsLiveStreaming(true);
+					setStreamData({ ...streamsData[0] });
+				} else {
+					setIsLiveStreaming(false);
+				}
 			})
+			.catch(() => {
+				setIsLiveStreaming(false);
+			});
 	}
 
-	// useEffect(() => {
-	// 	setTimeout(fetchTwitch, 3000)
-	// }, [])
-
-	// const isTwitchOnline = () => descLive.length > 0
-	const isTwitchOnline = () => false
+	useEffect(() => {
+		getStreamData();
+	}, []);
 
 	return (
 		<>
 			<TwitchWatchNowWrapper>
-				<img src={TwitchLogo} alt="Twitch Logo" />
-				{isTwitchOnline() ? (
-					<div>
-						<h4 className="streaming">Assista Agora</h4>
-						<p title={descLive}>{descLive}</p>
-					</div>
-				) : (
-					<div>
-						<h4>Offline</h4>
-						<p>Indicaremos aqui quando estivermos online na Twitch.</p>
-					</div>
-				)}
+				<a target="blank" href="https://www.twitch.tv/each_ssi">
+					<img src={TwitchLogo} alt="Twitch Logo" />
+					{isLiveStreaming ? (
+						<div>
+							<h4 className="streaming">Assista Agora</h4>
+							{streamData.title ?
+								<p>{streamData.title}</p>
+								:
+								<p>Clique aqui para acompanhar!</p>
+							}
+						</div>
+					) : (
+						<div>
+							<h4>Offline</h4>
+							<p>Indicaremos aqui quando estivermos online na Twitch.</p>
+						</div>
+					)}
+				</a>
 
 			</TwitchWatchNowWrapper >
 		</>
@@ -63,6 +74,7 @@ const TwitchWatchNowWrapper = styled.div`
 	img {
 		width: 3em;
 		margin-right: 42px;
+		margin-bottom: 5px;
 	}
 
 	div {
@@ -110,7 +122,17 @@ const TwitchWatchNowWrapper = styled.div`
 		-webkit-line-clamp: 3; /* number of lines to show */
         line-clamp: 3;
    		-webkit-box-orient: vertical;
+	}
 
+	p, h4 {
+		transition: all .2s;
+	}
+
+	:hover {
+		p, h4 {
+			color: var(--color-tertiary);
+			filter: brightness(120%);
+		}
 	}
 
 
@@ -132,22 +154,5 @@ const TwitchWatchNowWrapper = styled.div`
 			line-clamp: 2;
 		}
 	}
-
-    @media (min-width:1021px) {
-
-    }
-
-    @media (min-width:1281px) {
-
-    }
-
-    @media (min-width:1400px) {
-
-    }
-
-    @media (min-width:2200px) {
-        /* 4k */
-
-    }
 
 `

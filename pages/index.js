@@ -158,9 +158,13 @@ const Home = () => {
                         </div>
 
                         <div className="logos">
-                            <img src="/images/logos/EACH-USP.svg" alt="EACH USP" />
-                            <img src="/images/social_media/TwitchTextLogo.svg" alt="Twitch" />
-                            <h1>TWITCH.TV/EACH_SSI</h1>
+                            <a target="blank" href="http://www.each.usp.br/">
+                                <img src="/images/logos/EACH-USP.svg" alt="EACH USP" />
+                            </a>
+                            <a target="blank" href="https://www.twitch.tv/each_ssi">
+                                <img src="/images/social_media/TwitchTextLogo.svg" alt="Twitch" />
+                                <h1>TWITCH.TV/EACH_SSI</h1>
+                            </a>
                         </div>
 
                     </div>
@@ -473,17 +477,29 @@ const EventInfoSection = styled.section`
           }
        }
 
-       .logos {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          flex-grow: 1;
-          width: clamp(0px, 100%, 400px);
-          img {
-             width: 100%;
-          }
-          gap: 2rem
-       }
+        .logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            width: clamp(0px, 100%, 400px);
+            img {
+                width: 100%;
+            }
+            gap: 2rem;
+
+            h1 {
+                transition: all .1s;
+            }
+
+            a:nth-child(2):hover {
+                h1{
+                    color: var(--color-tertiary);
+                    filter: brightness(120%);
+                }
+            }
+        }
+
 
     }
 
