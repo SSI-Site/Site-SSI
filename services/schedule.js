@@ -367,7 +367,7 @@ const schedule = {
       ],
       image: ''
     },
-    '15:10': {
+    '15:15': {
       title: 'SSI Talks - Da venda até entrega: ganhe dinheiro com o curso de SI',
       description: 'Desde 2016 a Síntese Jr. vem executando projetos e ajudando pequenos e médios empresários a conquistarem seus sonhos através da tecnologia. Dessa vez, estamos aqui para falar de que maneira você, estudante de computação, pode começar a procurar clientes e executar projetos, deixando a sua marca por aí.',
       local: 'presential',
