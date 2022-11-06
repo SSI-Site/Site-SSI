@@ -16,8 +16,6 @@ const TwitchWatchNowComponent = () => {
 			.then((res) => {
 				const streamsData = res.data?.data;
 
-				console.log(streamsData);
-
 				if (streamsData && streamsData.length > 0) {
 					setIsLiveStreaming(true);
 					setStreamData({ ...streamsData[0] });
