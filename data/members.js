@@ -25,6 +25,11 @@ const members = [
         departments: ['Patrocínios']
     },
     {
+        name: 'Bruno Baffini',
+        image: './images/co/BrunoBaffini.jpeg',
+        departments: ['Criação e Comunicação']
+    },
+    {
         name: 'Bruno Contreras',
         image: './images/co/BrunoContreras.jpeg',
         departments: ['Site']
