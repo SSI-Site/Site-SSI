@@ -95,11 +95,13 @@ const Home = () => {
                                             <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
                                         </>
                                         :
-                                        <Link href="#modal-root"><Button onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                        <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
                                     }
                                 </div>
 
-                                <p className="logged-msg"> Em breve divulgaremos mais informações a respeito do registro e contagem de presenças. </p>
+                                {user && isUserRegistered &&
+                                    <p className="logged-msg"> Em breve divulgaremos mais informações a respeito do registro e contagem de presenças. </p>
+                                }
 
                                 {showAuthModal &&
                                     <AuthModal
@@ -355,6 +357,10 @@ const BannerSection = styled.header`
         width: 100%;
         text-align: center;
         flex-direction: column;
+    }
+
+    .btn-entrar{
+        margin: 40px 0;
     }
 
     .btn-sair {
