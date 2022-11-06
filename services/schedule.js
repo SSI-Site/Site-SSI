@@ -4,15 +4,15 @@ import LectureImage03 from '../public/images/lecture_imgs/03-Rodrigo_Ferreira.jp
 import LectureImage04 from '../public/images/lecture_imgs/04-Luciano_Digiampietri.jpg'
 import LectureImage05 from '../public/images/lecture_imgs/05-Ana_Paula_Frizzo.jpg'
 import LectureImage06 from '../public/images/lecture_imgs/06-Fernando_Chiu_Hsieh.jpg'
-// 07 - Lab das Minas não enviou
+import LectureImage07 from '../public/images/lecture_imgs/07-Lab_das_Minas.jpg'
 import LectureImage08 from '../public/images/lecture_imgs/08-Ana_Ferreira.jpeg'
 import LectureImage09 from '../public/images/lecture_imgs/09-Lavínia_Paganini.jpeg'
 import LectureImage10 from '../public/images/lecture_imgs/10-Isabel_Mendes.png'
 import LectureImage11 from '../public/images/lecture_imgs/11-Daniel_Batista.png'
 import LectureImage12 from '../public/images/lecture_imgs/12-Vencer_Agil.jpg'
-// 13 - Daninel Cordeiro não enviou
+import LectureImage13 from '../public/images/lecture_imgs/13-Pachi_Parra.png'
 import LectureImage14 from '../public/images/lecture_imgs/14-Larissa_Maruyama.jpg'
-// 15 - Ainda a decidir palestra(nte)
+// 15 - Mudou palestrante
 // 16 - Tem 4 palestrantes
 import LectureImage17 from '../public/images/lecture_imgs/17-Giovanni_de_Carvalho.jpg'
 import LectureImage18 from '../public/images/lecture_imgs/18-Fabiano_Luiz_Caldas_Leite.jpg'
@@ -20,14 +20,15 @@ import LectureImage18 from '../public/images/lecture_imgs/18-Fabiano_Luiz_Caldas
 import LectureImage20 from '../public/images/lecture_imgs/20-Marcelo_L._Perrucci.jpg'
 // 21 - Tem 2 palestrantes
 import LectureImage22 from '../public/images/lecture_imgs/22-Talita_Rodrigues.jpg'
-// 23 - Palestrante não enviou
+// 23 - Palestrante não enviou foto/descrição
 import LectureImage24 from '../public/images/lecture_imgs/24-William_Oliveira.jpg'
 import LectureImage26 from '../public/images/lecture_imgs/26-Caio_Novais_Fernandes_da_Silva.jpg'
 import LectureImage27 from '../public/images/lecture_imgs/27-Marylly_Silva.jpg'
-// 28 - Ainda a decidir palestra(nte) 
+import LectureImage28 from '../public/images/lecture_imgs/28-Jakeliny_Gracielly.jpg'
 import LectureImage29 from '../public/images/lecture_imgs/29-Fransuel_Nascimento.jpeg'
 import LectureImage30 from '../public/images/lecture_imgs/30-Gael_Sena.jpg'
-// 31 - Ana Clara Cavalcante não enviou (CodeLab)
+// 31 - Ana Clara Cavalcante (CodeLab) não enviou foto/descrição
+import LectureImage31_2 from '../public/images/lecture_imgs/31_2-Sintese_Jr.png'
 import LectureImage32 from '../public/images/lecture_imgs/32-Felipe_Voigtlaender_Furquim.jpg'
 // 33 - Totvs: ainda a decidir palestra(nte) 
 import LectureImage34 from '../public/images/lecture_imgs/34-Ricardo_Filho.jpg'
@@ -35,9 +36,9 @@ import LectureImage35 from '../public/images/lecture_imgs/35-Jéderson_Freitas.j
 import LectureImage36 from '../public/images/lecture_imgs/36-Gabul_DEV.png'
 // 37 - Revelo: ainda a decidir palestra(nte) 
 import LectureImage38 from '../public/images/lecture_imgs/38-Beronalda_Silva.png'
-// 39 - Alexia Kattah não enviou 
-// 40 - Júlio de Freitas Ferreira não enviou (Síntese Jr.)
-// 41 - Rafaelli Harumi Mecenas Yabe não enviou 
+// 39 - Alexia Kattah não enviou foto/descrição
+// 40 - Daninel Cordeiro não enviou foto/descrição
+// 41 - Rafaelli Harumi Mecenas Yabe não enviou foto/descrição
 // 42 - Tem 2 palestrantes (PET-SI)
 import LectureImage43 from '../public/images/lecture_imgs/43-Téo_Calvo_(Téo).jpg'
 
@@ -88,11 +89,11 @@ const schedule = {
     },
     '16:00': {
       title: 'Soft Skills - Pilares que sustem o sucesso da sua carreira',
-      description: `O que são Soft Skills e Hard Skills.
+      description: `O que são Soft Skills e Hard Skills?
       Por que elas são fatores determinantes para o sucesso na vida pessoal e profissional?
       O desenvolvimento da Inteligência emocional reflete nas soft skills?
       Por quê elas são um diferencial na carreira de um profissional?
-      Como que elas são observadas em um processo seletivo, acompanhadas no dia a dia pelo gestor imediato e nas avaliações de desempenho?  e em processos para promoção de cargo?
+      Como que elas são observadas em um processo seletivo, acompanhadas no dia a dia pelo gestor imediato e nas avaliações de desempenho? E em processos para promoção de cargo?
       Empreendedores conquistam resultados através de pessoas e como que as soft skills são utilizadas para que estes resultados sejam alcançados?
       A falta destas habilidades podem sabotar uma carreira.`,
       local: 'online',
@@ -115,12 +116,13 @@ const schedule = {
 
     '19:20': {
       title: 'SSI Talks - Apagamento de Mulheres na Ciência',
-      description: 'Egresso de sistemas de informação na each, possuo intercâmbio na Vrije Universiteit Amsterdam. Tenho mais de 4 anos de experiência na área de aprendizado por reforço, atualmente sou aluno de mestrado do PPGSI e o meu tema de pesquisa é em como utilizar modelos simbólicos do ambiente para acelerar o aprendizado por reforço em ambientes de recompensas esparsas.',
+      description: 'A palestra, "Apagamento das Mulheres na Ciência", vai buscar trazer uma reflexão sobre o espaço que as mulheres ocupam nos campos da Ciência e da Tecnologia nos dias de hoje. Onde estão as mulheres que, quando jovens, eram apaixonadas por química? Por matemática? Por física? Por que elas desistem no meio do caminho? Será que esse cenário está se revertendo? Traga as suas reflexões e venha conhecer o Lab das Minas!',
       local: 'presential',
       speakers: [
-        { name: 'Lab das Minas', anchor: 'https://www.instagram.com/labdasminas/' }
+        { name: 'Giovanna Angeli', anchor: 'https://www.instagram.com/labdasminas/' },
+        { name: 'Beatriz Chen', anchor: 'https://www.instagram.com/labdasminas/' }
       ],
-      image: ''
+      image: LectureImage07
     },
     '20:40': {
       title: 'A importância da acessibilidade digital no desenvolvimento web',
@@ -144,7 +146,7 @@ const schedule = {
     },
     '10:00': {
       title: 'Como iniciar as validações de acessibilidade mobile',
-      description: '',
+      description: 'Nessa palestra serão mostradas algumas importantes ferramentas para validação de acessibilidade digital em aplicativos mobile.',
       local: 'presential',
       speakers: [
         { name: 'Isabel Mendes', anchor: 'https://www.linkedin.com/in/isabel-mendes-88489174/' }
@@ -173,20 +175,20 @@ const schedule = {
       image: LectureImage12
     },
     '14:40': {
-      title: 'Como SI pode melhorar a pegada de carbono de data centers',
-      description: '',
-      local: 'presential',
+      title: 'Usando Github como Portfólio',
+      description: 'O GitHub é uma plataforma padrão para a grande maioria das pessoas desenvolvedoras. Não importa se você começou a aprender a programar ontem ou programa há anos, essa é uma ferramenta que tem uso para todes. Na busca por um emprego na área, muitas vezes a pessoa recrutadora visita seu GitHub e ainda te pede para ver seu portfólio. Então porque não juntar os dois? Nessa palestra eu vou te ensinar a fazer o melhor uso possível do seu perfil, compartilhar algumas dicas e curiosidades que usamos no GitHub, e você vai sair da palestra com um perfil atrativo que te de orgulho de compartilhar.',
+      local: 'online',
       speakers: [
-        { name: 'Daniel Cordeiro', anchor: 'http://www.each.usp.br/dc/' }
+        { name: 'Pachi Parra', anchor: 'https://github.com/' }
       ],
-      image: ''
+      image: LectureImage13
     },
     '16:00': {
       title: 'SSI Talks - Carreiras em cybersecurity',
       description: 'Jornalista e graduanda de Sistemas de Informação na EACH USP, atua como Red Team na Clavis Segurança da Informação e ajudou a fundar o grupo [E]ACH InTheShell_. Quando falamos de trabalho em segurança da informação, não imaginamos as muitas possibilidades de carreira na área e que há espaço para pessoas de tecnologia e de outras áreas.',
       local: 'presential',
       speakers: [
-        { name: 'Larissa Maruyama', anchor: 'https://www.linkedin.com/in/larissamaruyama/' }
+        { name: 'Larissa Yurie Maruyama', anchor: 'https://www.instagram.com/eachintheshell/' }
       ],
       image: LectureImage14
     },
@@ -195,7 +197,7 @@ const schedule = {
       description: '',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Elo7', anchor: 'https://www.elo7.com.br/' }
       ],
       image: ''
     },
@@ -298,11 +300,11 @@ const schedule = {
     '18:20': { message: 'Janta' },
 
     '19:20': {
-      title: 'Em breve',
+      title: 'Vulnerabilidade de Segurança: Ataque de Engenheria social ',
       description: '',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Flavia Amorim', anchor: 'https://www.ey.com/pt_br' }
       ],
       image: ''
     },
@@ -327,13 +329,13 @@ const schedule = {
       image: LectureImage27
     },
     '10:00': {
-      title: 'Em breve',
-      description: '',
-      local: 'presential',
+      title: 'Roadmap para um desenvolvedor web',
+      description: 'Vamos falar sobre o caminho de um desenvolvedor web e conhecer um roadmap de tudo que você precisa aprender para conseguir inciar ou rampar sua carreira na área.',
+      local: 'online',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Jakeliny Gracielly', anchor: '' }
       ],
-      image: ''
+      image: LectureImage28
     },
     '11:20': {
       title: 'Design a essência do futuro',
@@ -357,7 +359,7 @@ const schedule = {
       image: LectureImage30
     },
     '14:40': {
-      title: 'Como fazer oportunidades caírem do céu com Web Scraping usando Python?',
+      title: 'SSI Talks - Como fazer oportunidades caírem do céu com Web Scraping usando Python?',
       description: '',
       local: 'presential',
       speakers: [
@@ -365,8 +367,18 @@ const schedule = {
       ],
       image: ''
     },
+    '15:10': {
+      title: 'SSI Talks - Da venda até entrega: ganhe dinheiro com o curso de SI',
+      description: 'Desde 2016 a Síntese Jr. vem executando projetos e ajudando pequenos e médios empresários a conquistarem seus sonhos através da tecnologia. Dessa vez, estamos aqui para falar de que maneira você, estudante de computação, pode começar a procurar clientes e executar projetos, deixando a sua marca por aí.',
+      local: 'presential',
+      speakers: [
+        { name: 'Gustavo Almeida de Jesus', anchor: 'https://www.sintesejr.com.br/' },
+        { name: 'Gustavo Henrique de Lima Sá', anchor: 'https://www.sintesejr.com.br/' }
+      ],
+      image: LectureImage31_2
+    },
     '16:00': {
-      title: 'Como atividades extracurriculares ajudam no mercado de trabalho',
+      title: 'SSI Talks - Como atividades extracurriculares ajudam no mercado de trabalho',
       description: 'Sou aluno de SI na EACH e já participei de algumas entidades (CO-SSI, PET, EITS, DASI) e fiz outras atividades extracurriculares (como monitorias). Sendo assim, nessa palestra falarei como participar dessas atividades me ajudaram no mercado de trabalho (e em outros aspectos da vida, sinceramente). Então, falarei um pouco sobre como o barato é loco e como pode te ajudar também :)',
       local: 'presential',
       speakers: [
@@ -375,11 +387,12 @@ const schedule = {
       image: LectureImage32
     },
     '17:20': {
-      title: 'Em breve',
+      title: 'SSI Talks - Diversidade feminina na área da computação',
       description: '',
       local: 'presential',
       speakers: [
-        { name: 'TOTVS', anchor: 'https://www.totvs.com/' }
+        { name: 'Giovanna Arana Paganotti', anchor: 'https://www.instagram.com/petsieach/' },
+        { name: 'Rafaela Oliveira da Silva Sá', anchor: 'https://www.instagram.com/petsieach/' }
       ],
       image: ''
     },
@@ -450,11 +463,11 @@ const schedule = {
       image: ''
     },
     '14:40': {
-      title: 'SSI Talks - Da venda até entrega: ganhe dinheiro com o curso de SI',
+      title: 'Como SI pode melhorar a pegada de carbono em data centers',
       description: '',
       local: 'presential',
       speakers: [
-        { name: 'Júlio de Freitas Ferreira', anchor: 'https://www.sintesejr.com.br/' }
+        { name: 'Daniel Cordeiro', anchor: 'http://www.each.usp.br/dc/' }
       ],
       image: ''
     },
@@ -468,12 +481,11 @@ const schedule = {
       image: ''
     },
     '17:20': {
-      title: 'Diversidade feminina na área da computação',
+      title: 'Em breve',
       description: '',
       local: 'presential',
       speakers: [
-        { name: 'Giovanna Arana Paganotti', anchor: 'https://www.instagram.com/petsieach/' },
-        { name: 'Rafaela Oliveira da Silva Sá', anchor: 'https://www.instagram.com/petsieach/' }
+        { name: 'Globo', anchor: 'https://www.globo.com/' }
       ],
       image: ''
     },
