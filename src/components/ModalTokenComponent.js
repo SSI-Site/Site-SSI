@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import saphira from '../../services/saphira';
 import flecha from '../../public/images/flecha.svg';
 
-const TOKEN_LENGTH = 6;
+const TOKEN_LENGTH = 5;
 
-const ModalTokenComponent = ({ toggleVisibility }) => {
+const ModalTokenComponent = ({ toggleVisibility, userEmail }) => {
     const [token, setToken] = useState('')
     const [isInvalid, setIsInvalid] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
@@ -26,10 +26,16 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
         }
 
         setIsLoading(true)
-        await saphira.testTimeout();
+        console.log('BANANAAA')
 
-        setIsInvalid(true) //remove it
-        // setIsInvalid(false)
+        await saphira.registerPresence(userEmail, token)
+            .then(() => {
+                setIsInvalid(false);
+            })
+            .catch(() => {
+                setIsInvalid(true);
+            });
+
         setIsLoading(false)
     }
 
