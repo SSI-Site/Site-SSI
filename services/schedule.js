@@ -464,7 +464,7 @@ const schedule = {
     },
     '14:40': {
       title: 'Como SI pode melhorar a pegada de carbono em data centers',
-      description: '',
+      description: 'Dados de 2020 mostram que datacenters consumiram 1% de toda energia produzida no mundo. Nesta palestra iremos apresentar pesquisas científicas conduzidas na EACH que estudam como diminuir a pegada de carbono desses datacenters com o uso de algoritmos que privilegiam o uso de fontes de energia renovável quando possível',
       local: 'presential',
       speakers: [
         { name: 'Daniel Cordeiro', anchor: 'http://www.each.usp.br/dc/' }
