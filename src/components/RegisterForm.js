@@ -123,8 +123,8 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
 
                         {watch("documentType") === "nusp" &&
                             <InputBoxSmall>
-                                <input id='nusp_value' type='number' className={errors.name && 'error-border'}
-                                    {...register("nusp_value", { required: true, minLength: 6, maxLength: 8, pattern: /^[0-9]*$/i })} />
+                                <input id='nusp_value' type='text' className={errors.name && 'error-border'}
+                                    {...register("nusp_value", { required: true, minLength: 5, pattern: /^[0-9]*$/i })} />
                                 {errors.nusp_value && <ErrorMessage> Documento inválido </ErrorMessage>}
                             </InputBoxSmall>
                         }
