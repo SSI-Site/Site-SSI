@@ -140,6 +140,10 @@ const ContainerSchedule = styled.div`
       font-family: 'Bebas Neue';
       font-size: 2rem;
       margin-left: 1rem;
+      &:hover {
+        text-decoration: underline;
+      }
+
     }
 
     i {
