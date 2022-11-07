@@ -117,7 +117,7 @@ const schedule = {
     '19:20': {
       title: 'SSI Talks - Apagamento de Mulheres na Ciência',
       description: 'A palestra, "Apagamento das Mulheres na Ciência", vai buscar trazer uma reflexão sobre o espaço que as mulheres ocupam nos campos da Ciência e da Tecnologia nos dias de hoje. Onde estão as mulheres que, quando jovens, eram apaixonadas por química? Por matemática? Por física? Por que elas desistem no meio do caminho? Será que esse cenário está se revertendo? Traga as suas reflexões e venha conhecer o Lab das Minas!',
-      local: 'presential',
+      local: 'online',
       speakers: [
         { name: 'Giovanna Angeli', anchor: 'https://www.instagram.com/labdasminas/' },
         { name: 'Beatriz Chen', anchor: 'https://www.instagram.com/labdasminas/' }
