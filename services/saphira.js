@@ -48,6 +48,16 @@ const saphira = {
     return axios.get(requestUrl);
   },
 
+  registerPresence: async (email, token) => {
+    const requestUrl = `${BASE_URL}/user/${email}/presence/add`
+
+    const params = {
+      token: token
+    };
+
+    return axios.get(requestUrl, { params });
+  },
+
   testTimeout: async () => new Promise(resolve => setTimeout(resolve, 3000)),
 }
 
