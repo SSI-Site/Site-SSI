@@ -33,13 +33,20 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     setErrorMessage(internalErrorMessage);
                     setIsLoading(false);
                 })
-            } else {
-                saphira.registerUser(formDataToRequestFormat(data))
+        } else {
+            saphira.registerUser(formDataToRequestFormat(data))
                 .then(() => {
                     router.reload();
-                }).catch(() => {
-                    setErrorMessage(internalErrorMessage);
-                    setIsLoading(false);
+                }).catch((err) => {
+                    const message = err.response.data.message;
+
+                    if (message.includes("ja cadastrado")) {
+                        setErrorMessage(message);
+                        setIsLoading(false);
+                    } else {
+                        setIsLoading(false);
+                        router.reload();
+                    }
                 })
         }
     };
@@ -72,14 +79,14 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <InputBoxSmall>
                         <LabelLeft htmlFor='name'>Nome *</LabelLeft>
                         <input id='name' type='text' className={errors.name && 'error-border'}
-                            {...register("name", { required: true, minLength: 2, maxLength: 30, pattern: /^[A-Za-z\s]+$/i })} />
+                            {...register("name", { required: true, minLength: 2, maxLength: 30 })} />
                         {errors.name && <ErrorMessage> Nome inválido </ErrorMessage>}
                     </InputBoxSmall>
 
                     <InputBoxSmall>
                         <LabelLeft htmlFor='last_name'>Sobrenome *</LabelLeft>
                         <input id='last_name' type='text' className={errors.last_name && 'error-border'}
-                            {...register("last_name", { required: true, minLength: 2, maxLength: 60, pattern: /^[A-Za-z\s]+$/i })} />
+                            {...register("last_name", { required: true, minLength: 2, maxLength: 60 })} />
                         {errors.last_name && <ErrorMessage> Sobrenome inválido </ErrorMessage>}
                     </InputBoxSmall>
 
