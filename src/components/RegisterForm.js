@@ -36,15 +36,15 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
         } else {
             saphira.registerUser(formDataToRequestFormat(data))
                 .then(() => {
+                    setIsLoading(false);
                     router.reload();
                 }).catch((err) => {
+                    setIsLoading(false);
                     const message = err.response.data.message;
 
                     if (message.includes("ja cadastrado")) {
                         setErrorMessage(message);
-                        setIsLoading(false);
                     } else {
-                        setIsLoading(false);
                         router.reload();
                     }
                 })
