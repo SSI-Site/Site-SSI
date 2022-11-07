@@ -80,7 +80,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
         <>
             <FormWrapper>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h3> Bem-Vinde a SSI 2022!</h3>
+                    <h3> Bem-Vinde à SSI 2022!</h3>
                     <h4> Precisamos de algumas informações para completar o seu cadastro: </h4>
 
                     <InputBoxSmall>
@@ -147,7 +147,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <input id="accepted_terms" type="checkbox" defaultChecked={false}
                             {...register("accepted_terms", { required: true })}
                         />
-                        <label htmlFor="accepted_terms"> Compreendo que a semana de sistema de informação é um evento aberto ao publico o qual poderei usufruir sem custo algum. Ademais, comprometo-me a respeitar todos sem distinção de classe, gênero, etnia, orientação sexual e religião. * </label>
+                        <label htmlFor="accepted_terms"> Compreendo que a Semana de Sistema de Informação é um evento aberto ao público, do qual poderei usufruir sem custo algum. Ademais, comprometo-me a respeitar todes sem distinção de classe, gênero, etnia, orientação sexual e religião. * </label>
                     </CheckboxContainer>
 
                     <Separator></Separator>
@@ -264,7 +264,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <input id="accepted_recieve_emails" type="checkbox" defaultChecked={false}
                             {...register("accepted_recieve_emails")}
                         />
-                        <label htmlFor="accepted_recieve_emails"> Aceito receber emails de divulgação. dessa forma, estou ciente de que meu email será compartilhado com as empresas apoiadoras do evento para possíveis divulgações de vagas de estágio, oportunidades de cursos e afins. </label>
+                        <label htmlFor="accepted_recieve_emails"> Aceito receber emails de divulgação. Dessa forma, estou ciente de que meu e-mail será compartilhado com as empresas apoiadoras do evento para possíveis divulgações de vagas de estágio, oportunidades de cursos e afins. </label>
                     </CheckboxContainer>
 
                     <BtnContainer>
