@@ -24,7 +24,7 @@ const saphira = {
   },
 
   updateUser: async (userData) => {
-    const requestUrl = `${BASE_URL}/user/${data.email}/edit"`
+    const requestUrl = `${BASE_URL}/user/${userData.email}/edit`
 
     const params = {
       full_name: userData.fullName,

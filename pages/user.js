@@ -7,6 +7,7 @@ import useAuth from '../hooks/useAuth';
 import Button from '../src/components/Button';
 import ModalTokenComponent from '../src/components/ModalTokenComponent';
 import RegisterForm from '../src/components/RegisterForm';
+import selectOptions from '../data/registerFormSelectOptions';
 
 const User = () => {
     const { user, signOut } = useAuth();
@@ -42,18 +43,39 @@ const User = () => {
     const saphiraUserDataToFormFormat = (userData) => {
         const nameElements = getFullNameComponents(userData.full_name);
         const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
+        const birthDateElements = userData.data_nascimento.split('-');
 
-        return {
+        const data = {
             name: nameElements.name,
             last_name: nameElements.lastName,
-            birth_date: userData.data_nascimento,
+            birth_date: `${birthDateElements[2]}/${birthDateElements[1]}/${birthDateElements[0]}`,
             documentType: documentType,
             accepted_terms: true,
-            is_in_internship: userData.em_estágio,
+            is_in_internship: userData.em_estagio,
             accepted_recieve_emails: userData.aceita_receber_email,
             nusp_value: documentType === "nusp" ? userData.document : "",
-            cpf_value: documentType === "cpf" ? userData.document : ""
+            cpf_value: documentType === "cpf" ? userData.document : "",
+            gender: checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "outro",
+            custom_gender: !checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "",
+            ethnicity: checkIfValueIsASelectOption(selectOptions.ethnicity, userData.etnia) ? userData.etnia : "outro",
+            custom_ethnicity: !checkIfValueIsASelectOption(selectOptions.ethnicity, userData.etnia) ? userData.etnia : "",
+            know_about: checkIfValueIsASelectOption(selectOptions.knowAbout, userData.como_conheceu) ? userData.como_conheceu : "outro",
+            custom_know_about: !checkIfValueIsASelectOption(selectOptions.knowAbout, userData.como_conheceu) ? userData.como_conheceu : "",
+            course: checkIfValueIsASelectOption(selectOptions.course, userData.curso) ? userData.curso : "outro",
+            custom_course: !checkIfValueIsASelectOption(selectOptions.course, userData.curso) ? userData.curso : "",
+            graduation_period: userData.periodo_curso
         }
+
+        return data;
+    }
+
+    const checkIfValueIsASelectOption = (options, target) => {
+        let isASelectOption = false;
+        options.forEach(element => {
+            if(element.value === target) isASelectOption = true;
+        });
+
+        return isASelectOption;
     }
 
     const getFullNameComponents = (fullName) => {
@@ -175,7 +197,7 @@ const User = () => {
                                     </UserInformation>
                                 </TextInfo>
 
-                                {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
+                                <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
                             </UserInfoLowerWrapper>
 
                         </UserInfoSection>

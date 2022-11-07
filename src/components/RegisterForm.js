@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
 import { cpf } from 'cpf-cnpj-validator';
@@ -14,7 +14,7 @@ import Button from "../components/Button"
 const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
     const router = useRouter();
     const { user } = useAuth();
-    const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: userInfo });
+    const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: {...userInfo} });
 
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -28,10 +28,17 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
         if (isEditing) {
             saphira.updateUser(formDataToRequestFormat(data))
                 .then(() => {
-                    router.reload();
-                }).catch(() => {
-                    setErrorMessage(internalErrorMessage);
                     setIsLoading(false);
+                    router.reload();
+                }).catch((err) => {
+                    setIsLoading(false);
+                    const message = err?.response?.data?.message;
+
+                    if (message?.includes("ja cadastrado")) {
+                        setErrorMessage(message);
+                    } else {
+                        router.reload();
+                    }
                 })
         } else {
             saphira.registerUser(formDataToRequestFormat(data))
@@ -77,22 +84,22 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <h4> Precisamos de algumas informações para completar o seu cadastro: </h4>
 
                     <InputBoxSmall>
-                        <LabelLeft htmlFor='name'>Nome *</LabelLeft>
-                        <input id='name' type='text' className={errors.name && 'error-border'}
+                        <LabelLeft htmlFor='name' >Nome *</LabelLeft>
+                        <input id='name' type='text' className={errors.name && 'error-border'} disabled={isEditing}
                             {...register("name", { required: true, minLength: 2, maxLength: 30 })} />
                         {errors.name && <ErrorMessage> Nome inválido </ErrorMessage>}
                     </InputBoxSmall>
 
                     <InputBoxSmall>
                         <LabelLeft htmlFor='last_name'>Sobrenome *</LabelLeft>
-                        <input id='last_name' type='text' className={errors.last_name && 'error-border'}
+                        <input id='last_name' type='text' className={errors.last_name && 'error-border'} disabled={isEditing}
                             {...register("last_name", { required: true, minLength: 2, maxLength: 60 })} />
                         {errors.last_name && <ErrorMessage> Sobrenome inválido </ErrorMessage>}
                     </InputBoxSmall>
 
                     <DateInputBox>
                         <label htmlFor='birth_date'> Data de Nascimento * </label>
-                        <InputMask id='birth_date' type='text' mask='99/99/9999' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
+                        <input id='birth_date' type='text' mask='99/99/9999' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
                             {...register("birth_date", { required: true })} />
                         {errors.birth_date && <ErrorMessage> Data de nascimento inválida </ErrorMessage>}
                     </DateInputBox>
@@ -234,13 +241,13 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
 
                         <RadioBox>
                             <div>
-                                <input id='internship_yes' type='radio' value={true}
+                                <input id='internship_yes' type='radio' value={true} defaultChecked={userInfo?.is_in_internship}
                                     {...register("is_in_internship")} />
                                 <label htmlFor='internship_yes'> Sim </label>
                             </div>
 
                             <div>
-                                <input id='internship_no' type='radio' value={false}
+                                <input id='internship_no' type='radio' value={false} defaultChecked={!userInfo?.is_in_internship}
                                     {...register("is_in_internship")} />
                                 <label htmlFor='internship_no'> Não </label>
                             </div>
@@ -435,6 +442,10 @@ const InputBoxSmall = styled.div`
 
         color: var(--color-text);
         font-size: 1.6rem;
+    }
+
+    input:disabled {
+        color: grey;
     }
 `
 const InputBoxLarge = styled.div`
