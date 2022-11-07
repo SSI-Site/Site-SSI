@@ -42,7 +42,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     setIsLoading(false);
                     const message = err.response.data.message;
 
-                    if (message.includes("ja cadastrado")) {
+                    if (message?.includes("ja cadastrado")) {
                         setErrorMessage(message);
                     } else {
                         router.reload();
