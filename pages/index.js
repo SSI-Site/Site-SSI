@@ -91,17 +91,11 @@ const Home = () => {
                             <>
                                 <div className='content-login'>
                                     {user ?
-                                        <>
-                                            <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
-                                        </>
+                                        <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
                                         :
                                         <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
                                     }
                                 </div>
-
-                                {user && isUserRegistered &&
-                                    <p className="logged-msg"> Em breve divulgaremos mais informações a respeito do registro e contagem de presenças. </p>
-                                }
 
                                 {showAuthModal &&
                                     <AuthModal
@@ -113,18 +107,18 @@ const Home = () => {
 
                                 <div className='content-token'>
                                     {user && isUserRegistered && !isModalTokenOpen &&
-                                    <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
+                                        <Button onClick={toggleModalTokenIsOpen}> Registrar Presença </Button>
                                     }
 
                                     {user && isModalTokenOpen &&
-                                    <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} userEmail={user.email} />
+                                        <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
                                     }
 
                                     <div className="complete-register-btns">
                                         {user && !isUserRegistered &&
                                             <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
                                         }
-                                        {user &&
+                                        {user && !isUserRegistered &&
                                             <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
                                         }
                                     </div>
@@ -361,6 +355,9 @@ const BannerSection = styled.header`
         width: 100%;
         text-align: center;
         flex-direction: column;
+
+        margin-bottom: 50px;
+        margin-top: 30px;
     }
 
     .btn-entrar{

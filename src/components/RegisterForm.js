@@ -36,7 +36,6 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
             } else {
                 saphira.registerUser(formDataToRequestFormat(data))
                 .then(() => {
-                    router.push('/');
                     router.reload();
                 }).catch(() => {
                     setErrorMessage(internalErrorMessage);

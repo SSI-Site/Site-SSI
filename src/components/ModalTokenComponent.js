@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 import styled from 'styled-components';
 
 import saphira from '../../services/saphira';
@@ -6,7 +7,8 @@ import flecha from '../../public/images/flecha.svg';
 
 const TOKEN_LENGTH = 5;
 
-const ModalTokenComponent = ({ toggleVisibility, userEmail }) => {
+const ModalTokenComponent = ({ toggleVisibility }) => {
+    const { user } = useAuth();
     const [token, setToken] = useState('')
     const [isInvalid, setIsInvalid] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
@@ -26,11 +28,13 @@ const ModalTokenComponent = ({ toggleVisibility, userEmail }) => {
         }
 
         setIsLoading(true)
-        console.log('BANANAAA')
 
-        await saphira.registerPresence(userEmail, token)
+        await saphira.registerPresence(user.email, token)
             .then(() => {
                 setIsInvalid(false);
+                alert(`Presença Registrada!`)
+                setToken('')
+                toggleVisibility();
             })
             .catch(() => {
                 setIsInvalid(true);

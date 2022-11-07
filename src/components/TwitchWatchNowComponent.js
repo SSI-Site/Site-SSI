@@ -63,11 +63,14 @@ export default TwitchWatchNowComponent;
 
 
 const TwitchWatchNowWrapper = styled.div`
-
 	display: flex;
     flex-direction: row;
 	align-items: center;
-	margin: 16px 0;
+	margin: 16px 0 ;
+
+	a {
+		display: flex;
+	}
 
 	img {
 		width: 3em;
@@ -132,15 +135,6 @@ const TwitchWatchNowWrapper = styled.div`
 			filter: brightness(120%);
 		}
 	}
-
-
-    @media (min-width:480px) {
-
-    }
-
-    @media (min-width:600px) {
-
-    }
 
     @media (min-width:801px) {
 		img {

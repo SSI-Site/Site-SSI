@@ -71,14 +71,20 @@ const User = () => {
         }
     }
 
-    const getLectures = () => {
-        return [];
+    const getPresences = () => {
+        saphira.listPresences(user.email)
+            .then((res) => {
+                setLectures([...res.data]);
+            })
+            .catch(() => {
+                setLectures([])
+            })
     }
 
 
     useEffect(() => {
         if (isUserRegistered) {
-            setLectures(getLectures());
+            getPresences();
         }
 
     }, [isUserRegistered]);
@@ -179,16 +185,19 @@ const User = () => {
                             <ListLectures>
 
                                 <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
-                                <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
+
+                                {lectures.length ===0 &&
+                                    <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
+                                }
 
                                 <tbody>
                                     {lectures.map((lecture, id) => (
                                         <tr key={id}>
-                                            <td className={`lecture-id lecture-id-${id}`}>
+                                            <td className={`lecture-id lecture-id-0`}>
                                                 <span></span>
                                             </td>
-                                            <td className={`lecture-info lecture-info-${id}`}>
-                                                <p className='bold-info'>{lecture}</p>
+                                            <td className={`lecture-info lecture-info-0`}>
+                                                <p className='bold-info'>{lecture.talk_title} - {lecture.online ? "Online" : "Presencial"}</p>
                                             </td>
                                         </tr>
                                     ))

@@ -58,6 +58,12 @@ const saphira = {
     return axios.get(requestUrl, { params });
   },
 
+  listPresences: async (email) => {
+    const requestUrl = `${BASE_URL}/user/${email}/presences`
+
+    return axios.get(requestUrl);
+  },
+
   testTimeout: async () => new Promise(resolve => setTimeout(resolve, 3000)),
 }
 
