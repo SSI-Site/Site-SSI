@@ -12,7 +12,7 @@ import LectureImage11 from '../public/images/lecture_imgs/11-Daniel_Batista.png'
 import LectureImage12 from '../public/images/lecture_imgs/12-Vencer_Agil.jpg'
 import LectureImage13 from '../public/images/lecture_imgs/13-Pachi_Parra.png'
 import LectureImage14 from '../public/images/lecture_imgs/14-Larissa_Maruyama.jpg'
-// 15 - Mudou palestrante
+import LectureImage15 from '../public/images/lecture_imgs/15-Renan_Nakazawa.jpeg'
 // 16 - Tem 4 palestrantes
 import LectureImage17 from '../public/images/lecture_imgs/17-Giovanni_de_Carvalho.jpg'
 import LectureImage18 from '../public/images/lecture_imgs/18-Fabiano_Luiz_Caldas_Leite.jpg'
@@ -193,13 +193,13 @@ const schedule = {
       image: LectureImage14
     },
     '17:20': {
-      title: 'Em breve',
-      description: '',
+      title: 'Migrando segurança para microsserviços',
+      description: 'A migração de uma aplicação monolítica para uma arquitetura de microsserviços é comumentemente algo não-trivial, abrangendo diversas áreas da TI. Veremos alguns dos desafios que surgem para a segurança dos sistemas nesse contexto, e como alguns estão sendo resolvidos aqui no Elo7.',
       local: 'presential',
       speakers: [
-        { name: 'Elo7', anchor: 'https://www.elo7.com.br/' }
+        { name: 'Renan Nakazawa', anchor: 'https://www.elo7.com.br/' }
       ],
-      image: ''
+      image: LectureImage15
     },
 
     '18:20': { message: 'Janta' },
