@@ -34,7 +34,7 @@ import LectureImage32 from '../public/images/lecture_imgs/32-Felipe_Voigtlaender
 import LectureImage34 from '../public/images/lecture_imgs/34-Ricardo_Filho.jpg'
 import LectureImage35 from '../public/images/lecture_imgs/35-Jéderson_Freitas.jpg'
 import LectureImage36 from '../public/images/lecture_imgs/36-Gabul_DEV.png'
-// 37 - Revelo: ainda a decidir palestra(nte) 
+import LectureImage37 from '../public/images/lecture_imgs/37-Revelo.jpeg'
 import LectureImage38 from '../public/images/lecture_imgs/38-Beronalda_Silva.png'
 // 39 - Alexia Kattah não enviou foto/descrição
 // 40 - Daninel Cordeiro não enviou foto/descrição
@@ -429,13 +429,13 @@ const schedule = {
       image: LectureImage36
     },
     '10:00': {
-      title: 'Em breve',
-      description: '',
+      title: 'Mercado de Tecnologia e Carreira internacional',
+      description: 'Mais de 15 anos de experiencia nos mercados Internacionais e Nacional nas áreas de Vendas, Gerenciamento de Contas, e Recrutamento.  Desses 15 anos, 12 sendo em posicões de liderança. Atualmente sou Head de Talent Acquisition na Revelo e tenho uma equipe de 15 pessoas. Minha parte predileta de fazer o que faço é que eu tenho a habilidade de todos os dias ajudar a mudar a carreira das pessoas para o melhor e também ajudar clientes a encontrarem os melhores funcionários para suas empresas.',
       local: 'online',
       speakers: [
-        { name: 'Revelo', anchor: 'https://www.revelo.com.br/' }
+        { name: 'Regina Jean Welle', anchor: 'https://www.revelo.com.br/' }
       ],
-      image: ''
+      image: LectureImage37
     },
     '11:20': {
       title: 'Transações na blockchain: um futuro já presente',
