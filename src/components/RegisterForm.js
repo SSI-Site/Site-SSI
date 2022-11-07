@@ -14,7 +14,7 @@ import Button from "../components/Button"
 const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
     const router = useRouter();
     const { user } = useAuth();
-    const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: {...userInfo} });
+    const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: { ...userInfo } });
 
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -99,8 +99,14 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
 
                     <DateInputBox>
                         <label htmlFor='birth_date'> Data de Nascimento * </label>
-                        <input id='birth_date' type='text' mask='99/99/9999' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
-                            {...register("birth_date", { required: true })} />
+                        {!isEditing ?
+                            <InputMask id='birth_date' type='text' mask='99/99/9999' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
+                                {...register("birth_date", { required: true })} />
+                            :
+                            <input id='birth_date' type='text' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
+                                {...register("birth_date", { required: true })} />
+                        }
+
                         {errors.birth_date && <ErrorMessage> Data de nascimento inválida </ErrorMessage>}
                     </DateInputBox>
 
