@@ -170,9 +170,21 @@ const User = () => {
                                 </PhotoNameWrapper>
 
                                 <p>Palestras assistidas:
-                                    <span className='bold-info'>&nbsp; {lectures.length}</span>
-                                    {lectures.length > 10 &&
+                                    <span className='bold-info'>&nbsp;{lectures.length}&nbsp;</span>
+                                    {(lectures.length > 9 && lectures.length < 20) &&
                                         <span>&#128293;</span>
+                                    }
+                                    {(lectures.length > 19 && lectures.length < 30) &&
+                                        <span>&#9889;</span>
+                                    }
+                                    {(lectures.length > 29 && lectures.length < 40) &&
+                                        <span>&#127775;</span>
+                                    }
+                                    {(lectures.length > 39 && lectures.length < 45) &&
+                                        <span>&#128081;</span>
+                                    }
+                                    {(lectures.length === 45) &&
+                                        <span>&#128175;</span>
                                     }
                                 </p>
                             </UserInfoUpperWrapper>
