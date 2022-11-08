@@ -177,19 +177,19 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="7" weekDay="segunda feira" size="small" />
+                            <DateComponent day="8" weekDay="terça-feira" size="small" />
                         </div>
 
                         <ScheduleInformation
                             speakerPicture={speakerPicture}
-                            title="palestra"
-                            overview="Assim como todas as palestras do evento, esta será mais uma recheada de informações sobre tecnologia e carreira pra você."
+                            title="palestras incríveis"
+                            overview="Amanhã traremos para vocês mais um dia de palestras recheadas de informações sobre tecnologia e carreira. Não deixe de participar!"
                         />
 
                     </div>
 
                     <div className='sechedule-text'>
-                        <p>Confira aqui o conteúdo detalhado das nossas palestras, para poder se programar e decidir quais você mais quer assistir!</p>
+                        <p>Confira o conteúdo detalhado das nossas palestras, para poder se organizar e decidir quais você mais quer assistir!</p>
                     </div>
                     <div className='starr star-one'></div>
                     <div className='starr star-two'></div>
