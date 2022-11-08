@@ -20,7 +20,7 @@ import LectureImage18 from '../public/images/lecture_imgs/18-Fabiano_Luiz_Caldas
 import LectureImage20 from '../public/images/lecture_imgs/20-Marcelo_L._Perrucci.jpg'
 // 21 - Tem 2 palestrantes
 import LectureImage22 from '../public/images/lecture_imgs/22-Talita_Rodrigues.jpg'
-// 23 - Palestrante não enviou foto/descrição
+import LectureImage23 from '../public/images/lecture_imgs/23-Cesar_Rodrigues.jpeg'
 import LectureImage24 from '../public/images/lecture_imgs/24-William_Oliveira.jpg'
 import LectureImage26 from '../public/images/lecture_imgs/26-Caio_Novais_Fernandes_da_Silva.jpg'
 import LectureImage27 from '../public/images/lecture_imgs/27-Marylly_Silva.jpg'
@@ -279,13 +279,13 @@ const schedule = {
       image: LectureImage22
     },
     '16:00': {
-      title: 'Workshop de Inteligência Artificial',
-      description: '',
+      title: 'A Cultura MLOps e como a EY se conecta a ela',
+      description: 'A inteligência artificial (IA) é uma área da ciência da computação que foi criada há décadas, entretanto, com o advento do Big Data e Cloud Computing, novas possibilidades surgiram para o mercado explorar a IA, e novas habilidades foram solicitadas dos profissionais de TI. O workshop visa apresentar como estruturar um processo robusto de MLOps na Cloud e os desafios que a transformação digital tem gerado nas empresas.',
       local: 'presential',
       speakers: [
-        { name: '', anchor: '' }
+        { name: 'Cesar Rodrigues', anchor: 'https://www.ey.com/pt_br' }
       ],
-      image: ''
+      image: LectureImage23
     },
     '17:20': {
       title: 'Comunidades de programação',
