@@ -188,7 +188,7 @@ const schedule = {
       description: 'Jornalista e graduanda de Sistemas de Informação na EACH USP, atua como Red Team na Clavis Segurança da Informação e ajudou a fundar o grupo [E]ACH InTheShell_. Quando falamos de trabalho em segurança da informação, não imaginamos as muitas possibilidades de carreira na área e que há espaço para pessoas de tecnologia e de outras áreas.',
       local: 'presential',
       speakers: [
-        { name: 'Larissa Yurie Maruyama', anchor: 'https://www.instagram.com/eachintheshell/' }
+        { name: 'Larissa Maruyama', anchor: 'https://www.instagram.com/eachintheshell/' }
       ],
       image: LectureImage14
     },
