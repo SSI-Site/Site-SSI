@@ -272,7 +272,7 @@ const BackgroundWrapper = styled.div`
         font-weight: 400;
     }
     .bold-info {
-        font-size: 22px;
+        font-size: 1.6rem;
         font-weight: 400;
         margin-bottom: 15px;
         font-weight: 600 !important;
@@ -390,7 +390,7 @@ const TextInfo = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
-    margin-bottom: 50px;
+    margin-bottom: 1rem;
 
     @media (min-width:1120px) {
         max-width: 70%;
@@ -423,6 +423,8 @@ const ContainerLectures = styled.section`
     flex-direction: column;
     justify-content: left;
     margin-bottom: 15rem;
+
+    margin-top: 100px;
     padding-inline: 45px;
 
     h4 {
@@ -430,6 +432,7 @@ const ContainerLectures = styled.section`
         font-weight: 700;
         margin-bottom: 5rem;
     }
+
     thead {
         display: flex;
         flex-direction: column;

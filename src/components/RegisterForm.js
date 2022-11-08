@@ -103,7 +103,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                             <InputMask id='birth_date' type='text' mask='99/99/9999' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
                                 {...register("birth_date", { required: true })} />
                             :
-                            <input id='birth_date' type='text' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
+                            <input id='birth_date' type='text' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'} disabled={isEditing}
                                 {...register("birth_date", { required: true })} />
                         }
 
@@ -581,6 +581,10 @@ const DateInputBox = styled.div`
 
         color: var(--color-text);
         font-size: 1.6rem;
+    }
+
+    input:disabled {
+        color: grey;
     }
 
     label {
