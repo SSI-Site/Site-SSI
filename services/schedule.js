@@ -27,7 +27,7 @@ import LectureImage27 from '../public/images/lecture_imgs/27-Marylly_Silva.jpg'
 import LectureImage28 from '../public/images/lecture_imgs/28-Jakeliny_Gracielly.jpg'
 import LectureImage29 from '../public/images/lecture_imgs/29-Fransuel_Nascimento.jpeg'
 import LectureImage30 from '../public/images/lecture_imgs/30-Gael_Sena.jpg'
-// 31 - Ana Clara Cavalcante (CodeLab) não enviou foto/descrição
+import LectureImage31_1 from '../public/images/lecture_imgs/31_1-Ana_Clara.jpeg'
 import LectureImage31_2 from '../public/images/lecture_imgs/31_2-Sintese_Jr.png'
 import LectureImage32 from '../public/images/lecture_imgs/32-Felipe_Voigtlaender_Furquim.jpg'
 // 33 - Totvs: ainda a decidir palestra(nte) 
@@ -360,12 +360,12 @@ const schedule = {
     },
     '14:40': {
       title: 'SSI Talks - Como fazer oportunidades caírem do céu com Web Scraping usando Python?',
-      description: '',
+      description: 'Todo mundo gosta de ser selecionado para uma oportunidade legal. Uma empresa que paga mega bem e cobre realocação, uma competição que dá bolsa ou aquele projeto incrível que só de ler já te anima. Mas encontrar essas oportunidades é outra história: requer UM TEMPÃO analisando várias páginas para escolher as oportunidades que se encaixam no seu perfil. Se você é do tipo que gosta de trabalhar de forma mais inteligente do que mais trabalhosa, vem comigo nessa talk aprender um pouco sobre web scraping com Python que possibilita a coleta de informações e visualização mais prática!',
       local: 'presential',
       speakers: [
         { name: 'Ana Clara Cavalcante', anchor: 'https://www.instagram.com/uspcodelableste/' }
       ],
-      image: ''
+      image: LectureImage31_1
     },
     '15:15': {
       title: 'SSI Talks - Da venda até entrega: ganhe dinheiro com o curso de SI',
