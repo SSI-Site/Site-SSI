@@ -70,6 +70,10 @@ const Home = () => {
         checkUserRegister();
     }, [user]);
 
+    useEffect(() => {
+        checkUserRegister();
+    }, []);
+
     return (
         <>
             <Meta title='SSI 2022 | Início' />

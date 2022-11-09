@@ -115,6 +115,10 @@ const User = () => {
         checkUserRegister();
     }, [user]);
 
+    useEffect(() => {
+        checkUserRegister();
+    }, []);
+
     return (
         <>
             <script
