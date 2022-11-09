@@ -279,7 +279,7 @@ const schedule = {
       image: LectureImage22
     },
     '16:00': {
-      title: 'A Cultura MLOps e como a EY se conecta a ela',
+      title: 'Workshop de Inteligência Artificial: A Cultura MLOps e como a EY se conecta a ela',
       description: 'A inteligência artificial (IA) é uma área da ciência da computação que foi criada há décadas, entretanto, com o advento do Big Data e Cloud Computing, novas possibilidades surgiram para o mercado explorar a IA, e novas habilidades foram solicitadas dos profissionais de TI. O workshop visa apresentar como estruturar um processo robusto de MLOps na Cloud e os desafios que a transformação digital tem gerado nas empresas.',
       local: 'presential',
       speakers: [
