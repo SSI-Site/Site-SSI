@@ -183,7 +183,7 @@ const Home = () => {
                         <ScheduleInformation
                             speakerPicture={speakerPicture}
                             title="palestras incríveis"
-                            overview="Hoje teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para vocês. Não deixe de participar!"
+                            overview="Hoje teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
                         />
 
                     </div>
