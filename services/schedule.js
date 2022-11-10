@@ -421,7 +421,7 @@ const schedule = {
   '2022-11-11': {
     '08:40': {
       title: 'Entrando no mundo do Flutter',
-      description: 'Já pensou em entrar para o mundo da tecnoliga mobile que mais cresceu nesses últimos anos? Aprender a criar aplicativos como Nubank, Google Pay e vários outros que utilizam o Flutter? Então, na palestra de hoje vou lhe ensinar os caminhos para entrar no mundo incrível dessa tecnolgia da Google.',
+      description: 'Já pensou em entrar para o mundo da tecnologia mobile que mais cresceu nesses últimos anos? Aprender a criar aplicativos como Nubank, Google Pay e vários outros que utilizam o Flutter? Então, na palestra de hoje vou lhe ensinar os caminhos para entrar no mundo incrível dessa tecnologia da Google.',
       local: 'presential',
       speakers: [
         { name: 'Gabul DEV', anchor: 'https://www.linkedin.com/in/gabuldev/' }

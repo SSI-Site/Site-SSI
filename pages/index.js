@@ -181,7 +181,7 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="9" weekDay="quarta-feira" size="small" />
+                            <DateComponent day="10" weekDay="quinta-feira" size="small" />
                         </div>
 
                         <ScheduleInformation
