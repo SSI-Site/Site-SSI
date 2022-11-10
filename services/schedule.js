@@ -39,7 +39,7 @@ import LectureImage38 from '../public/images/lecture_imgs/38-Beronalda_Silva.png
 // 39 - Alexia Kattah não enviou foto/descrição
 // 40 - Daninel Cordeiro não enviou foto/descrição
 // 41 - Rafaelli Harumi Mecenas Yabe não enviou foto/descrição
-// 42 - Tem 2 palestrantes (PET-SI)
+import LectureImage42 from '../public/images/lecture_imgs/42-Globo.jpg'
 import LectureImage43 from '../public/images/lecture_imgs/43-Téo_Calvo_(Téo).jpg'
 
 const schedule = {
@@ -481,13 +481,14 @@ const schedule = {
       image: ''
     },
     '17:20': {
-      title: 'Em breve',
-      description: '',
-      local: 'presential',
+      title: 'A pirataria: seus tipos e impacto',
+      description: 'Nessa palestra vamos abordar o tema pirataria e falar um pouco sobre seus tipos e qual impacto dela no nosso dia a dia. Além de apresentar uma das nossas ferramentas utilizada no combate da pirataria, e as tecnologia utilizadas para a construção da ferramenta.',
+      local: 'online',
       speakers: [
-        { name: 'Globo', anchor: 'https://www.globo.com/' }
+        { name: 'Celso Paula Junior', anchor: 'https://www.globo.com/' },
+        { name: 'Marcia Frizzo Amaral', anchor: 'https://www.globo.com/' }
       ],
-      image: ''
+      image: LectureImage42
     },
 
     '18:20': { message: 'Janta' },
