@@ -181,13 +181,13 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="10" weekDay="quinta-feira" size="small" />
+                            <DateComponent day="11" weekDay="sexta-feira" size="small" />
                         </div>
 
                         <ScheduleInformation
                             speakerPicture={speakerPicture}
-                            title="palestras incríveis"
-                            overview="Hoje teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
+                            title="E sextou com mais palestras incríveis!"
+                            overview="Hoje teremos o nosso último dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
                         />
 
                     </div>
