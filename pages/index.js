@@ -417,7 +417,7 @@ const BannerSection = styled.header`
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
-        height: 100vh;
+        height: 60vh;
         max-height: 680px;
         padding-top: 50px;
 
