@@ -1,17 +1,11 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import styled from 'styled-components';
-import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
-import saphira from '../services/saphira';
-
 import Button from '../src/components/Button'
 import DateComponent from '../src/components/DateComponent';
 import ScheduleInformation from '../src/components/ScheduleInformation';
 import TwitchWatchNowComponent from '../src/components/TwitchWatchNowComponent'
-import AuthModal from '../src/components/AuthModal'
-import ModalTokenComponent from '../src/components/ModalTokenComponent'
 import Divider from '../src/components/Divider';
 
 import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'
@@ -31,48 +25,8 @@ const supporters = [
 
 const Home = () => {
     const router = useRouter();
-    const { user, signOut } = useAuth();
-
-    const [showAuthModal, setShowAuthModal] = useState(false);
-    const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
-    const [isUserRegistered, setIsUserRegistered] = useState(false);
+   
     const [isLoading, setIsLoading] = useState(false);
-
-    const toggleModalTokenIsOpen = () => {
-        setIsModalTokenOpen(!isModalTokenOpen);
-    }
-
-    const handleShowAuthModal = () => {
-        if (window.pageYOffset != 0) {
-            setTimeout(() => { handleShowAuthModal() }, 50)
-        } else {
-            setShowAuthModal(true);
-        }
-    }
-
-    const checkUserRegister = () => {
-        if (!user) return;
-
-        setIsLoading(true);
-
-        saphira.getUser(user.email)
-            .then(() => {
-                setIsUserRegistered(true);
-                setIsLoading(false);
-            })
-            .catch(() => {
-                setIsUserRegistered(false);
-                setIsLoading(false);
-            });
-    }
-
-    useEffect(() => {
-        checkUserRegister();
-    }, [user]);
-
-    useEffect(() => {
-        checkUserRegister();
-    }, []);
 
     const current = new Date();
     const day = `${current.getDate()}`;
@@ -111,33 +65,9 @@ const Home = () => {
                                 <span id="#temp-span" style={{"marginTop": "20px", "maxWidth": "70%", "textAlign": "center"}}>
                                     O período de cadastro para o evento já foi encerrado...</span>
 
-                                {showAuthModal &&
-                                    <AuthModal
-                                        onClose={() => setShowAuthModal(false)}
-                                        show={showAuthModal}
-                                    />
-                                }
+                                
 
 
-                                <div className='content-token'>
-                                    {user && isUserRegistered && !isModalTokenOpen &&
-                                        <Button onClick={toggleModalTokenIsOpen}> Registrar Presença </Button>
-                                    }
-
-                                    {user && isModalTokenOpen &&
-                                        <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
-                                    }
-
-                                    <div className="complete-register-btns">
-                                        {user && !isUserRegistered &&
-                                            <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
-                                        }
-                                        {user && !isUserRegistered &&
-                                            <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
-                                        }
-                                    </div>
-
-                                </div>
 
                                 <TwitchWatchNowComponent />
                             </>
@@ -197,7 +127,7 @@ const Home = () => {
                         <ScheduleInformation
                             speakerPicture={speakerPicture}
                             title="Palestras imperdíveis para você"
-                            overview="Durante o evento, todos os dias terão palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
+                            overview="Durante o evento, cada dia terá palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
                         />
 
                     </div>

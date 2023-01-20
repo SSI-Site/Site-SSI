@@ -1,4 +1,4 @@
-import { AuthProvider } from '../contexts/AuthContext';
+//import { AuthProvider } from '../contexts/AuthContext';
 import Layout from '../src/patterns/base/Layout';
 
 //barra de carregamento
@@ -14,11 +14,11 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider>
+    //<AuthProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </AuthProvider>
+    //</AuthProvider>
   )
 }
 

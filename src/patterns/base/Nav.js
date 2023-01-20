@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import useAuth from '../../../hooks/useAuth';
-
-import AuthModal from '../../components/AuthModal';
 
 import InstagramLogo from '../../../public/images/social_media/insta.png';
 import FacebookLogo from '../../../public/images/social_media/feice.png';
@@ -16,23 +13,13 @@ const pages = {
     "/about": 3,
     "/sponsors": 4,
     "/co": 5,
-    "/user": 7
+    //"/user": 7
 }
 
 const Nav = () => {
 
-    const { user } = useAuth();
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
-    const [showAuthModal, setShowAuthModal] = useState(false);
-
-    const handleShowAuthModal = () => {
-        if (window.pageYOffset != 0) {
-            setTimeout(() => { handleShowAuthModal() }, 50)
-        } else {
-            setShowAuthModal(true);
-        }
-    }
 
     useEffect(() => {
         if (isOpen) {
@@ -45,12 +32,6 @@ const Nav = () => {
     return (
         <>
             <NavWrapper>
-                {showAuthModal &&
-                    <AuthModal
-                        onClose={() => setShowAuthModal(false)}
-                        show={showAuthModal}
-                    />
-                }
 
                 <NavDesktop currentPage={router.pathname}>
                     <ul>
@@ -60,8 +41,8 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            {/* <Link href="/schedule" >*/}<span>Programação</span>{/* </Link> */}
-                            {/* <div></div> */}
+                            <Link href="/schedule" ><a>Programação</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
@@ -84,17 +65,7 @@ const Nav = () => {
                             <div></div>
                         </li> */}
 
-                        {user ?
-                            <li className='userPicContainer'>
-                                <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
-                            </li>
-                            :
-                            <li className='logInBtnContainer'>
-                                <button /* onClick={handleShowAuthModal} */><span>Entrar</span></button>
-                                {/* <div></div> */}
-                            </li>
-
-                        }
+                        
                     </ul>
                 </NavDesktop >
 
@@ -108,9 +79,9 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="/schedule"> */}<a style={{"color": "gray"}}>Programação</a>{/* </Link> */}
-                                {/* <div></div> */}
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/schedule"><a>Programação</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
@@ -133,17 +104,6 @@ const Nav = () => {
                                 <div></div>
                             </li> */}
 
-                            {user ?
-                                <li onClick={() => setIsOpen(false)}>
-                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
-                                    <div></div>
-                                </li>
-                                :
-                                <li /* 0nClick={() => setIsOpen(false)} */>
-                                    <button><a style={{"color": "gray"}}>Entrar</a></button>
-                                    {/* <div></div> */}
-                                </li>
-                            }
                         </ul>
 
                         <NavFooter>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
-import saphira from '../services/saphira';
 
 //assets
 import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'

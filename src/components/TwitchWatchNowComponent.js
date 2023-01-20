@@ -5,32 +5,11 @@ import styled from 'styled-components'
 // assets
 import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg'
 
-import twitch from '../../services/twitch';
 
 const TwitchWatchNowComponent = () => {
 	const [isLiveStreaming, setIsLiveStreaming] = useState(false);
 	const [streamData, setStreamData] = useState({});
 
-	const getStreamData = () => {
-		twitch.getStreamData()
-			.then((res) => {
-				const streamsData = res.data?.data;
-
-				if (streamsData && streamsData.length > 0) {
-					setIsLiveStreaming(true);
-					setStreamData({ ...streamsData[0] });
-				} else {
-					setIsLiveStreaming(false);
-				}
-			})
-			.catch(() => {
-				setIsLiveStreaming(false);
-			});
-	}
-
-	useEffect(() => {
-		getStreamData();
-	}, []);
 
 	return (
 		<>
@@ -66,7 +45,7 @@ const TwitchWatchNowWrapper = styled.div`
 	display: flex;
     flex-direction: row;
 	align-items: center;
-	margin: 16px 0 ;
+	margin: 150px 0 ;
 
 	a {
 		display: flex;

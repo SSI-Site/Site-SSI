@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Meta from '../../src/infra/Meta';
 import styled from 'styled-components';
-import saphira from '../../services/saphira';
 import background from '../../public/images/padrao_background_desktop.svg';
 
 import Link from 'next/link'
