@@ -74,6 +74,11 @@ const Home = () => {
         checkUserRegister();
     }, []);
 
+    const current = new Date();
+    const day = `${current.getDate()}`;
+    const weekDayNames = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+    const weekDay = weekDayNames[`${current.getDay()}`];
+    
     return (
         <>
             <Meta title='SSI 2022 | Início' />
@@ -93,13 +98,18 @@ const Home = () => {
 
                         {!isLoading ?
                             <>
-                                <div className='content-login'>
+                                {/* <div className='content-login'>
                                     {user ?
                                         <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
                                         :
                                         <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
                                     }
-                                </div>
+                                </div> */}
+
+
+                                <WelcomeComponent>Bem-vinde!</WelcomeComponent>
+                                <span id="#temp-span" style={{"marginTop": "20px", "maxWidth": "70%", "textAlign": "center"}}>
+                                    O período de cadastro para o evento já foi encerrado...</span>
 
                                 {showAuthModal &&
                                     <AuthModal
@@ -181,13 +191,13 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="11" weekDay="sexta-feira" size="small" />
+                            <DateComponent day={day} weekDay={weekDay} size="small" />
                         </div>
 
                         <ScheduleInformation
                             speakerPicture={speakerPicture}
-                            title="E sextou com mais palestras incríveis!"
-                            overview="Hoje teremos o nosso último dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
+                            title="Palestras imperdíveis para você"
+                            overview="Durante o evento, todos os dias terão palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
                         />
 
                     </div>
@@ -201,7 +211,7 @@ const Home = () => {
                     <div className='starr star-four'></div>
 
                 </div>
-                <Button onClick={() => router.push('/schedule')}>Confira</Button>
+                <Button disabled onClick={() => router.push('/schedule')}>Confira</Button>
 
             </ScheduleSection>
 

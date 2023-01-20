@@ -60,8 +60,8 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            <Link href="/schedule" ><a>Programação</a></Link>
-                            <div></div>
+                            {/* <Link href="/schedule" >*/}<span>Programação</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         <li>
@@ -79,10 +79,10 @@ const Nav = () => {
                             <div></div>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
                             <div></div>
-                        </li>
+                        </li> */}
 
                         {user ?
                             <li className='userPicContainer'>
@@ -90,8 +90,8 @@ const Nav = () => {
                             </li>
                             :
                             <li className='logInBtnContainer'>
-                                <button onClick={handleShowAuthModal}><a>Entrar</a></button>
-                                <div></div>
+                                <button /* onClick={handleShowAuthModal} */><span>Entrar</span></button>
+                                {/* <div></div> */}
                             </li>
 
                         }
@@ -108,9 +108,9 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/schedule"><a>Programação</a></Link>
-                                <div></div>
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="/schedule"> */}<a style={{"color": "gray"}}>Programação</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
@@ -128,10 +128,10 @@ const Nav = () => {
                                 <div></div>
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
+                            {/* <li onClick={() => setIsOpen(false)}>
                                 <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
                                 <div></div>
-                            </li>
+                            </li> */}
 
                             {user ?
                                 <li onClick={() => setIsOpen(false)}>
@@ -139,9 +139,9 @@ const Nav = () => {
                                     <div></div>
                                 </li>
                                 :
-                                <li onClick={() => setIsOpen(false)}>
-                                    <button onClick={handleShowAuthModal}><a>Entrar</a></button>
-                                    <div></div>
+                                <li /* 0nClick={() => setIsOpen(false)} */>
+                                    <button><a style={{"color": "gray"}}>Entrar</a></button>
+                                    {/* <div></div> */}
                                 </li>
                             }
                         </ul>
