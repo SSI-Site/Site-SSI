@@ -74,6 +74,19 @@ const Home = () => {
         checkUserRegister();
     }, []);
 
+    const current = new Date();
+    const day = `${current.getDate()}`;
+    const month = `${current.getMonth()}`;
+    const weekDayNames = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
+    const weekDay = weekDayNames[`${current.getDay()}`];
+    const simpleWeekDayNames = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+    const simpleWeekDay = simpleWeekDayNames[`${current.getDay()}`];
+    
+
+    const description = "Nesta "+weekDay+", teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
+    const sentenceTitle = "E com mais palestras incríveis!";
+    const title = sentenceTitle.slice(0,2)+simpleWeekDay.replace(/.$/, "ou")+sentenceTitle.slice(1,);
+
     return (
         <>
             <Meta title='SSI 2022 | Início' />
@@ -181,14 +194,24 @@ const Home = () => {
                     <div className='first-section-schedule'>
 
                         <div className='date'>
-                            <DateComponent day="11" weekDay="sexta-feira" size="small" />
+                            <DateComponent day={day} weekDay={weekDay} size="small" />
                         </div>
 
-                        <ScheduleInformation
-                            speakerPicture={speakerPicture}
-                            title="E sextou com mais palestras incríveis!"
-                            overview="Hoje teremos o nosso último dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
-                        />
+                        { (day>=21 && day<=25 && month==7) ? 
+                            (   
+                                <ScheduleInformation
+                                    speakerPicture={speakerPicture}
+                                    title={title}
+                                    overview={description}
+                                />
+                            ) : (
+                                <ScheduleInformation
+                                    speakerPicture={speakerPicture}
+                                    title="Palestras imperdíveis para você!"
+                                    overview="Durante o evento, cada dia terá diversas palestras recheadas de informações sobre tecnologia e carreira para você. Fique de olho para não perder!"
+                                />
+                            )
+                        }
 
                     </div>
 

@@ -5,10 +5,9 @@ import useAuth from '../../hooks/useAuth';
 
 import Logo from '../../public/images/logos/logo_sem_estrela.svg'
 import GoogleLogo from '../../public/images/login_icons/google_logo_white.png'
-import GithubLogo from '../../public/images/login_icons/github_logo_white.png'
 
 const AuthModal = ({ onClose }) => {
-    const {signinGitHub, signinGoogle} = useAuth();
+    const signinGoogle = useAuth();
     const modalWrapperRef = useRef();
 
     const [isBrowser, setIsBrowser] = useState(false);
@@ -23,11 +22,6 @@ const AuthModal = ({ onClose }) => {
 
     const handleGoogleSignIn = () => {
         signinGoogle();
-        onClose();
-    };
-
-    const handleGithubSignIn = () => {
-        signinGitHub();
         onClose();
     };
 
@@ -64,10 +58,6 @@ const AuthModal = ({ onClose }) => {
                         <SigninBtn onClick={handleGoogleSignIn}>
                             <img src={GoogleLogo} alt="google white logo" />
                             <span>Google</span>
-                        </SigninBtn>
-                        <SigninBtn onClick={handleGithubSignIn}>
-                            <img src={GithubLogo} alt="github white logo" />
-                            <span>GitHub</span>
                         </SigninBtn>
                     </ModalBody>
                 </StyledModal>
@@ -136,6 +126,7 @@ const ModalHeader = styled.header`
         background-color: #fff;
         border-radius: 10px;
         transform: rotate(45deg);
+        transition: all .3s ease-in;
     }
 
     .rightleft{
@@ -145,16 +136,19 @@ const ModalHeader = styled.header`
         background-color: #fff;
         border-radius: 10px;
         transform: rotate(-45deg);
+        transition: all .3s ease-in;
     }
 
     .close-btn-container:hover > .leftright{
-        --glow: 0px 0px 2px 2px rgba(121, 61, 174, 0.5);
+        /* --glow: 0px 0px 2px 2px rgba(121, 61, 174, 0.5); */
+        transform: rotate(-45deg);
         box-shadow: var(--glow);
         background-color: #8744C2;
     }
 
     .close-btn-container:hover > .rightleft{
-        --glow: 0px 0px 2px 2px rgba(121, 61, 174, 0.5);
+        /* --glow: 0px 0px 2px 2px rgba(121, 61, 174, 0.5); */
+        transform: rotate(45deg);
         box-shadow: var(--glow);
         background-color: #8744C2;
     }
@@ -168,7 +162,7 @@ const ModalBody = styled.div`
     padding-top: 10px;
 
     figure {
-        width: 145px;
+        width: 155px;
         margin-bottom: 20px;
     }
 
@@ -186,7 +180,7 @@ const ModalBody = styled.div`
         width: 40%;
         height: 1px;
         background-color: #8744C2;
-        margin-bottom: 20px;
+        margin-bottom: 35px;
     }
 `;
 

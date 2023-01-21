@@ -42,19 +42,6 @@ export function AuthProvider({ children }) {
         }
     }
 
-    const signinGitHub = async () => {
-        try {
-            setLoading(true);
-            const response = await firebase
-                .auth()
-                .signInWithPopup(new firebase.auth.GithubAuthProvider());
-            handleUser(response.user);
-
-        } finally {
-            setLoading(false);
-        }
-    }
-
     const signinGoogle = async () => {
         try {
             setLoading(true);
@@ -85,7 +72,6 @@ export function AuthProvider({ children }) {
     return <AuthContext.Provider value={{
         user,
         loading,
-        signinGitHub,
         signinGoogle,
         signOut
     }}>{children}</AuthContext.Provider>;
