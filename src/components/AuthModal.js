@@ -7,7 +7,7 @@ import Logo from '../../public/images/logos/logo_sem_estrela.svg'
 import GoogleLogo from '../../public/images/login_icons/google_logo_white.png'
 
 const AuthModal = ({ onClose }) => {
-    const signinGoogle = useAuth();
+    const { signinGoogle } = useAuth();
     const modalWrapperRef = useRef();
 
     const [isBrowser, setIsBrowser] = useState(false);
