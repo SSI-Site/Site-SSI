@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { cpf } from 'cpf-cnpj-validator';
 import InputMask from 'react-input-mask';
 import styled from 'styled-components';
