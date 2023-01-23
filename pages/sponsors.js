@@ -54,11 +54,11 @@ const Sponsors = () => {
                         <h2 className='apoiadores'>Apoiadores&nbsp;</h2>
                     </div>
                     <div className='sponsors-wrapper'>
-                        <SponsorCardComponent name='elo7' image='./images/sponsors/elo7.png' link="https://www.elo7.com.br/" />
-                        <SponsorCardComponent name='ey' image='./images/sponsors/ey.png' link="https://www.ey.com/pt_br" />
-                        <SponsorCardComponent name='github' image='./images/sponsors/github.png' link="https://github.com/" />
-                        <SponsorCardComponent name='globo' image='./images/sponsors/globo.png' link="https://www.globo.com/" />
-                        <SponsorCardComponent name='revelo' image='./images/sponsors/revelo.svg' link="https://www.revelo.com.br/" />
+                        <SponsorCardComponent name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCardComponent name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCardComponent name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCardComponent name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCardComponent name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
                     </div>
 
                     <div className='divider-line'></div>

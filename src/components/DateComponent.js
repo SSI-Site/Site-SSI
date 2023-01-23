@@ -82,6 +82,7 @@ const DateStyle = styled.div`
         transition: transform 0.5s;
     }
 
+
 `
 
 const DateWrapper = styled.div`
