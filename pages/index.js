@@ -141,7 +141,7 @@ const Home = () => {
                     <div className='starr star-four'></div>
 
                 </div>
-                <Button disabled onClick={() => router.push('/schedule')}>Confira</Button>
+                <Button onClick={() => router.push('/schedule')}>Confira</Button>
 
             </ScheduleSection>
 
