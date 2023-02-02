@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CountUp from 'react-countup';
 import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
 import saphira from '../services/saphira';
@@ -112,23 +113,63 @@ const About = () => {
                 <h2> Números da SSI 2021 </h2>
                 <EventNumbersBanner>
 
-                    <div className='event-info-container background-spotlight background-spotlight-2'>
-                        <h3><span className='purple-plus'>&#43;</span>2.8k</h3>
-                        <div className='purple-separator'></div>
-                        <p>Espectadores</p>
-                    </div>
+                    <CountUp
+                        start={0}
+                        end={2.8}
+                        delay={0}
+                        decimals={1}
+                        suffix="k"
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='event-info-container background-spotlight background-spotlight-2'>
+                                <div className='inline-elements'>
+                                    <span className='purple-plus'>&#43;</span>
+                                    <h3 ref={countUpRef} />
+                                </div>
+                                <div className='purple-separator'></div>
+                                <p>Espectadores</p>
+                            </div>
+                        )}
+                    </CountUp>
 
-                    <div className='event-info-container'>
-                        <h3><span className='purple-plus'>&#43;</span>800</h3>
-                        <div className='purple-separator'></div>
-                        <p>Inscritos</p>
-                    </div>
+                    <CountUp
+                        start={0}
+                        end={800}
+                        delay={0}
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='event-info-container'>
+                                <div className='inline-elements'>
+                                    <span className='purple-plus'>&#43;</span>
+                                    <h3 ref={countUpRef} />
+                                </div>
+                                <div className='purple-separator'></div>
+                                <p>Inscritos</p>
+                            </div>
+                        )}
+                    </CountUp>
 
-                    <div className='event-info-container'>
-                        <h3><span className='purple-plus'>&#43;</span>34h</h3>
-                        <div className='purple-separator'></div>
-                        <p>De conteúdo</p>
-                    </div>
+                    <CountUp
+                        start={0}
+                        end={34}
+                        delay={0}
+                        suffix="h"
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='event-info-container'>
+                                <div className='inline-elements'>
+                                    <span className='purple-plus'>&#43;</span>
+                                    <h3 ref={countUpRef} />
+                                </div>
+                                <div className='purple-separator'></div>
+                                <p>De conteúdo</p>
+                            </div>
+                        )}
+                    </CountUp>
+
                 </EventNumbersBanner>
             </NumbersSection>
         </>
@@ -446,6 +487,11 @@ const EventNumbersBanner = styled.div`
         width: 98vw;
         padding-inline: 4rem;
         margin-bottom: 80px;
+    }
+
+    .inline-elements {
+        display: flex;
+        flex-direction: row;
     }
 
     .purple-plus {
