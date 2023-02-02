@@ -77,6 +77,7 @@ const Home = () => {
     const current = new Date();
     const day = `${current.getDate()}`;
     const month = `${current.getMonth()}`;
+    const year = `${current.getFullYear()}`;
     const weekDayNames = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
     const weekDay = weekDayNames[`${current.getDay()}`];
     const simpleWeekDayNames = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
@@ -196,8 +197,9 @@ const Home = () => {
                         <div className='date'>
                             <DateComponent day={day} weekDay={weekDay} size="small" />
                         </div>
-
-                        { (day>=21 && day<=25 && month==7) ? 
+                        
+                        {/* Filtro para atualização diária do texto durante os dias do evento: */}
+                        { (day>=21 && day<=25 && month==7 && year==2023) ? 
                             (   
                                 <ScheduleInformation
                                     speakerPicture={speakerPicture}
