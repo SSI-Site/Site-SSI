@@ -150,7 +150,7 @@ const Nav = () => {
                             <div className="logo-container">
                                 <img src="./images/logos/logo_sem_estrela.svg" alt="SSI logo" />
                                 <p>
-                                    Semana de Sistemas de <br />Informação 2022
+                                    Semana de Sistemas de <br />Informação 2023
                                 </p>
                             </div>
                             <div className='redes'>

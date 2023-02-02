@@ -49,7 +49,7 @@ const AuthModal = ({ onClose }) => {
                     </ModalHeader>
                     <ModalBody>
                         <figure>
-                            <img className='logo' src={Logo} alt="Logo SSI 2022" />
+                            <img className='logo' src={Logo} alt="Logo SSI 2023" />
                         </figure>
 
                         <h2>Entrar</h2>

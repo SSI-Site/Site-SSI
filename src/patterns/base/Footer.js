@@ -15,7 +15,7 @@ const Footer = () => {
                     <div onClick={() => router.push('/')} className="logo-box">
                         <img src={LogoSemEstrela} alt="logo" />
                         <p>
-                            Semana de Sistemas de <br />Informação 2022
+                            Semana de Sistemas de <br />Informação 2023
                         </p>
                     </div>
                     <div className='footer-blur'></div>

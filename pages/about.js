@@ -12,12 +12,12 @@ const About = () => {
 
     return (
         <>
-            <Meta title='SSI 2022 | Sobre' />
+            <Meta title='SSI 2023 | Sobre' />
             <BackgroundWrapper>
                 <div className='padrao-background'></div>
 
                 <LogoTextSection>
-                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2022" />
+                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
                     <div className='content'>
                         <div className='content-title'>
                             <h1>O que é SSI?</h1>
@@ -110,7 +110,7 @@ const About = () => {
 
 
             <NumbersSection>
-                <h2> Números da SSI 2021 </h2>
+                <h2> Números da SSI 2022 </h2>
                 <EventNumbersBanner>
 
                     <CountUp

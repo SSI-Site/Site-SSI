@@ -35,7 +35,7 @@ const Schedule = () => {
                 }}
             />
 
-            <Meta title='SSI 2022 | Programação' />
+            <Meta title='SSI 2023 | Programação' />
             <ScheduleSection>
                 <div className='padrao-background'></div>
                 <h1>Programação</h1>

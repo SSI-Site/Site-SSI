@@ -39,7 +39,7 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='SSI 2022 | CO' />
+            <Meta title='SSI 2023 | CO' />
 
             <BackgroundWrapper>
                 <COSectionWrapper>

@@ -89,19 +89,19 @@ const Home = () => {
 
     return (
         <>
-            <Meta title='SSI 2022 | Início' />
+            <Meta title='SSI 2023 | Início' />
             <BackgroundWrapper>
                 <div className='padrao-background'></div>
 
                 <BannerSection>
                     <figure>
-                        <img className='logo' src={LogoPrincipal} alt="Logo SSI 2022" />
+                        <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
                     </figure>
 
                     <div className='content'>
                         <div className='content-title'>
                             <h1>Semana de Sistemas de Informação</h1>
-                            <h3>Palestras do dia 07/11 ao dia 11/11</h3>
+                            <h3>Palestras do dia 21/08 ao dia 25/08</h3>
                         </div>
 
                         {!isLoading ?
@@ -146,7 +146,7 @@ const Home = () => {
                             </>
                             :
                             <Loading>
-                                <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                                <img src='./loading.svg' alt='SSI 2023 - Loading' />
                             </Loading>
                         }
 
@@ -163,7 +163,7 @@ const Home = () => {
                     <div className='content'>
 
                         <div className="details">
-                            <p>As palestras ocorrerão entre os dias <span>07 e 11 de novembro</span>, nos <span>auditórios da EACH</span>.</p>
+                            <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>.</p>
                             <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
                             <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
                         </div>

@@ -8,7 +8,7 @@ const Sponsors = () => {
 
     return (
         <>
-            <Meta title='SSI 2022 | Apoiadores' />
+            <Meta title='SSI 2023 | Apoiadores' />
             <BackgroundWrapper>
 
                 <SponsorsSection>

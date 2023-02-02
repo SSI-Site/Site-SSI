@@ -75,7 +75,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                 </form>
                 :
                 <Loading>
-                    <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                    <img src='./loading.svg' alt='SSI 2023 - Loading' />
                 </Loading>
             }
 

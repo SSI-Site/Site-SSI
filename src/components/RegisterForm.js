@@ -80,7 +80,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
         <>
             <FormWrapper>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h3> Bem-Vinde à SSI 2022!</h3>
+                    <h3> Bem-Vinde à SSI 2023!</h3>
                     <h4> Precisamos de algumas informações para completar o seu cadastro: </h4>
 
                     <InputBoxSmall>
@@ -270,7 +270,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <BtnContainer>
                         {isLoading ?
                             <Loading>
-                                <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                                <img src='./loading.svg' alt='SSI 2023 - Loading' />
                             </Loading>
                             :
                             <>
