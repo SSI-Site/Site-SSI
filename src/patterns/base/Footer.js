@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+
+// assets
 import LogoSemEstrela from '../../../public/images/logos/logo_sem_estrela.svg';
 import InstagramLogo from '../../../public/images/social_media/insta.png';
 import FacebookLogo from '../../../public/images/social_media/feice.png';
 import LinktreeLogo from '../../../public/images/social_media/linktree.png';
 
 const Footer = () => {
+    
     const router = useRouter();
 
     return (
@@ -61,13 +64,15 @@ const FooterWrapper = styled.footer`
     opacity: 0.8;
     text-align: center;
 
+    background: #151023;
+
     p, h5 {
         color: white;
         font-family: 'Roboto', sans-serif;
         font-weight: 700;
     }
 
-    .ssi{
+    .ssi {
         margin-top: 2rem;
         font-size: 1.95rem;
         height: 17rem;
@@ -77,19 +82,23 @@ const FooterWrapper = styled.footer`
         justify-content: center;
         margin-bottom: 1rem;
     }
+
     .logo-box {
         display: flex;
         flex-direction: column;
     }
+
     .logo-box:hover {
         cursor: pointer;
     }
+
     .ssi a {
         display: flex;
         flex-direction: column;
         text-decoration: none;
         color: white;
     }
+
     .ssi .footer-blur {
         width: 100%;
         height: 50%;
@@ -100,36 +109,36 @@ const FooterWrapper = styled.footer`
         filter: blur(15px);
         z-index: -1;
     }
-    .redes{
+
+    .redes {
         font-size: 1.7rem;
         font-weight: 700;
     }
-    .ssi img{
+
+    .ssi img {
         width: 8.2rem;
         align-self: center;
         margin-bottom: 0.3rem;
     }
-    .redes img{
+
+    .redes img {
         height: 4.5rem;
         margin: 0 1.06rem;
     }
-    .logos_midia{
+
+    .logos_midia {
         margin-top: 1.3rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
+
     .logos_midia img:hover {
         filter: brightness(60%) sepia(0) saturate(0) hue-rotate(360deg);
         transition: 0.2s all;
     }
 
-
-    background: #151023;
-
-    @media (min-width:480px) {
-
-    }
+    @media (min-width:480px) {}
 
     @media (min-width:600px) { /** mudar para horizontal */
         flex-direction: row;
@@ -137,34 +146,37 @@ const FooterWrapper = styled.footer`
         justify-content: space-between;
         padding: 0 4rem;
         height: 13rem;
-        .ssi{
+
+        .ssi {
             font-size: 1.3rem;
             height: 50%;
             margin-top: 0;
         }
-        .redes{
+
+        .redes {
             font-size: 1.2rem;
         }
-        .ssi img{
+
+        .ssi img {
             width: 5.5rem;
         }
-        .redes img{
+
+        .redes img {
             height: 3rem;
             margin: 0 0.9rem;
         }
-        .logos_midia{
+
+        .logos_midia {
             margin-top: 0.9rem;
         }
     }
 
     @media (min-width:801px) {
         padding: 0 6rem;
-
     }
 
     @media (min-width:1021px) {
         padding: 0 9rem;
-
     }
 
     @media (min-width:1400px) {
@@ -180,5 +192,4 @@ const FooterWrapper = styled.footer`
         padding: 0 20rem;
         /* 4k */
     }
-
 `

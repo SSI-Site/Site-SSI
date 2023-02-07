@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-
-import styled from 'styled-components'
-
-// assets
-import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import twitch from '../../services/twitch';
 
-const TwitchWatchNowComponent = () => {
+// assets
+import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg';
+
+const TwitchWatchNow = () => {
+	
 	const [isLiveStreaming, setIsLiveStreaming] = useState(false);
 	const [streamData, setStreamData] = useState({});
 
@@ -59,7 +59,7 @@ const TwitchWatchNowComponent = () => {
 	)
 }
 
-export default TwitchWatchNowComponent;
+export default TwitchWatchNow;
 
 
 const TwitchWatchNowWrapper = styled.div`
@@ -97,6 +97,7 @@ const TwitchWatchNowWrapper = styled.div`
     }
 
 	h4::before {
+		content: '';
 		position: absolute;
 		left: -28px;
 		top: calc(50% - 8px);
@@ -105,7 +106,6 @@ const TwitchWatchNowWrapper = styled.div`
 		background-color: #C4C4C4;
 		border-radius: 50%;
 		transition: all 0.2s;
-		content: '';
 	}
 
 	.streaming::before {
@@ -130,6 +130,7 @@ const TwitchWatchNowWrapper = styled.div`
 	}
 
 	:hover {
+
 		p, h4 {
 			color: var(--color-tertiary);
 			filter: brightness(120%);
@@ -137,6 +138,7 @@ const TwitchWatchNowWrapper = styled.div`
 	}
 
     @media (min-width:801px) {
+
 		img {
 			width: 80px ;
 		}
@@ -146,5 +148,4 @@ const TwitchWatchNowWrapper = styled.div`
 			line-clamp: 2;
 		}
 	}
-
 `

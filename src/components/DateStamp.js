@@ -1,31 +1,28 @@
 import styled from 'styled-components';
 
 /*
-A variável 'size' representa uma String que descreve o tamanho do DateComponent.
-Pode ser "small", "medium" ou "large".
-Quando o DateComponent especificado for "large", o tamanho varia de acordo com medidas pré-definidas.
-ex de uso: <DateComponent size="large" day="01" weekDay="Domingo" />
+    - A variável 'size' representa uma String que descreve o tamanho do DateStamp.
+    - Pode ser "small", "medium" ou "large".
+    - Quando o DateStamp especificado for "large", o tamanho varia de acordo com medidas pré-definidas.
+
+    Exemplo de uso: <DateStamp size="large" day="01" weekDay="Domingo" />
 */
-const DateComponent = ({ day, weekDay, size }) => {
+const DateStamp = ({ day, weekDay, size }) => {
 
     return (
-
         <DateWrapper>
             <DateStyle className={`date-style-${size}`}>
                 <h2 className='day'>{day}</h2>
                 <div className='week-day'>{weekDay}</div>
             </DateStyle>
         </DateWrapper>
-
     )
-
 }
 
-export default DateComponent;
+export default DateStamp;
 
 
 const DateStyle = styled.div`
-
     width: 120px;
     height: 120px;
     display: flex;
@@ -38,9 +35,9 @@ const DateStyle = styled.div`
     background-color: #151023;
 
     :before {
+        content: '';
         width: 110px;
         height: 110px;
-        content: '';
         position: absolute;
         border: 1.34146px solid #8744C2;
         box-sizing: border-box;
@@ -53,7 +50,6 @@ const DateStyle = styled.div`
         font-style: normal;
         font-weight: 400;
         font-size: 50px;
-
         color: #FFFFFF;
     }
 
@@ -64,6 +60,7 @@ const DateStyle = styled.div`
         display: flex;
         justify-content:center;
         align-items: center;
+        color: #FFFFFF;
         background: rgba(135, 68, 194, 0.4);
         border: 2px solid #8744C2;
         box-sizing: border-box;
@@ -71,18 +68,13 @@ const DateStyle = styled.div`
         font-family: 'Plaza';
         font-style: normal;
         font-size: 16.2241px;
-
         text-align: center;
-
-        color: #FFFFFF;
     }
 
     :hover::before {
         transform: rotate(0deg);
         transition: transform 0.5s;
     }
-
-
 `
 
 const DateWrapper = styled.div`

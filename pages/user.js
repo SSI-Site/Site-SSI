@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
-import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
+
+import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 import useAuth from '../hooks/useAuth';
-
-import Button from '../src/components/Button';
-import ModalTokenComponent from '../src/components/ModalTokenComponent';
-import RegisterForm from '../src/components/RegisterForm';
 import selectOptions from '../data/registerFormSelectOptions';
 
+// components
+import Button from '../src/components/Button';
+import TokenModal from '../src/components/TokenModal';
+import RegisterForm from '../src/components/RegisterForm';
+
 const User = () => {
+    
     const { user, signOut } = useAuth();
 
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -99,16 +102,14 @@ const User = () => {
                 setLectures([...res.data]);
             })
             .catch(() => {
-                setLectures([])
+                setLectures([]);
             })
     }
-
 
     useEffect(() => {
         if (isUserRegistered) {
             getPresences();
         }
-
     }, [isUserRegistered]);
 
     useEffect(() => {
@@ -128,7 +129,8 @@ const User = () => {
                         window.location.href = "/"
                     }
                 `
-                }} />
+                }} 
+            />
 
             <Meta title='SSI 2023 | Seu Perfil' />
 
@@ -215,13 +217,10 @@ const User = () => {
 
                                 <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
                             </UserInfoLowerWrapper>
-
                         </UserInfoSection>
 
                         <ContainerLectures>
-
                             <ListLectures>
-
                                 <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
 
                                 {lectures.length ===0 &&
@@ -249,11 +248,13 @@ const User = () => {
                                 }
 
                                 {user && isModalTokenOpen &&
-                                    <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
+                                    <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
                                 }
                             </UserInfoLowerWrapper>
                         </ContainerLectures>
+
                         <Button onClick={signOut}>Sair</Button>
+
                     </BackgroundWrapper>
                 </>
             }
@@ -287,12 +288,14 @@ const BackgroundWrapper = styled.div`
         font-size: 22px;
         font-weight: 400;
     }
+
     .bold-info {
         font-size: 1.6rem;
         font-weight: 400;
         margin-bottom: 15px;
         font-weight: 600 !important;
     }
+
     .padrao-background {
         width: calc(100vw - 10px);
         height: 100vh;
@@ -309,6 +312,7 @@ const BackgroundWrapper = styled.div`
             background: url('./images/padrao_background_desktop.svg');
             background-size: cover;
         }
+
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2);
         }
@@ -320,25 +324,21 @@ const FormContainer = styled.section`
 `
 
 const UserInfoSection = styled.section`
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 90%;
     max-width: 1200px;
-
     padding: 2rem 45px;
     margin: 15rem 3rem 0 3rem;
-
     background: linear-gradient(180deg, #1B162C 50%, rgba(21, 16, 35, 0) 100%);
 
     @media (min-width:1120px) {
         margin: 8rem 3rem 0 3rem;
-        padding-top: 0;
         padding: 2rem 45px 120px 45px;
-
     }
+
     @media (min-width:1550px) {
         width: 100%;
     }
@@ -348,7 +348,6 @@ const UserInfoUpperWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-
     margin-bottom: 50px;
 
     @media (min-width:1120px) {
@@ -357,7 +356,6 @@ const UserInfoUpperWrapper = styled.div`
         flex-direction: row;
         margin-bottom: 0px;
     }
-
 `
 
 const PhotoNameWrapper = styled.div`
@@ -372,11 +370,13 @@ const PhotoNameWrapper = styled.div`
         margin-top: 3rem;
         margin-bottom: 50px;
     }
+
     h3 {
         font-size: 36px;
         font-weight: 600;
         text-align: center;
     }
+
     @media (min-width:1120px) {
         flex-direction: row;
         max-width: 70%;
@@ -386,7 +386,6 @@ const PhotoNameWrapper = styled.div`
             margin-left: 3rem;
         }
     }
-
 `
 
 const UserInfoLowerWrapper = styled.div`
@@ -428,7 +427,6 @@ const UserInformation = styled.div`
     @media (min-width:1120px) {
         margin-block: 0px;
     }
-
 `
 
 const ContainerLectures = styled.section`
@@ -439,7 +437,6 @@ const ContainerLectures = styled.section`
     flex-direction: column;
     justify-content: left;
     margin-bottom: 15rem;
-
     margin-top: 100px;
     padding-inline: 45px;
 
@@ -454,6 +451,7 @@ const ContainerLectures = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         @media (min-width:1120px) {
             align-items: flex-start;
         }
@@ -477,8 +475,10 @@ const ListLectures = styled.table`
         vertical-align: top;
         text-align: right;
         padding: 0.8em 1.08em 0 0;
+        
         span {
             position: relative;
+
             &:after {
                 content: '';
                 position: absolute;
@@ -494,12 +494,15 @@ const ListLectures = styled.table`
             }
         }
     }
+
     .lecture-id-0 {
         vertical-align: top;
         text-align: right;
         padding: 0.8em 1.08em 0 0;
+
         span {
             position: relative;
+
             &:after {
                 content: '';
                 position: absolute;
@@ -519,18 +522,21 @@ const ListLectures = styled.table`
     .lecture-info {
         border-left: 2px solid #211936;
         padding: 0 1em 1.5em 1em;
+
         p {
             color: #FFFFFF7A;
         }
     }
 
     .lecture-info-0 {
+
         p {
             color: #FFF;
         }
     }
 
     @media (min-width:1025px) {
+
         .no-presences-message {
             text-align: left;
         }

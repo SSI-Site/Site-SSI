@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { cpf } from 'cpf-cnpj-validator';
 import InputMask from 'react-input-mask';
-import styled from 'styled-components';
-import useAuth from '../../hooks/useAuth';
 
+import useAuth from '../../hooks/useAuth';
 import saphira from '../../services/saphira';
 import selectOptions from '../../data/registerFormSelectOptions';
 
-import Button from "../components/Button"
+// components
+import Button from "../components/Button";
 
 const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
+
     const router = useRouter();
     const { user } = useAuth();
     const { register, watch, formState: { errors }, handleSubmit } = useForm({ defaultValues: { ...userInfo } });
@@ -164,7 +166,6 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         </select>
                     </InputBoxSmall>
 
-
                     <InputBoxSmall>
                         <LabelLeft htmlFor='ethnicity'> Qual a sua cor/raça? </LabelLeft>
                         <select id='ethnicity' {...register("ethnicity")} >
@@ -294,6 +295,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
 
 export default RegisterForm;
 
+
 const Loading = styled.figure`
     display: flex;
     align-items: center;
@@ -308,7 +310,6 @@ const Loading = styled.figure`
 const RequestErrorMessage = styled.span`
     margin-top: 1rem;
     padding: 0 10%;
-
     text-align: center;
     font-size: 1.6rem;
     text-decoration: underline;
@@ -325,7 +326,6 @@ const FormWrapper = styled.div`
         justify-content: center;
         flex-wrap: wrap;
         background-image: linear-gradient(rgba(36, 29, 60, 1), rgba(27, 22, 44, 0));
-
         color: var(--color-text);
         border-radius: 5px;
         padding: 60px 0;
@@ -357,7 +357,6 @@ const FormWrapper = styled.div`
         max-width: 1200px;
         padding: 0 10%;
         margin: 2rem 0;
-
         text-align: center;
         font-weight: normal;
         line-height: 2rem;
@@ -379,13 +378,13 @@ const FormWrapper = styled.div`
 
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
 
     /* Firefox */
     input[type=number] {
-    -moz-appearance: textfield;
+        -moz-appearance: textfield;
     }
 
     label {
@@ -435,7 +434,6 @@ const InputBoxSmall = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     position: relative;
     width: 100%;
     max-width: 450px;
@@ -445,7 +443,6 @@ const InputBoxSmall = styled.div`
         width: 90%;
         border-radius: 5px;
         padding: 8px 15px;
-
         color: var(--color-text);
         font-size: 1.6rem;
     }
@@ -459,7 +456,6 @@ const InputBoxLarge = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     position: relative;
     width: 100%;
     max-width: 450px;
@@ -503,10 +499,8 @@ const BinarySelectionLarge = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     height: 12.5rem;
-
     text-align: center;
 
     p {
@@ -566,7 +560,6 @@ const DateInputBox = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
     position: relative;
     width: 100%;
     height: 12.5rem;
@@ -575,10 +568,9 @@ const DateInputBox = styled.div`
 
     input {
         width: 90%;
-        border-radius: 5px;
         padding: 8px 15px;
+        border-radius: 5px;
         background-color: #241D3C;
-
         color: var(--color-text);
         font-size: 1.6rem;
     }
@@ -589,43 +581,39 @@ const DateInputBox = styled.div`
 
     label {
         width: 90%;
-        text-align: left;
         margin-top: 1.5rem;
         margin-bottom: .5rem;
+        text-align: left;
     }
 
     span {
         bottom: 2.5rem;
 
-        @media (min-width: 600px) {
+        @media (min-width:600px) {
             bottom: 3rem;
         }
     }
 `
 
 const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width:850px;
+    margin: 1rem 0 ;
+    padding: 0 1.5rem;
+    text-align: left;
+    line-height: 2rem;
 
-  width: 100%;
-  max-width:850px;
-  margin: 1rem 0 ;
-  padding: 0 1.5rem;
+    input[type=checkbox] {
+        transform: scale(1.5);
+        padding: 20px;
+        cursor: pointer;
+    }
 
-  text-align: left;
-  line-height: 2rem;
-
-
-  input[type=checkbox]
-  {
-    transform: scale(1.5);
-    padding: 20px;
-    cursor: pointer;
-  }
-
-  label {
-    margin-left: 1.5rem;
-    color: var(--color-text);
-  }
+    label {
+        margin-left: 1.5rem;
+        color: var(--color-text);
+    }
 `

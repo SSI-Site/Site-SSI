@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import useAuth from '../../../hooks/useAuth';
 
+import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
 
+// assets
 import InstagramLogo from '../../../public/images/social_media/insta.png';
 import FacebookLogo from '../../../public/images/social_media/feice.png';
 import LinktreeLogo from '../../../public/images/social_media/linktree.png';
@@ -16,19 +17,21 @@ const pages = {
     "/about": 3,
     "/sponsors": 4,
     "/co": 5,
-    "/user": 7
+    "/hackssi": 6,
+    "/user": 8,
 }
 
 const Nav = () => {
 
     const { user } = useAuth();
     const router = useRouter();
+    
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
 
     const handleShowAuthModal = () => {
         if (window.pageYOffset != 0) {
-            setTimeout(() => { handleShowAuthModal() }, 50)
+            setTimeout(() => { handleShowAuthModal() }, 50);
         } else {
             setShowAuthModal(true);
         }
@@ -80,8 +83,13 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
+                            <Link href="/hackssi"><a>HackSSI</a></Link>
                             <div></div>
+                        </li>
+
+                        <li>
+                            {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         {user ?
@@ -97,7 +105,6 @@ const Nav = () => {
                         }
                     </ul>
                 </NavDesktop >
-
 
                 <NavMobile isOpen={isOpen} currentPage={router.pathname}>
                     <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
@@ -129,8 +136,13 @@ const Nav = () => {
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
-                                <Link href="https://ctfssi.intheshell.page/"><a target="blank">CTF</a></Link>
+                                <Link href="/hackssi"><a>HackSSI</a></Link>
                                 <div></div>
+                            </li>
+
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="https://ctfssi.intheshell.page/"> */}<a style={{"color": "gray"}} target="blank">CTF</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
                             {user ?
@@ -176,7 +188,6 @@ const Nav = () => {
                                 </div>
                             </div>
                         </NavFooter>
-
                     </div>
 
                     <button type="button" onClick={() => setIsOpen(!isOpen)}>
@@ -187,11 +198,11 @@ const Nav = () => {
                 </NavMobile >
             </NavWrapper >
         </>
-    );
-
+    )
 }
 
 export default Nav;
+
 
 const NavWrapper = styled.div`
     display: flex;
@@ -205,8 +216,7 @@ const NavWrapper = styled.div`
     background-color: var(--color-primary);
     box-shadow: 0px 5px 24px 14px rgba(16,3,26,0.38);
 
-
-    @media(min-width: 800px) {
+    @media (min-width:800px) {
         background-color: unset;
         position: unset;
         z-index: unset;
@@ -240,14 +250,14 @@ const NavMobile = styled.nav`
         span {
             margin: 0;
         }
-        span:nth-child(1){
+        span:nth-child(1) {
             transform: rotate(45deg) translateY(8px);
         }
-        span:nth-child(2){
+        span:nth-child(2) {
             transform: translateX(50px);
             opacity: 0;
         }
-        span:nth-child(3){
+        span:nth-child(3) {
             transform: rotate(-45deg) translateY(-8px);
         }
     `}
@@ -325,7 +335,7 @@ const NavMobile = styled.nav`
             `}
         }
 
-        @media(max-height: 590px) {
+        @media (max-height:590px) {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -339,21 +349,19 @@ const NavMobile = styled.nav`
                 margin-right: 10px;
             }
         }
-
     }
 
     .sidepanel-hidden {
         right: -450px;
 
-        @media(max-height: 590px) {
+        @media (max-height:590px) {
             right: -100%;
         }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
         display: none;
     }
-
 `
 
 const NavFooter = styled.div`
@@ -385,7 +393,7 @@ const NavFooter = styled.div`
     }
 
 
-    .logos_midia{
+    .logos_midia {
         margin-top: 10px;
         display: flex;
         justify-content: center;
@@ -403,7 +411,7 @@ const NavFooter = styled.div`
         transition: 0.2s all;
     }
 
-    @media(max-height: 590px) {
+    @media (max-height:590px) {
         position: unset;
         bottom: unset;
         width: 45%;
@@ -412,7 +420,6 @@ const NavFooter = styled.div`
 `
 
 const NavDesktop = styled.nav`
-
     display: none;
 
     ul {
@@ -424,12 +431,11 @@ const NavDesktop = styled.nav`
             top: 22px;
             right: 22px;
 
-            @media(min-width: 1020px) {
+            @media (min-width:1020px) {
                 top: 26px;
                 right: 26px;
             }
         }
-
 
         .userPicContainer {
             position: absolute;
@@ -492,7 +498,6 @@ const NavDesktop = styled.nav`
             font-size: 1.5rem;
             color: gray;
             margin: 0 12px;
-
             cursor: default;
         }
 
@@ -518,8 +523,7 @@ const NavDesktop = styled.nav`
         `}
     }
 
-
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
         display: block;
     }
 `

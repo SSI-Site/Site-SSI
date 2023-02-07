@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
-import Meta from '../../src/infra/Meta';
 import styled from 'styled-components';
+import Link from 'next/link';
+
+import Meta from '../../src/infra/Meta';
 import saphira from '../../services/saphira';
-import background from '../../public/images/padrao_background_desktop.svg';
-
-import Link from 'next/link'
-
-import semana from '../../utils/semana'
-import '../../utils/slugify'
-
-//components
-import DateComponent from '../../src/components/DateComponent';
-
+import semana from '../../utils/semana';
+import '../../utils/slugify';
 import schedule from '../../services/schedule';
 
+// components
+import DateStamp from '../../src/components/DateStamp';
+
+// assets
+import background from '../../public/images/padrao_background_desktop.svg';
+
 const getScheduleDay = key => {
-    const date = new Date(`${key} 03:00Z`)
-    const day = date.getUTCDate()
-    const weekDay = semana[date.getDay()]
+    const date = new Date(`${key} 03:00Z`);
+    const day = date.getUTCDate();
+    const weekDay = semana[date.getDay()];
     return { day, weekDay }
 }
 
@@ -28,14 +28,13 @@ const Schedule = () => {
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
-
                     window.location.href = "/"
-
                 `
                 }}
             />
 
             <Meta title='SSI 2023 | Programação' />
+            
             <ScheduleSection>
                 <div className='padrao-background'></div>
                 <h1>Programação</h1>
@@ -45,7 +44,7 @@ const Schedule = () => {
                         return (
                             <Link key={key} href={`/schedule/${weekDay.slugify()}`}>
                                 <div className='day-selection'>
-                                    <DateComponent day={day} weekDay={weekDay} size='small' />
+                                    <DateStamp day={day} weekDay={weekDay} size='small' />
                                 </div>
                             </Link>
                         )
@@ -57,7 +56,7 @@ const Schedule = () => {
                         return (
                             <Link key={key} href={`/schedule/${weekDay.slugify()}`}>
                                 <div className='day-selection'>
-                                    <DateComponent day={day} weekDay={weekDay} size='medium' />
+                                    <DateStamp day={day} weekDay={weekDay} size='medium' />
                                 </div>
                             </Link>
                         )
@@ -70,8 +69,8 @@ const Schedule = () => {
 
 export default Schedule;
 
-const ScheduleSection = styled.section`
 
+const ScheduleSection = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,7 +119,7 @@ const ScheduleSection = styled.section`
         }
     }
 
-    @media (min-width: 1021px) {
+    @media (min-width:1021px) {
         margin-bottom: 3rem;
 
         h1 {
@@ -147,5 +146,4 @@ const ScheduleSection = styled.section`
             }
         }
     }
-
 `

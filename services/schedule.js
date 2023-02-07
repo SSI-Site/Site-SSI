@@ -1,3 +1,4 @@
+// assets
 import LectureImage01 from '../public/images/lecture_imgs/01-Mindsight.jpeg'
 import LectureImage02 from '../public/images/lecture_imgs/02-Lucas_Magon.png'
 import LectureImage03 from '../public/images/lecture_imgs/03-Rodrigo_Ferreira.jpg'

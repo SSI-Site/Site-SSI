@@ -1,19 +1,20 @@
 import styled from 'styled-components';
-//componente exemplo
 
-const ExampleComponent = () =>{
-    return(
+// componente de exemplo
+const Example = () => {
+
+    return (
         <>
             <CompWrapper>
-                <h1>teste</h1>
-                <h2>teste</h2>
-                <p>teste</p>
+                <h1>Teste h1</h1>
+                <h2>Teste h2</h2>
+                <span>Teste h3, h4, h5, p, span</span>
             </CompWrapper >
         </>
     )
 }
 
-export default ExampleComponent;
+export default Example;
 
 
 const CompWrapper = styled.div`
@@ -21,10 +22,6 @@ const CompWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 30vw;
-
-    h1{
-        color: red;
-    }
 
     @media (min-width:480px) {
 
@@ -53,7 +50,5 @@ const CompWrapper = styled.div`
 
     @media (min-width:2200px) {
         /* 4k */
-
     }
-
 `

@@ -1,21 +1,24 @@
 import { useState, useEffect } from 'react';
-import CountUp from 'react-countup';
-import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
+import CountUp from 'react-countup';
+
+import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 
-//assets
-import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'
-import ActivityComponent from '../src/components/ActivityComponent';
+// components
+import EventActivity from '../src/components/EventActivity';
+
+// assets
+import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg';
 
 const About = () => {
 
     return (
         <>
             <Meta title='SSI 2023 | Sobre' />
+
             <BackgroundWrapper>
                 <div className='padrao-background'></div>
-
                 <LogoTextSection>
                     <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
                     <div className='content'>
@@ -35,21 +38,21 @@ const About = () => {
                     <h2 className='section2-title'>O que teremos no evento?</h2>
                     <div className='activities'>
 
-                        <ActivityComponent
+                        <EventActivity
                             color='#4A46C5'
                             image='./images/about/icon_capture_the_flag.svg'
                             alt='Imagem Capture the Flag'
                             title='Capture the Flag'
                             description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
                         />
-                        <ActivityComponent
+                        <EventActivity
                             color='#8744C2'
                             image='./images/about/icon_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
                             description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
-                        <ActivityComponent
+                        <EventActivity
                             color='#FF7F5C'
                             image='./images/about/icon_minicursos.svg'
                             alt='Imagem Minicursos'
@@ -58,7 +61,6 @@ const About = () => {
                         />
                     </div>
                 </ActivitiesSection>
-
             </BackgroundWrapper>
 
             <section>
@@ -110,7 +112,7 @@ const About = () => {
 
 
             <NumbersSection>
-                <h2> Números da SSI 2022 </h2>
+                <h2>Números da SSI 2022</h2>
                 <EventNumbersBanner>
 
                     <CountUp
@@ -178,6 +180,7 @@ const About = () => {
 
 export default About;
 
+
 const BackgroundWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -200,8 +203,8 @@ const BackgroundWrapper = styled.div`
             background-size: cover;
             height: 60%;
             mask-image: linear-gradient(to top, transparent 0%, black 5%);
-
         }
+
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
         }
@@ -250,7 +253,7 @@ const LogoTextSection = styled.section`
         font-size: 22px;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
 
         .logo {
             max-width: 400px;
@@ -311,7 +314,7 @@ const ActivitiesSection = styled.section`
     }
 
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
         margin-block: 12rem;
 
         .activities {
@@ -423,7 +426,7 @@ const LectureContent = styled.div`
         }
     }
 
-    @media (min-width: 1021px) {
+    @media (min-width:1021px) {
         padding-inline: 5rem;
 
         .lecture-sample {
@@ -460,7 +463,6 @@ const LectureContent = styled.div`
             padding: 20px 0px 20px 20px;
         }
     }
-
 `
 
 const NumbersSection = styled.section`
@@ -519,7 +521,7 @@ const EventNumbersBanner = styled.div`
         font-weight: 600;
     }
 
-    @media (min-width: 600px) {
+    @media (min-width:600px) {
         margin-block: 5rem 8rem;
         flex-direction: row;
         flex-wrap: wrap;
@@ -532,7 +534,7 @@ const EventNumbersBanner = styled.div`
         }
     }
 
-    @media (min-width: 1021px) {
+    @media (min-width:1021px) {
         margin-block: 3rem 8rem;
 
         .event-info-container {
