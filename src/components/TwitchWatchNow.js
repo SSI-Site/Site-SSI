@@ -53,7 +53,6 @@ const TwitchWatchNow = () => {
 						</div>
 					)}
 				</a>
-
 			</TwitchWatchNowWrapper >
 		</>
 	)
@@ -92,9 +91,14 @@ const TwitchWatchNowWrapper = styled.div`
 		font-size: 2rem;
 		letter-spacing: 0.05em;
 		color: white;
-
 		position: relative;
     }
+
+	@keyframes dot-blink {
+		0% {
+			opacity: 0;
+		}
+	}
 
 	h4::before {
 		content: '';
@@ -103,13 +107,13 @@ const TwitchWatchNowWrapper = styled.div`
 		top: calc(50% - 8px);
 		width: 16px;
 		height: 16px;
-		background-color: #C4C4C4;
+		background-color: #808080;
 		border-radius: 50%;
-		transition: all 0.2s;
 	}
 
 	.streaming::before {
 		background-color: #FF4D4D;
+		animation: dot-blink 0.9s alternate-reverse infinite;
 	}
 
 	p {
@@ -125,7 +129,7 @@ const TwitchWatchNowWrapper = styled.div`
    		-webkit-box-orient: vertical;
 	}
 
-	p, h4 {
+	p, h4:not(::before) {
 		transition: all .2s;
 	}
 
@@ -134,6 +138,10 @@ const TwitchWatchNowWrapper = styled.div`
 		p, h4 {
 			color: var(--color-tertiary);
 			filter: brightness(120%);
+		}
+
+		h4::before {
+			filter: brightness(83.4%);
 		}
 	}
 
@@ -146,6 +154,10 @@ const TwitchWatchNowWrapper = styled.div`
 		p {
 			-webkit-line-clamp: 2; /* number of lines to show */
 			line-clamp: 2;
+		}
+
+		h4::before {
+			top: calc(50% - 10px);
 		}
 	}
 `
