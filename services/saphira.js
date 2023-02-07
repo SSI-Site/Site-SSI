@@ -15,7 +15,7 @@ const saphira = {
     }, // -> APAGAR
 
     registerUser: async (userData) => {
-        const requestUrl = BASE_URL + "/user/add"
+        const requestUrl = BASE_URL + "/user/add";
 
         const params = {
             full_name: userData.fullName,
@@ -29,7 +29,7 @@ const saphira = {
             como_conheceu: userData.knowAbout,
             em_estagio: userData.isInInternship,
             aceita_receber_email: userData.acceptedRecieveEmails
-        }
+        };
 
         return axios.get(requestUrl, { params });
     },
@@ -49,7 +49,7 @@ const saphira = {
             como_conheceu: userData.knowAbout,
             em_estagio: userData.isInInternship,
             aceita_receber_email: userData.acceptedRecieveEmails
-        }
+        };
 
         return axios.get(requestUrl, { params });
     },
@@ -60,7 +60,7 @@ const saphira = {
     },
 
     registerPresence: async (email, token) => {
-        const requestUrl = `${BASE_URL}/user/${email}/presence/add`
+        const requestUrl = `${BASE_URL}/user/${email}/presence/add`;
 
         const params = {
           token: token
@@ -70,7 +70,7 @@ const saphira = {
     },
 
     listPresences: async (email) => {
-        const requestUrl = `${BASE_URL}/user/${email}/presences`
+        const requestUrl = `${BASE_URL}/user/${email}/presences`;
 
         return axios.get(requestUrl);
     },

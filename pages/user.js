@@ -75,7 +75,7 @@ const User = () => {
     const checkIfValueIsASelectOption = (options, target) => {
         let isASelectOption = false;
         options.forEach(element => {
-            if(element.value === target) isASelectOption = true;
+            if (element.value === target) isASelectOption = true;
         });
 
         return isASelectOption;
@@ -86,8 +86,8 @@ const User = () => {
         const name = fullNameParts[0];
         let lastName = "";
 
-        for (let i = 1; i < fullNameParts.length; i++) {
-            lastName += ` ${fullNameParts[i]}`
+        for (let i=1; i<fullNameParts.length; i++) {
+            lastName += ` ${fullNameParts[i]}`;
         }
 
         return {
@@ -223,12 +223,12 @@ const User = () => {
                             <ListLectures>
                                 <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
 
-                                {lectures.length ===0 &&
+                                {lectures.length === 0 &&
                                     <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
                                 }
 
                                 <tbody>
-                                    {lectures.map((lecture, id) => (
+                                    {lectures.reverse().map((lecture, id) => (
                                         <tr key={id}>
                                             <td className={`lecture-id lecture-id-0`}>
                                                 <span></span>
