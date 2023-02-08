@@ -1,5 +1,24 @@
 import styled from 'styled-components';
-import working from '../../public/images/working.gif'
+
+// assets
+import working from '../../public/images/working.gif';
+
+const Working = () => {
+
+    return (
+        <>
+            <WorkingWrapper>
+                <h1>We r still working on it!! ¯\_(ツ)_/¯</h1>
+                <figure>
+                    <img src={working} alt="Tartarugas Mario andando" />
+                </figure>
+            </WorkingWrapper >
+        </>
+    )
+}
+
+export default Working;
+
 
 const WorkingWrapper = styled.section`
     display: flex;
@@ -9,24 +28,9 @@ const WorkingWrapper = styled.section`
     text-align: center;
     margin: 50px 0 50px 0;
     width: 80%;
-    padding-top: 100px;
+    /* padding-top: 100px; // para compensar a NavBar */
 
-    img{
+    img {
         width: 100%;
     }
 `
-
-const Working = () =>{
-    return(
-        <>
-            <WorkingWrapper>
-                <h1>We r still working on it!! ¯\_(ツ)_/¯</h1>
-                <figure>
-                    <img src={working} alt="tartarugas Mario" />
-                </figure>
-            </WorkingWrapper >
-        </>
-    )
-}
-
-export default Working;

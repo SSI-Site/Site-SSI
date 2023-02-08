@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import Link from 'next/link';
-import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
+import Link from 'next/link';
+
+import Meta from '../src/infra/Meta';
 import members from '../data/members';
 
-//components
-import MemberCardComponent from '../src/components/MemberCardComponent'
+// components
+import MemberCard from '../src/components/MemberCard';
 
 const CO = () => {
 
@@ -15,9 +16,9 @@ const CO = () => {
         if (activeItem === 'Todos') {
             return (
                 members.map(function(member, key) {
-                    return(
+                    return (
                         <div className="card-container" key={key}>
-                            <MemberCardComponent name={member.name} image={member.image} departments={member.departments} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} />
                         </div>
                     );
                 })
@@ -25,11 +26,11 @@ const CO = () => {
             )
         } else {
             const sectorMembers = members.filter(member => member.departments.includes(activeItem))
-            return(
+            return (
                 sectorMembers.map(function(member, key) {
-                    return(
+                    return (
                         <div className="card-container" key={key}>
-                            <MemberCardComponent name={member.name} image={member.image} departments={member.departments} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} />
                         </div>
                     );
                 })
@@ -39,12 +40,11 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='SSI 2022 | CO' />
+            <Meta title='SSI 2023 | CO' />
 
             <BackgroundWrapper>
                 <COSectionWrapper>
                     <div className='padrao-background'></div>
-
                     <h3>As pessoas que fizeram deste evento uma realidade</h3>
 
                     <SubMenu id="departaments-filter-nav">
@@ -89,6 +89,7 @@ const CO = () => {
                     <MemberCardsWrapper id="members">
                         {renderActiveItem()}
                     </MemberCardsWrapper>
+                    
                 </COSectionWrapper>
             </BackgroundWrapper>
         </>
@@ -97,14 +98,13 @@ const CO = () => {
 
 export default CO;
 
-const COSectionWrapper = styled.section`
 
+const COSectionWrapper = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 10rem;
-
     padding-top: 50px;
 
     h3 {
@@ -121,13 +121,12 @@ const COSectionWrapper = styled.section`
         margin: 0 29px 65px;
     }
 
-
-    @media (min-width: 660px) {
+    @media (min-width:660px) {
+        
         .card-container {
             margin: 3rem 29px auto;
         }
     }
-
 `
 
 const SubMenu = styled.nav`
@@ -141,7 +140,7 @@ const SubMenu = styled.nav`
         flex-flow: wrap;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
         margin-bottom: 0;
     }
 `
@@ -153,21 +152,19 @@ const NavItem = styled.li`
     font-weight: 500;
     padding: 14px 26px;
     margin: 0 18px 40px;
+    text-align: center;
     cursor: pointer;
-    border-radius: 100px;
     background-color:  ${props => props.active === true ? '#8744C2' : '#1B162C'};
     color: white;
-    text-align: center;
-
+    border-radius: 100px;
     border: 2px solid transparent;
     transform-style: preserve-3d;
     transition: 0.3s;
     z-index: 2;
+
     :hover {
         border: solid 2px #8744C2;
-        &:hover {
-            box-shadow: var(--glow-item);
-        }
+        box-shadow: var(--glow-item);
     }
 `
 
@@ -179,7 +176,7 @@ const MemberCardsWrapper = styled.div`
     justify-content: center;
     padding-top: 30px;
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
         flex-direction: row;
         max-width: 1400px;
     }
@@ -207,6 +204,7 @@ const BackgroundWrapper = styled.div`
             background-size: cover;
             height: 45%;
         }
+
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2);
         }

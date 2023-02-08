@@ -1,21 +1,31 @@
 import { useState, useEffect } from 'react';
-import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
+
+import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 import useAuth from '../hooks/useAuth';
-
-import Button from '../src/components/Button';
-import ModalTokenComponent from '../src/components/ModalTokenComponent';
-import RegisterForm from '../src/components/RegisterForm';
 import selectOptions from '../data/registerFormSelectOptions';
 
+// components
+import Button from '../src/components/Button';
+import TokenModal from '../src/components/TokenModal';
+import RegisterForm from '../src/components/RegisterForm';
+
 const User = () => {
+    
+    // Array de palestras-exemplo para permitir o desenvolvimento do front
+    const lectures = [
+        'Palestra muito foda 1',
+        'Palestra muito foda 2',
+        'Palestra muito foda 3',
+    ];
+
     const { user, signOut } = useAuth();
 
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
     const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [userInfo, setUserInfo] = useState({});
-    const [lectures, setLectures] = useState([]);
+    // const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -72,7 +82,7 @@ const User = () => {
     const checkIfValueIsASelectOption = (options, target) => {
         let isASelectOption = false;
         options.forEach(element => {
-            if(element.value === target) isASelectOption = true;
+            if (element.value === target) isASelectOption = true;
         });
 
         return isASelectOption;
@@ -83,8 +93,8 @@ const User = () => {
         const name = fullNameParts[0];
         let lastName = "";
 
-        for (let i = 1; i < fullNameParts.length; i++) {
-            lastName += ` ${fullNameParts[i]}`
+        for (let i=1; i<fullNameParts.length; i++) {
+            lastName += ` ${fullNameParts[i]}`;
         }
 
         return {
@@ -99,16 +109,14 @@ const User = () => {
                 setLectures([...res.data]);
             })
             .catch(() => {
-                setLectures([])
+                setLectures([]);
             })
     }
-
 
     useEffect(() => {
         if (isUserRegistered) {
             getPresences();
         }
-
     }, [isUserRegistered]);
 
     useEffect(() => {
@@ -128,21 +136,22 @@ const User = () => {
                         window.location.href = "/"
                     }
                 `
-                }} />
+                }} 
+            />
 
-            <Meta title='SSI 2022 | Seu Perfil' />
+            <Meta title='SSI 2023 | Seu Perfil' />
 
             {isLoading &&
                 <Loading>
-                    <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                    <img src='./loading.svg' alt='SSI 2023 - Loading' />
                 </Loading>
             }
 
-            {!isLoading && user && !isUserRegistered &&
+            {/* {!isLoading && user && !isUserRegistered &&
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
-            }
+            } */}
 
             {isEditing &&
                 <>
@@ -158,7 +167,7 @@ const User = () => {
                 </>
             }
 
-            {!isLoading && !isEditing && user && isUserRegistered &&
+            {!isLoading && !isEditing && user && /*isUserRegistered &&*/
                 <>
                     <BackgroundWrapper>
                         <div className='padrao-background'></div>
@@ -215,27 +224,26 @@ const User = () => {
 
                                 <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
                             </UserInfoLowerWrapper>
-
                         </UserInfoSection>
 
                         <ContainerLectures>
-
                             <ListLectures>
-
-                                <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
-
-                                {lectures.length ===0 &&
+                                <thead><tr><th><h4>Palestras Assistidas (da última vista p/ 1a)</h4></th></tr></thead>
+                                {lectures.length === 0 &&
                                     <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
                                 }
 
                                 <tbody>
-                                    {lectures.map((lecture, id) => (
+                                    {lectures.reverse().map((lecture, id) => (
                                         <tr key={id}>
                                             <td className={`lecture-id lecture-id-0`}>
                                                 <span></span>
                                             </td>
-                                            <td className={`lecture-info lecture-info-0`}>
+                                            {/* <td className={`lecture-info lecture-info-0`}>
                                                 <p className='bold-info'>{lecture.talk_title} - {lecture.online ? "Online" : "Presencial"}</p>
+                                            </td> */}
+                                            <td className={`lecture-info lecture-info-0`}>
+                                                <p className='bold-info'>{lecture} - {lecture.online ? "Online" : "Presencial"}</p>
                                             </td>
                                         </tr>
                                     ))
@@ -249,11 +257,13 @@ const User = () => {
                                 }
 
                                 {user && isModalTokenOpen &&
-                                    <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
+                                    <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
                                 }
                             </UserInfoLowerWrapper>
                         </ContainerLectures>
+
                         <Button onClick={signOut}>Sair</Button>
+
                     </BackgroundWrapper>
                 </>
             }
@@ -287,12 +297,14 @@ const BackgroundWrapper = styled.div`
         font-size: 22px;
         font-weight: 400;
     }
+
     .bold-info {
         font-size: 1.6rem;
         font-weight: 400;
         margin-bottom: 15px;
         font-weight: 600 !important;
     }
+
     .padrao-background {
         width: calc(100vw - 10px);
         height: 100vh;
@@ -309,6 +321,7 @@ const BackgroundWrapper = styled.div`
             background: url('./images/padrao_background_desktop.svg');
             background-size: cover;
         }
+
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2);
         }
@@ -320,25 +333,21 @@ const FormContainer = styled.section`
 `
 
 const UserInfoSection = styled.section`
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 90%;
     max-width: 1200px;
-
     padding: 2rem 45px;
     margin: 15rem 3rem 0 3rem;
-
     background: linear-gradient(180deg, #1B162C 50%, rgba(21, 16, 35, 0) 100%);
 
     @media (min-width:1120px) {
         margin: 8rem 3rem 0 3rem;
-        padding-top: 0;
         padding: 2rem 45px 120px 45px;
-
     }
+
     @media (min-width:1550px) {
         width: 100%;
     }
@@ -348,7 +357,6 @@ const UserInfoUpperWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-
     margin-bottom: 50px;
 
     @media (min-width:1120px) {
@@ -357,7 +365,6 @@ const UserInfoUpperWrapper = styled.div`
         flex-direction: row;
         margin-bottom: 0px;
     }
-
 `
 
 const PhotoNameWrapper = styled.div`
@@ -372,11 +379,13 @@ const PhotoNameWrapper = styled.div`
         margin-top: 3rem;
         margin-bottom: 50px;
     }
+
     h3 {
         font-size: 36px;
         font-weight: 600;
         text-align: center;
     }
+
     @media (min-width:1120px) {
         flex-direction: row;
         max-width: 70%;
@@ -386,7 +395,6 @@ const PhotoNameWrapper = styled.div`
             margin-left: 3rem;
         }
     }
-
 `
 
 const UserInfoLowerWrapper = styled.div`
@@ -428,7 +436,6 @@ const UserInformation = styled.div`
     @media (min-width:1120px) {
         margin-block: 0px;
     }
-
 `
 
 const ContainerLectures = styled.section`
@@ -439,7 +446,6 @@ const ContainerLectures = styled.section`
     flex-direction: column;
     justify-content: left;
     margin-bottom: 15rem;
-
     margin-top: 100px;
     padding-inline: 45px;
 
@@ -454,6 +460,7 @@ const ContainerLectures = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         @media (min-width:1120px) {
             align-items: flex-start;
         }
@@ -477,8 +484,10 @@ const ListLectures = styled.table`
         vertical-align: top;
         text-align: right;
         padding: 0.8em 1.08em 0 0;
+        
         span {
             position: relative;
+
             &:after {
                 content: '';
                 position: absolute;
@@ -494,12 +503,15 @@ const ListLectures = styled.table`
             }
         }
     }
+
     .lecture-id-0 {
         vertical-align: top;
         text-align: right;
         padding: 0.8em 1.08em 0 0;
+
         span {
             position: relative;
+
             &:after {
                 content: '';
                 position: absolute;
@@ -519,18 +531,21 @@ const ListLectures = styled.table`
     .lecture-info {
         border-left: 2px solid #211936;
         padding: 0 1em 1.5em 1em;
+
         p {
             color: #FFFFFF7A;
         }
     }
 
     .lecture-info-0 {
+
         p {
             color: #FFF;
         }
     }
 
     @media (min-width:1025px) {
+
         .no-presences-message {
             text-align: left;
         }

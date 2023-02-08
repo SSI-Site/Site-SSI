@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SponsorCardComponent = ({ image, name, link }) => {
+const SponsorCard = ({ image, name, link }) => {
 
     return (
         <SponsorWrapper>
@@ -12,6 +12,9 @@ const SponsorCardComponent = ({ image, name, link }) => {
         </SponsorWrapper>
     )
 }
+
+export default SponsorCard;
+
 
 const SponsorWrapper = styled.div`
     --glow-item: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
@@ -28,10 +31,7 @@ const SponsorWrapper = styled.div`
 
     :hover {
         border: solid 4px #8744C2;
-        &:hover {
-            box-shadow: var(--glow-item);
-        }
-
+        box-shadow: var(--glow-item);
     }
 
     .sponsor-image {
@@ -49,11 +49,9 @@ const SponsorWrapper = styled.div`
             object-fit: contain;
         }
 
-        @media (min-width: 600px) {
+        @media (min-width:600px) {
             width: 22rem;
             height: 14rem;
         }
     }
 `
-
-export default SponsorCardComponent;

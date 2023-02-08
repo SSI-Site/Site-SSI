@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-
-import styled from 'styled-components'
-
-// assets
-import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import twitch from '../../services/twitch';
 
-const TwitchWatchNowComponent = () => {
+// assets
+import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg';
+
+const TwitchWatchNow = () => {
+	
 	const [isLiveStreaming, setIsLiveStreaming] = useState(false);
 	const [streamData, setStreamData] = useState({});
 
@@ -53,13 +53,12 @@ const TwitchWatchNowComponent = () => {
 						</div>
 					)}
 				</a>
-
 			</TwitchWatchNowWrapper >
 		</>
 	)
 }
 
-export default TwitchWatchNowComponent;
+export default TwitchWatchNow;
 
 
 const TwitchWatchNowWrapper = styled.div`
@@ -92,24 +91,29 @@ const TwitchWatchNowWrapper = styled.div`
 		font-size: 2rem;
 		letter-spacing: 0.05em;
 		color: white;
-
 		position: relative;
     }
 
+	@keyframes dot-blink {
+		0% {
+			opacity: 0;
+		}
+	}
+
 	h4::before {
+		content: '';
 		position: absolute;
 		left: -28px;
 		top: calc(50% - 8px);
 		width: 16px;
 		height: 16px;
-		background-color: #C4C4C4;
+		background-color: #808080;
 		border-radius: 50%;
-		transition: all 0.2s;
-		content: '';
 	}
 
 	.streaming::before {
 		background-color: #FF4D4D;
+		animation: dot-blink 0.9s alternate-reverse infinite;
 	}
 
 	p {
@@ -125,18 +129,24 @@ const TwitchWatchNowWrapper = styled.div`
    		-webkit-box-orient: vertical;
 	}
 
-	p, h4 {
+	p, h4:not(::before) {
 		transition: all .2s;
 	}
 
 	:hover {
+
 		p, h4 {
 			color: var(--color-tertiary);
 			filter: brightness(120%);
 		}
+
+		h4::before {
+			filter: brightness(83.4%);
+		}
 	}
 
     @media (min-width:801px) {
+
 		img {
 			width: 80px ;
 		}
@@ -145,6 +155,9 @@ const TwitchWatchNowWrapper = styled.div`
 			-webkit-line-clamp: 2; /* number of lines to show */
 			line-clamp: 2;
 		}
-	}
 
+		h4::before {
+			top: calc(50% - 10px);
+		}
+	}
 `

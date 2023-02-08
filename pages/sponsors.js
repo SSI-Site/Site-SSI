@@ -1,26 +1,26 @@
-import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
 
-//components
-import SponsorCardComponent from '../src/components/SponsorCardComponent';
+import Meta from '../src/infra/Meta';
+
+// components
+import SponsorCard from '../src/components/SponsorCard';
 
 const Sponsors = () => {
 
     return (
         <>
-            <Meta title='SSI 2022 | Apoiadores' />
+            <Meta title='SSI 2023 | Apoiadores' />
+            
             <BackgroundWrapper>
-
                 <SponsorsSection>
                     <div className='padrao-background'></div>
-
                     <h3>Parceiros do evento</h3>
 
                     {/* <h2 className='deluxe'>Deluxe</h2>
                     <div className='sponsors-wrapper'>
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
                     </div>
 
                     <div className='divider-line'></div> */}
@@ -31,21 +31,21 @@ const Sponsors = () => {
                         <h2 className='workshop'>Workshop</h2>
                     </div>
                     <div className='sponsors-wrapper'>
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
                     </div> */}
 
                     {/* <div className='divider-line'></div>
 
                     <h2 className='standard spotlight spotlight2'>Standard</h2>
                     <div className='sponsors-wrapper'>
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCardComponent name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
                     </div>
 
                     <div className='divider-line'></div> */}
@@ -54,21 +54,20 @@ const Sponsors = () => {
                         <h2 className='apoiadores'>Apoiadores&nbsp;</h2>
                     </div>
                     <div className='sponsors-wrapper'>
-                        <SponsorCardComponent name='elo7' image='./images/sponsors/elo7.png' link="https://www.elo7.com.br/" />
-                        <SponsorCardComponent name='ey' image='./images/sponsors/ey.png' link="https://www.ey.com/pt_br" />
-                        <SponsorCardComponent name='github' image='./images/sponsors/github.png' link="https://github.com/" />
-                        <SponsorCardComponent name='globo' image='./images/sponsors/globo.png' link="https://www.globo.com/" />
-                        <SponsorCardComponent name='revelo' image='./images/sponsors/revelo.svg' link="https://www.revelo.com.br/" />
+                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
                     </div>
 
                     <div className='divider-line'></div>
 
                     <h2 className='apoio-inst'>Apoio institucional</h2>
                     <div className='sponsors-wrapper'>
-                        <SponsorCardComponent name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
-                        <SponsorCardComponent name='pet-si' image='./images/sponsors/pet.png' link="http://www.each.usp.br/petsi/" />
+                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                        <SponsorCard name='pet-si' image='./images/sponsors/pet.png' link="http://www.each.usp.br/petsi/" />
                     </div>
-
                 </SponsorsSection>
             </BackgroundWrapper>
         </>
@@ -245,5 +244,4 @@ const SponsorsSection = styled.section`
             margin-block: 0;
         }
     }
-
 `

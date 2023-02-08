@@ -1,5 +1,6 @@
-import ScheduleDay from "../../src/components/ScheduleDay"
+// components
+import ScheduleDay from "../../src/components/ScheduleDay";
 
 const Tuesday = () => <ScheduleDay weekDay='terca-feira' />
 
-export default Tuesday
+export default Tuesday;

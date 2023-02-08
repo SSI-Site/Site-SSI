@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-const ActivityComponent = ({ color, image, alt, title, description }) => {
+const EventActivity = ({ color, image, alt, title, description }) => {
 
     return (
-
         <ActivityWrapper>
             <div className='activity-content'>
                 <div className='activity-logo' style={{ backgroundColor: color }}>
@@ -19,12 +18,10 @@ const ActivityComponent = ({ color, image, alt, title, description }) => {
                 </div>
             </div>
         </ActivityWrapper>
-
     )
-
 }
 
-export default ActivityComponent;
+export default EventActivity;
 
 
 const ActivityWrapper = styled.div`
@@ -78,7 +75,7 @@ const ActivityWrapper = styled.div`
         justify-content: center;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
         border: 1.7px solid white;
         width: 365.5px;
         height: 439px;

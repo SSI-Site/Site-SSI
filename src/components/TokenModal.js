@@ -1,55 +1,60 @@
 import { useState } from 'react';
-import useAuth from '../../hooks/useAuth';
 import styled from 'styled-components';
 
+import useAuth from '../../hooks/useAuth';
 import saphira from '../../services/saphira';
+
+// assets
 import flecha from '../../public/images/flecha.svg';
 
 const TOKEN_LENGTH = 5;
 
 const ModalTokenComponent = ({ toggleVisibility }) => {
+
     const { user } = useAuth();
+    
     const [token, setToken] = useState('')
-    const [isInvalid, setIsInvalid] = useState(false)
+    const [isInvalid, setIsInvalid] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     const handleChangeToken = event => {
-        const { value } = event.target
-        if (value.length > TOKEN_LENGTH) return
-        setToken(value)
+        const { value } = event.target;
+
+        if (value.length > TOKEN_LENGTH) return;
+        setToken(value);
     }
 
     const handleSendToken = async event => {
-        event.preventDefault()
+        event.preventDefault();
 
         if (token.length < TOKEN_LENGTH) {
-            setIsInvalid(true)
-            return
+            setIsInvalid(true);
+            return;
         }
 
-        setIsLoading(true)
+        setIsLoading(true);
 
         await saphira.registerPresence(user.email, token)
             .then(() => {
                 setIsInvalid(false);
-                alert(`Presença Registrada!`)
-                setToken('')
+                alert(`Presença Registrada!`);
+                setToken('');
                 toggleVisibility();
             })
             .catch(() => {
                 setIsInvalid(true);
             });
 
-        setIsLoading(false)
+        setIsLoading(false);
     }
 
     const closeModalToken = () => {
         toggleVisibility();
     }
 
-    const getClassActiveBtn = () => token.length == TOKEN_LENGTH ? 'active-btn' : ''
+    const getClassActiveBtn = () => token.length == TOKEN_LENGTH ? 'active-btn' : '';
 
-    const getClassInvalidToken = () => isInvalid ? 'invalid-token' : ''
+    const getClassInvalidToken = () => isInvalid ? 'invalid-token' : '';
 
     return (
         <ModalTokenWrapper>
@@ -67,7 +72,9 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                         onChange={handleChangeToken}
                         value={token}
                     />
+
                     {isInvalid && <span>Token Inválido!</span>}
+
                     <button type="submit" className={getClassActiveBtn()}>
                         <img src={flecha}></img>
                     </button>
@@ -75,7 +82,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                 </form>
                 :
                 <Loading>
-                    <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                    <img src='./loading.svg' alt='SSI 2023 - Loading' />
                 </Loading>
             }
 
@@ -93,6 +100,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
 export default ModalTokenComponent;
 
+
 const Loading = styled.figure`
     width: 100%;
     text-align: center;
@@ -103,23 +111,17 @@ const Loading = styled.figure`
 `
 
 const ModalTokenWrapper = styled.div`
-    background-color: #151023;
-    border: 1px solid white;
-
+    --glow-btn: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    position: relative;
+    background-color: #151023;
+    border: 1px solid white;
     padding: 32px 32px 32px 32px;
     width: 90%;
     max-width: 400px;
-    margin: 0 auto;
-
-    margin-top: 10px;
-
-    position: relative;
-
-    --glow-btn: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
+    margin-top: 10px auto 0 auto;
 
     .active-btn {
         box-shadow: var(--glow-btn);
@@ -138,7 +140,7 @@ const ModalTokenWrapper = styled.div`
         z-index: 2;
     }
 
-    .leftright{
+    .leftright {
         height: 4px;
         width: 2rem;
         position: absolute;
@@ -149,7 +151,7 @@ const ModalTokenWrapper = styled.div`
         transition: all .3s ease-in;
     }
 
-    .rightleft{
+    .rightleft {
         height: 4px;
         width: 2rem;
         position: absolute;
@@ -164,6 +166,7 @@ const ModalTokenWrapper = styled.div`
         transform: rotate(-45deg);
         background-color: #8744C2;
     }
+
     .close-container:hover .rightleft {
         transform: rotate(45deg);
         background-color: #8744C2;
@@ -260,22 +263,17 @@ const ModalTokenWrapper = styled.div`
     }
 
     input[type=text] {
+        background-color: #392055;
+        color: white;
         text-align: center;
-
         font-family: 'Bebas Neue';
         font-weight: 400;
         font-size: 2rem;
         letter-spacing: 0.05em;
-        color: white;
-
-        z-index: 1;
-
         width: 100%;
         padding: 8px 16px;
-
-        background-color: #392055;
         border: 1px solid white;
-
+        z-index: 1;
     }
 
     input[type=text].invalid-token {
@@ -293,28 +291,26 @@ const ModalTokenWrapper = styled.div`
         transform-style: preserve-3d;
         transition: 0.3s;
         z-index: 2;
-
         margin: 24px 0 0 0;
         position: relative;
+
         img {
             align-self: center;
             width: 36px;
         }
-        &:before {
-            --var-width: calc(100% - 14px);
-            background-color: rgba(121, 61, 174, 0.5);
 
+        &:before {
+            content: '';
+            left: calc(49% - var(--var-width) / 2);
+            top: -8px;
+            text-align: center;
+            background-color: rgba(121, 61, 174, 0.5);
             transform: translateZ(-1px);
             position: absolute;
             width: var(--var-width);
             height: calc(100% + 14px);
             border: 1px solid #8744C2;
-
-            left: calc(49% - var(--var-width) / 2);
-            top: -8px;
-
-            text-align: center;
-            content: '';
+            --var-width: calc(100% - 14px);
         }
 
         &:hover {
@@ -330,8 +326,8 @@ const ModalTokenWrapper = styled.div`
         form {
             flex-direction: row;
             align-items: center;
-
             position: relative;
+
             span {
                 position: absolute;
                 left: 0;

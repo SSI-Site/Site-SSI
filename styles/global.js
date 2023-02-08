@@ -9,7 +9,6 @@ export default createGlobalStyle`
         --color-tertiary: #8A45C6;
         --color-text: #ffffff;
 
-
         /*10 pixels (100% = 16 pixels)*/
         font-size: 62.5%;
     }
@@ -39,7 +38,7 @@ export default createGlobalStyle`
         font-size: 1.8rem;
     }
 
-    button{
+    button {
         color: var(--color-text);
         font-family: 'Bebas Neue', cursive;
         font-size: 2rem;
@@ -47,13 +46,13 @@ export default createGlobalStyle`
         letter-spacing: 1px;
     }
 
-    h1{
+    h1 {
         font-family: 'Plaza';
         font-size: 3.6rem;
         color: var(--color-text);
     }
 
-    h2{
+    h2 {
         color: var(--color-text);
         font-family: 'Bebas Neue', cursive;
         font-style: normal;
@@ -61,25 +60,25 @@ export default createGlobalStyle`
         font-size: 3.2rem;
     }
 
-    h3, h4, h5, p, span{
+    h3, h4, h5, p, span {
         color: var(--color-text);
         font-family: 'Roboto', sans-serif;
         font-style: normal;
     }
 
-    h3{
+    h3 {
         font-weight: 500;
         font-size: 2.2rem;
         line-height: 140%;
     }
 
-    p{
+    p {
         font-weight: normal;
         font-size: 1.5rem;
         line-height: 121%;
     }
 
-    span{
+    span {
         font-style: normal;
         font-weight: 300;
         font-size: 1.2rem;
@@ -106,33 +105,37 @@ export default createGlobalStyle`
     }
 
     @media (min-width:480px) {
-         :root{
-             font-size: 70%;
-         }
+
+        :root{
+            font-size: 70%;
+        }
     }
 
     @media (min-width:600px) {
-        :root{
-             font-size: 80%;
-         }
 
-         button{
-            font-size: 1.8rem;
-         }
+        :root {
+            font-size: 80%;
+        }
+
+        button {
+            font-size:1.8rem;
+        }
     }
 
     @media (min-width:801px) {
-        :root{
+
+        :root {
              font-size: 90%;
         }
     }
 
     @media (min-width:1021px) {
-        :root{
+        
+        :root {
              font-size: 100%;
-         }
+        }
 
-        p{
+        p {
             font-weight: normal;
             font-size: 1.2rem;
             line-height: 141%;
@@ -143,9 +146,7 @@ export default createGlobalStyle`
 
     }
 
-
     @media (min-width:2200px) {
 
     }
-
 `

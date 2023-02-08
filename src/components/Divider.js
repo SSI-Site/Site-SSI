@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import separador from '../../public/images/SeparadorPrincipal.svg'
+
+// assets
+import separador from '../../public/images/SeparadorPrincipal.svg';
 
 /*
-Props contém a variável "dividerSize", que representa uma String que descreve o tamanho do Divider.
-Pode ser "small", "medium" ou "large".
-Quando o Divider especificado for "large", o tamanho varia de acordo com a tela (desktop e mobile).
-ex de uso: <Divider dividerSize="large" />
+    - 'props' contém a variável 'dividerSize', que representa uma String que descreve o tamanho do Divider.
+    - Pode ser "small", "medium" ou "large".
+    - Quando o Divider especificado for "large", o tamanho varia de acordo com a tela (desktop e mobile).
+
+    Exemplo de uso: <Divider dividerSize="large" />
 */
 const Divider = (props) => {
 
@@ -39,6 +42,7 @@ const Divider = (props) => {
 
 export default Divider;
 
+
 const DividerWrapperSmall = styled.div`
 
     img {
@@ -48,7 +52,6 @@ const DividerWrapperSmall = styled.div`
 `
 
 const DividerWrapperMedium = styled.div`
-
     text-align: center;
     margin: 20% 0;
 
@@ -58,12 +61,11 @@ const DividerWrapperMedium = styled.div`
         max-width: 380px;
     }
 
-    @media(max-height: 590px) {
+    @media(max-height:590px) {
         display: none;
     }
 `
 const DividerWrapperLarge = styled.div`
-
     text-align: center;
     margin: 8rem 0;
 
@@ -72,5 +74,4 @@ const DividerWrapperLarge = styled.div`
         min-width: 250px;
         max-width: 470px;
     }
-
 `

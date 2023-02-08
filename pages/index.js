@@ -2,19 +2,22 @@ import { React, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
-import useAuth from '../hooks/useAuth';
+
 import Meta from '../src/infra/Meta';
+import useAuth from '../hooks/useAuth';
 import saphira from '../services/saphira';
 
-import Button from '../src/components/Button'
-import DateComponent from '../src/components/DateComponent';
+// components
+import Button from '../src/components/Button';
+import DateStamp from '../src/components/DateStamp';
 import ScheduleInformation from '../src/components/ScheduleInformation';
-import TwitchWatchNowComponent from '../src/components/TwitchWatchNowComponent'
-import AuthModal from '../src/components/AuthModal'
-import ModalTokenComponent from '../src/components/ModalTokenComponent'
+import TwitchWatchNow from '../src/components/TwitchWatchNow';
+import AuthModal from '../src/components/AuthModal';
+import TokenModal from '../src/components/TokenModal';
 import Divider from '../src/components/Divider';
 
-import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'
+// assets
+import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg';
 import borda from '../public/images/borda2.png';
 import star from '../public/images/star.svg';
 import speakerPicture from '../public/images/logos/logo_sem_estrela.svg';
@@ -27,9 +30,10 @@ const supporters = [
     { title: 'REVELO', url: 'https://www.revelo.com.br/' },
     { title: 'PET-SI', url: 'http://www.each.usp.br/petsi/' },
     { title: 'EACH-USP', url: 'http://www5.each.usp.br/' }
-].sort((a, b) => a.title > b.title ? 1 : -1)
+].sort((a, b) => a.title > b.title ? 1 : -1);
 
 const Home = () => {
+
     const router = useRouter();
     const { user, signOut } = useAuth();
 
@@ -44,7 +48,7 @@ const Home = () => {
 
     const handleShowAuthModal = () => {
         if (window.pageYOffset != 0) {
-            setTimeout(() => { handleShowAuthModal() }, 50)
+            setTimeout(() => { handleShowAuthModal() }, 50);
         } else {
             setShowAuthModal(true);
         }
@@ -77,31 +81,31 @@ const Home = () => {
     const current = new Date();
     const day = `${current.getDate()}`;
     const month = `${current.getMonth()}`;
+    const year = `${current.getFullYear()}`;
     const weekDayNames = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
     const weekDay = weekDayNames[`${current.getDay()}`];
     const simpleWeekDayNames = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
     const simpleWeekDay = simpleWeekDayNames[`${current.getDay()}`];
     
-
-    const description = "Nesta "+weekDay+", teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!"
+    const description = "Nesta "+weekDay+", teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!";
     const sentenceTitle = "E com mais palestras incríveis!";
     const title = sentenceTitle.slice(0,2)+simpleWeekDay.replace(/.$/, "ou")+sentenceTitle.slice(1,);
 
     return (
         <>
-            <Meta title='SSI 2022 | Início' />
+            <Meta title='SSI 2023 | Início' />
+
             <BackgroundWrapper>
                 <div className='padrao-background'></div>
-
                 <BannerSection>
                     <figure>
-                        <img className='logo' src={LogoPrincipal} alt="Logo SSI 2022" />
+                        <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
                     </figure>
 
                     <div className='content'>
                         <div className='content-title'>
                             <h1>Semana de Sistemas de Informação</h1>
-                            <h3>Palestras do dia 07/11 ao dia 11/11</h3>
+                            <h3>Palestras do dia 21/08 ao dia 25/08</h3>
                         </div>
 
                         {!isLoading ?
@@ -121,49 +125,41 @@ const Home = () => {
                                     />
                                 }
 
-
                                 <div className='content-token'>
-                                    {user && isUserRegistered && !isModalTokenOpen &&
+                                    {user && /*isUserRegistered &&*/ !isModalTokenOpen &&
                                         <Button onClick={toggleModalTokenIsOpen}> Registrar Presença </Button>
                                     }
 
                                     {user && isModalTokenOpen &&
-                                        <ModalTokenComponent toggleVisibility={toggleModalTokenIsOpen} />
+                                        <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
                                     }
 
-                                    <div className="complete-register-btns">
+                                    {/* <div className="complete-register-btns">
                                         {user && !isUserRegistered &&
                                             <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
                                         }
                                         {user && !isUserRegistered &&
                                             <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
                                         }
-                                    </div>
-
+                                    </div> */}
                                 </div>
-
-                                <TwitchWatchNowComponent />
+                                <TwitchWatchNow />
                             </>
                             :
                             <Loading>
-                                <img src='./loading.svg' alt='SSI 2022 - Loading' />
+                                <img src='./loading.svg' alt='SSI 2023 - Loading' />
                             </Loading>
                         }
-
                     </div>
                 </BannerSection>
-
 
                 <Divider dividerSize="large" />
 
                 <EventInfoSection>
-
                     <h2 className="section-title">ONDE VAI ACONTECER?</h2>
-
                     <div className='content'>
-
                         <div className="details">
-                            <p>As palestras ocorrerão entre os dias <span>07 e 11 de novembro</span>, nos <span>auditórios da EACH</span>.</p>
+                            <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>.</p>
                             <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
                             <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
                         </div>
@@ -177,27 +173,22 @@ const Home = () => {
                                 <h1>TWITCH.TV/EACH_SSI</h1>
                             </a>
                         </div>
-
                     </div>
-
                 </EventInfoSection>
             </BackgroundWrapper>
 
             <Divider dividerSize="large" />
 
             <ScheduleSection>
-
                 <h2 className="section-title">Programação</h2>
-
                 <div className='schedule-content'>
-
                     <div className='first-section-schedule'>
-
                         <div className='date'>
-                            <DateComponent day={day} weekDay={weekDay} size="small" />
+                            <DateStamp day={day} weekDay={weekDay} size="small" />
                         </div>
-
-                        { (day>=21 && day<=25 && month==7) ? 
+                        
+                        {/* Filtro para atualização diária do texto durante os dias do evento: */}
+                        {(day>=21 && day<=25 && month==7 && year==2023) ? 
                             (   
                                 <ScheduleInformation
                                     speakerPicture={speakerPicture}
@@ -212,20 +203,18 @@ const Home = () => {
                                 />
                             )
                         }
-
                     </div>
 
                     <div className='sechedule-text'>
                         <p>Confira o conteúdo detalhado das nossas palestras, para poder se organizar e decidir quais você mais quer assistir!</p>
                     </div>
+
                     <div className='starr star-one'></div>
                     <div className='starr star-two'></div>
                     <div className='starr star-three'></div>
                     <div className='starr star-four'></div>
-
                 </div>
                 <Button onClick={() => router.push('/schedule')}>Confira</Button>
-
             </ScheduleSection>
 
             <Divider dividerSize="large" />
@@ -245,18 +234,19 @@ const Home = () => {
                         </li>
                     ))}
                 </ul>
-
                 <div className="background-blur" />
             </SupportersSection>
         </>
     )
 }
 
+export default Home;
+
+
 const Loading = styled.figure`
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     padding-top: 2rem;
 
@@ -287,8 +277,9 @@ const BackgroundWrapper = styled.div`
             background: url('./images/padrao_background_desktop.svg');
             background-size: cover;
         }
+
         @media (min-width:1500px) {
-            left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrappe/main */
+            left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
         }
     }
 `
@@ -301,7 +292,6 @@ const WelcomeComponent = styled.div`
     --transition-duration: 500ms;
 
     pointer-events: none;
-
     border: var(--border);
     border-radius: 0;
     background-color: var(--background);
@@ -309,13 +299,10 @@ const WelcomeComponent = styled.div`
     color: white;
     position: relative;
     text-align: center;
-
     margin: 40px 0 15px 0;
-
     font-family: 'Plaza';
     font-weight: 400;
     font-size: 2rem;
-
     transition: background-color var(--transition-duration);
 
     &::before, &::after {
@@ -323,10 +310,10 @@ const WelcomeComponent = styled.div`
         position: absolute;
         border: var(--border);
         transition:
-        top var(--transition-duration),
-        bottom var(--transition-duration),
-        left var(--transition-duration),
-        right var(--transition-duration);
+            top var(--transition-duration),
+            bottom var(--transition-duration),
+            left var(--transition-duration),
+            right var(--transition-duration);
     }
 
     &::before {
@@ -382,9 +369,7 @@ const BannerSection = styled.header`
         width: 100%;
         text-align: center;
         flex-direction: column;
-
-        margin-bottom: 50px;
-        margin-top: 30px;
+        margin-block: 30px 50px;
     }
 
     .btn-entrar{
@@ -439,9 +424,9 @@ const BannerSection = styled.header`
             align-self: flex-start;
         }
 
-        button {
+        /* button {
             margin: 0;
-        }
+        } */
 
         .content-title {
             text-align: center;
@@ -470,36 +455,35 @@ const EventInfoSection = styled.section`
     align-items: center;
 
     .content {
-       display: flex;
-       flex-direction: column;
-       width: clamp(0px, 67%, 600px);
-       align-items: center;
-       gap: 10rem;
+        display: flex;
+        flex-direction: column;
+        width: clamp(0px, 67%, 600px);
+        align-items: center;
+        gap: 10rem;
 
-       .details {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 2rem;
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
 
-          p {
-             font-size: 2rem;
-             text-indent: 3rem;
-             text-align: justify;
+            p {
+                font-size: 2rem;
+                text-indent: 3rem;
+                text-align: justify;
 
-             span {
-                font-size: inherit;
-                font-family: inherit;
-                font-weight: inherit;
-                color: #BC73FF;
-             }
+                span {
+                    font-size: inherit;
+                    font-family: inherit;
+                    font-weight: inherit;
+                    color: #BC73FF;
+                }
+            }
 
-          }
-
-          button {
-             width: 15rem;
-          }
-       }
+            button {
+                width: 15rem;
+            }
+        }
 
         .logos {
             display: flex;
@@ -507,62 +491,61 @@ const EventInfoSection = styled.section`
             align-items: center;
             flex-grow: 1;
             width: clamp(0px, 100%, 400px);
+            gap: 2rem;
+
             img {
                 width: 100%;
             }
-            gap: 2rem;
 
             h1 {
                 transition: all .1s;
             }
 
             a:nth-child(2):hover {
+
                 h1{
                     color: var(--color-tertiary);
                     filter: brightness(120%);
                 }
             }
         }
-
-
     }
 
     @media (min-width:1281px) {
-
       padding-bottom: 150px;
 
-       .content {
-
-           flex-direction: row;
-           width: clamp(0px, 75%, 1920px);
+        .content {
+            flex-direction: row;
+            width: clamp(0px, 75%, 1920px);
             position: relative;
-           .details {
-              p {
-                 font-size: 2rem;
-              }
 
-              button {
-               margin-top: 0rem;
-               position: absolute;
-               align-self: flex-start;
-               transform: translateX(-50%);
-               left: 50%;
-               bottom: -150px;
-              }
-           }
+            .details {
 
-       }
+                p {
+                    font-size: 2rem;
+                }
+
+                button {
+                    margin-top: 0;
+                    position: absolute;
+                    align-self: flex-start;
+                    transform: translateX(-50%);
+                    left: 50%;
+                    bottom: -150px;
+                }
+            }
+        }
     }
 `
 
 const ScheduleSection = styled.div`
-display: flex;
-width: 100%;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    .schedule-content{
+    .schedule-content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -573,13 +556,13 @@ justify-content: center;
         margin-bottom:5rem;
     }
 
-    .first-section-schedule{
+    .first-section-schedule {
         position: relative;
         width: 60vw;
         max-width: 500px;
     }
 
-    .date{
+    .date {
         position: absolute;
         width: 120px;
         height: 120px;
@@ -587,7 +570,7 @@ justify-content: center;
         top:-110px;
     }
 
-    .sechedule-text{
+    .sechedule-text {
         margin-top: 5rem;
         border-style: solid;
         border-image-source: url(${borda});
@@ -605,12 +588,12 @@ justify-content: center;
         transition: border-image-width 1s;
     }
 
-    .sechedule-text:hover{
+    .sechedule-text:hover {
         border-image-width: 100px;
         transition: border-image-width 0.5s;
     }
 
-    .starr{
+    .starr {
         content: url(${star});
         position: absolute;
         width: 50px;
@@ -618,31 +601,32 @@ justify-content: center;
         z-index:-2;
     }
 
-    .star-one{
+    .star-one {
         top: -100px;
         left:-10vw;
         transform: rotate(-20deg) scale(0.75);
     }
 
-    .star-two{
+    .star-two {
         top: -75px;
         left: 5vw;
         transform: rotate(-45deg) scale(1.2);
     }
 
-    .star-three{
+    .star-three {
         top: 100px;
         left:-15vw;
         transform: rotate(-45deg) scale(2);
     }
 
-    .star-four{
+    .star-four {
         bottom: -40px;
         right:-10px;
         transform: rotate(-90deg) ;
     }
 
     @media (min-width:600px) {
+
         .date{
             right: -70px;
             top: -70px;
@@ -656,16 +640,16 @@ justify-content: center;
             justify-content: space-around;
         }
 
-        .first-section-schedule{
+        .first-section-schedule {
             min-width: 400px;
         }
 
-        .sechedule-text{
+        .sechedule-text {
             margin-top: 0px;
             margin-left: 100px;
         }
 
-        .first-section-schedule:after{
+        .first-section-schedule:after {
             content: '';
             position: absolute;
             top: -125px;
@@ -677,7 +661,7 @@ justify-content: center;
             background: radial-gradient(50% 50% at 50% 50%, rgba(138, 69, 198, 0.3) 0%, rgba(51, 0, 0, 0) 100%);
         }
 
-        .schedule-content:after{
+        .schedule-content:after {
             content: '';
             position: absolute;
             top: -300px;
@@ -689,12 +673,12 @@ justify-content: center;
             background: radial-gradient(50% 50% at 50% 50%, rgba(138, 69, 198, 0.3) 0%, rgba(51, 0, 0, 0) 100%);
         }
 
-        .star-four{
+        .star-four {
             bottom: 0px;
             right:40%;
         }
     }
-`;
+`
 
 const SupportersSection = styled.section`
     display: flex;
@@ -745,11 +729,11 @@ const SupportersSection = styled.section`
                     transition: color 0.2s;
                 }
             }
-
         }
     }
 
     @media (min-width:600px) {
+
         h2 {
             padding: 0.1em 1em;
         }
@@ -762,6 +746,7 @@ const SupportersSection = styled.section`
     }
 
     @media (min-width:1021px) {
+
         ul {
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5em 15vw;
@@ -769,12 +754,10 @@ const SupportersSection = styled.section`
     }
 
     @media (min-width:1400px) {
+
         ul {
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5em 5vw;
         }
     }
-
 `
-
-export default Home;

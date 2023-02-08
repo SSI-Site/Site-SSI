@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MemberCardComponent = ({ name, image, departments }) => {
+const MemberCard = ({ name, image, departments }) => {
 
     return (
         <MemberWrapper>
@@ -17,6 +17,9 @@ const MemberCardComponent = ({ name, image, departments }) => {
         </MemberWrapper>
     )
 }
+
+export default MemberCard;
+
 
 const MemberWrapper = styled.div`
     display: flex;
@@ -60,19 +63,14 @@ const MemberWrapper = styled.div`
         line-height: 2.5rem;
     }
     
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
 
         .member-name {
             line-height: 2rem;
-
         }
 
         .member-department {
             line-height: 2rem;
-
-        }
-        
+        }  
     }
 `
-
-export default MemberCardComponent;

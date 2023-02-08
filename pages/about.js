@@ -1,22 +1,26 @@
 import { useState, useEffect } from 'react';
-import Meta from '../src/infra/Meta';
 import styled from 'styled-components';
+import CountUp from 'react-countup';
+
+import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 
-//assets
-import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg'
-import ActivityComponent from '../src/components/ActivityComponent';
+// components
+import EventActivity from '../src/components/EventActivity';
+
+// assets
+import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg';
 
 const About = () => {
 
     return (
         <>
-            <Meta title='SSI 2022 | Sobre' />
+            <Meta title='SSI 2023 | Sobre' />
+
             <BackgroundWrapper>
                 <div className='padrao-background'></div>
-
                 <LogoTextSection>
-                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2022" />
+                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
                     <div className='content'>
                         <div className='content-title'>
                             <h1>O que é SSI?</h1>
@@ -34,21 +38,21 @@ const About = () => {
                     <h2 className='section2-title'>O que teremos no evento?</h2>
                     <div className='activities'>
 
-                        <ActivityComponent
+                        <EventActivity
                             color='#4A46C5'
                             image='./images/about/icon_capture_the_flag.svg'
                             alt='Imagem Capture the Flag'
                             title='Capture the Flag'
                             description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
                         />
-                        <ActivityComponent
+                        <EventActivity
                             color='#8744C2'
                             image='./images/about/icon_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
                             description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                         />
-                        <ActivityComponent
+                        <EventActivity
                             color='#FF7F5C'
                             image='./images/about/icon_minicursos.svg'
                             alt='Imagem Minicursos'
@@ -57,7 +61,6 @@ const About = () => {
                         />
                     </div>
                 </ActivitiesSection>
-
             </BackgroundWrapper>
 
             <section>
@@ -109,26 +112,66 @@ const About = () => {
 
 
             <NumbersSection>
-                <h2> Números da SSI 2021 </h2>
+                <h2>Números da SSI 2022</h2>
                 <EventNumbersBanner>
 
-                    <div className='event-info-container background-spotlight background-spotlight-2'>
-                        <h3><span className='purple-plus'>&#43;</span>2.8k</h3>
-                        <div className='purple-separator'></div>
-                        <p>Espectadores</p>
-                    </div>
+                    <CountUp
+                        start={0}
+                        end={2.8}
+                        delay={0}
+                        decimals={1}
+                        suffix="k"
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='event-info-container background-spotlight background-spotlight-2'>
+                                <div className='inline-elements'>
+                                    <span className='purple-plus'>&#43;</span>
+                                    <h3 ref={countUpRef} />
+                                </div>
+                                <div className='purple-separator'></div>
+                                <p>Espectadores</p>
+                            </div>
+                        )}
+                    </CountUp>
 
-                    <div className='event-info-container'>
-                        <h3><span className='purple-plus'>&#43;</span>800</h3>
-                        <div className='purple-separator'></div>
-                        <p>Inscritos</p>
-                    </div>
+                    <CountUp
+                        start={0}
+                        end={800}
+                        delay={0}
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='event-info-container'>
+                                <div className='inline-elements'>
+                                    <span className='purple-plus'>&#43;</span>
+                                    <h3 ref={countUpRef} />
+                                </div>
+                                <div className='purple-separator'></div>
+                                <p>Inscritos</p>
+                            </div>
+                        )}
+                    </CountUp>
 
-                    <div className='event-info-container'>
-                        <h3><span className='purple-plus'>&#43;</span>34h</h3>
-                        <div className='purple-separator'></div>
-                        <p>De conteúdo</p>
-                    </div>
+                    <CountUp
+                        start={0}
+                        end={34}
+                        delay={0}
+                        suffix="h"
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='event-info-container'>
+                                <div className='inline-elements'>
+                                    <span className='purple-plus'>&#43;</span>
+                                    <h3 ref={countUpRef} />
+                                </div>
+                                <div className='purple-separator'></div>
+                                <p>De conteúdo</p>
+                            </div>
+                        )}
+                    </CountUp>
+
                 </EventNumbersBanner>
             </NumbersSection>
         </>
@@ -136,6 +179,7 @@ const About = () => {
 }
 
 export default About;
+
 
 const BackgroundWrapper = styled.div`
     display: flex;
@@ -159,8 +203,8 @@ const BackgroundWrapper = styled.div`
             background-size: cover;
             height: 60%;
             mask-image: linear-gradient(to top, transparent 0%, black 5%);
-
         }
+
         @media (min-width:1500px) {
             left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
         }
@@ -209,7 +253,7 @@ const LogoTextSection = styled.section`
         font-size: 22px;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
 
         .logo {
             max-width: 400px;
@@ -270,7 +314,7 @@ const ActivitiesSection = styled.section`
     }
 
 
-    @media (min-width: 800px) {
+    @media (min-width:800px) {
         margin-block: 12rem;
 
         .activities {
@@ -382,7 +426,7 @@ const LectureContent = styled.div`
         }
     }
 
-    @media (min-width: 1021px) {
+    @media (min-width:1021px) {
         padding-inline: 5rem;
 
         .lecture-sample {
@@ -419,7 +463,6 @@ const LectureContent = styled.div`
             padding: 20px 0px 20px 20px;
         }
     }
-
 `
 
 const NumbersSection = styled.section`
@@ -448,6 +491,11 @@ const EventNumbersBanner = styled.div`
         margin-bottom: 80px;
     }
 
+    .inline-elements {
+        display: flex;
+        flex-direction: row;
+    }
+
     .purple-plus {
         color: #8744C2;
     }
@@ -473,7 +521,7 @@ const EventNumbersBanner = styled.div`
         font-weight: 600;
     }
 
-    @media (min-width: 600px) {
+    @media (min-width:600px) {
         margin-block: 5rem 8rem;
         flex-direction: row;
         flex-wrap: wrap;
@@ -486,7 +534,7 @@ const EventNumbersBanner = styled.div`
         }
     }
 
-    @media (min-width: 1021px) {
+    @media (min-width:1021px) {
         margin-block: 3rem 8rem;
 
         .event-info-container {

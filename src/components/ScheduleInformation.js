@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import borda from '../../public/images/borda.png'
+
+// assets
+import borda from '../../public/images/borda.png';
 
 const ScheduleInformation = ({ speakerPicture, speakerName, title, overview }) => {
+    
     return (
         <>
             <ScheduleInformationStyle>
@@ -13,7 +16,6 @@ const ScheduleInformation = ({ speakerPicture, speakerName, title, overview }) =
                         <div className='space-div'></div>
                     }
                     <h3 className='speakerName'>{speakerName}</h3>
-
                 </div>
 
                 <div className='second-section-schedule-box'>
@@ -42,7 +44,7 @@ const ScheduleInformationStyle = styled.div`
     border-image-outset: 10px;
     border-image-repeat: stretch;
 
-    .speaker-picture{
+    .speaker-picture {
         width: 150px;
         height: 150px;
         border-radius: 75px 75px 0px 0px;
@@ -54,18 +56,18 @@ const ScheduleInformationStyle = styled.div`
         height: 3.5rem;
     }
 
-    .speakerName{
+    .speakerName {
         font-size: 16px;
         margin-top: 0.5rem;
         text-align: center;
     }
-    .second-section-schedule-box{
+    .second-section-schedule-box {
         display:flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
-    .speech-title{
+    .speech-title {
         width: 90%;
         font-size: 2rem;
         margin-top: .5rem;
@@ -73,7 +75,7 @@ const ScheduleInformationStyle = styled.div`
         text-align: center;
     }
 
-    .speech-overview{
+    .speech-overview {
         width: 80%;
         text-align: center;
 
@@ -86,11 +88,12 @@ const ScheduleInformationStyle = styled.div`
     }
 
     @media (min-width:600px) {
+
         .space-div {
             height: 1.5rem;
         }
 
-        .first-section-schedule-box{
+        .first-section-schedule-box {
             margin: 20px;
             display: flex;
             flex-direction: column;
@@ -98,7 +101,7 @@ const ScheduleInformationStyle = styled.div`
             justify-content: center;
         }
 
-        .speaker-picture{
+        .speaker-picture {
             margin-top: 0px;
             width: 300px;
             height: 300px;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const TWITCH_API_URL = "https://api.twitch.tv/helix"
+const TWITCH_API_URL = "https://api.twitch.tv/helix";
 const SSI_CHANEL_ID = 523344753;
 
 const getAuthToken = async () => {
