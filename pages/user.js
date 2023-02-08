@@ -13,12 +13,19 @@ import RegisterForm from '../src/components/RegisterForm';
 
 const User = () => {
     
+    // Array de palestras-exemplo para permitir o desenvolvimento do front
+    const lectures = [
+        'Palestra muito foda 1',
+        'Palestra muito foda 2',
+        'Palestra muito foda 3',
+    ];
+
     const { user, signOut } = useAuth();
 
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
     const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [userInfo, setUserInfo] = useState({});
-    const [lectures, setLectures] = useState([]);
+    // const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -140,11 +147,11 @@ const User = () => {
                 </Loading>
             }
 
-            {!isLoading && user && !isUserRegistered &&
+            {/* {!isLoading && user && !isUserRegistered &&
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
-            }
+            } */}
 
             {isEditing &&
                 <>
@@ -160,7 +167,7 @@ const User = () => {
                 </>
             }
 
-            {!isLoading && !isEditing && user && isUserRegistered &&
+            {!isLoading && !isEditing && user && /*isUserRegistered &&*/
                 <>
                     <BackgroundWrapper>
                         <div className='padrao-background'></div>
@@ -221,8 +228,7 @@ const User = () => {
 
                         <ContainerLectures>
                             <ListLectures>
-                                <thead><tr><th><h4>Palestras Assistidas</h4></th></tr></thead>
-
+                                <thead><tr><th><h4>Palestras Assistidas (da última vista p/ 1a)</h4></th></tr></thead>
                                 {lectures.length === 0 &&
                                     <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
                                 }
@@ -233,8 +239,11 @@ const User = () => {
                                             <td className={`lecture-id lecture-id-0`}>
                                                 <span></span>
                                             </td>
-                                            <td className={`lecture-info lecture-info-0`}>
+                                            {/* <td className={`lecture-info lecture-info-0`}>
                                                 <p className='bold-info'>{lecture.talk_title} - {lecture.online ? "Online" : "Presencial"}</p>
+                                            </td> */}
+                                            <td className={`lecture-info lecture-info-0`}>
+                                                <p className='bold-info'>{lecture} - {lecture.online ? "Online" : "Presencial"}</p>
                                             </td>
                                         </tr>
                                     ))

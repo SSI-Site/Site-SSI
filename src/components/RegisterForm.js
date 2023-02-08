@@ -265,7 +265,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <input id="accepted_recieve_emails" type="checkbox" defaultChecked={false}
                             {...register("accepted_recieve_emails")}
                         />
-                        <label htmlFor="accepted_recieve_emails"> Aceito receber emails de divulgação. Dessa forma, estou ciente de que meu e-mail será compartilhado com as empresas apoiadoras do evento para possíveis divulgações de vagas de estágio, oportunidades de cursos e afins. </label>
+                        <label htmlFor="accepted_recieve_emails"> Aceito receber e-mails de divulgação. Dessa forma, estou ciente de que meu e-mail será compartilhado com as empresas parceiras do evento para possíveis divulgações de vagas de estágio, oportunidades de cursos e afins. </label>
                     </CheckboxContainer>
 
                     <BtnContainer>

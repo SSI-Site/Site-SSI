@@ -126,7 +126,7 @@ const Home = () => {
                                 }
 
                                 <div className='content-token'>
-                                    {user && isUserRegistered && !isModalTokenOpen &&
+                                    {user && /*isUserRegistered &&*/ !isModalTokenOpen &&
                                         <Button onClick={toggleModalTokenIsOpen}> Registrar Presença </Button>
                                     }
 
@@ -134,15 +134,14 @@ const Home = () => {
                                         <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
                                     }
 
-                                    <div className="complete-register-btns">
+                                    {/* <div className="complete-register-btns">
                                         {user && !isUserRegistered &&
                                             <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
                                         }
                                         {user && !isUserRegistered &&
                                             <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
                                         }
-                                    </div>
-
+                                    </div> */}
                                 </div>
                                 <TwitchWatchNow />
                             </>
