@@ -15,7 +15,7 @@ const pages = {
     "/": 1,
     "/schedule": 2,
     "/about": 3,
-    "/sponsors": 4,
+    "/partnerships": 4,
     "/co": 5,
     "/hackssi": 6,
     "/user": 8,
@@ -73,7 +73,7 @@ const Nav = () => {
                         </li>
 
                         <li>
-                            <Link href="/sponsors"><a>Apoiadores</a></Link>
+                            <Link href="/partnerships"><a>Parcerias</a></Link>
                             <div></div>
                         </li>
 
@@ -126,7 +126,7 @@ const Nav = () => {
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
-                                <Link href="/sponsors"><a>Apoiadores</a></Link>
+                                <Link href="/partnerships"><a>Parcerias</a></Link>
                                 <div></div>
                             </li>
 

@@ -3,24 +3,24 @@ import styled from 'styled-components';
 import Meta from '../src/infra/Meta';
 
 // components
-import SponsorCard from '../src/components/SponsorCard';
+import PartnerCard from '../src/components/PartnerCard';
 
-const Sponsors = () => {
+const Partnerships = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | Apoiadores' />
+            <Meta title='SSI 2023 | Parcerias' />
             
             <BackgroundWrapper>
-                <SponsorsSection>
+                <PartnersSection>
                     <div className='padrao-background'></div>
                     <h3>Parceiros do evento</h3>
 
                     {/* <h2 className='deluxe'>Deluxe</h2>
-                    <div className='sponsors-wrapper'>
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <div className='partners-wrapper'>
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
                     </div>
 
                     <div className='divider-line'></div> */}
@@ -30,22 +30,22 @@ const Sponsors = () => {
                         <h2 className='comercial-and'>&#38;&nbsp;</h2>
                         <h2 className='workshop'>Workshop</h2>
                     </div>
-                    <div className='sponsors-wrapper'>
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <div className='partners-wrapper'>
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
                     </div> */}
 
                     {/* <div className='divider-line'></div>
 
                     <h2 className='standard spotlight spotlight2'>Standard</h2>
-                    <div className='sponsors-wrapper'>
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <SponsorCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <div className='partners-wrapper'>
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
                     </div>
 
                     <div className='divider-line'></div> */}
@@ -53,28 +53,28 @@ const Sponsors = () => {
                     <div className='multicolor-title spotlight spotlight1'>
                         <h2 className='apoiadores'>Apoiadores&nbsp;</h2>
                     </div>
-                    <div className='sponsors-wrapper'>
-                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
-                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
-                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
-                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
-                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
+                    <div className='partners-wrapper'>
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
                     </div>
 
                     <div className='divider-line'></div>
 
                     <h2 className='apoio-inst'>Apoio institucional</h2>
-                    <div className='sponsors-wrapper'>
-                        <SponsorCard name='each' image='./images/sponsors/each.svg' link="http://www5.each.usp.br/" />
-                        <SponsorCard name='pet-si' image='./images/sponsors/pet.png' link="http://www.each.usp.br/petsi/" />
+                    <div className='partners-wrapper'>
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        <PartnerCard name='pet-si' image='./images/partners/pet.png' link="http://www.each.usp.br/petsi/" />
                     </div>
-                </SponsorsSection>
+                </PartnersSection>
             </BackgroundWrapper>
         </>
     )
 }
 
-export default Sponsors;
+export default Partnerships;
 
 
 const BackgroundWrapper = styled.div`
@@ -105,14 +105,12 @@ const BackgroundWrapper = styled.div`
     }
 `
 
-const SponsorsSection = styled.section`
-
+const PartnersSection = styled.section`
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-
     padding-top: 100px;
     margin-bottom: 15rem;
 
@@ -132,7 +130,13 @@ const SponsorsSection = styled.section`
         line-height: 64px;
     }
 
-    .deluxe {
+    .apoiadores {
+        background: linear-gradient(to bottom, #AE5BF6 0%, #582C80 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* .deluxe {
         background: linear-gradient(to bottom, #FBE38F 0%, #816E2D 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -146,7 +150,7 @@ const SponsorsSection = styled.section`
         justify-content: center;
     }
 
-    .apoiadores {
+    .palestra {
         background: linear-gradient(to bottom, #AE5BF6 0%, #582C80 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -168,18 +172,18 @@ const SponsorsSection = styled.section`
         background: linear-gradient(to bottom, #E0E0E0 0%, #878787 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-    }
+    } */
 
     .apoio-inst {
         color: #DEDEDE;
         max-width: 300px;
     }
 
-    .deluxe, .multicolor-title, .standard, .apoio-inst {
+    /*.deluxe, .multicolor-title, .standard,*/ .apoio-inst {
         margin-block: 6rem;
     }
 
-    .sponsors-wrapper {
+    .partners-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -199,14 +203,15 @@ const SponsorsSection = styled.section`
             margin: 2rem 0 5rem;
         }
 
-        .deluxe, .multicolor-title, .standard, .apoio-inst {
+        /*.deluxe, .multicolor-title, .standard,*/ .apoio-inst {
             margin-block: 4rem;
         }
 
         .apoio-inst {
             max-width: none;
         }
-        .sponsors-wrapper {
+
+        .partners-wrapper {
             flex-direction: row;
             flex-flow: wrap;
             gap: 3rem;
@@ -238,6 +243,7 @@ const SponsorsSection = styled.section`
     }
 
     @media (min-width:1120px) {
+        
         .divider-line {
             background-color: transparent;
             height: 8rem;

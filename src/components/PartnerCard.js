@@ -1,22 +1,22 @@
 import styled from 'styled-components';
 
-const SponsorCard = ({ image, name, link }) => {
+const PartnerCard = ({ image, name, link }) => {
 
     return (
-        <SponsorWrapper>
+        <PartnerWrapper>
             <a href={link} target="_blank" rel="noreferrer">
-                <figure className='sponsor-image'>
+                <figure className='partner-image'>
                     <img src={image} alt={`Logo ${name}`}></img>
                 </figure>
             </a>
-        </SponsorWrapper>
+        </PartnerWrapper>
     )
 }
 
-export default SponsorCard;
+export default PartnerCard;
 
 
-const SponsorWrapper = styled.div`
+const PartnerWrapper = styled.div`
     --glow-item: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ const SponsorWrapper = styled.div`
         box-shadow: var(--glow-item);
     }
 
-    .sponsor-image {
+    .partner-image {
         display: flex;
         align-items: center;
         padding: 40px;
