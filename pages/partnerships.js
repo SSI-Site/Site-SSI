@@ -50,9 +50,7 @@ const Partnerships = () => {
 
                     <div className='divider-line'></div> */}
 
-                    <div className='multicolor-title spotlight spotlight1'>
-                        <h2 className='apoiadores'>Apoiadores&nbsp;</h2>
-                    </div>
+                    <h2 className='apoiadores'>Apoiadores&nbsp;</h2>
                     <div className='partners-wrapper'>
                         <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
                         <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
@@ -132,12 +130,14 @@ const PartnersSection = styled.section`
 
     .apoiadores {
         background: linear-gradient(to bottom, #AE5BF6 0%, #582C80 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     /* .deluxe {
         background: linear-gradient(to bottom, #FBE38F 0%, #816E2D 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -152,24 +152,28 @@ const PartnersSection = styled.section`
 
     .palestra {
         background: linear-gradient(to bottom, #AE5BF6 0%, #582C80 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     .comercial-and {
         background: linear-gradient(to right, #8744C2 0%, #4E4CCC 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     .workshop {
         background: linear-gradient(to bottom, #7371ED 0%, #3B399E 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
     .standard {
         background: linear-gradient(to bottom, #E0E0E0 0%, #878787 100%);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     } */
@@ -179,7 +183,7 @@ const PartnersSection = styled.section`
         max-width: 300px;
     }
 
-    /*.deluxe, .multicolor-title, .standard,*/ .apoio-inst {
+    /*.deluxe, .multicolor-title, .standard,*/ .apoiadores, .apoio-inst {
         margin-block: 6rem;
     }
 
@@ -203,7 +207,7 @@ const PartnersSection = styled.section`
             margin: 2rem 0 5rem;
         }
 
-        /*.deluxe, .multicolor-title, .standard,*/ .apoio-inst {
+        /*.deluxe, .multicolor-title, .standard,*/ .apoiadores, .apoio-inst {
             margin-block: 4rem;
         }
 

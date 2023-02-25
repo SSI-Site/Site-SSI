@@ -35,8 +35,8 @@ const Meta = ({ title, keywords, description }) => {
 
 Meta.defaultProps = {
     title: 'SSI 2023',
-    keywords: 'Semana, semana, Sistemas, sistemas, Informação, informação, informacao, USP, usp, EACH, each, SI, si, Evento, evento, palestras, tecnologia, universidade, universitário, universitario',
-    description: 'A Semana de Sistemas de Informação 2023 ocorrerá nos dias 21-25 de Agosto! Acesse para saber mais sobre o evento e sua programação!',
+    keywords: 'Semana, semana, Sistemas, sistemas, Informação, Informacao, informação, informacao, USP, usp, EACH, each, SI, si, SSI, ssi, Evento, evento, palestras, tecnologia, Universidade, universidade, universitário, universitario',
+    description: 'A Semana de Sistemas de Informação 2023 ocorrerá ao longo dos dias 21 a 25 de Agosto! Acesse para saber mais sobre o evento e sua programação!',
 }
 
 export default Meta;
