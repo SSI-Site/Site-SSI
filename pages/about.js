@@ -117,10 +117,10 @@ const About = () => {
 
                     <CountUp
                         start={0}
-                        end={2000}
+                        end={2}
                         delay={0}
-                        // decimals={1}
-                        // suffix="k"
+                        decimals={1}
+                        suffix="k"
                         enableScrollSpy 
                     >
                         {({ countUpRef }) => (
@@ -137,7 +137,7 @@ const About = () => {
 
                     <CountUp
                         start={0}
-                        end={800}
+                        end={600}
                         delay={0}
                         enableScrollSpy 
                     >
