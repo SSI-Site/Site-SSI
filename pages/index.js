@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Meta from '../src/infra/Meta';
 import useAuth from '../hooks/useAuth';
 import saphira from '../services/saphira';
+import '../utils/slugify';
 
 // components
 import Button from '../src/components/Button';
@@ -183,24 +184,33 @@ const Home = () => {
                 <h2 className="section-title">Programação</h2>
                 <div className='schedule-content'>
                     <div className='first-section-schedule'>
-                        <div className='date'>
-                            <DateStamp day={day} weekDay={weekDay} size="small" />
-                        </div>
                         
                         {/* Filtro para atualização diária do texto durante os dias do evento: */}
                         {(day>=21 && day<=25 && month==7 && year==2023) ? 
                             (   
-                                <ScheduleInformation
-                                    speakerPicture={speakerPicture}
-                                    title={title}
-                                    overview={description}
-                                />
+                                <>
+                                    <Link href={`/schedule/${weekDay.slugify()}`}>
+                                        <div className='date'>
+                                            <DateStamp day={day} weekDay={weekDay} size="small" />
+                                        </div>
+                                    </Link>
+                                    <ScheduleInformation
+                                        speakerPicture={speakerPicture}
+                                        title={title}
+                                        overview={description}
+                                    />
+                                </>
                             ) : (
-                                <ScheduleInformation
-                                    speakerPicture={speakerPicture}
-                                    title="Palestras imperdíveis para você!"
-                                    overview="Durante o evento, cada dia terá diversas palestras recheadas de informações sobre tecnologia e carreira para você. Fique de olho para não perder!"
-                                />
+                                <>
+                                    <div className='date'>
+                                        <DateStamp day={day} weekDay={weekDay} size="small" />
+                                    </div>
+                                    <ScheduleInformation
+                                        speakerPicture={speakerPicture}
+                                        title="Palestras imperdíveis para você!"
+                                        overview="Durante o evento, cada dia terá diversas palestras recheadas de informações sobre tecnologia e carreira para você. Fique de olho para não perder!"
+                                    />
+                                </>
                             )
                         }
                     </div>
