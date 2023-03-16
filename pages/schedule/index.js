@@ -38,6 +38,8 @@ const Schedule = () => {
             <ScheduleSection>
                 <div className='padrao-background'></div>
                 <h1>Programação</h1>
+
+                {/* Para telas mobile */}
                 <div className='schedule-container-small'>
                     {Object.entries(schedule).map(([key]) => {
                         const { day, weekDay } = getScheduleDay(key)
@@ -50,6 +52,8 @@ const Schedule = () => {
                         )
                     })}
                 </div>
+
+                {/* Para telas desktop */}
                 <div className='schedule-container-medium'>
                     {Object.entries(schedule).map(([key]) => {
                         const { day, weekDay } = getScheduleDay(key)
