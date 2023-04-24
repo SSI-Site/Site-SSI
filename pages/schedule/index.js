@@ -36,7 +36,6 @@ const Schedule = () => {
             <Meta title='SSI 2023 | Programação' />
             
             <ScheduleSection>
-                <div className='padrao-background'></div>
                 <h1>Programação</h1>
 
                 {/* Para telas mobile */}
@@ -131,23 +130,6 @@ const ScheduleSection = styled.section`
             font-size: 3rem;
             align-self: flex-start;
             margin-left: 50px;
-        }
-
-        .padrao-background {
-            width: calc(100vw - 10px);
-            height: 100%;
-            display: flex;
-            position: absolute;
-            top: -4.5rem;
-            mask-image: linear-gradient(to top, transparent 0%, black 20%);
-            background: url(${background});
-            background-position: top center;
-            background-size: cover;
-            z-index:-2;
-
-            @media (min-width:1500px) {
-                left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
-            }
         }
     }
 `

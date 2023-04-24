@@ -18,7 +18,6 @@ const About = () => {
             <Meta title='SSI 2023 | Sobre' />
 
             <BackgroundWrapper>
-                <div className='padrao-background'></div>
                 <LogoTextSection>
                     <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
                     <div className='content'>
@@ -65,7 +64,7 @@ const About = () => {
 
             <section>
                 <LectureContent>
-                    <div className='lecture-sample background-spotlight background-spotlight-1'>
+                    <div className='lecture-sample'>
                         <div className='lecture-image justify-left'>
                             <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
                         </div>
@@ -80,7 +79,7 @@ const About = () => {
                 </LectureContent>
 
                 <LectureContent>
-                    <div className='lecture-sample middle-lecture background-spotlight background-spotlight-3'>
+                    <div className='lecture-sample middle-lecture'>
                         <div className='lecture-image justify-right'>
                             <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
                         </div>
@@ -124,7 +123,7 @@ const About = () => {
                         enableScrollSpy 
                     >
                         {({ countUpRef }) => (
-                            <div className='event-info-container background-spotlight background-spotlight-2'>
+                            <div className='event-info-container'>
                                 <div className='inline-elements'>
                                     <span className='purple-plus'>&#43;</span>
                                     <h3 ref={countUpRef} />
@@ -185,30 +184,6 @@ const BackgroundWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-
-    .padrao-background {
-        width: calc(100vw - 10px);
-        height: 40%;
-        display: flex;
-        position: absolute;
-        top: -4.5rem;
-        mask-image: linear-gradient(to top, transparent 0%, black 10%);
-        background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top center;
-        background-size: cover;
-        z-index:-2;
-
-        @media (min-width:1000px) {
-            background: url('./images/padrao_background_desktop.svg');
-            background-size: cover;
-            height: 60%;
-            mask-image: linear-gradient(to top, transparent 0%, black 5%);
-        }
-
-        @media (min-width:1500px) {
-            left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
-        }
-    }
 `
 
 const LogoTextSection = styled.section`
@@ -233,24 +208,17 @@ const LogoTextSection = styled.section`
     }
 
     h1 {
-        font-weight: normal;
-        font-size: 64px;
         text-align: center;
-        line-height: 1.2;
         margin: 110px 0 70px;
     }
 
     h4 {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 24px;
         text-align: left;
         margin-bottom: 40px;
     }
 
     p {
         text-align: left;
-        font-size: 22px;
     }
 
     @media (min-width:800px) {
@@ -301,7 +269,6 @@ const ActivitiesSection = styled.section`
 
     .section2-title {
         text-align: center;
-        font-size: 48px;
     }
 
     .activities {
@@ -368,16 +335,7 @@ const LectureContent = styled.div`
     }
 
     h3 {
-        font-size: 30px;
-        font-weight: 700;
-        line-height: 35px;
         margin-bottom: 5rem;
-    }
-
-    p {
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 30px;
     }
 
     @media (min-width:600px) {
@@ -397,32 +355,6 @@ const LectureContent = styled.div`
 
         .lecture-image {
             max-width: 450px;
-        }
-
-        .background-spotlight::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            z-index: -3;
-            opacity: 75%;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(138, 69, 198, 0.3) 0%, rgba(51, 0, 0, 0) 100%);
-        }
-
-        .background-spotlight-1::after {
-            top: 15rem;
-            right: 0;
-        }
-
-        .background-spotlight-2::after {
-            top: 50rem;
-            right: 90%;
-        }
-
-        .background-spotlight-3::after {
-            top: 85rem;
-            top: 65%;
-            right: 10rem;
         }
     }
 
@@ -474,7 +406,6 @@ const NumbersSection = styled.section`
 
     h2 {
         text-align: center;
-        font-size: 48px;
     }
 `
 
@@ -502,9 +433,6 @@ const EventNumbersBanner = styled.div`
 
     h3, .purple-plus {
         margin: 0;
-        font-size: 65px;
-        font-weight: 700;
-        line-height: 75px;
     }
 
     .purple-separator {
@@ -513,12 +441,6 @@ const EventNumbersBanner = styled.div`
         max-width: 340px;
         background-color: #8744C2;
         margin-top: 20px;
-    }
-
-    p {
-        font-size: 25px;
-        line-height: 75px;
-        font-weight: 600;
     }
 
     @media (min-width:600px) {

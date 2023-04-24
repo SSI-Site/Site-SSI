@@ -68,13 +68,10 @@ const FooterWrapper = styled.footer`
 
     p, h5 {
         color: white;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 700;
     }
 
     .ssi {
         margin-top: 2rem;
-        font-size: 1.95rem;
         height: 17rem;
         display: flex;
         flex-direction: column;
@@ -110,11 +107,6 @@ const FooterWrapper = styled.footer`
         z-index: -1;
     }
 
-    .redes {
-        font-size: 1.7rem;
-        font-weight: 700;
-    }
-
     .ssi img {
         width: 8.2rem;
         align-self: center;
@@ -148,13 +140,8 @@ const FooterWrapper = styled.footer`
         height: 13rem;
 
         .ssi {
-            font-size: 1.3rem;
             height: 50%;
             margin-top: 0;
-        }
-
-        .redes {
-            font-size: 1.2rem;
         }
 
         .ssi img {

@@ -46,7 +46,6 @@ const DateStyle = styled.div`
     }
 
     .day {
-        font-family: 'Plaza';
         font-style: normal;
         font-weight: 400;
         font-size: 50px;
@@ -65,7 +64,6 @@ const DateStyle = styled.div`
         border: 2px solid #8744C2;
         box-sizing: border-box;
         transform: translateY(40px);
-        font-family: 'Plaza';
         font-style: normal;
         font-size: 16.2241px;
         text-align: center;

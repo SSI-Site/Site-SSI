@@ -44,7 +44,6 @@ const CO = () => {
 
             <BackgroundWrapper>
                 <COSectionWrapper>
-                    <div className='padrao-background'></div>
                     <h3>As pessoas que fizeram deste evento uma realidade</h3>
 
                     <SubMenu id="departaments-filter-nav">
@@ -186,27 +185,4 @@ const BackgroundWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-
-    .padrao-background {
-        width: calc(100vw - 10px);
-        height: 100rem;
-        display: flex;
-        position: absolute;
-        top: -4.5rem;
-        mask-image: linear-gradient(to top, transparent 0%, black 15%);
-        background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top center;
-        background-size: cover;
-        z-index:-2;
-
-        @media (min-width:1000px) {
-            background: url('./images/padrao_background_desktop.svg');
-            background-size: cover;
-            height: 45%;
-        }
-
-        @media (min-width:1500px) {
-            left: calc((1500px - 100vw - 10px)/2);
-        }
-    }
 `

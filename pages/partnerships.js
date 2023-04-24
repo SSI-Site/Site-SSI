@@ -13,7 +13,6 @@ const Partnerships = () => {
             
             <BackgroundWrapper>
                 <PartnersSection>
-                    <div className='padrao-background'></div>
                     <h3>Parceiros do evento</h3>
 
                     {/* <h2 className='deluxe'>Deluxe</h2>
@@ -25,7 +24,7 @@ const Partnerships = () => {
 
                     <div className='divider-line'></div> */}
 
-                    {/* <div className='multicolor-title spotlight spotlight1'>
+                    {/* <div className='multicolor-title'>
                         <h2 className='palestra'>Palestra&nbsp;</h2>
                         <h2 className='comercial-and'>&#38;&nbsp;</h2>
                         <h2 className='workshop'>Workshop</h2>
@@ -41,7 +40,7 @@ const Partnerships = () => {
 
                     {/* <div className='divider-line'></div>
 
-                    <h2 className='standard spotlight spotlight2'>Standard</h2>
+                    <h2 className='standard'>Standard</h2>
                     <div className='partners-wrapper'>
                         <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
                         <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
@@ -80,27 +79,6 @@ const BackgroundWrapper = styled.div`
     flex-direction: column;
     position: relative;
 
-    .padrao-background {
-        width: calc(100vw - 10px);
-        height: 130rem;
-        display: flex;
-        position: absolute;
-        top: -4.5rem;
-        mask-image: linear-gradient(to top, transparent 0%, black 60%);
-        background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top center;
-        background-size: cover;
-        z-index:-2;
-
-        @media (min-width:1000px) {
-            height: 50%;
-            background: url('./images/padrao_background_desktop.svg');
-            background-size: cover;
-        }
-        @media (min-width:1500px) {
-            left: calc((1500px - 100vw - 10px)/2);
-        }
-    }
 `
 
 const PartnersSection = styled.section`
@@ -223,26 +201,6 @@ const PartnersSection = styled.section`
 
         .divider-line {
             margin-block: 8rem 4rem;
-        }
-
-        .spotlight::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            z-index: -3;
-            opacity: 75%;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(138, 69, 198, 0.3) 0%, rgba(51, 0, 0, 0) 100%);
-        }
-
-        .spotlight1::after {
-            top: 40%;
-            right: 0;
-        }
-
-        .spotlight2::after {
-            top: 70%;
-            right: 90%;
         }
     }
 

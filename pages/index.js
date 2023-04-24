@@ -97,7 +97,6 @@ const Home = () => {
             <Meta title='SSI 2023 | Início' />
 
             <BackgroundWrapper>
-                <div className='padrao-background'></div>
                 <BannerSection>
                     <figure>
                         <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
@@ -270,28 +269,6 @@ const BackgroundWrapper = styled.div`
     flex-direction: column;
     position: relative;
 
-    .padrao-background {
-        width: calc(100vw - 10px);
-        height: 80%;
-        display: flex;
-        position: absolute;
-        top: -4.5rem;
-        mask-image: linear-gradient(to top, transparent 0%, black 10%);
-        background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top center;
-        background-size: cover;
-        z-index:-2;
-
-        @media (min-width:1000px) {
-            height: 60%;
-            background: url('./images/padrao_background_desktop.svg');
-            background-size: cover;
-        }
-
-        @media (min-width:1500px) {
-            left: calc((1500px - 100vw - 10px)/2); /** compensa o max-width do SiteWrapper/main */
-        }
-    }
 `
 const WelcomeComponent = styled.div`
     --border: 1.75px solid var(--color-tertiary);
@@ -310,9 +287,6 @@ const WelcomeComponent = styled.div`
     position: relative;
     text-align: center;
     margin: 40px 0 15px 0;
-    font-family: 'Plaza';
-    font-weight: 400;
-    font-size: 2rem;
     transition: background-color var(--transition-duration);
 
     &::before, &::after {
@@ -404,19 +378,12 @@ const BannerSection = styled.header`
     }
 
     h1 {
-        font-family: 'Plaza';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 3.125rem;
         text-align: center;
         margin: 16px 0;
         padding: 0 16px;
     }
 
     h3 {
-        font-family: 'Bebas Neue';
-        font-weight: 400;
-        font-size: 2.25rem;
         text-align: center;
         /* margin-bottom: 16px; */
     }
@@ -478,14 +445,10 @@ const EventInfoSection = styled.section`
             gap: 2rem;
 
             p {
-                font-size: 2rem;
                 text-indent: 3rem;
                 text-align: justify;
 
                 span {
-                    font-size: inherit;
-                    font-family: inherit;
-                    font-weight: inherit;
                     color: #BC73FF;
                 }
             }
@@ -530,10 +493,6 @@ const EventInfoSection = styled.section`
             position: relative;
 
             .details {
-
-                p {
-                    font-size: 2rem;
-                }
 
                 button {
                     margin-top: 0;
@@ -588,11 +547,6 @@ const ScheduleSection = styled.div`
         border-image-width: 50px;
         border-image-outset: 10px;
         border-image-repeat: stretch;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 40px;
         text-align: center;
         max-width: 300px;
         transition: border-image-width 1s;
@@ -727,9 +681,6 @@ const SupportersSection = styled.section`
 
             a {
                 color: #FFFFFF;
-                font-family: 'Bebas Neue';
-                font-weight: 400;
-                font-size: 3rem;
                 text-decoration: none;
                 border-color: #8744C2;
 

@@ -170,7 +170,6 @@ const User = () => {
             {!isLoading && !isEditing && user && /*isUserRegistered &&*/
                 <>
                     <BackgroundWrapper>
-                        <div className='padrao-background'></div>
                         <UserInfoSection>
                             <UserInfoUpperWrapper>
                                 <PhotoNameWrapper>
@@ -303,28 +302,6 @@ const BackgroundWrapper = styled.div`
         font-weight: 400;
         margin-bottom: 15px;
         font-weight: 600 !important;
-    }
-
-    .padrao-background {
-        width: calc(100vw - 10px);
-        height: 100vh;
-        display: flex;
-        position: absolute;
-        top: -4.5rem;
-        mask-image: linear-gradient(to top, transparent 0%, black 40%);
-        background: url('./images/padrao_background_mobile.svg') no-repeat;
-        background-position: top center;
-        background-size: cover;
-        z-index:-2;
-
-        @media (min-width:1120px) {
-            background: url('./images/padrao_background_desktop.svg');
-            background-size: cover;
-        }
-
-        @media (min-width:1500px) {
-            left: calc((1500px - 100vw - 10px)/2);
-        }
     }
 `
 

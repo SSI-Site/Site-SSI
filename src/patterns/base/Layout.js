@@ -15,8 +15,12 @@ const Layout = ({ children }) => {
             <style jsx>
                 {`
                   @font-face {
-                    font-family: 'Plaza';
-                    src: url('/fonts/plazaitc-normal.ttf');
+                    font-family: 'Space_Mono';
+                    src: url('/fonts/space_mono-regular.ttf');
+                  }
+                  @font-face {
+                    font-family: 'Space_Mono_Bold';
+                    src: url('/fonts/space_mono-bold.ttf');
                   }
                 `}
             </style>

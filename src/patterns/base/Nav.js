@@ -213,7 +213,7 @@ const NavWrapper = styled.div`
     height: 4.5rem;
     padding-right: 15px;
     z-index: 10;
-    background-color: var(--color-primary);
+    background-color: var(--color-neutral);
     box-shadow: 0px 5px 24px 14px rgba(16,3,26,0.38);
 
     @media (min-width:800px) {
@@ -285,16 +285,12 @@ const NavMobile = styled.nav`
                 margin-top: 1.5rem;
 
                 a {
-                    font-family: 'Bebas Neue';
-                    font-size: 2.2rem;
                     color: var(--color-text);
                     margin: 0 12px;
                     transition: all .2s;
                 }
 
                 span {
-                    font-family: 'Bebas Neue';
-                    font-size: 2.2rem;
                     color: gray;
                     margin: 0 12px;
 
@@ -312,7 +308,6 @@ const NavMobile = styled.nav`
 
                 a:active {
                     cursor: pointer;
-                    font-size: 2.4rem;
                     color: var(--color-secondary);
                     filter: brightness(1.1);
                 }
@@ -369,10 +364,6 @@ const NavFooter = styled.div`
     bottom: 0;
     padding: 30px 0;
     width: 100%;
-
-    p {
-        font-weight: bold;
-    }
 
     .redes {
         text-align: center;
@@ -486,16 +477,12 @@ const NavDesktop = styled.nav`
         }
 
         a {
-            font-family: 'Bebas Neue';
-            font-size: 1.5rem;
             color: var(--color-text);
             margin: 0 12px;
             transition: all .2s;
         }
 
         span {
-            font-family: 'Bebas Neue';
-            font-size: 1.5rem;
             color: gray;
             margin: 0 12px;
             cursor: default;
@@ -503,7 +490,7 @@ const NavDesktop = styled.nav`
 
         a:hover {
             cursor: pointer;
-            font-size: 1.7rem;
+            font-size: 1.2rem;
         }
 
         ${props => props.currentPage && css`

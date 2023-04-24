@@ -34,20 +34,6 @@ const ActivityWrapper = styled.div`
     height: 367px;
     margin-bottom: 12rem;
 
-    &::after {
-        position: absolute;
-        bottom: -61px;
-        right: -61px;
-        content:'';
-        border-top: 1.48px solid white;
-        width: 122px;
-        height: 122px;
-        box-sizing: border-box;
-        transform: rotate(-45deg);
-        background-color: var(--color-primary);
-        margin-top: 30px;
-    }
-
     .activity-content {
         position: relative;
         padding: 52px 30px 0 30px;

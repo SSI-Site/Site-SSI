@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-    --border: 1px solid var(--color-tertiary);
-    --background: rgba(138, 69, 198, 0.25);
-    --padding: 0.6em 1.5em;
+    --padding: 0.75em 0;
     --out-space: 0.3em;
     --transition-duration: 500ms;
+    --background: var(--color-primary);
 
-    border: var(--border);
-    border-radius: 0;
-    background-color: var(--background);
+    width: 100%;
     padding: var(--padding);
-    font-weight: bold;
-    position: relative;
-    transition: background-color var(--transition-duration);
+    border-radius: 9px;
+    border: var(--color-primary);
+    background-color: var(--background);
+    transition: var(--transition-duration);
 
     :disabled {
         --background: RGBA(98,97,80,0.16);
@@ -21,26 +19,12 @@ const Button = styled.button`
         cursor: unset;
     }
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: var(--out-space);
-        bottom: var(--out-space);
-        left: calc(var(--out-space) * -1);
-        right: calc(var(--out-space) * -1);
-        
-        border: var(--border);
-        background-color: var(--background);
-        transition:
-            top var(--transition-duration),
-            bottom var(--transition-duration),
-            left var(--transition-duration),
-            right var(--transition-duration);
+    &:hover {
+        --background: #4C286C;
     }
 
-    &:hover {
-        --out-space: 0em;
-        --background: transparent;
+    &:active {
+        --background: #63358D;
     }
 `
 
