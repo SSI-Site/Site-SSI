@@ -40,7 +40,7 @@ export default createGlobalStyle`
     }
 
     button {
-        font: 400 0.875rem/1.25rem 'Space_Mono_Bold';
+        font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
         color: var(--color-text);
         cursor: pointer;
     }
