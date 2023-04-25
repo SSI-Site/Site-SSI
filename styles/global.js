@@ -10,6 +10,16 @@ export default createGlobalStyle`
         --color-neutral: #0A0A0A;
         --color-text: #FFF;
 
+        /* variações da paleta */
+        --color-primary-900: #4C286C;
+        --color-primary-800: #63358D;
+        --color-primary-500: #A86BDA;
+        --color-neutral-900: #121212;
+        --color-neutral-800: #272727;
+        --color-neutral-700: #3C3C3C;
+        --color-neutral-500: #6C6C6C;
+        --color-neutral-400: #858585;
+
         /*16 pixels (100% = 16 pixels)*/
         font-size: 100%;
     }
@@ -31,7 +41,7 @@ export default createGlobalStyle`
     }
 
     body {
-        background: #272727;
+        background: var(--color-neutral-800);
     }
 
     body, input {

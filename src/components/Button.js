@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-    --padding: 0.75em 0;
-    --out-space: 0.3em;
+    --padding: 0.75rem 1.5rem;
     --transition-duration: 500ms;
     --background: var(--color-primary);
 
@@ -14,17 +13,17 @@ const Button = styled.button`
     transition: var(--transition-duration);
 
     :disabled {
-        --background: RGBA(98,97,80,0.16);
-        --border: 1px solid gray;
+        --background: var(--color-neutral-800);
+        color: var(--color-neutral-700);
         cursor: unset;
     }
 
     &:hover {
-        --background: #4C286C;
+        --background: var(--color-primary-900);
     }
 
     &:active {
-        --background: #63358D;
+        --background: var(--color-primary-800);
     }
 `
 

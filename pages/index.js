@@ -104,8 +104,8 @@ const Home = () => {
 
                     <div className='content'>
                         <div className='content-title'>
-                            <h1>Semana de Sistemas de Informação</h1>
-                            <h3>Palestras do dia 21/08 ao dia 25/08</h3>
+                            <h3>Semana de Sistemas de Informação</h3>
+                            <h5>Palestras do dia 21/08 ao dia 25/08</h5>
                         </div>
 
                         {!isLoading ?
