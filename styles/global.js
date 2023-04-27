@@ -73,7 +73,7 @@ export default createGlobalStyle`
     }
 
     h4 {
-        font: 700 2rem/2.5rem 'Space_Mono';
+        font: 400 2rem/2.5rem 'Space_Mono_Bold';
         color: var(--color-text);
     }
 

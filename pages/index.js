@@ -19,6 +19,7 @@ import Divider from '../src/components/Divider';
 
 // assets
 import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg';
+// import LogoPrincipal from '../public/images/logos/logo_principal_vertical.svg';
 import borda from '../public/images/borda2.png';
 import star from '../public/images/star.svg';
 import speakerPicture from '../public/images/logos/logo_sem_estrela.svg';
@@ -105,6 +106,7 @@ const Home = () => {
                     <div className='content'>
                         <div className='content-title'>
                             <h3>Semana de Sistemas de Informação</h3>
+                            <h4>Semana de Sistemas de Informação</h4>
                             <h5>Palestras do dia 21/08 ao dia 25/08</h5>
                         </div>
 

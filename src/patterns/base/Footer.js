@@ -6,6 +6,9 @@ import LogoSemEstrela from '../../../public/images/logos/logo_sem_estrela.svg';
 import InstagramLogo from '../../../public/images/social_media/insta.png';
 import FacebookLogo from '../../../public/images/social_media/feice.png';
 import LinktreeLogo from '../../../public/images/social_media/linktree.png';
+// import InstagramLogo from '../../../public/images/social_media/InstagramLogo.svg';
+// import FacebookLogo from '../../../public/images/social_media/FacebookLogo.svg';
+// import LinktreeLogo from '../../../public/images/social_media/LinktreeLogo.svg';
 
 const Footer = () => {
     
