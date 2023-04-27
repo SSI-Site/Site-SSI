@@ -92,6 +92,11 @@ export default createGlobalStyle`
         color: var(--color-text);
     }
 
+    label {
+        font: 700 1rem/1.25rem 'Space_Mono';
+        color: var(--color-text);
+    }
+
     ul {
         list-style-type: none;
         padding: 0;
