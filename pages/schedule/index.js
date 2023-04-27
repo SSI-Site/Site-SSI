@@ -12,7 +12,6 @@ import schedule from '../../services/schedule';
 import DateStamp from '../../src/components/DateStamp';
 
 // assets
-import background from '../../public/images/padrao_background_desktop.svg';
 
 const getScheduleDay = key => {
     const date = new Date(`${key} 03:00Z`);

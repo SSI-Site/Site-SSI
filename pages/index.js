@@ -18,11 +18,9 @@ import TokenModal from '../src/components/TokenModal';
 import Divider from '../src/components/Divider';
 
 // assets
-// import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg';
 import LogoPrincipal from '../public/images/logos/logo_principal_vertical.svg';
 import borda from '../public/images/borda2.png';
-import star from '../public/images/star.svg';
-import speakerPicture from '../public/images/logos/logo_sem_estrela.svg';
+import speakerPicture from '../public/images/logos/logo_principal_horizontal.svg';
 
 const supporters = [
     { title: 'ELO7', url: 'https://www.elo7.com.br/' },
@@ -219,11 +217,6 @@ const Home = () => {
                     <div className='sechedule-text'>
                         <p>Confira o conteúdo detalhado das nossas palestras, para poder se organizar e decidir quais você mais quer assistir!</p>
                     </div>
-
-                    <div className='starr star-one'></div>
-                    <div className='starr star-two'></div>
-                    <div className='starr star-three'></div>
-                    <div className='starr star-four'></div>
                 </div>
                 <Button onClick={() => router.push('/schedule')}>Confira</Button>
             </ScheduleSection>
@@ -559,38 +552,6 @@ const ScheduleSection = styled.div`
         transition: border-image-width 0.5s;
     }
 
-    .starr {
-        content: url(${star});
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        z-index:-2;
-    }
-
-    .star-one {
-        top: -100px;
-        left:-10vw;
-        transform: rotate(-20deg) scale(0.75);
-    }
-
-    .star-two {
-        top: -75px;
-        left: 5vw;
-        transform: rotate(-45deg) scale(1.2);
-    }
-
-    .star-three {
-        top: 100px;
-        left:-15vw;
-        transform: rotate(-45deg) scale(2);
-    }
-
-    .star-four {
-        bottom: -40px;
-        right:-10px;
-        transform: rotate(-90deg) ;
-    }
-
     @media (min-width:600px) {
 
         .date{
@@ -637,11 +598,6 @@ const ScheduleSection = styled.div`
             z-index: -3;
             opacity: 75%;
             background: radial-gradient(50% 50% at 50% 50%, rgba(138, 69, 198, 0.3) 0%, rgba(51, 0, 0, 0) 100%);
-        }
-
-        .star-four {
-            bottom: 0px;
-            right:40%;
         }
     }
 `
