@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
 // assets
-import LogoSemEstrela from '../../../public/images/logos/logo_sem_estrela.svg';
-import InstagramLogo from '../../../public/images/social_media/insta.png';
-import FacebookLogo from '../../../public/images/social_media/feice.png';
-import LinktreeLogo from '../../../public/images/social_media/linktree.png';
+import LogoPrincipal from '../../../public/images/logos/logo_principal_horizontal.svg';
+import InstagramLogo from '../../../public/images/social_media/InstagramLogo.svg';
+import FacebookLogo from '../../../public/images/social_media/FacebookLogo.svg';
+import LinktreeLogo from '../../../public/images/social_media/LinktreeLogo.svg';
 
 const Footer = () => {
     
@@ -16,7 +16,7 @@ const Footer = () => {
             <FooterWrapper>
                 <div className='ssi'>
                     <div onClick={() => router.push('/')} className="logo-box">
-                        <img src={LogoSemEstrela} alt="logo" />
+                        <img src={LogoPrincipal} alt="logo" />
                         <p>
                             Semana de Sistemas de <br />Informação 2023
                         </p>

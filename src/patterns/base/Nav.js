@@ -7,9 +7,10 @@ import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
 
 // assets
-import InstagramLogo from '../../../public/images/social_media/insta.png';
-import FacebookLogo from '../../../public/images/social_media/feice.png';
-import LinktreeLogo from '../../../public/images/social_media/linktree.png';
+import LogoPrincipal from '../../../public/images/logos/logo_principal_horizontal.svg';
+import InstagramLogo from '../../../public/images/social_media/InstagramLogo.svg';
+import FacebookLogo from '../../../public/images/social_media/FacebookLogo.svg';
+import LinktreeLogo from '../../../public/images/social_media/LinktreeLogo.svg';
 
 const pages = {
     "/": 1,
@@ -160,7 +161,7 @@ const Nav = () => {
 
                         <NavFooter>
                             <div className="logo-container">
-                                <img src="./images/logos/logo_sem_estrela.svg" alt="SSI logo" />
+                                <img src={LogoPrincipal} alt="SSI logo" />
                                 <p>
                                     Semana de Sistemas de <br />Informação 2023
                                 </p>
