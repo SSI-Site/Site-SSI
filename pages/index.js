@@ -18,8 +18,8 @@ import TokenModal from '../src/components/TokenModal';
 import Divider from '../src/components/Divider';
 
 // assets
-import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg';
-// import LogoPrincipal from '../public/images/logos/logo_principal_vertical.svg';
+// import LogoPrincipal from '../public/images/logos/logo_sem_estrela.svg';
+import LogoPrincipal from '../public/images/logos/logo_principal_vertical.svg';
 import borda from '../public/images/borda2.png';
 import star from '../public/images/star.svg';
 import speakerPicture from '../public/images/logos/logo_sem_estrela.svg';
