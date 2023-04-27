@@ -326,7 +326,7 @@ const FormWrapper = styled.div`
         justify-content: center;
         flex-wrap: wrap;
         background-image: linear-gradient(rgba(36, 29, 60, 1), rgba(27, 22, 44, 0));
-        color: var(--color-text);
+        color: var(--color-neutral-50);
         border-radius: 5px;
         padding: 60px 0;
 
@@ -373,7 +373,7 @@ const FormWrapper = styled.div`
     input:-webkit-autofill:focus,
     input:-webkit-autofill:active {
         -webkit-box-shadow: 0 0 0 30px #241D3C inset;
-        -webkit-text-fill-color: var(--color-text);
+        -webkit-text-fill-color: var(--color-neutral-50);
     }
 
     input::-webkit-outer-spin-button,
@@ -443,7 +443,7 @@ const InputBoxSmall = styled.div`
         width: 90%;
         border-radius: 5px;
         padding: 8px 15px;
-        color: var(--color-text);
+        color: var(--color-neutral-50);
         font-size: 1.6rem;
     }
 
@@ -466,7 +466,7 @@ const InputBoxLarge = styled.div`
         border-radius: 5px;
         padding: 8px 15px;
 
-        color: var(--color-text);
+        color: var(--color-neutral-50);
         font-size: 1.6rem;
     }
 
@@ -571,7 +571,7 @@ const DateInputBox = styled.div`
         padding: 8px 15px;
         border-radius: 5px;
         background-color: #241D3C;
-        color: var(--color-text);
+        color: var(--color-neutral-50);
         font-size: 1.6rem;
     }
 
@@ -614,6 +614,6 @@ const CheckboxContainer = styled.div`
 
     label {
         margin-left: 1.5rem;
-        color: var(--color-text);
+        color: var(--color-neutral-50);
     }
 `

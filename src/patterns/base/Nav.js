@@ -286,7 +286,7 @@ const NavMobile = styled.nav`
                 margin-top: 1.5rem;
 
                 a {
-                    color: var(--color-text);
+                    color: var(--color-neutral-50);
                     margin: 0 12px;
                     transition: all .2s;
                 }
@@ -325,7 +325,7 @@ const NavMobile = styled.nav`
                         width: 70%;
                         margin-left: 15%;
                         height: 1px;
-                        background-color: var(--color-text);
+                        background-color: var(--color-neutral-50);
                     }
                 }
             `}
@@ -458,7 +458,7 @@ const NavDesktop = styled.nav`
                 width: 0%;
                 margin-left: 50%;
                 height: 1px;
-                background-color: var(--color-text);
+                background-color: var(--color-neutral-50);
                 transition: all .2s;
             }
 
@@ -473,12 +473,12 @@ const NavDesktop = styled.nav`
                 width: 70%;
                 margin-left: 15%;
                 height: 1px;
-                background-color: var(--color-text);
+                background-color: var(--color-neutral-50);
             }
         }
 
         a {
-            color: var(--color-text);
+            color: var(--color-neutral-50);
             margin: 0 12px;
             transition: all .2s;
         }
@@ -505,7 +505,7 @@ const NavDesktop = styled.nav`
                     width: 70%;
                     margin-left: 15%;
                     height: 1px;
-                    background-color: var(--color-text);
+                    background-color: var(--color-neutral-50);
                 }
             }
         `}

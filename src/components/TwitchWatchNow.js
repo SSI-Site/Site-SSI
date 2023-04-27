@@ -86,9 +86,6 @@ const TwitchWatchNowWrapper = styled.div`
 	}
 
 	h4 {
-		font-family: 'Bebas Neue';
-		font-weight: 400;
-		font-size: 2rem;
 		letter-spacing: 0.05em;
 		color: white;
 		position: relative;
@@ -117,9 +114,6 @@ const TwitchWatchNowWrapper = styled.div`
 	}
 
 	p {
-		font-family: 'Roboto';
-		font-weight: 400;
-		font-size: 1.3rem;
 		text-overflow: ellipsis;
 		overflow-wrap: break-word;
 		overflow: hidden;

@@ -8,7 +8,6 @@ export default createGlobalStyle`
         --color-secondary: #FF82FF;
         --color-tertiary: #8A45C6; // excluir posteriormente
         --color-neutral: #0A0A0A;
-        --color-text: #FFF;
 
         /* variações da paleta */
         --color-primary-900: #4C286C;
@@ -19,6 +18,8 @@ export default createGlobalStyle`
         --color-neutral-700: #3C3C3C;
         --color-neutral-500: #6C6C6C;
         --color-neutral-400: #858585;
+        --color-neutral-100: #EDD3FF;
+        --color-neutral-50: #F3F3F3;
 
         /*16 pixels (100% = 16 pixels)*/
         font-size: 100%;
@@ -51,50 +52,79 @@ export default createGlobalStyle`
 
     button {
         font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
         cursor: pointer;
     }
 
     h1 {
         font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
         text-align: center;
     }
 
     h2 {
         font: 400 3rem/3.5rem 'Space_Mono_Bold';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
     }
 
     h3 {
         font: 700 2.5rem/3rem 'Space_Mono';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
         text-align: justify;
     }
 
     h4 {
         font: 400 2rem/2.5rem 'Space_Mono_Bold';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
     }
 
     h5 {
         font: 700 1.5rem/1.75rem 'Space_Mono';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
     }
 
     h6 {
         font: 700 1.25rem/1.5rem 'Space_Mono';
-        color: var(--color-text);
+        color: var(--color-neutral-100);
     }
 
     p, span, a {
         font: 700 1rem/1.25rem 'Space_Mono';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
     }
 
     label {
         font: 700 1rem/1.25rem 'Space_Mono';
-        color: var(--color-text);
+        color: var(--color-neutral-50);
+    }
+
+    /* Fazer o estilo do campo de input [text] */
+    input[type=text] { 
+        text-transform: uppercase;
+        font: 700 1rem/1.25rem 'Space_Mono';
+        color: var(--color-neutral-400);
+    }
+
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        text-transform: none;
+    }
+
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        text-transform: none;
+    }
+    
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        text-transform: none;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+        text-transform: none;
+    }
+
+    ::placeholder { /* Recent browsers */
+        text-transform: none;
+        font: 700 1rem/1.25rem 'Space_Mono';
+        color: var(--color-neutral-400);
     }
 
     ul {

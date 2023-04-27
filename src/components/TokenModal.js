@@ -71,6 +71,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                         className={getClassInvalidToken()}
                         onChange={handleChangeToken}
                         value={token}
+                        placeholder='Digite o token...'
                     />
 
                     {isInvalid && <span>Token Inválido!</span>}
@@ -242,9 +243,6 @@ const ModalTokenWrapper = styled.div`
     }
 
     h3 {
-        font-family: 'Bebas Neue';
-        font-weight: 400;
-        font-size: 2.25rem;
         letter-spacing: 0.05em;
         color: white;
         margin-bottom: 16px;
@@ -264,12 +262,6 @@ const ModalTokenWrapper = styled.div`
 
     input[type=text] {
         background-color: #392055;
-        color: white;
-        text-align: center;
-        font-family: 'Bebas Neue';
-        font-weight: 400;
-        font-size: 2rem;
-        letter-spacing: 0.05em;
         width: 100%;
         padding: 8px 16px;
         border: 1px solid white;
