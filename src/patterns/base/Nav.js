@@ -271,6 +271,7 @@ const NavMobile = styled.nav`
         span {
             display: block;
             height: 3px;
+            width: 100%;
             background: #FFF;
             border-radius: 12px;
             transition: all 0.3s ease;
