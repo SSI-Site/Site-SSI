@@ -41,11 +41,20 @@ export default Layout;
 
 const SiteWrapper = styled.div`
     min-height: 100vh;
-    max-width: 1224px;
+    max-width: 1500px;
     margin: auto;
     position: relative;
-    padding-inline: 1rem;
+    /* padding-inline: 1rem; */
     padding-bottom: 33.8rem; /* match footer height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    main {
+        max-width: 1224px;
+        align-self: center;
+    }
 
     @media (min-width:600px) {
         padding-bottom: 13rem; /* match footer height */

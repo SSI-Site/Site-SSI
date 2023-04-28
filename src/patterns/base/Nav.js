@@ -11,6 +11,7 @@ import LogoPrincipal from '../../../public/images/logos/logo_principal_horizonta
 import InstagramLogo from '../../../public/images/social_media/InstagramLogo.svg';
 import FacebookLogo from '../../../public/images/social_media/FacebookLogo.svg';
 import LinktreeLogo from '../../../public/images/social_media/LinktreeLogo.svg';
+import Button from '../../components/Button';
 
 const pages = {
     "/": 1,
@@ -49,6 +50,16 @@ const Nav = () => {
     return (
         <>
             <NavWrapper>
+
+                <Link href="/">
+                    <a className="logo-container">
+                        <img src={LogoPrincipal} alt="SSI logo" />
+                        <p className='text-small'>
+                            Semana de Sistemas de Informação
+                        </p>
+                    </a>
+                </Link>
+
                 {showAuthModal &&
                     <AuthModal
                         onClose={() => setShowAuthModal(false)}
@@ -59,38 +70,31 @@ const Nav = () => {
                 <NavDesktop currentPage={router.pathname}>
                     <ul>
                         <li>
-                            <Link href="/"><a>Início</a></Link>
-                            <div></div>
+                            <Link href="/"><a>Home</a></Link>
                         </li>
 
                         <li>
                             <Link href="/schedule" ><a>Programação</a></Link>
-                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/about"><a>Evento</a></Link>
-                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/partnerships"><a>Parcerias</a></Link>
-                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
-                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/hackssi"><a>HackSSI</a></Link>
-                            <div></div>
                         </li>
 
                         <li>
                             {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
-                            {/* <div></div> */}
                         </li>
 
                         {user ?
@@ -98,9 +102,8 @@ const Nav = () => {
                                 <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                             </li>
                             :
-                            <li className='logInBtnContainer'>
-                                <button onClick={handleShowAuthModal}><a>Entrar</a></button>
-                                <div></div>
+                            <li>
+                                <Button onClick={handleShowAuthModal}>Login</Button>
                             </li>
 
                         }
@@ -110,56 +113,57 @@ const Nav = () => {
                 <NavMobile isOpen={isOpen} currentPage={router.pathname}>
                     <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
 
+
                         <ul>
+                            {user ?
+                                <li onClick={() => setIsOpen(false)}>
+                                    <div className='user-info' href="/user">
+                                    
+                                        <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                                        <div>
+                                            <p className='welcome-user'>Olá{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</p>
+                                            <a href="/user">Ver Perfil</a>
+                                        </div>
+                                    
+                                    </div>
+                                </li>
+                                :
+                                <li className='login-button' onClick={() => setIsOpen(false)}>
+                                    <Button onClick={handleShowAuthModal}>Login</Button>
+                                </li>
+                            }
+
                             <li onClick={() => setIsOpen(false)}>
-                                <Link href="/"><a>Início</a></Link>
-                                <div></div>
+                                <Link href="/"><a>Home</a></Link>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/schedule"><a>Programação</a></Link>
-                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/about"><a>Evento</a></Link>
-                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/partnerships"><a>Parcerias</a></Link>
-                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/co"><a>Comissão Organizadora</a></Link>
-                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/hackssi"><a>HackSSI</a></Link>
-                                <div></div>
                             </li>
 
                             <li /* onClick={() => setIsOpen(false)} */>
                                 {/* <Link href="https://ctfssi.intheshell.page/"> */}<a style={{"color": "gray"}} target="blank">CTF</a>{/* </Link> */}
-                                {/* <div></div> */}
                             </li>
 
-                            {user ?
-                                <li onClick={() => setIsOpen(false)}>
-                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
-                                    <div></div>
-                                </li>
-                                :
-                                <li onClick={() => setIsOpen(false)}>
-                                    <button onClick={handleShowAuthModal}><a>Entrar</a></button>
-                                    <div></div>
-                                </li>
-                            }
                         </ul>
 
-                        <NavFooter>
+                        {/* <NavFooter>
                             <div className="logo-container">
                                 <img src={LogoPrincipal} alt="SSI logo" />
                                 <p>
@@ -188,10 +192,19 @@ const Nav = () => {
                                     </div>
                                 </div>
                             </div>
-                        </NavFooter>
+                        </NavFooter> */}
+                        <div className='close-btn'>
+                            <div className='fechar' onClick={() => setIsOpen(!isOpen)}>
+                                <div className='close hamburguer-menu' type="button">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <p className='text-small'>Fechar</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <button type="button" onClick={() => setIsOpen(!isOpen)}>
+                    <button className='hamburguer-menu' type="button" onClick={() => setIsOpen(!isOpen)}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -208,82 +221,168 @@ export default Nav;
 const NavWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
+    padding-inline: 1rem;
     position: fixed;
     width: 100%;
-    height: 4.5rem;
-    padding-right: 15px;
+    height: 3.5rem;
     z-index: 10;
-    background-color: var(--color-neutral);
+    background-color: var(--color-neutral-900);
     box-shadow: 0px 5px 24px 14px rgba(16,3,26,0.38);
 
-    @media (min-width:800px) {
-        background-color: unset;
+    .logo-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 14rem;
+        gap: 1rem;
+    }
+
+    .text-small {
+        font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
+        color: var(--color-neutral-50);
+    }
+
+    @media (min-width:1300px) {
+        /* background-color: unset; */
         position: unset;
+        height: 3.75rem;
         z-index: unset;
-        padding-top: 20px;
         justify-content: center;
         box-shadow: unset;
+        padding-inline: 6.75rem;
+        /* width: 100%; */
     }
 `
 
 const NavMobile = styled.nav`
-    padding: 10px;
     overflow: hidden;
 
-    button {
+    .hamburguer-menu {
         background-color: unset;
         border: unset;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1.375rem;
+        width: 2rem;
 
         span {
             display: block;
             height: 3px;
-            width: 25px;
             background: #FFF;
-            margin-top: 3px;
-            border-radius: 1px;
-
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
     }
 
-    ${props => props.isOpen && css`
+    /* ${props => props.isOpen && css`
         span {
             margin: 0;
         }
         span:nth-child(1) {
-            transform: rotate(45deg) translateY(8px);
+            transform: rotate(45deg) translateY(7.5px) translateX(6px);
         }
         span:nth-child(2) {
-            transform: translateX(50px);
+            transform: translateX(-50px);
             opacity: 0;
         }
         span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-8px);
+            transform: rotate(-45deg) translateY(-7.5px) translateX(6px);
         }
-    `}
+    `} */
 
     .sidepanel {
-        height: 100%;
-        width: 75%;
-        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+        width: fit-content;
         position: fixed;
         top: 0;
         right: 0;
-        background-color: #151023;
-        border-left: 2px solid #ffffff;
-        padding-top: 20px;
+        background-color: var(--color-neutral-900);
         transition: all linear .15s;
+        border-radius: 12px;
+        padding: 1.5rem;
+        
+        .close-btn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            .fechar {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                width: 5rem;
+
+                .hamburguer-menu {
+                    width: 1.5rem;
+                }
+
+                .close {
+                    
+                    span {
+                        margin: 0;
+
+                    }
+                    span:nth-child(1) {
+                        transform: rotate(45deg) translateY(7.5px) translateX(6px);
+                    }
+                    span:nth-child(2) {
+                        transform: rotate(-45deg) translateY(-7.5px) translateX(6px);
+                    }
+                }
+                    
+            }
+        }
 
         ul {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 5rem;
+
+            .login-button {
+                margin-bottom: 2rem;
+            }
 
             li {
-                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+
+                .user-info {
+                    width: fit-content;
+                    max-width: 100%;
+                    height: 2.75rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: left;
+                        justify-content: left;
+                    }
+
+                    p {
+                        font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
+                        color: var(--color-neutral-50);
+
+                    }
+
+                    a {
+                        margin: 0;
+                        font: 700 0.75rem/1rem 'Space_Mono';
+                        cursor: pointer;
+                    }
+                }
 
                 a {
                     color: var(--color-neutral-50);
@@ -299,8 +398,9 @@ const NavMobile = styled.nav`
                 }
 
                 img {
-                    width: 6rem;
+                    width: 2.75rem;
                     border-radius: 100%;
+                    margin-right: 1rem;
 
                     ${props => props.currentPage == '/user' && css`
                         border: 2px solid white;
@@ -315,17 +415,13 @@ const NavMobile = styled.nav`
             }
 
             ${props => props.currentPage && css`
-                li:nth-child(${pages[props.currentPage]}){
+                li:nth-child(${pages[props.currentPage]+1}){
                     a {
+                        font-family: 'Space_Mono_Bold';
+                        font-weight: 400;
                         padding: .2rem -5rem;
                         pointer-events: none;
-                    }
-
-                    div {
-                        width: 70%;
-                        margin-left: 15%;
-                        height: 1px;
-                        background-color: var(--color-neutral-50);
+                        border-bottom: 4px solid var(--color-primary-500);
                     }
                 }
             `}
@@ -355,7 +451,7 @@ const NavMobile = styled.nav`
         }
     }
 
-    @media (min-width:800px) {
+    @media (min-width:1300px) {
         display: none;
     }
 `
@@ -413,35 +509,35 @@ const NavFooter = styled.div`
 
 const NavDesktop = styled.nav`
     display: none;
+    margin-left: auto;
 
     ul {
         display: flex;
+        flex-direction: row;
+        align-items: center;
         height: 40px;
 
-        .logInBtnContainer {
-            position: absolute;
-            top: 22px;
-            right: 22px;
-
-            @media (min-width:1020px) {
-                top: 26px;
-                right: 26px;
-            }
+        button {
+            padding-block: 0.65rem;
+            margin-left: 0.75rem;
         }
 
         .userPicContainer {
-            position: absolute;
-            top: 15px;
-            right: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.75rem;
+            margin-top: 1px;
 
             img {
-                width: 50px;
+                width: 44px;
                 border-radius: 100%;
                 transition: 0.1s;
             }
 
             img:hover {
-                width: 60px;
+                width: 44px;
                 border: 2px solid white;
             }
 
@@ -453,34 +549,14 @@ const NavDesktop = styled.nav`
             `}
         }
 
-        li {
-            div {
-                width: 0%;
-                margin-left: 50%;
-                height: 1px;
-                background-color: var(--color-neutral-50);
-                transition: all .2s;
-            }
-
-            button {
-                background: rgba(0,0,0,0);
-                border: none;
-            }
-        }
-
-        li:hover {
-            div {
-                width: 70%;
-                margin-left: 15%;
-                height: 1px;
-                background-color: var(--color-neutral-50);
-            }
-        }
-
         a {
-            color: var(--color-neutral-50);
+            font: 700 1rem/1.25rem 'Space_Mono';
             margin: 0 12px;
             transition: all .2s;
+
+            :hover {
+                cursor: pointer;
+            }
         }
 
         span {
@@ -489,29 +565,27 @@ const NavDesktop = styled.nav`
             cursor: default;
         }
 
-        a:hover {
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
         ${props => props.currentPage && css`
             li:nth-child(${pages[props.currentPage]}) {
                 a {
+                    font-family: 'Space_Mono_Bold';
+                    font-weight: 400;
                     padding: .2rem -5rem;
                     pointer-events: none;
+                    border-bottom: 4px solid var(--color-primary-500);
                 }
+            }
 
-                div {
-                    width: 70%;
-                    margin-left: 15%;
-                    height: 1px;
-                    background-color: var(--color-neutral-50);
+            li:not(:last-child):not(:nth-child(${pages[props.currentPage]})):hover {
+                a {
+                    border-bottom: 4px solid var(--color-neutral-50);
                 }
             }
         `}
+
     }
 
-    @media (min-width:800px) {
+    @media (min-width:1300px) {
         display: block;
     }
 `

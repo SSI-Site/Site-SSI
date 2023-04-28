@@ -169,7 +169,6 @@ const Home = () => {
                             </a>
                             <a target="blank" href="https://www.twitch.tv/each_ssi">
                                 <img src="/images/social_media/TwitchTextLogo.svg" alt="Twitch" />
-                                <h1>TWITCH.TV/EACH_SSI</h1>
                             </a>
                         </div>
                     </div>
@@ -320,7 +319,7 @@ const WelcomeComponent = styled.div`
         /* margin: 80px 0 25px 0; */
     }
 `
-const BannerSection = styled.section`
+const BannerSection = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -568,30 +567,6 @@ const ScheduleSection = styled.div`
         .sechedule-text {
             margin-top: 0px;
             margin-left: 100px;
-        }
-
-        .first-section-schedule:after {
-            content: '';
-            position: absolute;
-            top: -125px;
-            left: -50px;
-            width: 500px;
-            height: 500px;
-            z-index: -2;
-            opacity: 75%;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(138, 69, 198, 0.3) 0%, rgba(51, 0, 0, 0) 100%);
-        }
-
-        .schedule-content:after {
-            content: '';
-            position: absolute;
-            top: -300px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            z-index: -3;
-            opacity: 75%;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(138, 69, 198, 0.3) 0%, rgba(51, 0, 0, 0) 100%);
         }
     }
 `

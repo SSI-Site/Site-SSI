@@ -17,50 +17,48 @@ const About = () => {
         <>
             <Meta title='SSI 2023 | Sobre' />
 
-            <BackgroundWrapper>
-                <LogoTextSection>
-                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
-                    <div className='content'>
-                        <div className='content-title'>
-                            <h1>O que é SSI?</h1>
-                        </div>
-
-                        <div className='content-text'>
-                            <h4>A Semana de Sistemas de Informação é um evento anual organizado pelas alunas e pelos alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</h4>
-                            <p>Nesta semana são apresentadas diversas palestras, workshops e outras atividades voltadas para o mundo de TI, abordando assuntos sobre tecnologia, mercado de trabalho, empreendedorismo, entre outros.</p>
-                        </div>
-
+            <LogoTextSection>
+                <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
+                <div className='content'>
+                    <div className='content-title'>
+                        <h1>O que é SSI?</h1>
                     </div>
-                </LogoTextSection>
 
-                <ActivitiesSection>
-                    <h2 className='section2-title'>O que teremos no evento?</h2>
-                    <div className='activities'>
-
-                        <EventActivity
-                            color='#4A46C5'
-                            image='./images/about/icon_capture_the_flag.svg'
-                            alt='Imagem Capture the Flag'
-                            title='Capture the Flag'
-                            description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
-                        />
-                        <EventActivity
-                            color='#8744C2'
-                            image='./images/about/icon_palestras.svg'
-                            alt='Imagem Palestras'
-                            title='Palestras'
-                            description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
-                        />
-                        <EventActivity
-                            color='#FF7F5C'
-                            image='./images/about/icon_minicursos.svg'
-                            alt='Imagem Minicursos'
-                            title='Workshops'
-                            description='Este ano, estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
-                        />
+                    <div className='content-text'>
+                        <h4>A Semana de Sistemas de Informação é um evento anual organizado pelas alunas e pelos alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</h4>
+                        <p>Nesta semana são apresentadas diversas palestras, workshops e outras atividades voltadas para o mundo de TI, abordando assuntos sobre tecnologia, mercado de trabalho, empreendedorismo, entre outros.</p>
                     </div>
-                </ActivitiesSection>
-            </BackgroundWrapper>
+
+                </div>
+            </LogoTextSection>
+
+            <ActivitiesSection>
+                <h2 className='section2-title'>O que teremos no evento?</h2>
+                <div className='activities'>
+
+                    <EventActivity
+                        color='#4A46C5'
+                        image='./images/about/icon_capture_the_flag.svg'
+                        alt='Imagem Capture the Flag'
+                        title='Capture the Flag'
+                        description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
+                    />
+                    <EventActivity
+                        color='#8744C2'
+                        image='./images/about/icon_palestras.svg'
+                        alt='Imagem Palestras'
+                        title='Palestras'
+                        description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                    />
+                    <EventActivity
+                        color='#FF7F5C'
+                        image='./images/about/icon_minicursos.svg'
+                        alt='Imagem Minicursos'
+                        title='Workshops'
+                        description='Este ano, estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
+                    />
+                </div>
+            </ActivitiesSection>
 
             <section>
                 <LectureContent>
