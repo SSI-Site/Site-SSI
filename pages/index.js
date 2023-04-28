@@ -104,7 +104,6 @@ const Home = () => {
                     <div className='content'>
                         <div className='content-title'>
                             <h3>Semana de Sistemas de Informação</h3>
-                            <h4>Semana de Sistemas de Informação</h4>
                             <h5>Palestras do dia 21/08 ao dia 25/08</h5>
                         </div>
 
@@ -321,7 +320,7 @@ const WelcomeComponent = styled.div`
         /* margin: 80px 0 25px 0; */
     }
 `
-const BannerSection = styled.header`
+const BannerSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -376,11 +375,6 @@ const BannerSection = styled.header`
         text-align: center;
         margin: 16px 0;
         padding: 0 16px;
-    }
-
-    h3 {
-        text-align: center;
-        /* margin-bottom: 16px; */
     }
 
     @media (min-width:1281px) {

@@ -45,11 +45,6 @@ export default createGlobalStyle`
         background: var(--color-neutral-800);
     }
 
-    body, input {
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.8rem;
-    }
-
     button {
         font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
         color: var(--color-neutral-50);
@@ -68,9 +63,9 @@ export default createGlobalStyle`
     }
 
     h3 {
-        font: 700 2.5rem/3rem 'Space_Mono';
+        font: 400 2.5rem/3rem 'Space_Mono_Bold';
         color: var(--color-neutral-50);
-        text-align: justify;
+        text-align: left;
     }
 
     h4 {
@@ -88,7 +83,7 @@ export default createGlobalStyle`
         color: var(--color-neutral-100);
     }
 
-    p, span, a {
+    body, p, span, a {
         font: 700 1rem/1.25rem 'Space_Mono';
         color: var(--color-neutral-50);
     }
@@ -152,10 +147,6 @@ export default createGlobalStyle`
 
         :root {
             font-size: 100%;
-        }
-
-        button {
-            /* font-size:1.8rem; */
         }
     }
 
