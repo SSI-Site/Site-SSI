@@ -6,12 +6,11 @@ import Link from 'next/link';
 import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
 
+// components
+import Button from '../../components/Button';
+
 // assets
 import LogoPrincipal from '../../../public/images/logos/logo_principal_horizontal.svg';
-import InstagramLogo from '../../../public/images/social_media/InstagramLogo.svg';
-import FacebookLogo from '../../../public/images/social_media/FacebookLogo.svg';
-import LinktreeLogo from '../../../public/images/social_media/LinktreeLogo.svg';
-import Button from '../../components/Button';
 
 const pages = {
     "/": 1,
@@ -163,36 +162,6 @@ const Nav = () => {
 
                         </ul>
 
-                        {/* <NavFooter>
-                            <div className="logo-container">
-                                <img src={LogoPrincipal} alt="SSI logo" />
-                                <p>
-                                    Semana de Sistemas de <br />Informação 2023
-                                </p>
-                            </div>
-                            <div className='redes'>
-                                <h5>
-                                    SIGA-NOS NAS REDES SOCIAIS
-                                </h5>
-                                <div className='logos_midia'>
-                                    <div>
-                                        <a href="https://www.instagram.com/semanadesi/" target="_blank" rel="noreferrer">
-                                            <img src={InstagramLogo} alt="Instagram"></img>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://www.facebook.com/SSIUSP" target="_blank" rel="noreferrer">
-                                            <img src={FacebookLogo} alt="Facebook"></img>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://linktr.ee/SemanaDeSI" target="_blank" rel="noreferrer">
-                                            <img src={LinktreeLogo} alt="Linktree"></img>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </NavFooter> */}
                         <div className='close-btn'>
                             <div className='fechar' onClick={() => setIsOpen(!isOpen)}>
                                 <div className='close hamburguer-menu' type="button">
@@ -245,14 +214,12 @@ const NavWrapper = styled.div`
     }
 
     @media (min-width:1300px) {
-        /* background-color: unset; */
         position: unset;
         height: 3.75rem;
         z-index: unset;
         justify-content: center;
         box-shadow: unset;
         padding-inline: 6.75rem;
-        /* width: 100%; */
     }
 `
 
@@ -277,22 +244,6 @@ const NavMobile = styled.nav`
             transition: all 0.3s ease;
         }
     }
-
-    /* ${props => props.isOpen && css`
-        span {
-            margin: 0;
-        }
-        span:nth-child(1) {
-            transform: rotate(45deg) translateY(7.5px) translateX(6px);
-        }
-        span:nth-child(2) {
-            transform: translateX(-50px);
-            opacity: 0;
-        }
-        span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-7.5px) translateX(6px);
-        }
-    `} */
 
     .sidepanel {
         display: flex;
@@ -352,6 +303,10 @@ const NavMobile = styled.nav`
 
             .login-button {
                 margin-bottom: 2rem;
+                
+                button {
+                    padding-block: 0.65rem;
+                }
             }
 
             li {
@@ -454,57 +409,6 @@ const NavMobile = styled.nav`
 
     @media (min-width:1300px) {
         display: none;
-    }
-`
-
-const NavFooter = styled.div`
-    position: absolute;
-    bottom: 0;
-    padding: 30px 0;
-    width: 100%;
-
-    .redes {
-        text-align: center;
-    }
-
-    .logo-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 3rem;
-
-        img {
-            width: 30%;
-            max-width: 100px;
-        }
-    }
-
-
-    .logos_midia {
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-
-        img {
-            width: 45px;
-            margin: 0 .75rem;
-        }
-    }
-
-    .logos_midia img:active {
-        filter: brightness(60%) sepia(0) saturate(0) hue-rotate(360deg);
-        width: 50px;
-        transition: 0.2s all;
-    }
-
-    @media (max-height:590px) {
-        position: unset;
-        bottom: unset;
-        width: 45%;
-        margin-left: 10px;
     }
 `
 

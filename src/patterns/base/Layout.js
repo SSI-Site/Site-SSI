@@ -44,7 +44,6 @@ const SiteWrapper = styled.div`
     max-width: 1500px;
     margin: auto;
     position: relative;
-    /* padding-inline: 1rem; */
     padding-bottom: 33.8rem; /* match footer height */
     display: flex;
     flex-direction: column;
@@ -52,6 +51,7 @@ const SiteWrapper = styled.div`
     justify-content: center;
 
     main {
+        padding-inline: 1rem;
         max-width: 1224px;
         align-self: center;
     }
