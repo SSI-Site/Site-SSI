@@ -170,9 +170,9 @@ const FooterWrapper = styled.footer`
         padding: 0 17rem;
     }
 
-    @media (min-width:1600px) {
+    @media (min-width:1500px) {
         width: calc(100vw - 10px);
-        margin-left: calc( (1500px - 100vw - 10px) / 2 );
+        /* margin-left: calc( (1500px - 100vw - 10px) / 2 ); */
     }
 
     @media (min-width:2200px) {
