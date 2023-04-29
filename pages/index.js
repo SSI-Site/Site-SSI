@@ -125,12 +125,9 @@ const Home = () => {
                             }
 
                             <div className='content-token'>
-                                {user && /*isUserRegistered &&*/ !isModalTokenOpen &&
-                                    <Button onClick={toggleModalTokenIsOpen}> Registrar Presença </Button>
-                                }
 
-                                {user && isModalTokenOpen &&
-                                    <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
+                                {user &&
+                                    <TokenModal/>
                                 }
 
                                 {/* <div className="complete-register-btns">

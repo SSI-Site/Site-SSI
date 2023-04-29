@@ -11,11 +11,13 @@ const Button = styled.button`
     border: var(--color-primary);
     background-color: var(--background);
     transition: var(--transition-duration);
+    white-space: nowrap;
 
     :disabled {
         --background: var(--color-neutral-800);
         color: var(--color-neutral-700);
         cursor: unset;
+        pointer-events: none;
     }
 
     &:hover {

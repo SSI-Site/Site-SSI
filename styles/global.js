@@ -123,6 +123,8 @@ export default createGlobalStyle`
         text-transform: uppercase;
         font: 700 1rem/1.25rem 'Space_Mono';
         color: var(--color-neutral-400);
+        background-color: var(--color-neutral-50);
+        border: 0;
     }
 
     ::-webkit-input-placeholder { /* WebKit browsers */
