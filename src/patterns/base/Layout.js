@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import styled from 'styled-components';
 
 import Meta from '../../infra/Meta';
@@ -41,7 +40,6 @@ export default Layout;
 
 const SiteWrapper = styled.div`
     min-height: 100vh;
-    max-width: 1500px;
     margin: auto;
     position: relative;
     padding-bottom: 33.8rem; /* match footer height */
@@ -51,9 +49,7 @@ const SiteWrapper = styled.div`
     justify-content: center;
 
     main {
-        padding-inline: 1rem;
-        max-width: 1224px;
-        align-self: center;
+        width: 100%;
     }
 
     @media (min-width:600px) {

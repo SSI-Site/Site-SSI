@@ -95,85 +95,84 @@ const Home = () => {
         <>
             <Meta title='SSI 2023 | Início' />
 
-            <BackgroundWrapper>
-                <BannerSection>
-                    <figure>
-                        <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
-                    </figure>
+            <BannerSection>
 
-                    <div className='content'>
-                        <div className='content-title'>
-                            <h3>Semana de Sistemas de Informação</h3>
-                            <h5>Palestras do dia 21/08 ao dia 25/08</h5>
-                        </div>
+                <figure>
+                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
+                </figure>
 
-                        {!isLoading ?
-                            <>
-                                <div className='content-login'>
-                                    {user ?
-                                        <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
-                                        :
-                                        <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
-                                    }
-                                </div>
+                <div className='content'>
+                    <div className='content-title'>
+                        <h3>Semana de Sistemas de Informação</h3>
+                        <h5>Palestras do dia 21/08 ao dia 25/08</h5>
+                    </div>
 
-                                {showAuthModal &&
-                                    <AuthModal
-                                        onClose={() => setShowAuthModal(false)}
-                                        show={showAuthModal}
-                                    />
+                    {!isLoading ?
+                        <>
+                            <div className='content-login'>
+                                {user ?
+                                    <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                    :
+                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                }
+                            </div>
+
+                            {showAuthModal &&
+                                <AuthModal
+                                onClose={() => setShowAuthModal(false)}
+                                show={showAuthModal}
+                                />
+                            }
+
+                            <div className='content-token'>
+                                {user && /*isUserRegistered &&*/ !isModalTokenOpen &&
+                                    <Button onClick={toggleModalTokenIsOpen}> Registrar Presença </Button>
                                 }
 
-                                <div className='content-token'>
-                                    {user && /*isUserRegistered &&*/ !isModalTokenOpen &&
-                                        <Button onClick={toggleModalTokenIsOpen}> Registrar Presença </Button>
+                                {user && isModalTokenOpen &&
+                                    <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
+                                }
+
+                                {/* <div className="complete-register-btns">
+                                    {user && !isUserRegistered &&
+                                        <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
                                     }
-
-                                    {user && isModalTokenOpen &&
-                                        <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
+                                    {user && !isUserRegistered &&
+                                        <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
                                     }
+                                </div> */}
+                            </div>
+                            <TwitchWatchNow />
+                        </>
+                        :
+                        <Loading>
+                            <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                        </Loading>
+                    }
+                </div>
+            </BannerSection>
 
-                                    {/* <div className="complete-register-btns">
-                                        {user && !isUserRegistered &&
-                                            <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
-                                        }
-                                        {user && !isUserRegistered &&
-                                            <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
-                                        }
-                                    </div> */}
-                                </div>
-                                <TwitchWatchNow />
-                            </>
-                            :
-                            <Loading>
-                                <img src='./loading.svg' alt='SSI 2023 - Loading' />
-                            </Loading>
-                        }
+            <Divider dividerSize="large" />
+
+            <EventInfoSection>
+                <h2 className="section-title">ONDE VAI ACONTECER?</h2>
+                <div className='content'>
+                    <div className="details">
+                        <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>.</p>
+                        <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
+                        <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
                     </div>
-                </BannerSection>
 
-                <Divider dividerSize="large" />
-
-                <EventInfoSection>
-                    <h2 className="section-title">ONDE VAI ACONTECER?</h2>
-                    <div className='content'>
-                        <div className="details">
-                            <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>.</p>
-                            <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
-                            <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
-                        </div>
-
-                        <div className="logos">
-                            <a target="blank" href="http://www.each.usp.br/">
-                                <img src="/images/logos/EACH-USP.svg" alt="EACH USP" />
-                            </a>
-                            <a target="blank" href="https://www.twitch.tv/each_ssi">
-                                <img src="/images/social_media/TwitchTextLogo.svg" alt="Twitch" />
-                            </a>
-                        </div>
+                    <div className="logos">
+                        <a target="blank" href="http://www.each.usp.br/">
+                            <img src="/images/logos/EACH-USP.svg" alt="EACH USP" />
+                        </a>
+                        <a target="blank" href="https://www.twitch.tv/each_ssi">
+                            <img src="/images/social_media/TwitchTextLogo.svg" alt="Twitch" />
+                        </a>
                     </div>
-                </EventInfoSection>
-            </BackgroundWrapper>
+                </div>
+            </EventInfoSection>
 
             <Divider dividerSize="large" />
 
@@ -257,12 +256,6 @@ const Loading = styled.figure`
     }
 `
 
-const BackgroundWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-`
 const WelcomeComponent = styled.div`
     --border: 1.75px solid var(--color-tertiary);
     --background: rgba(138, 69, 198, 0.6);
@@ -319,7 +312,7 @@ const WelcomeComponent = styled.div`
         /* margin: 80px 0 25px 0; */
     }
 `
-const BannerSection = styled.header`
+const BannerSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;

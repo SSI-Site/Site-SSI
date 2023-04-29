@@ -439,17 +439,26 @@ const NavDesktop = styled.nav`
                 width: 44px;
                 border-radius: 100%;
                 transition: 0.1s;
-            }
 
-            img:hover {
-                width: 44px;
-                border: 2px solid white;
+                &:hover {
+                    border: 4px solid white;
+                }
             }
+                        
 
             ${props => props.currentPage == '/user' && css`
+
+                :nth-child(${pages[props.currentPage]}):hover {
+                    li, a {
+                        pointer-events: none;
+                    }
+                }
+            `}
+
+            ${props => props.currentPage == '/user' && css`
+            
                 img {
-                    width: 52px;
-                    border: 2px solid white;
+                    border: 4px solid var(--color-primary-500);
                 }
             `}
         }
@@ -471,7 +480,7 @@ const NavDesktop = styled.nav`
         }
 
         ${props => props.currentPage && css`
-            li:nth-child(${pages[props.currentPage]}) {
+            li:nth-child(${pages[props.currentPage]}):not(:last-child) {
                 a {
                     font-family: 'Space_Mono_Bold';
                     font-weight: 400;

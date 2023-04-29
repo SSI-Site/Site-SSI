@@ -21,7 +21,7 @@ export default createGlobalStyle`
         --color-neutral-100: #EDD3FF;
         --color-neutral-50: #F3F3F3;
 
-        /*16 pixels (100% = 16 pixels)*/
+        /* 16 pixels (100% = 16 pixels) */
         font-size: 100%;
     }
 
@@ -43,6 +43,22 @@ export default createGlobalStyle`
 
     body {
         background: var(--color-neutral-800);
+    }
+
+    section {
+        width: 100%;
+        height: fit-content;
+        padding-inline: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        > div {
+            width: 100%;
+            max-width: 1224px;
+            margin: 0;
+            padding: 0;
+        }
     }
 
     button {
@@ -83,9 +99,19 @@ export default createGlobalStyle`
         color: var(--color-neutral-100);
     }
 
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
     body, p, span, a {
         font: 700 1rem/1.25rem 'Space_Mono';
         color: var(--color-neutral-50);
+    }
+
+    a {
+        text-decoration: none;
     }
 
     label {
@@ -93,7 +119,6 @@ export default createGlobalStyle`
         color: var(--color-neutral-50);
     }
 
-    /* Fazer o estilo do campo de input [text] */
     input[type=text] { 
         text-transform: uppercase;
         font: 700 1rem/1.25rem 'Space_Mono';
@@ -122,52 +147,20 @@ export default createGlobalStyle`
         color: var(--color-neutral-400);
     }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .section-title {
-        margin-bottom: 1rem;
-    }
-
     @media (min-width:480px) {
 
-        :root{
-            font-size: 100%;
-        }
     }
 
     @media (min-width:600px) {
 
-        :root {
-            font-size: 100%;
-        }
     }
 
     @media (min-width:801px) {
 
-        :root {
-            font-size: 100%;
-        }
     }
 
     @media (min-width:1021px) {
-        
-        :root {
-            font-size: 100%;
-        }
-
-        /* p {
-            font-weight: normal;
-            font-size: 1.2rem;
-            line-height: 141%;
-        } */
+       
     }
 
     @media (min-width:1365px) {
