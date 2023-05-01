@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import useAuth from '../../hooks/useAuth';
 import saphira from '../../services/saphira';
 
-// assets
-import flecha from '../../public/images/flecha.svg';
+// components
+import Button from './Button';
+
 
 const TOKEN_LENGTH = 5;
 
@@ -14,10 +15,16 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
     const { user } = useAuth();
     
     const [token, setToken] = useState('')
-    const [isInvalid, setIsInvalid] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
+    const [isWritting, setIsWritting] = useState(true);
+    const [isInvalid, setIsInvalid] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(false);
+
     const handleChangeToken = event => {
+        setIsWritting(true);
+        setIsInvalid(false);
+        setIsRegistered(false);
         const { value } = event.target;
 
         if (value.length > TOKEN_LENGTH) return;
@@ -26,6 +33,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
     const handleSendToken = async event => {
         event.preventDefault();
+        setIsWritting(false);
 
         if (token.length < TOKEN_LENGTH) {
             setIsInvalid(true);
@@ -37,6 +45,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
         await saphira.registerPresence(user.email, token)
             .then(() => {
                 setIsInvalid(false);
+                setIsRegistered(true);
                 alert(`Presença Registrada!`);
                 setToken('');
                 toggleVisibility();
@@ -48,21 +57,14 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
         setIsLoading(false);
     }
 
-    const closeModalToken = () => {
-        toggleVisibility();
-    }
-
-    const getClassActiveBtn = () => token.length == TOKEN_LENGTH ? 'active-btn' : '';
+    const getClassActiveBtn = () => token.length == TOKEN_LENGTH ? 'active-btn' : 'disabled-btn';
 
     const getClassInvalidToken = () => isInvalid ? 'invalid-token' : '';
 
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
     return (
         <ModalTokenWrapper>
-            <h3>Insira o Token</h3>
-            <div className="close-container" onClick={closeModalToken}>
-                <div className="leftright"></div>
-                <div className="rightleft"></div>
-            </div>
 
             {!isLoading ?
                 <form onSubmit={handleSendToken}>
@@ -73,12 +75,20 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                         value={token}
                         placeholder='Digite o token...'
                     />
-
-                    {isInvalid && <span>Token Inválido!</span>}
-
-                    <button type="submit" className={getClassActiveBtn()}>
-                        <img src={flecha}></img>
-                    </button>
+                    {isInvalid && 
+                        <Button type="submit" className='invalid-token'>{width > 560 ? 'Token inválido...' : 'Inválido...'}</Button>
+                    }
+                    {isRegistered &&
+                        <Button className='token-registered'>{width > 560 ? 'Presença registrada!' : 'Registrada!'}</Button>
+                    }
+                    {isWritting && token.length == TOKEN_LENGTH &&
+                        <Button type="submit">{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
+                    }
+                    {isWritting && token.length != TOKEN_LENGTH &&
+                        <div className={getClassActiveBtn()}>
+                            <Button disabled>{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
+                        </div>
+                    }
 
                 </form>
                 :
@@ -86,15 +96,6 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                     <img src='./loading.svg' alt='SSI 2023 - Loading' />
                 </Loading>
             }
-
-            <span className='modal-token corner-1' />
-            <span className='modal-token corner-2' />
-            <span className='modal-token corner-3' />
-            <span className='modal-token corner-4' />
-            <span className='modal-token corner-5' />
-            <span className='modal-token corner-6' />
-            <span className='modal-token corner-7' />
-            <span className='modal-token corner-8' />
         </ModalTokenWrapper >
     )
 }
@@ -112,225 +113,55 @@ const Loading = styled.figure`
 `
 
 const ModalTokenWrapper = styled.div`
-    --glow-btn: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    background-color: #151023;
-    border: 1px solid white;
-    padding: 32px 32px 32px 32px;
-    width: 90%;
-    max-width: 400px;
-    margin-top: 10px auto 0 auto;
+    --color-invalid: #F24822;
+    --color-valid: #14AE5C;
+    width: 23.75rem;
+    background-color: var(--color-neutral-50);
+    border-radius: 16px;
+    padding: 0.5rem;
 
-    .active-btn {
-        box-shadow: var(--glow-btn);
+    border: 4px solid var(--color-neutral-800);
+
+    &:has(input[type=text]:focus):not(:has(.invalid-token)):not(:has(.token-registered)) {
+        border-color: var(--color-primary);
     }
 
-    .close-container {
-        position: absolute;
-        display: flex;
-        align-items: top;
-        justify-content: center;
-        right: 0.5rem;
-        top: 0.5rem;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        z-index: 2;
+    &:has(.invalid-token) {
+        border-color: var(--color-invalid);
     }
 
-    .leftright {
-        height: 4px;
-        width: 2rem;
-        position: absolute;
-        margin-top: 24px;
-        background-color: #fff;
-        border-radius: 2px;
-        transform: rotate(45deg);
-        transition: all .3s ease-in;
-    }
-
-    .rightleft {
-        height: 4px;
-        width: 2rem;
-        position: absolute;
-        margin-top: 24px;
-        background-color: #fff;
-        border-radius: 2px;
-        transform: rotate(-45deg);
-        transition: all .3s ease-in;
-    }
-
-    .close-container:hover .leftright {
-        transform: rotate(-45deg);
-        background-color: #8744C2;
-    }
-
-    .close-container:hover .rightleft {
-        transform: rotate(45deg);
-        background-color: #8744C2;
-    }
-
-    .modal-token {
-        width: 50px;
-        height: 50px;
-        margin: 4px;
-        border-style: solid;
-        border-color: white;
-        position: absolute;
-    }
-
-    .modal-token.corner-1 {
-        border-width: 1px 0 0 1px;
-        top: 0;
-        left: 0;
-    }
-
-    .modal-token.corner-2 {
-        border-width: 1px 1px 0 0;
-        top: 0;
-        right: 0;
-    }
-
-    .modal-token.corner-3 {
-        border-width: 0 1px 1px 0;
-        bottom: 0;
-        right: 0;
-    }
-
-    .modal-token.corner-4 {
-        border-width: 0 0 1px 1px;
-        bottom: 0;
-        left: 0;
-    }
-
-    .modal-token.corner-5 {
-        border-width: 1px 0 0 1px;
-        top: 5px;
-        left: 5px;
-    }
-
-    .modal-token.corner-6 {
-        border-width: 1px 1px 0 0;
-        top: 5px;
-        right: 5px;
-    }
-
-    .modal-token.corner-7 {
-        border-width: 0 1px 1px 0;
-        bottom: 5px;
-        right: 5px;
-    }
-
-    .modal-token.corner-8 {
-        border-width: 0 0 1px 1px;
-        bottom: 5px;
-        left: 5px;
-    }
-
-    &:before {
-        width: 90px;
-        height: calc(100% - 10px);
-        position: absolute;
-        margin: 4px 0;
-        border-style: solid;
-        border-width: 1px 0;
-        border-color: white;
-        top: 0;
-        content: '';
-    }
-
-    h3 {
-        letter-spacing: 0.05em;
-        color: white;
-        margin-bottom: 16px;
+    &:has(.token-registered) {
+        border-color: var(--color-valid);
     }
 
     form {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        width: 90%;
-
-        span {
-            margin-top: 4px;
-            color: #FF4D4D;
-        }
+        justify-content: space-between;
     }
 
     input[type=text] {
-        background-color: #392055;
-        width: 100%;
-        padding: 8px 16px;
-        border: 1px solid white;
-        z-index: 1;
+        margin-left: 1rem;
+        width: auto;
     }
 
-    input[type=text].invalid-token {
-        border-color: #FF4D4D;
+    .invalid-token:not(input[type=text]) {
+        background-color: var(--color-invalid);
+        pointer-events: none;
     }
 
-    button {
-        display: flex;
-        align-self: flex-end;
-        padding: 19px 9px;
-        padding: 1.3rem 1rem;
-        background-color: #151023;
-        border: 1px solid #8744C2;
-        border-radius: 0;
-        transform-style: preserve-3d;
-        transition: 0.3s;
-        z-index: 2;
-        margin: 24px 0 0 0;
-        position: relative;
-
-        img {
-            align-self: center;
-            width: 36px;
-        }
-
-        &:before {
-            content: '';
-            left: calc(49% - var(--var-width) / 2);
-            top: -8px;
-            text-align: center;
-            background-color: rgba(121, 61, 174, 0.5);
-            transform: translateZ(-1px);
-            position: absolute;
-            width: var(--var-width);
-            height: calc(100% + 14px);
-            border: 1px solid #8744C2;
-            --var-width: calc(100% - 14px);
-        }
-
-        &:hover {
-            box-shadow: var(--glow-btn);
-        }
+    .token-registered:not(input[type=text]) {
+        background-color: var(--color-valid);
+        pointer-events: none;
     }
 
-    @media (min-width:600px) {
-        padding: 32px 10% 64px 10%;
-        width: 90%;
-        max-width: 650px;
+    .disabled-btn {
+        cursor: not-allowed;
+        width: fit-content;
+    }
 
-        form {
-            flex-direction: row;
-            align-items: center;
-            position: relative;
-
-            span {
-                position: absolute;
-                left: 0;
-                bottom: -1.5em;
-            }
-        }
-
-        button {
-            margin-top: 0;
-            margin-left: 16px;
-            align-self: center;
-        }
+    @media (min-width:560px) {
+        width: 32.5rem;
     }
 `

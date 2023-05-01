@@ -55,7 +55,7 @@ const AuthModal = ({ onClose }) => {
                             <img className='logo' src={Logo} alt="Logo SSI 2023" />
                         </figure>
 
-                        <h2>Entrar com</h2>
+                        <h4>Entrar com</h4>
                         <div></div>
 
                         <SigninBtn onClick={handleGoogleSignIn}>
@@ -101,12 +101,12 @@ const ModalWrapper = styled.div`
 `
 
 const StyledModal = styled.div`
-    background-color: #151023;
+    background-color: var(--color-neutral-900);
     height:100%;
     width:100%;
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 5px;
-    border: 2px solid #8744C2;
+    border: 4px solid var(--color-primary-800);
 `
 
 const ModalHeader = styled.header`
@@ -128,7 +128,7 @@ const ModalHeader = styled.header`
         height: 3px;
         width: 20px;
         position: absolute;
-        background-color: #fff;
+        background-color: var(--color-neutral-50);
         border-radius: 10px;
         transform: rotate(45deg);
         transition: all .3s ease-in;
@@ -138,24 +138,22 @@ const ModalHeader = styled.header`
         height: 3px;
         width: 20px;
         position: absolute;
-        background-color: #fff;
+        background-color: var(--color-neutral-50);
         border-radius: 10px;
         transform: rotate(-45deg);
         transition: all .3s ease-in;
     }
 
     .close-btn-container:hover > .leftright {
-        /* --glow: 0px 0px 2px 2px rgba(121, 61, 174, 0.5); */
         transform: rotate(-45deg);
         box-shadow: var(--glow);
-        background-color: #8744C2;
+        background-color: var(--color-primary-500);
     }
 
     .close-btn-container:hover > .rightleft {
-        /* --glow: 0px 0px 2px 2px rgba(121, 61, 174, 0.5); */
         transform: rotate(45deg);
         box-shadow: var(--glow);
-        background-color: #8744C2;
+        background-color: var(--color-primary-500);
     }
 `
 
@@ -167,7 +165,7 @@ const ModalBody = styled.div`
     padding-top: 10px;
 
     figure {
-        width: 155px;
+        width: 120px;
         margin-bottom: 20px;
     }
 
@@ -175,48 +173,47 @@ const ModalBody = styled.div`
         width: 100%;
     }
 
-    h2 {
-        font-family: 'Bebas Neue';
-        font-size: 24px;
+    h4 {
         margin-bottom: 4px;
     }
 
     div {
-        width: 40%;
-        height: 1px;
-        background-color: #8744C2;
-        margin-bottom: 35px;
+        width: 60%;
+        height: 2px;
+        background-color: var(--color-primary-800);
+        margin-block: 0.5rem 2rem;
     }
 `
 
 const SigninBtn = styled.button`
-    --glow: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
     
     display: flex;
     align-items: center;
     justify-content: center;
     width: 65%;
-    padding: 10px;
+    padding: 16px;
     margin-bottom: 5px;
-    border-radius: 100px;
-    background-color: #1B162C;
-    border: 2px solid transparent;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--color-primary);
     transition: 0.2s;
     cursor: pointer;
 
     span {
-        font-family: 'Roboto';
-        font-size: 16px;
-        font-weight: bold;
+        font-family: 'Space_Mono_Bold';
+        font-weight: 400;
     }
 
     img {
-        width: 18px;
+        width: 20px;
         margin-right: 10%;
     }
 
-    :hover {
-        border: solid 2px #8744C2;
-        box-shadow: var(--glow);
+    &:hover {
+        background-color: var(--color-primary-900);
+    }
+
+    &:active {
+        background-color: var(--color-primary-800);
     }
 `
