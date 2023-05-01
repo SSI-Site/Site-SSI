@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import useAuth from '../../hooks/useAuth';
 
 // assets
-import Logo from '../../public/images/logos/logo_principal_vertical.svg';
+import Logo from '../../public/images/logos/logo_principal.svg';
 import GoogleLogo from '../../public/images/login_icons/google_logo_white.png';
 
 const AuthModal = ({ onClose }) => {

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
 // assets
-import LogoPrincipal from '../../../public/images/logos/logo_principal_horizontal.svg';
+import LogoPrincipal from '../../../public/images/logos/logo_principal.svg';
 import InstagramLogo from '../../../public/images/social_media/InstagramLogo.svg';
 import FacebookLogo from '../../../public/images/social_media/FacebookLogo.svg';
 import LinktreeLogo from '../../../public/images/social_media/LinktreeLogo.svg';
@@ -59,7 +59,7 @@ const FooterWrapper = styled.footer`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 33.8rem;
+    height: 50rem;
     padding-bottom: 1rem;
     opacity: 0.8;
     text-align: center;
@@ -137,7 +137,7 @@ const FooterWrapper = styled.footer`
         align-items: center;
         justify-content: space-between;
         padding: 0 4rem;
-        height: 13rem;
+        height: 26.75rem;
 
         .ssi {
             height: 50%;

@@ -10,7 +10,7 @@ import AuthModal from '../../components/AuthModal';
 import Button from '../../components/Button';
 
 // assets
-import LogoPrincipal from '../../../public/images/logos/logo_principal_horizontal.svg';
+import LogoPrincipal from '../../../public/images/logos/logo_principal.svg';
 
 const pages = {
     "/": 1,
@@ -54,7 +54,7 @@ const Nav = () => {
                     <a className="logo-container">
                         <img src={LogoPrincipal} alt="SSI logo" />
                         <p className='text-small'>
-                            Semana de Sistemas de Informação
+                            Semana de Sistemas de Informação 2023
                         </p>
                     </a>
                 </Link>

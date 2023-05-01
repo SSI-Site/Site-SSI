@@ -18,9 +18,9 @@ import TokenModal from '../src/components/TokenModal';
 import Divider from '../src/components/Divider';
 
 // assets
-import LogoPrincipal from '../public/images/logos/logo_principal_vertical.svg';
+import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 import borda from '../public/images/borda2.png';
-import speakerPicture from '../public/images/logos/logo_principal_horizontal.svg';
+import speakerPicture from '../public/images/logos/logo_principal.svg';
 
 const supporters = [
     { title: 'ELO7', url: 'https://www.elo7.com.br/' },

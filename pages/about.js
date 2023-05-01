@@ -9,7 +9,7 @@ import saphira from '../services/saphira';
 import EventActivity from '../src/components/EventActivity';
 
 // assets
-import LogoPrincipal from '../public/images/logos/logo_principal_vertical.svg';
+import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 
 const About = () => {
 
