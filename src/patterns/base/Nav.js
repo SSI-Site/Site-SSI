@@ -141,30 +141,37 @@ const Nav = () => {
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/"><a>Home</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/schedule"><a>Programação</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/about"><a>Evento</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/partnerships"><a>Parcerias</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/co"><a>Comissão Organizadora</a></Link>
+                                <div></div>
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
                                 <Link href="/hackssi"><a>HackSSI</a></Link>
+                                <div></div>
                             </li>
 
                             <li /* onClick={() => setIsOpen(false)} */>
                                 {/* <Link href="https://ctfssi.intheshell.page/"> */}<a style={{"color": "gray"}} target="blank">CTF</a>{/* </Link> */}
+                                {/* <div></div> */}
                             </li>
 
                         </ul>
@@ -257,7 +264,7 @@ const NavMobile = styled.nav`
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        height: 100vh;
+        height: 100%;
         width: fit-content;
         position: fixed;
         top: 0;
@@ -318,6 +325,17 @@ const NavMobile = styled.nav`
 
             li {
                 margin-bottom: 1.5rem;
+                position: relative;
+
+                div:not()(first-child) {
+                    position: absolute;
+                    margin-top: 2px;
+                    width: 0%;
+                    margin-left: 50%;
+                    height: 4px;
+                    background-color: var(--color-neutral-50);
+                    transition: all .2s;
+                }
 
                 .user-info {
                     width: fit-content;
@@ -388,7 +406,15 @@ const NavMobile = styled.nav`
                         font-weight: 400;
                         padding: .2rem -5rem;
                         pointer-events: none;
-                        border-bottom: 4px solid var(--color-primary-500);
+                        /* border-bottom: 4px solid var(--color-primary-500); */
+                    }
+
+                    div {
+                        width: calc(100% - 24px);
+                        margin-left: 12px;
+                        height: 4px;
+                        background-color: var(--color-primary-500);
+                        border-radius: 12px;
                     }
                 }
             `}

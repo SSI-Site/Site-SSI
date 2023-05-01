@@ -115,7 +115,7 @@ const Loading = styled.figure`
 const ModalTokenWrapper = styled.div`
     --color-invalid: #F24822;
     --color-valid: #14AE5C;
-    width: 23.75rem;
+    width: 24.85rem;
     background-color: var(--color-neutral-50);
     border-radius: 16px;
     padding: 0.5rem;
@@ -144,6 +144,10 @@ const ModalTokenWrapper = styled.div`
     input[type=text] {
         margin-left: 1rem;
         width: auto;
+    }
+
+    button {
+        width: fit-content;
     }
 
     .invalid-token:not(input[type=text]) {
