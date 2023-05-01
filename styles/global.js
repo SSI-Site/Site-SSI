@@ -51,6 +51,7 @@ export default createGlobalStyle`
         height: fit-content;
         padding-inline: 1rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
 
