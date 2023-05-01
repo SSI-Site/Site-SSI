@@ -70,30 +70,37 @@ const Nav = () => {
                     <ul>
                         <li>
                             <Link href="/"><a>Home</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/schedule" ><a>Programação</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/about"><a>Evento</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/partnerships"><a>Parcerias</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
                             <Link href="/hackssi"><a>HackSSI</a></Link>
+                            <div></div>
                         </li>
 
                         <li>
                             {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                         {user ?
@@ -426,6 +433,21 @@ const NavDesktop = styled.nav`
         align-items: center;
         height: 40px;
 
+        li {
+            position: relative;
+
+            div {
+                position: absolute;
+                margin-top: 2px;
+                width: 0%;
+                margin-left: 50%;
+                height: 4px;
+                background-color: var(--color-neutral-50);
+                transition: all .2s;
+                border-radius: 12px;
+            }
+        }
+
         button {
             padding-block: 0.65rem;
             margin-left: 0.75rem;
@@ -490,13 +512,22 @@ const NavDesktop = styled.nav`
                     font-weight: 400;
                     padding: .2rem -5rem;
                     pointer-events: none;
-                    border-bottom: 4px solid var(--color-primary-500);
+                }
+
+                div {
+                    width: calc(100% - 24px);
+                    margin-left: 12px;
+                    height: 4px;
+                    background-color: var(--color-primary-500);
                 }
             }
 
             li:not(:last-child):not(:nth-child(${pages[props.currentPage]})):hover {
-                a {
-                    border-bottom: 4px solid var(--color-neutral-50);
+                div {
+                    width: calc(100% - 24px);
+                    margin-left: 12px;
+                    height: 4px;
+                    background-color: var(--color-neutral-50);
                 }
             }
         `}
