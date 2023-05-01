@@ -7,8 +7,6 @@ import saphira from '../../services/saphira';
 // components
 import Button from './Button';
 
-// assets
-import flecha from '../../public/images/flecha.svg';
 
 const TOKEN_LENGTH = 5;
 
@@ -26,6 +24,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
     const handleChangeToken = event => {
         setIsWritting(true);
         setIsInvalid(false);
+        setIsRegistered(false);
         const { value } = event.target;
 
         if (value.length > TOKEN_LENGTH) return;
@@ -60,7 +59,9 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
     const getClassActiveBtn = () => token.length == TOKEN_LENGTH ? 'active-btn' : 'disabled-btn';
 
-    const getClassInvalidToken = () => isInvalid ? 'invalid-token' : 'valid-token';
+    const getClassInvalidToken = () => isInvalid ? 'invalid-token' : '';
+
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
     return (
         <ModalTokenWrapper>
@@ -75,17 +76,17 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                         placeholder='Digite o token...'
                     />
                     {isInvalid && 
-                        <Button type="submit" className='invalid-token'>Token inválido...</Button>
+                        <Button type="submit" className='invalid-token'>{width > 530 ? 'Token inválido...' : 'Inválido...'}</Button>
                     }
                     {isRegistered &&
-                        <Button className='valid-token'>Presença registrada!</Button>
+                        <Button className='token-registered'>{width > 530 ? 'Presença registrada!' : 'Registrada!'}</Button>
                     }
                     {isWritting && token.length == TOKEN_LENGTH &&
-                        <Button type="submit">Registrar presença</Button>
+                        <Button type="submit">{width > 530 ? 'Registrar presença' : 'Registrar'}</Button>
                     }
                     {isWritting && token.length != TOKEN_LENGTH &&
                         <div className={getClassActiveBtn()}>
-                            <Button>Registrar presença</Button>
+                            <Button>{width > 530 ? 'Registrar presença' : 'Registrar'}</Button>
                         </div>
                     }
 
@@ -114,13 +115,24 @@ const Loading = styled.figure`
 const ModalTokenWrapper = styled.div`
     --color-invalid: #F24822;
     --color-valid: #14AE5C;
-    width: 31rem;
+    width: 22.5rem;
     background-color: var(--color-neutral-50);
     border-radius: 16px;
     padding: 0.5rem;
 
-    /* definir a borda segundo estado */
-    border: 4px solid red;
+    border: 4px solid var(--color-neutral-800);
+
+    &:has(input[type=text]:focus):not(:has(.invalid-token)):not(:has(.token-registered)) {
+        border-color: var(--color-primary);
+    }
+
+    &:has(.invalid-token) {
+        border-color: var(--color-invalid);
+    }
+
+    &:has(.token-registered) {
+        border-color: var(--color-valid);
+    }
 
     form {
         display: flex;
@@ -130,8 +142,18 @@ const ModalTokenWrapper = styled.div`
     }
 
     input[type=text] {
+        font: 700 0.875rem/1.25rem 'Space_Mono';
         margin-left: 1rem;
         width: auto;
+        
+        ::placeholder {
+            font: 700 0.875rem/1.25rem 'Space_Mono';
+        }
+    }
+
+    button {
+        font: 700 0.875rem/1.25rem 'Space_Mono';
+        width: fit-content;
     }
 
     .invalid-token:not(input[type=text]) {
@@ -139,21 +161,35 @@ const ModalTokenWrapper = styled.div`
         pointer-events: none;
     }
 
-    .valid-token:not(input[type=text]) {
+    .token-registered:not(input[type=text]) {
         background-color: var(--color-valid);
         pointer-events: none;
     }
 
     .disabled-btn {
         cursor: not-allowed;
-        width: 100%;
+        width: fit-content;
 
         > button {
             pointer-events: none;
         }
     }
 
-    @media (min-width:600px) {
+    @media (min-width:530px) {
+        width: 31rem;
 
+        input[type=text] {
+            font: inherit;
+            margin-left: 1rem;
+            width: auto;
+            
+            ::placeholder {
+                font: inherit;
+            }
+        }
+
+        button {
+            font: inherit;
+        }
     }
 `
