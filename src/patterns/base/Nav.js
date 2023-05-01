@@ -337,6 +337,10 @@ const NavMobile = styled.nav`
                         margin: 0;
                         font: 700 0.75rem/1rem 'Space_Mono';
                         cursor: pointer;
+                        
+                        &:hover, &:active {
+                            text-decoration: underline;
+                        }
                     }
                 }
 

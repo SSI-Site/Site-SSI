@@ -76,17 +76,17 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                         placeholder='Digite o token...'
                     />
                     {isInvalid && 
-                        <Button type="submit" className='invalid-token'>{width > 530 ? 'Token inválido...' : 'Inválido...'}</Button>
+                        <Button type="submit" className='invalid-token'>{width > 560 ? 'Token inválido...' : 'Inválido...'}</Button>
                     }
                     {isRegistered &&
-                        <Button className='token-registered'>{width > 530 ? 'Presença registrada!' : 'Registrada!'}</Button>
+                        <Button className='token-registered'>{width > 560 ? 'Presença registrada!' : 'Registrada!'}</Button>
                     }
                     {isWritting && token.length == TOKEN_LENGTH &&
-                        <Button type="submit">{width > 530 ? 'Registrar presença' : 'Registrar'}</Button>
+                        <Button type="submit">{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
                     }
                     {isWritting && token.length != TOKEN_LENGTH &&
                         <div className={getClassActiveBtn()}>
-                            <Button>{width > 530 ? 'Registrar presença' : 'Registrar'}</Button>
+                            <Button disabled>{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
                         </div>
                     }
 
@@ -115,7 +115,7 @@ const Loading = styled.figure`
 const ModalTokenWrapper = styled.div`
     --color-invalid: #F24822;
     --color-valid: #14AE5C;
-    width: 22.5rem;
+    width: 23.75rem;
     background-color: var(--color-neutral-50);
     border-radius: 16px;
     padding: 0.5rem;
@@ -142,18 +142,8 @@ const ModalTokenWrapper = styled.div`
     }
 
     input[type=text] {
-        font: 700 0.875rem/1.25rem 'Space_Mono';
         margin-left: 1rem;
         width: auto;
-        
-        ::placeholder {
-            font: 700 0.875rem/1.25rem 'Space_Mono';
-        }
-    }
-
-    button {
-        font: 700 0.875rem/1.25rem 'Space_Mono';
-        width: fit-content;
     }
 
     .invalid-token:not(input[type=text]) {
@@ -169,27 +159,9 @@ const ModalTokenWrapper = styled.div`
     .disabled-btn {
         cursor: not-allowed;
         width: fit-content;
-
-        > button {
-            pointer-events: none;
-        }
     }
 
-    @media (min-width:530px) {
-        width: 31rem;
-
-        input[type=text] {
-            font: inherit;
-            margin-left: 1rem;
-            width: auto;
-            
-            ::placeholder {
-                font: inherit;
-            }
-        }
-
-        button {
-            font: inherit;
-        }
+    @media (min-width:560px) {
+        width: 32.5rem;
     }
 `

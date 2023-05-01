@@ -399,7 +399,8 @@ const BannerSection = styled.section`
 
         .content-token {
             margin-top: 40px;
-            flex-direction: column
+            display: flex;
+            flex-direction: row;
         }
     }
 `

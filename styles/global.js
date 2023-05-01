@@ -16,6 +16,7 @@ export default createGlobalStyle`
         --color-neutral-900: #121212;
         --color-neutral-800: #272727;
         --color-neutral-700: #3C3C3C;
+        --color-neutral-600: #545454;
         --color-neutral-500: #6C6C6C;
         --color-neutral-400: #858585;
         --color-neutral-100: #EDD3FF;
@@ -62,7 +63,7 @@ export default createGlobalStyle`
     }
 
     button {
-        font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
+        font: 400 1rem/1.25rem 'Space_Mono_Bold';
         color: var(--color-neutral-50);
         cursor: pointer;
     }
@@ -151,6 +152,21 @@ export default createGlobalStyle`
 
     @media (min-width:480px) {
 
+    }
+
+    @media (min-width:560px) {
+
+        input[type=text] { 
+            font: 700 1.125rem/1.75rem 'Space_Mono';
+            
+            ::placeholder {
+                font: 700 1.125rem/1.75rem 'Space_Mono';
+            }
+        }
+
+        button {
+            font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
+        }
     }
 
     @media (min-width:600px) {
