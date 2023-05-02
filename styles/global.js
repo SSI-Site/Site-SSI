@@ -43,7 +43,7 @@ export default createGlobalStyle`
     }
 
     body {
-        background: var(--color-neutral-800);
+        background: var(--color-neutral);
     }
 
     section {

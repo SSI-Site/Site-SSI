@@ -151,7 +151,8 @@ const ModalTokenWrapper = styled.div`
     border-radius: 16px;
     padding: 0.5rem;
 
-    border: 4px solid var(--color-neutral-800);
+    border: 4px solid transparent;
+    background-clip: padding-box;
 
     .btns-desktop {
         display: none;

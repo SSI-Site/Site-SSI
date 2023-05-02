@@ -8,7 +8,14 @@ const Example = () => {
             <CompWrapper>
                 <h1>Teste h1</h1>
                 <h2>Teste h2</h2>
-                <span>Teste h3, h4, h5, p, span</span>
+                <h3>Teste h3</h3>
+                <h4>Teste h4</h4>
+                <h5>Teste h5</h5>
+                <h6>Teste h6</h6>
+                <p>Teste p</p>
+                <span>Teste span</span>
+
+                <p>Borda da div com '<tt>width: 100%;</tt>'</p>
             </CompWrapper >
         </>
     )
@@ -21,7 +28,7 @@ const CompWrapper = styled.div`
     border: 2px solid red;
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 100%;
 
     @media (min-width:480px) {
 
