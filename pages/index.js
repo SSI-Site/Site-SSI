@@ -126,13 +126,16 @@ const Home = () => {
 
                             <div className='content-token'>
 
-                                {/* {user &&
-                                } */}
+                                {user &&
+                                    <TokenModal/>
+                                }
+
+                                {/* Só de exemplo → pode apagar o TokenModal abaixo */}
                                 <TokenModal/>
 
                                 {/* <div className="complete-register-btns">
                                     {user && !isUserRegistered &&
-                                        <Button className="btn-complete-register" onClick={() => router.push('/user')}> Conclua seu cadastro </Button>
+                                        <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
                                     }
                                     {user && !isUserRegistered &&
                                         <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>

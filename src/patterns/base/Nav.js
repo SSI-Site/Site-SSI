@@ -47,154 +47,156 @@ const Nav = () => {
     }, [isOpen]);
 
     return (
-        <>
-            <NavWrapper>
+        <NavWrapper>
 
-                <Link href="/">
-                    <a className="logo-container">
-                        <img src={LogoPrincipal} alt="SSI logo" />
-                        <p className='text-small'>
-                            Semana de Sistemas de Informação 2023
-                        </p>
-                    </a>
-                </Link>
+            {/* Logo que redireciona para a home */}
+            <Link href="/">
+                <a className="logo-container">
+                    <img src={LogoPrincipal} alt="SSI logo" />
+                    <p className='text-small'>
+                        Semana de Sistemas de Informação 2023
+                    </p>
+                </a>
+            </Link>
 
-                {showAuthModal &&
-                    <AuthModal
-                        onClose={() => setShowAuthModal(false)}
-                        show={showAuthModal}
-                    />
-                }
+            {/* Caixa de autenticação/login */}
+            {showAuthModal &&
+                <AuthModal
+                    onClose={() => setShowAuthModal(false)}
+                    show={showAuthModal}
+                />
+            }
 
-                <NavDesktop currentPage={router.pathname}>
-                    <ul>
+            {/* Navbar para Desktop */}
+            <NavDesktop currentPage={router.pathname}>
+                <ul>
+                    <li>
+                        <Link href="/"><a>Home</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        <Link href="/schedule" ><a>Programação</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        <Link href="/about"><a>Evento</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        <Link href="/partnerships"><a>Parcerias</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        <Link href="/co"><a>Comissão Organizadora</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        <Link href="/hackssi"><a>HackSSI</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                        {/* <div></div> */}
+                    </li>
+
+                    {user ?
+                        <li className='userPicContainer'>
+                            <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                        </li>
+                        :
                         <li>
+                            <Button onClick={handleShowAuthModal}>Login</Button>
+                        </li>
+
+                    }
+                </ul>
+            </NavDesktop>
+
+            {/* Navbar para Mobile */}
+            <NavMobile isOpen={isOpen} currentPage={router.pathname}>
+                <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
+
+                    <ul>
+                        {user ?
+                            <li onClick={() => setIsOpen(false)}>
+                                <div className='user-info' href="/user">
+                                
+                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                                    <div>
+                                        <p className='welcome-user'>Olá{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</p>
+                                        <a href="/user">Ver perfil</a>
+                                    </div>
+                                
+                                </div>
+                            </li>
+                            :
+                            <li className='login-button' onClick={() => setIsOpen(false)}>
+                                <Button onClick={handleShowAuthModal}>Login</Button>
+                            </li>
+                        }
+
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/"><a>Home</a></Link>
                             <div></div>
                         </li>
 
-                        <li>
-                            <Link href="/schedule" ><a>Programação</a></Link>
+                        <li onClick={() => setIsOpen(false)}>
+                            <Link href="/schedule"><a>Programação</a></Link>
                             <div></div>
                         </li>
 
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/about"><a>Evento</a></Link>
                             <div></div>
                         </li>
 
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/partnerships"><a>Parcerias</a></Link>
                             <div></div>
                         </li>
 
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
                             <div></div>
                         </li>
 
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/hackssi"><a>HackSSI</a></Link>
                             <div></div>
                         </li>
 
-                        <li>
-                            {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                        <li /* onClick={() => setIsOpen(false)} */>
+                            {/* <Link href="https://ctfssi.intheshell.page/"> */}<a style={{"color": "gray"}} target="blank">CTF</a>{/* </Link> */}
                             {/* <div></div> */}
                         </li>
 
-                        {user ?
-                            <li className='userPicContainer'>
-                                <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
-                            </li>
-                            :
-                            <li>
-                                <Button onClick={handleShowAuthModal}>Login</Button>
-                            </li>
-
-                        }
                     </ul>
-                </NavDesktop >
 
-                <NavMobile isOpen={isOpen} currentPage={router.pathname}>
-                    <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-
-
-                        <ul>
-                            {user ?
-                                <li onClick={() => setIsOpen(false)}>
-                                    <div className='user-info' href="/user">
-                                    
-                                        <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
-                                        <div>
-                                            <p className='welcome-user'>Olá{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</p>
-                                            <a href="/user">Ver perfil</a>
-                                        </div>
-                                    
-                                    </div>
-                                </li>
-                                :
-                                <li className='login-button' onClick={() => setIsOpen(false)}>
-                                    <Button onClick={handleShowAuthModal}>Login</Button>
-                                </li>
-                            }
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/"><a>Home</a></Link>
-                                <div></div>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/schedule"><a>Programação</a></Link>
-                                <div></div>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/about"><a>Evento</a></Link>
-                                <div></div>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/partnerships"><a>Parcerias</a></Link>
-                                <div></div>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/co"><a>Comissão Organizadora</a></Link>
-                                <div></div>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/hackssi"><a>HackSSI</a></Link>
-                                <div></div>
-                            </li>
-
-                            <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="https://ctfssi.intheshell.page/"> */}<a style={{"color": "gray"}} target="blank">CTF</a>{/* </Link> */}
-                                {/* <div></div> */}
-                            </li>
-
-                        </ul>
-
-                        <div className='close-btn'>
-                            <div className='fechar' onClick={() => setIsOpen(!isOpen)}>
-                                <div className='close hamburguer-menu' type="button">
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <p className='text-small'>Fechar</p>
+                    <div className='close-btn'>
+                        <div className='fechar' onClick={() => setIsOpen(!isOpen)}>
+                            <div className='close hamburguer-menu' type="button">
+                                <span></span>
+                                <span></span>
                             </div>
+                            <p className='text-small'>Fechar</p>
                         </div>
                     </div>
+                </div>
 
-                    <button className='hamburguer-menu' type="button" onClick={() => setIsOpen(!isOpen)}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </NavMobile >
-            </NavWrapper >
-        </>
+                <button className='hamburguer-menu' type="button" onClick={() => setIsOpen(!isOpen)}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </NavMobile>
+
+        </NavWrapper>
     )
 }
 
@@ -327,7 +329,7 @@ const NavMobile = styled.nav`
                 margin-bottom: 1.5rem;
                 position: relative;
 
-                div:not()(first-child) {
+                div:not(first-child) {
                     position: absolute;
                     margin-top: 2px;
                     width: 0%;
