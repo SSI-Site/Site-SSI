@@ -27,7 +27,7 @@ const HackSSI = () => {
             
             <ExampleSection>
                 <h1>HackSSI</h1>
-                <p>
+                <p className='random-phrase'>
                     <b>Frase aleatória:</b> '{example}'
                 </p>
                 <Working />
@@ -47,7 +47,7 @@ const ExampleSection = styled.section`
     flex-direction: column;
     padding-top: 100px;
 
-    p {
+    .random-phrase {
         margin-block: 3rem 0;
     }
 `
