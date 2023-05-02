@@ -329,16 +329,6 @@ const NavMobile = styled.nav`
                 margin-bottom: 1.5rem;
                 position: relative;
 
-                div:not(first-child) {
-                    position: absolute;
-                    margin-top: 2px;
-                    width: 0%;
-                    margin-left: 50%;
-                    height: 4px;
-                    background-color: var(--color-neutral-50);
-                    transition: all .2s;
-                }
-
                 .user-info {
                     width: fit-content;
                     max-width: 100%;
@@ -369,6 +359,10 @@ const NavMobile = styled.nav`
                             text-decoration: underline;
                         }
                     }
+
+                    ${props => props.currentPage == '/user' && css`
+                        pointer-events: none;
+                    `}
                 }
 
                 a {
@@ -392,10 +386,6 @@ const NavMobile = styled.nav`
                     ${props => props.currentPage == '/user' && css`
                         border: 4px solid var(--color-primary-500);
                     `}
-
-                    &:hover, &:active {
-                        border: 4px solid white;
-                    }
                 }
 
                 a:active {
