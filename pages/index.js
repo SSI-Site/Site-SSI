@@ -126,9 +126,9 @@ const Home = () => {
 
                             <div className='content-token'>
 
-                                {user &&
-                                    <TokenModal/>
-                                }
+                                {/* {user &&
+                                } */}
+                                <TokenModal/>
 
                                 {/* <div className="complete-register-btns">
                                     {user && !isUserRegistered &&
