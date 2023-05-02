@@ -128,7 +128,7 @@ const Nav = () => {
                                         <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                                         <div>
                                             <p className='welcome-user'>Olá{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</p>
-                                            <a href="/user">Ver Perfil</a>
+                                            <a href="/user">Ver perfil</a>
                                         </div>
                                     
                                     </div>
@@ -354,8 +354,8 @@ const NavMobile = styled.nav`
 
                     p {
                         font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
-                        color: var(--color-neutral-50);
-
+                        color: #fff;
+                        margin-bottom: 2px;
                     }
 
                     a {
@@ -388,8 +388,12 @@ const NavMobile = styled.nav`
                     margin-right: 1rem;
 
                     ${props => props.currentPage == '/user' && css`
-                        border: 2px solid white;
+                        border: 4px solid var(--color-primary-500);
                     `}
+
+                    &:hover, &:active {
+                        border: 4px solid white;
+                    }
                 }
 
                 a:active {

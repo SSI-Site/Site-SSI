@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import useAuth from '../../hooks/useAuth';
@@ -17,6 +17,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
     const [token, setToken] = useState('')
     const [isLoading, setIsLoading] = useState(false);
 
+    // Estados: escrevendo, inválido e registrado
     const [isWritting, setIsWritting] = useState(true);
     const [isInvalid, setIsInvalid] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
@@ -61,7 +62,39 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
     const getClassInvalidToken = () => isInvalid ? 'invalid-token' : '';
 
-    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    // Para obter a largura da tela
+    const useWindowDimensions = () => {
+        const hasWindow = typeof window !== "undefined"
+
+        function getWindowDimensions() {
+            const width = hasWindow ? window.innerWidth : null
+            const height = hasWindow ? window.innerHeight : null
+            return {
+                width,
+                height,
+            }
+        }
+
+        const [windowDimensions, setWindowDimensions] = useState(
+            getWindowDimensions()
+        );
+
+        useEffect(() => {
+            if (hasWindow) {
+                function handleResize() {
+                    setWindowDimensions(getWindowDimensions());
+                }
+
+                window.addEventListener("resize", handleResize);
+                return () => window.removeEventListener("resize", handleResize);
+            }
+        }, [hasWindow]);
+
+        return windowDimensions;
+    }
+
+    const { height, width } = useWindowDimensions();
+    const breakpoint = 560;
 
     return (
         <ModalTokenWrapper>
@@ -76,17 +109,18 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                         placeholder='Digite o token...'
                     />
                     {isInvalid && 
-                        <Button type="submit" className='invalid-token'>{width > 560 ? 'Token inválido...' : 'Inválido...'}</Button>
+                        <Button type="submit" className='invalid-token'>{width > breakpoint ? 'Token inválido...' : 'Inválido...'}</Button>
                     }
                     {isRegistered &&
-                        <Button className='token-registered'>{width > 560 ? 'Presença registrada!' : 'Registrada!'}</Button>
+                        <Button className='token-registered'>{width > breakpoint ? 'Presença registrada!' : 'Registrada!'}</Button>
                     }
                     {isWritting && token.length == TOKEN_LENGTH &&
-                        <Button type="submit">{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
+                        <Button type="submit">{width > breakpoint ? 'Registrar presença' : 'Registrar'}</Button>
                     }
                     {isWritting && token.length != TOKEN_LENGTH &&
                         <div className={getClassActiveBtn()}>
-                            <Button disabled>{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
+                            {/* <Button disabled>Registrar</Button> */}
+                            <Button disabled>{width > breakpoint ? 'Registrar presença' : 'Registrar'}</Button>
                         </div>
                     }
 
@@ -166,6 +200,6 @@ const ModalTokenWrapper = styled.div`
     }
 
     @media (min-width:560px) {
-        width: 32.5rem;
+        width: 33.5rem;
     }
 `
