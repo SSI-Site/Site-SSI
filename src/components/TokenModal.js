@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import useAuth from '../../hooks/useAuth';
@@ -17,6 +17,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
     const [token, setToken] = useState('')
     const [isLoading, setIsLoading] = useState(false);
 
+    // Estados: escrevendo, inválido e registrado
     const [isWritting, setIsWritting] = useState(true);
     const [isInvalid, setIsInvalid] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
@@ -61,42 +62,62 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
     const getClassInvalidToken = () => isInvalid ? 'invalid-token' : '';
 
-    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-
     return (
-        <ModalTokenWrapper>
-
+        <>
             {!isLoading ?
-                <form onSubmit={handleSendToken}>
-                    <input
-                        type="text"
-                        className={getClassInvalidToken()}
-                        onChange={handleChangeToken}
-                        value={token}
-                        placeholder='Digite o token...'
-                    />
-                    {isInvalid && 
-                        <Button type="submit" className='invalid-token'>{width > 560 ? 'Token inválido...' : 'Inválido...'}</Button>
-                    }
-                    {isRegistered &&
-                        <Button className='token-registered'>{width > 560 ? 'Presença registrada!' : 'Registrada!'}</Button>
-                    }
-                    {isWritting && token.length == TOKEN_LENGTH &&
-                        <Button type="submit">{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
-                    }
-                    {isWritting && token.length != TOKEN_LENGTH &&
-                        <div className={getClassActiveBtn()}>
-                            <Button disabled>{width > 560 ? 'Registrar presença' : 'Registrar'}</Button>
+                <ModalTokenWrapper>
+                    <form onSubmit={handleSendToken}>
+                        <input
+                            type="text"
+                            className={getClassInvalidToken()}
+                            onChange={handleChangeToken}
+                            value={token}
+                            placeholder='Digite o token...'
+                        />
+                        
+                        {/* Botões para Mobile */}
+                        <div className='btns-mobile'>
+                            {isInvalid && 
+                                <Button type="submit" className='invalid-token'>Inválido...</Button>
+                            }
+                            {isRegistered &&
+                                <Button className='token-registered'>Registrada!</Button>
+                            }
+                            {isWritting && token.length == TOKEN_LENGTH &&
+                                <Button type="submit">Registrar</Button>
+                            }
+                            {isWritting && token.length != TOKEN_LENGTH &&
+                                <div className={getClassActiveBtn()}>
+                                    <Button disabled>Registrar</Button>
+                                </div>
+                            }
                         </div>
-                    }
-
-                </form>
+                        
+                        {/* Botões para Desktop */}
+                        <div className='btns-desktop'>
+                            {isInvalid && 
+                                <Button type="submit" className='invalid-token'>Token inválido...</Button>
+                            }
+                            {isRegistered &&
+                                <Button className='token-registered'>Presença registrada!</Button>
+                            }
+                            {isWritting && token.length == TOKEN_LENGTH &&
+                                <Button type="submit">Registrar presença</Button>
+                            }
+                            {isWritting && token.length != TOKEN_LENGTH &&
+                                <div className={getClassActiveBtn()}>
+                                    <Button disabled>Registrar presença</Button>
+                                </div>
+                            }
+                        </div>
+                    </form>
+                </ModalTokenWrapper >
                 :
                 <Loading>
                     <img src='./loading.svg' alt='SSI 2023 - Loading' />
                 </Loading>
             }
-        </ModalTokenWrapper >
+        </>
     )
 }
 
@@ -121,6 +142,10 @@ const ModalTokenWrapper = styled.div`
     padding: 0.5rem;
 
     border: 4px solid var(--color-neutral-800);
+
+    .btns-desktop {
+        display: none;
+    }
 
     &:has(input[type=text]:focus):not(:has(.invalid-token)):not(:has(.token-registered)) {
         border-color: var(--color-primary);
@@ -166,6 +191,14 @@ const ModalTokenWrapper = styled.div`
     }
 
     @media (min-width:560px) {
-        width: 32.5rem;
+        width: 33.5rem;
+
+        .btns-desktop {
+            display: block;
+        }
+
+        .btns-mobile {
+            display: none;
+        }
     }
 `
