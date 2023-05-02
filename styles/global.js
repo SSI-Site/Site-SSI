@@ -147,7 +147,7 @@ export default createGlobalStyle`
 
     ::placeholder { /* Recent browsers */
         text-transform: none;
-        font: 700 1rem/1.25rem 'Space_Mono';
+        font: 400 1rem/1.25rem 'Space_Mono';
         color: var(--color-neutral-400);
     }
 
@@ -161,7 +161,7 @@ export default createGlobalStyle`
             font: 700 1.125rem/1.75rem 'Space_Mono';
             
             ::placeholder {
-                font: 700 1.125rem/1.75rem 'Space_Mono';
+                font: 400 1.125rem/1.75rem 'Space_Mono';
             }
         }
 
