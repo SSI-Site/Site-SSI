@@ -66,17 +66,17 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
         <>
             {!isLoading ?
                 <ModalTokenWrapper>
-                    <form onSubmit={handleSendToken}>
-                        <input
-                            type="text"
-                            className={getClassInvalidToken()}
-                            onChange={handleChangeToken}
-                            value={token}
-                            placeholder='Digite o token...'
-                        />
-                        
-                        {/* Botões para Mobile */}
-                        <div className='btns-mobile'>
+                    {/* Botões para Mobile */}
+                    <div className='btns-mobile'>
+                        <form onSubmit={handleSendToken}>
+                            <input
+                                type="text"
+                                className={getClassInvalidToken()}
+                                onChange={handleChangeToken}
+                                value={token}
+                                placeholder='Token...'
+                            />
+                            
                             {isInvalid && 
                                 <Button type="submit" className='invalid-token'>Inválido...</Button>
                             }
@@ -91,10 +91,20 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                                     <Button disabled>Registrar</Button>
                                 </div>
                             }
-                        </div>
-                        
-                        {/* Botões para Desktop */}
-                        <div className='btns-desktop'>
+                        </form>
+                    </div>
+
+                    {/* Botões para Desktop */}
+                    <div className='btns-desktop'>
+                        <form onSubmit={handleSendToken}>
+                            <input
+                                type="text"
+                                className={getClassInvalidToken()}
+                                onChange={handleChangeToken}
+                                value={token}
+                                placeholder='Digite o token...'
+                            />
+                    
                             {isInvalid && 
                                 <Button type="submit" className='invalid-token'>Token inválido...</Button>
                             }
@@ -109,8 +119,8 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                                     <Button disabled>Registrar presença</Button>
                                 </div>
                             }
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </ModalTokenWrapper >
                 :
                 <Loading>
@@ -136,7 +146,7 @@ const Loading = styled.figure`
 const ModalTokenWrapper = styled.div`
     --color-invalid: #F24822;
     --color-valid: #14AE5C;
-    width: 24.85rem;
+    width: 100%;
     background-color: var(--color-neutral-50);
     border-radius: 16px;
     padding: 0.5rem;
@@ -168,7 +178,7 @@ const ModalTokenWrapper = styled.div`
 
     input[type=text] {
         margin-left: 1rem;
-        width: auto;
+        width: 9rem;
     }
 
     button {
@@ -192,6 +202,10 @@ const ModalTokenWrapper = styled.div`
 
     @media (min-width:560px) {
         width: 33.5rem;
+
+        input[type=text] {
+            width: 14rem;
+        }
 
         .btns-desktop {
             display: block;

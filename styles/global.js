@@ -19,7 +19,7 @@ export default createGlobalStyle`
         --color-neutral-600: #545454;
         --color-neutral-500: #6C6C6C;
         --color-neutral-400: #858585;
-        --color-neutral-100: #EDD3FF;
+        --color-neutral-100: #D7D7D7;
         --color-neutral-50: #F3F3F3;
 
         /* 16 pixels (100% = 16 pixels) */

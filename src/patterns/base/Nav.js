@@ -11,6 +11,7 @@ import Button from '../../components/Button';
 
 // assets
 import LogoPrincipal from '../../../public/images/logos/logo_principal.svg';
+import CloseBtn from '../../../public/images/icons/close.svg';
 
 const pages = {
     "/": 1,
@@ -178,14 +179,11 @@ const Nav = () => {
 
                     </ul>
 
-                    <div className='close-btn'>
-                        <div className='fechar' onClick={() => setIsOpen(!isOpen)}>
-                            <div className='close hamburguer-menu' type="button">
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <p className='text-small'>Fechar</p>
+                    <div className='close-btn' onClick={() => setIsOpen(!isOpen)}>
+                        <div className='close'>
+                            <img src={CloseBtn} alt='Botão de fechar'></img>
                         </div>
+                        <p className='text-small'>Fechar</p>
                     </div>
                 </div>
 
@@ -280,34 +278,15 @@ const NavMobile = styled.nav`
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            width: 5rem;
             cursor: pointer;
-
-            .fechar {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                width: 5rem;
-
-                .hamburguer-menu {
-                    width: 1.5rem;
+            
+            .close {
+                img {
+                    width: 17.58px;
+                    margin-top: 0.3rem;
                 }
-
-                .close {
-                    
-                    span {
-                        margin: 0;
-
-                    }
-                    span:nth-child(1) {
-                        transform: rotate(45deg) translateY(7.5px) translateX(6px);
-                    }
-                    span:nth-child(2) {
-                        transform: rotate(-45deg) translateY(-7.5px) translateX(6px);
-                    }
-                }
-                    
             }
         }
 

@@ -36,20 +36,24 @@ const TwitchWatchNow = () => {
 		<>
 			<TwitchWatchNowWrapper>
 				<a target="blank" href="https://www.twitch.tv/each_ssi">
-					<img src={TwitchLogo} alt="Twitch Logo" />
 					{isLiveStreaming ? (
-						<div>
-							<h4 className="streaming">Assista Agora</h4>
-							{streamData.title ?
-								<p>{streamData.title}</p>
-								:
-								<p>Clique aqui para acompanhar!</p>
-							}
+						<div className="online-wrap">
+							<div className="online">
+								<img src={TwitchLogo} alt="Twitch Logo" />
+								<div className='text'>
+									<h6 className="streaming">Online</h6>
+									<p>Assistir transmissão</p>
+								</div>
+							</div>
+							<div className='rightarrow'><div></div></div>
 						</div>
 					) : (
-						<div>
-							<h4>Offline</h4>
-							<p>Indicaremos aqui quando estivermos online na Twitch.</p>
+						<div className="offline">
+							<img src={TwitchLogo} alt="Twitch Logo" />
+							<div className='text'>
+								<h6>Offline</h6>
+								<p>Ainda não começamos...</p>
+							</div>
 						</div>
 					)}
 				</a>
@@ -65,29 +69,70 @@ const TwitchWatchNowWrapper = styled.div`
 	display: flex;
     flex-direction: row;
 	align-items: center;
-	margin: 16px 0 ;
+	width: 21rem;
+	height: 6.25rem;
 
 	a {
 		display: flex;
+		width: 100%;
+		height: 100%;
 	}
 
 	img {
-		width: 3em;
-		margin-right: 42px;
-		margin-bottom: 5px;
+		width: 1.8rem;
+		margin-right: 2rem;
 	}
 
-	div {
+	.online-wrap {
+		align-items: center;
+		justify-content: space-between;
+		border: 4px solid var(--color-primary);
+	}
+
+	.online-wrap, .offline {
+		width: 100%;
+		height: 100%;
+		display: flex;
+    	flex-direction: row;
+		align-items: center;
+		padding: 1.5rem;
+		background-color: var(--color-neutral-900);
+		border-radius: 12px;
+		
+		&:hover {
+			background-color: var(--color-neutral-800);
+		}
+
+		&:active {
+			background-color: var(--color-neutral-700);
+		}
+	}
+
+	.text {
+		width: auto;
+		height: 100%;
 		display: flex;
     	flex-direction: column;
 		align-items: flex-start;
-		width: 50vw;
-		max-width: 550px;
+		justify-content: space-between;
 	}
 
-	h4 {
-		letter-spacing: 0.05em;
-		color: white;
+	.offline {
+		border: 4px solid transparent;
+	}
+
+	.online {
+		width: 100%;
+		height: 100%;
+		display: flex;
+    	flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	h6 {
+		letter-spacing: 0.03rem;
+		color: var(--color-neutral-100);
+		margin-left: 32px;
 		position: relative;
     }
 
@@ -97,19 +142,19 @@ const TwitchWatchNowWrapper = styled.div`
 		}
 	}
 
-	h4::before {
+	h6::before {
 		content: '';
 		position: absolute;
-		left: -28px;
+		left: -32px;
 		top: calc(50% - 8px);
 		width: 16px;
 		height: 16px;
-		background-color: #808080;
+		background-color: var(--color-neutral-800);
 		border-radius: 50%;
 	}
 
 	.streaming::before {
-		background-color: #FF4D4D;
+		background-color: #14AE5C;
 		animation: dot-blink 0.9s alternate-reverse infinite;
 	}
 
@@ -120,34 +165,61 @@ const TwitchWatchNowWrapper = styled.div`
 		display: -webkit-box;
 		-webkit-line-clamp: 3; /* number of lines to show */
         line-clamp: 3;
-   		-webkit-box-orient: vertical;
+		-webkit-box-orient: vertical;
+		width: 100%;
+		font: 400 1rem/1.25rem 'Space_Mono_Bold';
 	}
 
-	p, h4:not(::before) {
-		transition: all .2s;
-	}
+	.rightarrow {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: 12px;
+		width: 12px;
 
-	:hover {
-
-		p, h4 {
-			color: var(--color-tertiary);
-			filter: brightness(120%);
+		> div{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			border-top: 2px solid var(--color-neutral-100);
+			border-right: 2px solid var(--color-neutral-100);
+			transform: rotateY(0deg) rotate(45deg);
+			transition: 0.3s ease-in-out;
 		}
+	}
 
-		h4::before {
-			filter: brightness(83.4%);
+	:hover, :active {
+
+		.rightarrow > div{
+			left: 6px;
 		}
 	}
 
-    @media (min-width:801px) {
+    @media (min-width:560px) {
+		width: 31rem;
+		height: 7rem;
 
 		img {
-			width: 80px ;
+			width: 4rem;
+		}
+
+		.text {
+			width: 100%;
+		}
+
+		h6 {
+			font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
 		}
 
 		p {
-			-webkit-line-clamp: 2; /* number of lines to show */
+			width: 100%;
+			-webkit-line-clamp: 2; // number of lines to show
 			line-clamp: 2;
+        	font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
 		}
 
 		h4::before {
