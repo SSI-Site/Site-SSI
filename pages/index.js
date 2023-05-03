@@ -150,9 +150,6 @@ const Home = () => {
                                     <TokenModal/>
                                 }
 
-                                {/* Só de exemplo → pode apagar o TokenModal abaixo */}
-                                <TokenModal/>
-
                                 {/* <div className="complete-register-btns">
                                     {user && !isUserRegistered &&
                                         <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
@@ -197,52 +194,38 @@ const Home = () => {
             <Divider dividerSize="large" />
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
-            { (now < countdownDate) &&
+            {(now < countdownDate) &&
                 <CountdownSection>
                     <div className='countdown-text'>
                         <h3>Contagem regressiva</h3>
                         <p>Faltam poucos dias para participar dessa <span>experiência única!</span></p>
                     </div>
                     
-                    { (now <= countdownDate - 24 * 60 * 60 * 1000) ?
-                        <div className='countdown-clock'>
+                    <div className='countdown-clock'>
+                        {(now < countdownDate - 24 * 60 * 60 * 1000) &&
                             <div className='clock-container'>
                                 <h3>{countdownDays}</h3>
-                                <p>dias</p>
+                                <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
                             </div>
+                        }
+                        {(now < countdownDate - 60 * 60 * 1000) &&
                             <div className='clock-container'>
                                 <h3>{countdownHours}</h3>
-                                <p>horas</p>
+                                <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
                             </div>
+                        }
+                        {(now < countdownDate - 60 * 1000) &&
                             <div className='clock-container'>
                                 <h3>{countdownMinutes}</h3>
-                                <p>minutos</p>
+                                <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
                             </div>
-                            <div className='clock-container'>
-                                <h3>{countdownSeconds}</h3>
-                                <p>segundos</p>
-                            </div>
+                        }
+                        <div className='clock-container'>
+                            <h3>{countdownSeconds}</h3>
+                            <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
                         </div>
-                        : 
-                        // Faltando 1 dia, mostra os segundos restantes
-                        <div className='countdown-clock'>
-                            <div className='clock-container'>
-                                <h3>{countdownHours}</h3>
-                                <p>horas</p>
-                            </div>
-                            <div className='clock-container'>
-                                <h3>{countdownMinutes}</h3>
-                                <p>minutos</p>
-                            </div>
-                            <div className='clock-container'>
-                                <h3>{countdownSeconds}</h3>
-                                <p>segundos</p>
-                            </div>
-                        </div>
-                    }
-                    {user ?
-                        <></>
-                        :
+                    </div>
+                    {!user &&
                         <div className='countdown-btn'>
                             <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button></Link>
                         </div>
@@ -608,6 +591,11 @@ const CountdownSection = styled.section`
             align-items: center;
             justify-content: center;
             border-radius: 8px;
+            gap: 0.5rem;
+
+            :nth-child(4) {
+                display: none;
+            }
 
             h3 {
                 color: #FFF;
@@ -624,16 +612,26 @@ const CountdownSection = styled.section`
         width: 100%;
         max-width: 24.5rem;
     }
-
     
-    @media (min-width:700px) {
+    @media (min-width:560px) {
+        
+        .countdown-clock {
+            .clock-container {
+                :nth-child(4) {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    @media (min-width:1100px) {
         padding: 6.75rem;
 
         .countdown-text {
             h3 {
                 font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
             }
-            
+        
             p {
                 font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
             }
@@ -641,10 +639,14 @@ const CountdownSection = styled.section`
         
         .countdown-clock {
             gap: 2.875rem;
-
+            
             .clock-container {
                 width: 11.25rem;
                 height: 9.25rem;
+                
+                :nth-child(4) {
+                    display: flex;
+                }
             }
         }
     }  
