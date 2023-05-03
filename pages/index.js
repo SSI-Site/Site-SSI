@@ -82,6 +82,7 @@ const Home = () => {
     var now = new Date().getTime();
 
     useEffect(() => {
+        setInterval(() => {
             // Horário e data de hoje
             now = new Date().getTime();
             if (now > countdownDate) { return };
@@ -94,6 +95,7 @@ const Home = () => {
             setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
             setCountdownMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
             setCountdownSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+        }, 1000);
     }, []);
 
     const current = new Date();
@@ -215,6 +217,10 @@ const Home = () => {
                             <div className='clock-container'>
                                 <h3>{countdownMinutes}</h3>
                                 <p>minutos</p>
+                            </div>
+                            <div className='clock-container'>
+                                <h3>{countdownSeconds}</h3>
+                                <p>segundos</p>
                             </div>
                         </div>
                         : 
