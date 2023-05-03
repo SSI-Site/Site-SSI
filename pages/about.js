@@ -7,6 +7,7 @@ import saphira from '../services/saphira';
 
 // components
 import EventActivity from '../src/components/EventActivity';
+import ScrollArrow from '../src/components/ScrollArrow';
 
 // assets
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
@@ -18,17 +19,18 @@ const About = () => {
             <Meta title='SSI 2023 | Sobre' />
 
             <LogoTextSection>
-                <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
-                <div className='content'>
-                    <div className='content-title'>
-                        <h1>O que é SSI?</h1>
+                <div className='logo-text'>
+                    <div className='logo'>
+                        <img src={LogoPrincipal} alt="Logo SSI 2023" />
+                        <h3>Semana de Sistemas de Informação 2023</h3>
                     </div>
-
-                    <div className='content-text'>
-                        <h4>A Semana de Sistemas de Informação é um evento anual organizado pelas alunas e pelos alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</h4>
-                        <p>Nesta semana são apresentadas diversas palestras, workshops e outras atividades voltadas para o mundo de TI, abordando assuntos sobre tecnologia, mercado de trabalho, empreendedorismo, entre outros.</p>
+                    <div className='text'>
+                        <h3>O que é a SSI?</h3>
+                        <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
+                        <div className='arrow-container'>
+                            <ScrollArrow />
+                        </div>
                     </div>
-
                 </div>
             </LogoTextSection>
 
@@ -185,75 +187,98 @@ const BackgroundWrapper = styled.div`
 `
 
 const LogoTextSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
+    background: url('./images/background_imgs/background1_mobile.svg') no-repeat;
+    background-size: cover;
 
-    .logo {
-        width: 90%;
-        max-width: 320px;
-    }
+    .logo-text {
 
-    .content {
         display: flex;
         flex-direction: column;
-        align-items: left;
-        padding-inline: 1rem;
-        width: 90%;
-        max-width: 550px;
+        justify-content: center;
+        align-items: center;
+        padding-block: 3.5rem;
+        margin-top: 3.75rem; /* match navbar height */
+        gap: 3rem;
     }
 
-    h1 {
-        text-align: center;
-        margin: 110px 0 70px;
+    .logo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        img {
+            width: 13.3rem;
+        }
+        
+        h3 {
+            text-align: center;
+        }
     }
 
-    h4 {
-        text-align: left;
-        margin-bottom: 40px;
+    .text {
+        position: relative;    
+    
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-family: 'Space_Mono_Bold';
+            font-weight: 400;
+        }
+
+        .arrow-container {
+            position: absolute;
+            bottom: -7rem;
+            right: 3rem;
+        }
     }
 
-    p {
-        text-align: left;
-    }
-
-    @media (min-width:800px) {
+    @media (min-width:560px) {
 
         .logo {
-            max-width: 400px;
+            max-width: 33rem;
         }
-
-        .content {
-            max-width: 700px;
-        }
-
-        h1 {
-            line-height: unset;
+        .text {
+            max-width: 37.5rem;
         }
     }
 
-    @media (min-width:1281px) {
-        flex-direction: row;
-        justify-content: space-around;
+    @media (min-width:1000px) {
+        background-image: url('./images/background_imgs/background1_desktop.svg');
 
-        .logo {
-            max-width: 464px;
-        }
-
-        .content {
-            max-width: 747px;
-        }
-
-        h1 {
+        .logo-text {
             margin-top: 0;
-            text-align: left;
+            padding-block: 7.5rem 6.5rem;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 8rem;
         }
 
-        h4 {
-            margin-bottom: 60px;
+
+        .logo {
+            max-width: 31rem;
+
+            h3 {
+                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            }
+
+            img {
+                width: 21.42rem;
+            }
         }
+
+        .arrow-container {
+            width: 100%;
+            top: 150%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
     }
 `
 

@@ -208,7 +208,7 @@ const NavWrapper = styled.div`
     padding-inline: 1rem;
     position: fixed;
     width: 100%;
-    height: 3.5rem;
+    height: 3.75rem;
     z-index: 10;
     background-color: var(--color-neutral-900);
     box-shadow: 0px 5px 24px 14px rgba(16,3,26,0.38);
