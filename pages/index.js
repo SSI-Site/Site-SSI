@@ -42,10 +42,6 @@ const Home = () => {
     const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    const toggleModalTokenIsOpen = () => {
-        setIsModalTokenOpen(!isModalTokenOpen);
-    }
-
     const handleShowAuthModal = () => {
         if (window.pageYOffset != 0) {
             setTimeout(() => { handleShowAuthModal() }, 50);
@@ -76,6 +72,30 @@ const Home = () => {
 
     useEffect(() => {
         checkUserRegister();
+    }, []);
+
+    const [countdownDays, setCountdownDays] = useState();
+    const [countdownHours, setCountdownHours] = useState();
+    const [countdownMinutes, setCountdownMinutes] = useState();
+    const [countdownSeconds, setCountdownSeconds] = useState();
+    var countdownDate = new Date("Aug 21, 2023 00:00:00").getTime();
+    var now = new Date().getTime();
+
+    useEffect(() => {
+        setInterval(() => {
+            // Horário e data de hoje
+            now = new Date().getTime();
+            if (now > countdownDate) { return };
+            
+            // Distância entre a data do evento e hoje
+            var distance = countdownDate - now;
+        
+            // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
+            setCountdownDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
+            setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            setCountdownMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+            setCountdownSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+        }, 1000);
     }, []);
 
     const current = new Date();
@@ -130,9 +150,6 @@ const Home = () => {
                                     <TokenModal/>
                                 }
 
-                                {/* Só de exemplo → pode apagar o TokenModal abaixo */}
-                                <TokenModal/>
-
                                 {/* <div className="complete-register-btns">
                                     {user && !isUserRegistered &&
                                         <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
@@ -175,6 +192,46 @@ const Home = () => {
             </EventInfoSection>
 
             <Divider dividerSize="large" />
+
+            {/* Seção de contagem regressiva - só aparece antes do evento */}
+            {(now < countdownDate) &&
+                <CountdownSection>
+                    <div className='countdown-text'>
+                        <h3>Contagem regressiva</h3>
+                        <p>Faltam poucos dias para participar dessa <span>experiência única!</span></p>
+                    </div>
+                    
+                    <div className='countdown-clock'>
+                        {(now < countdownDate - 24 * 60 * 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h3>{countdownDays}</h3>
+                                <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
+                            </div>
+                        }
+                        {(now < countdownDate - 60 * 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h3>{countdownHours}</h3>
+                                <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
+                            </div>
+                        }
+                        {(now < countdownDate - 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h3>{countdownMinutes}</h3>
+                                <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
+                            </div>
+                        }
+                        <div className='clock-container'>
+                            <h3>{countdownSeconds}</h3>
+                            <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
+                        </div>
+                    </div>
+                    {!user &&
+                        <div className='countdown-btn'>
+                            <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button></Link>
+                        </div>
+                    }
+                </CountdownSection>
+            }
 
             <ScheduleSection>
                 <h2 className="section-title">Programação</h2>
@@ -487,6 +544,112 @@ const EventInfoSection = styled.section`
             }
         }
     }
+`
+
+const CountdownSection = styled.section`
+    padding-block: 3.5rem;
+    background-color: var(--color-neutral-900);
+    gap: 3.5rem;
+
+    .countdown-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            text-align: center;
+            
+            span {
+                font: inherit;
+                color: var(--color-primary-700);
+            }
+        }
+    }
+
+    .countdown-clock {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        .clock-container {
+            padding: 0.75rem;
+            background-color: var(--color-neutral-800);
+            width: 7.25rem;
+            height: 6.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            gap: 0.5rem;
+
+            :nth-child(4) {
+                display: none;
+            }
+
+            h3 {
+                color: #FFF;
+            }
+
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                color: #FFF;
+            }
+        }
+    }
+
+    .countdown-btn {
+        width: 100%;
+        max-width: 24.5rem;
+    }
+    
+    @media (min-width:560px) {
+        
+        .countdown-clock {
+            .clock-container {
+                :nth-child(4) {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    @media (min-width:1100px) {
+        padding: 6.75rem;
+
+        .countdown-text {
+            h3 {
+                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            }
+        
+            p {
+                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+            }
+        }
+        
+        .countdown-clock {
+            gap: 2.875rem;
+            
+            .clock-container {
+                width: 11.25rem;
+                height: 9.25rem;
+                
+                :nth-child(4) {
+                    display: flex;
+                }
+            }
+        }
+    }  
 `
 
 const ScheduleSection = styled.div`
