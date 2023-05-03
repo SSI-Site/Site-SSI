@@ -12,6 +12,7 @@ export default createGlobalStyle`
         /* variações da paleta */
         --color-primary-900: #4C286C;
         --color-primary-800: #63358D;
+        --color-primary-700: #7B44AB;
         --color-primary-500: #A86BDA;
         --color-neutral-900: #121212;
         --color-neutral-800: #272727;
