@@ -87,6 +87,14 @@ const TwitchWatchNowWrapper = styled.div`
 		align-items: center;
 		justify-content: space-between;
 		border: 4px solid var(--color-primary);
+
+		&:hover {
+			background-color: var(--color-neutral-800);
+		}
+
+		&:active {
+			background-color: var(--color-neutral-700);
+		}
 	}
 
 	.online-wrap, .offline {
@@ -99,13 +107,6 @@ const TwitchWatchNowWrapper = styled.div`
 		background-color: var(--color-neutral-900);
 		border-radius: 12px;
 		
-		&:hover {
-			background-color: var(--color-neutral-800);
-		}
-
-		&:active {
-			background-color: var(--color-neutral-700);
-		}
 	}
 
 	.text {
@@ -118,7 +119,15 @@ const TwitchWatchNowWrapper = styled.div`
 	}
 
 	.offline {
+		background-color: var(--color-neutral-800);
 		border: 4px solid transparent;
+		&:hover {
+			background-color: var(--color-neutral-700);
+		}
+
+		&:active {
+			background-color: var(--color-neutral-600);
+		}
 	}
 
 	.online {
@@ -149,7 +158,7 @@ const TwitchWatchNowWrapper = styled.div`
 		top: calc(50% - 8px);
 		width: 16px;
 		height: 16px;
-		background-color: var(--color-neutral-600);
+		background-color: var(--color-neutral-400);
 		border-radius: 50%;
 	}
 
@@ -220,10 +229,6 @@ const TwitchWatchNowWrapper = styled.div`
 			-webkit-line-clamp: 2; // number of lines to show
 			line-clamp: 2;
         	font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
-		}
-
-		h4::before {
-			top: calc(50% - 10px);
 		}
 	}
 `
