@@ -116,7 +116,7 @@ const About = () => {
 
                     <CountUp
                         start={0}
-                        end={2}
+                        end={2} 
                         delay={0}
                         decimals={1}
                         suffix="k"
