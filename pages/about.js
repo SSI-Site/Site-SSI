@@ -191,7 +191,6 @@ const LogoTextSection = styled.section`
     background-size: cover;
 
     .logo-text {
-
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -242,6 +241,7 @@ const LogoTextSection = styled.section`
         .logo {
             max-width: 33rem;
         }
+        
         .text {
             max-width: 37.5rem;
         }
@@ -258,10 +258,8 @@ const LogoTextSection = styled.section`
             gap: 8rem;
         }
 
-
         .logo {
             max-width: 31rem;
-
             h3 {
                 font: 400 2rem/2.5rem 'Space_Mono_Bold';
             }
@@ -277,8 +275,7 @@ const LogoTextSection = styled.section`
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
+        } 
     }
 `
 

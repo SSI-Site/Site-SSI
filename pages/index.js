@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
+import CountUp from 'react-countup';
 
 import Meta from '../src/infra/Meta';
 import useAuth from '../hooks/useAuth';
@@ -15,7 +16,6 @@ import ScheduleInformation from '../src/components/ScheduleInformation';
 import TwitchWatchNow from '../src/components/TwitchWatchNow';
 import AuthModal from '../src/components/AuthModal';
 import TokenModal from '../src/components/TokenModal';
-import Divider from '../src/components/Divider';
 
 // assets
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
@@ -159,7 +159,6 @@ const Home = () => {
                                     }
                                 </div> */}
                             </div>
-                            <TwitchWatchNow />
                         </>
                         :
                         <Loading>
@@ -169,29 +168,72 @@ const Home = () => {
                 </div>
             </BannerSection>
 
-            <Divider dividerSize="large" />
+            <TwitchContainer>
+                <TwitchWatchNow />
+            </TwitchContainer>
 
             <EventInfoSection>
-                <h2 className="section-title">ONDE VAI ACONTECER?</h2>
-                <div className='content'>
-                    <div className="details">
-                        <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>.</p>
-                        <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
-                        <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
+                <div className='about-container'>
+                    <div className='about-title'>
+                        <h3>Sobre o evento</h3>
+                        <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso <span>canal na Twitch</span>.</p>
                     </div>
+                    <div className='about-cards'>
 
-                    <div className="logos">
-                        <a target="blank" href="http://www.each.usp.br/">
-                            <img src="/images/logos/EACH-USP.svg" alt="EACH USP" />
-                        </a>
-                        <a target="blank" href="https://www.twitch.tv/each_ssi">
-                            <img src="/images/social_media/TwitchTextLogo.svg" alt="Twitch" />
-                        </a>
+                        <CountUp
+                            start={0}
+                            end={20}
+                            delay={0}
+                            decimals={0}
+                            suffix="+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='card'>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Palestrantes</h5>
+                                </div>
+                            )}
+                        </CountUp>
+
+                        <CountUp
+                            start={0}
+                            end={20}
+                            delay={0}
+                            decimals={0}
+                            suffix="+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='card'>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Palestrantes</h5>
+                                </div>
+                            )}
+                        </CountUp>
+
+                        <CountUp
+                            start={0}
+                            end={20}
+                            delay={0}
+                            decimals={0}
+                            suffix="+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='card'>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Palestrantes</h5>
+                                </div>
+                            )}
+                        </CountUp>
+
+                    </div>
+                    <div className='about-btn'>
+                        <Button onClick={() => router.push('/about')}>Saiba mais</Button>
                     </div>
                 </div>
             </EventInfoSection>
-
-            <Divider dividerSize="large" />
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
             {(now < countdownDate) &&
@@ -274,8 +316,6 @@ const Home = () => {
                 </div>
                 <Button onClick={() => router.push('/schedule')}>Confira</Button>
             </ScheduleSection>
-
-            <Divider dividerSize="large" />
 
             <SupportersSection>
                 <h2 className="section-title">Apoio</h2>
@@ -465,81 +505,94 @@ const BannerSection = styled.section`
     }
 `
 
+const TwitchContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+`
+
 const EventInfoSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-block: 6.625rem 3.5rem;
+    background: url('./images/background_imgs/background2_mobile.svg');
+    background-size: cover;
 
-    .content {
+    .about-container {
         display: flex;
         flex-direction: column;
-        width: clamp(0px, 67%, 600px);
         align-items: center;
-        gap: 10rem;
+        justify-content: center;
+        gap: 2rem;
 
-        .details {
+        .about-title {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
+            max-width: 63.5rem;
 
             p {
-                text-indent: 3rem;
-                text-align: justify;
+                font-family: 'Space_Mono_Bold';
+                font-weight: 400;
 
                 span {
-                    color: #BC73FF;
+                    font: inherit;
+                    color: var(--color-primary-700);
                 }
-            }
-
-            button {
-                width: 15rem;
             }
         }
 
-        .logos {
+        .about-cards {
             display: flex;
             flex-direction: column;
+            flex-flow: wrap;
             align-items: center;
-            flex-grow: 1;
-            width: clamp(0px, 100%, 400px);
-            gap: 2rem;
+            justify-content: center;
+            gap: 1.5rem;
 
-            img {
-                width: 100%;
-            }
-
-            h1 {
-                transition: all .1s;
-            }
-
-            a:nth-child(2):hover {
-
-                h1{
-                    color: var(--color-tertiary);
-                    filter: brightness(120%);
-                }
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                width: 19.5rem;
+                height: 19.5rem;
+                background-color: var(--color-neutral-800);
+                border-radius: 8px;
             }
         }
+
+        .about-btn {
+            width: 100%;
+            max-width: 24.5rem;
+        }   
     }
 
-    @media (min-width:1281px) {
-      padding-bottom: 150px;
+    @media (min-width:1000px) {
+        background: url('./images/background_imgs/background2_desktop.svg');
+        background-size: cover;
+        padding-block: 7rem;
 
-        .content {
-            flex-direction: row;
-            width: clamp(0px, 75%, 1920px);
-            position: relative;
+        .about-container {
+            gap: 3.5rem;
 
-            .details {
+            .about-title {
+                h3 {
+                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                }
 
-                button {
-                    margin-top: 0;
-                    position: absolute;
-                    align-self: flex-start;
-                    transform: translateX(-50%);
-                    left: 50%;
-                    bottom: -150px;
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
                 }
             }
         }

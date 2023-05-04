@@ -93,7 +93,7 @@ export default createGlobalStyle`
     }
 
     h5 {
-        font: 700 1.5rem/1.75rem 'Space_Mono';
+        font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
         color: var(--color-neutral-50);
     }
 
