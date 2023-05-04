@@ -171,25 +171,6 @@ const Home = () => {
 
             <Divider dividerSize="large" />
 
-            <EventInfoSection>
-                <h2 className="section-title">ONDE VAI ACONTECER?</h2>
-                <div className='content'>
-                    <div className="details">
-                        <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>.</p>
-                        <p>Além disso, elas também serão compartilhadas na <span>Twitch</span>. Então, já deixe o nosso canal anotado no seu caderninho! </p>
-                        <Button onClick={() => router.push('/about')}>Saiba Mais</Button>
-                    </div>
-
-                    <div className="logos">
-                        <a target="blank" href="http://www.each.usp.br/">
-                            <img src="/images/logos/EACH-USP.svg" alt="EACH USP" />
-                        </a>
-                        <a target="blank" href="https://www.twitch.tv/each_ssi">
-                            <img src="/images/social_media/TwitchTextLogo.svg" alt="Twitch" />
-                        </a>
-                    </div>
-                </div>
-            </EventInfoSection>
 
             <Divider dividerSize="large" />
 
