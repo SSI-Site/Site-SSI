@@ -214,47 +214,6 @@ const Home = () => {
                 </CountdownSection>
             }
 
-            <ScheduleSection>
-                <h2 className="section-title">Programação</h2>
-                <div className='schedule-content'>
-                    <div className='first-section-schedule'>
-                        
-                        {/* Filtro para atualização diária do texto durante os dias do evento: */}
-                        {(day>=21 && day<=25 && month==7 && year==2023) ? 
-                            (   
-                                <>
-                                    <Link href={`/schedule/${weekDay.slugify()}`}>
-                                        <div className='date'>
-                                            <DateStamp day={day} weekDay={weekDay} size="small" />
-                                        </div>
-                                    </Link>
-                                    <ScheduleInformation
-                                        speakerPicture={speakerPicture}
-                                        title={title}
-                                        overview={description}
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <div className='date'>
-                                        <DateStamp day={day} weekDay={weekDay} size="small" />
-                                    </div>
-                                    <ScheduleInformation
-                                        speakerPicture={speakerPicture}
-                                        title="Palestras imperdíveis para você!"
-                                        overview="Durante o evento, cada dia terá diversas palestras recheadas de informações sobre tecnologia e carreira para você. Fique de olho para não perder!"
-                                    />
-                                </>
-                            )
-                        }
-                    </div>
-
-                    <div className='sechedule-text'>
-                        <p>Confira o conteúdo detalhado das nossas palestras, para poder se organizar e decidir quais você mais quer assistir!</p>
-                    </div>
-                </div>
-                <Button onClick={() => router.push('/schedule')}>Confira</Button>
-            </ScheduleSection>
 
             <Divider dividerSize="large" />
 
