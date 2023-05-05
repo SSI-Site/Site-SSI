@@ -16,6 +16,7 @@ import ScheduleInformation from '../src/components/ScheduleInformation';
 import TwitchWatchNow from '../src/components/TwitchWatchNow';
 import AuthModal from '../src/components/AuthModal';
 import TokenModal from '../src/components/TokenModal';
+import PartnerCard from '../src/components/PartnerCard';
 
 // assets
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
@@ -318,21 +319,36 @@ const Home = () => {
             </ScheduleSection>
 
             <SupportersSection>
-                <h2 className="section-title">Apoio</h2>
-                <ul>
-                    {supporters.map((supporter, index) => (
-                        <li key={index}>
-                            <a
-                                href={supporter.url}
-                                target="_blank"
-                                onClick={() => handleClickSuporter(supporter)}
-                            >
-                                {supporter.title}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-                <div className="background-blur" />
+                <div className='supporters-container'>
+                    <div className='supporters-title'>
+                        <h3>Apoiadores</h3>
+                        <p>Empresas e marcas que estão conosco para tornar este evento um sucesso</p>
+                    </div>
+                    <div className='supporters-cards-mobile'>
+                        <a href="http://www.each.usp.br/petsi/" target="_blank" rel="noreferrer">
+                            <img src='./images/partners/pet.png' alt="pet"></img>
+                        </a>
+                        <a href="http://www5.each.usp.br/" target="_blank" rel="noreferrer">
+                            <img src='./images/partners/each.svg' alt="each"></img>
+                        </a>
+                        <a href="http://www5.each.usp.br/" target="_blank" rel="noreferrer">
+                            <img src='./images/partners/each.svg' alt="each"></img>
+                        </a>
+                        <a href="http://www.each.usp.br/petsi/" target="_blank" rel="noreferrer">
+                            <img src='./images/partners/pet.png' alt="pet"></img>
+                        </a>
+                        <a href="http://www5.each.usp.br/" target="_blank" rel="noreferrer">
+                            <img src='./images/partners/each.svg' alt="each"></img>
+                        </a>
+                    </div>
+                    <div className='supporters-cards-desktop'>
+                        <PartnerCard name='each' image='./images/partners/pet.png' link="http://www.each.usp.br/petsi/" />
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        <PartnerCard name='each' image='./images/partners/pet.png' link="htttp://www.each.usp.br/petsi/" />
+                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                    </div>
+                </div>
             </SupportersSection>
         </>
     )
@@ -585,7 +601,7 @@ const EventInfoSection = styled.section`
     @media (min-width:1000px) {
         background: url('./images/background_imgs/background2_desktop.svg');
         background-size: cover;
-        padding-block: 7rem;
+        padding-block: 6.75rem;
 
         .about-container {
             gap: 3.5rem;
@@ -790,76 +806,87 @@ const SupportersSection = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5em;
-    padding: 1em 0;
-    position: relative;
+    padding-block: 3.5rem 3.5rem;
 
-    .background-blur {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background-color: #371F52;
-        opacity: 0.7;
-        filter: blur(50px);
-        z-index: -1;
-    }
-
-    ul {
+    .supporters-container {
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        flex-wrap: wrap;
-        max-width: 800px;
-        margin: auto;
+        justify-content: center;
+        align-items: center;
+        gap: 3.5rem;
 
-        li {
+        .supporters-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            max-width: 63.5rem;
 
-            text-align: center;
-            margin: 1rem 0;
+            h3 {
+                text-align: center;
+            }
 
-            a {
-                color: #FFFFFF;
-                text-decoration: none;
-                border-color: #8744C2;
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                text-align: center;
 
-                &:hover {
-                    color: #8744C2;
-                    border-bottom: 2px solid #8744C2;
-                    transition: color 0.2s;
-                }
             }
         }
-    }
 
-    @media (min-width:600px) {
+        .supporters-cards-mobile {
+            display: flex;
+            flex-direction: row;
+            flex-flow: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 1224px;
+            width: 100%;
+            padding: 2rem 1.5rem;
+            background-color: var(--color-neutral-900);
+            border-radius: 8px;
 
-        h2 {
-            padding: 0.1em 1em;
+            img {
+                width: 8rem;
+            }
         }
 
-        ul {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1em 15vw;
-            flex-direction: unset;
+        .supporters-cards-desktop {
+            display: none;
         }
     }
 
-    @media (min-width:1021px) {
+    @media (min-width:1000px) {
+        padding-block: 6.75rem 11.75rem;
 
-        ul {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5em 15vw;
-        }
-    }
+        .supporters-container {
+            gap: 3.5rem;
 
-    @media (min-width:1400px) {
+            .supporters-title {
+                h3 {
+                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                }
 
-        ul {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5em 5vw;
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                }
+            }
+
+            .supporters-cards-mobile {
+                display: none;
+            }
+
+            .supporters-cards-desktop {
+                display: flex;
+                flex-direction: row;
+                flex-flow: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                max-width: 1224px;
+                width: 100%;
+            }
         }
     }
 `
