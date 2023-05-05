@@ -37,8 +37,8 @@ const ActivityWrapper = styled.div`
     position: relative;
     border: 1.48px solid white;
     border-radius: 16px;
-    max-width: 321px;
-    height: 367px;
+    max-width: 320px;
+    height: 500px;
     margin-bottom: 12rem;
 
     .activity-content {
