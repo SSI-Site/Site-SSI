@@ -540,6 +540,10 @@ const EventInfoSection = styled.section`
             text-align: center;
             max-width: 63.5rem;
 
+            h3 {
+                text-align: center;
+            }
+
             p {
                 font-family: 'Space_Mono_Bold';
                 font-weight: 400;
