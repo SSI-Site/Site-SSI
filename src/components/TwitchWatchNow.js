@@ -70,7 +70,7 @@ const TwitchWatchNowWrapper = styled.div`
     flex-direction: row;
 	align-items: center;
 	width: 21rem;
-	height: 6.25rem;
+	height: 6.75rem;
 
 	a {
 		display: flex;
@@ -116,11 +116,13 @@ const TwitchWatchNowWrapper = styled.div`
     	flex-direction: column;
 		align-items: flex-start;
 		justify-content: space-between;
+		gap: 8px;
 	}
 
 	.offline {
 		background-color: var(--color-neutral-800);
 		border: 4px solid transparent;
+
 		&:hover {
 			background-color: var(--color-neutral-700);
 		}
@@ -210,7 +212,7 @@ const TwitchWatchNowWrapper = styled.div`
 
     @media (min-width:560px) {
 		width: 31rem;
-		height: 7rem;
+		height: 7.5rem;
 
 		img {
 			width: 4rem;
