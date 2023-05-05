@@ -30,7 +30,7 @@ export default EventActivity;
 
 
 const ActivityWrapper = styled.div`
-    display: flex;
+     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -45,17 +45,6 @@ const ActivityWrapper = styled.div`
     }
 
     .activity-title {
-        position: absolute;
-        width: 74px;
-        height: 74px;
-        left: 30px;
-        top: -5px;
-        margin-bottom: 12px;
-    }
-
-    .activity-description{
-       
-        margin-top: 100px;
         margin-bottom: 12px;
     }
 
@@ -69,7 +58,7 @@ const ActivityWrapper = styled.div`
         width: 74px;
         height: 74px;
         left: 30px;
-        top: 50px;
+        top: -37px;
         border-radius: 7px;
         clip-path: polygon(100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 0%);
         display: flex;
