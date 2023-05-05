@@ -806,7 +806,7 @@ const SupportersSection = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-block: 3.5rem 3.5rem;
+    padding-block: 6.75rem;
 
     .supporters-container {
         display: flex;
