@@ -5,13 +5,18 @@ const EventActivity = ({ color, image, alt, title, description }) => {
     return (
         <ActivityWrapper>
             <div className='activity-content'>
-                <div className='activity-logo' style={{ backgroundColor: color }}>
+                {/* <div className='activity-logo' style={{ backgroundColor: color }}>
                     <img src={image} alt={alt} />
-                </div>
+                </div> */}
                 <div className='activity-text'>
                     <div className='activity-title'>
                         <h2>{title}</h2>
                     </div>
+
+                    <div className='activity-logo' style={{ backgroundColor: color }}>
+                        <img src={image} alt={alt} />
+                    </div>
+
                     <div className='activity-description'>
                         <p>{description}</p>
                     </div>
@@ -40,6 +45,17 @@ const ActivityWrapper = styled.div`
     }
 
     .activity-title {
+        position: absolute;
+        width: 74px;
+        height: 74px;
+        left: 30px;
+        top: -5px;
+        margin-bottom: 12px;
+    }
+
+    .activity-description{
+       
+        margin-top: 100px;
         margin-bottom: 12px;
     }
 
@@ -53,7 +69,7 @@ const ActivityWrapper = styled.div`
         width: 74px;
         height: 74px;
         left: 30px;
-        top: -37px;
+        top: 50px;
         border-radius: 7px;
         clip-path: polygon(100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 0%);
         display: flex;
