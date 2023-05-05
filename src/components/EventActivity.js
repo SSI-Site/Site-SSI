@@ -30,35 +30,39 @@ export default EventActivity;
 
 
 const ActivityWrapper = styled.div`
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     border: 1.48px solid white;
-    max-width: 320px;
+    border-radius: 16px;
+    max-width: 321px;
     height: 367px;
     margin-bottom: 12rem;
 
     .activity-content {
         position: relative;
-        padding: 52px 30px 0 30px;
+        padding: 32px 24px;
     }
 
     .activity-title {
-        margin-bottom: 12px;
+        //margin-bottom: 12px;
     }
 
     p {
-        font-size: 17.76px;
-        line-height: 24.51px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
     }
 
     .activity-logo {
-        position: absolute;
+        //position: absolute;
         width: 74px;
         height: 74px;
-        left: 30px;
-        top: -37px;
+        //left: 30px;
+        //top: -37px;
+        margin: 15px 0;
         border-radius: 7px;
         clip-path: polygon(100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 0%);
         display: flex;
