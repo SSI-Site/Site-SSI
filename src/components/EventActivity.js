@@ -47,7 +47,7 @@ const ActivityWrapper = styled.div`
     }
 
     .activity-title {
-        //margin-bottom: 12px;
+        margin-bottom: 12px;
     }
 
     p {
