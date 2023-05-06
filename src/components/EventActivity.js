@@ -37,8 +37,8 @@ const ActivityWrapper = styled.div`
     position: relative;
     border: 1.48px solid white;
     border-radius: 16px;
-    max-width: 320px;
-    height: 367px;
+    max-width: 421px;
+    height: 400px;
     margin-bottom: 12rem;
 
     .activity-content {
@@ -51,8 +51,8 @@ const ActivityWrapper = styled.div`
     }
 
     p {
-        font-size: 16px;
-        line-height: 20px;
+        //font-size: 16px;
+        //line-height: 20px;
         font-weight: 400;
     }
 
