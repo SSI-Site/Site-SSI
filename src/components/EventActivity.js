@@ -73,9 +73,7 @@ const ActivityWrapper = styled.div`
 
     @media (min-width:800px) {
         border: 1.7px solid black;
-        //width: 392px;
         width: 365.5px;
-        //height: 427px;
         height: 439px;
         margin-bottom: 2rem;
 
