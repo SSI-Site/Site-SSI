@@ -5,18 +5,13 @@ const EventActivity = ({ color, image, alt, title, description }) => {
     return (
         <ActivityWrapper>
             <div className='activity-content'>
-                {/* <div className='activity-logo' style={{ backgroundColor: color }}>
+                <div className='activity-logo' style={{ backgroundColor: color }}>
                     <img src={image} alt={alt} />
-                </div> */}
+                </div>
                 <div className='activity-text'>
                     <div className='activity-title'>
                         <h2>{title}</h2>
                     </div>
-
-                    <div className='activity-logo' style={{ backgroundColor: color }}>
-                        <img src={image} alt={alt} />
-                    </div>
-
                     <div className='activity-description'>
                         <p>{description}</p>
                     </div>
@@ -35,11 +30,12 @@ const ActivityWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    border: 1.48px solid white;
+    border: 1.48px solid black;
     border-radius: 16px;
-    max-width: 421px;
-    height: 400px;
-    margin-bottom: 12rem;
+    background: #272727;
+    max-width: 380px;
+    height: 264px;
+    margin-bottom: 5rem;
 
     .activity-content {
         position: relative;
@@ -47,21 +43,26 @@ const ActivityWrapper = styled.div`
     }
 
     .activity-title {
-        margin-bottom: 12px;
+        margin-bottom: 30px;
+    }
+
+    .activity-title h2{
+        font-size: 20px;
+        line-height: 24px;
     }
 
     p {
-        //font-size: 16px;
-        //line-height: 20px;
+        font-size: 14px;
+        line-height: 20px;
         font-weight: 400;
     }
 
     .activity-logo {
-        //position: absolute;
+        position: absolute;
         width: 74px;
         height: 74px;
-        //left: 30px;
-        //top: -37px;
+        right: 30px;
+        top: -5px;
         margin: 15px 0;
         border-radius: 7px;
         clip-path: polygon(100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 0%);
@@ -71,22 +72,32 @@ const ActivityWrapper = styled.div`
     }
 
     @media (min-width:800px) {
-        border: 1.7px solid white;
-        width: 365.5px;
-        height: 439px;
+        border: 1.7px solid black;
+        width: 392px;
+        height: 427px;
         margin-bottom: 2rem;
 
         &::after {
             border-top: 1.7px solid white;
         }
 
-        h2 {
-            font-size: 40px;
+        .activity-logo {
+            margin-top: 60px;
+            left: 10px;
+            top: 50px;
         }
 
-        p {
-            font-size: 20.35px;
-            line-height: 29.11px;
+        .activity-title {
+            margin-bottom: 150px;
+        }
+
+        .activity-title h2 {
+            font-size: 32px;
+            line-height: 40px;
+        }
+
+        .activity-description p {
+            font-size: 16px;
         }
     }
 `
