@@ -21,10 +21,10 @@ const PartnerWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 23.75rem;
-    height: 15.5rem;
-    background-color: var(--color-neutral-900);
-    padding: 3.6rem 4.3rem;
+    width: 11.375rem;
+    height: 9.5rem;
+    padding: 2rem;
+    background-color: var(--color-neutral-800);
 
     cursor: pointer;
     border-radius: 8px;
@@ -52,9 +52,9 @@ const PartnerWrapper = styled.div`
         }
     }
 
-    @media (min-width:600px) {
-        width: 24.5rem;
-        height: 16rem;
-        padding: 3.7rem;
+    @media (min-width:1000px) {
+        width: 23.75rem;
+        height: 15.5rem;
+        padding: 3.6rem 4.3rem;
     }
 `

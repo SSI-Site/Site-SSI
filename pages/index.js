@@ -324,24 +324,7 @@ const Home = () => {
                         <h3>Apoiadores</h3>
                         <p>Empresas e marcas que estão conosco para tornar este evento um sucesso</p>
                     </div>
-                    <div className='supporters-cards-mobile'>
-                        <a href="http://www.each.usp.br/petsi/" target="_blank" rel="noreferrer">
-                            <img src='./images/partners/pet.png' alt="pet"></img>
-                        </a>
-                        <a href="http://www5.each.usp.br/" target="_blank" rel="noreferrer">
-                            <img src='./images/partners/each.svg' alt="each"></img>
-                        </a>
-                        <a href="http://www5.each.usp.br/" target="_blank" rel="noreferrer">
-                            <img src='./images/partners/each.svg' alt="each"></img>
-                        </a>
-                        <a href="http://www.each.usp.br/petsi/" target="_blank" rel="noreferrer">
-                            <img src='./images/partners/pet.png' alt="pet"></img>
-                        </a>
-                        <a href="http://www5.each.usp.br/" target="_blank" rel="noreferrer">
-                            <img src='./images/partners/each.svg' alt="each"></img>
-                        </a>
-                    </div>
-                    <div className='supporters-cards-desktop'>
+                    <div className='supporters-cards'>
                         <PartnerCard name='each' image='./images/partners/pet.png' link="http://www.each.usp.br/petsi/" />
                         <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
                         <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
@@ -537,7 +520,7 @@ const EventInfoSection = styled.section`
     justify-content: center;
     gap: 2rem;
     padding-block: 6.625rem 3.5rem;
-    background: url('./images/background_imgs/background2_mobile.svg');
+    background-image: url('./images/background_imgs/background2_mobile.svg');
     background-size: cover;
 
     .about-container {
@@ -807,6 +790,8 @@ const SupportersSection = styled.section`
     justify-content: center;
     align-items: center;
     padding-block: 6.75rem;
+    background-image: url('./images/background_imgs/background4_mobile.svg');
+    background-size: cover;
 
     .supporters-container {
         display: flex;
@@ -834,27 +819,19 @@ const SupportersSection = styled.section`
             }
         }
 
-        .supporters-cards-mobile {
+        .supporters-cards {
             display: flex;
             flex-direction: row;
             flex-flow: wrap;
             justify-content: center;
             align-items: center;
-            gap: 1.5rem;
-            max-width: 1224px;
+            gap: 1rem;
             width: 100%;
-            padding: 2rem 1.5rem;
-            background-color: var(--color-neutral-900);
-            border-radius: 8px;
-
-            img {
-                width: 8rem;
-            }
         }
+    }
 
-        .supporters-cards-desktop {
-            display: none;
-        }
+    @media (min-width:600px) {
+        background-image: url('./images/background_imgs/background4_desktop.svg');
     }
 
     @media (min-width:1000px) {
@@ -873,19 +850,9 @@ const SupportersSection = styled.section`
                 }
             }
 
-            .supporters-cards-mobile {
-                display: none;
-            }
-
-            .supporters-cards-desktop {
-                display: flex;
-                flex-direction: row;
-                flex-flow: wrap;
-                justify-content: center;
-                align-items: center;
+            .supporters-cards {
                 gap: 1.5rem;
                 max-width: 1224px;
-                width: 100%;
             }
         }
     }
