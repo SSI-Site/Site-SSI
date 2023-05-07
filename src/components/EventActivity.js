@@ -28,14 +28,14 @@ const ActivityWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    //justify-content: space-between;
     position: relative;
     border: 1.48px solid black;
     border-radius: 16px;
     background: #272727;
     max-width: 380px;
     height: 264px;
-    margin-bottom: 5rem;
+    margin-bottom: 12rem;
 
     .activity-content {
         position: relative;
@@ -43,10 +43,10 @@ const ActivityWrapper = styled.div`
     }
 
     .activity-title {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
-    .activity-title h2{
+    h2{
         font-size: 20px;
         line-height: 24px;
     }
