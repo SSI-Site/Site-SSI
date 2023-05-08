@@ -1,4 +1,6 @@
+
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 
@@ -12,11 +14,17 @@ import gifts from '../services/gifts';
 import EventActivity from '../src/components/EventActivity';
 import ScrollArrow from '../src/components/ScrollArrow';
 import GiftCard from '../src/components/GiftCard';
+import Button from '../src/components/Button';
+
+import useAuth from '../hooks/useAuth';
 
 // assets
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 
 const About = () => {
+
+    const router = useRouter();
+    const { user, signOut } = useAuth();
 
     return (
         <>
@@ -126,6 +134,9 @@ const About = () => {
                             )
                         })}
                     </div>
+                    {user &&
+                        <div className='gifts-btn' onClick={() => router.push('/user#meus-brindes')}><Button>Resgatar brindes</Button></div>
+                    }
                 </div>
             </GiftsSection>
 
@@ -483,10 +494,19 @@ const GiftsSection = styled.section`
             gap: 1rem;
             width: 100%;
         }
+
+        .gifts-btn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: auto;
+        }
     }
 
     @media (min-width:1000px) {
-        padding-block: 6.75rem 11.75rem;
+        padding-block: 6.75rem;
 
         .gifts-container {
             gap: 3.5rem;

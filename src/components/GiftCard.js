@@ -13,8 +13,8 @@ const GiftCard = ({ image, name, totalPres, presentialPres }) => {
     };
 
     return (
-        <GiftWrapper onClick={() => handleBtnClick()}>
-            <div className='gift-box'>
+        <GiftWrapper>
+            <div className='gift-box' onClick={() => handleBtnClick()}>
                 <figure className='gift-image'>
                     <img src={image} alt={`Logo ${name}`}></img>
                 </figure>
