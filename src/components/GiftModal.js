@@ -1,6 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
 import styled from "styled-components";
-import ReactDOM from "react-dom";
 
 // assets
 import CloseBtn from './../../public/images/icons/close.svg';
@@ -47,6 +45,12 @@ const ModalWrapper = styled.div`
     padding: 1.5rem 1rem;
     border-radius: 16px;
     background-color: var(--color-neutral-800);
+
+    @media (min-width:1000px) {
+        width: 52.5rem;
+        height: 42rem;
+        padding: 3.5rem;
+    }
 `
 
 const StyledGiftModal = styled.div`
@@ -85,6 +89,7 @@ const GiftModalBody = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 100%;
 
         img {
             height: 14rem;
@@ -123,6 +128,30 @@ const GiftModalBody = styled.div`
                 width: 2px;
                 background-color: var(--color-neutral-600);
                 margin-inline: 1rem;
+            }
+        }
+    }
+
+    @media (min-width:1000px) {
+
+        figure {
+            img {
+                height: 18.5rem;
+            }
+        }
+            
+        .modal-text {
+            p {
+                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+            }
+
+            h6 {
+                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+            }
+
+            .lecture-numbers > div {
+                width: 4px;
+                height: 28px;
             }
         }
     }

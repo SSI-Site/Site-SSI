@@ -70,7 +70,7 @@ const GiftWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         width: 11.375rem;
         height: 8.875rem;
         padding: 0.65625rem;
@@ -92,7 +92,7 @@ const GiftWrapper = styled.div`
         .gift-image {
             display: flex;
             align-items: center;
-            max-height: 5.55rem;
+            height: 5.55rem;
             border-radius: 8px;
 
             img {
@@ -110,8 +110,26 @@ const GiftWrapper = styled.div`
     }
 
     @media (min-width:1000px) {
-        width: 23.75rem;
-        height: 15.5rem;
-        padding: 3.6rem 4.3rem;
+        width: 18rem;
+        height: 16rem;
+        
+        .gift-box {
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            padding: 2rem 3rem;
+            
+            :hover {
+                border: 4px solid var(--color-primary-700);
+            }
+
+            .gift-image {
+                height: 9rem;
+            }
+
+            p {
+                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+            }
+        }
     }
 `
