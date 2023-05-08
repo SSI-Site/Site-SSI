@@ -5,9 +5,13 @@ import CountUp from 'react-countup';
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 
+// assets
+import gifts from '../services/gifts';
+
 // components
 import EventActivity from '../src/components/EventActivity';
 import ScrollArrow from '../src/components/ScrollArrow';
+import GiftCard from '../src/components/GiftCard';
 
 // assets
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
@@ -109,6 +113,21 @@ const About = () => {
                 </LectureContent>
             </section>
 
+            <GiftsSection>
+                <div className='gifts-container'>
+                    <div className='gifts-title'>
+                        <h3>Brindes exclusivos</h3>
+                        <p>Não perca a oportunidade de <span>ganhar brindes incríveis</span> ao participar das nossas atividades e palestras!</p>
+                    </div>
+                    <div className='gifts-cards'>
+                        {Object.entries(gifts).map(([key, gift]) => {
+                            return (
+                                <GiftCard key={key} name={gift.name} image={gift.image} totalPres={gift.totalPres} presentialPres={gift.presentialPres} />
+                            )
+                        })}
+                    </div>
+                </div>
+            </GiftsSection>
 
             <NumbersSection>
                 <h2>Números da SSI 2022</h2>
@@ -413,6 +432,79 @@ const LectureContent = styled.div`
 
         .justify-right {
             padding: 20px 0px 20px 20px;
+        }
+    }
+`
+
+const GiftsSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 3.5rem;
+    background-color: var(--color-neutral);
+
+    .gifts-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3.5rem;
+
+        .gifts-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            max-width: 63.5rem;
+
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                text-align: center;
+
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
+        }
+
+        .gifts-cards {
+            display: flex;
+            flex-direction: row;
+            flex-flow: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+        }
+    }
+
+    @media (min-width:1000px) {
+        padding-block: 6.75rem 11.75rem;
+
+        .gifts-container {
+            gap: 3.5rem;
+
+            .gifts-title {
+                h3 {
+                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                }
+
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                }
+            }
+
+            .gifts-cards {
+                gap: 1.5rem;
+                max-width: 1224px;
+            }
         }
     }
 `
