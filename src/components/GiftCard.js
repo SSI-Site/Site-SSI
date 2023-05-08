@@ -105,6 +105,7 @@ const GiftWrapper = styled.div`
         p {
             font-family: 'Space_Mono_Bold';
             font-weight: 400;
+            text-align: center;
         }
 
     }
@@ -129,6 +130,7 @@ const GiftWrapper = styled.div`
 
             p {
                 font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                font: 400 1.25rem/1.5rem 'Space_Mono_Bold'; // menor que no Figma, para caber nomes mais longos sem quebra de linha
             }
         }
     }
