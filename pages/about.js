@@ -8,7 +8,7 @@ import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 
 // assets
-import gifts from '../services/gifts';
+import gifts from '../data/gifts';
 
 // components
 import EventActivity from '../src/components/EventActivity';

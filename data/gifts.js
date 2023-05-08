@@ -1,6 +1,12 @@
 // assets
-import Squeeze from '../public/images/gifts/squeeze.png'
-import Sticker from '../public/images/gifts/sticker.png'
+import Sticker from '../public/images/gifts/sticker.png';
+// import Sticker from '../public/images/gifts/sticker.png';
+// import Sticker from '../public/images/gifts/sticker.png';
+// import Sticker from '../public/images/gifts/sticker.png';
+// import Sticker from '../public/images/gifts/sticker.png';
+// import Sticker from '../public/images/gifts/sticker.png';
+// import Sticker from '../public/images/gifts/sticker.png';
+import Squeeze from '../public/images/gifts/squeeze.png';
 
 const gifts = {
     1: {

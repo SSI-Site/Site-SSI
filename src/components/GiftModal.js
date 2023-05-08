@@ -128,6 +128,7 @@ const GiftModalBody = styled.div`
                 width: 2px;
                 background-color: var(--color-neutral-600);
                 margin-inline: 1rem;
+                border-radius: 2px;
             }
         }
     }
