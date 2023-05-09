@@ -61,7 +61,7 @@ const ActivityWrapper = styled.div`
         position: relative;
         perspective: 1000px;
         height: 400px;
-        width: 250px;
+        width: 300px;
     }
 
     .front, .back{
@@ -93,7 +93,7 @@ const ActivityWrapper = styled.div`
     }
 
     .activity-title{
-        margin-bottom: 12px;
+        margin-bottom: 30px;
     }
 
     .activity-title h2{
@@ -132,13 +132,13 @@ const ActivityWrapper = styled.div`
         }
 
         .activity-logo {
-            margin-top: 60px;
-            left: 10px;
-            top: 50px;
+            margin-top: 50px;
+            left: 0px;
+            top: 40px;
         }
 
         .activity-title {
-            margin-bottom: 150px;
+            margin-bottom: 120px;
         }
 
         .activity-title h2 {
