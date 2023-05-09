@@ -74,6 +74,10 @@ const GiftModalHeader = styled.header`
     align-items: center;
     justify-content: space-between;
 
+    h4 {
+        font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+    }
+
     .close-btn-container {
         display: flex;
         align-items: center;
@@ -90,6 +94,13 @@ const GiftModalHeader = styled.header`
             svg path {
                 fill: var(--color-primary-700);
             }
+        }
+    }
+    
+    @media (min-width:412px) {
+
+        h4 {
+            font: 400 2rem/2.5rem 'Space_Mono_Bold';
         }
     }
     
@@ -134,9 +145,15 @@ const GiftModalBody = styled.div`
         justify-content: center;
         gap: 1rem;
 
+        h6 {
+            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        }
+
+        p {
+            font: 400 0.875rem/1.25rem 'Space_Mono_Bold';
+        }
+
         p, h6 {
-            font-family: 'Space_Mono_Bold';
-            font-weight: 400;
             text-align: center;
         }
 
@@ -165,6 +182,17 @@ const GiftModalBody = styled.div`
 
     @media (min-width:412px) {
         gap: 2rem;
+
+        .modal-text {
+            h6 {
+                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+            }
+
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            }
+        }
+
         figure {
             img {
                 height: 14rem;
