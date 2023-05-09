@@ -82,7 +82,23 @@ const GiftWrapper = styled.div`
         z-index: 2;
 
         :hover {
-            background-color: var(--color-neutral-700);
+            background-color: var(--color-neutral-700);  
+            animation: shake 0.5s;
+            animation-iteration-count: infinite; 
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
 
         :active {
@@ -103,11 +119,11 @@ const GiftWrapper = styled.div`
         }
 
         p {
+            font-size: 0.95rem; // fonte menor para evitar quebra de linha
             font-family: 'Space_Mono_Bold';
             font-weight: 400;
             text-align: center;
         }
-
     }
 
     @media (min-width:1000px) {
@@ -129,8 +145,8 @@ const GiftWrapper = styled.div`
             }
 
             p {
-                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
-                font: 400 1.25rem/1.5rem 'Space_Mono_Bold'; // menor que no Figma, para caber nomes mais longos sem quebra de linha
+                /* font: 400 1.5rem/1.75rem 'Space_Mono_Bold'; */
+                font: 400 1.15rem/1.5rem 'Space_Mono_Bold'; // menor que no Figma, paa evitar quebra de linha
             }
         }
     }

@@ -8,7 +8,7 @@ import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 
 // assets
-import gifts from '../services/gifts';
+import gifts from '../data/gifts';
 
 // components
 import EventActivity from '../src/components/EventActivity';
@@ -25,6 +25,32 @@ const About = () => {
 
     const router = useRouter();
     const { user, signOut } = useAuth();
+    const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const checkUserRegister = () => {
+        if (!user) return;
+
+        setIsLoading(true);
+
+        saphira.getUser(user.email)
+            .then(() => {
+                setIsUserRegistered(true);
+                setIsLoading(false);
+            })
+            .catch(() => {
+                setIsUserRegistered(false);
+                setIsLoading(false);
+            });
+    }
+
+    useEffect(() => {
+        checkUserRegister();
+    }, [user]);
+
+    useEffect(() => {
+        checkUserRegister();
+    }, []);
 
     return (
         <>
@@ -134,8 +160,19 @@ const About = () => {
                             )
                         })}
                     </div>
-                    {user &&
-                        <div className='gifts-btn' onClick={() => router.push('/user#meus-brindes')}><Button>Resgatar brindes</Button></div>
+
+                    {!isLoading ?
+
+                        // {user && isUserRegistered ?
+                            <div className='gifts-btn'><Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button></div>
+                        //     :
+                        //     <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
+                        // }
+                        :
+
+                        <Loading>
+                            <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                        </Loading>
                     }
                 </div>
             </GiftsSection>
@@ -209,6 +246,18 @@ const About = () => {
 
 export default About;
 
+
+const Loading = styled.figure`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2rem;
+
+    img {
+        width: 25%;
+    }
+`
 
 const BackgroundWrapper = styled.div`
     display: flex;
