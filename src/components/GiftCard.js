@@ -71,13 +71,13 @@ const GiftWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        width: 11.375rem;
-        height: 8.875rem;
-        padding: 0.65625rem;
+        width: 9.5rem;
+        height: 8rem;
+        padding: 0.4rem;
         background-color: var(--color-neutral-800);
         border: 4px solid var(--color-primary-700);
         border-radius: 8px;
-        gap: 0.3125rem;
+        gap: 0.1rem;
         transition: 0.3s;
         z-index: 2;
 
@@ -99,10 +99,23 @@ const GiftWrapper = styled.div`
         }
 
         p {
-            font-size: 0.95rem; // fonte menor para evitar quebra de linha
+            font-size: 0.8rem; // fonte menor para evitar quebra de linha
             font-family: 'Space_Mono_Bold';
             font-weight: 400;
             text-align: center;
+        }
+    }
+
+    @media (min-width:412px) {
+        .gift-box {
+            width: 11.375rem;
+            height: 8.875rem;
+            gap: 0.3125rem;
+            padding: 0.65625rem;
+
+            p {
+                font-size: 0.95rem; // fonte menor para evitar quebra de linha
+            }
         }
     }
 

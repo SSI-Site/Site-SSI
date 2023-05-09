@@ -43,11 +43,17 @@ const ModalWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 23.75rem;
-    height: 28.75rem;
-    padding: 1.5rem 1rem;
+    width: 21rem;
+    height: 27rem;
+    padding: 1rem;
     border-radius: 16px;
     background-color: var(--color-neutral-800);
+
+    @media (min-width:412px) {
+        width: 23.75rem;
+        height: 28.75rem;
+        padding: 1.5rem 1rem;
+    }
 
     @media (min-width:1000px) {
         width: 52.5rem;
@@ -107,7 +113,7 @@ const GiftModalBody = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 
     figure {
         display: flex;
@@ -116,7 +122,7 @@ const GiftModalBody = styled.div`
         height: 100%;
 
         img {
-            height: 14rem;
+            height: 12rem;
         }
     }
 
@@ -153,6 +159,15 @@ const GiftModalBody = styled.div`
                 background-color: var(--color-neutral-600);
                 margin-inline: 1rem;
                 border-radius: 2px;
+            }
+        }
+    }
+
+    @media (min-width:412px) {
+        gap: 2rem;
+        figure {
+            img {
+                height: 14rem;
             }
         }
     }
