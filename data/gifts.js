@@ -16,31 +16,31 @@ const gifts = {
         presentialPres: 0
     },
     2: {
-        name: 'Bottom',
+        name: 'Chaveiro',
         image: Squeeze,
         totalPres: 5,
         presentialPres: 2
     },
     3: {
-        name: 'Chaveiro',
+        name: 'Protetor webcam',
         image: Sticker,
         totalPres: 8,
         presentialPres: 3
     },
     4: {
-        name: 'Protetor webcam',
+        name: 'Tirante + Crachá',
         image: Sticker,
         totalPres: 11,
         presentialPres: 4
     },
     5: {
-        name: 'Mouse pad',
+        name: 'Mousepad',
         image: Squeeze,
         totalPres: 16,
         presentialPres: 6
     },
     6: {
-        name: 'Bloco e caneta',
+        name: 'Sacochila',
         image: Squeeze,
         totalPres: 22,
         presentialPres: 7
@@ -52,7 +52,7 @@ const gifts = {
         presentialPres: 9
     },
     8: {
-        name: 'Squeeze',
+        name: 'Garrafa',
         image: Sticker,
         totalPres: 38,
         presentialPres: 13
