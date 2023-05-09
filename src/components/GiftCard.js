@@ -88,7 +88,7 @@ const GiftWrapper = styled.div`
         .gift-image {
             display: flex;
             align-items: center;
-            height: 5.55rem;
+            height: 5rem;
             border-radius: 8px;
 
             img {
@@ -112,6 +112,10 @@ const GiftWrapper = styled.div`
             height: 8.875rem;
             gap: 0.3125rem;
             padding: 0.65625rem;
+
+            .gift-image {
+                height: 5.55rem;
+            }
 
             p {
                 font-size: 0.95rem; // fonte menor para evitar quebra de linha
