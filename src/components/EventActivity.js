@@ -5,27 +5,28 @@ const EventActivity = ({ color, image, alt, title, description }) => {
     return (
         <ActivityWrapper>
             <div className='activity-content'>
-                {/* div da frente do card */}
-                <div className="front">
-                    <div className='activity-text'>
-                        <div className='activity-title'>
-                            <h2>{title}</h2>
+                <div className='container'>
+                    {/* div da frente do verso */}
+                    <div className='front'>
+                        <div className='activity-text'>
+                            <div className='activity-title'>
+                                <h2>{title}</h2>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                {/* div do verso do card */}
-                <div className="back">
-                    <div className='activity-logo' style={{ backgroundColor: color }}>
-                        <img src={image} alt={alt} />
                     </div>
 
-                    <div className='activity-text'>
-                        <div className='activity-title'>
-                            <h2>{title}</h2>
+                    {/* div do verso do card */}
+                    <div className='back'>
+                        <div className='activity-logo' style={{ backgroundColor: color }}>
+                            <img src={image} alt={alt} />
                         </div>
-                        <div className='activity-description'>
-                            <p>{description}</p>
+                        <div className='activity-text'>
+                            <div className='activity-title'>
+                                <h2>{title}</h2>
+                            </div>
+                            <div className='activity-description'>
+                                <p>{description}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,11 +54,18 @@ const ActivityWrapper = styled.div`
     .activity-content {
         position: relative;
         padding: 32px 24px;
+    }
+
+    // ---MOVIMENTO DOS CARDS---
+    .container{
+        position: relative;
         perspective: 1000px;
+        height: 400px;
+        width: 250px;
     }
 
     .front, .back{
-        //position: absolute;
+        position: absolute;
         backface-visibility: hidden;
         transform-style: preserve-3d;
         transition: all 1s ease;
@@ -71,19 +79,24 @@ const ActivityWrapper = styled.div`
         transform: rotateY(180deg);
     }
 
-    .activity-content:hover .front{
+    .container:hover .front{
         transform: rotateY(-180deg);
     }
 
-    .activity-context:hover .back{
+    .container:hover .back{
         transform: rotateY(0deg);
     }
+    //---------------
 
-    .activity-title {
-        margin-bottom: 20px;
+    .front h2{
+        color: #3C3C3C;
     }
 
-    h2{
+    .activity-title{
+        margin-bottom: 12px;
+    }
+
+    .activity-title h2{
         font-size: 20px;
         line-height: 24px;
     }
@@ -96,10 +109,10 @@ const ActivityWrapper = styled.div`
 
     .activity-logo {
         position: absolute;
-        width: 74px;
-        height: 74px;
-        right: 30px;
-        top: -5px;
+        width: 50px;
+        height: 50px;
+        right: 0px;
+        top: -30px;
         margin: 15px 0;
         border-radius: 7px;
         clip-path: polygon(100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 0%);
