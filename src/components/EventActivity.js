@@ -5,15 +5,28 @@ const EventActivity = ({ color, image, alt, title, description }) => {
     return (
         <ActivityWrapper>
             <div className='activity-content'>
-                <div className='activity-logo' style={{ backgroundColor: color }}>
-                    <img src={image} alt={alt} />
-                </div>
-                <div className='activity-text'>
-                    <div className='activity-title'>
-                        <h2>{title}</h2>
+                {/* div da frente do card */}
+                <div className="front">
+                    <div className='activity-text'>
+                        <div className='activity-title'>
+                            <h2>{title}</h2>
+                        </div>
                     </div>
-                    <div className='activity-description'>
-                        <p>{description}</p>
+                </div>
+                
+                {/* div do verso do card */}
+                <div className="back">
+                    <div className='activity-logo' style={{ backgroundColor: color }}>
+                        <img src={image} alt={alt} />
+                    </div>
+
+                    <div className='activity-text'>
+                        <div className='activity-title'>
+                            <h2>{title}</h2>
+                        </div>
+                        <div className='activity-description'>
+                            <p>{description}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,6 +53,30 @@ const ActivityWrapper = styled.div`
     .activity-content {
         position: relative;
         padding: 32px 24px;
+        perspective: 1000px;
+    }
+
+    .front, .back{
+        //position: absolute;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        transition: all 1s ease;
+    }
+
+    .front{
+        transform: rotateY(0deg);
+    }
+
+    .back{
+        transform: rotateY(180deg);
+    }
+
+    .activity-content:hover .front{
+        transform: rotateY(-180deg);
+    }
+
+    .activity-context:hover .back{
+        transform: rotateY(0deg);
     }
 
     .activity-title {
