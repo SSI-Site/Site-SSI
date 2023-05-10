@@ -579,7 +579,7 @@ const GiftsSection = styled.section`
 `
 
 const LastYearSection = styled.section`
-    background-color: var(--color-neutral-900);
+    background-color: var(--color-neutral-800);
     padding-block: 3.5rem;
     border-bottom: 8px solid var(--color-primary-700);
 
