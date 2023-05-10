@@ -178,21 +178,13 @@ const About = () => {
             </GiftsSection>
 
             <LastYearSection>
-                <div>
-                    <div>
+                <div className='lastyear-container'>
+                    <div className='lastyear-text'>
                         <h3>Veja como foi em 2022</h3>
                         <p>Confira o que rolou no evento do ano passado e <span>sinta a energia</span> que tomou conta do <span>nosso público</span>!</p>
                     </div>
-                    <div className='carousel-container'>
-                        <div className='carousel-item'>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                        <div className='carousel-item'>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                        <div className='carousel-item'>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
+                    <div className='lastyear-video'>
+                        <iframe src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <EventNumbersBanner>
 
@@ -201,17 +193,13 @@ const About = () => {
                             end={2}
                             delay={0}
                             decimals={1}
-                            suffix="k"
+                            suffix="k+"
                             enableScrollSpy 
                         >
                             {({ countUpRef }) => (
                                 <div className='event-info-container'>
-                                    <div className='inline-elements'>
-                                        <span className='purple-plus'>&#43;</span>
-                                        <h3 ref={countUpRef} />
-                                    </div>
-                                    <div className='purple-separator'></div>
-                                    <p>Espectadores</p>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Espectadores</h5>
                                 </div>
                             )}
                         </CountUp>
@@ -220,16 +208,13 @@ const About = () => {
                             start={0}
                             end={600}
                             delay={0}
+                            suffix="+"
                             enableScrollSpy 
                         >
                             {({ countUpRef }) => (
                                 <div className='event-info-container'>
-                                    <div className='inline-elements'>
-                                        <span className='purple-plus'>&#43;</span>
-                                        <h3 ref={countUpRef} />
-                                    </div>
-                                    <div className='purple-separator'></div>
-                                    <p>Inscritos</p>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Inscritos</h5>
                                 </div>
                             )}
                         </CountUp>
@@ -238,22 +223,21 @@ const About = () => {
                             start={0}
                             end={43}
                             delay={0}
-                            suffix="h"
+                            suffix="h+"
                             enableScrollSpy 
                         >
                             {({ countUpRef }) => (
                                 <div className='event-info-container'>
-                                    <div className='inline-elements'>
-                                        <span className='purple-plus'>&#43;</span>
-                                        <h3 ref={countUpRef} />
-                                    </div>
-                                    <div className='purple-separator'></div>
-                                    <p>De conteúdo</p>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Conteúdo</h5>
                                 </div>
                             )}
                         </CountUp>
 
                     </EventNumbersBanner>
+                    <div className='lastyear-btn'>
+                        <Button>Nosso canal na Twitch</Button>
+                    </div>
                 </div>
             </LastYearSection>
         </>
@@ -595,99 +579,124 @@ const GiftsSection = styled.section`
 `
 
 const LastYearSection = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+    background-color: var(--color-neutral-900);
+    padding-block: 3.5rem;
+    border-bottom: 8px solid var(--color-primary-700);
 
-    h2 {
-        text-align: center;
-    }
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .carousel-container::-webkit-scrollbar {
-        display: none;
-    } 
-
-    .carousel-container {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        height: 500px;
-        width: 100vw;
-        top: 0;
-        left: 0;
+    .lastyear-container {
         display: flex;
-        overflow: auto;
-        /* overflow-y:scroll; */
-        scroll-snap-type: x mandatory;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 3.5rem;
+        
+        .lastyear-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1016px;
+            
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+                font-family: 'Space_Mono_Bold';
+                font-weight: 400;
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
+        }
+
+        .lastyear-video {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: fit-content;
+
+            iframe {
+                width: 20.5rem;
+                height: 11.5rem;
+                border-radius: 8px;
+            }
+        }
     }
 
-    .carousel-item {
-        flex-shrink: 0;
-        scroll-snap-align: center;
-        margin-inline: 5rem;
+    @media (min-width:412px) {
+        .lastyear-container {
+            .lastyear-video iframe {
+                width: 23.75rem;
+                height: 13.35rem;
+            }
+        }
+    }
+
+    @media (min-width:820px) {
+        padding-block: 6.75rem;
+
+        .lastyear-text {
+            h3 {
+                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            }
+
+            p {
+                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+            }
+
+        }
+
+        .lastyear-container {
+            .lastyear-video iframe {
+                width: 50rem;
+                height: 28.125rem;
+            }
+        }
     }
 `
 
 const EventNumbersBanner = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-flow: wrap;
     justify-content: center;
-    margin: 8rem auto;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
 
     .event-info-container {
-        width: 98vw;
-        padding-inline: 4rem;
-        margin-bottom: 80px;
-    }
-
-    .inline-elements {
         display: flex;
-        flex-direction: row;
-    }
-
-    .purple-plus {
-        color: #8744C2;
-    }
-
-    h3, .purple-plus {
-        margin: 0;
-    }
-
-    .purple-separator {
-        height: 2px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        max-width: 340px;
-        background-color: #8744C2;
-        margin-top: 20px;
-    }
+        max-width: 23.75rem;
+        padding: 2rem 4rem;
+        gap: 0.5rem;
+        background-color: var(--color-neutral);
+        border-radius: 8px;
 
-    @media (min-width:600px) {
-        margin-block: 5rem 8rem;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 7rem;
-        width: 95%;
-
-        .event-info-container {
-            width: 340px;
-            margin: 0;
+        h1 {
+            font: 400 4rem/4.25rem 'Space_Mono_Bold';
+            color: var(--color-primary-800);
         }
     }
 
-    @media (min-width:1021px) {
-        margin-block: 3rem 8rem;
-
+    @media (min-width:1000px) {
+        gap: 1.5rem;
         .event-info-container {
-            padding: 0;
-        }
+            align-items: flex-start;
+            max-width: 24.5rem;
 
-        .orange-separator {
-            width: 340px;
+            h1 {
+                font: 400 5rem/4.25rem 'Space_Mono_Bold';
+            }
         }
     }
 `
