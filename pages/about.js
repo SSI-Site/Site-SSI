@@ -241,7 +241,7 @@ const About = () => {
                         </CountUp>
 
                     </EventNumbersBanner>
-                    
+
                     <a target="blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
                         <Button>Nosso canal na Twitch</Button>
                     </a>
@@ -588,7 +588,6 @@ const GiftsSection = styled.section`
 const LastYearSection = styled.section`
     background-color: var(--color-neutral-800);
     padding-block: 3.5rem;
-    border-bottom: 8px solid var(--color-primary-700);
 
     .lastyear-container {
         display: flex;
@@ -625,6 +624,7 @@ const LastYearSection = styled.section`
             position: relative;
             overflow: hidden;
             width: 100%;
+            border-radius: 8px;
 
             &::after {
                 display: block;
