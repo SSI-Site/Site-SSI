@@ -162,12 +162,15 @@ const About = () => {
                     </div>
 
                     {!isLoading ?
+                        <div className='gifts-btn'>
+                            {user /* && isUserRegistered */ &&
+                                <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
+                            }
 
-                        // {user && isUserRegistered ?
-                            <div className='gifts-btn'><Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button></div>
-                        //     :
-                        //     <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
-                        // }
+                            {/* {user && !isUserRegistered &&
+                                <Button className="btn-complete-register" onClick={() => router.push('/user')}>Concluir cadastro</Button>
+                            } */}
+                        </div>
                         :
 
                         <Loading>
@@ -188,8 +191,7 @@ const About = () => {
                             src="https://www.youtube.com/embed/GUIYO1a5lMA" 
                             title="YouTube video player" 
                             frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
                         </iframe>
                     </div>
                     <EventNumbersBanner>
