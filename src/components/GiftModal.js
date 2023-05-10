@@ -43,11 +43,17 @@ const ModalWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 23.75rem;
-    height: 28.75rem;
-    padding: 1.5rem 1rem;
+    width: 21rem;
+    height: 27rem;
+    padding: 1rem;
     border-radius: 16px;
     background-color: var(--color-neutral-800);
+
+    @media (min-width:412px) {
+        width: 23.75rem;
+        height: 28.75rem;
+        padding: 1.5rem 1rem;
+    }
 
     @media (min-width:1000px) {
         width: 52.5rem;
@@ -68,6 +74,10 @@ const GiftModalHeader = styled.header`
     align-items: center;
     justify-content: space-between;
 
+    h4 {
+        font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+    }
+
     .close-btn-container {
         display: flex;
         align-items: center;
@@ -84,6 +94,13 @@ const GiftModalHeader = styled.header`
             svg path {
                 fill: var(--color-primary-700);
             }
+        }
+    }
+    
+    @media (min-width:412px) {
+
+        h4 {
+            font: 400 2rem/2.5rem 'Space_Mono_Bold';
         }
     }
     
@@ -107,7 +124,7 @@ const GiftModalBody = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 
     figure {
         display: flex;
@@ -116,7 +133,7 @@ const GiftModalBody = styled.div`
         height: 100%;
 
         img {
-            height: 14rem;
+            height: 12rem;
         }
     }
 
@@ -128,9 +145,15 @@ const GiftModalBody = styled.div`
         justify-content: center;
         gap: 1rem;
 
+        h6 {
+            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        }
+
+        p {
+            font: 400 0.875rem/1.25rem 'Space_Mono_Bold';
+        }
+
         p, h6 {
-            font-family: 'Space_Mono_Bold';
-            font-weight: 400;
             text-align: center;
         }
 
@@ -153,6 +176,26 @@ const GiftModalBody = styled.div`
                 background-color: var(--color-neutral-600);
                 margin-inline: 1rem;
                 border-radius: 2px;
+            }
+        }
+    }
+
+    @media (min-width:412px) {
+        gap: 2rem;
+
+        .modal-text {
+            h6 {
+                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+            }
+
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            }
+        }
+
+        figure {
+            img {
+                height: 14rem;
             }
         }
     }
