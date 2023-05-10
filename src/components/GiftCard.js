@@ -70,9 +70,9 @@ const GiftWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-end;
-        width: 11.375rem;
-        height: 8.875rem;
+        justify-content: center;
+        width: 9.75rem;
+        height: 10rem;
         padding: 0.65625rem;
         background-color: var(--color-neutral-800);
         border: 4px solid var(--color-primary-700);
@@ -99,27 +99,40 @@ const GiftWrapper = styled.div`
         }
 
         p {
-            font-size: 0.95rem; // fonte menor para evitar quebra de linha
+            font-size: 0.85rem; // fonte menor para evitar quebra de linha
             font-family: 'Space_Mono_Bold';
             font-weight: 400;
             text-align: center;
         }
     }
 
+    @media (min-width:412px) {
+        .gift-box {
+            width: 11.375rem;
+            height: 10rem;
+            p {
+                font-size: 1rem;
+            }
+        }
+
+
+    }
+
     @media (min-width:1000px) {
         width: 18rem;
-        height: 16rem;
+        height: 14.75rem;
         
         .gift-box {
             width: 100%;
             height: 100%;
             border: 4px solid transparent;
             padding: 2rem 3rem;
+            padding: 1.5rem;
             
             :hover {
                 border: 4px solid var(--color-primary-700);
                 background-color: var(--color-neutral-700);  
-                animation: shake 0.5s;
+                animation: shake 1s;
                 animation-iteration-count: infinite; 
             }
 
@@ -142,8 +155,8 @@ const GiftWrapper = styled.div`
             }
 
             p {
-                /* font: 400 1.5rem/1.75rem 'Space_Mono_Bold'; */
                 font: 400 1.15rem/1.5rem 'Space_Mono_Bold'; // menor que no Figma, paa evitar quebra de linha
+                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
             }
         }
     }

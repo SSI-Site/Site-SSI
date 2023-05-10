@@ -21,9 +21,9 @@ const PartnerWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 11.375rem;
-    height: 9.5rem;
-    padding: 2rem;
+    width: 9.75rem;
+    height: 7.5rem;
+    padding: 1.5rem;
     background-color: var(--color-neutral-800);
 
     cursor: pointer;
@@ -50,6 +50,12 @@ const PartnerWrapper = styled.div`
             height: 100%;
             object-fit: contain;
         }
+    }
+
+    @media (min-width:412px) {
+        width: 11.375rem;
+        height: 9.5rem;
+        padding: 2rem;
     }
 
     @media (min-width:1000px) {

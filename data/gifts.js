@@ -5,12 +5,12 @@ import Sticker from '../public/images/gifts/sticker.png';
 // import Sticker from '../public/images/gifts/sticker.png';
 // import Sticker from '../public/images/gifts/sticker.png';
 // import Sticker from '../public/images/gifts/sticker.png';
-// import Sticker from '../public/images/gifts/sticker.png';
+import Ecocopo from '../public/images/gifts/ecocopo.png';
 import Squeeze from '../public/images/gifts/squeeze.png';
 
 const gifts = {
     1: {
-        name: 'Adesivo',
+        name: 'Sticker',
         image: Sticker,
         totalPres: 3,
         presentialPres: 0
@@ -28,7 +28,7 @@ const gifts = {
         presentialPres: 3
     },
     4: {
-        name: 'Tirante + Crachá',
+        name: 'Tirante',
         image: Sticker,
         totalPres: 11,
         presentialPres: 4
@@ -47,13 +47,13 @@ const gifts = {
     },
     7: {
         name: 'Ecocopo',
-        image: Sticker,
+        image: Ecocopo,
         totalPres: 28,
         presentialPres: 9
     },
     8: {
         name: 'Garrafa',
-        image: Sticker,
+        image: Squeeze,
         totalPres: 38,
         presentialPres: 13
     }
