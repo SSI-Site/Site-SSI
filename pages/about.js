@@ -177,69 +177,85 @@ const About = () => {
                 </div>
             </GiftsSection>
 
-            <NumbersSection>
-                <h2>Números da SSI 2022</h2>
-                <EventNumbersBanner>
+            <LastYearSection>
+                <div>
+                    <div>
+                        <h3>Veja como foi em 2022</h3>
+                        <p>Confira o que rolou no evento do ano passado e <span>sinta a energia</span> que tomou conta do <span>nosso público</span>!</p>
+                    </div>
+                    <div className='carousel-container'>
+                        <div className='carousel-item'>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div className='carousel-item'>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div className='carousel-item'>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <EventNumbersBanner>
 
-                    <CountUp
-                        start={0}
-                        end={2}
-                        delay={0}
-                        decimals={1}
-                        suffix="k"
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='event-info-container'>
-                                <div className='inline-elements'>
-                                    <span className='purple-plus'>&#43;</span>
-                                    <h3 ref={countUpRef} />
+                        <CountUp
+                            start={0}
+                            end={2}
+                            delay={0}
+                            decimals={1}
+                            suffix="k"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='event-info-container'>
+                                    <div className='inline-elements'>
+                                        <span className='purple-plus'>&#43;</span>
+                                        <h3 ref={countUpRef} />
+                                    </div>
+                                    <div className='purple-separator'></div>
+                                    <p>Espectadores</p>
                                 </div>
-                                <div className='purple-separator'></div>
-                                <p>Espectadores</p>
-                            </div>
-                        )}
-                    </CountUp>
+                            )}
+                        </CountUp>
 
-                    <CountUp
-                        start={0}
-                        end={600}
-                        delay={0}
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='event-info-container'>
-                                <div className='inline-elements'>
-                                    <span className='purple-plus'>&#43;</span>
-                                    <h3 ref={countUpRef} />
+                        <CountUp
+                            start={0}
+                            end={600}
+                            delay={0}
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='event-info-container'>
+                                    <div className='inline-elements'>
+                                        <span className='purple-plus'>&#43;</span>
+                                        <h3 ref={countUpRef} />
+                                    </div>
+                                    <div className='purple-separator'></div>
+                                    <p>Inscritos</p>
                                 </div>
-                                <div className='purple-separator'></div>
-                                <p>Inscritos</p>
-                            </div>
-                        )}
-                    </CountUp>
+                            )}
+                        </CountUp>
 
-                    <CountUp
-                        start={0}
-                        end={43}
-                        delay={0}
-                        suffix="h"
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='event-info-container'>
-                                <div className='inline-elements'>
-                                    <span className='purple-plus'>&#43;</span>
-                                    <h3 ref={countUpRef} />
+                        <CountUp
+                            start={0}
+                            end={43}
+                            delay={0}
+                            suffix="h"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='event-info-container'>
+                                    <div className='inline-elements'>
+                                        <span className='purple-plus'>&#43;</span>
+                                        <h3 ref={countUpRef} />
+                                    </div>
+                                    <div className='purple-separator'></div>
+                                    <p>De conteúdo</p>
                                 </div>
-                                <div className='purple-separator'></div>
-                                <p>De conteúdo</p>
-                            </div>
-                        )}
-                    </CountUp>
+                            )}
+                        </CountUp>
 
-                </EventNumbersBanner>
-            </NumbersSection>
+                    </EventNumbersBanner>
+                </div>
+            </LastYearSection>
         </>
     )
 }
@@ -578,15 +594,41 @@ const GiftsSection = styled.section`
     }
 `
 
-const NumbersSection = styled.section`
+const LastYearSection = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    position: relative;
+    overflow: hidden;
 
     h2 {
         text-align: center;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .carousel-container::-webkit-scrollbar {
+        display: none;
+    } 
+
+    .carousel-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        height: 500px;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        display: flex;
+        overflow: auto;
+        /* overflow-y:scroll; */
+        scroll-snap-type: x mandatory;
+    }
+
+    .carousel-item {
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        margin-inline: 5rem;
     }
 `
 
