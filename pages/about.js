@@ -184,7 +184,13 @@ const About = () => {
                         <p>Confira o que rolou no evento do ano passado e <span>sinta a energia</span> que tomou conta do <span>nosso público</span>!</p>
                     </div>
                     <div className='lastyear-video'>
-                        <iframe src="https://www.youtube.com/embed/GUIYO1a5lMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe 
+                            src="https://www.youtube.com/embed/GUIYO1a5lMA" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                     <EventNumbersBanner>
 
@@ -235,9 +241,10 @@ const About = () => {
                         </CountUp>
 
                     </EventNumbersBanner>
-                    <div className='lastyear-btn'>
+
+                    <a target="blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
                         <Button>Nosso canal na Twitch</Button>
-                    </div>
+                    </a>
                 </div>
             </LastYearSection>
         </>
@@ -581,7 +588,6 @@ const GiftsSection = styled.section`
 const LastYearSection = styled.section`
     background-color: var(--color-neutral-800);
     padding-block: 3.5rem;
-    border-bottom: 8px solid var(--color-primary-700);
 
     .lastyear-container {
         display: flex;
@@ -615,25 +621,23 @@ const LastYearSection = styled.section`
         }
 
         .lastyear-video {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
+            overflow: hidden;
             width: 100%;
-            height: fit-content;
+            border-radius: 8px;
+
+            &::after {
+                display: block;
+                content: "";
+                padding-top: 56.25%;
+            }
 
             iframe {
-                width: 20.5rem;
-                height: 11.5rem;
-                border-radius: 8px;
-            }
-        }
-    }
-
-    @media (min-width:412px) {
-        .lastyear-container {
-            .lastyear-video iframe {
-                width: 23.75rem;
-                height: 13.35rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
             }
         }
     }
@@ -653,9 +657,8 @@ const LastYearSection = styled.section`
         }
 
         .lastyear-container {
-            .lastyear-video iframe {
-                width: 50rem;
-                height: 28.125rem;
+            .lastyear-video  {
+                max-width: 50rem;
             }
         }
     }
