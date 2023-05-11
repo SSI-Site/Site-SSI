@@ -49,7 +49,8 @@ const Nav = () => {
 
     return (
         <NavWrapper>
-
+            <div>
+                
             {/* Logo que redireciona para a home */}
             <Link href="/">
                 <a className="logo-container">
@@ -194,6 +195,7 @@ const Nav = () => {
                 </button>
             </NavMobile>
 
+            </div>
         </NavWrapper>
     )
 }
@@ -213,6 +215,15 @@ const NavWrapper = styled.div`
     background-color: var(--color-neutral-900);
     box-shadow: 0px 5px 24px 14px rgba(16,3,26,0.38);
 
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1440px;
+        height: 100%;
+    }
+
     .logo-container {
         display: flex;
         flex-direction: row;
@@ -220,6 +231,10 @@ const NavWrapper = styled.div`
         justify-content: space-between;
         width: 14rem;
         gap: 1rem;
+
+        img {
+            height: 2.75rem;
+        }
     }
 
     .text-small {
@@ -436,6 +451,7 @@ const NavDesktop = styled.nav`
 
         li {
             position: relative;
+            max-height: 44px;
 
             div {
                 position: absolute;
@@ -447,11 +463,20 @@ const NavDesktop = styled.nav`
                 transition: all .2s;
                 border-radius: 12px;
             }
+
+            &:last-child {
+                margin-left: 0.75rem;
+            }
+
+            a {
+                max-height: 44px;
+            }
         }
 
         button {
             padding-block: 0.65rem;
-            margin-left: 0.75rem;
+            height: 44px;
+            width: 108px;
         }
 
         .userPicContainer {
@@ -460,7 +485,6 @@ const NavDesktop = styled.nav`
             align-items: center;
             justify-content: center;
             margin-left: 0.75rem;
-            margin-top: 1px;
 
             img {
                 width: 44px;

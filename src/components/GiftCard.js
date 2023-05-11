@@ -51,8 +51,7 @@ const GiftPopUpBackdrop = styled.div`
     z-index: 99;
 
     &.show-modal {
-
-    display: flex;
+        display: flex;
     }
 `
   
@@ -64,6 +63,35 @@ const GiftPopUp = styled.div`
 
 const GiftWrapper = styled.div`
     position: relative;
+    background-color: var(--color-neutral-800);
+    border: 4px solid var(--color-primary-700);
+    border-radius: 8px;
+    transition: 0.3s;
+
+    :hover {
+        border: 4px solid var(--color-primary-700);
+        background-color: var(--color-neutral-700);  
+        animation: shake 1s;
+        animation-iteration-count: infinite; 
+    }
+    
+    @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    :active {
+        background-color: var(--color-neutral-600);
+    }
 
     .gift-box {
         cursor: pointer;
@@ -74,16 +102,9 @@ const GiftWrapper = styled.div`
         width: 9.75rem;
         height: 10rem;
         padding: 0.65625rem;
-        background-color: var(--color-neutral-800);
-        border: 4px solid var(--color-primary-700);
-        border-radius: 8px;
         gap: 0.3125rem;
-        transition: 0.3s;
         z-index: 2;
 
-        :active {
-            background-color: var(--color-neutral-600);
-        }
 
         .gift-image {
             display: flex;
@@ -107,6 +128,7 @@ const GiftWrapper = styled.div`
     }
 
     @media (min-width:412px) {
+
         .gift-box {
             width: 11.375rem;
             height: 10rem;
@@ -114,41 +136,18 @@ const GiftWrapper = styled.div`
                 font-size: 1rem;
             }
         }
-
-
     }
 
     @media (min-width:1000px) {
         width: 18rem;
         height: 14.75rem;
+        border: 4px solid transparent;
         
         .gift-box {
             width: 100%;
             height: 100%;
-            border: 4px solid transparent;
             padding: 2rem 3rem;
             padding: 1.5rem;
-            
-            :hover {
-                border: 4px solid var(--color-primary-700);
-                background-color: var(--color-neutral-700);  
-                animation: shake 1s;
-                animation-iteration-count: infinite; 
-            }
-
-            @keyframes shake {
-                0% { transform: translate(1px, 1px) rotate(0deg); }
-                10% { transform: translate(-1px, -2px) rotate(-1deg); }
-                20% { transform: translate(-3px, 0px) rotate(1deg); }
-                30% { transform: translate(3px, 2px) rotate(0deg); }
-                40% { transform: translate(1px, -1px) rotate(1deg); }
-                50% { transform: translate(-1px, 2px) rotate(-1deg); }
-                60% { transform: translate(-3px, 1px) rotate(0deg); }
-                70% { transform: translate(3px, 1px) rotate(-1deg); }
-                80% { transform: translate(-1px, -1px) rotate(1deg); }
-                90% { transform: translate(1px, 2px) rotate(0deg); }
-                100% { transform: translate(1px, -2px) rotate(-1deg); }
-            }
 
             .gift-image {
                 height: 9rem;
