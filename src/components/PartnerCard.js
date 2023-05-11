@@ -29,13 +29,16 @@ const PartnerWrapper = styled.div`
     cursor: pointer;
     border-radius: 8px;
     border: 4px solid transparent;
-    transform-style: preserve-3d;
     transition: 0.3s;
     z-index: 2;
 
     :hover {
         border: solid 4px var(--color-primary-700);
-        box-shadow: var(--glow-item);
+        background-color: var(--color-neutral-700);
+    }
+
+    :active {
+        background-color: var(--color-neutral-600);
     }
 
     .partner-image {
