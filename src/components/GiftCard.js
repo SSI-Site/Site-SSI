@@ -13,13 +13,15 @@ const GiftCard = ({ image, name, totalPres, presentialPres }) => {
     };
 
     return (
-        <GiftWrapper>
-            <div className='gift-box' onClick={() => handleBtnClick()}>
-                <figure className='gift-image'>
-                    <img src={image} alt={`Logo ${name}`}></img>
-                </figure>
-                <p>{name}</p>
-            </div>
+        <>
+            <GiftWrapper>
+                <div className='gift-box' onClick={() => handleBtnClick()}>
+                    <figure className='gift-image'>
+                        <img src={image} alt={`Logo ${name}`}></img>
+                    </figure>
+                    <p>{name}</p>
+                </div>
+            </GiftWrapper>
             <GiftPopUpBackdrop id="backdrop-parent" className={btnState ? "show-modal" : ""}>
                 <GiftPopUp id="popup">
                     <GiftModal
@@ -28,10 +30,10 @@ const GiftCard = ({ image, name, totalPres, presentialPres }) => {
                         name={name}
                         totalPres={totalPres}
                         presentialPres={presentialPres}
-                    />
+                        />
                 </GiftPopUp>
             </GiftPopUpBackdrop>
-        </GiftWrapper>
+        </>
     )
 }
 
@@ -68,27 +70,6 @@ const GiftWrapper = styled.div`
     border-radius: 8px;
     transition: 0.3s;
 
-    :hover {
-        border: 4px solid var(--color-primary-700);
-        background-color: var(--color-neutral-700);  
-        animation: shake 1s;
-        animation-iteration-count: infinite; 
-    }
-    
-    @keyframes shake {
-        0% { transform: translate(1px, 1px) rotate(0deg); }
-        10% { transform: translate(-1px, -2px) rotate(-1deg); }
-        20% { transform: translate(-3px, 0px) rotate(1deg); }
-        30% { transform: translate(3px, 2px) rotate(0deg); }
-        40% { transform: translate(1px, -1px) rotate(1deg); }
-        50% { transform: translate(-1px, 2px) rotate(-1deg); }
-        60% { transform: translate(-3px, 1px) rotate(0deg); }
-        70% { transform: translate(3px, 1px) rotate(-1deg); }
-        80% { transform: translate(-1px, -1px) rotate(1deg); }
-        90% { transform: translate(1px, 2px) rotate(0deg); }
-        100% { transform: translate(1px, -2px) rotate(-1deg); }
-    }
-
     :active {
         background-color: var(--color-neutral-600);
     }
@@ -103,8 +84,6 @@ const GiftWrapper = styled.div`
         height: 10rem;
         padding: 0.65625rem;
         gap: 0.3125rem;
-        z-index: 2;
-
 
         .gift-image {
             display: flex;
@@ -142,6 +121,27 @@ const GiftWrapper = styled.div`
         width: 18rem;
         height: 14.75rem;
         border: 4px solid transparent;
+
+        :hover:not(:active) {
+            border: 4px solid var(--color-primary-700);
+            background-color: var(--color-neutral-700);  
+            animation: shake 1s;
+            animation-iteration-count: infinite; 
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
         
         .gift-box {
             width: 100%;
