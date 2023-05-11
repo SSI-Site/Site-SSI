@@ -6,6 +6,7 @@ import LogoPrincipal from '../../../public/images/logos/logo_principal.svg';
 import InstagramLogo from '../../../public/images/social_media/InstagramLogo.svg';
 import FacebookLogo from '../../../public/images/social_media/FacebookLogo.svg';
 import LinktreeLogo from '../../../public/images/social_media/LinktreeLogo.svg';
+import { Link } from 'react-scroll';
 
 const Footer = () => {
     
@@ -21,26 +22,32 @@ const Footer = () => {
                             Semana de Sistemas de <br />Informação 2023
                         </p>
                     </div>
-                    <div className='footer-blur'></div>
+                
                 </div>
                 <div className='redes'>
-                    <h5>
-                        SIGA-NOS NAS REDES SOCIAIS
-                    </h5>
-                    <div className='logos_midia'>
-                        <div>
-                            <a href="https://www.instagram.com/semanadesi/" target="_blank" rel="noreferrer">
+                    <div className='links'>
+                        <h3 className='links_header'>
+                            Links rápidos
+                        </h3>
+                            <Link href="/">Home</Link>
+                            <Link href="/about">Evento</Link>
+                            <Link href="/schedule">Programação</Link>
+                            <Link href="/partnerships">Parcerias</Link>
+                            <Link href="/co">Comissão Organizadora</Link>
+                            <Link href="https://ctfssi.intheshell.page">CTF</Link>
+                            <Link href="/hackssi">HackSSI</Link>
+                    </div>
+                    <div className='logos'>
+                        <h3 className='logos_header'>Redes Sociais</h3>
+                        <div className='logos_midia'>
+                            <a href='https://www.instagram.com/semanadesi/' target="_blank" rel="noreferrer">
                                 <img src={InstagramLogo} alt="Instagram"></img>
                             </a>
-                        </div>
-                        <div>
-                            <a href="https://www.facebook.com/SSIUSP" target="_blank" rel="noreferrer">
-                                <img src={FacebookLogo} alt="Facebook"></img>
+                            <a href='https://linktr.ee/SemanaDeSI' target="_blank" rel="noreferrer">
+                                <img src={LinktreeLogo} alt="Facebook"></img>
                             </a>
-                        </div>
-                        <div>
-                            <a href="https://linktr.ee/SemanaDeSI" target="_blank" rel="noreferrer">
-                                <img src={LinktreeLogo} alt="Linktree"></img>
+                            <a href='https://www.facebook.com/SSIUSP' target="_blank" rel="noreferrer">
+                                <img alt="Linktree" src={FacebookLogo}></img>
                             </a>
                         </div>
                     </div>
@@ -59,15 +66,23 @@ const FooterWrapper = styled.footer`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 50rem;
-    padding-bottom: 1rem;
+    height: 800px;
     opacity: 0.8;
     text-align: center;
+    margin-bottom:0;
 
-    background: #151023;
+    background: #121212;
 
-    p, h5 {
+    p {
         color: white;
+        margin-top:2rem;
+        font-size:1.25rem;
+    }
+
+    h3 {
+        margin-top:3.5rem;
+        font-size:1.25rem;
+        text-align: center;
     }
 
     .ssi {
@@ -96,21 +111,29 @@ const FooterWrapper = styled.footer`
         color: white;
     }
 
-    .ssi .footer-blur {
-        width: 100%;
-        height: 50%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: rgba(138, 69, 198, 0.1);
-        filter: blur(15px);
-        z-index: -1;
+    .links {
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        margin-left:5.438rem;
+        gap: 1rem;
+        margin-bottom:56px;
+    }
+
+    .links_header {
+        margin-left:-5rem;
+    }
+    
+    .links a {
+        margin-top:0.2rem;
+        width:fit-content;
+        font-weight:400;
     }
 
     .ssi img {
-        width: 8.2rem;
+        width: 7.327rem;
         align-self: center;
-        margin-bottom: 0.3rem;
+       
     }
 
     .redes img {
@@ -119,33 +142,79 @@ const FooterWrapper = styled.footer`
     }
 
     .logos_midia {
-        margin-top: 1.3rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
 
+    .logos_midia img {
+        width:42.63px;
+        height:40px;
+    }
+
+    .logos_midia a {
+        height:3rem;
+    }
+
+    .logos_header {
+        margin-top:42px;
+
+    }
+
     .logos_midia img:hover {
         filter: brightness(60%) sepia(0) saturate(0) hue-rotate(360deg);
         transition: 0.2s all;
+        cursor: pointer;
+    }
+
+    .logos_midia img:active {
+        filter: brightness(60%) sepia(0) saturate(0) hue-rotate(360deg);
+        transition: 0.2s all;
+        cursor: pointer;
+    }
+
+    .redes{
+        background: #121212;
+        padding-bottom:60px;
     }
 
     @media (min-width:480px) {}
 
     @media (min-width:600px) { /** mudar para horizontal */
+        height:380px;
+    }
+
+    @media (min-width:801px) {
+        height:26.75rem;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        padding: 0 4rem;
-        height: 26.75rem;
+        padding: 0 4 0 0rem;
+        width:100%;
 
         .ssi {
             height: 50%;
             margin-top: 0;
+
+        }
+
+        .ssi p {
+            width:10rem; 
+        }
+
+        .logo-box {
+            margin-left:5vw;
         }
 
         .ssi img {
-            width: 5.5rem;
+            width: 7.3rem;
+            height:8.25rem;
+        }
+
+        .redes {
+            display:flex;
+            flex-direction:row;
+            margin-left:10vw;
+            padding-bottom:0px;
         }
 
         .redes img {
@@ -153,26 +222,74 @@ const FooterWrapper = styled.footer`
             margin: 0 0.9rem;
         }
 
-        .logos_midia {
-            margin-top: 0.9rem;
+        .links {
+            display:grid;
+            grid-template-columns: repeat(2, 1fr);
+            text-align:left;
+            margin-left:0px;
+            margin-bottom:0px;
+        }
+
+        .links_header {
+            position:absolute;
+            top:1.75rem;
+            margin-left:0vw;
+            margin-right:5vw;
+        }
+        
+
+        .logos{
+            margin-top:-5.6rem;
+            margin-left:5vw;
+            margin-right:1vw;
+        }
+
+
+        .logos_header{
+            margin-left:-2vw;
         }
     }
 
-    @media (min-width:801px) {
-        padding: 0 6rem;
+    @media (min-width:1000px) {
+        .ssi p {
+            width:16.8rem; 
+        }
+
+
     }
 
-    @media (min-width:1021px) {
-        padding: 0 9rem;
+    @media (min-width:1230px) {
+        .logos{
+            margin-top:-6.3rem;
+        }
     }
 
     @media (min-width:1400px) {
-        padding: 0 17rem;
+        .ssi p {
+            width:16.8rem; 
+        }
+
+        .logo-box {
+            margin-left:7.5vw;
+        }
+        
+        .redes {
+            margin-left:14.967vw;
+        }
+
+        .logos{
+            margin-left:15.226vw;
+            margin-right:7.778vw;
+        }
+
+        .logos_header{
+            margin-left:-2vw;
+        }
     }
 
-    @media (min-width:1500px) {
-        /* width: calc(100vw-10px);
-        margin-left: calc( (1500px - 100vw - 10px)/2 ); */
+    @media (min-width:1600px) {
+        width: calc(100vw - 10px);
+        margin-left: calc( (1500px - 100vw - 10px) / 2 );
     }
 
     @media (min-width:2200px) {
