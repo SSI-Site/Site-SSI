@@ -131,7 +131,7 @@ const FooterWrapper = styled.footer`
     }
 
     .ssi img {
-        width: 7.326rem;
+        width: 7.324rem;
         align-self: center;
        
     }
