@@ -1,35 +1,38 @@
 import styled from 'styled-components';
 
-const EventActivity = ({ color, image, alt, title, description }) => {
+const EventActivity = ({ image, alt, title, description }) => {
 
     return (
         <ActivityWrapper>
-            <div className='activity-content'>
-                <div className='container'>
-                    {/* div da frente do verso */}
-                    <div className='front'>
-                        <div className='activity-text'>
-                            <div className='activity-title'>
-                                <h2>{title}</h2>
-                            </div>
-                        </div>
-                    </div>
+            <div className='container'>
 
-                    {/* div do verso do card */}
-                    <div className='back'>
-                        <div className='activity-logo' style={{ backgroundColor: color }}>
-                            <img src={image} alt={alt} />
-                        </div>
-                        <div className='activity-text'>
-                            <div className='activity-title'>
-                                <h2>{title}</h2>
-                            </div>
-                            <div className='activity-description'>
-                                <p>{description}</p>
-                            </div>
+                {/* div da frente do verso */}
+                <div className='front'>
+                    <div className='activity-content'>
+                        <div className='activity-title'>
+                            <h6>{title}</h6>
                         </div>
                     </div>
                 </div>
+
+                {/* div do verso do card */}
+                <div className='back'>
+                    <div className='activity-content'>
+                        <div className='title-logo'>
+                            <div className='activity-title'>
+                                <h6>{title}</h6>
+                                <div></div> {/* essa div será a barrinha roxa sob o título */}
+                            </div>
+                            <div className='activity-logo'>
+                                <img src={image} alt={alt} />
+                            </div>
+                        </div>
+                        <div className='activity-description'>
+                            <p>{description}</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </ActivityWrapper>
     )
@@ -44,12 +47,12 @@ const ActivityWrapper = styled.div`
     align-items: center;
     //justify-content: space-between;
     position: relative;
-    border: 1.48px solid black;
     border-radius: 16px;
-    background: #272727;
+    width: 100%;
     max-width: 380px;
-    height: 264px;
-    margin-bottom: 12rem;
+    height: 100%;
+    max-height: 264px;
+
 
     .activity-content {
         position: relative;
@@ -57,68 +60,86 @@ const ActivityWrapper = styled.div`
     }
 
     // ---MOVIMENTO DOS CARDS---
-    .container{
+    .container {
         position: relative;
         perspective: 1000px;
         height: 400px;
-        width: 300px;
-    }
+        width: 100%;
 
-    .front, .back{
-        position: absolute;
-        backface-visibility: hidden;
-        transform-style: preserve-3d;
-        transition: all 1s ease;
-    }
+        .front, .back {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            position: absolute;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: all 1s ease;
+        }
 
-    .front{
-        transform: rotateY(0deg);
-    }
+        // Frente do card
+        .front {
+            background: transparent;
+            border: 4px solid var(--color-primary-800);
+            transform: rotateY(0deg);
 
-    .back{
-        transform: rotateY(180deg);
-    }
+            .activity-content {
+                
+                h6 {
+                    color: var(--color-primary-800);
+                }
+            }
+        }
 
-    .container:hover .front{
-        transform: rotateY(-180deg);
-    }
+        // Verso do card
+        .back {
+            background-color: var(--color-neutral-800);
+            border: 4px solid transparent;
+            transform: rotateY(180deg);
 
-    .container:hover .back{
-        transform: rotateY(0deg);
+            .activity-content {
+
+                .title-logo {
+                    height: 44px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .activity-title > div {
+                        // definir barrinha roxa aqui
+                        /* height: 5px;
+                        width: 90px;
+                        background-color: red; */
+                    }
+
+                    .activity-logo {
+                        //definir tamanho da imagem aqui
+                        img {
+                            // ...
+                        }
+                    }
+                }
+
+                p {
+                    // aqui tem 4 propriedades da fonte em uma só: peso, tamanho, altura da linha e família
+                    font: 700 0.875rem/1.25rem 'Space_Mono';
+                }
+            }
+        }
+
+        &:hover .front {
+            transform: rotateY(-180deg);
+        }
+
+        &:hover .back {
+            transform: rotateY(0deg);
+        }
     }
     //---------------
 
-    .front h2{
-        color: #3C3C3C;
-    }
 
     .activity-title{
         margin-bottom: 30px;
-    }
-
-    .activity-title h2{
-        font-size: 20px;
-        line-height: 24px;
-    }
-
-    p {
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 400;
-    }
-
-    .activity-logo {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        right: 0px;
-        top: -30px;
-        margin: 15px 0;
-        border-radius: 7px;
-        clip-path: polygon(100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 0%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     @media (min-width:800px) {
@@ -132,9 +153,9 @@ const ActivityWrapper = styled.div`
         }
 
         .activity-logo {
-            margin-top: 50px;
+            /* margin-top: 50px;
             left: 0px;
-            top: 40px;
+            top: 40px; */
         }
 
         .activity-title {
