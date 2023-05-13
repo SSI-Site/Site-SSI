@@ -50,7 +50,7 @@ const About = () => {
                         image='./images/about/icon_palestras.svg'
                         alt='Imagem Palestras'
                         title='Palestras'
-                        description='Teremos diversas palestras incíveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                        description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                     />
                     <EventActivity
                         //color='#FF7F5C'

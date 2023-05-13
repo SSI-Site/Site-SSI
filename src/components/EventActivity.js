@@ -82,11 +82,8 @@ const ActivityWrapper = styled.div`
             border: 4px solid var(--color-primary-800);
             transform: rotateY(0deg);
 
-            .activity-content {
-                
-                h6 {
+            .activity-content h6 {
                     color: var(--color-primary-800);
-                }
             }
         }
 
@@ -104,12 +101,17 @@ const ActivityWrapper = styled.div`
                     flex-direction: row;
                     align-items: center;
                     justify-content: space-between;
+                    margin-bottom: 12px;
 
                     .activity-title > div {
                         // definir barrinha roxa aqui
-                        /* height: 5px;
+                        height: 5px;
                         width: 90px;
-                        background-color: red; */
+                        background-color: var(--color-primary-800);
+                    }
+
+                    .activity-title{
+                        margin-bottom: 40px;
                     }
 
                     .activity-logo {
@@ -137,15 +139,10 @@ const ActivityWrapper = styled.div`
     }
     //---------------
 
-
-    .activity-title{
-        margin-bottom: 30px;
-    }
-
     @media (min-width:800px) {
         border: 1.7px solid black;
         width: 365.5px;
-        height: 439px;
+        max-height: 350px;
         margin-bottom: 2rem;
 
         &::after {
@@ -159,8 +156,22 @@ const ActivityWrapper = styled.div`
         }
 
         .activity-title {
-            margin-bottom: 120px;
+            /*margin-bottom: 120px;*/
         }
+
+        .container{
+            .back {
+                .activity-content {
+                    .title-logo {
+                        flex-direction: column;
+                        align-items: start;
+                        margin-bottom: 90px;
+                    }
+                }
+            }
+        }
+        
+    
 
         .activity-title h2 {
             font-size: 32px;
