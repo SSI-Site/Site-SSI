@@ -5,34 +5,36 @@ const EventActivity = ({ image, alt, title, description }) => {
     return (
         <ActivityWrapper>
             <div className='container'>
+                {/* p/click da animação */}
+                <a href="#a" type="">
 
-                {/* div da frente do verso */}
-                <div className='front'>
-                    <div className='activity-content'>
-                        <div className='activity-title'>
-                            <h6>{title}</h6>
-                        </div>
-                    </div>
-                </div>
-
-                {/* div do verso do card */}
-                <div className='back'>
-                    <div className='activity-content'>
-                        <div className='title-logo'>
+                    {/* div da frente do verso */}
+                    <div className='front'>
+                        <div className='activity-content'>
                             <div className='activity-title'>
                                 <h6>{title}</h6>
-                                <div></div> {/* essa div será a barrinha roxa sob o título */}
                             </div>
-                            <div className='activity-logo'>
-                                <img src={image} alt={alt} />
-                            </div>
-                        </div>
-                        <div className='activity-description'>
-                            <p>{description}</p>
                         </div>
                     </div>
-                </div>
 
+                    {/* div do verso do card */}
+                    <div className='back'>
+                        <div className='activity-content'>
+                            <div className='title-logo'>
+                                <div className='activity-title'>
+                                    <h6>{title}</h6>
+                                    <div></div> {/* essa div será a barrinha roxa sob o título */}
+                                </div>
+                                <div className='activity-logo'>
+                                    <img src={image} alt={alt} />
+                                </div>
+                            </div>
+                            <div className='activity-description'>
+                                <p>{description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </ActivityWrapper>
     )
@@ -129,11 +131,11 @@ const ActivityWrapper = styled.div`
             }
         }
 
-        &:hover .front {
+        a:focus .front {
             transform: rotateY(-180deg);
         }
 
-        &:hover .back {
+        a:focus .back {
             transform: rotateY(0deg);
         }
     }
