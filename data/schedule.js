@@ -44,7 +44,7 @@ import LectureImage42 from '../public/images/lecture_imgs/42-Globo.jpg'
 import LectureImage43 from '../public/images/lecture_imgs/43-Téo_Calvo_(Téo).jpg'
 
 const schedule = {
-  '2022-11-07': {
+  '2023-08-21': {
     '08:40': { message: 'Abertura' },
     '10:00': {
       title: 'Transformação digital: tecnologia como negócio',
@@ -135,7 +135,7 @@ const schedule = {
       image: LectureImage08
     },
   },
-  '2022-11-08': {
+  '2023-08-22': {
     '08:40': {
       title: 'GitHub Actions: como fazer seu primeiro flow',
       description: 'Já tentou subir uma aplicação e percebeu que o repositório não conseguia compilar? Você pode evitar isso com um workflow do GitHub Actions! Venha aprender mais sobre workflows, eventos, actions com Lavínia Paganini, estudante de mestrado em Ciência da Computação da UFPE, back-end Software Engineer na Gympass e GitHub Campus Expert.',
@@ -228,7 +228,7 @@ const schedule = {
       image: LectureImage17
     },
   },
-  '2022-11-09': {
+  '2023-08-23': {
     '08:40': {
       title: 'De startup até empresa de classe mundial',
       description: 'Na palestra compartilharei minha experiência e os desafios de fazer uma empresa crescer de uma startup até ser uma grande empresa com ações na bolsa. ',
@@ -319,7 +319,7 @@ const schedule = {
       image: LectureImage26
     },
   },
-  '2022-11-10': {
+  '2023-08-24': {
     '08:40': {
       title: 'Em busca do código perfeito',
       description: 'Engenheira de Software, Tech Lead, futura Arquiteta de Software e Cultivadora da Cultura DevOps na ThoughtWorks. Menina e mulher de família de cor simples da periferia de SP capital.',
@@ -419,7 +419,7 @@ const schedule = {
       image: LectureImage35
     },
   },
-  '2022-11-11': {
+  '2023-08-25': {
     '08:40': {
       title: 'Entrando no mundo do Flutter',
       description: 'Já pensou em entrar para o mundo da tecnologia mobile que mais cresceu nesses últimos anos? Aprender a criar aplicativos como Nubank, Google Pay e vários outros que utilizam o Flutter? Então, na palestra de hoje vou lhe ensinar os caminhos para entrar no mundo incrível dessa tecnologia da Google.',
