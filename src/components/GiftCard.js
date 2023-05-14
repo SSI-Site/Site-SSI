@@ -80,8 +80,8 @@ const GiftWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 9.75rem;
-        height: 10rem;
+        width: 9.25rem;
+        height: 9rem;
         padding: 0.65625rem;
         gap: 0.3125rem;
 
