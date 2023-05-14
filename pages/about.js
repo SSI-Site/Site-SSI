@@ -1,14 +1,12 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
-
-// assets
-import gifts from '../data/gifts';
+import useAuth from '../hooks/useAuth';
 
 // components
 import EventActivity from '../src/components/EventActivity';
@@ -16,41 +14,14 @@ import ScrollArrow from '../src/components/ScrollArrow';
 import GiftCard from '../src/components/GiftCard';
 import Button from '../src/components/Button';
 
-import useAuth from '../hooks/useAuth';
-
 // assets
+import gifts from '../data/gifts';
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 
 const About = () => {
 
     const router = useRouter();
     const { user, signOut } = useAuth();
-    const [isUserRegistered, setIsUserRegistered] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-
-    const checkUserRegister = () => {
-        if (!user) return;
-
-        setIsLoading(true);
-
-        saphira.getUser(user.email)
-            .then(() => {
-                setIsUserRegistered(true);
-                setIsLoading(false);
-            })
-            .catch(() => {
-                setIsUserRegistered(false);
-                setIsLoading(false);
-            });
-    }
-
-    useEffect(() => {
-        checkUserRegister();
-    }, [user]);
-
-    useEffect(() => {
-        checkUserRegister();
-    }, []);
 
     return (
         <>
@@ -161,21 +132,10 @@ const About = () => {
                         })}
                     </div>
 
-                    {!isLoading ?
+                    {user &&
                         <div className='gifts-btn'>
-                            {user /* && isUserRegistered */ &&
-                                <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
-                            }
-
-                            {/* {user && !isUserRegistered &&
-                                <Button className="btn-complete-register" onClick={() => router.push('/user')}>Concluir cadastro</Button>
-                            } */}
+                            <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
                         </div>
-                        :
-
-                        <Loading>
-                            <img src='./loading.svg' alt='SSI 2023 - Loading' />
-                        </Loading>
                     }
                 </div>
             </GiftsSection>
@@ -266,12 +226,6 @@ const Loading = styled.figure`
     img {
         width: 25%;
     }
-`
-
-const BackgroundWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
 `
 
 const LogoTextSection = styled.section`
