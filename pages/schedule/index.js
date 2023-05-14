@@ -37,28 +37,14 @@ const Schedule = () => {
             <ScheduleSection>
                 <h1>Programação</h1>
 
-                {/* Para telas mobile */}
-                <div className='schedule-container-small'>
-                    {Object.entries(schedule).map(([key]) => {
-                        const { day, weekDay } = getScheduleDay(key)
-                        return (
-                            <Link key={key} href={`/schedule/${weekDay.slugify()}`}>
-                                <div className='day-selection'>
-                                    <DateStamp day={day} weekDay={weekDay} size='small' />
-                                </div>
-                            </Link>
-                        )
-                    })}
-                </div>
-
                 {/* Para telas desktop */}
-                <div className='schedule-container-medium'>
+                <div className='schedule-container'>
                     {Object.entries(schedule).map(([key]) => {
                         const { day, weekDay } = getScheduleDay(key)
                         return (
                             <Link key={key} href={`/schedule/${weekDay.slugify()}`}>
                                 <div className='day-selection'>
-                                    <DateStamp day={day} weekDay={weekDay} size='medium' />
+                                    <DateStamp day={day} showEmoji={true}/>
                                 </div>
                             </Link>
                         )
@@ -85,13 +71,30 @@ const ScheduleSection = styled.section`
         font-weight: 400;
     }
 
-    .day-selection  {
-        margin: 8rem auto;
-        cursor: pointer;
+    .schedule-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.875rem;
     }
 
-    .schedule-container-medium {
-        display: none;
+    .day-selection  {
+        cursor: pointer;
+
+        &:hover {
+            > div {
+                background-color: var(--color-neutral-700);
+            }
+        } 
+
+        &:active {
+            > div {
+                background-color: var(--color-neutral-600);
+            }
+        } 
+        
     }
 
     @media (min-width:600px) {
@@ -99,25 +102,12 @@ const ScheduleSection = styled.section`
         flex-direction: column;
         width: 100%;
 
+        .schedule-container {
+            gap: 1.5rem;
+        }
+
         h1 {
             margin-bottom: 7rem;
-        }
-
-        .schedule-container-small {
-            display: none;
-        }
-
-        .schedule-container-medium {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            max-width: 65rem;
-        }
-
-        .day-selection {
-            margin: 2rem 5rem;
         }
     }
 

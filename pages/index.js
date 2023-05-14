@@ -287,7 +287,7 @@ const Home = () => {
                                 <>
                                     <Link href={`/schedule/${weekDay.slugify()}`}>
                                         <div className='date'>
-                                            <DateStamp day={day} weekDay={weekDay} size="small" />
+                                            <DateStamp day={day} />
                                         </div>
                                     </Link>
                                     <ScheduleInformation
@@ -299,7 +299,7 @@ const Home = () => {
                             ) : (
                                 <>
                                     <div className='date'>
-                                        <DateStamp day={day} weekDay={weekDay} size="small" />
+                                        <DateStamp day={day} />
                                     </div>
                                     <ScheduleInformation
                                         speakerPicture={speakerPicture}
