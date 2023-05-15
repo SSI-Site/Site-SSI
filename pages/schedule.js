@@ -221,16 +221,13 @@ const NavItem = styled.div`
         }
     `}
 
-    &:hover {
-        > div {
-            background-color: var(--color-neutral-700);
-        }
-    }
-
-    &:active {
-        > div {
-            background-color: var(--color-neutral-600);
-        }
+    @media (min-width: 840px) {
+        
+        ${props => props.active == false && css`
+            > div:hover {
+                background-color: var(--color-neutral-700);
+            }
+        `}
     } 
 `
 
