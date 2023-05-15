@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
-import Meta from '../../src/infra/Meta';
-import saphira from '../../services/saphira';
-import semana from '../../utils/semana';
-import '../../utils/slugify';
-import schedule from '../../data/schedule';
-import members from './../../data/members';
+import Meta from '../src/infra/Meta';
+import saphira from '../services/saphira';
+import semana from '../utils/semana';
+import '../utils/slugify';
+import schedule from '../data/schedule';
+import members from '../data/members';
 
 // components
-import DateStamp from '../../src/components/DateStamp';
-import MemberCard from '../../src/components/MemberCard';
+import DateStamp from '../src/components/DateStamp';
+import MemberCard from '../src/components/MemberCard';
 
 // assets
 
@@ -101,7 +101,6 @@ const Schedule = () => {
                     <div className='schedule-container'>
                         <Link href='#schedule'>
                             <NavItem className='day-selection' active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
-                                {console.log(activeItem ==='2023-08-21')}
                                 <DateStamp day='21' showEmoji={true} />
                             </NavItem>
                         </Link>
