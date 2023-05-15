@@ -60,7 +60,7 @@ const DateWrapper = styled.div`
         font: 400 1rem/1.25rem 'Space_Mono_Bold';
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 840px) {
         width: 24.5rem;
         height: 5.75rem;
 
