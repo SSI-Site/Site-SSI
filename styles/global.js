@@ -45,6 +45,7 @@ export default createGlobalStyle`
 
     body {
         background: var(--color-neutral);
+        -webkit-tap-highlight-color:  transparent; // evita highlight ao toque para mobile
     }
 
     section {
