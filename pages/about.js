@@ -542,7 +542,7 @@ const GiftsSection = styled.section`
 `
 
 const LastYearSection = styled.section`
-    background-color: var(--color-neutral-800);
+    background-color: var(--color-neutral-900);
     padding-block: 3.5rem;
 
     .lastyear-container {
@@ -638,12 +638,12 @@ const EventNumbersBanner = styled.div`
         max-width: 23.75rem;
         padding: 2rem 4rem;
         gap: 0.5rem;
-        background-color: var(--color-neutral);
+        background-color: var(--color-neutral-800);
         border-radius: 8px;
 
         h1 {
             font: 400 4rem/4.25rem 'Space_Mono_Bold';
-            color: var(--color-primary-800);
+            color: var(--color-primary-600);
         }
     }
 

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import semana from '../../utils/semana';
 
+// assets
+import CheckIcon from '../../public/images/icons/check.svg';
+import HourglassIcon from '../../public/images/icons/hourglass.svg';
+
 /**
  * A estilização nos estados de hover e active devem ser estabelecidos no arquivo 
  * que chama o componente, pois há seções em que esta componente é estático
@@ -20,11 +24,11 @@ const DateStamp = ({ day, showEmoji }) => {
         <DateWrapper>
             <div className='day-emoji'>
                 <h6 className='day'>Dia {relativeDay}</h6>
-                {(currentDay>day && month==7 && year==2023) && showEmoji &&
-                    <h6>&#x2705;</h6>
+                {(currentDay>day && month==4 && year==2023) && showEmoji &&
+                    <img src={CheckIcon}></img>
                 }
-                {(currentDay==day && month==7 && year==2023) && showEmoji &&
-                    <h6>&#x231B;</h6>
+                {(currentDay==day && month==4 && year==2023) && showEmoji &&
+                    <img src={HourglassIcon}></img>
                 }
             </div>
             <p className='week-day'>{day} ago - {semana[day-20]}</p>
@@ -54,6 +58,10 @@ const DateWrapper = styled.div`
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
+        img {
+            height: 1.5rem;
+        }
     }
 
     p {
@@ -66,6 +74,10 @@ const DateWrapper = styled.div`
 
         h6 {
             font: 400 2rem/2.5rem 'Space_Mono_Bold';
+        }
+
+        .day-emoji img {
+            height: 2rem;
         }
     }
 `

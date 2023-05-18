@@ -154,6 +154,12 @@ const ScheduleSection = styled.section`
     @media (min-width:600px) {
         gap: 4rem;
     }
+
+    @media (min-width:600px) {
+        h3 {
+            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+        }
+    }
 `
 
 const MobileSelectionContainer = styled.div`
