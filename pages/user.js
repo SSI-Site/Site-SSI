@@ -339,10 +339,6 @@ const FormContainer = styled.section`
 `
 
 const UserInfoSection = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     width: 90%;
     max-width: 1200px;
     padding: 2rem 45px;
@@ -445,11 +441,9 @@ const UserInformation = styled.div`
 `
 
 const ContainerLectures = styled.section`
-    display: flex;
     width: 90%;
     max-width: 1200px;
     align-items: left;
-    flex-direction: column;
     justify-content: left;
     margin-bottom: 15rem;
     margin-top: 100px;

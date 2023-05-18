@@ -11,62 +11,60 @@ const Partnerships = () => {
         <>
             <Meta title='SSI 2023 | Parcerias' />
             
-            <BackgroundWrapper>
-                <PartnersSection>
-                    <h3>Parceiros do evento</h3>
+            <PartnersSection>
+                <h3>Parceiros do evento</h3>
 
-                    {/* <h2 className='deluxe'>Deluxe</h2>
-                    <div className='partners-wrapper'>
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                    </div>
+                {/* <h2 className='deluxe'>Deluxe</h2>
+                <div className='partners-wrapper'>
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                </div>
 
-                    <div className='divider-line'></div> */}
+                <div className='divider-line'></div> */}
 
-                    {/* <div className='multicolor-title'>
-                        <h2 className='palestra'>Palestra&nbsp;</h2>
-                        <h2 className='comercial-and'>&#38;&nbsp;</h2>
-                        <h2 className='workshop'>Workshop</h2>
-                    </div>
-                    <div className='partners-wrapper'>
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                    </div> */}
+                {/* <div className='multicolor-title'>
+                    <h2 className='palestra'>Palestra&nbsp;</h2>
+                    <h2 className='comercial-and'>&#38;&nbsp;</h2>
+                    <h2 className='workshop'>Workshop</h2>
+                </div>
+                <div className='partners-wrapper'>
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                </div> */}
 
-                    {/* <div className='divider-line'></div>
+                {/* <div className='divider-line'></div>
 
-                    <h2 className='standard'>Standard</h2>
-                    <div className='partners-wrapper'>
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                        <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
-                    </div>
+                <h2 className='standard'>Standard</h2>
+                <div className='partners-wrapper'>
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                    <PartnerCard name='totvs' image='./images/logos/EACH-USP.svg' link="https://www.instagram.com/semanadesi/" />
+                </div>
 
-                    <div className='divider-line'></div> */}
+                <div className='divider-line'></div> */}
 
-                    <h2 className='apoiadores'>Apoiadores&nbsp;</h2>
-                    <div className='partners-wrapper'>
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                    </div>
+                <h2 className='apoiadores'>Apoiadores&nbsp;</h2>
+                <div className='partners-wrapper'>
+                    <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                    <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                    <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                    <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                    <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                </div>
 
-                    <div className='divider-line'></div>
+                <div className='divider-line'></div>
 
-                    <h2 className='apoio-inst'>Apoio institucional</h2>
-                    <div className='partners-wrapper'>
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        <PartnerCard name='pet-si' image='./images/partners/pet.png' link="http://www.each.usp.br/petsi/" />
-                    </div>
-                </PartnersSection>
-            </BackgroundWrapper>
+                <h2 className='apoio-inst'>Apoio institucional</h2>
+                <div className='partners-wrapper'>
+                    <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                    <PartnerCard name='pet-si' image='./images/partners/pet.png' link="http://www.each.usp.br/petsi/" />
+                </div>
+            </PartnersSection>
         </>
     )
 }
@@ -74,18 +72,7 @@ const Partnerships = () => {
 export default Partnerships;
 
 
-const BackgroundWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-`
-
 const PartnersSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: relative;
     padding-top: 100px;
     margin-bottom: 15rem;

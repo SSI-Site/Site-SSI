@@ -409,10 +409,6 @@ const WelcomeComponent = styled.div`
     }
 `
 const BannerSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-top: 80px;
 
     .logged-msg {
@@ -514,10 +510,6 @@ const TwitchContainer = styled.div`
 `
 
 const EventInfoSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 2rem;
     padding-block: 6.625rem 3.5rem;
     background-image: url('./images/background_imgs/background2_mobile.svg');
@@ -708,12 +700,7 @@ const CountdownSection = styled.section`
     }  
 `
 
-const ScheduleSection = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+const ScheduleSection = styled.section`
 
     .schedule-content {
         display: flex;
@@ -785,10 +772,6 @@ const ScheduleSection = styled.div`
 `
 
 const SupportersSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding-block: 6.75rem;
     background-image: url('./images/background_imgs/background4_mobile.svg');
     background-size: cover;

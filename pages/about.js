@@ -71,52 +71,60 @@ const About = () => {
                 </div>
             </ActivitiesSection>
 
-            <section>
-                <LectureContent>
-                    <div className='lecture-sample'>
-                        <div className='lecture-image justify-left'>
-                            <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
-                        </div>
-                        <div className='lecture-sample-description'>
-                            <h3>Palestras com experts da área</h3>
-                            <p>
-                                Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
-                                Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
-                            </p>
-                        </div>
+            <BaitSection>
+                <div className='bait-container'>
+                    <div className='bait-text'>
+                        <h3>Atividades</h3>
+                        <p>Descubra as <span>palestras</span>, <span>workshops</span>, <span>networking</span> e muito mais que preparamos para você!</p>
                     </div>
-                </LectureContent>
-
-                <LectureContent>
-                    <div className='lecture-sample middle-lecture'>
-                        <div className='lecture-image justify-right'>
-                            <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
-                        </div>
-                        <div className='lecture-sample-description'>
-                            <h3>Workshops em laboratórios de informática</h3>
-                            <p>
-                                Já pensou em aplicar o que vemos e ouvimos nas palestras?
-                                As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saía da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
-                            </p>
-                        </div>
+                    <div className='bait-content'>
+                        <BaitContent>
+                            <div className='bait-sample'>
+                                <div className='bait-image justify-left'>
+                                    <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
+                                </div>
+                                <div className='bait-sample-description'>
+                                    <h4>Palestras com experts da área</h4>
+                                    <p>
+                                        Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
+                                        Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
+                                    </p>
+                                </div>
+                            </div>
+                        </BaitContent>
+                        <div className='purple-divider'></div>
+                        <BaitContent>
+                            <div className='bait-sample middle-lecture'>
+                                <div className='bait-image justify-right'>
+                                    <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
+                                </div>
+                                <div className='bait-sample-description'>
+                                    <h4>Workshops em laboratórios de informática</h4>
+                                    <p>
+                                        Já pensou em aplicar o que vemos e ouvimos nas palestras?
+                                        As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saia da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
+                                    </p>
+                                </div>
+                            </div>
+                        </BaitContent>
+                        <div className='purple-divider'></div>
+                        <BaitContent>
+                            <div className='bait-sample'>
+                                <div className='bait-image justify-left'>
+                                    <img src='./images/about/networking.jpg' alt='Foto Palestra' />
+                                </div>
+                                <div className='bait-sample-description'>
+                                    <h4>Networking com participantes</h4>
+                                    <p>
+                                        Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
+                                        Dica: conecte-se com os palestrantes no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
+                                    </p>
+                                </div>
+                            </div>
+                        </BaitContent>
                     </div>
-                </LectureContent>
-
-                <LectureContent>
-                    <div className='lecture-sample'>
-                        <div className='lecture-image justify-left'>
-                            <img src='./images/about/networking.jpg' alt='Foto Palestra' />
-                        </div>
-                        <div className='lecture-sample-description'>
-                            <h3>Networking com participantes</h3>
-                            <p>
-                                Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
-                                Dica: conecte-se com os palestrantes no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
-                            </p>
-                        </div>
-                    </div>
-                </LectureContent>
-            </section>
+                </div>
+            </BaitSection>
 
             <GiftsSection>
                 <div className='gifts-container'>
@@ -322,10 +330,6 @@ const LogoTextSection = styled.section`
 `
 
 const ActivitiesSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-inline: 2rem;
     margin-top: 12rem;
 
@@ -355,115 +359,165 @@ const ActivitiesSection = styled.section`
     }
 `
 
-const LectureContent = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 80px;
+const BaitSection = styled.section`
+    background-color: var(--color-neutral-900);
+    padding-block: 3.5rem;
 
-    .lecture-sample {
+    .bait-container {
         display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        text-align: left;
-        width: 95%;
-    }
-
-    .lecture-image {
-        border-radius: 8px;
-        display: flex;
-        max-width: 350px;
-        padding: 5px;
         align-items: center;
-        justify-content: center;
-        background: linear-gradient(90deg, rgba(146,76,208,1) 0%, rgba(66,64,168,1) 100%);
-    }
+        gap: 3.5rem;
 
-    img {
-        width: 100%;
-    }
+        .bait-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            max-width: 63.5rem;
+            h3 {
+                text-align: center;
+            }
 
-    .lecture-sample-description {
-        margin: 0 2.5rem 8rem 2.5rem;
-        max-width: 700px;
-    }
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                text-align: center;
 
-    .middle-lecture {
-        margin-block: 0;
-    }
-
-    h3 {
-        margin-bottom: 5rem;
-    }
-
-    @media (min-width:600px) {
-        margin-bottom: 20px;
-
-        .lecture-sample {
-            margin-block: 2rem;
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
         }
 
-        .lecture-sample-description {
-            margin-block: 5rem;
-        }
+        .bait-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.25rem;
+            width: 100%;
 
-        h3 {
-            margin-bottom: 2rem;
-        }
-
-        .lecture-image {
-            max-width: 450px;
+            .purple-divider {
+                height: 4px;
+                width: 16rem;
+                background-color: var(--color-primary-700);
+                border-radius: 2px;
+            }
         }
     }
 
     @media (min-width:1021px) {
-        padding-inline: 5rem;
+        padding-block: 6.75rem;
 
-        .lecture-sample {
+        .bait-container {
+            .bait-text {
+                h3 {
+                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                }
+
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                }
+            }
+
+            .bait-content {
+                .purple-divider {
+                    display: none;
+                }
+            }
+        }
+    }
+`
+
+const BaitContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .bait-sample {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 0.75rem;
+
+        .bait-sample-description {
+            max-width: 37.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+
+            h4, p {
+                text-align: center;
+            }
+        }
+    }
+
+    .bait-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 8px;
+        border: 4px solid var(--color-primary-700);
+        width: 100%;
+        max-width: 31rem;
+        /* max-height: 20rem; */
+        background-color: var(--color-primary-700);
+
+        &::after {
+            display: block;
+            content: "";
+            padding-top: 56.25%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+
+
+    @media (min-width:1021px) {
+
+        .bait-image {
+            border: 8px solid var(--color-primary-700);
+        }
+        
+        .bait-sample {
             flex-direction: row;
             justify-content: space-between;
-            gap: 3rem;
-            margin-bottom: 8rem;
+            gap: auto;
+
+            .bait-sample-description {
+                align-items: flex-start;
+                gap: 1rem;
+
+                h4, p {
+                    text-align: left;
+                    font-family: 'Space_Mono_Bold';
+                    font-weight: 400;
+                }
+            }
         }
 
         .middle-lecture {
             flex-flow: row-reverse;
         }
-
-        .lecture-sample-description {
-            max-width: 45%;
-            margin-inline: 0;
-            margin: 0;
-        }
-
-        .lecture-image {
-            max-width: 600px;
-            padding: unset;
-        }
-
-        img {
-            width: 100%;
-        }
-
-        .justify-left {
-            padding: 20px 20px 20px 0;
-        }
-
-        .justify-right {
-            padding: 20px 0px 20px 20px;
-        }
     }
 `
 
 const GiftsSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding-block: 3.5rem;
     background-color: var(--color-neutral);
 
