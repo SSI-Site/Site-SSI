@@ -142,11 +142,6 @@ export default Schedule;
 
 
 const ScheduleSection = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
     overflow-x: hidden;
     padding-block: 7.25rem 3.75rem;
     gap: 1rem;
