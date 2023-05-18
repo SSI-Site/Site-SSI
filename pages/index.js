@@ -183,7 +183,7 @@ const Home = () => {
 
                         <CountUp
                             start={0}
-                            end={20}
+                            end={15}
                             delay={0}
                             decimals={0}
                             suffix="+"
@@ -199,7 +199,7 @@ const Home = () => {
 
                         <CountUp
                             start={0}
-                            end={20}
+                            end={43}
                             delay={0}
                             decimals={0}
                             suffix="+"
@@ -208,23 +208,23 @@ const Home = () => {
                             {({ countUpRef }) => (
                                 <div className='card'>
                                     <h1 ref={countUpRef} />
-                                    <h5>Palestrantes</h5>
+                                    <h5>Sorteios</h5>
                                 </div>
                             )}
                         </CountUp>
 
                         <CountUp
                             start={0}
-                            end={20}
+                            end={50}
                             delay={0}
                             decimals={0}
-                            suffix="+"
+                            suffix="h"
                             enableScrollSpy 
                         >
                             {({ countUpRef }) => (
                                 <div className='card'>
                                     <h1 ref={countUpRef} />
-                                    <h5>Palestrantes</h5>
+                                    <h5>Atividades</h5>
                                 </div>
                             )}
                         </CountUp>
