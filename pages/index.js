@@ -18,10 +18,12 @@ import AuthModal from '../src/components/AuthModal';
 import TokenModal from '../src/components/TokenModal';
 import PartnerCard from '../src/components/PartnerCard';
 
+
 // assets
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 import borda from '../public/images/borda2.png';
 import speakerPicture from '../public/images/logos/logo_principal.svg';
+import ScheduleShift from '../src/components/ScheduleShift';
 
 const supporters = [
     { title: 'ELO7', url: 'https://www.elo7.com.br/' },
@@ -278,11 +280,12 @@ const Home = () => {
 
             <ScheduleSection>
                 <h2 className="section-title">Programação</h2>
-                <div className='schedule-content'>
-                    <div className='first-section-schedule'>
+                {/* Section antiga de programação
+                    <div className='schedule-content'>
+                    <div className='first-section-schedule'>*/}
                         
                         {/* Filtro para atualização diária do texto durante os dias do evento: */}
-                        {(day>=21 && day<=25 && month==7 && year==2023) ? 
+                        {/*{(day>=21 && day<=25 && month==7 && year==2023) ? 
                             (   
                                 <>
                                     <Link href={`/schedule/${weekDay.slugify()}`}>
@@ -306,6 +309,7 @@ const Home = () => {
                                         title="Palestras imperdíveis para você!"
                                         overview="Durante o evento, cada dia terá diversas palestras recheadas de informações sobre tecnologia e carreira para você. Fique de olho para não perder!"
                                     />
+                                    <ScheduleShift/>
                                 </>
                             )
                         }
@@ -314,7 +318,8 @@ const Home = () => {
                     <div className='sechedule-text'>
                         <p>Confira o conteúdo detalhado das nossas palestras, para poder se organizar e decidir quais você mais quer assistir!</p>
                     </div>
-                </div>
+                </div>*/}
+                <ScheduleShift/>
                 <Button onClick={() => router.push('/schedule')}>Confira</Button>
             </ScheduleSection>
 
