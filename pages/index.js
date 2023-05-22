@@ -116,58 +116,69 @@ const Home = () => {
         <>
             <Meta title='SSI 2023 | Início' />
 
-            <BannerSection>
-
-                <figure>
-                    <img className='logo' src={LogoPrincipal} alt="Logo SSI 2023" />
-                </figure>
-
-                <div className='content'>
-                    <div className='content-title'>
-                        <h3>Semana de Sistemas de Informação</h3>
-                        <h5>Palestras do dia 21/08 ao dia 25/08</h5>
+            <LandingSection>
+                <div className='landing-container'>
+                    <div className='landing-info'>
+                        <div className='landing-text'>
+                            <h3>Semana de Sistemas de Informação 2023</h3>
+                            <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, online e presencialmente!</p>
+                        </div>
+                        <Button>Login</Button>
                     </div>
+                    <div className='landing-bait'>
+                        <div className='event-date'>
+                            <svg viewBox="0 0 450 50">
+                                <text y="80">21-25</text>
+                            </svg>
+                            <p>AGO 2023</p>
+                        </div>
+                        <p>online e presencial</p>
+                    </div>
+        
 
-                    {!isLoading ?
-                        <>
-                            <div className='content-login'>
-                                {user ?
-                                    <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
-                                    :
-                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
-                                }
-                            </div>
+                    {/* <div className='content'>
 
-                            {showAuthModal &&
-                                <AuthModal
-                                onClose={() => setShowAuthModal(false)}
-                                show={showAuthModal}
-                                />
-                            }
-
-                            <div className='content-token'>
-
-                                {user &&
-                                    <TokenModal/>
-                                }
-
-                                {/* <div className="complete-register-btns">
-                                    {user && !isUserRegistered &&
-                                        <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
+                        {!isLoading ?
+                            <>
+                                <div className='content-login'>
+                                    {user ?
+                                        <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
+                                        :
+                                        <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
                                     }
-                                    {user && !isUserRegistered &&
-                                        <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
+                                </div>
+
+                                {showAuthModal &&
+                                    <AuthModal
+                                    onClose={() => setShowAuthModal(false)}
+                                    show={showAuthModal}
+                                    />
+                                }
+
+                                <div className='content-token'>
+
+                                    {user &&
+                                        <TokenModal/>
                                     }
-                                </div> */}
-                            </div>
-                        </>
-                        :
-                        <Loading>
-                            <img src='./loading.svg' alt='SSI 2023 - Loading' />
-                        </Loading>
-                    }
+
+                                    <div className="complete-register-btns">
+                                        {user && !isUserRegistered &&
+                                            <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
+                                        }
+                                        {user && !isUserRegistered &&
+                                            <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
+                                        }
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            <Loading>
+                                <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                            </Loading>
+                        }
+                    </div> */}
                 </div>
-            </BannerSection>
+            </LandingSection>
 
             <TwitchContainer>
                 <TwitchWatchNow />
@@ -408,8 +419,129 @@ const WelcomeComponent = styled.div`
         /* margin: 80px 0 25px 0; */
     }
 `
-const BannerSection = styled.section`
-    margin-top: 80px;
+const LandingSection = styled.section`
+    background: url('./images/background_imgs/background1_mobile.svg');
+    background-size: cover;
+    padding-block: 3.5rem 6.625rem;
+
+    .landing-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3.75rem; /* match navbar height */
+        gap: 3.5rem;
+        
+        .landing-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 31rem;
+            
+            .landing-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                p {
+                    font-family: 'Space_Mono_Bold';
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .landing-bait {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .event-date {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    font: 400 9rem/0rem 'Space_Mono_Bold';
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 18rem;
+                    height: 6rem;
+                }
+
+                text {
+                    fill: none;
+                    stroke: var(--color-neutral-400);
+                    stroke-width: 4px;
+                    stroke-linejoin: round;
+                    animation: 2s pulsate infinite;
+                }
+
+                @keyframes pulsate {
+                    50%{ stroke-width:8px }
+                }
+
+                p {
+                    font: 400 2.3rem/3rem 'Space_Mono_Bold';
+                    letter-spacing: 0.8rem;
+                    color: var(--color-neutral-300);
+                }
+            }
+
+            p {
+                font: 400 1.3rem/1.5rem 'Space_Mono_Bold';
+                color: var(--color-neutral-500);
+            }
+        }
+    }
+
+    @media (min-width:600px) {
+        padding-right: 2.5rem;
+    }
+
+    @media (min-width:800px) {
+        background-image: url('./images/background_imgs/background1_desktop.svg');
+        height: 44rem;
+
+        .landing-container {
+            margin-top: 0;
+            padding-block: 7.5rem 6.5rem;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .landing-bait {
+                flex-direction: row;
+                gap: 4rem;
+
+                > p {
+                    writing-mode:vertical-rl;
+                    transform: rotate(180deg);
+                    max-height: 9.25rem;
+                }
+
+                .event-date {
+                    scale: 1.2;
+                    p {
+                        font: 400 2rem/3rem 'Space_Mono_Bold';
+                        letter-spacing: 0.8rem;
+                        color: var(--color-neutral-300);
+                    }
+                }
+
+            }
+        }
+    }
+
+    @media (min-width:1400px) {
+        padding-right: 0;
+    }
+
+    /* margin-top: 80px;
 
     .logged-msg {
         text-align: center;
@@ -474,10 +606,6 @@ const BannerSection = styled.section`
             align-self: flex-start;
         }
 
-        /* button {
-            margin: 0;
-        } */
-
         .content-title {
             text-align: center;
             height: 140px;
@@ -497,7 +625,7 @@ const BannerSection = styled.section`
             display: flex;
             flex-direction: row;
         }
-    }
+    } */
 `
 
 const TwitchContainer = styled.div`
