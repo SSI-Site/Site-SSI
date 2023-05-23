@@ -150,6 +150,7 @@ const ModalTokenWrapper = styled.div`
     background-color: var(--color-neutral-50);
     border-radius: 16px;
     padding: 0.5rem;
+    margin-left: -4px;
 
     border: 4px solid transparent;
     background-clip: padding-box;

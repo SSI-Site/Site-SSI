@@ -118,13 +118,51 @@ const Home = () => {
 
             <LandingSection>
                 <div className='landing-container'>
-                    <div className='landing-info'>
-                        <div className='landing-text'>
-                            <h3>Semana de Sistemas de Informação 2023</h3>
-                            <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, online e presencialmente!</p>
+                    {!isLoading ?
+                        <div className='landing-info'>
+                            {!user ?
+                                <>
+                                    <div className='landing-text'>
+                                        <h3>Semana de Sistemas de Informação 2023</h3>
+                                        <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, online e presencialmente!</p>
+                                    </div>
+                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                </>
+                            :
+                                <>
+                                {!isUserRegistered &&
+                                    <>
+                                        <div className='landing-text'>
+                                            <h3>Semana de Sistemas de Informação 2023</h3>
+                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p>
+                                        </div>
+                                        <Button>Finalizar cadastro</Button>
+                                    </>
+                                }
+                                {isUserRegistered &&
+                                    <>
+                                        <div className='landing-text'>
+                                            <h3>Semana de Sistemas de Informação 2023</h3>
+                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença aqui:</p>
+                                        </div>
+                                        <TokenModal/>
+                                    </>
+                                }
+                                </>
+                            }
+                    
+                            {showAuthModal &&
+                                <AuthModal
+                                onClose={() => setShowAuthModal(false)}
+                                show={showAuthModal}
+                                />
+                            }
                         </div>
-                        <Button>Login</Button>
-                    </div>
+                        :
+                        <Loading>
+                            <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                        </Loading>
+                    }
                     <div className='landing-bait'>
                         <div className='event-date'>
                             <svg viewBox="0 0 450 50">
@@ -134,49 +172,6 @@ const Home = () => {
                         </div>
                         <p>online e presencial</p>
                     </div>
-        
-
-                    {/* <div className='content'>
-
-                        {!isLoading ?
-                            <>
-                                <div className='content-login'>
-                                    {user ?
-                                        <WelcomeComponent>Olá {user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</WelcomeComponent>
-                                        :
-                                        <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
-                                    }
-                                </div>
-
-                                {showAuthModal &&
-                                    <AuthModal
-                                    onClose={() => setShowAuthModal(false)}
-                                    show={showAuthModal}
-                                    />
-                                }
-
-                                <div className='content-token'>
-
-                                    {user &&
-                                        <TokenModal/>
-                                    }
-
-                                    <div className="complete-register-btns">
-                                        {user && !isUserRegistered &&
-                                            <Button className="btn-complete-register" onClick={() => router.push('/user')}> Concluir cadastro </Button>
-                                        }
-                                        {user && !isUserRegistered &&
-                                            <Button className="btn-sair" onClick={() => signOut()}> Sair </Button>
-                                        }
-                                    </div>
-                                </div>
-                            </>
-                            :
-                            <Loading>
-                                <img src='./loading.svg' alt='SSI 2023 - Loading' />
-                            </Loading>
-                        }
-                    </div> */}
                 </div>
             </LandingSection>
 
@@ -436,19 +431,24 @@ const LandingSection = styled.section`
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             gap: 1.5rem;
-            max-width: 31rem;
+            max-width: 33rem;
             
             .landing-text {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
+                max-width: 31rem;
                 gap: 1rem;
                 p {
                     font-family: 'Space_Mono_Bold';
                     font-weight: 400;
+                }
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
                 }
             }
         }
