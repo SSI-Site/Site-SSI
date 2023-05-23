@@ -53,7 +53,7 @@ const ActivityWrapper = styled.div`
     width: 100%;
     max-width: 380px;
     height: 100%;
-    max-height: 264px;
+    max-height: 275px;
 
 
     .activity-content {
