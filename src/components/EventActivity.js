@@ -172,8 +172,6 @@ const ActivityWrapper = styled.div`
                 }
             }
         }
-        
-    
 
         .activity-title h2 {
             font-size: 32px;
