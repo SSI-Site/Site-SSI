@@ -4,14 +4,16 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 //info
-import schedule from '../../data/shiftInformation';
+import shifts from '../../data/shiftInformation';
 
+const objTeste = {'data1' : 'aaaaaas'}
 
 const scheduleShift = () => {
 
     return ( 
         <>
             <ShiftWrapper>
+                {/*Versão antiga do código, não pega os dados do shiftInformation.js
                 <h1>Manhã</h1>
                 <div className='event'>
                     <div>08:00</div>
@@ -20,14 +22,59 @@ const scheduleShift = () => {
                 <div className='lecture'>
                     <div>10:20</div>
                     <div>
-                        <div>
+                        <h3 className='nome-palestra'>
                             Palestra
-                        </div>
-                        <div>
+                        </h3>
+                        <p>
                             Palestrante
-                        </div>
+                        </p>
+                        <p>
+                            Palestrante
+                        </p>
                     </div>
                 </div>
+                <div className='lecture'>
+                    <div>10:20</div>
+                    <div>
+                        <h3 className='nome-palestra'>
+                            nome de palestra muito longo pra saber como fica: ok, mas ainda da pra melhorar
+                        </h3>
+                        <p>
+                            Palestrante 1, Palestrante 2, Palestrante 3 da silva para tentar quebrar essa maldita caixa
+                        </p>
+                    </div>
+                </div>*/}
+                <ul>
+                    {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
+                    {Object.entries(shifts['2023-05-01']['Manhã']).map(([time , event]) => {
+                    if(!event.speakers){
+                        return (
+                            <div className='event'>
+                                <div>{time}</div>
+                                <div>
+                                    <h3>{event.title}</h3>
+                                </div>
+                            </div>
+                        )
+                    }else{
+                        return (
+                            <div className='lecture'>
+                                <div>{time}</div>
+                                <div>
+                                    <h3>{event.title}</h3>
+                                    {/* Itera dentro dos palestrantes para escrever o nome de cada um */}
+                                    {event['speakers'].map((s) => {
+                                        return(
+                                            <p>{s['name']}</p>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        )
+                    }
+                    })}
+                </ul>
+
             </ShiftWrapper>
         </>
      )
@@ -42,6 +89,7 @@ const ShiftWrapper = styled.div`
     align-items: center;
     
     width:100%;
+
     background:var(--color-tertiary);
 
     h1{
@@ -55,8 +103,8 @@ const ShiftWrapper = styled.div`
         padding: 36px 24px;
         margin: 16px;
 
-        width: auto;
-        height: 148px;
+        width:auto;
+        min-height: 148px;
 
 
         border-radius: 8px;
@@ -69,7 +117,22 @@ const ShiftWrapper = styled.div`
         font-size: 1.5rem;
         
         div{
+            display:flex;
+            flex-direction:column;
             margin:8px;
+            font-size: 1.5rem;
+
+            h3{
+                font-size: 1.5rem;
+                line-height:125%;
+                max-height:50%;
+            }
+
+            p{
+                color: var(--color-primary-500);
+                line-height:125%;
+                max-height:50%;
+            }
         }
 
         div:nth-child(1){
