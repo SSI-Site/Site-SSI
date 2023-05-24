@@ -8,7 +8,9 @@ import shifts from '../../data/shiftInformation';
 
 const objTeste = {'data1' : 'aaaaaas'}
 
-const scheduleShift = () => {
+const scheduleShift = ({day , shift}) => {
+
+
 
     return ( 
         <>
@@ -44,9 +46,10 @@ const scheduleShift = () => {
                         </p>
                     </div>
                 </div>*/}
+                <h1>{shift}</h1>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
-                    {Object.entries(shifts['2023-05-01']['Manhã']).map(([time , event]) => {
+                    {Object.entries(shifts[day][shift]).map(([time , event]) => {
                     if(!event.speakers){
                         return (
                             <div className='event'>
@@ -63,11 +66,13 @@ const scheduleShift = () => {
                                 <div>
                                     <h3>{event.title}</h3>
                                     {/* Itera dentro dos palestrantes para escrever o nome de cada um */}
-                                    {event['speakers'].map((s) => {
-                                        return(
-                                            <p>{s['name']}</p>
-                                        )
-                                    })}
+                                    <ul>
+                                        {event['speakers'].map((s) => {
+                                            return(
+                                                <li><p>{s['name']}</p></li>
+                                            )
+                                        })}
+                                    </ul>
                                 </div>
                             </div>
                         )
@@ -83,14 +88,11 @@ const scheduleShift = () => {
 export default scheduleShift;
 
 const ShiftWrapper = styled.div`
+    
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+    padding: 0 16px;
     width:100%;
-
-    background:var(--color-tertiary);
 
     h1{
         font-size:2rem;
@@ -101,11 +103,11 @@ const ShiftWrapper = styled.div`
         flex-direction: row;
         align-items: center;
         padding: 36px 24px;
-        margin: 16px;
+        margin: 16px 0;
 
-        width:auto;
         min-height: 148px;
 
+        flex-grow:1;
 
         border-radius: 8px;
 
@@ -125,18 +127,41 @@ const ShiftWrapper = styled.div`
             h3{
                 font-size: 1.5rem;
                 line-height:125%;
-                max-height:50%;
+
+
+
+                word-break:break-word;
             }
 
-            p{
-                color: var(--color-primary-500);
-                line-height:125%;
-                max-height:50%;
+            ul{
+                display:flex;
+                flex-direction:column;
+
+                li{
+                    display:block;
+                }
+
+                p{
+                    color: var(--color-primary-500);
+                    line-height:125%;
+                }
+
+                p::after{
+                    content: ', ';
+                    margin-right: 0.4rem;
+                }
+
+                li:last-child p::after{
+                    content: '.';
+                }
             }
+
+
         }
 
         div:nth-child(1){
             flex:1;
+            text-align:center;
         }
 
         div:nth-child(2){
@@ -150,5 +175,20 @@ const ShiftWrapper = styled.div`
 
     div.lecture{
         background: var(--color-neutral);
+    }
+
+    @media(min-width: 1024px){
+        div.lecture, div.event{
+
+            div:nth-child(2){
+                flex:8;
+            }
+
+            div{
+                ul{
+                    flex-direction:row;
+                }
+            }
+        }
     }
 `

@@ -319,7 +319,10 @@ const Home = () => {
                         <p>Confira o conteúdo detalhado das nossas palestras, para poder se organizar e decidir quais você mais quer assistir!</p>
                     </div>
                 </div>*/}
-                <ScheduleShift/>
+                <ScheduleShift
+                    day={'2023-05-01'}
+                    shift={'Noite'}
+                />
                 <Button onClick={() => router.push('/schedule')}>Confira</Button>
             </ScheduleSection>
 

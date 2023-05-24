@@ -1,3 +1,29 @@
+/*
+FORMATO DOS DADOS:
+'yyyy-mm-dd' : {
+    
+    'Manhã' : {
+        
+        'hh:mm' : {
+            title : '',
+            descripion : '',
+            local : '',
+            speakers : [
+                {'name' : ''},
+            ]
+        }
+
+        .
+        .
+        .
+
+    },
+
+
+
+}
+*/
+
 const shifts = {
     '2023-05-01' : {
         'Manhã': {
@@ -14,7 +40,7 @@ const shifts = {
                 ]
             },
             '11:20' : {
-                title : 'Palestra feia com nome muito longo pra testar coisas sobre ',
+                title : 'Palestra feia com nome muito longo pra testar coisas sobre responsividademuitolegal',
                 description : 'altas coisa chata que vao falar por la',
                 local : 'Panelas',
                 speakers : [
@@ -27,10 +53,57 @@ const shifts = {
             }
         },
         'Tarde' : {
-
+            '13:20' : {
+                title : 'Palestra estranha',
+                description : 'ainda não sei se vai ou não usar isso kkk',
+                speakers : [
+                    {'name' : 'Digiamipetri'},
+                    {'name' : 'Danilo Bode'}
+                ]
+            },
+            '14:40' : {
+                title : 'aaaaaaaaa',
+                description : 'sei la irmao',
+                speakers : [
+                    {'name' : 'Gisele'},
+                    {'name' : 'Ariane Grande'},
+                    {'name' : 'Ana Akilometro'}
+                ]
+            },
+            '16:00' : {
+                title : 'sofiti ishkiuss',
+                description : 'aaaaaaaaa',
+                speakers : [
+                    {'name' : 'ninguem'}
+                ]
+            },
+            '17:20' : {
+                title : 'aaaaaaaaaaaaaa',
+                description : 'aaaaaaaaaa',
+                speakers : [
+                    {'name' : 'lorem'},
+                    {'name' : 'ipsum'}
+                ]
+            },
+            '18:20' : {
+                title : 'jantinha hmmmm'
+            }
         },
         'Noite' : {
-
+            '19:20' : {
+                title : 'palestrinha da naninha',
+                description : '',
+                speakers : [
+                    {'name' : 'alguem aí'}
+                ]
+            },
+            '20:40' : {
+                title : 'encerramento',
+                description : '',
+                speakers : [
+                    {'name' : 'Fantinato'}
+                ]
+            }
         } 
     },
     '2023-05-02' : {
