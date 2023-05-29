@@ -321,7 +321,7 @@ const Home = () => {
                 </div>*/}
                 <ScheduleShift
                     day={'2023-05-01'}
-                    shift={'Noite'}
+                    shift={'Manhã'}
                 />
                 <Button onClick={() => router.push('/schedule')}>Confira</Button>
             </ScheduleSection>
@@ -709,6 +709,7 @@ const CountdownSection = styled.section`
 `
 
 const ScheduleSection = styled.section`
+    background-color: var(--color-neutral-500);
 
     .schedule-content {
         display: flex;

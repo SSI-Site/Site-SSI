@@ -29,7 +29,7 @@ export default createGlobalStyle`
     }
 
     #nprogress .bar {
-        background: #272727;
+        background: var(--color-primary-700);
         filter: brightness(110%)
     }
 
