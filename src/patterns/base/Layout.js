@@ -52,7 +52,7 @@ const SiteWrapper = styled.div`
         width: 100%;
     }
 
-    @media (min-width:600px) {
+    @media (min-width:960px) {
         padding-bottom: 26.75rem; /* match footer height */
     }
 
