@@ -35,30 +35,36 @@ const About = () => {
             </LogoTextSection>
 
             <ActivitiesSection>
-                <h2 className='section2-title'>O que teremos no evento?</h2>
-                <div className='activities'>
-
-                    <EventActivity
-                        //color='#4A46C5'
-                        image='./images/about/icon_capture_the_flag.svg'
-                        alt='Imagem Capture the Flag'
-                        title='Capture the Flag'
-                        description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
-                    />
-                    <EventActivity
-                        //color='#8744C2'
-                        image='./images/about/icon_palestras.svg'
-                        alt='Imagem Palestras'
-                        title='Palestras'
-                        description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
-                    />
-                    <EventActivity
-                        //color='#FF7F5C'
-                        image='./images/about/icon_minicursos.svg'
-                        alt='Imagem Minicursos'
-                        title='Workshops'
-                        description='Este ano, estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
-                    />
+                <div>
+                    <h3>O que teremos no evento?</h3>
+                    <div className='activities'>
+                        <EventActivity
+                            color='#4A46C5'
+                            image='./images/about/icon_capture_the_flag.svg'
+                            alt='Imagem Capture the Flag'
+                            title='Capture the Flag'
+                            description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
+                            showFront={true}
+                        />
+                        <EventActivity
+                            color='#8744C2'
+                            // image='./images/about/icon_palestras.svg'
+                            image='./images/about/icon_capture_the_flag.svg'
+                            alt='Imagem Palestras'
+                            title='Palestras'
+                            description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            showFront={false}
+                        />
+                        <EventActivity
+                            color='#FF7F5C'
+                            // image='./images/about/icon_minicursos.svg'
+                            image='./images/about/icon_capture_the_flag.svg'
+                            alt='Imagem Minicursos'
+                            title='Workshops'
+                            description='Este ano, estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
+                            showFront={false}
+                        />
+                    </div>
                 </div>
             </ActivitiesSection>
 
@@ -280,14 +286,17 @@ const LogoTextSection = styled.section`
 `
 
 const ActivitiesSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-inline: 2rem;
-    margin-top: 12rem;
+    background: url('./images/background_imgs/background4_mobile.svg') no-repeat;
+    background-size: cover;
+    padding-block: 3.5rem;
 
-    .section2-title {
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    h3 {
         text-align: center;
     }
 
@@ -296,19 +305,25 @@ const ActivitiesSection = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 10rem;
-        overflow: hidden;
+        gap: 1rem;
     }
 
-
     @media (min-width:800px) {
-        margin-block: 12rem;
+        background: url('./images/background_imgs/background4_desktop.svg') no-repeat;
+        padding-block: 6.75rem;
+
+        > div {
+            gap: 3.5rem;
+        }
+
+        h3 {
+            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+        }
 
         .activities {
             flex-direction: row;
             flex-wrap: wrap;
-            gap: 96px;
-            padding-top: 10rem;
+            gap: 1.5rem;
         }
     }
 `

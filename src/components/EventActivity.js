@@ -1,40 +1,42 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
 
-const EventActivity = ({ image, alt, title, description }) => {
+const EventActivity = ({ color, image, alt, title, description, showFront }) => {
+
+    const [shouldShowFront, setShouldShowFront] = useState(showFront);
 
     return (
-        <ActivityWrapper>
-            <div className='container'>
-                {/* p/click da animação */}
-                <a href="#a" type="">
+        <ActivityWrapper isShowingFront={shouldShowFront==true} color={color}>
+            <div className='container' onClick={() => setShouldShowFront(!shouldShowFront)}>
 
-                    {/* div da frente do verso */}
-                    <div className='front'>
-                        <div className='activity-content'>
+                {/* Parte que oculta o card */}
+                <div className='front' id='front'>
+                    <div className='activity-content'>
+                        <div className='activity-title'>
+                            <h6>{title}</h6>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Conteúdo do card */}
+                <div className='back'>
+                    <div className='activity-content'>
+                        <div className='title-logo'>
                             <div className='activity-title'>
                                 <h6>{title}</h6>
+                                <div></div>
+                            </div>
+                            <div className='activity-logo'>
+                                <img src={image} alt={alt} />
                             </div>
                         </div>
+                        <div className='activity-description'>
+                            <p>{description}</p>
+                        </div>
                     </div>
+                </div>
 
-                    {/* div do verso do card */}
-                    <div className='back'>
-                        <div className='activity-content'>
-                            <div className='title-logo'>
-                                <div className='activity-title'>
-                                    <h6>{title}</h6>
-                                    <div></div> {/* essa div será a barrinha roxa sob o título */}
-                                </div>
-                                <div className='activity-logo'>
-                                    <img src={image} alt={alt} />
-                                </div>
-                            </div>
-                            <div className='activity-description'>
-                                <p>{description}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
             </div>
         </ActivityWrapper>
     )
@@ -47,14 +49,11 @@ const ActivityWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    //justify-content: space-between;
     position: relative;
     border-radius: 16px;
     width: 100%;
-    max-width: 380px;
+    max-width: 23.75rem;
     height: 100%;
-    max-height: 275px;
-
 
     .activity-content {
         position: relative;
@@ -65,7 +64,7 @@ const ActivityWrapper = styled.div`
     .container {
         position: relative;
         perspective: 1000px;
-        height: 400px;
+        height: 320px;
         width: 100%;
 
         .front, .back {
@@ -78,108 +77,138 @@ const ActivityWrapper = styled.div`
             transition: all 1s ease;
         }
 
-        // Frente do card
+        // Frente do card - parte que oculta o conteúdo
         .front {
-            background: transparent;
-            border: 4px solid var(--color-primary-800);
+            background: var(--color-neutral);
+            border: 4px solid  ${(props) => props.color};
             transform: rotateY(0deg);
 
             .activity-content h6 {
-                    color: var(--color-primary-800);
+                color:  ${(props) => props.color};
+                transition: 0.3s ease-in-out;
+            }
+
+            .activity-title {
+                position: relative;
+
+                > div {
+                    position: absolute;
+                    width: 0%;
+                    height: 4px;
+                    border-radius: 2px;
+                    background-color: ${(props) => props.color};
+                    transition: all .3s;
+                    border-radius: 12px;
+                }
             }
         }
 
-        // Verso do card
+        // Verso do card - conteúdo
         .back {
             background-color: var(--color-neutral-800);
             border: 4px solid transparent;
             transform: rotateY(180deg);
 
             .activity-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
 
                 .title-logo {
-                    height: 44px;
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: space-between;
-                    margin-bottom: 12px;
 
                     .activity-title > div {
-                        // definir barrinha roxa aqui
-                        height: 5px;
-                        width: 90px;
-                        background-color: var(--color-primary-800);
-                    }
-
-                    .activity-title{
-                        margin-bottom: 40px;
+                        height: 4px;
+                        width: 144px;
+                        border-radius: 2px;
+                        background-color:  ${(props) => props.color};
                     }
 
                     .activity-logo {
-                        //definir tamanho da imagem aqui
                         img {
-                            // ...
+                            width: 44px;
                         }
                     }
                 }
 
                 p {
-                    // aqui tem 4 propriedades da fonte em uma só: peso, tamanho, altura da linha e família
                     font: 700 0.875rem/1.25rem 'Space_Mono';
                 }
             }
         }
 
-        a:focus .front {
-            transform: rotateY(-180deg);
-        }
+        ${props => props.isShowingFront && css`
+            .front {
+                transform: rotateY(-180deg);
+            }
 
-        a:focus .back {
-            transform: rotateY(0deg);
-        }
+            .back {
+                transform: rotateY(0deg);
+            }
+        `}
     }
     //---------------
 
     @media (min-width:800px) {
-        border: 1.7px solid black;
-        width: 365.5px;
-        max-height: 350px;
-        margin-bottom: 2rem;
+        max-width: 24.5rem;
+        max-height: 26.6875rem;
 
-        &::after {
-            border-top: 1.7px solid white;
-        }
 
-        .activity-logo {
-            /* margin-top: 50px;
-            left: 0px;
-            top: 40px; */
-        }
+        .container {
+            height: 427px;
 
-        .activity-title {
-            /*margin-bottom: 120px;*/
-        }
+            h6 {
+                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            }
 
-        .container{
-            .back {
-                .activity-content {
-                    .title-logo {
-                        flex-direction: column;
-                        align-items: start;
-                        margin-bottom: 90px;
+            .front {            
+                border: 4px solid var(--color-neutral-700);
+
+                .activity-content h6 {
+                    color: var(--color-neutral-700);
+                    transition: 0.3s ease-in-out;
+                }
+
+                &:hover {
+                    border: 4px solid  ${(props) => props.color};
+                
+                    .activity-title {
+                        > div {
+                            width: 144px;
+                            height: 4px;
+                            background-color:  ${(props) => props.color};
+                        }
+                    }
+
+                    .activity-content h6 {
+                        color:  ${(props) => props.color};
                     }
                 }
             }
-        }
 
-        .activity-title h2 {
-            font-size: 32px;
-            line-height: 40px;
-        }
+            .back {
+                .activity-content {
+                    gap: 2rem;
 
-        .activity-description p {
-            font-size: 16px;
+                    .title-logo {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+                        gap: 3rem;
+
+                        .activity-logo img {
+                            width: 4rem;
+                        }
+                    }
+
+                    p {
+                        font: 700 1rem/1.25rem 'Space_Mono';
+                    }
+                }
+            }
         }
     }
 `
