@@ -286,7 +286,7 @@ const LogoTextSection = styled.section`
 `
 
 const ActivitiesSection = styled.section`
-    background: url('./images/background_imgs/background4_mobile.svg') no-repeat;
+    background: url('./images/background_imgs/background5_mobile.svg') no-repeat;
     background-size: cover;
     padding-block: 3.5rem;
 
@@ -309,7 +309,7 @@ const ActivitiesSection = styled.section`
     }
 
     @media (min-width:800px) {
-        background: url('./images/background_imgs/background4_desktop.svg') no-repeat;
+        background: url('./images/background_imgs/background5_desktop.svg') no-repeat;
         padding-block: 6.75rem;
 
         > div {
