@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-import schedule from '../../services/schedule';
+import schedule from '../../data/schedule';
 import semana from '../../utils/semana';
 import '../../utils/slugify';
 

@@ -106,7 +106,6 @@ const TwitchWatchNowWrapper = styled.div`
 		padding: 1.5rem;
 		background-color: var(--color-neutral-900);
 		border-radius: 12px;
-		
 	}
 
 	.text {
@@ -127,7 +126,7 @@ const TwitchWatchNowWrapper = styled.div`
 			background-color: var(--color-neutral-700);
 		}
 
-		&:active {
+		:active {
 			background-color: var(--color-neutral-600);
 		}
 	}
@@ -190,7 +189,7 @@ const TwitchWatchNowWrapper = styled.div`
 		height: 12px;
 		width: 12px;
 
-		> div{
+		> div {
 			position: absolute;
 			top: 0;
 			left: 0;

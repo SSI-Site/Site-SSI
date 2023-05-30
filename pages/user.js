@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
@@ -126,6 +127,30 @@ const User = () => {
     useEffect(() => {
         checkUserRegister();
     }, []);
+
+    
+    const { asPath } = useRouter('/user');
+    
+    useEffect(() => {
+        setTimeout(() => {
+            const hash = asPath.split('#')[1];
+            if (hash == 'meus-brindes') {
+                const giftsSection = document.getElementById(hash);
+                giftsSection.scrollIntoView();
+                scrollToMyRef(hash);
+            }
+        }, 1000);
+    }, [asPath]);
+
+    const scrollToMyRef = (id) => {
+        setTimeout(function () {
+            var ref = document.getElementById(id);
+            ref.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+             });
+        }, 1000);
+    };
 
     return (
         <>
@@ -262,7 +287,7 @@ const User = () => {
                         </ContainerLectures>
 
                         <Button onClick={signOut}>Sair</Button>
-
+                        <div id='meus-brindes'>Teste para seção de brindes. Colocar id da seção como 'meus-brindes'</div>
                     </BackgroundWrapper>
                 </>
             }
@@ -292,6 +317,10 @@ const BackgroundWrapper = styled.div`
     position: relative;
     padding-bottom: 5rem;
 
+    #meus-brindes { // apagar este teste
+        height: 150px;
+    }
+
     p {
         font-size: 22px;
         font-weight: 400;
@@ -310,10 +339,6 @@ const FormContainer = styled.section`
 `
 
 const UserInfoSection = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     width: 90%;
     max-width: 1200px;
     padding: 2rem 45px;
@@ -416,11 +441,9 @@ const UserInformation = styled.div`
 `
 
 const ContainerLectures = styled.section`
-    display: flex;
     width: 90%;
     max-width: 1200px;
     align-items: left;
-    flex-direction: column;
     justify-content: left;
     margin-bottom: 15rem;
     margin-top: 100px;

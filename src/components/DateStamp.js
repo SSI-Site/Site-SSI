@@ -1,20 +1,37 @@
 import styled from 'styled-components';
+import semana from '../../utils/semana';
 
-/*
-    - A variável 'size' representa uma String que descreve o tamanho do DateStamp.
-    - Pode ser "small", "medium" ou "large".
-    - Quando o DateStamp especificado for "large", o tamanho varia de acordo com medidas pré-definidas.
+// assets
+import CheckIcon from '../../public/images/icons/check.svg';
+import HourglassIcon from '../../public/images/icons/hourglass.svg';
 
-    Exemplo de uso: <DateStamp size="large" day="01" weekDay="Domingo" />
-*/
-const DateStamp = ({ day, weekDay, size }) => {
+/**
+ * A estilização nos estados de hover e active devem ser estabelecidos no arquivo 
+ * que chama o componente, pois há seções em que esta componente é estático
+ */
+
+const DateStamp = ({ day, showEmoji }) => {
+
+    // se day = 21, então relativeDay = 01 e assim por diante (para os dias do evento)
+    const relativeDay = `0${day - 20}` 
+
+    const current = new Date();
+    const currentDay = `${current.getDate()}`;
+    const month = `${current.getMonth()}`;
+    const year = `${current.getFullYear()}`;
 
     return (
         <DateWrapper>
-            <DateStyle className={`date-style-${size}`}>
-                <h2 className='day'>{day}</h2>
-                <div className='week-day'>{weekDay}</div>
-            </DateStyle>
+            <div className='day-emoji'>
+                <h6 className='day'>Dia {relativeDay}</h6>
+                {(currentDay>day && month==4 && year==2023) && showEmoji &&
+                    <img src={CheckIcon}></img>
+                }
+                {(currentDay==day && month==4 && year==2023) && showEmoji &&
+                    <img src={HourglassIcon}></img>
+                }
+            </div>
+            <p className='week-day'>{day} ago - {semana[day-20]}</p>
         </DateWrapper>
     )
 }
@@ -22,100 +39,45 @@ const DateStamp = ({ day, weekDay, size }) => {
 export default DateStamp;
 
 
-const DateStyle = styled.div`
-    width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 1.34146px solid #8744C2;
-    box-sizing: border-box;
-    margin-bottom: 50px;
-    background-color: #151023;
-
-    :before {
-        content: '';
-        width: 110px;
-        height: 110px;
-        position: absolute;
-        border: 1.34146px solid #8744C2;
-        box-sizing: border-box;
-        transform: rotate(-45deg);
-        transition: transform 0.5s;
-    }
-
-    .day {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 50px;
-        color: #FFFFFF;
-    }
-
-    .week-day {
-        position: absolute;
-        width: 146px;
-        height: 23.38px;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        color: #FFFFFF;
-        background: rgba(135, 68, 194, 0.4);
-        border: 2px solid #8744C2;
-        box-sizing: border-box;
-        transform: translateY(40px);
-        font-style: normal;
-        font-size: 16.2241px;
-        text-align: center;
-    }
-
-    :hover::before {
-        transform: rotate(0deg);
-        transition: transform 0.5s;
-    }
-`
-
 const DateWrapper = styled.div`
+    width: 16.5rem;
+    height: 4.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--color-neutral-800);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    gap: 0.5rem;
+    transition: 0.3s all ease;
 
-    .date-style-medium {
-        width: 185px;
-        height: 185px;
+    .day-emoji {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
 
-        :before {
-            width: 170px;
-            height: 170px;
-        }
-
-        .day {
-            font-size: 80px;
-        }
-
-        .week-day {
-            width: 216px;
-            height: 34.59px;
-            transform: translateY(60px);
-            font-size: 19px;
+        img {
+            height: 1.5rem;
         }
     }
 
-    .date-style-large {
-        width: 300px;
-        height: 300px;
+    p {
+        font: 400 1rem/1.25rem 'Space_Mono_Bold';
+    }
 
-        :before {
-            width: 280px;
-            height: 280px;
+    @media (min-width: 840px) {
+        width: 24.5rem;
+        height: 5.75rem;
+
+        h6 {
+            font: 400 2rem/2.5rem 'Space_Mono_Bold';
         }
 
-        .day {
-            font-size: 120px;
-        }
-
-        .week-day {
-            width: 332px;
-            height: 50px;
-            transform: translateY(105px);
-            font-size: 24px;
+        .day-emoji img {
+            height: 2rem;
         }
     }
 `

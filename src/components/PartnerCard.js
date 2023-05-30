@@ -17,41 +17,53 @@ export default PartnerCard;
 
 
 const PartnerWrapper = styled.div`
-    --glow-item: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 9.75rem;
+    height: 7.5rem;
+    padding: 1.5rem;
+    background-color: var(--color-neutral-800);
 
     cursor: pointer;
-    border-radius: 16px;
+    border-radius: 8px;
     border: 4px solid transparent;
-    transform-style: preserve-3d;
     transition: 0.3s;
     z-index: 2;
 
     :hover {
-        border: solid 4px #8744C2;
-        box-shadow: var(--glow-item);
+        border: solid 4px var(--color-primary-700);
+        background-color: var(--color-neutral-700);
+    }
+
+    :active {
+        background-color: var(--color-neutral-600);
     }
 
     .partner-image {
         display: flex;
         align-items: center;
-        padding: 40px;
-        width: 300px;
-        height: 170px;
-        border-radius: 16px;
-        background: #1B162C;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
+    }
 
-        @media (min-width:600px) {
-            width: 22rem;
-            height: 14rem;
-        }
+    @media (min-width:412px) {
+        width: 11.375rem;
+        height: 9.5rem;
+        padding: 2rem;
+    }
+
+    @media (min-width:1000px) {
+        width: 23.75rem;
+        height: 15.5rem;
+        padding: 3.6rem 4.3rem;
     }
 `

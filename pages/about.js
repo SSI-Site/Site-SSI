@@ -1,18 +1,27 @@
-import { useState, useEffect } from 'react';
+
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
+import useAuth from '../hooks/useAuth';
 
 // components
 import EventActivity from '../src/components/EventActivity';
 import ScrollArrow from '../src/components/ScrollArrow';
+import GiftCard from '../src/components/GiftCard';
+import Button from '../src/components/Button';
 
 // assets
+import gifts from '../data/gifts';
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 
 const About = () => {
+
+    const router = useRouter();
+    const { user, signOut } = useAuth();
 
     return (
         <>
@@ -68,117 +77,152 @@ const About = () => {
                 </div>
             </ActivitiesSection>
 
-            <section>
-                <LectureContent>
-                    <div className='lecture-sample'>
-                        <div className='lecture-image justify-left'>
-                            <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
-                        </div>
-                        <div className='lecture-sample-description'>
-                            <h3>Palestras com experts da área</h3>
-                            <p>
-                                Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
-                                Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
-                            </p>
-                        </div>
+            <BaitSection>
+                <div className='bait-container'>
+                    <div className='bait-text'>
+                        <h3>Atividades</h3>
+                        <p>Descubra as <span>palestras</span>, <span>workshops</span>, <span>networking</span> e muito mais que preparamos para você!</p>
                     </div>
-                </LectureContent>
-
-                <LectureContent>
-                    <div className='lecture-sample middle-lecture'>
-                        <div className='lecture-image justify-right'>
-                            <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
-                        </div>
-                        <div className='lecture-sample-description'>
-                            <h3>Workshops em laboratórios de informática</h3>
-                            <p>
-                                Já pensou em aplicar o que vemos e ouvimos nas palestras?
-                                As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saía da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
-                            </p>
-                        </div>
+                    <div className='bait-content'>
+                        <BaitContent>
+                            <div className='bait-sample'>
+                                <div className='bait-image justify-left'>
+                                    <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
+                                </div>
+                                <div className='bait-sample-description'>
+                                    <h4>Palestras com experts da área</h4>
+                                    <p>
+                                        Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
+                                        Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
+                                    </p>
+                                </div>
+                            </div>
+                        </BaitContent>
+                        <div className='purple-divider'></div>
+                        <BaitContent>
+                            <div className='bait-sample middle-lecture'>
+                                <div className='bait-image justify-right'>
+                                    <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
+                                </div>
+                                <div className='bait-sample-description'>
+                                    <h4>Workshops em laboratórios de informática</h4>
+                                    <p>
+                                        Já pensou em aplicar o que vemos e ouvimos nas palestras?
+                                        As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saia da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
+                                    </p>
+                                </div>
+                            </div>
+                        </BaitContent>
+                        <div className='purple-divider'></div>
+                        <BaitContent>
+                            <div className='bait-sample'>
+                                <div className='bait-image justify-left'>
+                                    <img src='./images/about/networking.jpg' alt='Foto Palestra' />
+                                </div>
+                                <div className='bait-sample-description'>
+                                    <h4>Networking com participantes</h4>
+                                    <p>
+                                        Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
+                                        Dica: conecte-se com os palestrantes no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
+                                    </p>
+                                </div>
+                            </div>
+                        </BaitContent>
                     </div>
-                </LectureContent>
+                </div>
+            </BaitSection>
 
-                <LectureContent>
-                    <div className='lecture-sample'>
-                        <div className='lecture-image justify-left'>
-                            <img src='./images/about/networking.jpg' alt='Foto Palestra' />
-                        </div>
-                        <div className='lecture-sample-description'>
-                            <h3>Networking com participantes</h3>
-                            <p>
-                                Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
-                                Dica: conecte-se com os palestrantes no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
-                            </p>
-                        </div>
+            <GiftsSection>
+                <div className='gifts-container'>
+                    <div className='gifts-title'>
+                        <h3>Brindes exclusivos</h3>
+                        <p>Não perca a oportunidade de <span>ganhar brindes incríveis</span> ao participar das nossas atividades e palestras!</p>
                     </div>
-                </LectureContent>
-            </section>
+                    <div className='gifts-cards'>
+                        {Object.entries(gifts).map(([key, gift]) => {
+                            return (
+                                <GiftCard key={key} name={gift.name} image={gift.image} totalPres={gift.totalPres} presentialPres={gift.presentialPres} />
+                            )
+                        })}
+                    </div>
 
+                    {user &&
+                        <div className='gifts-btn'>
+                            <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
+                        </div>
+                    }
+                </div>
+            </GiftsSection>
 
-            <NumbersSection>
-                <h2>Números da SSI 2022</h2>
-                <EventNumbersBanner>
+            <LastYearSection>
+                <div className='lastyear-container'>
+                    <div className='lastyear-text'>
+                        <h3>Veja como foi em 2022</h3>
+                        <p>Confira o que rolou no evento do ano passado e <span>sinta a energia</span> que tomou conta do <span>nosso público</span>!</p>
+                    </div>
+                    <div className='lastyear-video'>
+                        <iframe 
+                            src="https://www.youtube.com/embed/GUIYO1a5lMA" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
+                        </iframe>
+                    </div>
+                    <EventNumbersBanner>
 
-                    <CountUp
-                        start={0}
-                        end={2}
-                        delay={0}
-                        decimals={1}
-                        suffix="k"
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='event-info-container'>
-                                <div className='inline-elements'>
-                                    <span className='purple-plus'>&#43;</span>
-                                    <h3 ref={countUpRef} />
+                        <CountUp
+                            start={0}
+                            end={2}
+                            delay={0}
+                            decimals={1}
+                            suffix="k+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='event-info-container'>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Espectadores</h5>
                                 </div>
-                                <div className='purple-separator'></div>
-                                <p>Espectadores</p>
-                            </div>
-                        )}
-                    </CountUp>
+                            )}
+                        </CountUp>
 
-                    <CountUp
-                        start={0}
-                        end={600}
-                        delay={0}
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='event-info-container'>
-                                <div className='inline-elements'>
-                                    <span className='purple-plus'>&#43;</span>
-                                    <h3 ref={countUpRef} />
+                        <CountUp
+                            start={0}
+                            end={600}
+                            delay={0}
+                            suffix="+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='event-info-container'>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Inscritos</h5>
                                 </div>
-                                <div className='purple-separator'></div>
-                                <p>Inscritos</p>
-                            </div>
-                        )}
-                    </CountUp>
+                            )}
+                        </CountUp>
 
-                    <CountUp
-                        start={0}
-                        end={43}
-                        delay={0}
-                        suffix="h"
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='event-info-container'>
-                                <div className='inline-elements'>
-                                    <span className='purple-plus'>&#43;</span>
-                                    <h3 ref={countUpRef} />
+                        <CountUp
+                            start={0}
+                            end={43}
+                            delay={0}
+                            suffix="h+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='event-info-container'>
+                                    <h1 ref={countUpRef} />
+                                    <h5>Conteúdo</h5>
                                 </div>
-                                <div className='purple-separator'></div>
-                                <p>De conteúdo</p>
-                            </div>
-                        )}
-                    </CountUp>
+                            )}
+                        </CountUp>
 
-                </EventNumbersBanner>
-            </NumbersSection>
+                    </EventNumbersBanner>
+
+                    <a target="blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
+                        <Button>Nosso canal na Twitch</Button>
+                    </a>
+                </div>
+            </LastYearSection>
         </>
     )
 }
@@ -186,10 +230,16 @@ const About = () => {
 export default About;
 
 
-const BackgroundWrapper = styled.div`
+const Loading = styled.figure`
     display: flex;
-    flex-direction: column;
-    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2rem;
+
+    img {
+        width: 25%;
+    }
 `
 
 const LogoTextSection = styled.section`
@@ -328,178 +378,357 @@ const ActivitiesSection = styled.section`
     }
 `
 
-const LectureContent = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 80px;
+const BaitSection = styled.section`
+    background-color: var(--color-neutral-900);
+    padding-block: 3.5rem;
 
-    .lecture-sample {
+    .bait-container {
         display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        text-align: left;
-        width: 95%;
-    }
-
-    .lecture-image {
-        border-radius: 8px;
-        display: flex;
-        max-width: 350px;
-        padding: 5px;
         align-items: center;
-        justify-content: center;
-        background: linear-gradient(90deg, rgba(146,76,208,1) 0%, rgba(66,64,168,1) 100%);
-    }
+        gap: 3.5rem;
 
-    img {
-        width: 100%;
-    }
+        .bait-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            max-width: 63.5rem;
+            h3 {
+                text-align: center;
+            }
 
-    .lecture-sample-description {
-        margin: 0 2.5rem 8rem 2.5rem;
-        max-width: 700px;
-    }
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                text-align: center;
 
-    .middle-lecture {
-        margin-block: 0;
-    }
-
-    h3 {
-        margin-bottom: 5rem;
-    }
-
-    @media (min-width:600px) {
-        margin-bottom: 20px;
-
-        .lecture-sample {
-            margin-block: 2rem;
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
         }
 
-        .lecture-sample-description {
-            margin-block: 5rem;
-        }
+        .bait-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.25rem;
+            width: 100%;
 
-        h3 {
-            margin-bottom: 2rem;
-        }
-
-        .lecture-image {
-            max-width: 450px;
+            .purple-divider {
+                height: 4px;
+                width: 16rem;
+                background-color: var(--color-primary-700);
+                border-radius: 2px;
+            }
         }
     }
 
     @media (min-width:1021px) {
-        padding-inline: 5rem;
+        padding-block: 6.75rem;
 
-        .lecture-sample {
+        .bait-container {
+            .bait-text {
+                h3 {
+                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                }
+
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                }
+            }
+
+            .bait-content {
+                .purple-divider {
+                    display: none;
+                }
+            }
+        }
+    }
+`
+
+const BaitContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .bait-sample {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 0.75rem;
+
+        .bait-sample-description {
+            max-width: 37.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+
+            h4, p {
+                text-align: center;
+            }
+        }
+    }
+
+    .bait-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 8px;
+        border: 4px solid var(--color-primary-700);
+        width: 100%;
+        max-width: 31rem;
+        /* max-height: 20rem; */
+        background-color: var(--color-primary-700);
+
+        &::after {
+            display: block;
+            content: "";
+            padding-top: 56.25%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+
+
+    @media (min-width:1021px) {
+
+        .bait-image {
+            border: 8px solid var(--color-primary-700);
+        }
+        
+        .bait-sample {
             flex-direction: row;
             justify-content: space-between;
-            gap: 3rem;
-            margin-bottom: 8rem;
+            gap: auto;
+
+            .bait-sample-description {
+                align-items: flex-start;
+                gap: 1rem;
+
+                h4, p {
+                    text-align: left;
+                    font-family: 'Space_Mono_Bold';
+                    font-weight: 400;
+                }
+            }
         }
 
         .middle-lecture {
             flex-flow: row-reverse;
         }
+    }
+`
 
-        .lecture-sample-description {
-            max-width: 45%;
-            margin-inline: 0;
-            margin: 0;
+const GiftsSection = styled.section`
+    padding-block: 3.5rem;
+    background-color: var(--color-neutral);
+
+    .gifts-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3.5rem;
+
+        .gifts-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            max-width: 63.5rem;
+
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                text-align: center;
+
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
         }
 
-        .lecture-image {
-            max-width: 600px;
-            padding: unset;
-        }
-
-        img {
+        .gifts-cards {
+            display: flex;
+            flex-direction: row;
+            flex-flow: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
             width: 100%;
         }
 
-        .justify-left {
-            padding: 20px 20px 20px 0;
+        .gifts-btn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: auto;
         }
+    }
 
-        .justify-right {
-            padding: 20px 0px 20px 20px;
+    @media (min-width:1000px) {
+        padding-block: 6.75rem;
+
+        .gifts-container {
+            gap: 3.5rem;
+
+            .gifts-title {
+                h3 {
+                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                }
+
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                }
+            }
+
+            .gifts-cards {
+                gap: 1.5rem;
+                max-width: 1224px;
+            }
         }
     }
 `
 
-const NumbersSection = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
+const LastYearSection = styled.section`
+    background-color: var(--color-neutral-900);
+    padding-block: 3.5rem;
 
-    h2 {
-        text-align: center;
+    .lastyear-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 3.5rem;
+        
+        .lastyear-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1016px;
+            
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+                font-family: 'Space_Mono_Bold';
+                font-weight: 400;
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
+        }
+
+        .lastyear-video {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 8px;
+
+            &::after {
+                display: block;
+                content: "";
+                padding-top: 56.25%;
+            }
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    @media (min-width:820px) {
+        padding-block: 6.75rem;
+
+        .lastyear-text {
+            h3 {
+                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            }
+
+            p {
+                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+            }
+
+        }
+
+        .lastyear-container {
+            .lastyear-video  {
+                max-width: 50rem;
+            }
+        }
     }
 `
 
 const EventNumbersBanner = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-flow: wrap;
     justify-content: center;
-    margin: 8rem auto;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
 
     .event-info-container {
-        width: 98vw;
-        padding-inline: 4rem;
-        margin-bottom: 80px;
-    }
-
-    .inline-elements {
         display: flex;
-        flex-direction: row;
-    }
-
-    .purple-plus {
-        color: #8744C2;
-    }
-
-    h3, .purple-plus {
-        margin: 0;
-    }
-
-    .purple-separator {
-        height: 2px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        max-width: 340px;
-        background-color: #8744C2;
-        margin-top: 20px;
-    }
+        max-width: 23.75rem;
+        padding: 2rem 4rem;
+        gap: 0.5rem;
+        background-color: var(--color-neutral-800);
+        border-radius: 8px;
 
-    @media (min-width:600px) {
-        margin-block: 5rem 8rem;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 7rem;
-        width: 95%;
-
-        .event-info-container {
-            width: 340px;
-            margin: 0;
+        h1 {
+            font: 400 4rem/4.25rem 'Space_Mono_Bold';
+            color: var(--color-primary-600);
         }
     }
 
-    @media (min-width:1021px) {
-        margin-block: 3rem 8rem;
-
+    @media (min-width:1000px) {
+        gap: 1.5rem;
         .event-info-container {
-            padding: 0;
-        }
+            align-items: flex-start;
+            max-width: 24.5rem;
 
-        .orange-separator {
-            width: 340px;
+            h1 {
+                font: 400 5rem/4.25rem 'Space_Mono_Bold';
+            }
         }
     }
 `
