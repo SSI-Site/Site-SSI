@@ -1,21 +1,42 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
 
-const EventActivity = ({ color, image, alt, title, description }) => {
+const EventActivity = ({ color, image, alt, title, description, showFront }) => {
+
+    const [shouldShowFront, setShouldShowFront] = useState(showFront);
 
     return (
-        <ActivityWrapper>
-            <div className='activity-content'>
-                <div className='activity-logo' style={{ backgroundColor: color }}>
-                    <img src={image} alt={alt} />
-                </div>
-                <div className='activity-text'>
-                    <div className='activity-title'>
-                        <h2>{title}</h2>
+        <ActivityWrapper isShowingFront={shouldShowFront==true} color={color}>
+            <div className='container' onClick={() => setShouldShowFront(!shouldShowFront)}>
+
+                {/* Parte que oculta o card */}
+                <div className='front' id='front'>
+                    <div className='activity-content'>
+                        <div className='activity-title'>
+                            <h6>{title}</h6>
+                            <div></div>
+                        </div>
                     </div>
-                    <div className='activity-description'>
-                        <p>{description}</p>
+                </div>
+
+                {/* Conteúdo do card */}
+                <div className='back'>
+                    <div className='activity-content'>
+                        <div className='title-logo'>
+                            <div className='activity-title'>
+                                <h6>{title}</h6>
+                                <div></div>
+                            </div>
+                            <div className='activity-logo'>
+                                <img src={image} alt={alt} />
+                            </div>
+                        </div>
+                        <div className='activity-description'>
+                            <p>{description}</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </ActivityWrapper>
     )
@@ -29,55 +50,165 @@ const ActivityWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     position: relative;
-    border: 1.48px solid white;
-    max-width: 320px;
-    height: 367px;
-    margin-bottom: 12rem;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 23.75rem;
+    height: 100%;
 
     .activity-content {
         position: relative;
-        padding: 52px 30px 0 30px;
+        padding: 32px 24px;
     }
 
-    .activity-title {
-        margin-bottom: 12px;
-    }
+    // ---MOVIMENTO DOS CARDS---
+    .container {
+        position: relative;
+        perspective: 1000px;
+        height: 320px;
+        width: 100%;
 
-    p {
-        font-size: 17.76px;
-        line-height: 24.51px;
-    }
+        .front, .back {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            position: absolute;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: all 1s ease;
+        }
 
-    .activity-logo {
-        position: absolute;
-        width: 74px;
-        height: 74px;
-        left: 30px;
-        top: -37px;
-        border-radius: 7px;
-        clip-path: polygon(100% 0%, 100% 75%, 75% 100%, 0% 100%, 0% 0%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        // Frente do card - parte que oculta o conteúdo
+        .front {
+            background: var(--color-neutral);
+            border: 4px solid  ${(props) => props.color};
+            transform: rotateY(0deg);
+
+            .activity-content h6 {
+                color:  ${(props) => props.color};
+                transition: 0.3s ease-in-out;
+            }
+
+            .activity-title {
+                position: relative;
+
+                > div {
+                    position: absolute;
+                    width: 0%;
+                    height: 4px;
+                    border-radius: 2px;
+                    background-color: ${(props) => props.color};
+                    transition: all .3s;
+                    border-radius: 12px;
+                }
+            }
+        }
+
+        // Verso do card - conteúdo
+        .back {
+            background-color: var(--color-neutral-800);
+            border: 4px solid transparent;
+            transform: rotateY(180deg);
+
+            .activity-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .title-logo {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .activity-title > div {
+                        height: 4px;
+                        width: 144px;
+                        border-radius: 2px;
+                        background-color:  ${(props) => props.color};
+                    }
+
+                    .activity-logo {
+                        img {
+                            width: 44px;
+                        }
+                    }
+                }
+
+                p {
+                    font: 700 0.875rem/1.25rem 'Space_Mono';
+                }
+            }
+        }
+
+        ${props => props.isShowingFront && css`
+            .front {
+                transform: rotateY(-180deg);
+            }
+
+            .back {
+                transform: rotateY(0deg);
+            }
+        `}
     }
+    //---------------
 
     @media (min-width:800px) {
-        border: 1.7px solid white;
-        width: 365.5px;
-        height: 439px;
-        margin-bottom: 2rem;
+        max-width: 24.5rem;
+        max-height: 26.6875rem;
 
-        &::after {
-            border-top: 1.7px solid white;
-        }
 
-        h2 {
-            font-size: 40px;
-        }
+        .container {
+            height: 427px;
 
-        p {
-            font-size: 20.35px;
-            line-height: 29.11px;
+            h6 {
+                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            }
+
+            .front {            
+                border: 4px solid var(--color-neutral-700);
+
+                .activity-content h6 {
+                    color: var(--color-neutral-700);
+                    transition: 0.3s ease-in-out;
+                }
+
+                &:hover {
+                    border: 4px solid  ${(props) => props.color};
+                
+                    .activity-title {
+                        > div {
+                            width: 144px;
+                            height: 4px;
+                            background-color:  ${(props) => props.color};
+                        }
+                    }
+
+                    .activity-content h6 {
+                        color:  ${(props) => props.color};
+                    }
+                }
+            }
+
+            .back {
+                .activity-content {
+                    gap: 2rem;
+
+                    .title-logo {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+                        gap: 3rem;
+
+                        .activity-logo img {
+                            width: 4rem;
+                        }
+                    }
+
+                    p {
+                        font: 700 1rem/1.25rem 'Space_Mono';
+                    }
+                }
+            }
         }
     }
 `
