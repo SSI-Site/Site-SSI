@@ -24,10 +24,10 @@ const DateStamp = ({ day, showEmoji }) => {
         <DateWrapper>
             <div className='day-emoji'>
                 <h6 className='day'>Dia {relativeDay}</h6>
-                {(currentDay>day && month==4 && year==2023) && showEmoji &&
+                {(currentDay>day && month==7 && year==2023) && showEmoji &&
                     <img src={CheckIcon}></img>
                 }
-                {(currentDay==day && month==4 && year==2023) && showEmoji &&
+                {(currentDay==day && month==7 && year==2023) && showEmoji &&
                     <img src={HourglassIcon}></img>
                 }
             </div>

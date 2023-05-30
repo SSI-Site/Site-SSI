@@ -264,6 +264,10 @@ const ShiftWrapper = styled.div`
             align-self: flex-start;
         }
 
+        div.event{
+            gap: 3.5rem;
+        }
+
         div.lecture, div.event{
             padding: 48px 56px;
 
@@ -287,6 +291,10 @@ const ShiftWrapper = styled.div`
     @media(min-width: 1024px){
         > h5{
             font: 400 2.5rem/3rem 'Space_Mono_Bold';
+        }
+
+        div.event{
+            gap: 6.75rem;
         }
         
         div.lecture, div.event{

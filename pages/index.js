@@ -138,7 +138,7 @@ const Home = () => {
                                             <h3>Semana de Sistemas de Informação 2023</h3>
                                             <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p>
                                         </div>
-                                        <Button>Finalizar cadastro</Button>
+                                        <Button onClick={() => router.push('/user')}>Finalizar cadastro</Button>
                                     </>
                                 }
                                 {isUserRegistered &&
