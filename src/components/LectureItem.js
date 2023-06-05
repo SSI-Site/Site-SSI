@@ -106,8 +106,6 @@ const LectureWrapper = styled.div`
     order: 0;
     flex-grow: 0;
 
-    transition: .3s all;
-
     .lecture-overview {
         width: 100%;
         display: flex;
@@ -192,11 +190,6 @@ const LectureWrapper = styled.div`
         }
     }
 
-    &:hover:not(:active) {
-        background-color: var(--color-neutral-800);
-        cursor: pointer;
-    }
-
     &:active {
         background-color: var(--color-neutral-700);
     }
@@ -232,6 +225,13 @@ const LectureWrapper = styled.div`
     }
 
     @media (min-width:1024px) {
+        transition: .3s all;
+        
+        &:hover:not(:active) {
+            background-color: var(--color-neutral-800);
+            cursor: pointer;
+        }
+
         h5 {
             font: 400 2.5rem/3rem 'Space_Mono_Bold';
         }
