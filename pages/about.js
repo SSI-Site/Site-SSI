@@ -359,7 +359,7 @@ const ActivitiesSection = styled.section`
     }
 
     @media (min-width:800px) {
-        background: url('./images/background_imgs/background5_desktop.svg') no-repeat;
+        background-image: url('./images/background_imgs/background5_desktop.svg');
         padding-block: 6.75rem;
 
         > div {
