@@ -423,7 +423,7 @@ const WelcomeComponent = styled.div`
     }
 `
 const LandingSection = styled.section`
-    background: url('./images/background_imgs/background1_mobile.svg');
+    background: url('./images/background_imgs/background1_mobile.svg') no-repeat;
     background-size: cover;
     padding-block: 3.5rem 6.625rem;
 
@@ -548,92 +548,6 @@ const LandingSection = styled.section`
     @media (min-width:1400px) {
         padding-right: 0;
     }
-
-    /* margin-top: 80px;
-
-    .logged-msg {
-        text-align: center;
-        margin: 2rem 0;
-        padding: 0 10%;
-    }
-
-    .logo {
-        width: 11.5em;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .content-token {
-        width: 100%;
-        text-align: center;
-        flex-direction: column;
-        margin-block: 30px 50px;
-    }
-
-    .btn-entrar{
-        margin: 40px 0;
-    }
-
-    .btn-sair {
-        max-width: 150px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .btn-complete-register {
-        max-width: 400px;
-    }
-
-    .complete-register-btns {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    h1 {
-        text-align: center;
-        margin: 16px 0;
-        padding: 0 16px;
-    }
-
-    @media (min-width:1281px) {
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        height: 100vh;
-        max-height: 680px;
-        padding-top: 50px;
-
-        .logo {
-            width: 15.5em;
-            align-self: flex-start;
-        }
-
-        .content-title {
-            text-align: center;
-            height: 140px;
-            width: 700px;
-        }
-
-        .content-login {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 150px;
-            width: 500px;
-        }
-
-        .content-token {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: row;
-        }
-    } */
 `
 
 const TwitchContainer = styled.div`
@@ -648,7 +562,7 @@ const TwitchContainer = styled.div`
 const EventInfoSection = styled.section`
     gap: 2rem;
     padding-block: 6.625rem 3.5rem;
-    background-image: url('./images/background_imgs/background2_mobile.svg');
+    background: url('./images/background_imgs/background2_mobile.svg') no-repeat;
     background-size: cover;
 
     .about-container {
@@ -710,8 +624,7 @@ const EventInfoSection = styled.section`
     }
 
     @media (min-width:1000px) {
-        background: url('./images/background_imgs/background2_desktop.svg');
-        background-size: cover;
+        background-image: url('./images/background_imgs/background2_desktop.svg');
         padding-block: 6.75rem;
 
         .about-container {
@@ -910,7 +823,7 @@ const ScheduleSection = styled.section`
 
 const SupportersSection = styled.section`
     padding-block: 6.75rem;
-    background-image: url('./images/background_imgs/background4_mobile.svg');
+    background: url('./images/background_imgs/background4_mobile.svg') no-repeat;
     background-size: cover;
 
     .supporters-container {
