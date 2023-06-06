@@ -190,10 +190,6 @@ const LectureWrapper = styled.div`
         }
     }
 
-    &:active {
-        background-color: var(--color-neutral-700);
-    }
-
     .lecture-content {
         display: none;
         margin: 1em;
@@ -227,10 +223,14 @@ const LectureWrapper = styled.div`
     @media (min-width:1024px) {
         transition: .3s all;
         
-        &:hover:not(:active) {
+        &:hover {
             background-color: var(--color-neutral-800);
             cursor: pointer;
         }
+
+        /* &:active {
+            background-color: var(--color-neutral-700);
+        } */
 
         h5 {
             font: 400 2.5rem/3rem 'Space_Mono_Bold';
