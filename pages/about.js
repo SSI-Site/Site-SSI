@@ -58,7 +58,7 @@ const About = () => {
                         <EventActivity
                             color='#8744C2'
                             // image='./images/about/icon_palestras.svg'
-                            image='./images/about/icon_capture_the_flag.svg'
+                            image='./images/about/icon_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
                             description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
@@ -67,8 +67,8 @@ const About = () => {
                         <EventActivity
                             color='#FF7F5C'
                             // image='./images/about/icon_minicursos.svg'
-                            image='./images/about/icon_capture_the_flag.svg'
-                            alt='Imagem Minicursos'
+                            image='./images/about/icon_workshops.svg'
+                            alt='Imagem Workshops'
                             title='Workshops'
                             description='Este ano, estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
                             showFront={false}

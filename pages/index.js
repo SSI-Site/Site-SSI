@@ -101,9 +101,12 @@ const Home = () => {
         }, 1000);
     }, []);
 
+    const firstEventDay = new Date(2023, 7, 21);
+    const lastEventDay = new Date(2023, 7, 25);
     const current = new Date();
+
     const day = `${current.getDate()}`;
-    const month = `${current.getMonth()}`;
+    const month = `${current.getMonth()+1}`;
     const year = `${current.getFullYear()}`;
     const weekDayNames = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
     const weekDay = weekDayNames[`${current.getDay()}`];
@@ -113,6 +116,13 @@ const Home = () => {
     const description = "Nesta "+weekDay+", teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!";
     const sentenceTitle = "E com mais palestras incríveis!";
     const title = sentenceTitle.slice(0,2)+simpleWeekDay.replace(/.$/, "ou")+sentenceTitle.slice(1,);
+
+    // Dia correto para o DateComponent
+    const scheduleDay = current >= firstEventDay && current <= lastEventDay ? day : '21';
+    
+    // Dia no formato yyyy-mm-dd para o ScheduleShift
+    const todayDate = new Date().toISOString().slice(0, 10);
+    const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2023-08-21';
 
     return (
         <>
@@ -285,51 +295,23 @@ const Home = () => {
             }
 
             <ScheduleSection>
-                <h2 className="section-title">Programação</h2>
-                {/* Section antiga de programação
-                    <div className='schedule-content'>
-                    <div className='first-section-schedule'>*/}
-                        
-                        {/* Filtro para atualização diária do texto durante os dias do evento: */}
-                        {/*{(day>=21 && day<=25 && month==7 && year==2023) ? 
-                            (   
-                                <>
-                                    <Link href={`/schedule/${weekDay.slugify()}`}>
-                                        <div className='date'>
-                                            <DateStamp day={day} />
-                                        </div>
-                                    </Link>
-                                    <ScheduleInformation
-                                        speakerPicture={speakerPicture}
-                                        title={title}
-                                        overview={description}
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <div className='date'>
-                                        <DateStamp day={day} />
-                                    </div>
-                                    <ScheduleInformation
-                                        speakerPicture={speakerPicture}
-                                        title="Palestras imperdíveis para você!"
-                                        overview="Durante o evento, cada dia terá diversas palestras recheadas de informações sobre tecnologia e carreira para você. Fique de olho para não perder!"
-                                    />
-                                    <ScheduleShift/>
-                                </>
-                            )
-                        }
+                <div className='schedule-container'>
+                    <h3 className='title-mobile'>Programação</h3>
+                    <div className='title-btn-desktop'>
+                        <h3>Programação</h3>
+                        <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
                     </div>
-
-                    <div className='sechedule-text'>
-                        <p>Confira o conteúdo detalhado das nossas palestras, para poder se organizar e decidir quais você mais quer assistir!</p>
+                    <div className='date-stamp'>
+                        <DateStamp day={scheduleDay} showEmoji={false}/>
                     </div>
-                </div>*/}
-                <ScheduleShift
-                    day={'2023-05-01'}
-                    shift={'Manhã'}
-                />
-                <Button onClick={() => router.push('/schedule')}>Confira</Button>
+                    <ScheduleShift
+                        day={formatedScheduleDate}
+                        shift={'Manhã'}
+                        />
+                    <div className='btn-mobile'>
+                        <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+                    </div>
+                </div>
             </ScheduleSection>
 
             <SupportersSection>
@@ -560,10 +542,10 @@ const TwitchContainer = styled.div`
 `
 
 const EventInfoSection = styled.section`
-    gap: 2rem;
     padding-block: 6.625rem 3.5rem;
     background: url('./images/background_imgs/background2_mobile.svg') no-repeat;
     background-size: cover;
+    gap: 2rem;
 
     .about-container {
         display: flex;
@@ -750,74 +732,67 @@ const CountdownSection = styled.section`
 `
 
 const ScheduleSection = styled.section`
-    background-color: var(--color-neutral-500);
-
-    .schedule-content {
+    padding-block: 3.5rem;
+    background: url('./images/background_imgs/background3_mobile.svg') no-repeat;
+    background-size: cover;
+    
+    .schedule-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 70vw;
-        max-width: 1000px;
-        position: relative;
-        margin-top: 120px;
-        margin-bottom:5rem;
-    }
+        justify-content: center;
+        gap: 2rem;
 
-    .first-section-schedule {
-        position: relative;
-        width: 60vw;
-        max-width: 500px;
-    }
-
-    .date {
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        right: -20px;
-        top:-110px;
-    }
-
-    .sechedule-text {
-        margin-top: 5rem;
-        border-style: solid;
-        border-image-source: url(${borda});
-        border-image-slice: 35%;
-        border-image-width: 50px;
-        border-image-outset: 10px;
-        border-image-repeat: stretch;
-        text-align: center;
-        max-width: 300px;
-        transition: border-image-width 1s;
-    }
-
-    .sechedule-text:hover {
-        border-image-width: 100px;
-        transition: border-image-width 0.5s;
-    }
-
-    @media (min-width:600px) {
-
-        .date{
-            right: -70px;
-            top: -70px;
+        .title-mobile {
+            display: flex;
+            flex-direction: row;
         }
+
+        .title-btn-desktop {
+            display: none;
+        }
+        
+        .date-stamp {
+            > div {
+                background-color: var(--color-primary);
+            }
+        }
+    }
+
+
+    @media (min-width:1021px) {
+        background-image: url('./images/background_imgs/background3_desktop.svg');
+
+        .schedule-container {
+            gap: 4rem;
+            align-items: flex-start;
+
+            .title-mobile {
+                display: none;
+            }
+
+            .title-btn-desktop {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                button {
+                    width: fit-content;
+                }
+            }
+
+            .btn-mobile {
+                display: none;
+            }
+        }
+
     }
 
     @media (min-width:1021px) {
+        padding-block: 6.75rem;
 
-        .schedule-content{
-            flex-direction: row;
-            justify-content: space-around;
-        }
-
-        .first-section-schedule {
-            min-width: 400px;
-        }
-
-        .sechedule-text {
-            margin-top: 0px;
-            margin-left: 100px;
-        }
     }
 `
 

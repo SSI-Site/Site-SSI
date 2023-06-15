@@ -16,6 +16,13 @@ const EventActivity = ({ color, image, alt, title, description, showFront }) => 
                             <h6>{title}</h6>
                             <div></div>
                         </div>
+                        <div className='click-container'>
+                            <div className='click-content'>
+                                <div className='pulse-icon-animation'>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -58,6 +65,7 @@ const ActivityWrapper = styled.div`
     .activity-content {
         position: relative;
         padding: 32px 24px;
+        height: 100%;
     }
 
     // ---MOVIMENTO DOS CARDS---
@@ -100,6 +108,61 @@ const ActivityWrapper = styled.div`
                     transition: all .3s;
                     border-radius: 12px;
                 }
+            }
+
+            .click-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+
+                .click-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 200px;
+                    width: 200px;
+
+                    .pulse-icon-animation {
+                        height: 50px;
+                        width: 50px;
+                        background: ${(props) => props.color};
+                        margin: auto;
+                        border-radius: 50%;
+                        display: grid;
+                        place-items: center;
+                        color: #fff;
+        
+                        &:before, &:after {
+                            content: "";
+                            position: absolute;
+                            height: 70px;
+                            width: 70px;
+                            background-color: ${(props) => props.color};
+                            border-radius: 50%;
+                            z-index: -1;
+                            opacity: 0.7;
+                        }
+        
+                        &:before {
+                            animation: pulse 2s ease-out infinite;
+                        }
+        
+                        &:after {
+                            animation: pulse 2s 1s ease-out infinite;
+                        }
+        
+                        @keyframes pulse {
+                            100%{
+                                transform: scale(2.0);
+                                opacity: 0;
+                            }
+                        }
+                    }
+    
+                }
+
             }
         }
 
@@ -172,6 +235,19 @@ const ActivityWrapper = styled.div`
                     transition: 0.3s ease-in-out;
                 }
 
+                .click-container {
+                    .click-content {
+                        .pulse-icon-animation {
+                            background: var(--color-neutral-700);
+
+                            &:before, &:after {
+                                background-color: var(--color-neutral-700);
+                            }
+
+                        }
+                    }
+                }
+
                 &:hover {
                     border: 4px solid  ${(props) => props.color};
                 
@@ -185,6 +261,19 @@ const ActivityWrapper = styled.div`
 
                     .activity-content h6 {
                         color:  ${(props) => props.color};
+                    }
+
+                    .click-container {
+                        .click-content {
+                            .pulse-icon-animation {
+                                border: none;
+                                background: ${(props) => props.color};
+                                
+                                &:before, &:after {
+                                    background:  ${(props) => props.color};
+                                }
+                            }
+                        }
                     }
                 }
             }
