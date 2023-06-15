@@ -106,6 +106,7 @@ const TwitchWatchNowWrapper = styled.div`
 		padding: 1.5rem;
 		background-color: var(--color-neutral-900);
 		border-radius: 12px;
+		transition: 0.3s all ease-in-out;
 	}
 
 	.text {

@@ -15,10 +15,10 @@ const ScheduleShift = ({day , shift}) => {
                 <h5>{shift}</h5>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
-                    {Object.entries(shifts[day][shift]).map(([time , event]) => {
+                    {Object.entries(shifts[day][shift]).map(([time , event], key) => {
                         if(!event.speakers) {
                             return (
-                                <div className='event'>
+                                <div key={key} className='event'>
                                     <h5>{time}</h5>
                                     <div>
                                         <h5>{event.title}</h5>
@@ -27,7 +27,7 @@ const ScheduleShift = ({day , shift}) => {
                             )
                         } else {
                             return (
-                                <LectureItem time={time} event={event}/>
+                                <LectureItem key={key} time={time} event={event}/>
                             )
                         }
                     })}

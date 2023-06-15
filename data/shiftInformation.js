@@ -9,7 +9,7 @@ import LectureImage07 from '../public/images/lecture_imgs/07-Lab_das_Minas.jpg'
 import LectureImage08 from '../public/images/lecture_imgs/08-Ana_Ferreira.jpeg'
 
 const shifts = {
-    '2023-05-01' : {
+    '2023-08-21' : {
         'Manhã': {
             '08:00' : {
                 title : 'Abertura'
@@ -121,7 +121,40 @@ const shifts = {
             }
         } 
     },
-    '2023-05-02' : {
+    '2023-08-22' : {
+        'Manhã' : {
+
+        },
+        'Tarde' : {
+
+        },
+        'Noite' : {
+
+        }
+    },
+    '2023-08-23' : {
+        'Manhã' : {
+
+        },
+        'Tarde' : {
+
+        },
+        'Noite' : {
+
+        }
+    },
+    '2023-08-24' : {
+        'Manhã' : {
+
+        },
+        'Tarde' : {
+
+        },
+        'Noite' : {
+
+        }
+    },
+    '2023-08-25' : {
         'Manhã' : {
 
         },
