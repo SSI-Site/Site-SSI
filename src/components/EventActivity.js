@@ -133,6 +133,7 @@ const ActivityWrapper = styled.div`
                         display: grid;
                         place-items: center;
                         color: #fff;
+                        opacity: 0.5;
         
                         &:before, &:after {
                             content: "";
@@ -142,7 +143,7 @@ const ActivityWrapper = styled.div`
                             background-color: ${(props) => props.color};
                             border-radius: 50%;
                             z-index: -1;
-                            opacity: 0.7;
+                            opacity: 0.3;
                         }
         
                         &:before {
@@ -236,20 +237,12 @@ const ActivityWrapper = styled.div`
                 }
 
                 .click-container {
-                    .click-content {
-                        .pulse-icon-animation {
-                            background: var(--color-neutral-700);
-
-                            &:before, &:after {
-                                background-color: var(--color-neutral-700);
-                            }
-
-                        }
-                    }
+                    display: none;
                 }
 
                 &:hover {
                     border: 4px solid  ${(props) => props.color};
+                    cursor: pointer;
                 
                     .activity-title {
                         > div {
@@ -261,19 +254,6 @@ const ActivityWrapper = styled.div`
 
                     .activity-content h6 {
                         color:  ${(props) => props.color};
-                    }
-
-                    .click-container {
-                        .click-content {
-                            .pulse-icon-animation {
-                                border: none;
-                                background: ${(props) => props.color};
-                                
-                                &:before, &:after {
-                                    background:  ${(props) => props.color};
-                                }
-                            }
-                        }
                     }
                 }
             }
