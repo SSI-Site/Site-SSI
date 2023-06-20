@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
+// assets
+import TapIcon from '../../public/images/about/icon_tap.svg';
+
 const EventActivity = ({ color, image, alt, title, description, showFront }) => {
 
     const [shouldShowFront, setShouldShowFront] = useState(showFront);
@@ -19,7 +22,7 @@ const EventActivity = ({ color, image, alt, title, description, showFront }) => 
                         <div className='click-container'>
                             <div className='click-content'>
                                 <div className='pulse-icon-animation'>
-
+                                    <img src={TapIcon} alt='Tap Icon' />
                                 </div>
                             </div>
                         </div>
