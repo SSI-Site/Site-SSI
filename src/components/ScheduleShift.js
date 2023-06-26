@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 // assets
 import shifts from '../../data/shiftInformation';
@@ -48,6 +46,7 @@ const ShiftWrapper = styled.div`
     width:100%;
 
     > ul {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;

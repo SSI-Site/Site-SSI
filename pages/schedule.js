@@ -11,15 +11,9 @@ import members from '../data/members';
 
 // components
 import DateStamp from '../src/components/DateStamp';
-import MemberCard from '../src/components/MemberCard';
+import ScheduleShift from '../src/components/ScheduleShift';
 
-// assets
-
-const getScheduleDay = key => {
-    const date = new Date(`${key} 03:00Z`);
-    const day = date.getUTCDate();
-    return { day }
-}
+const shifts = ['Manhã', 'Tarde', 'Noite'];
 
 const Schedule = () => {
 
@@ -36,24 +30,18 @@ const Schedule = () => {
     function renderActiveItem() {
         if (!isDuringEvent(activeItem)) {
             setActiveItem('2023-08-21'); // se não for um dos dias do evento, apresenta a programação do primeiro dia
-        } 
+        }
 
         return (
-
-            // aqui vai o componente ScheduleShift!!
-
-            <p>oieeee</p>
-            // deve iterar sobre o objeto schedule que foi importado
-
-            //exemplo de iteração sobre um objeto (não sei se vai funcionar...talvez precise de Object.entries(schedule).map...):
-                // members.map(function(member, key) {
-                //     return (
-                //         <div className="card-container" key={key}>
-                //             <p>oi</p>
-                //             <MemberCard name={member.name} image={member.image} departments={member.departments} />
-                //         </div>
-                //     );
-                // })
+            shifts.map(function(shift, key) {
+                return (
+                    <ScheduleShift
+                        key={key}
+                        day={activeItem}
+                        shift={shift}
+                    />
+                )
+            })
         )
     }
 
@@ -132,8 +120,6 @@ const Schedule = () => {
                 </DayScheduleWrapper>
 
             </ScheduleSection>
-
-
         </>
     )
 }
@@ -142,18 +128,22 @@ export default Schedule;
 
 
 const ScheduleSection = styled.section`
+    background: url('./images/background_imgs/background3_mobile.svg') fixed;
+    background-size: cover;
     overflow-x: hidden;
     padding-block: 7.25rem 3.75rem;
     gap: 1rem;
 
     @media (min-width:600px) {
         gap: 4rem;
-    }
 
-    @media (min-width:600px) {
         h3 {
             font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
         }
+    }
+
+    @media (min-width:800px) {
+        background-image: url('./images/background_imgs/background3_desktop.svg');
     }
 `
 
@@ -236,6 +226,10 @@ const DayScheduleWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 2rem;
+
+    > div {
+        margin-top: 1rem;
+    }
 
     @media (min-width:600px) {
         gap: 3.6rem;
