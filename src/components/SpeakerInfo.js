@@ -58,6 +58,10 @@ const SpeakerContainer = styled.div`
         object-fit: cover;
     }
 
+    .speaker-image-name {
+        width: 100%;
+    }
+
     .speaker-name {
         font: 400 0.75rem/1.25rem 'Space_Mono';
         text-align: center;
