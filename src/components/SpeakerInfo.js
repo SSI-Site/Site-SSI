@@ -6,11 +6,13 @@ const SpeakerInfo = ({ speaker }) => {
     return (
         <>
             <SpeakerContainer>
-                {speaker['image'] &&
-                    <img className='speaker-picture' src={speaker['image']} />
-                }
+                <div className='speaker-image-name'>
+                    {speaker['image'] &&
+                        <img className='speaker-picture' src={speaker['image']} />
+                    }
 
-                <p className='speaker-name'>{speaker['name']}</p>
+                    <p className='speaker-name'>{speaker['name']}</p>
+                </div>
 
                 <div className='speaker-links'>
                     {speaker['website'] &&
@@ -42,12 +44,13 @@ const SpeakerContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
 
     .speaker-picture {
         width: 100%;
+        min-width: 5rem;
         max-width: 34rem;
         min-height: 8rem;
         max-height: 14rem;
@@ -71,8 +74,9 @@ const SpeakerContainer = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.75rem;
-            height: 2.75rem;
+            padding: 0.5rem;
+            width: 2rem;
+            height: 2rem;
             background-color: var(--color-neutral-700);
             border-radius: 8px;
             transition: 0.3s all ease-in-out;
@@ -86,6 +90,14 @@ const SpeakerContainer = styled.div`
     @media (min-width:400px) {
         .speaker-name {
             font: 400 0.875rem/1.25rem 'Space_Mono';
+        }
+
+        .speaker-links {
+            a {
+                padding: 0;
+                width: 2.75rem;
+                height: 2.75rem;
+            }
         }
     }
 
