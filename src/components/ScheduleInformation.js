@@ -1,25 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// assets
+// components
+import SpeakerInfo from './SpeakerInfo';
 import borda from '../../public/images/borda.png';
 
-const ScheduleInformation = ({ speakerPicture, speakerName, title, overview }) => {
+const ScheduleInformation = ({ lecture, startTime, lecturePicture, speakerName, title, overview }) => {
     
+    const endTime = (time) => {
+        let [h, m] = time.split(':');
+        let date = new Date();
+        date.setHours(h, m, 0)
+        date.toString();
+        let res = `${date.getHours()+1}:${date.getMinutes()==0 ? '00':date.getMinutes()}`
+        return res
+    }
+
     return (
         <>
             <ScheduleInformationStyle>
-                <div className='first-section-schedule-box'>
-                    {speakerPicture ?
-                        <img className='speaker-picture' src={speakerPicture} />
+                <div className='speakers-box'>
+                    {(lecture.speakers.length < 4 && lecture.speakers.length > 0 && !lecturePicture) ?
+                        lecture['speakers'].map((s, index) => {
+                            return(
+                                <SpeakerInfo speaker={s} />
+                            )
+                        })
                         :
-                        <div className='space-div'></div>
+                        lecturePicture ?
+                            <img className='lecture-picture' src={lecturePicture} />
+                            :
+                            <div className='space-div'></div>
                     }
-                    <h3 className='speakerName'>{speakerName}</h3>
                 </div>
 
-                <div className='second-section-schedule-box'>
-                    <h2 className='speech-title'>{title}</h2>
+                <div className='duration-box'>
+                    <p>{startTime} - {endTime(startTime)}</p>
+                </div>
+
+                <div className='description-box'>
                     <p className='speech-overview'>{overview}</p>
                 </div>
             </ScheduleInformationStyle >
@@ -32,84 +51,87 @@ export default ScheduleInformation;
 
 const ScheduleInformationStyle = styled.div`
     width: 100%;
-    background: rgba(196, 196, 196, 0.1);
     display: flex;
-    justify-content: start;
     flex-direction: column;
+    justify-content: start;
     align-items: center;
-    border-style: solid;
-    border-image-source: url(${borda});
-    border-image-slice: 35%;
-    border-image-width: 50px;
-    border-image-outset: 10px;
-    border-image-repeat: stretch;
+    gap: 1rem;
 
-    .speaker-picture {
-        width: 150px;
-        height: 150px;
-        border-radius: 75px 75px 0px 0px;
-        margin-top: 3rem;
+    .speakers-box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: top;
+        justify-content: center;
+        gap: 1rem;
+
+        .lecture-picture {
+            width: 100%;
+            max-width: 34rem;
+            min-height: 8rem;
+            max-height: 14rem;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+    }
+
+    .duration-box {
+        p {
+            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        }
+    }
+
+    .lecture-picture {
+        width: 100%;
+        max-height: 14rem;
+        border-radius: 16px;
         object-fit: cover;
     }
 
     .space-div {
-        height: 3.5rem;
+        height: 1rem;
     }
 
-    .speakerName {
-        font-size: 16px;
-        margin-top: 0.5rem;
-        text-align: center;
-    }
-    .second-section-schedule-box {
+    .description-box {
         display:flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
-    .speech-title {
-        width: 90%;
-        font-size: 2rem;
-        margin-top: .5rem;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
 
     .speech-overview {
-        width: 80%;
-        text-align: center;
-
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        line-height: 2rem;
-        color: #FFFFFF;
-        margin-bottom: 3rem;
+        font: 400 1rem/1.25rem 'Space_Mono';
     }
 
     @media (min-width:600px) {
-
         .space-div {
-            height: 1.5rem;
+            height: 3rem;
+        }
+    }
+
+    @media (min-width:1024px) {
+        gap: 2rem;
+
+        .speakers-box {
+            gap: 1.5rem;
+
+            .lecture-picture {
+                height: 23.5rem;
+                max-height: none;
+                border-radius: 16px;
+                object-fit: cover;
+            }
         }
 
-        .first-section-schedule-box {
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .duration-box {
+            p {
+                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                color: var(--color-primary-500);
+            }
         }
-
-        .speaker-picture {
-            margin-top: 0px;
-            width: 300px;
-            height: 300px;
-            border-radius: 150px 150px 0px 0px;
-        }
-
+        
         .speech-overview {
-            text-align: justify;
+            font: 400 1.125rem/1.75rem 'Space_Mono';
         }
     }
 `

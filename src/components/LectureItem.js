@@ -38,8 +38,8 @@ const LectureItem = ({ time, event,  }) => {
                                 {event['speakers'].map((s, index) => {
                                     return(
                                         <React.Fragment key={index}>
-                                            {s['anchor'] ? 
-                                                (<a target='_blank' href={s['anchor']}>{s['name']}</a>)
+                                            {s['linkedin'] ? 
+                                                (<a target='_blank' href={s['linkedin']}>{s['name']}</a>)
                                                 : 
                                                 s['name']
                                             }
@@ -66,7 +66,9 @@ const LectureItem = ({ time, event,  }) => {
                 </div>
                 <div className={`lecture-content ${show.includes(time) && 'show-content'}`}>
                     <ScheduleInformation
-                        speakerPicture={event['image']}
+                        lecture={event}
+                        startTime={time}
+                        lecturePicture={event['image']}
                         // speakerName={ }
                         title={event['title']}
                         overview={event['description']}
@@ -197,6 +199,9 @@ const LectureWrapper = styled.div`
 
     .lecture-content.show-content {
         display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
 

@@ -104,6 +104,8 @@ const Home = () => {
     const firstEventDay = new Date(2023, 7, 21);
     const lastEventDay = new Date(2023, 7, 25);
     const current = new Date();
+    const currentHour = current.getHours();
+    const currentMinute = current.getMinutes();
 
     const day = `${current.getDate()}`;
     const month = `${current.getMonth()+1}`;
@@ -119,6 +121,19 @@ const Home = () => {
 
     // Dia correto para o DateComponent
     const scheduleDay = current >= firstEventDay && current <= lastEventDay ? day : '21';
+
+    // Turno correto para o DateComponent
+    const scheduleShift = () => {
+        if (current >= firstEventDay && current <= lastEventDay) {
+            if (currentHour >= '18' && currentMinute >= '20') {
+                return 'Noite';
+            }
+            if (currentHour >= '12' && currentMinute >= '20') {
+                return 'Tarde';
+            }
+        }
+        return 'Manhã';
+    }
     
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = new Date().toISOString().slice(0, 10);
@@ -136,7 +151,7 @@ const Home = () => {
                                 <>
                                     <div className='landing-text'>
                                         <h3>Semana de Sistemas de Informação 2023</h3>
-                                        <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, online e presencialmente!</p>
+                                        <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
                                     <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
                                 </>
@@ -306,7 +321,7 @@ const Home = () => {
                     </div>
                     <ScheduleShift
                         day={formatedScheduleDate}
-                        shift={'Manhã'}
+                        shift={scheduleShift()}
                         />
                     <div className='btn-mobile'>
                         <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
