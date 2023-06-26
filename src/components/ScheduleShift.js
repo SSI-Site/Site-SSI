@@ -27,14 +27,14 @@ const ScheduleShift = ({day , shift}) => {
                             )
                         } else {
                             return (
-                                <LectureItem key={key} time={time} event={event}/>
+                                <LectureItem key={key} time={time} event={event} />
                             )
                         }
                     })}
                 </ul>
             </ShiftWrapper>
         </>
-     )
+    )
 }
  
 export default ScheduleShift;

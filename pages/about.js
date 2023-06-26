@@ -52,25 +52,23 @@ const About = () => {
                             image='./images/about/icon_capture_the_flag.svg'
                             alt='Imagem Capture the Flag'
                             title='Capture the Flag'
-                            description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, terão diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
+                            description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, serão propostos diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
                             showFront={true}
                         />
                         <EventActivity
                             color='#8744C2'
-                            // image='./images/about/icon_palestras.svg'
                             image='./images/about/icon_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
-                            description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo da tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
+                            description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo de tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
                             showFront={false}
                         />
                         <EventActivity
                             color='#FF7F5C'
-                            // image='./images/about/icon_minicursos.svg'
                             image='./images/about/icon_workshops.svg'
                             alt='Imagem Workshops'
                             title='Workshops'
-                            description='Este ano, estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas que pode encontrar ao iniciar sua carreira na área de tecnologia. Não deixe de participar!'
+                            description='Este ano estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas importantes para iniciar sua carreira na área de tecnologia. Não deixe de participar!'
                             showFront={false}
                         />
                     </div>
@@ -92,7 +90,7 @@ const About = () => {
                                 <div className='bait-sample-description'>
                                     <h4>Palestras com experts da área</h4>
                                     <p>
-                                        Venha participar de conversas com as melhores referências de cada assunto nas áreas. Desde assuntos relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
+                                        Venha participar de conversas com as melhores referências de cada assunto. Desde temas relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
                                         Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
                                     </p>
                                 </div>
@@ -108,7 +106,7 @@ const About = () => {
                                     <h4>Workshops em laboratórios de informática</h4>
                                     <p>
                                         Já pensou em aplicar o que vemos e ouvimos nas palestras?
-                                        As empresas apoiadoras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saia da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
+                                        As empresas parceiras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saia da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
                                     </p>
                                 </div>
                             </div>
