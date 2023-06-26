@@ -59,6 +59,7 @@ const ScheduleInformationStyle = styled.div`
 
     .speakers-box {
         width: 100%;
+        height: fit-content;
         display: flex;
         flex-direction: row;
         align-items: top;
