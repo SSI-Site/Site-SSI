@@ -155,8 +155,8 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <InputBoxSmall>
                         <LabelLeft htmlFor='gender'> Como você se identifica? </LabelLeft>
                         <div className='form-input'>
-                            <select id='gender' {...register("gender")} >
-                                <option disabled className='selection-placeholder' selected>Selecione sua identificação</option>
+                            <select id='gender' {...register("gender")} defaultValue='' >
+                                <option disabled className='selection-placeholder' value='' >Selecione sua identificação</option>
                                 {selectOptions.gender.map((gender, i) => (
                                     <option value={gender.value} key={i}>{gender.text}</option>
                                 ))}
@@ -167,8 +167,8 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <InputBoxSmall>
                         <LabelLeft htmlFor='ethnicity'> Qual a sua cor/raça? </LabelLeft>
                         <div className='form-input'>
-                            <select id='ethnicity' {...register("ethnicity")} >
-                                <option disabled className='selection-placeholder' selected>Selecione sua cor/raça</option>
+                            <select id='ethnicity' {...register("ethnicity")} defaultValue='' >
+                                <option disabled className='selection-placeholder' value='' >Selecione sua cor/raça</option>
                                 {selectOptions.ethnicity.map((ethnicity, i) => (
                                     <option value={ethnicity.value} key={i}>{ethnicity.text}</option>
                                 ))}
@@ -203,8 +203,8 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <InputBoxSmall>
                         <LabelLeft htmlFor='know_about'> Como você conheceu a SSI? </LabelLeft>
                         <div className='form-input'>
-                            <select id='know_about' {...register("know_about")} >
-                                <option disabled className='selection-placeholder' selected>Selecione uma opção</option>
+                            <select id='know_about' {...register("know_about")} defaultValue='' >
+                                <option disabled className='selection-placeholder' value='' >Selecione uma opção</option>
                                 {selectOptions.knowAbout.map((knowAbout, i) => (
                                     <option value={knowAbout.value} key={i}>{knowAbout.text}</option>
                                 ))}
@@ -215,8 +215,8 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <InputBoxSmall>
                         <LabelLeft htmlFor='course'> Está na graduação? Qual o seu curso? </LabelLeft>
                         <div className='form-input'>
-                            <select id='course' {...register("course")} >
-                                <option disabled className='selection-placeholder' selected>Selecione o seu curso</option>
+                            <select id='course' {...register("course")} defaultValue='' >
+                                <option disabled className='selection-placeholder' value='' >Selecione o seu curso</option>
                                 {selectOptions.course.map((course, i) => (
                                     <option value={course.value} key={i}>{course.text}</option>
                                 ))}
@@ -248,15 +248,17 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     {watch("course") !== "" &&
                         watch("course") !== "ainda nao iniciei a graduacao" &&
                         watch("course") !== "ja finalizei a graduacao" &&
-                        watch("course") !== "nao tenho interesse em fazer graduacao" &&
+                        watch("course") !== "nao pretendo fazer graduacao" &&
                         <InputBoxLarge>
                             <LabelLeft htmlFor='graduation_period'> Em qual período está? </LabelLeft>
-                            <select id='graduation_period' {...register("graduation_period")} >
-                                <option></option>
-                                {selectOptions.graduation_period.map((graduation_period, i) => (
-                                    <option value={graduation_period.value} key={i}>{graduation_period.text}</option>
-                                ))}
-                            </select>
+                            <div className='form-input'>
+                                <select id='graduation_period' {...register("graduation_period")} defaultValue='' >
+                                    <option disabled className='selection-placeholder' value='' >Selecione o período</option>
+                                    {selectOptions.graduation_period.map((graduation_period, i) => (
+                                        <option value={graduation_period.value} key={i}>{graduation_period.text}</option>
+                                    ))}
+                                </select>
+                            </div>
                         </InputBoxLarge>
                     }
 
@@ -342,7 +344,6 @@ const FormWrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        color: var(--color-neutral-50);
         border-radius: 5px;
         gap: 1rem;
     }
@@ -414,12 +415,7 @@ const FormWrapper = styled.div`
         }
 
         select {
-            font: 400 1rem/1.25rem 'Space_Mono';
             color: var(--color-neutral-400);
-
-            .selection-placeholder {
-                color: var(--color-neutral-400);
-            }
         }
     }
 
@@ -503,8 +499,19 @@ const InputBoxLarge = styled.div`
     padding: 0 0 1.2rem 0;
 
     label {
-        width: 100%;
-        margin-left: 5%;
+        width: 90%;
+    }
+
+    @media (min-width:1245px) {
+
+        label {
+            width: 100%;
+            margin-left: 5%;
+        }
+
+        .form-input select {
+            width: 97.5%;
+        }
     }
 `
 
@@ -549,17 +556,17 @@ const RadioBox = styled.div`
 
     label {
         margin-left: 10px;
+    
     }
 
     input[type="radio"] {
         appearance: none;
-        background-color: #241D3C;
+        background-color: var(--color-neutral-700);
         margin: 0;
         font: inherit;
-        color: white;
-        width: 1em;
-        height: 1em;
-        border: .5px solid;
+        width: 1.5em;
+        height: 1.5em;
+        border: 1px solid var(--color-neutral-50);
         border-radius: 50%;
         cursor: pointer;
 
@@ -569,8 +576,8 @@ const RadioBox = styled.div`
 
     input[type="radio"]::before {
         content: "";
-        width: 0.65em;
-        height: 0.65em;
+        width: 0.9em;
+        height: 0.9em;
         border-radius: 50%;
         transform: scale(0);
         transition: 150ms transform ease-in-out;
@@ -579,6 +586,11 @@ const RadioBox = styled.div`
 
     input[type="radio"]:checked::before {
         transform: scale(1);
+    }
+    @media (min-width:560px) {
+        label {
+            font: 700 1.125rem/1.75rem 'Space_Mono';
+        }
     }
 `
 
@@ -592,9 +604,8 @@ const DateInputBox = styled.div`
     max-width: 37.5rem;
 
     label {
-        width: 100%;
+        width: 90%;
         margin-bottom: .5rem;
-        margin-left: 5%;
     }
 
     span {
@@ -604,6 +615,14 @@ const DateInputBox = styled.div`
     @media (min-width:1245px) {
         max-width: none;
 
+        label {
+            width: 100%;
+            margin-left: 5%;
+        }
+
+        .form-input input[type=text] {
+            width: 97.5%;
+        }
     }
 `
 

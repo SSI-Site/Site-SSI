@@ -23,7 +23,7 @@ const ScheduleInformation = ({ lecture, startTime, lecturePicture, speakerName, 
                     {(lecture.speakers.length < 4 && lecture.speakers.length > 0 && !lecturePicture) ?
                         lecture['speakers'].map((s, index) => {
                             return(
-                                <SpeakerInfo speaker={s} />
+                                <SpeakerInfo speaker={s} key={index} />
                             )
                         })
                         :
