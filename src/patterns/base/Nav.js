@@ -102,6 +102,12 @@ const Nav = () => {
                         <div></div>
                     </li>
 
+                    {/* APAGAR */}
+                    <li>
+                        <Link href="/user"><a>User</a></Link>
+                        <div></div>
+                    </li>
+
                     <li>
                         {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
                         {/* <div></div> */}
@@ -170,6 +176,12 @@ const Nav = () => {
 
                         <li onClick={() => setIsOpen(false)}>
                             <Link href="/hackssi"><a>HackSSI</a></Link>
+                            <div></div>
+                        </li>
+
+                        {/* APAGAR */}
+                        <li onClick={() => setIsOpen(false)}>
+                            <Link href="/user"><a>User</a></Link>
                             <div></div>
                         </li>
 

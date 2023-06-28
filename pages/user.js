@@ -172,11 +172,11 @@ const User = () => {
                 </Loading>
             }
 
-            {!isLoading && user && !isUserRegistered &&
+            {/* {!isLoading && user && !isUserRegistered && */}
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
-            }
+            {/* } */}
 
             {isEditing &&
                 <>
