@@ -106,7 +106,6 @@ const ActivityWrapper = styled.div`
                     position: absolute;
                     width: 0%;
                     height: 4px;
-                    border-radius: 2px;
                     background-color: ${(props) => props.color};
                     transition: all .3s;
                     border-radius: 12px;
@@ -279,6 +278,10 @@ const ActivityWrapper = styled.div`
                     p {
                         font: 700 1rem/1.25rem 'Space_Mono';
                     }
+                }
+
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }
