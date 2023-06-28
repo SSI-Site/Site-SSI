@@ -82,13 +82,6 @@ const ScheduleInformationStyle = styled.div`
         }
     }
 
-    .lecture-picture {
-        width: 100%;
-        max-height: 14rem;
-        border-radius: 16px;
-        object-fit: cover;
-    }
-
     .space-div {
         height: 1rem;
     }

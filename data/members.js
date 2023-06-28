@@ -1,18 +1,20 @@
 const members = [
     {
-        name: 'Membro 1',
+        name: 'Nome curto',
         image: './images/bojji.jpg',
-        departments: ['Site', 'Diretoria']
+        departments: ['Sites', 'Diretoria', 'Comercial e Financeiro', 'Criação e Comunicação'],
+        anchor: 'https://semanadesi.com'
     },
     {
-        name: 'Membro 2',
+        name: 'Nome longo quebra',
         image: './images/co/MemberShadow.png',
-        departments: ['Comercial e Financeiro', 'Criação e Comunicação']
+        departments: ['Comercial e Financeiro', 'Criação e Comunicação'],
+        anchor: 'https://semanadesi.com'
     },
     {
         name: 'Membro 3',
         image: './images/co/MemberShadow.png',
-        departments: ['Patrocínios']
+        departments: ['Parcerias']
     },
     {
         name: 'Membro 4',
@@ -27,12 +29,12 @@ const members = [
     {
         name: 'Membro 6',
         image: './images/co/MemberShadow.png',
-        departments: ['Site']
+        departments: ['Sites']
     },
     {
         name: 'Geraldo na edição passada',
         image: './images/bojji.jpg',
-        departments: ['Criação e Comunicação', 'Diretoria', 'Infraestrutura', 'Patrocínios']
+        departments: ['Criação e Comunicação', 'Diretoria', 'Infraestrutura', 'Parcerias']
     },
 ]
 

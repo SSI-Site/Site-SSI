@@ -559,6 +559,7 @@ const TwitchContainer = styled.div`
 const EventInfoSection = styled.section`
     padding-block: 6.625rem 3.5rem;
     background: url('./images/background_imgs/background2_mobile.svg') no-repeat;
+    background-position: bottom left;
     background-size: cover;
     gap: 2rem;
 

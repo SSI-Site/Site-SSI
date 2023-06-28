@@ -59,6 +59,11 @@ const SpeakerContainer = styled.div`
     }
 
     .speaker-image-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
         width: 100%;
     }
 
@@ -106,8 +111,14 @@ const SpeakerContainer = styled.div`
     }
 
     @media (min-width:1024px) {
+        gap: 1rem;
+
+        .speaker-image-name {
+            gap: 1rem;
+        }
+
         .speaker-name {
-            font: 400 1.125rem/1.75rem 'Space_Mono_Bold';
+            font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
         }
 
         .speaker-picture {

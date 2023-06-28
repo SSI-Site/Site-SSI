@@ -61,10 +61,9 @@ const shifts = {
                 description : 'ainda não sei se vai ou não usar isso kkk',
                 local : 'presential',
                 speakers : [
-                    {'name' : 'Digiamipetri', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    {'name' : 'Danilo Bode', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Digiamipetri', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage04}
                 ],
-                image: LectureImage04
+                image: ''
             },
             '14:40' : {
                 title : 'aaaaaaaaa',

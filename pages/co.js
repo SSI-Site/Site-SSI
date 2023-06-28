@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
 import Meta from '../src/infra/Meta';
@@ -7,6 +7,18 @@ import members from '../data/members';
 
 // components
 import MemberCard from '../src/components/MemberCard';
+import DepartmentStamp from '../src/components/DepartmentStamp';
+
+// assets
+import FinancesIcon from '../public/images/co/finances.svg';
+import CreationIcon from '../public/images/co/creation.svg';
+import CTFIcon from '../public/images/co/ctf.svg';
+import BoardIcon from '../public/images/co/board.svg';
+// import HackSSIIcon from '../public/images/co/hackssi.svg';
+import InfraIcon from '../public/images/co/infra.svg';
+import LectureIcon from '../public/images/co/lecture.svg';
+import PartnershipIcon from '../public/images/co/partnership.svg';
+import SitesIcon from '../public/images/co/web.svg';
 
 const CO = () => {
 
@@ -18,7 +30,7 @@ const CO = () => {
                 members.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} anchor={member.anchor} />
                         </div>
                     );
                 })
@@ -30,7 +42,7 @@ const CO = () => {
                 sectorMembers.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} anchor={member.anchor} />
                         </div>
                     );
                 })
@@ -42,55 +54,136 @@ const CO = () => {
         <>
             <Meta title='SSI 2023 | CO' />
 
-            <BackgroundWrapper>
-                <COSectionWrapper>
-                    <h3>As pessoas que fizeram deste evento uma realidade</h3>
+            <COExhibitionSection>
+                <div className='exhibition-container'>
+                    <h3>Comissão Organizadora</h3>
+                    <div className='image-text'>
+                        <img src='./images/co/co.jpg' alt='Foto Palestra' />
+                        <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação, o time que trabalha para fazer esse evento acontecer.</p>
+                    </div>
+                </div>
+            </COExhibitionSection>
 
-                    <SubMenu id="departaments-filter-nav">
-                        <ul>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>Todos</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
-                                    Comercial e Financeiro</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
-                                    Criação e Comunicação</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'CTF'} onClick={() => setActiveItem('CTF')}>
-                                    CTF</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
-                                    Diretoria</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
-                                    Infraestrutura</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
-                                    Palestrantes</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Patrocínios'} onClick={() => setActiveItem('Patrocínios')}>
-                                    Patrocínios</NavItem>
-                            </Link>
-                            <Link href="#members">
-                                <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>Site</NavItem>
-                            </Link>
-                        </ul>
-                    </SubMenu>
-
-                    <MemberCardsWrapper id="members">
-                        {renderActiveItem()}
-                    </MemberCardsWrapper>
+            <COMembersSection>
+                <h3>Nossos membros</h3>
+                {/* Para telas mobile */}
+                <MobileCOFilterContainer>
+                    <h6>Filtre por setor:</h6>
+                    <div className='members-container'>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
+                                <DepartmentStamp name='Todos' icon='./favicon_logo.png' />
+                            </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
+                                    <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
+                                    <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'CTF'} onClick={() => setActiveItem('CTF')}>
+                                    <DepartmentStamp name='CTF' icon={CTFIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
+                                    <DepartmentStamp name='Diretoria' icon={BoardIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'HackSSI'} onClick={() => setActiveItem('HackSSI')}>
+                                    <DepartmentStamp name='HackSSI' icon='' />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
+                                    <DepartmentStamp name='Infra' icon={InfraIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
+                                    <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
+                                    <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                                <DepartmentStamp name='Sites' icon={SitesIcon} />
+                            </NavItem>
+                        </Link>
+                    </div>
+                </MobileCOFilterContainer> 
                     
-                </COSectionWrapper>
-            </BackgroundWrapper>
+                {/* Para telas mobile */}
+                <DesktopCOFilterContainer>
+                    <div className='members-container'>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
+                                <DepartmentStamp name='Todos' icon='./favicon_logo.png' />
+                            </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
+                                    <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
+                                    <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'CTF'} onClick={() => setActiveItem('CTF')}>
+                                    <DepartmentStamp name='CTF' icon={CTFIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
+                                    <DepartmentStamp name='Diretoria' icon={BoardIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'HackSSI'} onClick={() => setActiveItem('HackSSI')}>
+                                    <DepartmentStamp name='HackSSI' icon='' />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
+                                    <DepartmentStamp name='Infra' icon={InfraIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
+                                    <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
+                                    <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
+                                </NavItem>
+                        </Link>
+                        <Link href="#members">
+                            <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                                <DepartmentStamp name='Sites' icon={SitesIcon} />
+                            </NavItem>
+                        </Link>
+                    </div>
+                </DesktopCOFilterContainer> 
+
+                <MemberCardsWrapper id="members">
+                    {renderActiveItem()}
+                </MemberCardsWrapper>
+                    
+            </COMembersSection>
         </>
     )
 }
@@ -98,87 +191,192 @@ const CO = () => {
 export default CO;
 
 
-const COSectionWrapper = styled.section`
-    margin-bottom: 10rem;
-    padding-top: 50px;
+const COExhibitionSection = styled.section`
+    background: url('./images/background_imgs/background2_mobile.svg') no-repeat;
+    background-position: bottom left;
+    background-size: cover;
+    padding-block: 7.25rem 3.75rem;
 
-    h3 {
-        margin: 5rem 0 8rem;
-        font-size: 48px;
-        font-weight: bold;
-        padding: 0 20px 0;
-        line-height: 48px;
-        text-align: center;
-        max-width: 800px;
+    .exhibition-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3.5rem;
+
+        h3 {
+            text-align: center;
+        }
+
+        .image-text {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+
+            img {
+                width: 100%;
+                max-width: 25rem;
+                border-radius: 8px;
+            }
+
+            p {
+                font-family: 'Space_Mono_Bold';
+                font-weight: 400;
+                text-align: center;
+                max-width: 32rem;
+
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
+        }
     }
 
-    .card-container {
-        margin: 0 29px 65px;
+    @media (min-width:800px) {
+        background-image: url('./images/background_imgs/background2_desktop.svg');
     }
 
-    @media (min-width:660px) {
+    @media (min-width:1021px) {
+        padding-block: 6.75rem;
         
-        .card-container {
-            margin: 3rem 29px auto;
+        .exhibition-container {
+            gap: 5rem;
+
+            h3 {
+                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            }
+
+            .image-text {
+                flex-direction: row;
+                /* gap: 3.5rem; */
+
+                img {
+                    max-width: 35rem;
+                }
+
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    text-align: left;
+
+                    span {
+                    }
+                }
+            }
         }
     }
 `
 
-const SubMenu = styled.nav`
-    margin-bottom: 30px;
+const COMembersSection = styled.section`
+    background: url('./images/background_imgs/background3_mobile.svg') no-repeat fixed;
+    background-size: cover;
+    padding-block: 3.75rem;
 
-    ul {
-        list-style-type: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: wrap;
+    h3 {
+        margin-bottom: 2rem;
     }
 
     @media (min-width:800px) {
-        margin-bottom: 0;
+        background-image: url('./images/background_imgs/background3_desktop.svg');
+        
+        h3 {
+            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            margin-bottom: 4rem;
+        }
+    }
+
+    @media (min-width:1021px) {
+        padding-block: 6.75rem;
     }
 `
 
-const NavItem = styled.li`
-    --glow-item: 0px 0px 16px 12px rgba(121, 61, 174, 0.5);
+const MobileCOFilterContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
 
-    font-size: 20px;
-    font-weight: 500;
-    padding: 14px 26px;
-    margin: 0 18px 40px;
-    text-align: center;
-    cursor: pointer;
-    background-color:  ${props => props.active === true ? '#8744C2' : '#1B162C'};
-    color: white;
-    border-radius: 100px;
-    border: 2px solid transparent;
-    transform-style: preserve-3d;
-    transition: 0.3s;
-    z-index: 2;
 
-    :hover {
-        border: solid 2px #8744C2;
-        box-shadow: var(--glow-item);
+    .members-container {
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        height: auto;
+        width: 100vw;
+        padding-inline: 1rem;
+        overflow: auto;  
+        display: flex;
+        scroll-snap-type: x mandatory;
+        gap: 0.875rem;
     }
+
+    @media (min-width:600px) {
+        display: none;
+    }
+`
+
+const DesktopCOFilterContainer = styled.div `
+    display: none;
+
+    @media (min-width:600px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .members-container {
+            gap: 1.5rem;
+            display: flex;
+            flex-direction: row;
+            flex-flow: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+`
+
+const NavItem = styled.div`
+    cursor: pointer;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+
+    ${props => props.active == true && css`
+        pointer-events: none;
+        > div {
+            background-color: var(--color-primary);
+        }
+    `}
+
+    @media (min-width: 840px) {
+        
+        ${props => props.active == false && css`
+            > div:hover {
+                background-color: var(--color-neutral-700);
+            }
+        `}
+    } 
 `
 
 const MemberCardsWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-flow: wrap;
     align-items: center;
     justify-content: center;
-    padding-top: 30px;
+    gap: 2rem;
+    margin-top: 2rem;
 
     @media (min-width:800px) {
-        flex-direction: row;
-        max-width: 1400px;
+        gap: 3.75rem;
+        margin-top: 4rem;
     }
-`
-
-const BackgroundWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
 `
