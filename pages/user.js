@@ -172,11 +172,11 @@ const User = () => {
                 </Loading>
             }
 
-            {/* {!isLoading && user && !isUserRegistered &&
+            {!isLoading && user && !isUserRegistered &&
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
-            } */}
+            }
 
             {isEditing &&
                 <>
@@ -335,7 +335,11 @@ const BackgroundWrapper = styled.div`
 `
 
 const FormContainer = styled.section`
-    padding: 100px 0;
+    padding-block: 7.25rem 3.75rem;
+
+    @media (min-width:1021px) {
+        padding-block: 6.75rem;
+    }
 `
 
 const UserInfoSection = styled.section`
