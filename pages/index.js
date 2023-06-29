@@ -785,7 +785,6 @@ const ScheduleSection = styled.section`
         }
     }
 
-
     @media (min-width:1021px) {
         background-image: url('./images/background_imgs/background3_desktop.svg');
 
