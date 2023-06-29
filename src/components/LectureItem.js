@@ -117,18 +117,19 @@ const LectureWrapper = styled.div`
         gap: 16px;
 
         > div {
-            display:flex;
-            flex-direction:column;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
         
             p {
                 font-family: 'Space_Mono_Bold';
                 font-weight: 400;
-                word-break:break-word;
+                word-break: break-word;
             }
             
             ul {
-                display:flex;
-                flex-direction:column;
+                display: flex;
+                flex-direction: column;
                 
                 margin-top: 8px;
                 
@@ -259,6 +260,7 @@ const LectureWrapper = styled.div`
 
             .open-close-sign-desktop{
                 display: flex;
+                width: fit-content;
             }
         }
             
