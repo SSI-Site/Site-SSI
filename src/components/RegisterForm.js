@@ -88,7 +88,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
 
                     <div className='two-items'>
                         <InputBoxSmall>
-                            <LabelLeft htmlFor='name' >Nome *</LabelLeft>
+                            <LabelLeft htmlFor='name' className='required' >Nome</LabelLeft>
                             <div className='form-input'>
                                 <input id='name' type='text' className={errors.name && 'error-border'} placeholder='Nome' disabled={isEditing}
                                 {...register("name", { required: true, minLength: 2, maxLength: 30 })} />
@@ -97,7 +97,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         </InputBoxSmall>
 
                         <InputBoxSmall>
-                            <LabelLeft htmlFor='last_name'>Sobrenome *</LabelLeft>
+                            <LabelLeft htmlFor='last_name' className='required' >Sobrenome </LabelLeft>
                             <div className='form-input'>
                                 <input id='last_name' type='text' className={errors.last_name && 'error-border'} placeholder='Sobrenome' disabled={isEditing}
                                     {...register("last_name", { required: true, minLength: 2, maxLength: 60 })} />
@@ -108,7 +108,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     
                     <div className='two-items'>
                         <InputBoxSmall>
-                            <LabelLeft htmlFor='cpf'>CPF *</LabelLeft>
+                            <LabelLeft htmlFor='cpf' className='required' >CPF</LabelLeft>
                             <div className='form-input'>
                                 <InputMask id='cpf_value' type='text' mask='999.999.999-99' placeholder='Insira seu CPF' className={errors.cpf_value && 'error-border'}
                                     {...register("cpf_value", { validate: value => cpf.isValid(value) || "Documento inválido" })} />
@@ -127,7 +127,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     </div>
 
                     <DateInputBox>
-                        <label htmlFor='birth_date'> Data de nascimento * </label>
+                        <label htmlFor='birth_date' className='required' > Data de nascimento </label>
                         <div className='form-input'>
                         {!isEditing ?
                             <InputMask id='birth_date' type='text' mask='99/99/9999' placeholder='dd/mm/aaaa' className={errors.birth_date && 'error-border'}
@@ -164,6 +164,16 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         </div>
                     </InputBoxSmall>
 
+                    {watch("gender") === "outro" &&
+                        <InputBoxSmall>
+                            <LabelSpecify htmlFor='custom_gender'> Especifique como você se identifica: </LabelSpecify>
+                            <div className='form-input'>
+                                <input id='custom_gender' type='text'
+                                    {...register("custom_gender")} />
+                            </div>
+                        </InputBoxSmall>
+                    }
+
                     <InputBoxSmall>
                         <LabelLeft htmlFor='ethnicity'> Qual a sua cor/raça? </LabelLeft>
                         <div className='form-input'>
@@ -175,18 +185,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                             </select>
                         </div>
                     </InputBoxSmall>
-                    </div>
-
-                    <div className='two-items'>
-                    {watch("gender") === "outro" &&
-                        <InputBoxSmall>
-                            <LabelSpecify htmlFor='custom_gender'> Especifique como você se identifica: </LabelSpecify>
-                            <div className='form-input'>
-                                <input id='custom_gender' type='text'
-                                    {...register("custom_gender")} />
-                            </div>
-                        </InputBoxSmall>
-                    }
+                    
 
                     {watch("ethnicity") === "outro" &&
                         <InputBoxSmall>
@@ -212,6 +211,16 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         </div>
                     </InputBoxSmall>
 
+                    {watch("know_about") === "outro" &&
+                        <InputBoxSmall>
+                            <LabelSpecify htmlFor='custom_know_about'> Especifique por qual outro canal nos encontrou: </LabelSpecify>
+                            <div className='form-input'>
+                                <input id='custom_know_about' type='text'
+                                    {...register("custom_know_about")} />
+                            </div>
+                        </InputBoxSmall>
+                    }
+
                     <InputBoxSmall>
                         <LabelLeft htmlFor='course'> Está na graduação? Qual o seu curso? </LabelLeft>
                         <div className='form-input'>
@@ -223,16 +232,6 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                             </select>
                         </div>
                     </InputBoxSmall>
-
-                    {watch("know_about") === "outro" &&
-                        <InputBoxSmall>
-                            <LabelSpecify htmlFor='custom_know_about'> Especifique por qual outro canal nos encontrou: </LabelSpecify>
-                            <div className='form-input'>
-                                <input id='custom_know_about' type='text'
-                                    {...register("custom_know_about")} />
-                            </div>
-                        </InputBoxSmall>
-                    }
 
                     {watch("course") === "outro" &&
                         <InputBoxSmall>
@@ -371,6 +370,13 @@ const FormWrapper = styled.div`
         line-height: 2rem;
     }
 
+    .required:after {
+        content:"*";
+        color: var(--color-invalid);
+        position: absolute;
+        top: -5px;
+    }
+
     .two-items {
         width: 100%;
         display: flex;
@@ -480,6 +486,7 @@ const Separator = styled.div`
 `
 
 const InputBoxSmall = styled.div`
+position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
