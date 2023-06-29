@@ -335,7 +335,18 @@ const BackgroundWrapper = styled.div`
 `
 
 const FormContainer = styled.section`
-    padding: 100px 0;
+    padding-block: 7.25rem 3.75rem;
+    background: url('./images/background_imgs/background4_mobile.svg') fixed;
+    background-size: cover;
+    overflow-x: hidden;
+
+    @media (min-width:800px) {
+        background-image: url('./images/background_imgs/background4_desktop.svg');
+    }
+
+    @media (min-width:1021px) {
+        padding-block: 6.75rem;
+    }
 `
 
 const UserInfoSection = styled.section`

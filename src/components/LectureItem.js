@@ -99,6 +99,7 @@ const LectureWrapper = styled.div`
     align-self: stretch;
     background-color: ${props => props.isExpanded==true ? `var(--color-neutral-800)` : `var(--color-neutral)`};
     padding: 36px 24px;
+    padding: 24px;
     gap: 16px;
 
     min-height: 148px;
@@ -111,7 +112,7 @@ const LectureWrapper = styled.div`
     .lecture-overview {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         gap: 16px;
 
@@ -206,10 +207,11 @@ const LectureWrapper = styled.div`
 
 
     @media (min-width:560px) {
-        padding: 48px 56px;
+        padding: 36px 56px;
         gap: 48px;
 
         div.lecture-overview {
+            flex-direction: row;
             gap: 3.5rem;
 
             > div {
@@ -239,10 +241,11 @@ const LectureWrapper = styled.div`
 
         h5 {
             font: 400 2.5rem/3rem 'Space_Mono_Bold';
+            font: 400 2rem/2.5rem 'Space_Mono_Bold';
         }
 
         div.lecture-overview {
-            gap: 6.75rem;
+            gap: 3rem;
 
             > div{
                 ul{

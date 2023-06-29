@@ -595,12 +595,13 @@ const EventInfoSection = styled.section`
         }
 
         .about-cards {
+            width: 100%;
             display: flex;
             flex-direction: column;
             flex-flow: wrap;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
 
             .card {
                 display: flex;
@@ -608,8 +609,9 @@ const EventInfoSection = styled.section`
                 align-items: center;
                 justify-content: center;
                 gap: 1rem;
-                width: 19.5rem;
-                height: 19.5rem;
+                width: 100%;
+                max-width: 19.5rem;
+                padding: 2rem 4rem;
                 background-color: var(--color-neutral-800);
                 border-radius: 8px;
             }
@@ -635,6 +637,14 @@ const EventInfoSection = styled.section`
 
                 p {
                     font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                }
+            }
+
+            .about-cards {
+                gap: 1.5rem;
+
+                .card {
+                    height: 19.5rem;
                 }
             }
         }
@@ -774,7 +784,6 @@ const ScheduleSection = styled.section`
             }
         }
     }
-
 
     @media (min-width:1021px) {
         background-image: url('./images/background_imgs/background3_desktop.svg');

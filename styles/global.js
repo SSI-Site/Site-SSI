@@ -132,6 +132,13 @@ export default createGlobalStyle`
         background-color: var(--color-neutral-50);
         border: 0;
     }
+    
+    select, option {
+        font: 700 1rem/1.25rem 'Space_Mono';
+        color: var(--color-neutral-400);
+        background-color: var(--color-neutral-50);
+        border: 0;
+    }
 
     ::-webkit-input-placeholder { /* WebKit browsers */
         text-transform: none;
@@ -151,7 +158,7 @@ export default createGlobalStyle`
 
     ::placeholder { /* Recent browsers */
         text-transform: none;
-        font: 400 1rem/1.25rem 'Space_Mono';
+        font: 700 1rem/1.25rem 'Space_Mono';
         color: var(--color-neutral-400);
     }
 
@@ -161,11 +168,11 @@ export default createGlobalStyle`
 
     @media (min-width:560px) {
 
-        input[type=text] { 
+        input[type=text], select, option { 
             font: 700 1.125rem/1.75rem 'Space_Mono';
             
             ::placeholder {
-                font: 400 1.125rem/1.75rem 'Space_Mono';
+                font: 700 1.125rem/1.75rem 'Space_Mono';
             }
         }
 

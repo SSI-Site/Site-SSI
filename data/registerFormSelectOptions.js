@@ -41,7 +41,7 @@ export default {
         {value: "outro", text: "Outro"},
         {value: "ainda nao iniciei a graduacao", text: "Ainda não iniciei a graduação"},
         {value: "ja finalizei a graduacao", text: "Já finalizei a graduação"},
-        {value: "nao tenho interesse em fazer graduacao", text: "Não tenho interesse em fazer graduação"}
+        {value: "nao pretendo fazer graduacao", text: "Não pretendo fazer graduação"}
     ],
 
     graduation_period: [
