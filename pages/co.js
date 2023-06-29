@@ -116,7 +116,7 @@ const CO = () => {
                                 </NavItem>
                         </Link>
                         <Link href="#members">
-                            <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                            <NavItem active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
                                 <DepartmentStamp name='Sites' icon={SitesIcon} />
                             </NavItem>
                         </Link>
