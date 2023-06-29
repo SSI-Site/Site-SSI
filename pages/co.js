@@ -59,7 +59,7 @@ const CO = () => {
                     <h3>Comissão Organizadora</h3>
                     <div className='image-text'>
                         <img src='./images/co/co.jpg' alt='Foto Palestra' />
-                        <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação, o time que trabalha para fazer esse evento acontecer.</p>
+                        <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação de 2023: o time que trabalhou para fazer este evento acontecer!</p>
                     </div>
                 </div>
             </COExhibitionSection>
@@ -214,7 +214,7 @@ const COExhibitionSection = styled.section`
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 2.5rem;
 
             img {
                 width: 100%;
@@ -276,6 +276,7 @@ const COMembersSection = styled.section`
     padding-block: 3.75rem;
 
     h3 {
+        text-align: center;
         margin-bottom: 2rem;
     }
 
