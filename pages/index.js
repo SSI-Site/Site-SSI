@@ -653,7 +653,7 @@ const EventInfoSection = styled.section`
 
 const CountdownSection = styled.section`
     padding-block: 3.5rem;
-    background-color: var(--color-neutral-900);
+    background-color: var(--color-neutral-800);
     gap: 3.5rem;
 
     .countdown-text {
@@ -688,7 +688,7 @@ const CountdownSection = styled.section`
 
         .clock-container {
             padding: 0.75rem;
-            background-color: var(--color-neutral-800);
+            background-color: var(--color-neutral-700);
             width: 7.25rem;
             height: 6.25rem;
             display: flex;
@@ -822,7 +822,7 @@ const ScheduleSection = styled.section`
 `
 
 const SupportersSection = styled.section`
-    padding-block: 6.75rem;
+    padding-block: 3.5rem;
     background: url('./images/background_imgs/background4_mobile.svg') no-repeat;
     background-size: cover;
 
