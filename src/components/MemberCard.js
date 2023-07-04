@@ -112,7 +112,6 @@ const MemberWrapper = styled.div`
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            transition: all .2s;
 
             svg path {
                 transition: all .2s;
@@ -123,10 +122,10 @@ const MemberWrapper = styled.div`
             position: absolute;
             width: 0%;
             height: 4px;
-            margin-left: 50%;
-            background-color: var(--color-neutral-300);
-            transition: all .2s;
+            /* margin-left: 50%; */
+            /* background-color: var(--color-neutral-50); */
             border-radius: 12px;
+            transition: all ease-in-out .2s;
         }
 
         p {
@@ -138,15 +137,12 @@ const MemberWrapper = styled.div`
                 width: 100%;
                 height: 4px;
                 margin-left: 0%;
+                background-color: var(--color-primary-700);
             }
 
             a {
-                p {
-                    color: var(--color-neutral-300);
-                }
-
                 svg path {
-                    fill: var(--color-neutral-300);
+                    fill: var(--color-primary-500);
                 }
             }
         }
