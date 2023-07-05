@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 // assets
-import FinancesIcon from '../../public/images/co/finances.svg';
-import CreationIcon from '../../public/images/co/creation.svg';
-import CTFIcon from '../../public/images/co/ctf.svg';
-import BoardIcon from '../../public/images/co/board.svg';
-// import HackSSIIcon from '../../public/images/co/hackssi.svg';
-import InfraIcon from '../../public/images/co/infra.svg';
-import LectureIcon from '../../public/images/co/lecture.svg';
-import PartnershipIcon from '../../public/images/co/partnership.svg';
-import SitesIcon from '../../public/images/co/web.svg';
+import FinancesIcon from '../../public/images/co_icons/finances.svg';
+import CreationIcon from '../../public/images/co_icons/creation.svg';
+import CTFIcon from '../../public/images/co_icons/ctf.svg';
+import BoardIcon from '../../public/images/co_icons/board.svg';
+// import HackSSIIcon from '../../public/images/co_icons/hackssi.svg';
+import InfraIcon from '../../public/images/co_icons/infra.svg';
+import LectureIcon from '../../public/images/co_icons/lecture.svg';
+import PartnershipIcon from '../../public/images/co_icons/partnership.svg';
+import SiteIcon from '../../public/images/co_icons/web.svg';
 
 
 const MemberCard = ({ name, image, departments, anchor }) => {
@@ -25,7 +25,7 @@ const MemberCard = ({ name, image, departments, anchor }) => {
             case 'Infraestrutura': return InfraIcon;
             case 'Palestrantes': return LectureIcon;
             case 'Parcerias': return PartnershipIcon;
-            case 'Sites': return SitesIcon;
+            case 'Site': return SiteIcon;
         }
     }
 
@@ -59,7 +59,6 @@ const MemberCard = ({ name, image, departments, anchor }) => {
                         </div>
                     )}
                 </div>
-                   {/* <p className='member-department' key={index}>{department}</p> */}
             </figcaption>
         </MemberWrapper>
     )
@@ -113,7 +112,6 @@ const MemberWrapper = styled.div`
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            transition: all .2s;
 
             svg path {
                 transition: all .2s;
@@ -124,9 +122,10 @@ const MemberWrapper = styled.div`
             position: absolute;
             width: 0%;
             height: 4px;
-            background-color: var(--color-neutral-300);
-            transition: all .2s;
+            /* margin-left: 50%; */
+            /* background-color: var(--color-neutral-50); */
             border-radius: 12px;
+            transition: all ease-in-out .2s;
         }
 
         p {
@@ -137,15 +136,13 @@ const MemberWrapper = styled.div`
             div {
                 width: 100%;
                 height: 4px;
+                margin-left: 0%;
+                background-color: var(--color-primary-700);
             }
 
             a {
-                p {
-                    color: var(--color-neutral-300);
-                }
-
                 svg path {
-                    fill: var(--color-neutral-300);
+                    fill: var(--color-primary-500);
                 }
             }
         }

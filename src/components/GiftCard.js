@@ -106,7 +106,7 @@ const GiftWrapper = styled.div`
         }
     }
 
-    @media (min-width:412px) {
+    @media (min-width:428px) {
 
         .gift-box {
             width: 11.375rem;

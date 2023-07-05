@@ -10,15 +10,15 @@ import MemberCard from '../src/components/MemberCard';
 import DepartmentStamp from '../src/components/DepartmentStamp';
 
 // assets
-import FinancesIcon from '../public/images/co/finances.svg';
-import CreationIcon from '../public/images/co/creation.svg';
-import CTFIcon from '../public/images/co/ctf.svg';
-import BoardIcon from '../public/images/co/board.svg';
-// import HackSSIIcon from '../public/images/co/hackssi.svg';
-import InfraIcon from '../public/images/co/infra.svg';
-import LectureIcon from '../public/images/co/lecture.svg';
-import PartnershipIcon from '../public/images/co/partnership.svg';
-import SitesIcon from '../public/images/co/web.svg';
+import FinancesIcon from '../public/images/co_icons/finances.svg';
+import CreationIcon from '../public/images/co_icons/creation.svg';
+import CTFIcon from '../public/images/co_icons/ctf.svg';
+import BoardIcon from '../public/images/co_icons/board.svg';
+// import HackSSIIcon from '../public/images/co_icons/hackssi.svg';
+import InfraIcon from '../public/images/co_icons/infra.svg';
+import LectureIcon from '../public/images/co_icons/lecture.svg';
+import PartnershipIcon from '../public/images/co_icons/partnership.svg';
+import SiteIcon from '../public/images/co_icons/web.svg';
 
 const CO = () => {
 
@@ -58,7 +58,7 @@ const CO = () => {
                 <div className='exhibition-container'>
                     <h3>Comissão Organizadora</h3>
                     <div className='image-text'>
-                        <img src='./images/co/co.jpg' alt='Foto Palestra' />
+                        <img src='./images/co_members/co.jpg' alt='Foto Palestra' />
                         <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação de 2023: o time que trabalhou para fazer este evento acontecer!</p>
                     </div>
                 </div>
@@ -116,8 +116,8 @@ const CO = () => {
                                 </NavItem>
                         </Link>
                         <Link href="#members">
-                            <NavItem active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
-                                <DepartmentStamp name='Sites' icon={SitesIcon} />
+                            <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                                <DepartmentStamp name='Site' icon={SiteIcon} />
                             </NavItem>
                         </Link>
                     </div>
@@ -172,8 +172,8 @@ const CO = () => {
                                 </NavItem>
                         </Link>
                         <Link href="#members">
-                            <NavItem active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
-                                <DepartmentStamp name='Sites' icon={SitesIcon} />
+                            <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                                <DepartmentStamp name='Site' icon={SiteIcon} />
                             </NavItem>
                         </Link>
                     </div>

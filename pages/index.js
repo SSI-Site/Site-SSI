@@ -822,7 +822,7 @@ const ScheduleSection = styled.section`
 `
 
 const SupportersSection = styled.section`
-    padding-block: 6.75rem;
+    padding-block: 3.5rem;
     background: url('./images/background_imgs/background4_mobile.svg') no-repeat;
     background-size: cover;
 
