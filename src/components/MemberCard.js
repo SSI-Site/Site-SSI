@@ -68,7 +68,7 @@ export default MemberCard;
 
 
 const MemberWrapper = styled.div`
-    width: 20rem;
+    width: 18rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,17 +76,17 @@ const MemberWrapper = styled.div`
     padding: 1.5rem;
     gap: 1rem;
     background-color: var(--color-neutral-800);
-    border-radius: 8px;
+    border-radius: 1rem;
 
     .member-image {
         display: flex;
         align-items: center;
-        height: 18.75rem;
-        width: 17.5rem;
-        border-radius: 16px;
+        height: 20rem;
+        width: 15rem;
+        border-radius: 8px;
 
         img {
-            border-radius: 16px;
+            border-radius: 8px;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -161,8 +161,8 @@ const MemberWrapper = styled.div`
             align-items: center;
             justify-content: center;
             padding: 0.5rem;
-            width: 2.75rem;
-            height: 2.75rem;
+            width: 2.25rem;
+            height: 2.25rem;
             background-color: var(--color-neutral-700);
             border-radius: 8px;
             transition: 0.3s all ease-in-out;
@@ -177,6 +177,10 @@ const MemberWrapper = styled.div`
             align-items: center;
             justify-content: center;
             position: relative;
+
+            img {
+                width: 1.25rem;
+            }
         }
 
         /* Tooltip text */
@@ -219,7 +223,7 @@ const MemberWrapper = styled.div`
 
     @media (min-width:800px) {
         .member-name p {
-            font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+            font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
         }
     }
 `

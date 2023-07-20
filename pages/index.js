@@ -18,7 +18,6 @@ import AuthModal from '../src/components/AuthModal';
 import TokenModal from '../src/components/TokenModal';
 import PartnerCard from '../src/components/PartnerCard';
 
-
 // assets
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 import borda from '../public/images/borda2.png';

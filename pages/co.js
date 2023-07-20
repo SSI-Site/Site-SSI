@@ -77,43 +77,43 @@ const CO = () => {
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
-                                    <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
-                                </NavItem>
+                                <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
-                                    <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
-                                </NavItem>
+                                <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'CTF'} onClick={() => setActiveItem('CTF')}>
-                                    <DepartmentStamp name='CTF' icon={CTFIcon} />
-                                </NavItem>
+                                <DepartmentStamp name='CTF' icon={CTFIcon} />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
-                                    <DepartmentStamp name='Diretoria' icon={BoardIcon} />
-                                </NavItem>
+                                <DepartmentStamp name='Diretoria' icon={BoardIcon} />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'HackSSI'} onClick={() => setActiveItem('HackSSI')}>
-                                    <DepartmentStamp name='HackSSI' icon='' />
-                                </NavItem>
+                                <DepartmentStamp name='HackSSI' icon='' />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
-                                    <DepartmentStamp name='Infra' icon={InfraIcon} />
-                                </NavItem>
+                                <DepartmentStamp name='Infraestrutura' icon={InfraIcon} />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
-                                    <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
-                                </NavItem>
+                                <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
-                                    <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
-                                </NavItem>
+                                <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
+                            </NavItem>
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
@@ -158,7 +158,7 @@ const CO = () => {
                         </Link>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
-                                    <DepartmentStamp name='Infra' icon={InfraIcon} />
+                                    <DepartmentStamp name='Infraestrutura' icon={InfraIcon} />
                                 </NavItem>
                         </Link>
                         <Link href="#members">
@@ -335,7 +335,7 @@ const DesktopCOFilterContainer = styled.div `
         width: 100%;
 
         .members-container {
-            gap: 1.5rem;
+            gap: 1rem;
             display: flex;
             flex-direction: row;
             flex-flow: wrap;
@@ -377,7 +377,7 @@ const MemberCardsWrapper = styled.div`
     margin-top: 2rem;
 
     @media (min-width:800px) {
-        gap: 3.75rem;
+        gap: 1.5rem;
         margin-top: 4rem;
     }
 `
