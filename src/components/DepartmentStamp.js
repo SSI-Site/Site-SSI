@@ -21,7 +21,8 @@ export default DepartmentStamp;
 
 const DepartmentWrapper = styled.div`
     width: 14rem;
-    height: 4.75rem;
+    width: fit-content;
+    height: 3.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,7 +30,7 @@ const DepartmentWrapper = styled.div`
     background-color: var(--color-neutral-800);
     border-radius: 8px;
     padding: 0.75rem 1.5rem;
-    gap: 0.5rem;
+    gap: 1rem;
     transition: 0.3s all ease;
 
     p {
@@ -39,12 +40,13 @@ const DepartmentWrapper = styled.div`
 
     img {
         width: 1.5rem;
+        width: 20px;
     }
 
     @media (min-width: 840px) {
 
         p {
-            font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+            font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
         }
     }
 `
