@@ -160,7 +160,7 @@ const About = () => {
                     </div>
                     <div className='lastyear-video'>
                         <iframe 
-                            src="https://www.youtube.com/embed/GUIYO1a5lMA" 
+                            src="https://www.youtube.com/embed/Ki6rharDp40" 
                             title="YouTube video player" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
