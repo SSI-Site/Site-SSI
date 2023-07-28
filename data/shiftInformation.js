@@ -15,324 +15,518 @@ const shifts = {
                 title : 'Abertura'
             },
             '09:00' : {
-                title : 'Soft Skills - Pilares que sustem o sucesso da sua carreira',
-                description :  `O que são Soft Skills e Hard Skills?
-                    Por que elas são fatores determinantes para o sucesso na vida pessoal e profissional?
-                    O desenvolvimento da Inteligência emocional reflete nas soft skills?
-                    Por quê elas são um diferencial na carreira de um profissional?
-                    Como que elas são observadas em um processo seletivo, acompanhadas no dia a dia pelo gestor imediato e nas avaliações de desempenho? E em processos para promoção de cargo?
-                    Empreendedores conquistam resultados através de pessoas e como que as soft skills são utilizadas para que estes resultados sejam alcançados?
-                    A falta destas habilidades podem sabotar uma carreira.`,
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'image': LectureImage02},
-                    {'name' : 'Palestrante 3', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    // {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                // image: LectureImage01
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Palestra bonita',
-                description : 'altas coisa legal que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '11:20' : {
-                title : 'Palestra feia com nome muito longo pra testar coisas sobre responsividademuitolegal',
-                description : 'altas coisa chata que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage03
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '12:20' : {
-                title : 'Ir ao Mossar'
+                title : 'Almoço'
             }
         },
         'Tarde' : {
             '13:20' : {
-                title : 'Palestra estranha',
-                description : 'ainda não sei se vai ou não usar isso kkk',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Digiamipetri', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage04}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '14:40' : {
-                title : 'aaaaaaaaa',
-                description : 'sei la irmao',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Gisele', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    {'name' : 'Ariane Grande', 'image': LectureImage02},
-                    {'name' : 'Ana Akilometro', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
-                ]
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '16:00' : {
-                title : 'sofiti ishkiuss',
-                description : 'aaaaaaaaa',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'ninguem'}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '17:20' : {
-                title : 'aaaaaaaaaaaaaa',
-                description : 'aaaaaaaaaa',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'lorem'},
-                    {'name' : 'ipsum', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com'}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage06
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '18:20' : {
-                title : 'jantinha hmmmm'
+                title : 'Jantar'
             }
         },
         'Noite' : {
             '19:20' : {
-                title : 'palestrinha da naninha',
-                description : '',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'alguem aí', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com'}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage07
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '20:40' : {
-                title : 'encerramento',
-                description : '',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Fantinato'}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage08
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             }
         } 
     },
     '2023-08-22' : {
         'Manhã' : {
-            '08:00' : {
-                title : 'Abertura'
-            },
-            '09:00' : {
-                title : 'Soft Skills - Pilares que sustem o sucesso da sua carreira',
-                description :  `O que são Soft Skills e Hard Skills?
-                    Por que elas são fatores determinantes para o sucesso na vida pessoal e profissional?
-                    O desenvolvimento da Inteligência emocional reflete nas soft skills?
-                    Por quê elas são um diferencial na carreira de um profissional?
-                    Como que elas são observadas em um processo seletivo, acompanhadas no dia a dia pelo gestor imediato e nas avaliações de desempenho? E em processos para promoção de cargo?
-                    Empreendedores conquistam resultados através de pessoas e como que as soft skills são utilizadas para que estes resultados sejam alcançados?
-                    A falta destas habilidades podem sabotar uma carreira.`,
-                local : 'presential',
+            '08:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'image': LectureImage02},
-                    {'name' : 'Palestrante 3', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    // {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                // image: LectureImage01
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Palestra bonita',
-                description : 'altas coisa legal que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '11:20' : {
-                title : 'Palestra feia com nome muito longo pra testar coisas sobre responsividademuitolegal',
-                description : 'altas coisa chata que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage03
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '12:20' : {
-                title : 'Ir ao Mossar'
+                title : 'Almoço'
             }
 
         },
         'Tarde' : {
-
+            '13:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '14:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '16:00' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '17:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '18:20' : {
+                title : 'Jantar'
+            }
         },
         'Noite' : {
-
+            '19:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '20:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            }
         }
     },
     '2023-08-23' : {
         'Manhã' : {
-            '08:00' : {
-                title : 'Abertura'
-            },
-            '09:00' : {
-                title : 'Soft Skills - Pilares que sustem o sucesso da sua carreira',
-                description :  `O que são Soft Skills e Hard Skills?
-                    Por que elas são fatores determinantes para o sucesso na vida pessoal e profissional?
-                    O desenvolvimento da Inteligência emocional reflete nas soft skills?
-                    Por quê elas são um diferencial na carreira de um profissional?
-                    Como que elas são observadas em um processo seletivo, acompanhadas no dia a dia pelo gestor imediato e nas avaliações de desempenho? E em processos para promoção de cargo?
-                    Empreendedores conquistam resultados através de pessoas e como que as soft skills são utilizadas para que estes resultados sejam alcançados?
-                    A falta destas habilidades podem sabotar uma carreira.`,
-                local : 'presential',
+            '08:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'image': LectureImage02},
-                    {'name' : 'Palestrante 3', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    // {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                // image: LectureImage01
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Palestra bonita',
-                description : 'altas coisa legal que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '11:20' : {
-                title : 'Palestra feia com nome muito longo pra testar coisas sobre responsividademuitolegal',
-                description : 'altas coisa chata que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage03
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '12:20' : {
-                title : 'Ir ao Mossar'
+                title : 'Almoço'
             }
 
         },
         'Tarde' : {
-
+            '13:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '14:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '16:00' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '17:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '18:20' : {
+                title : 'Jantar'
+            }
         },
         'Noite' : {
-
+            '19:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '20:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            }
         }
     },
     '2023-08-24' : {
         'Manhã' : {
-
-            '08:00' : {
-                title : 'Abertura'
-            },
-            '09:00' : {
-                title : 'Soft Skills - Pilares que sustem o sucesso da sua carreira',
-                description :  `O que são Soft Skills e Hard Skills?
-                    Por que elas são fatores determinantes para o sucesso na vida pessoal e profissional?
-                    O desenvolvimento da Inteligência emocional reflete nas soft skills?
-                    Por quê elas são um diferencial na carreira de um profissional?
-                    Como que elas são observadas em um processo seletivo, acompanhadas no dia a dia pelo gestor imediato e nas avaliações de desempenho? E em processos para promoção de cargo?
-                    Empreendedores conquistam resultados através de pessoas e como que as soft skills são utilizadas para que estes resultados sejam alcançados?
-                    A falta destas habilidades podem sabotar uma carreira.`,
-                local : 'presential',
+            '08:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'image': LectureImage02},
-                    {'name' : 'Palestrante 3', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    // {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                // image: LectureImage01
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Palestra bonita',
-                description : 'altas coisa legal que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '11:20' : {
-                title : 'Palestra feia com nome muito longo pra testar coisas sobre responsividademuitolegal',
-                description : 'altas coisa chata que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage03
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '12:20' : {
-                title : 'Ir ao Mossar'
+                title : 'Almoço'
             }
+
         },
         'Tarde' : {
-
+            '13:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '14:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '16:00' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '17:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '18:20' : {
+                title : 'Jantar'
+            }
         },
         'Noite' : {
-
+            '19:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '20:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            }
         }
     },
     '2023-08-25' : {
         'Manhã' : {
-            '08:00' : {
-                title : 'Abertura'
-            },
-            '09:00' : {
-                title : 'Soft Skills - Pilares que sustem o sucesso da sua carreira',
-                description :  `O que são Soft Skills e Hard Skills?
-                    Por que elas são fatores determinantes para o sucesso na vida pessoal e profissional?
-                    O desenvolvimento da Inteligência emocional reflete nas soft skills?
-                    Por quê elas são um diferencial na carreira de um profissional?
-                    Como que elas são observadas em um processo seletivo, acompanhadas no dia a dia pelo gestor imediato e nas avaliações de desempenho? E em processos para promoção de cargo?
-                    Empreendedores conquistam resultados através de pessoas e como que as soft skills são utilizadas para que estes resultados sejam alcançados?
-                    A falta destas habilidades podem sabotar uma carreira.`,
-                local : 'presential',
+            '08:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'image': LectureImage02},
-                    {'name' : 'Palestrante 3', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02},
-                    // {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                // image: LectureImage01
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Palestra bonita',
-                description : 'altas coisa legal que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 1', 'image': LectureImage02},
-                    {'name' : 'Palestrante 2', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '11:20' : {
-                title : 'Palestra feia com nome muito longo pra testar coisas sobre responsividademuitolegal',
-                description : 'altas coisa chata que vao falar por la',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Palestrante 4', 'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02}
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: LectureImage03
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '12:20' : {
-                title : 'Ir ao Mossar'
+                title : 'Almoço'
             }
 
         },
         'Tarde' : {
-
+            '13:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '14:40' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '16:00' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '17:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '18:20' : {
+                title : 'Jantar'
+            }
         },
         'Noite' : {
-
+            '19:20' : {
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
+                speakers : [
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*não sei o que coloca aqui, não tinha nada na planilha*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '20:40' : {
+                title : 'Encerramento',
+            }
         }
     }
 }
