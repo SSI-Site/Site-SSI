@@ -98,7 +98,7 @@ const members = [
     {
         name: 'Helena Furtado',
         image: './images/co_members/HelenaFurtado.jpg',
-        departments: ['Diretoria', 'Infraestrutura','Palestrantes' ,'Parcerias'],
+        departments: ['Diretoria', 'Infraestrutura','Palestrantes' ,'Site'],
         anchor: 'https://www.linkedin.com/in/helena-cota-furtado-54627222a/'
     },
     {
@@ -146,7 +146,7 @@ const members = [
     {
         name: 'Matheus Rocha',
         image: './images/co_members/MatheusRocha.jpg',
-        departments: ['Infraestrutura', 'HackSSI'],
+        departments: ['HackSSI','Infraestrutura'],
         anchor: 'https://www.linkedin.com/in/dev-math'
     },
     {
