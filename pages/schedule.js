@@ -6,7 +6,7 @@ import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
 import semana from '../utils/semana';
 import '../utils/slugify';
-import schedule from '../data/schedule';
+import schedule from '../data/shiftInformation';
 import members from '../data/members';
 
 // components
