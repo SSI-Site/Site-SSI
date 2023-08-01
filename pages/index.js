@@ -331,15 +331,15 @@ const Home = () => {
             <SupportersSection>
                 <div className='supporters-container'>
                     <div className='supporters-title'>
-                        <h3>Apoiadores</h3>
+                        <h3>Parcerias</h3>
                         <p>Empresas e marcas que estão conosco para tornar este evento um sucesso</p>
                     </div>
                     <div className='supporters-cards'>
-                        <PartnerCard name='each' image='./images/partners/pet.png' link="http://www.each.usp.br/petsi/" />
+                        <PartnerCard name='rocketseat' image='./images/partners/rocketseat.svg' link="https://www.rocketseat.com.br/" />
+                        <PartnerCard name='griaule' image='./images/partners/griaule.svg' link="https://griaule.com/" />
+                        <PartnerCard name='poatek' image='./images/partners/poatek.png' link="https://poatek.com/" />
                         <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        <PartnerCard name='each' image='./images/partners/pet.png' link="htttp://www.each.usp.br/petsi/" />
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
+                        {/* <PartnerCard name='pet' image='./images/partners/pet.png' link="htttp://www.each.usp.br/petsi/" /> */}
                     </div>
                 </div>
             </SupportersSection>
@@ -458,6 +458,7 @@ const LandingSection = styled.section`
         }
 
         .landing-bait {
+            width: fit-content;
             display: flex;
             flex-direction: column;
             align-items: center;

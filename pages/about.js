@@ -49,19 +49,11 @@ const About = () => {
                     <div className='activities'>
                         <EventActivity
                             color='#4A46C5'
-                            image='./images/about/icon_capture_the_flag.svg'
-                            alt='Imagem Capture the Flag'
-                            title='Capture the Flag'
-                            description='Juntamente com o grupo EACHinTheShell_, a SSI promoverá um Capture the Flag! Com o auxílio do grupo, serão propostos diversos desafios sobre segurança da informação que abordam criptografia, redes, web e outros assuntos da área!'
-                            showFront={true}
-                        />
-                        <EventActivity
-                            color='#8744C2'
                             image='./images/about/icon_palestras.svg'
                             alt='Imagem Palestras'
                             title='Palestras'
                             description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo de tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
-                            showFront={false}
+                            showFront={true}
                         />
                         <EventActivity
                             color='#FF7F5C'
@@ -69,6 +61,14 @@ const About = () => {
                             alt='Imagem Workshops'
                             title='Workshops'
                             description='Este ano estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas importantes para iniciar sua carreira na área de tecnologia. Não deixe de participar!'
+                            showFront={false}
+                        />
+                        <EventActivity
+                            color='#8744C2'
+                            image='./images/about/icon_gifts.svg'
+                            alt='Imagem Prêmios'
+                            title='Prêmios'
+                            description='Ao longo de todo o evento haverá sorteios, valendo vouchers e muito mais! Além disso, você também poderá resgatar brindes segundo o número de palestras registradas, então não esqueça de marcar suas presença nas atividades do evento!'
                             showFront={false}
                         />
                     </div>

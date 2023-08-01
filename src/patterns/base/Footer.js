@@ -33,12 +33,7 @@ const Footer = () => {
                             <Link href="/"><a>Home</a></Link>
                             <Link href="/schedule"><a>Programação</a></Link>
                             <Link href="/about"><a>Evento</a></Link>
-                            <Link href="/partnerships"><a>Parcerias</a></Link>
-                        </div>
-                        <div className='links-container'>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
-                            <Link href="https://ctfssi.intheshell.page"><a>CTF</a></Link>
-                            <Link href="/hackssi"><a>HackSSI</a></Link>
                         </div>
                     </div>
                     <div className='logos'>
@@ -272,7 +267,7 @@ const FooterWrapper = styled.footer`
         }
 
         .logos{
-            margin-left:15.226vw;
+            margin-left:3vw;
             margin-right:7.778vw;
         }
 

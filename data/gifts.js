@@ -1,61 +1,54 @@
 // assets
 import Sticker from '../public/images/gifts/sticker.png';
-// import Sticker from '../public/images/gifts/sticker.png';
-// import Sticker from '../public/images/gifts/sticker.png';
-// import Sticker from '../public/images/gifts/sticker.png';
-// import Sticker from '../public/images/gifts/sticker.png';
-// import Sticker from '../public/images/gifts/sticker.png';
+// import Bottom from '../public/images/gifts/bottom.png';
+import Keychain from '../public/images/gifts/keychain.png';
+// import Pen from '../public/images/gifts/pen.png';
+import Holder from '../public/images/gifts/holder.png';
 import Ecocopo from '../public/images/gifts/ecocopo.png';
-import Squeeze from '../public/images/gifts/squeeze.png';
+import Bag from '../public/images/gifts/bag.png';
 
 const gifts = {
     1: {
         name: 'Sticker',
         image: Sticker,
         totalPres: 3,
-        presentialPres: 0
+        presentialPres: 1
     },
     2: {
-        name: 'Chaveiro',
-        image: Squeeze,
-        totalPres: 5,
-        presentialPres: 2
-    },
-    3: {
-        name: 'Protetor webcam',
+        name: 'Bottom',
         image: Sticker,
-        totalPres: 8,
+        totalPres: 5,
         presentialPres: 3
     },
-    4: {
-        name: 'Tirante',
-        image: Sticker,
+    3: {
+        name: 'Chaveiro',
+        image: Keychain,
         totalPres: 11,
-        presentialPres: 4
-    },
-    5: {
-        name: 'Mousepad',
-        image: Squeeze,
-        totalPres: 16,
         presentialPres: 6
     },
-    6: {
-        name: 'Sacochila',
-        image: Squeeze,
-        totalPres: 22,
+    4: {
+        name: 'Caneta',
+        image: Sticker,
+        totalPres: 15,
         presentialPres: 7
     },
-    7: {
+    5: {
+        name: 'Porta celular',
+        image: Holder,
+        totalPres: 22,
+        presentialPres: 13
+    },
+    6: {
         name: 'Ecocopo',
         image: Ecocopo,
-        totalPres: 28,
-        presentialPres: 9
+        totalPres: 29,
+        presentialPres: 18
     },
     8: {
-        name: 'Garrafa',
-        image: Squeeze,
-        totalPres: 38,
-        presentialPres: 13
+        name: 'Sacochila',
+        image: Bag,
+        totalPres: 35,
+        presentialPres: 20
     }
 }
 

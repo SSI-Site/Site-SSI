@@ -17,10 +17,8 @@ const pages = {
     "/": 1,
     "/schedule": 2,
     "/about": 3,
-    "/partnerships": 4,
-    "/co": 5,
-    "/hackssi": 6,
-    "/user": 8,
+    "/co": 4,
+    "/user": 5,
 }
 
 const Nav = () => {
@@ -88,23 +86,8 @@ const Nav = () => {
                     </li>
 
                     <li>
-                        <Link href="/partnerships"><a>Parcerias</a></Link>
-                        <div></div>
-                    </li>
-
-                    <li>
                         <Link href="/co"><a>Comissão Organizadora</a></Link>
                         <div></div>
-                    </li>
-
-                    <li>
-                        <Link href="/hackssi"><a>HackSSI</a></Link>
-                        <div></div>
-                    </li>
-
-                    <li>
-                        {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
-                        {/* <div></div> */}
                     </li>
 
                     {user ?
@@ -159,23 +142,8 @@ const Nav = () => {
                         </li>
 
                         <li onClick={() => setIsOpen(false)}>
-                            <Link href="/partnerships"><a>Parcerias</a></Link>
-                            <div></div>
-                        </li>
-
-                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
                             <div></div>
-                        </li>
-
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/hackssi"><a>HackSSI</a></Link>
-                            <div></div>
-                        </li>
-
-                        <li /* onClick={() => setIsOpen(false)} */>
-                            {/* <Link href="https://ctfssi.intheshell.page/"> */}<a style={{"color": "gray"}} target="blank">CTF</a>{/* </Link> */}
-                            {/* <div></div> */}
                         </li>
 
                     </ul>
@@ -434,7 +402,7 @@ const NavMobile = styled.nav`
         }
     }
 
-    @media (min-width:1300px) {
+    @media (min-width:850px) {
         display: none;
     }
 `
@@ -559,7 +527,7 @@ const NavDesktop = styled.nav`
 
     }
 
-    @media (min-width:1300px) {
+    @media (min-width:850px) {
         display: block;
     }
 `
