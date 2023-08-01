@@ -11,7 +11,9 @@ const DepartmentStamp = ({ name, icon }) => {
     return (
         <DepartmentWrapper>
             <p>{name}</p>
-            <img src={icon}></img>
+            {icon &&
+                <img src={icon}></img>
+            }
         </DepartmentWrapper>
     )
 }

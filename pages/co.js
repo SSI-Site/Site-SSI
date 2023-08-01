@@ -12,9 +12,7 @@ import DepartmentStamp from '../src/components/DepartmentStamp';
 // assets
 import FinancesIcon from '../public/images/co_icons/finances.svg';
 import CreationIcon from '../public/images/co_icons/creation.svg';
-import CTFIcon from '../public/images/co_icons/ctf.svg';
 import BoardIcon from '../public/images/co_icons/board.svg';
-// import HackSSIIcon from '../public/images/co_icons/hackssi.svg';
 import InfraIcon from '../public/images/co_icons/infra.svg';
 import LectureIcon from '../public/images/co_icons/lecture.svg';
 import PartnershipIcon from '../public/images/co_icons/partnership.svg';
@@ -72,7 +70,7 @@ const CO = () => {
                     <div className='members-container'>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
-                                <DepartmentStamp name='Todos' icon='./favicon_logo.png' />
+                                <DepartmentStamp name='Todos' />
                             </NavItem>
                         </Link>
                         <Link href="#members">
@@ -86,18 +84,8 @@ const CO = () => {
                             </NavItem>
                         </Link>
                         <Link href="#members">
-                            <NavItem active={activeItem === 'CTF'} onClick={() => setActiveItem('CTF')}>
-                                <DepartmentStamp name='CTF' icon={CTFIcon} />
-                            </NavItem>
-                        </Link>
-                        <Link href="#members">
                             <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
                                 <DepartmentStamp name='Diretoria' icon={BoardIcon} />
-                            </NavItem>
-                        </Link>
-                        <Link href="#members">
-                            <NavItem active={activeItem === 'HackSSI'} onClick={() => setActiveItem('HackSSI')}>
-                                <DepartmentStamp name='HackSSI' icon='' />
                             </NavItem>
                         </Link>
                         <Link href="#members">
@@ -128,7 +116,7 @@ const CO = () => {
                     <div className='members-container'>
                         <Link href="#members">
                             <NavItem active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
-                                <DepartmentStamp name='Todos' icon='./favicon_logo.png' />
+                                <DepartmentStamp name='Todos' />
                             </NavItem>
                         </Link>
                         <Link href="#members">
@@ -142,18 +130,8 @@ const CO = () => {
                                 </NavItem>
                         </Link>
                         <Link href="#members">
-                            <NavItem active={activeItem === 'CTF'} onClick={() => setActiveItem('CTF')}>
-                                    <DepartmentStamp name='CTF' icon={CTFIcon} />
-                                </NavItem>
-                        </Link>
-                        <Link href="#members">
                             <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
                                     <DepartmentStamp name='Diretoria' icon={BoardIcon} />
-                                </NavItem>
-                        </Link>
-                        <Link href="#members">
-                            <NavItem active={activeItem === 'HackSSI'} onClick={() => setActiveItem('HackSSI')}>
-                                    <DepartmentStamp name='HackSSI' icon='' />
                                 </NavItem>
                         </Link>
                         <Link href="#members">

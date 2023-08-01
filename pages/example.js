@@ -8,7 +8,7 @@ import saphira from '../services/saphira';
 import Working from '../src/components/Working';
 import Example from '../src/components/Example';
 
-const HackSSI = () => {
+const ExamplePage = () => {
 
     const [example, setExample] = useState("");
 
@@ -23,10 +23,10 @@ const HackSSI = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | HackSSI' />
+            <Meta title='SSI 2023 | Exemplo' />
             
             <ExampleSection>
-                <h1>HackSSI</h1>
+                <h1>Exemplo</h1>
                 <p className='random-phrase'>
                     <b>Frase aleatória:</b> '{example}'
                 </p>
@@ -37,7 +37,7 @@ const HackSSI = () => {
     )
 }
 
-export default HackSSI;
+export default ExamplePage;
 
 
 const ExampleSection = styled.section`
