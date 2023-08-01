@@ -62,7 +62,7 @@ const members = [
     {
         name: 'Giane Mayumi',
         image: './images/co_members/GianeMayumi.png',
-        departments: ['Diretoria', 'HackSSI'],
+        departments: ['Diretoria'],
         anchor: 'https://www.linkedin.com/in/gianemayumi/'
     },
     {
@@ -134,7 +134,7 @@ const members = [
     {
         name: 'Lucas Jahchan',
         image: './images/co_members/LucasJahchan.jpeg',
-        departments: ['HackSSI', 'Infraestrutura'],
+        departments: ['Infraestrutura'],
         anchor: 'https://www.linkedin.com/in/lucaskja/'
     },
     {
@@ -146,7 +146,7 @@ const members = [
     {
         name: 'Matheus Rocha',
         image: './images/co_members/MatheusRocha.jpg',
-        departments: ['HackSSI','Infraestrutura'],
+        departments: ['Infraestrutura'],
         anchor: 'https://www.linkedin.com/in/dev-math'
     },
     {
@@ -218,7 +218,7 @@ const members = [
     {
         name: 'Tiago Fraga',
         image: './images/co_members/TiagoFraga.jpg',
-        departments: ['HackSSI','Parcerias'],
+        departments: ['Parcerias'],
         anchor: 'https://www.linkedin.com/in/tiago-fraga342/'
     },
     {

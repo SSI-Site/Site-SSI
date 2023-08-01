@@ -4,9 +4,7 @@ import styled from 'styled-components';
 // assets
 import FinancesIcon from '../../public/images/co_icons/finances.svg';
 import CreationIcon from '../../public/images/co_icons/creation.svg';
-import CTFIcon from '../../public/images/co_icons/ctf.svg';
 import BoardIcon from '../../public/images/co_icons/board.svg';
-// import HackSSIIcon from '../../public/images/co_icons/hackssi.svg';
 import InfraIcon from '../../public/images/co_icons/infra.svg';
 import LectureIcon from '../../public/images/co_icons/lecture.svg';
 import PartnershipIcon from '../../public/images/co_icons/partnership.svg';
@@ -19,9 +17,7 @@ const MemberCard = ({ name, image, departments, anchor }) => {
         switch (department) {
             case 'Comercial e Financeiro': return FinancesIcon;
             case 'Criação e Comunicação': return CreationIcon;
-            case 'CTF': return CTFIcon;
             case 'Diretoria': return BoardIcon;
-            // case 'HackSSI': return HackSSIIcon;
             case 'Infraestrutura': return InfraIcon;
             case 'Palestrantes': return LectureIcon;
             case 'Parcerias': return PartnershipIcon;
@@ -223,7 +219,7 @@ const MemberWrapper = styled.div`
 
     @media (min-width:800px) {
         .member-name p {
-            font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
+            font: 400 1.09375rem/1.5rem 'Space_Mono_Bold'; // 17px para caber um nome longo sem quebrar linha
         }
     }
 `
