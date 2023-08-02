@@ -1,10 +1,10 @@
 // assets
 import Sticker from '../public/images/gifts/sticker.png';
-// import Bottom from '../public/images/gifts/bottom.png';
+import Bottom from '../public/images/gifts/bottom.png';
 import Keychain from '../public/images/gifts/keychain.png';
-// import Pen from '../public/images/gifts/pen.png';
+import Pen from '../public/images/gifts/pen.png';
 import Holder from '../public/images/gifts/holder.png';
-import Ecocopo from '../public/images/gifts/ecocopo.png';
+import Copo from '../public/images/gifts/copo.png';
 import Bag from '../public/images/gifts/bag.png';
 
 const gifts = {
@@ -16,7 +16,7 @@ const gifts = {
     },
     2: {
         name: 'Bottom',
-        image: Sticker,
+        image: Bottom,
         totalPres: 5,
         presentialPres: 3
     },
@@ -28,7 +28,7 @@ const gifts = {
     },
     4: {
         name: 'Caneta',
-        image: Sticker,
+        image: Pen,
         totalPres: 15,
         presentialPres: 7
     },
@@ -39,8 +39,8 @@ const gifts = {
         presentialPres: 13
     },
     6: {
-        name: 'Ecocopo',
-        image: Ecocopo,
+        name: 'Copo',
+        image: Copo,
         totalPres: 29,
         presentialPres: 18
     },
