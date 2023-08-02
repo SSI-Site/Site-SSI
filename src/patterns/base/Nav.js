@@ -23,7 +23,7 @@ const pages = {
 
 const Nav = () => {
 
-    const { user } = useAuth();
+    const user = false;
     const router = useRouter();
     
     const [isOpen, setIsOpen] = useState(false);

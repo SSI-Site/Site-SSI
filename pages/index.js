@@ -37,7 +37,7 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
+    const user = false;
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -68,12 +68,12 @@ const Home = () => {
             });
     }
 
-    useEffect(() => {
-        checkUserRegister();
-    }, [user]);
+    // useEffect(() => {
+    //     checkUserRegister();
+    // }, [user]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, []);
 
     const [countdownDays, setCountdownDays] = useState();
