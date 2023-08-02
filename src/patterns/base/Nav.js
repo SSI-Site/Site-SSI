@@ -76,8 +76,8 @@ const Nav = () => {
                     </li>
 
                     <li>
-                        <Link href="/schedule" ><a>Programação</a></Link>
-                        <div></div>
+                        {/* <Link href="/schedule" ><a> */} <span>Programação</span>{/* </a></Link> */}
+                        {/* <div></div> */}
                     </li>
 
                     <li>
@@ -96,7 +96,8 @@ const Nav = () => {
                         </li>
                         :
                         <li>
-                            <Button onClick={handleShowAuthModal}>Login</Button>
+                            {/* <Button onClick={handleShowAuthModal}>Login</Button> */}
+                            <Button disabled>Login</Button>
                         </li>
 
                     }
@@ -122,7 +123,8 @@ const Nav = () => {
                             </li>
                             :
                             <li className='login-button' onClick={() => setIsOpen(false)}>
-                                <Button onClick={handleShowAuthModal}>Login</Button>
+                                {/* <Button onClick={handleShowAuthModal}>Login</Button> */}
+                                <Button disabled>Login</Button>
                             </li>
                         }
 
@@ -132,7 +134,7 @@ const Nav = () => {
                         </li>
 
                         <li onClick={() => setIsOpen(false)}>
-                            <Link href="/schedule"><a>Programação</a></Link>
+                            {/* <Link href="/schedule"><a> */}<span>Programação</span>{/* </a></Link> */}
                             <div></div>
                         </li>
 

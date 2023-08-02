@@ -31,7 +31,7 @@ const Footer = () => {
                         </h3>
                         <div className='links-container'>
                             <Link href="/"><a>Home</a></Link>
-                            <Link href="/schedule"><a>Programação</a></Link>
+                            {/* <Link href="/schedule"><a> */}<span>Programação</span>{/* </a></Link> */}
                             <Link href="/about"><a>Evento</a></Link>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
                         </div>
@@ -82,6 +82,11 @@ const FooterWrapper = styled.footer`
 
     background: var(--color-neutral-900);
     border-top: 8px solid var(--color-primary-800);
+
+    span {
+        color: gray;
+        cursor: default;
+    }
 
     h6 {
         margin-top: 2rem;
