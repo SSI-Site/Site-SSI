@@ -21,10 +21,11 @@ import CarlaVieira from '../public/images/lecture_imgs/53-Carla_Vieira.jpeg'
 import SimaraConceicao from '../public/images/lecture_imgs/49-Simara_Conceicao.jpg'
 import LuizYanai from '../public/images/lecture_imgs/64-Luiz_Yanai.png'
 import KarolAttekita from '../public/images/lecture_imgs/61-Karol_Attekita.png'
+import FabioTelles from '../public/images/lecture_imgs/67-Fabio_Telles.jpeg'
+import LarissaBenevides from '../public/images/lecture_imgs/65-Larissa_Benevides.png'
+import CassioSantos from '../public/images/lecture_imgs/66-Cassio_Santos.png'
+import RenataMiranda from '../public/images/lecture_imgs/68-Renata_Miranda.jpg'
 //import FernandoDeCome from '../public/images/lecture_imgs/---'
-//import LarissaBenevides from '../public/images/lecture_imgs/---'
-//import RenataMiranda from '../public/images/lecture_imgs/---'
-
 
 const shifts = {
     '2023-08-21' : {
@@ -76,19 +77,18 @@ const shifts = {
                 image: ''
             },
             '14:40' : {
-                title : '>>Completar<<',
-                description : 'Aqui vem a descrição',
-                local : 'presential',//ou online
+                title : 'SQL Avançado com PostgreSQL',
+                description : 'DBA Oracle e PostgreSQL há mais de 15 anos. Grande experiência com ambientes críticos, grande porte, desenvolvimento, segurança e performance em banco de dados. Palestrou em dezenas de eventos em todo o Brasil e publicou centenas de artigos sobre banco de dados em seu blog ( https://savepoint.blog.br ). A palestra dá uma visão rápida sobre algumas funcionalidades avançadas de SQL no PostgreSQL, incluindo: subconsultas, MERGE e INSERT ON CONFLICT, DML c/ RETURNING, Full Text Search (FTS), Foreign Data Wrapper (FDW), Window Functions.',
+                local : 'presential',
                 speakers : [
-                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
-                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Fábio Telles Rodrigues', 'image': FabioTelles},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '16:00' : {
                 title : 'Desmistificando a carreira em tecnologia: de estágio a liderança técnica',
                 description : 'Estudo programação desde 2013, atualmente sou líder técnica , minha especialidade é Java com Spring, Microsserviços e AWS. Sou co-autora dos livros Jornada Java e Jornada Microsserviços , crio conteúdo no Instagram e Youtube Kamila code e sou Microsoft MVP. Nessa palestra vou tirar suas maiores dúvidas sobre as etapas da carreira em tecnologia, desde como conseguir o primeiro estagio até uma cargo de liderança técnica',
-                local : 'presential',//ou online
+                local : 'presential',
                 speakers : [
                     {'name' : 'Kamila Santos Oliveira', 'image': KamilaSantos}
                 ],
@@ -120,13 +120,14 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '20:40' : {
-                title : 'Segurança da Informação (Tá estranho na planilha)',
-                description : 'Não achei nada na planilha',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
                 local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Larissa Benevides', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             }
         } 
     },
@@ -170,7 +171,7 @@ const shifts = {
             '13:20' : {
                 title : 'Ética e Computação, esse encontro é apenas uma opção?',
                 description : 'Bacharel em Sistemas de Informação pela UNIRIO; mestre em Informática com ênfase em Sistemas de Informação, pelo PPGI/UNIRIO; atualmente doutorando em Informática no Instituto de Computação da UFRJ, mais especificamente no PPGI, integrando o Laboratório CORES como líder da área de Ética. Desde o início do doutoramento transitou por temas como Transparência, Desinformação e LGPD, para finalmente abstraí-los na ética aplicada, tratando da área nos escopos geral, computacional e de pesquisa, assim como na instrução ou educação nestes tópicos. De mãos dadas com a meta-ciência, enfatizando o estudo do setor acadêmico da computação brasileira, cientificamente; com uma perspectiva crítica, materialista, existencialista e distante do positivismo. Nesta dinâmica vamos falar sobre a relação entre ética, moral e computação, como é preciso ir além da dita "computação pura" para efetivamente pensar numa ética computacional e como Sistemas de Informação apresenta um alinhamento adequado para esta combinação. Indo além disso, por que estudar ética e moral enquanto estudante de computação? O que isso te oferece como diferencial? E a pergunta crucial, ainda é opcional no seu futuro profissional?',
-                local : 'presential',//ou online
+                local : 'online',
                 speakers : [
                     {'name' : 'Luiz Paulo Carvalho', 'image': LuizPaulo},
                 ],
@@ -336,7 +337,7 @@ const shifts = {
             '08:40' : {
                 title : 'Como se tornar um Consultor SAP',
                 description : 'Como se tornar um Consultor SAP',
-                local : 'presential',//ou online
+                local : 'presential',
                 speakers : [
                     {'name' : 'Roberto Azevedo', 'image': RobertoAzevedo},
                 ],
@@ -388,12 +389,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '16:00' : {
-                title : '>>Completar<<',
-                description : 'Aqui vem a descrição',
-                local : 'presential',//ou online
+                title : 'Dicas para um pitch de sucesso',
+                description : 'Olá! Sou a Renata, e sou apaixonada por empreendedorismo e inovação. Ao longo dos anos, tive a oportunidade de organizar vários hackathons na USP e atuar como jurada e mentora em diversos eventos. Essa jornada me mostrou a importância de um bom pitch para o sucesso na competição. Nessa palestra compartilho as melhores dicas para você criar um pitch de sucesso!',
+                local : 'presential',
                 speakers : [
-                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
-                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Renata Miranda', 'image': RenataMiranda},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -413,7 +413,7 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : 'Acessibilidade em Produtos Digitais. ',
+                title : 'Acessibilidade em Produtos Digitais',
                 description : 'Designer carioca com muita determinação em aprender e crescer! Pensando em ajudar Designers que entram no mercado de trabalho, fundei a comunidade "Jovens Ux e Ui", com o objetivo de aprimorar os profissionais que estão ingressando no mercado de Ux / Ui. Esse aprimoramento compreende todas as etapas de uma formação de um profissional de Ux e Ui. Em busca desse aperfeiçoamento incorporamos pontos específicos como: Acessibilidade, Portfólio e mentorias. Como Accessibility Product Design, busco uma constante evolução das minhas Hards Skills e Soft Skills. Tanto em projetos pessoais, quanto em projetos dentro da Bradesco Seguros (empresa em que atuo atualmente). Focando em acessibilidade, tenho como meta criar produtos acessíveis e que possam ser utilizado por tadas as pessoas. ',
                 local : 'online',
                 speakers : [
@@ -437,7 +437,7 @@ const shifts = {
             '08:40' : {
                 title : 'Como a computação pode combater a discriminação algorítmica',
                 description : 'Carla Vieira é mestre em Inteligência Artificial pela USP e Engenheira de Dados na QuantumBlack. Foi reconhecida como Google Developer Expert em Machine Learning e participa das discussões sobre Inteligência Artificial e ética - tema da sua dissertação de mestrado.',
-                local : 'presential',//ou online
+                local : 'presential',
                 speakers : [
                     {'name' : 'Carla Vieira', 'image': CarlaVieira},
                 ],
@@ -511,14 +511,14 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : '>>Completar<<',
-                description : 'Aqui vem a descrição',
-                local : 'presential',//ou online
+                title : 'Desmistificando Vulnerabilidades de Software: Como Desenvolver De Forma Segura',
+                description : 'Você já se perguntou como é possível garantir a segurança no desenvolvimento de software? Se sim, saiba que você não está sozinho! Iremos abordar os princípios essenciais e as melhores práticas para garantir a segurança em todas as etapas do ciclo de desenvolvimento. Larissa Benevides e Cassio Santos trabalham atualmente como Analistas de Segurança de Aplicações no BTG Pactual e apresentarão as principais estratégias e ferramentas para incorporar a segurança desde o início do ciclo de desenvolvimento de forma transparente aos processos ágeis e DevOps.',
+                local : 'online',
                 speakers : [
-                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
-                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Larissa Benevides', 'image': LarissaBenevides},
+                    {'name' : 'Cassio Santos', 'image': CassioSantos},
                 ],
-                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+                image: ''
             },
             '20:40' : {
                 title : 'Encerramento',
