@@ -31,7 +31,7 @@ const Footer = () => {
                         </h3>
                         <div className='links-container'>
                             <Link href="/"><a>Home</a></Link>
-                            {/* <Link href="/schedule"><a> */}<span>Programação</span>{/* </a></Link> */}
+                            <Link href="/schedule"><a>Programação</a></Link>
                             <Link href="/about"><a>Evento</a></Link>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
                         </div>
