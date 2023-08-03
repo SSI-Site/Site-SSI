@@ -37,7 +37,7 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
+    const user = false;
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -68,12 +68,12 @@ const Home = () => {
             });
     }
 
-    useEffect(() => {
-        checkUserRegister();
-    }, [user]);
+    // useEffect(() => {
+    //     checkUserRegister();
+    // }, [user]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, []);
 
     const [countdownDays, setCountdownDays] = useState();
@@ -152,7 +152,8 @@ const Home = () => {
                                         <h3>Semana de Sistemas de Informação 2023</h3>
                                         <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
-                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                    {/* <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link> */}
+                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastros em breve...</Button></Link>
                                 </>
                             :
                                 <>
@@ -302,13 +303,13 @@ const Home = () => {
                     </div>
                     {!user &&
                         <div className='countdown-btn'>
-                            <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button></Link>
+                            <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button></Link>
                         </div>
                     }
                 </CountdownSection>
             }
 
-            <ScheduleSection>
+            {/* <ScheduleSection>
                 <div className='schedule-container'>
                     <h3 className='title-mobile'>Programação</h3>
                     <div className='title-btn-desktop'>
@@ -326,7 +327,7 @@ const Home = () => {
                         <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
                     </div>
                 </div>
-            </ScheduleSection>
+            </ScheduleSection> */}
 
             <SupportersSection>
                 <div className='supporters-container'>
