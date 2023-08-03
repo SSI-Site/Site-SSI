@@ -14,20 +14,21 @@ const DateStamp = ({ day, showEmoji }) => {
 
     // se day = 21, então relativeDay = 01 e assim por diante (para os dias do evento)
     const relativeDay = `0${day - 20}` 
+    const numericDay = parseInt(day);
 
     const current = new Date();
-    const currentDay = `${current.getDate()}`;
-    const month = `${current.getMonth()}`;
-    const year = `${current.getFullYear()}`;
+    const currentDay = current.getDate();
+    const month = current.getMonth();
+    const year = current.getFullYear();
 
     return (
         <DateWrapper>
             <div className='day-emoji'>
                 <h6 className='day'>Dia {relativeDay}</h6>
-                {(currentDay>day && month==7 && year==2023) && showEmoji &&
+                {(currentDay>numericDay && month==7 && year==2023) && showEmoji &&
                     <img src={CheckIcon}></img>
                 }
-                {(currentDay==day && month==7 && year==2023) && showEmoji &&
+                {(currentDay==numericDay && month==7 && year==2023) && showEmoji &&
                     <img src={HourglassIcon}></img>
                 }
             </div>
