@@ -21,10 +21,6 @@ import CarlaVieira from '../public/images/lecture_imgs/53-Carla_Vieira.jpeg'
 import SimaraConceicao from '../public/images/lecture_imgs/49-Simara_Conceicao.jpg'
 import LuizYanai from '../public/images/lecture_imgs/64-Luiz_Yanai.png'
 import KarolAttekita from '../public/images/lecture_imgs/61-Karol_Attekita.png'
-import FabioTelles from '../public/images/lecture_imgs/67-Fabio_Telles.jpeg'
-import LarissaBenevides from '../public/images/lecture_imgs/65-Larissa_Benevides.png'
-import CassioSantos from '../public/images/lecture_imgs/66-Cassio_Santos.png'
-import RenataMiranda from '../public/images/lecture_imgs/68-Renata_Miranda.jpg'
 //import FernandoDeCome from '../public/images/lecture_imgs/---'
 
 const shifts = {
@@ -77,11 +73,12 @@ const shifts = {
                 image: ''
             },
             '14:40' : {
-                title : 'SQL Avançado com PostgreSQL',
-                description : 'DBA Oracle e PostgreSQL há mais de 15 anos. Grande experiência com ambientes críticos, grande porte, desenvolvimento, segurança e performance em banco de dados. Palestrou em dezenas de eventos em todo o Brasil e publicou centenas de artigos sobre banco de dados em seu blog ( https://savepoint.blog.br ). A palestra dá uma visão rápida sobre algumas funcionalidades avançadas de SQL no PostgreSQL, incluindo: subconsultas, MERGE e INSERT ON CONFLICT, DML c/ RETURNING, Full Text Search (FTS), Foreign Data Wrapper (FDW), Window Functions.',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Fábio Telles Rodrigues', 'image': FabioTelles},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -389,11 +386,12 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '16:00' : {
-                title : 'Dicas para um pitch de sucesso',
-                description : 'Olá! Sou a Renata, e sou apaixonada por empreendedorismo e inovação. Ao longo dos anos, tive a oportunidade de organizar vários hackathons na USP e atuar como jurada e mentora em diversos eventos. Essa jornada me mostrou a importância de um bom pitch para o sucesso na competição. Nessa palestra compartilho as melhores dicas para você criar um pitch de sucesso!',
-                local : 'presential',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Renata Miranda', 'image': RenataMiranda},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -511,14 +509,14 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : 'Desmistificando Vulnerabilidades de Software: Como Desenvolver De Forma Segura',
-                description : 'Você já se perguntou como é possível garantir a segurança no desenvolvimento de software? Se sim, saiba que você não está sozinho! Iremos abordar os princípios essenciais e as melhores práticas para garantir a segurança em todas as etapas do ciclo de desenvolvimento. Larissa Benevides e Cassio Santos trabalham atualmente como Analistas de Segurança de Aplicações no BTG Pactual e apresentarão as principais estratégias e ferramentas para incorporar a segurança desde o início do ciclo de desenvolvimento de forma transparente aos processos ágeis e DevOps.',
-                local : 'online',
+                title : '>>Completar<<',
+                description : 'Aqui vem a descrição',
+                local : 'presential',//ou online
                 speakers : [
-                    {'name' : 'Larissa Benevides', 'image': LarissaBenevides},
-                    {'name' : 'Cassio Santos', 'image': CassioSantos},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
+                    {'name' : 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': LectureImage02/*Aqui vem a imagem do palestrante*/},
                 ],
-                image: ''
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '20:40' : {
                 title : 'Encerramento',
