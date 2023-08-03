@@ -21,7 +21,7 @@ const User = () => {
         'Palestra muito foda 3',
     ];
 
-    const user = false;
+    const { user } = useAuth();
 
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
     const [isUserRegistered, setIsUserRegistered] = useState(false);
@@ -121,11 +121,11 @@ const User = () => {
     }, [isUserRegistered]);
 
     useEffect(() => {
-        // checkUserRegister();
+        checkUserRegister();
     }, [user]);
 
     useEffect(() => {
-        // checkUserRegister();
+        checkUserRegister();
     }, []);
 
     

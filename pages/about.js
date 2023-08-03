@@ -21,7 +21,7 @@ import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 const About = () => {
 
     const router = useRouter();
-    const user = false;
+    const { user, signOut } = useAuth();
 
     return (
         <>
