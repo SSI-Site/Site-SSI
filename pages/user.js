@@ -21,7 +21,7 @@ const User = () => {
         'Palestra muito foda 3',
     ];
 
-    const { user } = useAuth();
+    const { user, signOut } = useAuth();
 
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
     const [isUserRegistered, setIsUserRegistered] = useState(false);
