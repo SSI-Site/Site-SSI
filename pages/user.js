@@ -233,25 +233,6 @@ const User = () => {
                                 <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
                                 <ButtonSecondary onClick={signOut}>Sair</ButtonSecondary>
                             </div>
-
-                            {/* <p>Palestras assistidas:
-                                <span className='bold-info'>&nbsp;{lectures.length}&nbsp;</span>
-                                {(lectures.length > 9 && lectures.length < 20) &&
-                                    <span>&#128293;</span>
-                                }
-                                {(lectures.length > 19 && lectures.length < 30) &&
-                                    <span>&#9889;</span>
-                                }
-                                {(lectures.length > 29 && lectures.length < 40) &&
-                                    <span>&#127775;</span>
-                                }
-                                {(lectures.length > 39 && lectures.length < 45) &&
-                                    <span>&#128081;</span>
-                                }
-                                {(lectures.length === 45) &&
-                                    <span>&#128175;</span>
-                                }
-                            </p> */}
                         </UserInfoWrapper>
                     </UserInfoSection>
 
@@ -284,7 +265,7 @@ const User = () => {
                         </div>
 
 
-                        <>
+                        {/* <>
                             {user && !isModalTokenOpen &&
                                 <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
                             }
@@ -292,7 +273,7 @@ const User = () => {
                             {user && isModalTokenOpen &&
                                 <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
                             }
-                        </>
+                        </> */}
                     </LecturesListSection>
 
                     <GiftsProgressSection id='meus-brindes'>
@@ -445,6 +426,7 @@ const UserInfoWrapper = styled.div`
         width: 100%;
         justify-content: space-between;
         flex-direction: row;
+        padding: 2rem 6.5rem;
     }
 `
 
