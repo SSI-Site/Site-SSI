@@ -39,7 +39,7 @@ const members = [
         name: 'Catarina Macedo',
         image: './images/co_members/CatarinaMacedo.jpg',
         departments: ['Site'],
-        anchor: ''
+        anchor: 'https://www.linkedin.com/in/catarina-de-macedo-scabelli-242876274'
     },
     {
         name: 'Emmily Boesing',

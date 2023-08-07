@@ -630,10 +630,6 @@ const LecturesList = styled.div`
             margin-bottom: 1rem;
         }
     }
-
-    @media (min-width:1021px) {
-        justify-content: left;
-    }
 `
 
 const GiftsProgressSection = styled.section`
