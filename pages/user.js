@@ -12,6 +12,10 @@ import Button from '../src/components/Button';
 import TokenModal from '../src/components/TokenModal';
 import RegisterForm from '../src/components/RegisterForm';
 
+// assets
+import gifts from '../data/gifts';
+import CheckBox from '../public/images/icons/lecture-check-box.svg';
+
 const User = () => {
     
     // Array de palestras-exemplo para permitir o desenvolvimento do front
@@ -29,6 +33,7 @@ const User = () => {
     // const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+    const [showList, setShowList] = useState(false);
 
     const toggleModalTokenIsOpen = () => {
         setIsModalTokenOpen(!isModalTokenOpen);
@@ -114,6 +119,17 @@ const User = () => {
             })
     }
 
+    const presentialLecturesCount = () => {
+        var count = 0;
+        for (const lecture of lectures) {
+            if (!lecture.online) count++;
+        }
+        // Object.entries(lectures).forEach(([key, lecture]) => {
+        //     if (lecture.online) count++;
+        // });
+        return count;
+    }
+
     useEffect(() => {
         if (isUserRegistered) {
             getPresences();
@@ -194,101 +210,142 @@ const User = () => {
 
             {!isLoading && !isEditing && user && /*isUserRegistered &&*/
                 <>
-                    <BackgroundWrapper>
-                        <UserInfoSection>
-                            <UserInfoUpperWrapper>
-                                <PhotoNameWrapper>
-                                    <img className='userPic' src={user.photoUrl} alt="user picture" />
+                    <UserInfoSection>
+                        <h3>Meu perfil</h3>
+
+                        <UserInfoWrapper>
+                            <PhotoTextWrapper>
+                                <img className='user-pic' src={user.photoUrl} alt="user picture" />
+                                <div className='text-info'>
                                     {user.name ?
-                                        <h3>{user.name}</h3>
+                                        <h6>{user.name}</h6>
                                         :
-                                        <h3>{userInfo.name}</h3>
+                                        <h6>{userInfo.name}</h6>
                                     }
-                                </PhotoNameWrapper>
-
-                                <p>Palestras assistidas:
-                                    <span className='bold-info'>&nbsp;{lectures.length}&nbsp;</span>
-                                    {(lectures.length > 9 && lectures.length < 20) &&
-                                        <span>&#128293;</span>
-                                    }
-                                    {(lectures.length > 19 && lectures.length < 30) &&
-                                        <span>&#9889;</span>
-                                    }
-                                    {(lectures.length > 29 && lectures.length < 40) &&
-                                        <span>&#127775;</span>
-                                    }
-                                    {(lectures.length > 39 && lectures.length < 45) &&
-                                        <span>&#128081;</span>
-                                    }
-                                    {(lectures.length === 45) &&
-                                        <span>&#128175;</span>
-                                    }
-                                </p>
-                            </UserInfoUpperWrapper>
-                            <UserInfoLowerWrapper>
-                                <TextInfo>
-                                    <UserInformation>
-                                        <p>Email</p>
-                                        <p className='bold-info'>{user.email}</p>
-                                    </UserInformation>
-                                    <UserInformation>
-                                        {userInfo.documentType === "nusp" ?
-                                            <>
-                                                <p>Número USP</p>
-                                                <p className='bold-info'>{userInfo.nusp_value}</p>
-                                            </>
-                                            :
-                                            <>
-                                                <p>CPF</p>
-                                                <p className='bold-info'>{userInfo.cpf_value}</p>
-                                            </>
-                                        }
-                                    </UserInformation>
-                                </TextInfo>
-
+                                    <div className='user-info'>
+                                        <p>Email: {user.email}</p>
+                                        <div></div>
+                                        <p>CPF: {userInfo.cpf_value}</p>
+                                    </div>
+                                </div>
+                            </PhotoTextWrapper>
+                            <div className='btn-wrapper'>
                                 <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
-                            </UserInfoLowerWrapper>
-                        </UserInfoSection>
+                                <ButtonSecondary onClick={signOut}>Sair</ButtonSecondary>
+                            </div>
 
-                        <ContainerLectures>
-                            <ListLectures>
-                                <thead><tr><th><h4>Palestras Assistidas (da última vista p/ 1a)</h4></th></tr></thead>
-                                {lectures.length === 0 &&
-                                    <thead><tr><th><p className="no-presences-message">Você ainda não tem nenhuma presença registrada.</p></th></tr></thead>
+                            {/* <p>Palestras assistidas:
+                                <span className='bold-info'>&nbsp;{lectures.length}&nbsp;</span>
+                                {(lectures.length > 9 && lectures.length < 20) &&
+                                    <span>&#128293;</span>
                                 }
+                                {(lectures.length > 19 && lectures.length < 30) &&
+                                    <span>&#9889;</span>
+                                }
+                                {(lectures.length > 29 && lectures.length < 40) &&
+                                    <span>&#127775;</span>
+                                }
+                                {(lectures.length > 39 && lectures.length < 45) &&
+                                    <span>&#128081;</span>
+                                }
+                                {(lectures.length === 45) &&
+                                    <span>&#128175;</span>
+                                }
+                            </p> */}
+                        </UserInfoWrapper>
+                    </UserInfoSection>
 
-                                <tbody>
-                                    {lectures.reverse().map((lecture, id) => (
-                                        <tr key={id}>
-                                            <td className={`lecture-id lecture-id-0`}>
-                                                <span></span>
-                                            </td>
-                                            {/* <td className={`lecture-info lecture-info-0`}>
-                                                <p className='bold-info'>{lecture.talk_title} - {lecture.online ? "Online" : "Presencial"}</p>
-                                            </td> */}
-                                            <td className={`lecture-info lecture-info-0`}>
-                                                <p className='bold-info'>{lecture} - {lecture.online ? "Online" : "Presencial"}</p>
-                                            </td>
+                    <LecturesListSection>
+                        <div className='lectures-info-wrapper'>
+                            <h4>Palestras assistidas</h4>
+                            <div className='lectures-count'>
+                                <p>Número total de registros: <span>{lectures.length}</span></p>
+                                <p>Número de registros presenciais: <span>{presentialLecturesCount()}</span></p>
+                            </div>
+                            <Button onClick={() => setShowList(!showList)}>
+                                {showList ? "Ocultar registros" : "Exibir registros"}
+                            </Button>
+                            {showList &&
+                                <LecturesList>
+                                    <div className='lecture-list-container'>
+                                        <ul>
+                                            {lectures.length === 0 &&
+                                                <p className="no-presences-message">Você ainda não tem nenhuma presença registrada...</p>
+                                            }
+                                            {lectures.map((lecture, key) =>
+                                                <li key={key}>
+                                                    {lecture} - {lecture.online ? "Online" : "Presencial"}
+                                                </li>)
+                                            }
+                                        </ul>
+                                    </div>
+                                </LecturesList>
+                            }
+                        </div>
+
+
+                        <>
+                            {user && !isModalTokenOpen &&
+                                <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
+                            }
+
+                            {user && isModalTokenOpen &&
+                                <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
+                            }
+                        </>
+                    </LecturesListSection>
+
+                    <GiftsProgressSection id='meus-brindes'>
+                        <div className='gifts-progress-wrapper'>
+                            <h4>Painel de progresso dos brindes</h4>
+                            <div className='progress-table'></div>
+                        </div>
+                        <div className='table-card'>
+                            <div className='table-container'>
+                                <ProgressTable>
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">Brinde</th>
+                                            <th colspan="2">Palestras</th>
                                         </tr>
-                                    ))
-                                    }
-                                </tbody>
-                            </ListLectures>
-                            <UserInfoLowerWrapper>
-                                <span></span>
-                                {user && !isModalTokenOpen &&
-                                    <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
-                                }
-
-                                {user && isModalTokenOpen &&
-                                    <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
-                                }
-                            </UserInfoLowerWrapper>
-                        </ContainerLectures>
-
-                        <Button onClick={signOut}>Sair</Button>
-                        <div id='meus-brindes'>Teste para seção de brindes. Colocar id da seção como 'meus-brindes'</div>
-                    </BackgroundWrapper>
+                                        <tr>
+                                            <th>Totais</th>
+                                            <th>Presenciais</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {Object.entries(gifts).map(([key, gift]) => {
+                                            return (
+                                                <tr key={key}>
+                                                    <td className='column-1'>{gift.name}</td>
+                                                    {lectures.length >= gift.totalPres && presentialLecturesCount() >= gift.presentialPres ? 
+                                                    <>
+                                                        <td className='column-2'>
+                                                            <img src={CheckBox} alt='check box'/>
+                                                        </td>
+                                                        <td className='column-3'>
+                                                            <img src={CheckBox} alt='check box' />
+                                                        </td>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <td className='column-2'>{lectures.length}/{gift.totalPres}</td>
+                                                        <td className='column-3'>{presentialLecturesCount()}/{gift.presentialPres}</td>
+                                                    </>
+                                                    }
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </ProgressTable>
+                                <div className='available'>
+                                    <img src={CheckBox} alt='check box' />
+                                    <p>: brinde disponível para retirada</p>
+                                </div>
+                                <p>x/y: x registros de y necessários</p>
+                            </div>
+                        </div>
+                    </GiftsProgressSection>
                 </>
             }
         </>
@@ -350,63 +407,149 @@ const FormContainer = styled.section`
 `
 
 const UserInfoSection = styled.section`
-    width: 90%;
-    max-width: 1200px;
-    padding: 2rem 45px;
-    margin: 15rem 3rem 0 3rem;
-    background: linear-gradient(180deg, #1B162C 50%, rgba(21, 16, 35, 0) 100%);
+    padding-block: 7.25rem 3.75rem;
+    gap: 3.5rem;
 
-    @media (min-width:1120px) {
-        margin: 8rem 3rem 0 3rem;
-        padding: 2rem 45px 120px 45px;
-    }
-
-    @media (min-width:1550px) {
-        width: 100%;
+    @media (min-width:1021px) {
+        padding-block: 6.75rem 3.5rem;
+        gap: 3.5rem;
     }
 `
 
-const UserInfoUpperWrapper = styled.div`
+const UserInfoWrapper = styled.div`
+    width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    margin-bottom: 50px;
+    align-items: center;
+    background-color: var(--color-neutral-800);
+    border-radius: 1rem;
+    padding: 2.25rem;
+    gap: 1rem;
 
-    @media (min-width:1120px) {
+    .btn-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    @media (min-width:560px) {
+        .btn-wrapper {
+            width: fit-content;
+        }
+    }
+
+    @media (min-width:1021px) {
         width: 100%;
         justify-content: space-between;
         flex-direction: row;
-        margin-bottom: 0px;
     }
 `
 
-const PhotoNameWrapper = styled.div`
+const PhotoTextWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 1.5rem;
 
-    .userPic {
+    .user-pic {
         border-radius: 100%;
         min-width: 150px;
-        width: 10%;
-        margin-top: 3rem;
-        margin-bottom: 50px;
     }
 
-    h3 {
-        font-size: 36px;
-        font-weight: 600;
-        text-align: center;
-    }
+    .text-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
 
-    @media (min-width:1120px) {
-        flex-direction: row;
-        max-width: 70%;
-
-        h3 {
-            text-align: left;
-            margin-left: 3rem;
+        h6 {
+            text-align: center;
         }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            }
+        }
+    }
+
+    @media (min-width:560px) {
+        .text-info h6 {
+            font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+        }
+    }
+
+    @media (min-width:1021px) {
+        gap: 2rem;
+        flex-direction: row;
+
+        .text-info {
+            align-items: flex-start;
+
+            h6 {
+                text-align: left;
+                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            }
+
+            .user-info {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+    
+                p {
+                    font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                }
+
+                > div {
+                    width: 4px;
+                    height: 28px;
+                    background-color: var(--color-neutral-600);
+                    margin-inline: 1rem;
+                    border-radius: 2px;
+                }
+            }
+        }
+
+    }
+`
+
+const ButtonSecondary = styled.button`
+    --padding: 0.75rem 1.5rem;
+    --transition-duration: 500ms;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.75rem;
+    padding: var(--padding);
+    border-radius: 9px;
+    border: 3px solid var(--color-neutral-50);
+    background-color: transparent;
+    transition: 500ms;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-neutral-50);
+        color: var(--color-neutral-900);
+    }
+
+    &:active {
+        background-color: var(--color-neutral-100);
+        border-color: var(--color-neutral-100);
+    }
+        
+    @media (min-width:560px) {
+        height: 3rem;
     }
 `
 
@@ -417,148 +560,238 @@ const UserInfoLowerWrapper = styled.div`
     width: 100%;
     max-width: 1050px;
 
-    @media (min-width:1120px) {
+    @media (min-width:1021px) {
         flex-direction: row;
         justify-content: space-between;
     }
 `
 
-const TextInfo = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    margin-bottom: 1rem;
+const LecturesListSection = styled.section`
 
-    @media (min-width:1120px) {
-        max-width: 70%;
-        flex-direction: row;
-        gap: 25%;
-        margin-bottom: 0px;
-    }
-`
-
-const UserInformation = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-block: 20px;
-
-    p {
-        word-wrap: break-word;
-    }
-
-    @media (min-width:1120px) {
-        margin-block: 0px;
-    }
-`
-
-const ContainerLectures = styled.section`
-    width: 90%;
-    max-width: 1200px;
-    align-items: left;
-    justify-content: left;
-    margin-bottom: 15rem;
-    margin-top: 100px;
-    padding-inline: 45px;
-
-    h4 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 5rem;
-    }
-
-    thead {
+    .lectures-info-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 1.5rem;
 
-        @media (min-width:1120px) {
-            align-items: flex-start;
+        h4 {
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .lectures-count {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            p {
+                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                span {
+                    font: inherit;
+                    color: var(--color-primary-500);
+                }
+            }
+        }
+
+        button {
+            width: fit-content;
+        }
+    }
+
+    @media (min-width:1021px) {
+        gap: 2.25rem;
+
+        .lectures-info-wrapper {
+            h4 {
+                width: 100%;
+                text-align: left;
+            }
+
+            .lectures-count {
+                flex-direction: row;
+                gap: 3.5rem;
+
+                p {
+                    font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                }
+            }
         }
     }
 `
 
-const ListLectures = styled.table`
+const LecturesList = styled.div`
     width: 100%;
-    border-collapse: collapse;
     display: flex;
-    align-items: left;
-    flex-direction: column;
-    justify-content: left;
-    margin-bottom: 5rem;
+    align-items: center;
+    justify-content: center;
 
-    .no-presences-message {
+    .lecture-list-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    span {
+        font: inherit;
+        color: var(--color-primary-500);
+        font-family: 'Space_Mono_Bold';
+        font-weight: 400;
+    }
+
+    ul {
+
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (min-width:1021px) {
+        justify-content: left;
+    }
+`
+
+const GiftsProgressSection = styled.section`
+    padding-block: 3.75rem;
+    overflow-x: hidden;
+
+    .table-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 3rem 1rem 2.5rem 1rem;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        height: auto;
+        width: 100vw;
+        overflow: auto;  
+        display: flex;
+        scroll-snap-type: x mandatory;
+
+        .table-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            p {
+                font: 400 0.875rem/1.5rem 'Space_Mono_Bold';
+            }
+
+            .available {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                margin-block: 0.5rem 0.2rem;
+
+                img {
+                    width: 24px;
+                }
+            }
+        }
+    }
+
+    @media (min-width:480px) {
+
+        .table-card {
+            align-items: center;
+        }
+    }
+
+    @media (min-width:1021px) {
+        padding-block: 6.75rem;
+
+        h4 {
+            margin-bottom: 3.5rem;
+        }
+
+        .table-card {
+            width: 100%;
+            padding: 4rem 6.5rem 3.5rem 6.5rem;
+            background-color: var(--color-neutral-800);
+            border-radius: 1rem;
+
+            .table-container {
+                p {        
+                    font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                }
+                
+                .available {
+                    margin-block: 1rem 0.4rem;
+                }
+            }
+        }
+    }
+`
+
+const ProgressTable = styled.table`
+    border: 2px solid var(--color-neutral-600);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    font: 400 1rem/1.25rem 'Space_Mono_Bold';
+
+    thead {
+        background-color:  var(--color-neutral-700);
+        font: 400 0.95rem/1.5rem 'Space_Mono_Bold';
+    }
+
+    tbody {
+        background-color:  var(--color-neutral-800);
+    }
+
+    th, td {
+        border: 1.5px solid var(--color-neutral-600);
+        vertical-align: middle;
         text-align: center;
     }
 
-    .lecture-id {
-        vertical-align: top;
-        text-align: right;
-        padding: 0.8em 1.08em 0 0;
-        
-        span {
-            position: relative;
-
-            &:after {
-                content: '';
-                position: absolute;
-                height: 10px;
-                width: 10px;
-                background-color: #211936;
-                border-radius: 50%;
-                right: calc(-2rem - 5px);
-                margin-top: auto;
-                margin-bottom: auto;
-                top: 0;
-                bottom: 0;
-            }
-        }
+    th {
+        padding: 0.5rem;
     }
 
-    .lecture-id-0 {
-        vertical-align: top;
-        text-align: right;
-        padding: 0.8em 1.08em 0 0;
-
-        span {
-            position: relative;
-
-            &:after {
-                content: '';
-                position: absolute;
-                height: 10px;
-                width: 10px;
-                background-color: #8744C2;
-                border-radius: 50%;
-                right: calc(-2rem - 5px);
-                margin-top: auto;
-                margin-bottom: auto;
-                top: 0;
-                bottom: 0;
-            }
-        }
+    td {
+        padding: 1rem;
     }
 
-    .lecture-info {
-        border-left: 2px solid #211936;
-        padding: 0 1em 1.5em 1em;
-
-        p {
-            color: #FFFFFF7A;
-        }
+    .column-2, .column-3 {
+        width: 9rem;
     }
 
-    .lecture-info-0 {
+    @media (min-width:1021px) {
+        font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
 
-        p {
-            color: #FFF;
+        thead {
+            font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
         }
-    }
 
-    @media (min-width:1025px) {
+        th, td {
+            border: 2px solid var(--color-neutral-600);
+        }
 
-        .no-presences-message {
-            text-align: left;
+        th {
+            padding: 1rem;
+        }
+
+        td {
+            padding: 1.5rem;
+        }
+
+        .column-1 {
+            width: 17rem;
+        }
+
+        .column-2, .column-3 {
+            width: 23rem;
         }
     }
 `

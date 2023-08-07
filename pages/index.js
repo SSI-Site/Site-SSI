@@ -339,7 +339,7 @@ const Home = () => {
                         <PartnerCard name='griaule' image='./images/partners/griaule.svg' link="https://griaule.com/" />
                         <PartnerCard name='poatek' image='./images/partners/poatek.png' link="https://poatek.com/" />
                         <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        {/* <PartnerCard name='pet' image='./images/partners/pet.png' link="htttp://www.each.usp.br/petsi/" /> */}
+                        <PartnerCard name='pet' image='./images/partners/pet.png' link="htttp://www.each.usp.br/petsi/" />
                     </div>
                 </div>
             </SupportersSection>
