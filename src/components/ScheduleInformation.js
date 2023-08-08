@@ -3,9 +3,8 @@ import styled from 'styled-components';
 
 // components
 import SpeakerInfo from './SpeakerInfo';
-import borda from '../../public/images/borda.png';
 
-const ScheduleInformation = ({ lecture, startTime, lecturePicture, speakerName, title, overview }) => {
+const ScheduleInformation = ({ lecture, startTime, lecturePicture, speakerName, title, overview, local }) => {
     
     const endTime = (time) => {
         let [h, m] = time.split(':');
@@ -35,7 +34,8 @@ const ScheduleInformation = ({ lecture, startTime, lecturePicture, speakerName, 
                 </div>
 
                 <div className='duration-box'>
-                    <p>{startTime} - {endTime(startTime)}</p>
+                    <p className='duration'>{startTime} - {endTime(startTime)}</p>
+                    <p className='opposite-color'>{local == 'online' ? 'Online' : 'Presencial'}</p>
                 </div>
 
                 <div className='description-box'>
@@ -77,8 +77,19 @@ const ScheduleInformationStyle = styled.div`
     }
 
     .duration-box {
-        p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+
+        p.duration {
             font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        }
+
+        p.opposite-color {
+            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            color: var(--color-primary-500);
         }
     }
 
@@ -118,9 +129,15 @@ const ScheduleInformationStyle = styled.div`
         }
 
         .duration-box {
-            p {
+
+            p.duration {
                 font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
                 color: var(--color-primary-500);
+            }
+
+            p.opposite-color {
+                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                color: var(--color-neutral-50);
             }
         }
         

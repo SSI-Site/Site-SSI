@@ -23,7 +23,6 @@ const PartnerWrapper = styled.div`
     justify-content: center;
     width: 9.75rem;
     height: 7.5rem;
-    padding: 1.5rem;
     background-color: var(--color-neutral-800);
 
     cursor: pointer;
@@ -39,6 +38,12 @@ const PartnerWrapper = styled.div`
 
     :active {
         background-color: var(--color-neutral-600);
+    }
+
+    a {
+        width: 100%;
+        height: 100%;
+        padding: 1.5rem;
     }
 
     .partner-image {
@@ -58,12 +63,19 @@ const PartnerWrapper = styled.div`
     @media (min-width:412px) {
         width: 11.375rem;
         height: 9.5rem;
-        padding: 2rem;
+
+        a {
+
+            padding: 2rem;
+        }
     }
 
     @media (min-width:1000px) {
         width: 23.75rem;
         height: 15.5rem;
-        padding: 3.6rem 4.3rem;
+        
+        a {
+            padding: 3.6rem 4.3rem;
+        }
     }
 `

@@ -15,37 +15,37 @@ const members = [
         name: 'Bruno Friedrich',
         image: './images/co_members/BrunoFriedrich.jpg',
         departments: ['Palestrantes','Parcerias'],
-        anchor: 'http://linkedin.com/in/caionovais28'
+        anchor: 'https://www.linkedin.com/in/bruno-friedrich-raquel-673882265/'
     },
     {
         name: 'Caio Novais',
         image: './images/co_members/CaioNovais.jpeg',
         departments: ['Diretoria', 'Palestrantes'],
-        anchor: 'www.linkedin.com/in/caio-vinícius-melo-silva-a107b61a0'
+        anchor: 'https://linkedin.com/in/caionovais28'
     },
     {
         name: 'Caio Silva',
         image: './images/co_members/CaioSilva.jpg',
         departments: ['Infraestrutura', 'Site'],
-        anchor: 'https://www.linkedin.com/in/caio-fernando-goncalves-francisco'
+        anchor: 'https://linkedin.com/in/caio-vinícius-melo-silva-a107b61a0'
     },
     {
         name: 'Caio Fernando',
         image: './images/co_members/CaioFernando.jpg',
         departments: ['Comercial e Financeiro'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: 'https://www.linkedin.com/in/caio-fernando-goncalves-francisco'
     },
     {
         name: 'Catarina Macedo',
         image: './images/co_members/CatarinaMacedo.jpg',
         departments: ['Site'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: 'https://www.linkedin.com/in/catarina-de-macedo-scabelli-242876274'
     },
     {
         name: 'Emmily Boesing',
         image: './images/co_members/EmmilyBoesing.jpeg',
         departments: ['Criação e Comunicação'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: ''
     },
     {
         name: 'Francisco Gomes',
@@ -105,7 +105,7 @@ const members = [
         name: 'Isabela Brendel',
         image: './images/co_members/IsabelaBrendel.jpeg',
         departments: ['Parcerias'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: ''
     },
     {
         name: 'Kaique Santos',
@@ -141,7 +141,7 @@ const members = [
         name: 'Marcos Rezende',
         image: './images/co_members/MarcosRezende.jpg',
         departments: ['Infraestrutura'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: ''
     },
     {
         name: 'Matheus Rocha',
@@ -183,13 +183,13 @@ const members = [
         name: 'Renan Bezerra',
         image: './images/co_members/RenanBezerra.jpg',
         departments: ['Palestrantes'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: ''
     },
     {
         name: 'Rodrigo Cardoso',
         image: './images/co_members/RodrigoCardoso.jpg',
         departments: ['Infraestrutura'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: ''
     },
     {
         name: 'Samuel Silva',
@@ -213,7 +213,7 @@ const members = [
         name: 'Thiago Harada',
         image: './images/co_members/ThiagoHarada.png',
         departments: ['Criação e Comunicação','Site'],
-        anchor: 'https://www.linkedin.com/in/aline-murai'
+        anchor: ''
     },
     {
         name: 'Tiago Fraga',

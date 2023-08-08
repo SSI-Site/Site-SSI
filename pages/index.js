@@ -12,32 +12,26 @@ import '../utils/slugify';
 // components
 import Button from '../src/components/Button';
 import DateStamp from '../src/components/DateStamp';
-import ScheduleInformation from '../src/components/ScheduleInformation';
 import TwitchWatchNow from '../src/components/TwitchWatchNow';
 import AuthModal from '../src/components/AuthModal';
 import TokenModal from '../src/components/TokenModal';
 import PartnerCard from '../src/components/PartnerCard';
-
-// assets
-import LogoPrincipal from '../public/images/logos/logo_principal.svg';
-import borda from '../public/images/borda2.png';
-import speakerPicture from '../public/images/logos/logo_principal.svg';
 import ScheduleShift from '../src/components/ScheduleShift';
 
 const supporters = [
-    { title: 'ELO7', url: 'https://www.elo7.com.br/' },
-    { title: 'EY', url: 'https://www.ey.com/pt_br' },
-    { title: 'GITHUB', url: 'https://github.com/' },
-    { title: 'GLOBO', url: 'https://www.globo.com/' },
-    { title: 'REVELO', url: 'https://www.revelo.com.br/' },
-    { title: 'PET-SI', url: 'http://www.each.usp.br/petsi/' },
-    { title: 'EACH-USP', url: 'http://www5.each.usp.br/' }
-].sort((a, b) => a.title > b.title ? 1 : -1);
+    { name: 'Rocketseat', image: './images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
+    { name: 'Griaule', image: './images/partners/griaule.svg', url: 'https://griaule.com/' },
+    { name: 'Poatek', image: './images/partners/poatek.png', url: 'https://poatek.com/' },
+    { name: 'EACH', image: './images/partners/each.svg', url: 'http://www5.each.usp.br/' },
+    { name: 'PET-SI', image: './images/partners/pet.png', url: 'htttp://www.each.usp.br/petsi/' }
+// ].sort((a, b) => a.name > b.name ? 1 : -1);
+];
 
 const Home = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
+    // const { user, signOut } = useAuth();
+    const { user } = false;
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -69,11 +63,11 @@ const Home = () => {
     }
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, [user]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, []);
 
     const [countdownDays, setCountdownDays] = useState();
@@ -152,7 +146,8 @@ const Home = () => {
                                         <h3>Semana de Sistemas de Informação 2023</h3>
                                         <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
-                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                    {/* <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link> */}
+                                    <Button className="btn-entrar" disabled>Cadastros em breve...</Button>
                                 </>
                             :
                                 <>
@@ -302,7 +297,7 @@ const Home = () => {
                     </div>
                     {!user &&
                         <div className='countdown-btn'>
-                            <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button></Link>
+                            <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button></Link>
                         </div>
                     }
                 </CountdownSection>
@@ -335,11 +330,11 @@ const Home = () => {
                         <p>Empresas e marcas que estão conosco para tornar este evento um sucesso</p>
                     </div>
                     <div className='supporters-cards'>
-                        <PartnerCard name='rocketseat' image='./images/partners/rocketseat.svg' link="https://www.rocketseat.com.br/" />
-                        <PartnerCard name='griaule' image='./images/partners/griaule.svg' link="https://griaule.com/" />
-                        <PartnerCard name='poatek' image='./images/partners/poatek.png' link="https://poatek.com/" />
-                        <PartnerCard name='each' image='./images/partners/each.svg' link="http://www5.each.usp.br/" />
-                        {/* <PartnerCard name='pet' image='./images/partners/pet.png' link="htttp://www.each.usp.br/petsi/" /> */}
+                        {Object.entries(supporters).map(([key, supporter]) => {
+                            return (
+                                <PartnerCard name={supporter.name} image={supporter.image} link={supporter.url} />
+                            )
+                        })}
                     </div>
                 </div>
             </SupportersSection>
