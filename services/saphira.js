@@ -4,15 +4,15 @@ const base_url = 'http://www.boredapi.com/api/activity'; // para o exemplo -> AP
 
 const saphira = {
 
-    // Para o exemplo 
-    getActivity: async () => {
-        try {
-            const response = await axios.get(base_url);
-            return response.data;
-        } catch (err) {
-            console.log(err);
-        }
-    }, // -> APAGAR
+    // // Para o exemplo 
+    // getActivity: async () => {
+    //     try {
+    //         const response = await axios.get(base_url);
+    //         return response.data;
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }, // -> APAGAR
 
     registerUser: async (userData) => {
         const requestUrl = BASE_URL + "/user/add";

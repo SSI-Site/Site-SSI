@@ -72,6 +72,7 @@ const LectureItem = ({ time, event,  }) => {
                         // speakerName={ }
                         title={event['title']}
                         overview={event['description']}
+                        local = {event['local']}
                     />
                 </div>
                 {show.includes(time) ?

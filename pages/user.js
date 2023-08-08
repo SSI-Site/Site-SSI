@@ -25,19 +25,15 @@ const User = () => {
         'Palestra muito foda 3',
     ];
 
-    const { user, signOut } = useAuth();
+    // const { user, signOut } = useAuth();
+    const { user } = false;
 
-    const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
     const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [userInfo, setUserInfo] = useState({});
     // const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [showList, setShowList] = useState(false);
-
-    const toggleModalTokenIsOpen = () => {
-        setIsModalTokenOpen(!isModalTokenOpen);
-    }
 
     const checkUserRegister = () => {
         if (!user) return;
@@ -131,31 +127,31 @@ const User = () => {
     }
 
     useEffect(() => {
-        if (isUserRegistered) {
-            getPresences();
-        }
+        // if (isUserRegistered) {
+        //     getPresences();
+        // }
     }, [isUserRegistered]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, [user]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, []);
 
     
     const { asPath } = useRouter('/user');
     
     useEffect(() => {
-        setTimeout(() => {
-            const hash = asPath.split('#')[1];
-            if (hash == 'meus-brindes') {
-                const giftsSection = document.getElementById(hash);
-                giftsSection.scrollIntoView();
-                scrollToMyRef(hash);
-            }
-        }, 1000);
+        // setTimeout(() => {
+        //     const hash = asPath.split('#')[1];
+        //     if (hash == 'meus-brindes') {
+        //         const giftsSection = document.getElementById(hash);
+        //         giftsSection.scrollIntoView();
+        //         scrollToMyRef(hash);
+        //     }
+        // }, 1000);
     }, [asPath]);
 
     const scrollToMyRef = (id) => {
@@ -238,10 +234,11 @@ const User = () => {
 
                     <LecturesListSection>
                         <div className='lectures-info-wrapper'>
-                            <h4>Palestras assistidas</h4>
+                            <h4>Registro de presenças</h4>
+                            <TokenModal/>
                             <div className='lectures-count'>
-                                <p>Número total de registros: <span>{lectures.length}</span></p>
-                                <p>Número de registros presenciais: <span>{presentialLecturesCount()}</span></p>
+                                <p>N<sup>o</sup> total de registros: <span>{lectures.length}</span></p>
+                                <p>N<sup>o</sup> de registros presenciais: <span>{presentialLecturesCount()}</span></p>
                             </div>
                             <Button onClick={() => setShowList(!showList)}>
                                 {showList ? "Ocultar registros" : "Exibir registros"}
@@ -263,17 +260,6 @@ const User = () => {
                                 </LecturesList>
                             }
                         </div>
-
-
-                        {/* <>
-                            {user && !isModalTokenOpen &&
-                                <Button onClick={toggleModalTokenIsOpen}>Registrar Presença</Button>
-                            }
-
-                            {user && isModalTokenOpen &&
-                                <TokenModal toggleVisibility={toggleModalTokenIsOpen} />
-                            }
-                        </> */}
                     </LecturesListSection>
 
                     <GiftsProgressSection id='meus-brindes'>

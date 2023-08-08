@@ -10,11 +10,13 @@ import Lecture05_KamilaSantos from '../public/images/lecture_imgs/05-Kamila_Sant
 // import Lecture06_SpeakerName01 from '../public/images/lecture_imgs/06-Speaker_Name_01.png'
 // import Lecture07_SpeakerName01 from '../public/images/lecture_imgs/07-Speaker_Name_01.png'
 // import Lecture08_SpeakerName01 from '../public/images/lecture_imgs/08-Speaker_Name_01.png'
-// import Lecture09_SpeakerName01 from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
+// import Lecture09_GustavoAlmeida from '../public/images/lecture_imgs/09-Gustavo_Almeida.png'
+// import Lecture09_EduardaLima from '../public/images/lecture_imgs/09-Eduarda_Lima.png'
 import Lecture10_LeonardoDalri from '../public/images/lecture_imgs/10-Leonardo_Dalri.jpg'
 import Lecture11_AlineSouza from '../public/images/lecture_imgs/11-Aline_Souza.jpeg'
 import Lecture12_LuizPaulo from '../public/images/lecture_imgs/12-Luiz_Paulo_Carvalho.png'
-// import Lecture13_SpeakerName01 from '../public/images/lecture_imgs/13-Speaker_Name_01.png'
+// import Lecture13_YagoArouca from '../public/images/lecture_imgs/13-Yago_Arouca.png'
+// import Lecture13_FelipeMateos from '../public/images/lecture_imgs/13-Felipe_Mateus.png'
 import Lecture14_JulianaMascarenhas from '../public/images/lecture_imgs/14-Juliana_mascarenhas.png'
 import Lecture15_AndrewRosario from '../public/images/lecture_imgs/15-Andrew_Rosario.jpeg'
 // import Lecture16_SpeakerName01 from '../public/images/lecture_imgs/16-Speaker_Name_01.png'
@@ -25,7 +27,7 @@ import Lecture20_MeyrileneAvelino from '../public/images/lecture_imgs/20-Meiryle
 import Lecture21_AntonioCarlos from '../public/images/lecture_imgs/21-Antonio_Carlos_Meira_Neto.jpg'
 // import Lecture22_SpeakerName01 from '../public/images/lecture_imgs/22-Speaker_Name_01.png'
 import Lecture23_CarolinaGalvao from '../public/images/lecture_imgs/23-Carolina_Galvão_de_Oliveira.jpg'
-// import Lecture24_SpeakerName24 from '../public/images/lecture_imgs/24-Speaker_Name_01.png'
+// import Lecture24_RegisRossi from '../public/images/lecture_imgs/24-Regis_Rossi.png'
 // import Lecture25_SpeakerName25 from '../public/images/lecture_imgs/25-Speaker_Name_01.png'
 import Lecture26_MayzaCristina from '../public/images/lecture_imgs/26-Mayza_Cristina.jpg'
 import Lecture27_RobertoAzevedo from '../public/images/lecture_imgs/27-Roberto_Azevedo.jpg'
@@ -38,7 +40,7 @@ import Lecture32_RenataMiranda from '../public/images/lecture_imgs/32-Renata_Mir
 import Lecture34_VitorDavid from '../public/images/lecture_imgs/34-Vitor_David.png'
 import Lecture35_JeffersonBrandao from '../public/images/lecture_imgs/35-Jeff_Brandão.jpeg'
 // import Lecture36_SpeakerName01 from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
-// import Lecture37_SpeakerName01 from '../public/images/lecture_imgs/37-Speaker_Name_01.png'
+// import Lecture37_LucianoDigiampietri from '../public/images/lecture_imgs/37-Luciano_Digiampietri.png'
 import Lecture38_LeonardoLeite from '../public/images/lecture_imgs/38-Leonardo_Leite.jpg'
 import Lecture39_SimaraConceicao from '../public/images/lecture_imgs/39-Simara_Conceicao.jpg'
 // import Lecture40_DiegoRenan from '../public/images/lecture_imgs/40-Diego_Renan.png'
@@ -82,7 +84,7 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Fernando De Come', 'linkedin': 'https://www.linkedin.com/in/fernandodecome/', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Fernando De Come', 'linkedin': 'https://www.linkedin.com/in/fernandodecome/', 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -124,7 +126,7 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    // {'name': 'Nome do palestrante', 'website': 'https://www.rocketseat.com.br/', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                     // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName02/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
@@ -148,8 +150,8 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName02/*Aqui vem a imagem do palestrante*/},
+                    // {'name': 'Gustavo Almeida de Jesus', 'linkedin' : 'https://semanadesi.com', 'image': Lecture09_GustavoAlmeida},
+                    // {'name': 'Eduarda Lima Porongaba', 'linkedin' : 'https://semanadesi.com', 'image': Lecture09_EduardaLima},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -158,7 +160,7 @@ const shifts = {
                 description : 'Pode me chamar de Léo! Sou apaixonado em impulsionar carreiras de profissionais de TI através do ensino de inglês. Ajudo vocês a se comunicarem com mais confiança e alcançarem seus objetivos profissionais. Falo sobre inglês para a vida profissional, Job Interviews, Agile Framework, além do dia a dia em empresas, acumulando +5000 horas de mentorias. Fundei a Rover Aprendizagem – English for IT, ganhadora do 1º lugar de empresas de TI em Santa Catarina. Nessa palestra, vamos conversar sobre como o inglês irá abrir portas na carreira de vocês, qual o mindset ideal para aprender inglês focado para TI, além de como se preparar para Job Interviews e se vender de forma estratégica. Venham com energia! Isso não será uma aula de inglês, mas sim, uma conversa para impulsionar os próximos passos da sua carreira.',
                 local : 'online',// presential ou online
                 speakers : [
-                    {'name': 'Leonardo Dalri', 'image': Lecture10_LeonardoDalri/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Leonardo Dalri', 'image': Lecture10_LeonardoDalri},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -191,8 +193,8 @@ const shifts = {
                 description : 'Em breve..',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    // {'name': 'Nome do palestrante', 'linkedin' : 'https://semanadesi.com', 'image': Lecture13_YagoArouca},
+                    // {'name': 'Nome do palestrante', 'linkedin' : 'https://semanadesi.com', 'image': Lecture13_FelipeMateos},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -306,11 +308,11 @@ const shifts = {
             },
             '17:20' : {
                 title : 'Em breve...',
+                // title : 'Computação Sonora e Musical: Cenário Tecnológico e de Aplicações',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Regis Rossi A. Faria', 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -454,11 +456,11 @@ const shifts = {
             },
             '10:00' : {
                 title : 'Em breve...',
+                // title : 'Os bastidores do ChatGPT: Como funciona esta tecnologia de PLN?',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Luciano Antonio Digiampietri', 'linkedin' : 'https://br.linkedin.com/in/luciano-digiampietri', 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
