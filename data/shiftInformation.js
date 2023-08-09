@@ -36,7 +36,7 @@ import Lecture29_YgorSperanza from '../public/images/lecture_imgs/29-Ygor_Speran
 import Lecture30_SilviaTrein from '../public/images/lecture_imgs/30-Silvia_Heimfarth_Dapper.jpg'
 // import Lecture31_SpeakerName25 from '../public/images/lecture_imgs/31-Speaker_Name_01.png'
 import Lecture32_RenataMiranda from '../public/images/lecture_imgs/32-Renata_Miranda.jpg'
-// import Lecture33_SpeakerName01 from '../public/images/lecture_imgs/33-Speaker_Name_01.png'
+import Lecture33_BrunaShinohara from '../public/images/lecture_imgs/33-Bruna_Shinohara.jpg'
 import Lecture34_VitorDavid from '../public/images/lecture_imgs/34-Vitor_David.png'
 import Lecture35_JeffersonBrandao from '../public/images/lecture_imgs/35-Jeff_Brandão.jpeg'
 // import Lecture36_SpeakerName01 from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
@@ -70,7 +70,7 @@ const shifts = {
                 description : 'Jorge Maia é Arquiteto de soluções de IoT e Nuvem na CrazyTechLabs desde 2014. Reconhecido como Learn Expert e Regional Lead para Treinadores Certificados pela Microsoft, que também o premiou nos últimos 7 anos o MVP (Most Valuable Professional) na categoria de Azure e IoT, é também Mestre em Sistemas Mecatrônicos e Doutorando no tema.\n Nesta sessão ele discutirá com a audiência sobre o panorama de soluções conectadas e também sobre as evoluções no desenvolvimento de software com a chegada do GPT e outras ferramentas de IA.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Jorge Maia', 'image': Lecture02_JorgeMaia},
+                    {'name': 'Jorge Maia', 'linkedin' : 'https://www.linkedin.com/in/jorgeasmaia/', 'image': Lecture02_JorgeMaia},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -169,7 +169,7 @@ const shifts = {
                 description : 'Formada em Sistemas de Informação, pós graduada em Engenharia de Software pela UNICAMP e atualmente cursando a segunda pós graduação em Arquitetura de Software. Com mais de 10 anos de experiência em desenvolvimento, dos quais 5 deles focada em desenvolvimento Mobile (Android). No tema da palestra de hoje, o intuito é abordar a modularização de um aplicativo: O que significa modularizar, quais as vantagens, desvantagens, riscos e algumas formas de realizar tal modularização.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Aline Souza', 'image': Lecture11_AlineSouza},
+                    {'name': 'Aline Souza', 'linkedin' : 'https://www.linkedin.com/in/assouza94/', 'image': Lecture11_AlineSouza},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -408,12 +408,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '17:20' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
-                local : 'presential',// presential ou online
+                title : 'Computação quântica - Uma visão geral',
+                description : 'Doutora em física pela USP e Staff Scientist - Quantum Computing na CMC Microsystems, Canada. Envolvida em divulgação científica sobre computação quântica na medida do possível. A palestra é sobre computação quântica de um ponto de vista amplo: o que é, o que não é, como está o mercado, quais as possíveis aplicações e como explorar essa área do conhecimento.',
+                local : 'online',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Bruna Shinohara de Mendonça', 'image': Lecture33_BrunaShinohara},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
