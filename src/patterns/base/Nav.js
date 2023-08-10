@@ -23,8 +23,8 @@ const pages = {
 
 const Nav = () => {
 
-    // const { user } = useAuth();
-    const { user } = false;
+    const { user } = useAuth();
+    // const { user } = false; // para deploy sem login
     const router = useRouter();
     
     const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +97,8 @@ const Nav = () => {
                         </li>
                         :
                         <li>
-                            <Button onClick={handleShowAuthModal} disabled>Login</Button>
+                            <Button onClick={handleShowAuthModal}>Login</Button>
+                            {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
                         </li>
 
                     }
@@ -123,7 +124,8 @@ const Nav = () => {
                             </li>
                             :
                             <li className='login-button' onClick={() => setIsOpen(false)}>
-                                <Button onClick={handleShowAuthModal} disabled>Login</Button>
+                                <Button onClick={handleShowAuthModal}>Login</Button>
+                                {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
                             </li>
                         }
 

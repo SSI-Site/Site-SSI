@@ -25,8 +25,8 @@ const User = () => {
         'Palestra muito foda 3',
     ];
 
-    // const { user, signOut } = useAuth();
-    const { user } = false;
+    const { user, signOut } = useAuth();
+    // const { user } = false; // para deploy sem login
 
     const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [userInfo, setUserInfo] = useState({});
