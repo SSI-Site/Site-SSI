@@ -22,6 +22,7 @@ const supporters = [
     { name: 'Rocketseat', image: './images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
     { name: 'Griaule', image: './images/partners/griaule.svg', url: 'https://griaule.com/' },
     { name: 'Poatek', image: './images/partners/poatek.png', url: 'https://poatek.com/' },
+    { name: 'BCR.CX', image: './images/partners/bcrcx.png', url: 'https://www.bcrcx.com/' },
     { name: 'EACH', image: './images/partners/each.svg', url: 'http://www5.each.usp.br/' },
     { name: 'PET-SI', image: './images/partners/pet.png', url: 'htttp://www.each.usp.br/petsi/' }
 // ].sort((a, b) => a.name > b.name ? 1 : -1);
