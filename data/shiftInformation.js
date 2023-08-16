@@ -4,46 +4,44 @@ import Lecture00_SpeakerName02 from '../public/images/lecture_imgs/00-Member_Sha
 
 import Lecture01_CarlaVieira from '../public/images/lecture_imgs/01-Carla_Vieira.jpeg'
 import Lecture02_JorgeMaia from '../public/images/lecture_imgs/02-Jorge_Maia.png'
-// import Lecture03_FernandoDeCome from '../public/images/lecture_imgs/03-Fernando_Come.png'
+import Lecture03_FernandoDeCome from '../public/images/lecture_imgs/03 - Fernando_de_Come.jpeg'
 import Lecture04_FabioTelles from '../public/images/lecture_imgs/04-Fabio_Telles.jpeg'
 import Lecture05_KamilaSantos from '../public/images/lecture_imgs/05-Kamila_Santos.png'
-// import Lecture06_SpeakerName01 from '../public/images/lecture_imgs/06-Speaker_Name_01.png'
-// import Lecture07_SpeakerName01 from '../public/images/lecture_imgs/07-Speaker_Name_01.png'
-// import Lecture08_SpeakerName01 from '../public/images/lecture_imgs/08-Speaker_Name_01.png'
-// import Lecture09_GustavoAlmeida from '../public/images/lecture_imgs/09-Gustavo_Almeida.png'
-// import Lecture09_EduardaLima from '../public/images/lecture_imgs/09-Eduarda_Lima.png'
+import Lecture06_MiltonLeal from '../public/images/lecture_imgs/06-Milton_Leal.jpg'
+import Lecture07_JakelinyGracielly from '../public/images/lecture_imgs/07-Jakeliny_Gracielly.jpg'
+// import Lecture08_AndreJuan from '../public/images/lecture_imgs/08-Andre_Juan.png'
+// import Lecture09_SpeakerName01 from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
 import Lecture10_LeonardoDalri from '../public/images/lecture_imgs/10-Leonardo_Dalri.jpg'
 import Lecture11_AlineSouza from '../public/images/lecture_imgs/11-Aline_Souza.jpeg'
 import Lecture12_LuizPaulo from '../public/images/lecture_imgs/12-Luiz_Paulo_Carvalho.png'
-// import Lecture13_YagoArouca from '../public/images/lecture_imgs/13-Yago_Arouca.png'
-// import Lecture13_FelipeMateos from '../public/images/lecture_imgs/13-Felipe_Mateus.png'
+import Lecture13_JanainaMoreira from '../public/images/lecture_imgs/13-Janaina_Moreira.jpeg'
 import Lecture14_JulianaMascarenhas from '../public/images/lecture_imgs/14-Juliana_mascarenhas.png'
 import Lecture15_AndrewRosario from '../public/images/lecture_imgs/15-Andrew_Rosario.jpeg'
-// import Lecture16_SpeakerName01 from '../public/images/lecture_imgs/16-Speaker_Name_01.png'
+import Lecture16_LuizDeOliveira from '../public/images/lecture_imgs/16-Luiz_de_Oliveira.png'
 import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptista.jpg'
 import Lecture18_CarlosRischioto from '../public/images/lecture_imgs/18-Carlos_Rischioto.jpeg'
 // import Lecture19_SpeakerName01 from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
 import Lecture20_MeyrileneAvelino from '../public/images/lecture_imgs/20-Meirylene_Avelino.jpg'
 import Lecture21_AntonioCarlos from '../public/images/lecture_imgs/21-Antonio_Carlos_Meira_Neto.jpg'
-// import Lecture22_SpeakerName01 from '../public/images/lecture_imgs/22-Speaker_Name_01.png'
+// import Lecture22_MateusNavarro from '../public/images/lecture_imgs/22-Speaker_Name_01.png'
 import Lecture23_CarolinaGalvao from '../public/images/lecture_imgs/23-Carolina_Galvão_de_Oliveira.jpg'
-// import Lecture24_RegisRossi from '../public/images/lecture_imgs/24-Regis_Rossi.png'
-// import Lecture25_SpeakerName25 from '../public/images/lecture_imgs/25-Speaker_Name_01.png'
+import Lecture24_ClaraSantos from '../public/images/lecture_imgs/24-Clara_Santos.jpeg'
+import Lecture25_GiuliaBordignon from '../public/images/lecture_imgs/25-Giulia_Bordignon.jpg'
 import Lecture26_MayzaCristina from '../public/images/lecture_imgs/26-Mayza_Cristina.jpg'
 import Lecture27_RobertoAzevedo from '../public/images/lecture_imgs/27-Roberto_Azevedo.jpg'
-// import Lecture28_SpeakerName01 from '../public/images/lecture_imgs/28-Speaker_Name_01.png'
+import Lecture28_RodrigoLeme from '../public/images/lecture_imgs/28-Rodrigo_Leme.jpg'
 import Lecture29_YgorSperanza from '../public/images/lecture_imgs/29-Ygor_Speranza.jpeg'
 import Lecture30_SilviaTrein from '../public/images/lecture_imgs/30-Silvia_Heimfarth_Dapper.jpg'
-// import Lecture31_SpeakerName25 from '../public/images/lecture_imgs/31-Speaker_Name_01.png'
+// import Lecture31_SpeakerName01 from '../public/images/lecture_imgs/31-Speaker_Name_01.png'
 import Lecture32_RenataMiranda from '../public/images/lecture_imgs/32-Renata_Miranda.jpg'
 import Lecture33_BrunaShinohara from '../public/images/lecture_imgs/33-Bruna_Shinohara.jpg'
 import Lecture34_VitorDavid from '../public/images/lecture_imgs/34-Vitor_David.png'
 import Lecture35_JeffersonBrandao from '../public/images/lecture_imgs/35-Jeff_Brandão.jpeg'
 // import Lecture36_SpeakerName01 from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
-// import Lecture37_LucianoDigiampietri from '../public/images/lecture_imgs/37-Luciano_Digiampietri.png'
+import Lecture37_ThyagoOliveira from '../public/images/lecture_imgs/37-Thyago_Oliveira.png'
 import Lecture38_LeonardoLeite from '../public/images/lecture_imgs/38-Leonardo_Leite.jpg'
 import Lecture39_SimaraConceicao from '../public/images/lecture_imgs/39-Simara_Conceicao.jpg'
-// import Lecture40_DiegoRenan from '../public/images/lecture_imgs/40-Diego_Renan.png'
+import Lecture40_DiegoRenan from '../public/images/lecture_imgs/40-Diego_Renan.jpg'
 import Lecture41_LuizYanai from '../public/images/lecture_imgs/41-Luiz_Yanai.png'
 import Lecture42_KarolAttekita from '../public/images/lecture_imgs/42-Karol_Attekita.png'
 import Lecture43_LarissaBenevides from '../public/images/lecture_imgs/43-Larissa_Benevides.png'
@@ -80,11 +78,11 @@ const shifts = {
         },
         'Tarde' : {
             '13:20' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
+                title : 'IA Enterprise - o "Mundo Real"',
+                description : 'Sou formado em engenharia química pela Poli USP, onde também estou fazendo o Mestrado; atualmente trabalho como Data & AI Engineer na Oracle, com foco em projetos de IA. Na minha palestra, trarei uma visão de como IA é tratada por empresas. O uso de soluções Enterprise de inteligência artificial é um tanto diferentede soluções voltadas para os consumidores finais e as diferenças nem sempre são claras. Isso acaba gerando uma bolha onde todos investem em IA sem um planejamento adequado ou, ainda pior, sem necessidade.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Fernando De Come', 'linkedin': 'https://www.linkedin.com/in/fernandodecome/', 'image': Lecture00_SpeakerName01},
+                    {'name': 'Fernando De Come', 'linkedin': 'https://www.linkedin.com/in/fernandodecome/', 'image': Lecture03_FernandoDeCome},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -107,12 +105,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '17:20' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
+                title : 'ChatGPT: hype or reality? (Poatek)',
+                description : 'Data Scientist, granduando em matemática aplicada computacional pelo IME/USP. A palestra será um overview sobre Large Language Models (ChatGPT e similares) e aplicações. Contarei também sobre a minha experiência em construir sistemas que utilizam LLMs.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName02/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Milton Leal', /*'website': 'https:semanadesi.com'*//*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture06_MiltonLeal},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -122,12 +119,11 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
+                title : 'Além do Código: Habilidades Vitais para Desenvolvedores (Rocketseat)',
+                description : 'Desenvolvedora há 11 anos, atualmente focada na stack JS, React e NodeJS. Sou reconhecida pela Microsoft como Microsoft MVP. Fui educadora de desenvolvimento e atual DevRel na Rocketseat, formada em Cybersecurity pela FIAP e técnica em programação para computadores pela Etec. Tenho como missão levar conhecimento em tecnologia de forma democrática para o maior numero de pessoas possível. Atualmente encabeço uma imersão para formação de líderes técnicos chamada Assemble. Nessa talk vamos explorar todas as habilidades que devemos desenvolver ao longo da nossa jornada profissional para nos tornarmos o "bons programadores" que o mercado de trabalho precisa!',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https://www.rocketseat.com.br/', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName02/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Jakeliny Gracielly', 'website': 'https://www.rocketseat.com.br/', 'image': Lecture07_JakelinyGracielly},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -136,8 +132,7 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName02/*Aqui vem a imagem do palestrante*/},
+                    // {'name': 'André Juan', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture08_AndreJuan},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -189,12 +184,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '14:40' : {
-                title : 'Em breve..',
-                description : 'Em breve..',
-                local : 'presential',// presential ou online
+                title : 'UX, deficiência e um mercado emergente',
+                description : 'Accessibility Design Ops  no Itaú.UX, deficiência e um mercado emergente. Uma breve análise, sobre o potencial de mercado e poder econômico de pessoas com deficiência.',
+                local : 'online',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'linkedin' : 'https://semanadesi.com', 'image': Lecture13_YagoArouca},
-                    // {'name': 'Nome do palestrante', 'linkedin' : 'https://semanadesi.com', 'image': Lecture13_FelipeMateos},
+                    {'name': 'Janaina Moreira', 'image': Lecture13_JanainaMoreira},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -222,12 +216,11 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
+                title : 'Do zero ao multicloud',
+                description : 'A revolução digital trouxe consigo a transformação radical das infraestruturas de TI, impulsionando a adoção de soluções em nuvem para empresas de todos os tamanhos. Nessa palestra exploraremos a jornada das arquiteturas em nuvem, desde o estágio inicial da adoção de um único provedor até a complexidade das arquiteturas híbridas e multicloud.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Luiz de Oliveira', /*'website': 'https:semanadesi.com' Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture16_LuizDeOliveira},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -307,12 +300,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '17:20' : {
-                title : 'Em breve...',
-                // title : 'Computação Sonora e Musical: Cenário Tecnológico e de Aplicações',
-                description : 'Em breve...',
+                title : 'CSI brasileiro - a tecnologia nacional que identifica criminosos ao redor do mundo (Griaule)',
+                description : 'Responsável pela área de recursos humanos da Griaule, incluindo desenvolvimento de parcerias com universidades e recrutamento. Palestra sobre os fundamentos da biometria e como as soluções biométricas da Griaule apoiam as entidades de segurança pública na identificação de indivíduos procurados ao redor do mundo.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Regis Rossi A. Faria', 'image': Lecture00_SpeakerName01},
+                    {'name': 'Clara Santos', 'image': Lecture24_ClaraSantos},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -322,12 +314,11 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
-                local : 'presential',// presential ou online
+                title : 'Por que demorei tanto pra aprender programação?',
+                description : 'Mestra em engenharia de computação e desenvolvedora backend. Através da criação de conteúdos, sonho impactar vidas de forma positiva com rompimento de barreiras e empoderamento tecnológico, reconstruindo a área tecnológica como um espaço acessível e pertencente a todas as pessoas. Quando pensamos em entrar na área da programação nos deparamos com muitas linguagens, tecnologias e possibilidades de carreira. É muito comum nos sentirmos perdidos e trocarmos constantemente nossa trilha de aprendizado. Vem comigo que nesta talk eu vou compartilhar um pouco da minha trajetória dentro do universo tecnológico e compartilhas os erros que cometi no início da minha carreira, dando dicas valiosas que vão te guiar nesta jornada de aprendizado.',
+                local : 'online',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Giulia Bordignon', 'image': Lecture25_GiuliaBordignon},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -354,12 +345,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
+                title : 'Tecnologia & Inovação: a prática da teoria e a teoria na prática (BCR CX)',
+                description : 'Sou advogado de formação, com Especialização (PUC/SP), Mestrado (PUC/SP) e Doutorado em Direito (USP). Ainda no ramo acadêmico, sou atualmente doutorando em Política Científica e Tecnológica (UNICAMP). Profissionalmente, trabalhei por 7.5 anos na Adobe Systems, primeiro como gerente regional e depois como gerente global de uma área de estratégia e atualmente sou Diretor de Estratégia, Crescimento e Operações na empresa brasileira BCR.CX. Durante minha jornada até aqui, consegui mesclar conhecimento acadêmico com uma vivência intensa no ramo de tecnologia. Com isso, gostaria de sugerir uma palestra que explore alguns conceitos de tecnologia e inovação, tanto de uma perspectiva acadêmica, quanto na prática do ramo de tecnologia. Algo como "Tecnologia e Inovação: a prática da teoria e a teoria na prática".',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Rodrigo Leme Freitas', 'image': Lecture28_RodrigoLeme},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -454,12 +444,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Em breve...',
-                // title : 'Os bastidores do ChatGPT: Como funciona esta tecnologia de PLN?',
-                description : 'Em breve...',
-                local : 'presential',// presential ou online
+                title : 'Maximizando a Eficiência nas Entregas por Meio das Métricas de Fluxo',
+                description : 'People & Culture Product Leadership na Humanecer! Conselheiro em Design Organizacional, Performance de Times e Produtos Digitais na GROWYX, sediada em Lisboa/POR! Pai do Princeso Bento e companheiro da elegantérrima, Bruna! Esta palestra abordará a importância das métricas de fluxo como impulsionadoras fundamentais da eficiência operacional e da otimização de processos. Explorando o tema, será mostrado como as métricas de fluxo oferecem insights valiosos para identificar gargalos, pontos de estrangulamento e oportunidades de aprimoramento num fluxo de trabalho.',
+                local : 'online',// presential ou online
                 speakers : [
-                    {'name': 'Luciano Antonio Digiampietri', 'linkedin' : 'https://br.linkedin.com/in/luciano-digiampietri', 'image': Lecture00_SpeakerName01},
+                    {'name': 'Thyago Thompson Veras Oliveira', 'image': Lecture37_ThyagoOliveira},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -488,11 +477,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '14:40' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
+                title : 'Projeto CARINA: Sistemas de Atenção Visual para Navegação Autônoma',
+                description : 'Professor doutor pelo ICMC/USP,  na área de Robótica e Inteligência Artificial, trabalhando com pesquisas em Visão Computacional para Veículos Autônomos e ADAS. É Mestre pela UNESP/IBILCE, com pesquisas em Robótica Móvel e algoritmos de Inteligência Artificial. Atualmente é professor da FATEC e Pós-doutorando no ICMC/USP. Também é CEO e Founder da Algoritma, empresa focada em Inteligência Artificial e Machine Learning. Palestra: A área de veículos inteligentes está cada vez mais forte no cenário industrial, focando tanto para veículos totalmente autônomos, quanto para dar suporte e maior segurança para um motorista humano. Nessa apresentação serão abordados conceitos relacionados com a navegação e percepção de veículos autônomos, envolvendo Inteligência Artificial e Visão Computacional para o projeto Rota2030, com inserção nacional e internacional. Serão então apresentados projetos em andamento em nosso grupo de pesquisa de veículos inteligentes, em conjunto com empresas multinacionais, focando principalmente em nossos sistemas de Visão Computacional para detecção de obstáculos.',
                 local : 'online',// presential ou online
                 speakers : [
-                    // {'name': 'Diego Renan Bruno', 'linkedin' : '', 'image': Lecture00_SpeakerName01},
+                    {'name': 'Diego Renan Bruno', 'linkedin' : '', 'image': Lecture40_DiegoRenan},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
