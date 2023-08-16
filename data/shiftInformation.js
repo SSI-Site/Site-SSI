@@ -32,7 +32,7 @@ import Lecture27_RobertoAzevedo from '../public/images/lecture_imgs/27-Roberto_A
 import Lecture28_RodrigoLeme from '../public/images/lecture_imgs/28-Rodrigo_Leme.jpg'
 import Lecture29_YgorSperanza from '../public/images/lecture_imgs/29-Ygor_Speranza.jpeg'
 import Lecture30_SilviaTrein from '../public/images/lecture_imgs/30-Silvia_Heimfarth_Dapper.jpg'
-// import Lecture31_SpeakerName01 from '../public/images/lecture_imgs/31-Speaker_Name_01.png'
+import Lecture31_LeandroMeili from '../public/images/lecture_imgs/31-LeandroMeili.jpeg'
 import Lecture32_RenataMiranda from '../public/images/lecture_imgs/32-Renata_Miranda.jpg'
 import Lecture33_BrunaShinohara from '../public/images/lecture_imgs/33-Bruna_Shinohara.jpg'
 import Lecture34_VitorDavid from '../public/images/lecture_imgs/34-Vitor_David.png'
@@ -128,7 +128,7 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '20:40' : {
-                title : 'Em breve...',
+                title : 'Em breve...', // Computação quântica
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
@@ -141,15 +141,25 @@ const shifts = {
     '2023-08-22' : {
         'Manhã' : {
             '08:40' : {
-                title : 'Em breve...',
+                title : 'SSI Talks: Privacidade - Até onde você está seguro?',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Gustavo Almeida de Jesus', 'linkedin' : 'https://semanadesi.com', 'image': Lecture09_GustavoAlmeida},
-                    // {'name': 'Eduarda Lima Porongaba', 'linkedin' : 'https://semanadesi.com', 'image': Lecture09_EduardaLima},
+                    {'name': 'Gustavo Almeida de Jesus', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_GustavoAlmeida*/},
+                    {'name': 'Eduarda Lima Porongaba', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_EduardaLima*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
+            '9:10' : {
+                title : 'SSI Talks:  evelando padrões ocultos - análises e aplicações de dados das redes sociais',
+                description : 'Em breve...',
+                local : 'presential',
+                speakers : [
+                    {'name': 'Yago Primerano Arouca'},
+                    {'name': 'Felipe Mateos Castro de Souza'}
+                ],
+                image: '',
+            }, /* Talvez seja melhor juntar as duas por causa do horário que fica errado kkkk */
             '10:00' : {
                 title : 'O inglês abre portas: impulsione sua carreira na TI',
                 description : 'Pode me chamar de Léo! Sou apaixonado em impulsionar carreiras de profissionais de TI através do ensino de inglês. Ajudo vocês a se comunicarem com mais confiança e alcançarem seus objetivos profissionais. Falo sobre inglês para a vida profissional, Job Interviews, Agile Framework, além do dia a dia em empresas, acumulando +5000 horas de mentorias. Fundei a Rover Aprendizagem – English for IT, ganhadora do 1º lugar de empresas de TI em Santa Catarina. Nessa palestra, vamos conversar sobre como o inglês irá abrir portas na carreira de vocês, qual o mindset ideal para aprender inglês focado para TI, além de como se preparar para Job Interviews e se vender de forma estratégica. Venham com energia! Isso não será uma aula de inglês, mas sim, uma conversa para impulsionar os próximos passos da sua carreira.',
@@ -247,12 +257,12 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '10:00' : {
-                title : 'Em breve...',
+                title : 'SSI Talks: Carreiras de um aluno de SI: além do front e backend',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Giovanna Arana Paganotti', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01 /*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Guilherme Fernandes da Costa', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01 /*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -281,11 +291,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '14:40' : {
-                title : 'Em breve...',
+                title : 'Os bastidores do ChatGPT: Como funciona esta tecnologia de PLN?',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                     // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
@@ -379,11 +389,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '14:40' : {
-                title : 'Em breve...',
-                description : 'Em breve...',
+                title : 'Desenvolvimento de Software em Estágios: Do Conceito ao MVP',
+                description : 'Neste workshop vamos compartilhar as experiências que tivemos na BCR.CX para o desenvolvimento de software, com foco na abordagem do MVP (Produto Mínimo Viável). Muito além da escolha da stack de tecnologia, a escolha do time e a comunicação constante e alinhamento de expectativas com o cliente e o time de desenvolvimento são fundamentais para o sucesso desse tipo de projeto.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Leandro Meili', 'website': 'https://bcrcx.com'/*Informações de contato*/, 'image': Lecture31_LeandroMeili/*Aqui vem a imagem do palestrante*/},
                     // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
@@ -434,11 +444,11 @@ const shifts = {
     '2023-08-25' : {
         'Manhã' : {
             '08:40' : {
-                title : 'Em breve...',
+                title : 'SSI Talks: Em breve...',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    // {'name': 'Gabriel Medeiros Jospin', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                     // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
