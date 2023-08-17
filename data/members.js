@@ -216,6 +216,12 @@ const members = [
         anchor: ''
     },
     {
+        name: 'Thiago Sanches',
+        image: './images/co_members/ThiagoSanches.jpeg',
+        departments: ['Site'],
+        anchor: 'https://www.linkedin.com/in/thiago-sanches-martins-monteiro-7b7b10215/'
+    },
+    {
         name: 'Tiago Fraga',
         image: './images/co_members/TiagoFraga.jpg',
         departments: ['Parcerias'],
