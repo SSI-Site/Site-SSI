@@ -45,8 +45,8 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
         await saphira.registerPresence(user.email, token)
             .then(() => {
-                setIsInvalid(false);
                 setIsRegistered(true);
+                setIsInvalid(false);
                 alert(`Presença Registrada!`);
                 setToken('');
                 toggleVisibility();
@@ -77,7 +77,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                                 placeholder='Token...'
                             />
                             
-                            {isInvalid && 
+                            {isInvalid && !isRegistered &&
                                 <Button type="submit" className='invalid-token'>Inválido...</Button>
                             }
                             {isRegistered &&
@@ -105,7 +105,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                                 placeholder='Digite o token...'
                             />
                     
-                            {isInvalid && 
+                            {isInvalid && !isRegistered &&
                                 <Button type="submit" className='invalid-token'>Token inválido...</Button>
                             }
                             {isRegistered &&

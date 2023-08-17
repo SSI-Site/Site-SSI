@@ -49,13 +49,14 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     router.reload();
                 }).catch((err) => {
                     setIsLoading(false);
-                    const message = err.response.data.message;
+                    console.log(err);
+                //     const message = err.response.data.message;
 
-                    if (message?.includes("ja cadastrado")) {
-                        setErrorMessage(message);
-                    } else {
-                        router.reload();
-                    }
+                //     if (message?.includes("ja cadastrado")) {
+                //         setErrorMessage(message);
+                //     } else {
+                //         router.reload();
+                //     }
                 })
         }
     };
@@ -66,8 +67,8 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
         return {
             fullName: `${data.name} ${data.last_name}`,
             email: user.email,
-            document: data.cpf_value,
-            nusp: data.nusp_value,
+            cpf: data.cpf,
+            usp_number: data.usp_number,
             birthDate: `${birthDateElements[2]}-${birthDateElements[1]}-${birthDateElements[0]}`,
             gender: data.gender === "outro" ? data.custom_gender : data.gender,
             ethnicity: data.ethnicity === "outro" ? data.custom_ethnicity : data.ethnicity,
@@ -110,19 +111,19 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <InputBoxSmall>
                             <LabelLeft htmlFor='cpf' className='required' >CPF</LabelLeft>
                             <div className='form-input'>
-                                <InputMask id='cpf_value' type='text' mask='999.999.999-99' placeholder='Insira seu CPF' className={errors.cpf_value && 'error-border'}
-                                    {...register("cpf_value", { validate: value => cpf.isValid(value) || "Documento inválido" })} />
+                                <InputMask id='cpf' type='text' mask='999.999.999-99' placeholder='Insira seu CPF' className={errors.cpf && 'error-border'} disabled={isEditing}
+                                    {...register("cpf", { validate: value => cpf.isValid(value) || "Documento inválido" })} />
                             </div>
-                            {errors.cpf_value && <ErrorMessage>{errors.cpf_value?.message}</ErrorMessage>}
+                            {errors.cpf && <ErrorMessage>{errors.cpf?.message}</ErrorMessage>}
                         </InputBoxSmall>
 
                         <InputBoxSmall>
                             <LabelLeft htmlFor='nusp' > Nº USP </LabelLeft>
                             <div className='form-input'>
-                                <input id='nusp_value' type='text' placeholder='Insira seu Nº USP' className={errors.name && 'error-border'}
-                                    {...register("nusp_value", { required: false, minLength: 5, pattern: /^[0-9]*$/i })} />
+                                <input id='usp_number' type='text' placeholder='Insira seu Nº USP' className={errors.name && 'error-border'}
+                                    {...register("usp_number", { required: false, minLength: 5, pattern: /^[0-9]*$/i })} />
                             </div>
-                            {errors.nusp_value && <ErrorMessage> Nº USP inválido </ErrorMessage>}
+                            {errors.usp_number && <ErrorMessage> Nº USP inválido </ErrorMessage>}
                         </InputBoxSmall>
                     </div>
 
@@ -144,7 +145,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                         <input id="accepted_terms" type="checkbox" defaultChecked={false}
                             {...register("accepted_terms", { required: true })}
                         />
-                        <label className='tiny-text' htmlFor="accepted_terms"> Compreendo que a Semana de Sistema de Informação é um evento aberto ao público, do qual poderei usufruir sem custo algum. Ademais, comprometo-me a respeitar todes sem distinção de classe, gênero, etnia, orientação sexual e religião. * </label>
+                        <label className='tiny-text' htmlFor="accepted_terms"> Compreendo que a Semana de Sistema de Informação é um evento aberto ao público, do qual poderei usufruir sem custo algum. Ademais, comprometo-me a respeitar todes sem distinção de classe, gênero, etnia, orientação sexual e religião.<sup><span>*</span></sup></label>
                     </CheckboxContainer>
 
                     <Separator></Separator>

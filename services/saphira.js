@@ -1,10 +1,10 @@
 import axios from 'axios';
 const BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL;
-const base_url = 'http://www.boredapi.com/api/activity'; // para o exemplo -> APAGAR
+// const base_url = 'http://www.boredapi.com/api/activity'; // para o exemplo -> COMENTAR
 
 const saphira = {
 
-    // // Para o exemplo 
+    // // Para o exemplo -> COMENTAR
     // getActivity: async () => {
     //     try {
     //         const response = await axios.get(base_url);
@@ -12,7 +12,7 @@ const saphira = {
     //     } catch (err) {
     //         console.log(err);
     //     }
-    // }, // -> APAGAR
+    // },
 
     registerUser: async (userData) => {
         const requestUrl = BASE_URL + "/user/add";
@@ -20,7 +20,8 @@ const saphira = {
         const params = {
             full_name: userData.fullName,
             email: userData.email,
-            document: userData.document,
+            cpf: userData.cpf,
+            usp_number: userData.usp_number,
             data_nascimento: userData.birthDate,
             genero: userData.gender,
             etnia: userData.ethnicity,
@@ -40,7 +41,8 @@ const saphira = {
         const params = {
             full_name: userData.fullName,
             email: userData.email,
-            document: userData.document,
+            cpf: userData.cpf,
+            usp_number: userData.usp_number,
             data_nascimento: userData.birthDate,
             genero: userData.gender,
             etnia: userData.ethnicity,

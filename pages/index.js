@@ -144,7 +144,7 @@ const Home = () => {
                                 <>
                                     <div className='landing-text'>
                                         <h3>Semana de Sistemas de Informação 2023</h3>
-                                        <p>Participe da Semana de Sistemas de Informação: Palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
+                                        <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
                                     <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
                                     {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
@@ -164,7 +164,7 @@ const Home = () => {
                                     <>
                                         <div className='landing-text'>
                                             <h3>Semana de Sistemas de Informação 2023</h3>
-                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença aqui:</p>
+                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
                                         </div>
                                         <TokenModal/>
                                     </>
@@ -333,7 +333,7 @@ const Home = () => {
                     <div className='supporters-cards'>
                         {Object.entries(supporters).map(([key, supporter]) => {
                             return (
-                                <PartnerCard name={supporter.name} image={supporter.image} link={supporter.url} />
+                                <PartnerCard key={key} name={supporter.name} image={supporter.image} link={supporter.url} />
                             )
                         })}
                     </div>

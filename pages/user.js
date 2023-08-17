@@ -18,25 +18,26 @@ import CheckBox from '../public/images/icons/lecture-check-box.svg';
 
 const User = () => {
     
-    // Array de palestras-exemplo para permitir o desenvolvimento do front
-    const lectures = [
-        'Palestra muito foda 1',
-        'Palestra muito foda 2',
-        'Palestra muito foda 3',
-    ];
+    // // Array de palestras-exemplo para permitir o desenvolvimento do front
+    // const lectures = [
+    //     'Palestra muito foda 1',
+    //     'Palestra muito foda 2',
+    //     'Palestra muito foda 3',
+    // ]; // Para o exemplo -> COMENTAR
 
     const { user, signOut } = useAuth();
     // const { user } = false; // para deploy sem login
 
     const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [userInfo, setUserInfo] = useState({});
-    // const [lectures, setLectures] = useState([]);
+    const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [showList, setShowList] = useState(false);
 
     const checkUserRegister = () => {
         if (!user) return;
+        console.log("Usuário:", user);
 
         setIsLoading(true);
 
@@ -54,19 +55,18 @@ const User = () => {
 
     const saphiraUserDataToFormFormat = (userData) => {
         const nameElements = getFullNameComponents(userData.full_name);
-        const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
+        // const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
         const birthDateElements = userData.data_nascimento.split('-');
 
         const data = {
             name: nameElements.name,
             last_name: nameElements.lastName,
             birth_date: `${birthDateElements[2]}/${birthDateElements[1]}/${birthDateElements[0]}`,
-            documentType: documentType,
             accepted_terms: true,
             is_in_internship: userData.em_estagio,
             accepted_recieve_emails: userData.aceita_receber_email,
-            nusp_value: documentType === "nusp" ? userData.document : "",
-            cpf_value: documentType === "cpf" ? userData.document : "",
+            usp_number: userData.usp_number,
+            cpf: userData.cpf,
             gender: checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "outro",
             custom_gender: !checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "",
             ethnicity: checkIfValueIsASelectOption(selectOptions.ethnicity, userData.etnia) ? userData.etnia : "outro",
@@ -120,38 +120,35 @@ const User = () => {
         for (const lecture of lectures) {
             if (!lecture.online) count++;
         }
-        // Object.entries(lectures).forEach(([key, lecture]) => {
-        //     if (lecture.online) count++;
-        // });
         return count;
     }
 
     useEffect(() => {
-        // if (isUserRegistered) {
-        //     getPresences();
-        // }
+        if (isUserRegistered) {
+            getPresences();
+        }
     }, [isUserRegistered]);
 
     useEffect(() => {
-        // checkUserRegister();
+        checkUserRegister();
     }, [user]);
 
     useEffect(() => {
-        // checkUserRegister();
+        checkUserRegister();
     }, []);
 
     
     const { asPath } = useRouter('/user');
     
     useEffect(() => {
-        // setTimeout(() => {
-        //     const hash = asPath.split('#')[1];
-        //     if (hash == 'meus-brindes') {
-        //         const giftsSection = document.getElementById(hash);
-        //         giftsSection.scrollIntoView();
-        //         scrollToMyRef(hash);
-        //     }
-        // }, 1000);
+        setTimeout(() => {
+            const hash = asPath.split('#')[1];
+            if (hash == 'meus-brindes') {
+                const giftsSection = document.getElementById(hash);
+                giftsSection.scrollIntoView();
+                scrollToMyRef(hash);
+            }
+        }, 1000);
     }, [asPath]);
 
     const scrollToMyRef = (id) => {
@@ -184,11 +181,11 @@ const User = () => {
                 </Loading>
             }
 
-            {/* {!isLoading && user && !isUserRegistered &&
+            {!isLoading && user && !isUserRegistered &&
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
-            } */}
+            }
 
             {isEditing &&
                 <>
@@ -204,7 +201,7 @@ const User = () => {
                 </>
             }
 
-            {!isLoading && !isEditing && user && /*isUserRegistered &&*/
+            {!isLoading && !isEditing && user && isUserRegistered &&
                 <>
                     <UserInfoSection>
                         <h3>Meu perfil</h3>
@@ -221,7 +218,7 @@ const User = () => {
                                     <div className='user-info'>
                                         <p>Email: {user.email}</p>
                                         <div></div>
-                                        <p>CPF: {userInfo.cpf_value}</p>
+                                        <p>CPF: {userInfo.cpf}</p>
                                     </div>
                                 </div>
                             </PhotoTextWrapper>
@@ -252,7 +249,7 @@ const User = () => {
                                             }
                                             {lectures.map((lecture, key) =>
                                                 <li key={key}>
-                                                    {lecture} - {lecture.online ? "Online" : "Presencial"}
+                                                    {lecture.talk_title} - {lecture.online ? "Online" : "Presencial"}
                                                 </li>)
                                             }
                                         </ul>
