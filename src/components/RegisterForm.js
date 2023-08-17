@@ -522,20 +522,6 @@ const InputBoxLarge = styled.div`
     }
 `
 
-const BinarySelectionSmall = styled.div`
-    width: 100%;
-    max-width: 37.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    h6 {
-        margin-block: 2rem 1rem;
-    }
-`
-
 const BinarySelectionLarge = styled.div`
     display: flex;
     flex-direction: column;

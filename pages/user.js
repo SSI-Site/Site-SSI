@@ -137,7 +137,6 @@ const User = () => {
         checkUserRegister();
     }, []);
 
-    
     const { asPath } = useRouter('/user');
     
     useEffect(() => {
@@ -331,30 +330,6 @@ const Loading = styled.figure`
     }
 `
 
-const BackgroundWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    padding-bottom: 5rem;
-
-    #meus-brindes { // apagar este teste
-        height: 150px;
-    }
-
-    p {
-        font-size: 22px;
-        font-weight: 400;
-    }
-
-    .bold-info {
-        font-size: 1.6rem;
-        font-weight: 400;
-        margin-bottom: 15px;
-        font-weight: 600 !important;
-    }
-`
-
 const FormContainer = styled.section`
     padding-block: 7.25rem 3.75rem;
     background: url('./images/background_imgs/background4_mobile.svg') fixed;
@@ -515,19 +490,6 @@ const ButtonSecondary = styled.button`
         
     @media (min-width:560px) {
         height: 3rem;
-    }
-`
-
-const UserInfoLowerWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1050px;
-
-    @media (min-width:1021px) {
-        flex-direction: row;
-        justify-content: space-between;
     }
 `
 

@@ -1,3 +1,4 @@
+// Esta página foi descontinuada, porque tivemos apenas 6 parcerias e julgou-se desnecessário uma página inteira para isso
 import styled from 'styled-components';
 
 import Meta from '../src/infra/Meta';
@@ -69,7 +70,7 @@ const Partnerships = () => {
     )
 }
 
-export default Partnerships;
+// export default Partnerships;
 
 
 const PartnersSection = styled.section`
