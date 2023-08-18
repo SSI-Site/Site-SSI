@@ -400,7 +400,7 @@ const shifts = {
                 local : 'presential',// presential ou online
                 speakers : [
                     {'name': 'Leandro Meili', 'website': 'https://bcrcx.com'/*Informações de contato*/, 'image': Lecture31_LeandroMeili/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Guilherme Nascimento', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
