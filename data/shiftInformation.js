@@ -415,7 +415,7 @@ const shifts = {
             },
             '17:20' : {
                 title : 'Carreiras em tecnologias quânticas',
-                description : 'Doutora em física pela USP e Staff Scientist - Quantum Computing na CMC Microsystems, Canada. Envolvida em divulgação científica sobre computação quântica na medida do possível. A palestra é sobre computação quântica de um ponto de vista amplo: o que é, o que não é, como está o mercado, quais as possíveis aplicações e como explorar essa área do conhecimento.',
+                description : 'Doutora em física pela USP e Staff Scientist - Quantum Computing na CMC Microsystems, Canada. Envolvida em divulgação científica sobre computação quântica na medida do possível. Nesta palestra, trago dados sobre o mercado de trabalho em tecnologias quânticas e entrevistas com outros profissionais da área. Além disso, comento sobre aprendizados na minha própria jornada acadêmica e profissional na área de computação quântica.',
                 local : 'online',// presential ou online
                 speakers : [
                     {'name': 'Bruna Shinohara de Mendonça', 'image': Lecture33_BrunaShinohara},
