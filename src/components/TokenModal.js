@@ -47,7 +47,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
             .then(() => {
                 setIsRegistered(true);
                 setIsInvalid(false);
-                alert(`Presença Registrada!`);
+                // alert(`Presença Registrada!`);
                 setToken('');
                 toggleVisibility();
             })
