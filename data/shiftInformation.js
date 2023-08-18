@@ -4,7 +4,7 @@ import Lecture00_SpeakerName02 from '../public/images/lecture_imgs/00-Member_Sha
 
 import Lecture01_CarlaVieira from '../public/images/lecture_imgs/01-Carla_Vieira.jpeg'
 import Lecture02_JorgeMaia from '../public/images/lecture_imgs/02-Jorge_Maia.png'
-import Lecture03_FernandoDeCome from '../public/images/lecture_imgs/03 - Fernando_de_Come.jpeg'
+import Lecture03_FernandoDeCome from '../public/images/lecture_imgs/03-Fernando_de_Come.jpeg'
 import Lecture04_FabioTelles from '../public/images/lecture_imgs/04-Fabio_Telles.jpeg'
 import Lecture05_KamilaSantos from '../public/images/lecture_imgs/05-Kamila_Santos.png'
 import Lecture06_MiltonLeal from '../public/images/lecture_imgs/06-Milton_Leal.jpg'
@@ -114,7 +114,7 @@ const shifts = {
                 description : 'Data Scientist, granduando em matemática aplicada computacional pelo IME/USP. A palestra será um overview sobre Large Language Models (ChatGPT e similares) e aplicações. Contarei também sobre a minha experiência em construir sistemas que utilizam LLMs.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Milton Leal', /*'website': 'https:semanadesi.com'*//*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture06_MiltonLeal},
+                    {'name': 'Milton Leal', 'website': 'https://poatek.com/', 'image': Lecture06_MiltonLeal},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -126,7 +126,7 @@ const shifts = {
             '19:20' : {
                 title : 'Além do Código: Habilidades Vitais para Desenvolvedores (Rocketseat)',
                 description : 'Desenvolvedora há 11 anos, atualmente focada na stack JS, React e NodeJS. Sou reconhecida pela Microsoft como Microsoft MVP. Fui educadora de desenvolvimento e atual DevRel na Rocketseat, formada em Cybersecurity pela FIAP e técnica em programação para computadores pela Etec. Tenho como missão levar conhecimento em tecnologia de forma democrática para o maior numero de pessoas possível. Atualmente encabeço uma imersão para formação de líderes técnicos chamada Assemble. Nessa talk vamos explorar todas as habilidades que devemos desenvolver ao longo da nossa jornada profissional para nos tornarmos o "bons programadores" que o mercado de trabalho precisa!',
-                local : 'presential',// presential ou online
+                local : 'online',// presential ou online
                 speakers : [
                     {'name': 'Jakeliny Gracielly', 'website': 'https://www.rocketseat.com.br/', 'image': Lecture07_JakelinyGracielly},
                 ],
@@ -149,19 +149,21 @@ const shifts = {
                 title : 'SSI Talks: Privacidade - Até onde você está seguro?',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
+                endtime : '09:10',
                 speakers : [
-                    {'name': 'Gustavo Almeida de Jesus', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_GustavoAlmeida*/},
-                    {'name': 'Eduarda Lima Porongaba', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_EduardaLima*/},
+                    {'name': 'Gustavo Almeida de Jesus', 'website': 'https://intheshell.page/', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_GustavoAlmeida*/},
+                    {'name': 'Eduarda Lima Porongaba', 'website': 'https://intheshell.page/', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_EduardaLima*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
-            '9:10' : {
+            '09:10' : {
                 title : 'SSI Talks:  evelando padrões ocultos - análises e aplicações de dados das redes sociais',
                 description : 'Em breve...',
                 local : 'presential',
+                endtime : '09:40',
                 speakers : [
-                    {'name': 'Yago Primerano Arouca', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_YagoPrimerano*/},
-                    {'name': 'Felipe Mateos Castro de Souza', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_FelipeMateos*/}
+                    {'name': 'Yago Primerano Arouca', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_YagoPrimerano*/},
+                    {'name': 'Felipe Mateos Castro de Souza', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_FelipeMateos*/}
                 ],
                 image: '',
             }, /* Talvez seja melhor juntar as duas por causa do horário que fica errado kkkk */
@@ -231,7 +233,7 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : 'Do zero ao multicloud',
+                title : 'Arquiteturas em nuvem - Do zero ao multicloud',
                 description : 'A revolução digital trouxe consigo a transformação radical das infraestruturas de TI, impulsionando a adoção de soluções em nuvem para empresas de todos os tamanhos. Nessa palestra exploraremos a jornada das arquiteturas em nuvem, desde o estágio inicial da adoção de um único provedor até a complexidade das arquiteturas híbridas e multicloud.',
                 local : 'presential',// presential ou online
                 speakers : [
@@ -266,8 +268,8 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Giovanna Arana Paganotti', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01 /*Aqui vem a imagem do palestrante*/},
-                    {'name': 'Guilherme Fernandes da Costa', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01 /*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Giovanna Arana Paganotti', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Guilherme Fernandes da Costa', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -300,7 +302,7 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},,
+                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -318,7 +320,7 @@ const shifts = {
                 description : 'Responsável pela área de recursos humanos da Griaule, incluindo desenvolvimento de parcerias com universidades e recrutamento. Palestra sobre os fundamentos da biometria e como as soluções biométricas da Griaule apoiam as entidades de segurança pública na identificação de indivíduos procurados ao redor do mundo.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Clara Santos', 'image': Lecture24_ClaraSantos},
+                    {'name': 'Clara Santos', 'website': 'https://griaule.com/', 'image': Lecture24_ClaraSantos},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -363,7 +365,7 @@ const shifts = {
                 description : 'Sou advogado de formação, com Especialização (PUC/SP), Mestrado (PUC/SP) e Doutorado em Direito (USP). Ainda no ramo acadêmico, sou atualmente doutorando em Política Científica e Tecnológica (UNICAMP). Profissionalmente, trabalhei por 7.5 anos na Adobe Systems, primeiro como gerente regional e depois como gerente global de uma área de estratégia e atualmente sou Diretor de Estratégia, Crescimento e Operações na empresa brasileira BCR.CX. Durante minha jornada até aqui, consegui mesclar conhecimento acadêmico com uma vivência intensa no ramo de tecnologia. Com isso, gostaria de sugerir uma palestra que explore alguns conceitos de tecnologia e inovação, tanto de uma perspectiva acadêmica, quanto na prática do ramo de tecnologia. Algo como "Tecnologia e Inovação: a prática da teoria e a teoria na prática".',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Rodrigo Leme Freitas', 'image': Lecture28_RodrigoLeme},
+                    {'name': 'Rodrigo Leme Freitas', 'website': 'https://www.bcrcx.com/', 'image': Lecture28_RodrigoLeme},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -412,7 +414,7 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '17:20' : {
-                title : 'Computação quântica - Uma visão geral',
+                title : 'Carreiras em tecnologias quânticas',
                 description : 'Doutora em física pela USP e Staff Scientist - Quantum Computing na CMC Microsystems, Canada. Envolvida em divulgação científica sobre computação quântica na medida do possível. A palestra é sobre computação quântica de um ponto de vista amplo: o que é, o que não é, como está o mercado, quais as possíveis aplicações e como explorar essa área do conhecimento.',
                 local : 'online',// presential ou online
                 speakers : [
@@ -451,18 +453,20 @@ const shifts = {
                 title : 'SSI Talks: Uso de PLN para análise de redes sociais',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
+                endTime : '09:10',
                 speakers : [
-                    {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '09:10' : {
-                title : 'Aprender divulgando conhecimento',
+                title : 'SSI Talks: Aprender divulgando conhecimento',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
+                endTime : '09:40',
                 speakers : [
-                    {'name': 'Palácio', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    {'name': 'Giovanna Paganotti', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Palácio', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Giovanna Paganotti', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },

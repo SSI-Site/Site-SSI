@@ -73,6 +73,7 @@ const LectureItem = ({ time, event,  }) => {
                         title={event['title']}
                         overview={event['description']}
                         local = {event['local']}
+                        endTime={event['endTime']}
                     />
                 </div>
                 {show.includes(time) ?

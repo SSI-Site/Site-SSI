@@ -4,9 +4,9 @@ import styled from 'styled-components';
 // components
 import SpeakerInfo from './SpeakerInfo';
 
-const ScheduleInformation = ({ lecture, startTime, lecturePicture, speakerName, title, overview, local }) => {
+const ScheduleInformation = ({ lecture, startTime, endTime, lecturePicture, speakerName, title, overview, local }) => {
     
-    const endTime = (time) => {
+    const defaultEndTime = (time) => {
         let [h, m] = time.split(':');
         let date = new Date();
         date.setHours(h, m, 0)
@@ -34,7 +34,7 @@ const ScheduleInformation = ({ lecture, startTime, lecturePicture, speakerName, 
                 </div>
 
                 <div className='duration-box'>
-                    <p className='duration'>{startTime} - {endTime(startTime)}</p>
+                    <p className='duration'>{startTime} - {endTime ? endTime : defaultEndTime(startTime)}</p>
                     <p className='opposite-color'>{local == 'online' ? 'Online' : 'Presencial'}</p>
                 </div>
 
