@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
+import Link from 'next/link';
 
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
@@ -72,6 +73,13 @@ const About = () => {
                             description='Ao longo de todo o evento haverá sorteios, valendo vouchers e muito mais! Além disso, você também poderá resgatar brindes segundo o número de palestras registradas, então não esqueça de marcar suas presença nas atividades do evento!'
                             showFront={false}
                         />
+                    </div>
+                    <div className='btn-wrapper'>
+                        <Link href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
+                            <a target="_blank">
+                                <Button>Acessar regulamento</Button>
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </ActivitiesSection>
@@ -355,6 +363,13 @@ const ActivitiesSection = styled.section`
         align-items: center;
         justify-content: center;
         gap: 1rem;
+    }
+
+    .btn-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     @media (min-width:800px) {

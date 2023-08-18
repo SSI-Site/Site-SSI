@@ -211,7 +211,7 @@ const Home = () => {
 
                         <CountUp
                             start={0}
-                            end={30}
+                            end={40}
                             delay={0}
                             decimals={0}
                             suffix="+"
