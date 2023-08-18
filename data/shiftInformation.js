@@ -10,7 +10,10 @@ import Lecture05_KamilaSantos from '../public/images/lecture_imgs/05-Kamila_Sant
 import Lecture06_MiltonLeal from '../public/images/lecture_imgs/06-Milton_Leal.jpg'
 import Lecture07_JakelinyGracielly from '../public/images/lecture_imgs/07-Jakeliny_Gracielly.jpg'
 // import Lecture08_AndreJuan from '../public/images/lecture_imgs/08-Andre_Juan.png'
-// import Lecture09_SpeakerName01 from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
+// import Lecture09_GustavoAlmeida from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
+// import Lecture09_EduardaLima from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
+// import Lecture09_YagoPrimerano from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
+// import Lecture09_FelipeMateos from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
 import Lecture10_LeonardoDalri from '../public/images/lecture_imgs/10-Leonardo_Dalri.jpg'
 import Lecture11_AlineSouza from '../public/images/lecture_imgs/11-Aline_Souza.jpeg'
 import Lecture12_LuizPaulo from '../public/images/lecture_imgs/12-Luiz_Paulo_Carvalho.png'
@@ -20,10 +23,11 @@ import Lecture15_AndrewRosario from '../public/images/lecture_imgs/15-Andrew_Ros
 import Lecture16_LuizDeOliveira from '../public/images/lecture_imgs/16-Luiz_de_Oliveira.png'
 import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptista.jpg'
 import Lecture18_CarlosRischioto from '../public/images/lecture_imgs/18-Carlos_Rischioto.jpeg'
-// import Lecture19_SpeakerName01 from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
+// import Lecture19_GiovannaArana from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
+// import Lecture19_GuilhermeFernandes from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
 import Lecture20_MeyrileneAvelino from '../public/images/lecture_imgs/20-Meirylene_Avelino.jpg'
 import Lecture21_AntonioCarlos from '../public/images/lecture_imgs/21-Antonio_Carlos_Meira_Neto.jpg'
-// import Lecture22_MateusNavarro from '../public/images/lecture_imgs/22-Speaker_Name_01.png'
+// import Lecture22_LucianoDigiampietri from '../public/images/lecture_imgs/22-Speaker_Name_01.png'
 import Lecture23_CarolinaGalvao from '../public/images/lecture_imgs/23-Carolina_Galvão_de_Oliveira.jpg'
 import Lecture24_ClaraSantos from '../public/images/lecture_imgs/24-Clara_Santos.jpeg'
 import Lecture25_GiuliaBordignon from '../public/images/lecture_imgs/25-Giulia_Bordignon.jpg'
@@ -37,7 +41,8 @@ import Lecture32_RenataMiranda from '../public/images/lecture_imgs/32-Renata_Mir
 import Lecture33_BrunaShinohara from '../public/images/lecture_imgs/33-Bruna_Shinohara.jpg'
 import Lecture34_VitorDavid from '../public/images/lecture_imgs/34-Vitor_David.png'
 import Lecture35_JeffersonBrandao from '../public/images/lecture_imgs/35-Jeff_Brandão.jpeg'
-// import Lecture36_SpeakerName01 from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
+// import Lecture36_GabrielMedeiros from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
+// import Lecture36_GiovannaArana from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
 import Lecture37_ThyagoOliveira from '../public/images/lecture_imgs/37-Thyago_Oliveira.png'
 import Lecture38_LeonardoLeite from '../public/images/lecture_imgs/38-Leonardo_Leite.jpg'
 import Lecture39_SimaraConceicao from '../public/images/lecture_imgs/39-Simara_Conceicao.jpg'
@@ -155,8 +160,8 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',
                 speakers : [
-                    {'name': 'Yago Primerano Arouca'},
-                    {'name': 'Felipe Mateos Castro de Souza'}
+                    {'name': 'Yago Primerano Arouca', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_YagoPrimerano*/},
+                    {'name': 'Felipe Mateos Castro de Souza', /*'linkedin' : 'https://semanadesi.com', 'image': Lecture09_FelipeMateos*/}
                 ],
                 image: '',
             }, /* Talvez seja melhor juntar as duas por causa do horário que fica errado kkkk */
@@ -295,8 +300,7 @@ const shifts = {
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},,
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -444,12 +448,21 @@ const shifts = {
     '2023-08-25' : {
         'Manhã' : {
             '08:40' : {
-                title : 'SSI Talks: Em breve...',
+                title : 'SSI Talks: Uso de PLN para análise de redes sociais',
                 description : 'Em breve...',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'Gabriel Medeiros Jospin', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
-                    // {'name': 'Nome do palestrante', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '09:10' : {
+                title : 'Aprender divulgando conhecimento',
+                description : 'Em breve...',
+                local : 'presential',// presential ou online
+                speakers : [
+                    {'name': 'Palácio', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Giovanna Paganotti', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com', 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
