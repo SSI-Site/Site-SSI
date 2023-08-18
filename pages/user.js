@@ -37,7 +37,7 @@ const User = () => {
 
     const checkUserRegister = () => {
         if (!user) return;
-        console.log("Usuário:", user);
+        // console.log("Usuário:", user);
 
         setIsLoading(true);
 
