@@ -169,7 +169,7 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '09:10' : {
-                title : 'SSI Talks:  evelando padrões ocultos - análises e aplicações de dados das redes sociais',
+                title : 'SSI Talks:  Revelando padrões ocultos - análises e aplicações de dados das redes sociais',
                 description : 'Em breve...',
                 local : 'presential',
                 endTime : '09:40',
