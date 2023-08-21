@@ -5,11 +5,12 @@ import Lecture00_SpeakerName02 from '../public/images/lecture_imgs/00-Member_Sha
 import Lecture01_CarlaVieira from '../public/images/lecture_imgs/01-Carla_Vieira.jpeg'
 import Lecture02_JorgeMaia from '../public/images/lecture_imgs/02-Jorge_Maia.png'
 import Lecture03_FernandoDeCome from '../public/images/lecture_imgs/03-Fernando_de_Come.jpeg'
-import Lecture04_FabioTelles from '../public/images/lecture_imgs/04-Fabio_Telles.jpeg'
+import Lecture04_FelipeFurquim from '../public/images/lecture_imgs/04-Felipe_Furquim.jpg'
+import Lecture04_RenanNakazawa from '../public/images/lecture_imgs/04-Renan_Nakazawa.jpg'
 import Lecture05_KamilaSantos from '../public/images/lecture_imgs/05-Kamila_Santos.png'
 import Lecture06_MiltonLeal from '../public/images/lecture_imgs/06-Milton_Leal.jpg'
 import Lecture07_JakelinyGracielly from '../public/images/lecture_imgs/07-Jakeliny_Gracielly.jpg'
-// import Lecture08_AndreJuan from '../public/images/lecture_imgs/08-Andre_Juan.png'
+import Lecture08_AndreJuan from '../public/images/lecture_imgs/08-Andre_Juan.jpeg'
 // import Lecture09_GustavoAlmeida from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
 // import Lecture09_EduardaLima from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
 // import Lecture09_YagoPrimerano from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
@@ -41,7 +42,7 @@ import Lecture32_RenataMiranda from '../public/images/lecture_imgs/32-Renata_Mir
 import Lecture33_BrunaShinohara from '../public/images/lecture_imgs/33-Bruna_Shinohara.jpg'
 import Lecture34_VitorDavid from '../public/images/lecture_imgs/34-Vitor_David.png'
 import Lecture35_JeffersonBrandao from '../public/images/lecture_imgs/35-Jeff_Brandão.jpeg'
-// import Lecture36_GabrielMedeiros from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
+import Lecture36_GabrielMedeiros from '../public/images/lecture_imgs/36-Gabriel_Medeiros.jpg'
 // import Lecture36_GiovannaArana from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
 import Lecture37_ThyagoOliveira from '../public/images/lecture_imgs/37-Thyago_Oliveira.png'
 import Lecture38_LeonardoLeite from '../public/images/lecture_imgs/38-Leonardo_Leite.jpg'
@@ -92,11 +93,22 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '14:40' : {
-                title : 'SQL Avançado com PostgreSQL',
-                description : ' DBA Oracle e PostgreSQL há mais de 15 anos. Grande experiência com ambientes críticos, grande porte, desenvolvimento, segurança e performance em banco de dados. Palestrou em dezenas de eventos em todo o Brasil e publicou centenas de artigos sobre banco de dados em seu blog ( https://savepoint.blog.br ). A palestra dá uma visão rápida sobre algumas funcionalidades avançadas de SQL no PostgreSQL, incluindo: Subconsultas, MERGE e INSERT ON CONFLICT, DML c/ RETURNING, Full Text Search (FTS), Foreign Data Wrapper (FDW) e Window Functions.',
+                title : 'Desmistificando Pós-graduação em SI',
+                description : 'Você tem interesse em fazer mestrado? Sim? Então essa palestra é pra você :D Não? Então essa palestra é pra você :D Vemos muitas dicas sobre carreira no mercado de trabalho (o que é ótimo) durante a SSI, mas pouco se fala sobre carreiras acadêmicas. Nessa palestra, iremos trocar uma ideia sobre o PPgSI, o programa de pós graduação de sistemas de informação. Irei falar sobre minha experiência, cimo entrar no programa, dicas dúvidas frequentes, receios e alegrias. Com isso, espero oferecer uma direção para quem tem interesse no programa ou apresentá -lo para quem não conhecia. Vai ser topzera!',
                 local : 'presential',// presential ou online
+                endTime : '15:10',
                 speakers : [
-                    {'name': 'Fábio Telles Rodriguez', 'image': Lecture04_FabioTelles},
+                    {'name': 'Felipe Furquim', 'image': Lecture04_FelipeFurquim},
+                ],
+                image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
+            },
+            '15:10' : {
+                title : 'Introdução a Containers: Benefícios e Trade-offs',
+                description : 'Graduado em Sistemas de Informação na EACH, e atualmente engenheiro de software no Elo7. Teremos uma breve introdução sobre containers, uma das tecnologias mais predominantes em sistemas distribuídos e computação em nuvem da atualidade.',
+                local : 'presential',// presential ou online
+                endTime : '15:40',
+                speakers : [
+                    {'name': 'Renan Nakazawa', 'image': Lecture04_RenanNakazawa},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -133,11 +145,11 @@ const shifts = {
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
             '20:40' : {
-                title : 'Em breve...', // Computação quântica
-                description : 'Em breve...',
+                title : 'Computação Quântica: o que é, e aplicações em biotecnologia', // Computação quântica
+                description : 'André Juan Ferreira Martins é mestre em Física, bacharel em Física e bacharel em Ciência e Tecnologia pela UFABC. Tem experiência em pesquisa nas áreas de física médica computacional, correspondências holográficas e gravitação. Nos últimos anos tem dedicado os esforços de pesquisa às áreas de machine learning e computação quântica, e é apaixonado por ensinar e contar para as pessoas sobre estes assuntos! Atualmente é cientista de dados no Itaú-Unibanco, desenvolvendo pesquisa em computação quântica, com foco em quantum machine learning. Também é coordenador de ciência de dados na Ada. Nesta palestra, apresentarei os principais conceitos da computação quântica, um novo paradigma computacional com o potencial de auxiliar na solução de muitos dos mais complexos desafios enfrentados pela humanidade. Vamos discutir o estágio atual da tecnologia, conhecer um pouco sobre os hardwares quânticos existentes, e descobrir o que são os algoritmos quânticos. Por fim, conheceremos em maiores detalhes uma das mais importantes aplicações da computação quântica: a simulação de biomoléculas.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    // {'name': 'André Juan', 'website': 'https:semanadesi.com'/*Informações de contato*/, 'linkedin' : 'https://semanadesi.com', 'image': Lecture08_AndreJuan},
+                    {'name': 'André Juan Ferreira Martins', 'image': Lecture08_AndreJuan},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -147,9 +159,9 @@ const shifts = {
         'Manhã' : {
             '08:40' : {
                 title : 'SSI Talks: Privacidade - Até onde você está seguro?',
-                description : 'Em breve...',
+                description : 'Quando será que ocorre a perturbação da privacidade alheia? Será se há casos de invasão de privacidade que geram consequência e prejuízo? O que o governo faz para nos proteger? Será se de alguma forma podemos colaborar para manter nossa privacidade segura? Qual a motivação desses ataques? Aqui responderemos essas perguntas e algumas mais.',
                 local : 'presential',// presential ou online
-                endtime : '09:10',
+                endTime : '09:10',
                 speakers : [
                     {'name': 'Gustavo Almeida de Jesus', 'website': 'https://intheshell.page/', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_GustavoAlmeida*/},
                     {'name': 'Eduarda Lima Porongaba', 'website': 'https://intheshell.page/', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_EduardaLima*/},
@@ -160,10 +172,10 @@ const shifts = {
                 title : 'SSI Talks:  evelando padrões ocultos - análises e aplicações de dados das redes sociais',
                 description : 'Em breve...',
                 local : 'presential',
-                endtime : '09:40',
+                endTime : '09:40',
                 speakers : [
                     {'name': 'Yago Primerano Arouca', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_YagoPrimerano*/},
-                    {'name': 'Felipe Mateos Castro de Souza', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_FelipeMateos*/}
+                    {'name': 'Felipe Castro', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_FelipeMateos*/}
                 ],
                 image: '',
             }, /* Talvez seja melhor juntar as duas por causa do horário que fica errado kkkk */
@@ -428,7 +440,7 @@ const shifts = {
         },
         'Noite' : {
             '19:20' : {
-                title : 'Acessibilidade em Produtos Digitais. ',
+                title : 'Acessibilidade em Produtos Digitais',
                 description : 'Designer carioca com muita determinação em aprender e crescer! Pensando em ajudar Designers que entram no mercado de trabalho, fundei a comunidade "Jovens Ux e Ui", com o objetivo de aprimorar os profissionais que estão ingressando no mercado de Ux / Ui. Esse aprimoramento compreende todas as etapas de uma formação de um profissional de Ux e Ui. Em busca desse aperfeiçoamento incorporamos pontos específicos como: Acessibilidade, Portfólio e mentorias. Como Accessibility Product Design, busco uma constante evolução das minhas Hards Skills e Soft Skills. Tanto em projetos pessoais, quanto em projetos dentro da Bradesco Seguros (empresa em que atuo atualmente). Focando em acessibilidade, tenho como meta criar produtos acessíveis e que possam ser utilizado por tadas as pessoas. ',
                 local : 'online',// presential ou online
                 speakers : [
@@ -451,11 +463,11 @@ const shifts = {
         'Manhã' : {
             '08:40' : {
                 title : 'SSI Talks: Uso de PLN para análise de redes sociais',
-                description : 'Em breve...',
+                description : 'Gabriel Medeiros Jospin é graduando de Sistemas de Informação pela USP e Cientista de Dados na SWAP. Neste SSI talks ele apresentará o que é o Processamento de Língua Natural e como ela tem sido útil na Análise de Redes Sociais. Além disso, vai apresentar algumas de suas pesquisas na área, para mostrar aplicações práticas.',
                 local : 'presential',// presential ou online
                 endTime : '09:10',
                 speakers : [
-                    {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture36_GabrielMedeiros},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
