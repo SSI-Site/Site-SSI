@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
 import Meta from '../src/infra/Meta';
-import saphira from '../services/saphira';
-import semana from '../utils/semana';
 import '../utils/slugify';
 import schedule from '../data/shiftInformation';
 
