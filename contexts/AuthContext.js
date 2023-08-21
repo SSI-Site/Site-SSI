@@ -37,6 +37,8 @@ export function AuthProvider({ children }) {
         if (session) {
             cookie.set('ssi-site-auth', session, {
                 expires: 1,
+                sameSite: 'none',
+                secure: true
             });
         } else {
             cookie.remove('ssi-site-auth');
