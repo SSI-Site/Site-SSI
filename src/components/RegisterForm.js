@@ -121,7 +121,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                             <LabelLeft htmlFor='nusp' > Nº USP </LabelLeft>
                             <div className='form-input'>
                                 <input id='usp_number' type='text' placeholder='Insira seu Nº USP' className={errors.name && 'error-border'}
-                                    {...register("usp_number", { required: false, minLength: 5, pattern: /^[0-9]*$/i })} />
+                                    {...register("usp_number", { pattern: /^[0-9]*$/i })} />
                             </div>
                             {errors.usp_number && <ErrorMessage> Nº USP inválido </ErrorMessage>}
                         </InputBoxSmall>
