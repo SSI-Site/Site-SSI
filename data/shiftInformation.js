@@ -28,7 +28,7 @@ import Lecture18_CarlosRischioto from '../public/images/lecture_imgs/18-Carlos_R
 // import Lecture19_GuilhermeFernandes from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
 import Lecture20_MeyrileneAvelino from '../public/images/lecture_imgs/20-Meirylene_Avelino.jpg'
 import Lecture21_AntonioCarlos from '../public/images/lecture_imgs/21-Antonio_Carlos_Meira_Neto.jpg'
-// import Lecture22_LucianoDigiampietri from '../public/images/lecture_imgs/22-Speaker_Name_01.png'
+import Lecture22_LucianoDigiampietri from '../public/images/lecture_imgs/22-Luciano_Digiampietri.jpg'
 import Lecture23_CarolinaGalvao from '../public/images/lecture_imgs/23-Carolina_Galvão_de_Oliveira.jpg'
 import Lecture24_ClaraSantos from '../public/images/lecture_imgs/24-Clara_Santos.jpeg'
 import Lecture25_GiuliaBordignon from '../public/images/lecture_imgs/25-Giulia_Bordignon.jpg'
@@ -277,7 +277,7 @@ const shifts = {
             },
             '10:00' : {
                 title : 'SSI Talks: Carreiras de um aluno de SI: além do front e backend',
-                description : 'Em breve...',
+                description : 'A área de Sistemas de Informação é ampla, são diversas as aplicações e possibilidades de atuação. Por vezes, encontramos um foco maior em áreas populares como front-end e back-end, mas nem todo estudante tem isso como objetivo ideal. O DASI irá apresentar e informar outras carreiras em tecnologias e como você pode ser introduzido a elas, aproveitando ao máximo suas habilidades e paixões.',
                 local : 'presential',// presential ou online
                 speakers : [
                     {'name': 'Giovanna Arana Paganotti', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
@@ -311,10 +311,10 @@ const shifts = {
             },
             '14:40' : {
                 title : 'Os bastidores do ChatGPT: Como funciona esta tecnologia de PLN?',
-                description : 'Em breve...',
+                description : 'Nesta palestra, descreverei o funcionamento do ChatGPT, contextualizando a área de Processamento de Língua Natural (PLN), diferentes formas de representação de texto e os grandes modelos de linguagem (LLM). Dentre conceitos explorados estão: bag-of-words, n-gramas, word embeddings, transformers, BERT e GPT.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture22_LucianoDigiampietri},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
