@@ -125,8 +125,7 @@ export default createGlobalStyle`
         color: var(--color-neutral-50);
     }
 
-    input[type=text] { 
-        text-transform: uppercase;
+    input[type=text] {
         font: 700 1rem/1.25rem 'Space_Mono';
         color: var(--color-neutral-400);
         background-color: var(--color-neutral-50);

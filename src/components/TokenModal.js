@@ -179,6 +179,7 @@ const ModalTokenWrapper = styled.div`
     }
 
     input[type=text] {
+        text-transform: uppercase;
         margin-left: 1rem;
         width: 9rem;
     }
