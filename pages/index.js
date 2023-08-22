@@ -98,8 +98,7 @@ const Home = () => {
     const firstEventDay = new Date(2023, 7, 21);
     const lastEventDay = new Date(2023, 7, 25);
     const current = new Date();
-    const currentHour = current.getHours();
-    const currentMinute = current.getMinutes();
+    const currentTime = current.getHours() + ":" + current.getMinutes()
 
     const day = `${current.getDate()}`;
     const month = `${current.getMonth()+1}`;
@@ -119,10 +118,10 @@ const Home = () => {
     // Turno correto para o DateComponent
     const scheduleShift = () => {
         if (current >= firstEventDay && current <= lastEventDay) {
-            if (currentHour >= '18' && currentMinute >= '20') {
+            if (currentTime >= '18:20') {
                 return 'Noite';
             }
-            if (currentHour >= '12' && currentMinute >= '20') {
+            if (currentTime >= '12:20') {
                 return 'Tarde';
             }
         }
