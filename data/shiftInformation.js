@@ -170,7 +170,7 @@ const shifts = {
             },
             '09:10' : {
                 title : 'SSI Talks:  Revelando padrões ocultos - análises e aplicações de dados das redes sociais',
-                description : 'Em breve...',
+                description : 'Por acaso você se perguntou como as redes sociais se transformam em complexas teias de interações? Quer entender como os dados por trás dessas redes podem ser analisados para revelar insights valiosos? Se sim, então temos a palestra perfeita para você! Nesta palestra empolgante e repleta de conhecimento, o mundo das redes sociais será explorado como nunca. Descobriremos como os dados podem ser representados como grafos, uma abordagem que nos permite visualizar e compreender de forma clara as interações entre indivíduos, grupos e entidades em plataformas como Facebook, Twitter, Instagram e LinkedIn. Não perca a chance de explorar as possibilidades infinitas que os dados de redes sociais podem oferecer. Junte-se a nós para uma jornada fascinante pelo mundo dos grafos e análise de dados',
                 local : 'presential',
                 endTime : '09:40',
                 speakers : [
