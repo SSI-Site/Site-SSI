@@ -14,7 +14,7 @@ const shifts = ['Manhã', 'Tarde', 'Noite'];
 
 const Schedule = () => {
 
-    const [activeItem, setActiveItem] = useState([new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate()].join('-'));
+    const [activeItem, setActiveItem] = useState(`${new Date().getUTCFullYear()}-${(new Date().getUTCMonth()+1).toString().padStart(2, '0')}-${new Date().getUTCDate().toString().padStart(2, '0')}`);
 
     const isDuringEvent = (date) => {
         var temp = false;
