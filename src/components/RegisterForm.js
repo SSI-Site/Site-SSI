@@ -112,7 +112,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                             <LabelLeft htmlFor='cpf' className='required' >CPF</LabelLeft>
                             <div className='form-input'>
                                 <InputMask id='cpf' type='text' mask='999.999.999-99' placeholder='Insira seu CPF' className={errors.cpf && 'error-border'} disabled={isEditing}
-                                    {...register("cpf", { validate: value => cpf.isValid(value) || "Documento inválido" })} />
+                                    {...register("cpf", { required: true, validate: value => cpf.isValid(value) || "Documento inválido" })} />
                             </div>
                             {errors.cpf && <ErrorMessage>{errors.cpf?.message}</ErrorMessage>}
                         </InputBoxSmall>
