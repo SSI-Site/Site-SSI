@@ -130,6 +130,10 @@ export default createGlobalStyle`
         color: var(--color-neutral-400);
         background-color: var(--color-neutral-50);
         border: 0;
+        
+        :disabled {
+            cursor: not-allowed;
+        }
     }
     
     select, option {
