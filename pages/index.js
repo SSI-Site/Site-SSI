@@ -113,11 +113,15 @@ const Home = () => {
     const title = sentenceTitle.slice(0,2)+simpleWeekDay.replace(/.$/, "ou")+sentenceTitle.slice(1,);
 
     // Dia correto para o DateComponent
-    const scheduleDay = current >= firstEventDay && current <= lastEventDay ? day : '21';
+    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '21');
+    // const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? `${currentTime >= '21:40' ? (parseInt(day, 10) + 1).toString() : day}` : '21'); // para mostrar palestras do dia seguinte após 21:40
 
     // Turno correto para o DateComponent
     const scheduleShift = () => {
         if (current >= firstEventDay && current <= lastEventDay) {
+            // if (currentTime >= '21:40') { // para mostrar palestras do dia seguinte após 21:40 (mudar o scheduleDay também)
+            //     return 'Manhã';
+            // }
             if (currentTime >= '18:20') {
                 return 'Noite';
             }
