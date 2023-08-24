@@ -98,7 +98,7 @@ const Home = () => {
     const firstEventDay = new Date(2023, 7, 21);
     const lastEventDay = new Date(2023, 7, 25);
     const current = new Date();
-    const currentTime = current.getHours() + ":" + current.getMinutes()
+    const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
 
     const day = `${current.getDate()}`;
     const month = `${current.getMonth()+1}`;
@@ -122,6 +122,7 @@ const Home = () => {
             // if (currentTime >= '21:40') { // para mostrar palestras do dia seguinte após 21:40 (mudar o scheduleDay também)
             //     return 'Manhã';
             // }
+            console.log(currentTime);
             if (currentTime >= '18:20') {
                 return 'Noite';
             }
