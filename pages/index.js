@@ -134,7 +134,7 @@ const Home = () => {
     }
     
     // Dia no formato yyyy-mm-dd para o ScheduleShift
-    const todayDate = new Date().toISOString().slice(0, 10);
+    const todayDate = new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
     const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2023-08-21';
 
     return (
