@@ -96,7 +96,7 @@ const Home = () => {
     }, []);
 
     const firstEventDay = new Date(2023, 7, 21);
-    const lastEventDay = new Date(2023, 7, 25);
+    const lastEventDay = new Date(2023, 7, 26);
     const current = new Date();
     const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
 
@@ -204,6 +204,21 @@ const Home = () => {
             <TwitchContainer>
                 <TwitchWatchNow />
             </TwitchContainer>
+
+            <SubscriptionSection>
+                <div className='subscription-container'>
+                    <div className='subscription-title'>
+                        <h3>Inscrições abertas!</h3>
+                        <p>Faça parte da <span>Comissão Organizadora</span> do <span>melhor evento acadêmico</span> de Sistemas de Informação! </p>
+                    </div>
+
+                    <Link href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
+                        <a target="_blank">
+                            <ButtonSecondary>Inscrever-se</ButtonSecondary>
+                        </a>
+                    </Link>
+                </div>
+            </SubscriptionSection>
 
             <EventInfoSection>
                 <div className='about-container'>
@@ -555,6 +570,96 @@ const TwitchContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: 0;
+`
+
+const SubscriptionSection = styled.section`
+    padding-block: 6.625rem 3.5rem;
+    background-color: var(--color-primary);
+    background-position: bottom left;
+    background-size: cover;
+    gap: 2rem;
+
+    .subscription-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+        .subscription-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
+            max-width: 63.5rem;
+
+            h3 {
+                text-align: center;
+            }
+
+            p {
+                font-family: 'Space_Mono_Bold';
+                font-weight: 400;
+
+                span {
+                    font: inherit;
+                    color: var(--color-primary-500);
+                }
+            }
+        }
+    }
+
+    @media (min-width:1000px) {
+        padding-block: 6.75rem;
+
+        .subscription-container {
+            gap: 3.5rem;
+
+            .subscription-title {
+                h3 {
+                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                }
+
+                p {
+                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                }
+            }
+        }
+    }
+`
+
+const ButtonSecondary = styled.button`
+    --padding: 0.75rem 1.5rem;
+    --transition-duration: 500ms;
+
+    /* width: 100%; */
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.75rem;
+    padding: var(--padding);
+    border-radius: 9px;
+    border: 3px solid var(--color-neutral-50);
+    background-color: transparent;
+    transition: 500ms;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-neutral-50);
+        color: var(--color-neutral-900);
+    }
+
+    &:active {
+        background-color: var(--color-neutral-100);
+        border-color: var(--color-neutral-100);
+    }
+        
+    @media (min-width:560px) {
+        height: 3rem;
+    }
 `
 
 const EventInfoSection = styled.section`
