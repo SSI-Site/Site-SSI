@@ -1,4 +1,4 @@
-# Site-SSI-2023
+# Site-SSI
   
 ## Para rodar localmente
 
@@ -37,7 +37,7 @@ Criada utilizando **Next.js** + **Styled Components**
 
 A *build* de produção estará sempre ligada a branch **main** e será feita automaticamente pelo **Netlify** sempre que esta receber atualizações, além disso, sempre que uma *pull request* for aberta visando a branch main, um *deploy-preview* ligado aquela PR será feito e o *link* ficará disponível nela. 
 
-Da branch **main**: https://ssi-2022.netlify.app/ <br />
-Estrutura do link de *preview* em **PRs**: https://deploy-preview-<ID_da_PR>--ssi-2022.netlify.app/
+Da branch **main**: https://ssi-atual.netlify.app/ <br />
+Estrutura do link de *preview* em **PRs**: https://deploy-preview-<ID_da_PR>--ssi-atual.netlify.app/
 
 Caso perceba-se que atualizações na *branch* **main** não refletiram no *deploy* ou o *link* de *preview* não tenha sido gerado, provavelmente algo causou uma falha na *build* do Netlify. Recomenda-se que seja executado o comando `npm run build` ou `yarn build` localmente para verificar se o problema se repete ao mesmo tempo que verifica-se os logs da *build* que falhou na plataforma.
