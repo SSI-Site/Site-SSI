@@ -151,8 +151,8 @@ const Home = () => {
                                         <h3>Semana de Sistemas de Informação 2023</h3>
                                         <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
-                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
-                                    {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
+                                    {/* <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link> */}
+                                    <Button className="btn-entrar" disabled>Cadastros encerrados...</Button>
                                 </>
                             :
                                 <>
@@ -160,16 +160,23 @@ const Home = () => {
                                     <>
                                         <div className='landing-text'>
                                             <h3>Semana de Sistemas de Informação 2023</h3>
-                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p>
+                                            {/* <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p> */}
+                                            <p>Olá! Por enquanto, os cadastros estão encerrados. Até 2024!</p>
+
                                         </div>
-                                        <Button onClick={() => router.push('/user')}>Finalizar cadastro</Button>
+                                        {/* <Button onClick={() => router.push('/user')}>Finalizar cadastro</Button> */}
+                                        <Button disabled onClick={() => router.push('/user')}>Cadastros encerrados...</Button>
+
                                     </>
                                 }
                                 {isUserRegistered &&
                                     <>
                                         <div className='landing-text'>
                                             <h3>Semana de Sistemas de Informação 2023</h3>
-                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
+                                            {/* <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p> */}
+                                            <p>Olá! Por enquanto, os cadastros estão encerrados. Até 2024!</p>
+                                            <Button disabled onClick={() => router.push('/user')}>Cadastros encerrados...</Button>
+
                                         </div>
                                         <TokenModal/>
                                     </>
