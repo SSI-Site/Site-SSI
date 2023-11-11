@@ -93,12 +93,13 @@ const Nav = () => {
 
                     {user ?
                         <li className='userPicContainer'>
-                            <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                            {/* <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link> */}
+                            <Button onClick={handleShowAuthModal} disabled>Login</Button>
                         </li>
                         :
                         <li>
-                            <Button onClick={handleShowAuthModal}>Login</Button>
-                            {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
+                            {/* <Button onClick={handleShowAuthModal}>Login</Button> */}
+                            <Button onClick={handleShowAuthModal} disabled>Login</Button>
                         </li>
 
                     }
@@ -114,18 +115,19 @@ const Nav = () => {
                             <li onClick={() => setIsOpen(false)}>
                                 <div className='user-info' href="/user">
                                 
-                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                                    {/* <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link> */}
                                     <div>
-                                        <p className='welcome-user'>Olá{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</p>
-                                        <a href="/user">Ver perfil</a>
+                                        {/* <p className='welcome-user'>Olá{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</p>
+                                        <a href="/user">Ver perfil</a> */}
+                                        <Button onClick={handleShowAuthModal} disabled>Login</Button>
                                     </div>
                                 
                                 </div>
                             </li>
                             :
                             <li className='login-button' onClick={() => setIsOpen(false)}>
-                                <Button onClick={handleShowAuthModal}>Login</Button>
-                                {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
+                                {/* <Button onClick={handleShowAuthModal}>Login</Button> */}
+                                <Button onClick={handleShowAuthModal} disabled>Login</Button>
                             </li>
                         }
 
