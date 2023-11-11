@@ -31,8 +31,8 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
-    // const { user } = false; // para deploy sem login
+    //const { user, signOut } = useAuth();
+    const { user } = false; // para deploy sem login
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -47,7 +47,7 @@ const Home = () => {
         }
     }
 
-    const checkUserRegister = () => {
+    /*const checkUserRegister = () => {
         if (!user) return;
 
         setIsLoading(true);
@@ -70,7 +70,7 @@ const Home = () => {
     useEffect(() => {
         checkUserRegister();
     }, []);
-
+*/
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
     const [countdownMinutes, setCountdownMinutes] = useState();
@@ -212,7 +212,7 @@ const Home = () => {
                 <TwitchWatchNow />
             </TwitchContainer>
 
-            <SubscriptionSection>
+            {/* <SubscriptionSection>
                 <div className='subscription-container'>
                     <div className='subscription-title'>
                         <h3>Inscrições abertas!</h3>
@@ -225,7 +225,7 @@ const Home = () => {
                         </a>
                     </Link>
                 </div>
-            </SubscriptionSection>
+            </SubscriptionSection> */}
 
             <EventInfoSection>
                 <div className='about-container'>
