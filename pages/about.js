@@ -22,8 +22,8 @@ import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 const About = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
-    // const { user } = false; // para deploy sem login
+    //const { user, signOut } = useAuth();
+     const { user } = false; // para deploy sem login
 
     return (
         <>

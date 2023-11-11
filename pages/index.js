@@ -31,8 +31,8 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
-    // const { user } = false; // para deploy sem login
+    //const { user, signOut } = useAuth();
+     const { user } = false; // para deploy sem login
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -46,7 +46,7 @@ const Home = () => {
             setShowAuthModal(true);
         }
     }
-
+/*
     const checkUserRegister = () => {
         if (!user) return;
 
@@ -70,7 +70,7 @@ const Home = () => {
     useEffect(() => {
         checkUserRegister();
     }, []);
-
+*/
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
     const [countdownMinutes, setCountdownMinutes] = useState();
