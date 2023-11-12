@@ -71,6 +71,10 @@ export default createGlobalStyle`
         font: 400 1rem/1.25rem 'Space_Mono_Bold';
         color: var(--color-neutral-50);
         cursor: pointer;
+
+        :disabled {
+            cursor: not-allowed;
+        }
     }
 
     h1 {

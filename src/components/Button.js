@@ -17,15 +17,13 @@ const Button = styled.button`
     :disabled {
         --background: var(--color-neutral-800);
         color: var(--color-neutral-600);
-        cursor: unset;
-        pointer-events: none;
     }
 
-    &:hover {
+    :hover:not(:disabled) {
         --background: var(--color-primary-900);
     }
 
-    &:active {
+    :active:not(:disabled) {
         --background: var(--color-primary-800);
     }
 
