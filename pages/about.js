@@ -27,13 +27,13 @@ const About = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | Sobre' />
+            <Meta title='SSI 2024 | Sobre' />
 
             <LogoTextSection>
                 <div className='logo-text'>
                     <div className='logo'>
-                        <img src={LogoPrincipal} alt="Logo SSI 2023" />
-                        <h3>Semana de Sistemas de Informação 2023</h3>
+                        <img src={LogoPrincipal} alt="Logo SSI 2024" />
+                        <h3>Semana de Sistemas de Informação 2024</h3>
                     </div>
                     <div className='text'>
                         <h3>O que é a SSI?</h3>

@@ -172,11 +172,11 @@ const User = () => {
                 }} 
             />
 
-            <Meta title='SSI 2023 | Seu Perfil' />
+            <Meta title='SSI 2024 | Seu Perfil' />
 
             {isLoading &&
                 <Loading>
-                    <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                    <img src='./loading.svg' alt='SSI 2024 - Loading' />
                 </Loading>
             }
 

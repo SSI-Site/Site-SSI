@@ -57,7 +57,7 @@ const Nav = () => {
                 <a className="logo-container">
                     <img src={LogoPrincipal} alt="SSI logo" />
                     <p className='text-small'>
-                        Semana de Sistemas de Informação 2023
+                        Semana de Sistemas de Informação 2024
                     </p>
                 </a>
             </Link>

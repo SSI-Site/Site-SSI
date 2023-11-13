@@ -19,7 +19,7 @@ const Footer = () => {
                     <div onClick={() => router.push('/')} className="logo-box">
                         <img src={LogoPrincipal} alt="logo" />
                         <h6>
-                            Semana de Sistemas de <br />Informação 2023
+                            Semana de Sistemas de <br />Informação 2024
                         </h6>
                     </div>
                 

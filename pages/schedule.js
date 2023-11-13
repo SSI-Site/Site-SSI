@@ -46,7 +46,7 @@ const Schedule = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | Programação' />
+            <Meta title='SSI 2024 | Programação' />
             
             <ScheduleSection>
                 <h3>Programação</h3>

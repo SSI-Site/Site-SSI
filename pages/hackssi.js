@@ -23,7 +23,7 @@ const HackSSI = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | HackSSI' />
+            <Meta title='SSI 2024 | HackSSI' />
             
             <ExampleSection>
                 <h1>HackSSI</h1>

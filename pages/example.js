@@ -23,7 +23,7 @@ const ExamplePage = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | Exemplo' />
+            <Meta title='SSI 2024 | Exemplo' />
             
             <ExampleSection>
                 <h1>Exemplo</h1>

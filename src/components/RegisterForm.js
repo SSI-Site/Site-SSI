@@ -84,7 +84,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
         <>
             <FormWrapper>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h3> Bem-Vinde à SSI 2023!</h3>
+                    <h3> Bem-Vinde à SSI 2024!</h3>
                     <h6> Precisamos de algumas informações para completar o seu cadastro: </h6>
 
                     <div className='two-items'>
@@ -294,7 +294,7 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     <BtnContainer>
                         {isLoading ?
                             <Loading>
-                                <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                                <img src='./loading.svg' alt='SSI 2024 - Loading' />
                             </Loading>
                             :
                             <>

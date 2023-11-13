@@ -139,7 +139,7 @@ const Home = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | Início' />
+            <Meta title='SSI 2024 | Início' />
 
             <LandingSection>
                 <div className='landing-container'>
@@ -148,7 +148,7 @@ const Home = () => {
                             {!user ?
                                 <>
                                     <div className='landing-text'>
-                                        <h3>Semana de Sistemas de Informação 2023</h3>
+                                        <h3>Semana de Sistemas de Informação 2024</h3>
                                         <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
                                     <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
@@ -159,7 +159,7 @@ const Home = () => {
                                 {!isUserRegistered &&
                                     <>
                                         <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2023</h3>
+                                            <h3>Semana de Sistemas de Informação 2024</h3>
                                             <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p>
                                         </div>
                                         <Button onClick={() => router.push('/user')}>Finalizar cadastro</Button>
@@ -168,7 +168,7 @@ const Home = () => {
                                 {isUserRegistered &&
                                     <>
                                         <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2023</h3>
+                                            <h3>Semana de Sistemas de Informação 2024</h3>
                                             <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
                                         </div>
                                         <TokenModal/>
@@ -186,7 +186,7 @@ const Home = () => {
                         </div>
                         :
                         <Loading>
-                            <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                            <img src='./loading.svg' alt='SSI 2024 - Loading' />
                         </Loading>
                     }
                     <div className='landing-bait'>

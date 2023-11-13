@@ -50,14 +50,14 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | CO' />
+            <Meta title='SSI 2024 | CO' />
 
             <COExhibitionSection>
                 <div className='exhibition-container'>
                     <h3>Comissão Organizadora</h3>
                     <div className='image-text'>
                         <img src='./images/co_members/co.jpg' alt='Foto Palestra' />
-                        <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação de 2023: o time que trabalhou para fazer este evento acontecer!</p>
+                        <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação de 2024: o time que trabalhou para fazer este evento acontecer!</p>
                     </div>
                 </div>
             </COExhibitionSection>
