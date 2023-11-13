@@ -18,13 +18,15 @@ const pages = {
     "/schedule": 2,
     "/about": 3,
     "/co": 4,
-    "/user": 5,
+    "/hackssi": 5,
+    "/ctf": 6,
+    "/user": 7,
 }
 
 const Nav = () => {
 
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    // const { user } = useAuth();
+    const { user } = false; // para deploy sem login
     const router = useRouter();
     
     const [isOpen, setIsOpen] = useState(false);
@@ -91,6 +93,16 @@ const Nav = () => {
                         <div></div>
                     </li>
 
+                    <li>
+                        <Link href="/hackssi"><a>HackSSI</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                        {/* <div></div> */}
+                    </li>
+
                     {user ?
                         <li className='userPicContainer'>
                             <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
@@ -147,6 +159,16 @@ const Nav = () => {
                         <li onClick={() => setIsOpen(false)}>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
                             <div></div>
+                        </li>
+
+                        <li onClick={() => setIsOpen(false)}>
+                            <Link href="/hackssi"><a>HackSSI</a></Link>
+                            <div></div>
+                        </li>
+
+                        <li /* onClick={() => setIsOpen(false)} */>
+                            {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                     </ul>
@@ -340,7 +362,7 @@ const NavMobile = styled.nav`
                     color: gray;
                     margin: 0 12px;
 
-                    cursor: default;
+                    cursor: not-allowed;
                 }
 
                 img {
@@ -498,7 +520,7 @@ const NavDesktop = styled.nav`
         span {
             color: gray;
             margin: 0 12px;
-            cursor: default;
+            cursor: not-allowed;
         }
 
         ${props => props.currentPage && css`

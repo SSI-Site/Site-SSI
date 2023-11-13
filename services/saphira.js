@@ -1,18 +1,18 @@
 import axios from 'axios';
 const BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL;
-// const base_url = 'http://www.boredapi.com/api/activity'; // para o exemplo -> COMENTAR
+const base_url = 'http://www.boredapi.com/api/activity'; // para o exemplo -> COMENTAR
 
 const saphira = {
 
-    // // Para o exemplo -> COMENTAR
-    // getActivity: async () => {
-    //     try {
-    //         const response = await axios.get(base_url);
-    //         return response.data;
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // },
+    // Para o exemplo -> COMENTAR
+    getActivity: async () => {
+        try {
+            const response = await axios.get(base_url);
+            return response.data;
+        } catch (err) {
+            console.log(err);
+        }
+    },
 
     registerUser: async (userData) => {
         const requestUrl = BASE_URL + "/user/add";
