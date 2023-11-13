@@ -28,7 +28,7 @@ const CO = () => {
                 members.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} anchor={member.anchor} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} />
                         </div>
                     );
                 })
@@ -40,7 +40,7 @@ const CO = () => {
                 sectorMembers.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} anchor={member.anchor} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} />
                         </div>
                     );
                 })

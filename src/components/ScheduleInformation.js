@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 // components
 import SpeakerInfo from './SpeakerInfo';
@@ -27,7 +28,15 @@ const ScheduleInformation = ({ lecture, startTime, endTime, lecturePicture, spea
                         })
                         :
                         lecturePicture ?
-                            <img className='lecture-picture' src={lecturePicture} />
+                            <div className='lecture-picture'>
+                                <Image 
+                                    src={lecturePicture} 
+                                    layout='responsive'
+                                    width={340}
+                                    height={140}
+                                    objectFit='cover'
+                                />
+                            </div>
                             :
                             <div className='space-div'></div>
                     }
@@ -72,7 +81,7 @@ const ScheduleInformationStyle = styled.div`
             min-height: 8rem;
             max-height: 14rem;
             border-radius: 16px;
-            object-fit: cover;
+            overflow: hidden;
         }
     }
 

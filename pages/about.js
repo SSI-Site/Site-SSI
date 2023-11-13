@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
@@ -94,7 +95,15 @@ const About = () => {
                         <BaitContent>
                             <div className='bait-sample'>
                                 <div className='bait-image justify-left'>
-                                    <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
+                                    <div className='image-container'>
+                                        <Image 
+                                            src='/images/about/palestras.jpg' 
+                                            alt='Foto Palestra'
+                                            layout="fill"
+                                            objectFit="cover"
+                                            objectPosition="center"
+                                        />
+                                    </div>
                                 </div>
                                 <div className='bait-sample-description'>
                                     <h4>Palestras com experts da área</h4>
@@ -109,7 +118,15 @@ const About = () => {
                         <BaitContent>
                             <div className='bait-sample middle-lecture'>
                                 <div className='bait-image justify-right'>
-                                    <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
+                                    <div className='image-container'>
+                                        <Image 
+                                            src='/images/about/workshops.jpg' 
+                                            alt='Foto Palestra'
+                                            layout="fill"
+                                            objectFit="cover"
+                                            objectPosition="center"
+                                        />
+                                    </div>
                                 </div>
                                 <div className='bait-sample-description'>
                                     <h4>Workshops em laboratórios de informática</h4>
@@ -124,7 +141,15 @@ const About = () => {
                         <BaitContent>
                             <div className='bait-sample'>
                                 <div className='bait-image justify-left'>
-                                    <img src='./images/about/networking.jpg' alt='Foto Palestra' />
+                                    <div className='image-container'>
+                                        <Image 
+                                            src='/images/about/networking.jpg' 
+                                            alt='Foto Palestra' 
+                                            layout="fill"
+                                            objectFit="cover"
+                                            objectPosition="center"
+                                        />
+                                    </div>
                                 </div>
                                 <div className='bait-sample-description'>
                                     <h4>Networking com participantes</h4>
@@ -499,12 +524,13 @@ const BaitContent = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
+        max-width: 31rem;
         border-radius: 8px;
         border: 4px solid var(--color-primary-700);
-        width: 100%;
-        max-width: 31rem;
         /* max-height: 20rem; */
         background-color: var(--color-primary-700);
+        position: relative;
+        overflow: hidden;
 
         &::after {
             display: block;
@@ -512,10 +538,12 @@ const BaitContent = styled.div`
             padding-top: 56.25%;
         }
 
-        img {
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             border-radius: 8px;
         }
     }
