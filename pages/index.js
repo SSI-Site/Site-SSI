@@ -205,7 +205,7 @@ const Home = () => {
                 <TwitchWatchNow />
             </TwitchContainer>
 
-            <SubscriptionSection>
+            {/* <SubscriptionSection>
                 <div className='subscription-container'>
                     <div className='subscription-title'>
                         <h3>Inscrições abertas!</h3>
@@ -218,7 +218,7 @@ const Home = () => {
                         </a>
                     </Link>
                 </div>
-            </SubscriptionSection>
+            </SubscriptionSection> */}
 
             <EventInfoSection>
                 <div className='about-container'>
