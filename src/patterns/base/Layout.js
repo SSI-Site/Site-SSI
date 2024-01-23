@@ -14,12 +14,12 @@ const Layout = ({ children }) => {
             <style jsx>
                 {`
                   @font-face {
-                    font-family: 'Space_Mono';
-                    src: url('/fonts/space_mono-regular.ttf');
+                    font-family: 'AT Aero';
+                    src: url('/fonts/at_aero-regular.ttf');
                   }
                   @font-face {
-                    font-family: 'Space_Mono_Bold';
-                    src: url('/fonts/space_mono-bold.ttf');
+                    font-family: 'AT Aero Bold';
+                    src: url('/fonts/at_aero-bold.ttf');
                   }
                 `}
             </style>

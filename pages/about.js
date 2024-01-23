@@ -313,8 +313,8 @@ const LogoTextSection = styled.section`
         }
 
         p {
-            font-family: 'Space_Mono_Bold';
-            font-weight: 400;
+            font-family: 'AT Aero Bold';
+            font-weight: 700;
         }
 
         .arrow-container {
@@ -349,7 +349,7 @@ const LogoTextSection = styled.section`
         .logo {
             max-width: 31rem;
             h3 {
-                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+                font: 700 2rem/2.5rem 'AT Aero Bold';
             }
 
             img {
@@ -406,7 +406,7 @@ const ActivitiesSection = styled.section`
         }
 
         h3 {
-            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            font: 700 3.5rem/4.25rem 'AT Aero Bold';
         }
 
         .activities {
@@ -440,7 +440,7 @@ const BaitSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 text-align: center;
 
                 span {
@@ -473,11 +473,11 @@ const BaitSection = styled.section`
         .bait-container {
             .bait-text {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 
@@ -566,8 +566,8 @@ const BaitContent = styled.div`
 
                 h4, p {
                     text-align: left;
-                    font-family: 'Space_Mono_Bold';
-                    font-weight: 400;
+                    font-family: 'AT Aero Bold';
+                    font-weight: 700;
                 }
             }
         }
@@ -602,7 +602,7 @@ const GiftsSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 text-align: center;
 
                 span {
@@ -640,11 +640,11 @@ const GiftsSection = styled.section`
 
             .gifts-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 
@@ -682,8 +682,8 @@ const LastYearSection = styled.section`
 
             p {
                 text-align: center;
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
                 span {
                     font: inherit;
                     color: var(--color-primary-700);
@@ -718,11 +718,11 @@ const LastYearSection = styled.section`
 
         .lastyear-text {
             h3 {
-                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 3.5rem/4.25rem 'AT Aero Bold';
             }
 
             p {
-                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                font: 700 1.5rem/1.75rem 'AT Aero Bold';
             }
 
         }
@@ -757,7 +757,7 @@ const EventNumbersBanner = styled.div`
         border-radius: 8px;
 
         h1 {
-            font: 400 4rem/4.25rem 'Space_Mono_Bold';
+            font: 700 4rem/4.25rem 'AT Aero Bold';
             color: var(--color-primary-600);
         }
     }
@@ -769,7 +769,7 @@ const EventNumbersBanner = styled.div`
             max-width: 24.5rem;
 
             h1 {
-                font: 400 5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 5rem/4.25rem 'AT Aero Bold';
             }
         }
     }

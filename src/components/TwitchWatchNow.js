@@ -178,7 +178,7 @@ const TwitchWatchNowWrapper = styled.div`
         line-clamp: 3;
 		-webkit-box-orient: vertical;
 		width: 100%;
-		font: 400 1rem/1.25rem 'Space_Mono_Bold';
+		font: 400 1rem/1.25rem 'AT Aero Bold';
 	}
 
 	.rightarrow {
@@ -223,14 +223,14 @@ const TwitchWatchNowWrapper = styled.div`
 		}
 
 		h6 {
-			font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+			font: 400 1.5rem/1.75rem 'AT Aero Bold';
 		}
 
 		p {
 			width: 100%;
 			-webkit-line-clamp: 2; // number of lines to show
 			line-clamp: 2;
-        	font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+        	font: 400 1.25rem/1.5rem 'AT Aero Bold';
 		}
 	}
 `

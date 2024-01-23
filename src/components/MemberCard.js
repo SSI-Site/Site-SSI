@@ -135,7 +135,7 @@ const MemberWrapper = styled.div`
         }
 
         p {
-            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            font: 400 1rem/1.25rem 'AT Aero Bold';
         }
 
         &:hover {
@@ -193,7 +193,7 @@ const MemberWrapper = styled.div`
         .tooltip .tooltiptext {
             visibility: hidden;
             background-color: var(--color-neutral-600);
-            font: 400 0.875rem/1rem 'Space_Mono_Bold';
+            font: 400 0.875rem/1rem 'AT Aero Bold';
             text-align: center;
             padding: 5px 10px;
             border-radius: 4px;
@@ -229,7 +229,7 @@ const MemberWrapper = styled.div`
 
     @media (min-width:800px) {
         .member-name p {
-            font: 400 1.09375rem/1.5rem 'Space_Mono_Bold'; // 17px para caber um nome longo sem quebrar linha
+            font: 400 1.09375rem/1.5rem 'AT Aero Bold'; // 17px para caber um nome longo sem quebrar linha
         }
     }
 `

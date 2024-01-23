@@ -417,14 +417,14 @@ const PhotoTextWrapper = styled.div`
             align-items: center;
             gap: 0.5rem;
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
             }
         }
     }
 
     @media (min-width:560px) {
         .text-info h6 {
-            font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+            font: 700 1.5rem/1.75rem 'AT Aero Bold';
         }
     }
 
@@ -437,7 +437,7 @@ const PhotoTextWrapper = styled.div`
 
             h6 {
                 text-align: left;
-                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+                font: 700 2rem/2.5rem 'AT Aero Bold';
             }
 
             .user-info {
@@ -446,7 +446,7 @@ const PhotoTextWrapper = styled.div`
                 gap: 0.5rem;
     
                 p {
-                    font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                    font: 700 1.25rem/1.5rem 'AT Aero Bold';
                 }
 
                 > div {
@@ -515,7 +515,7 @@ const LecturesListSection = styled.section`
             gap: 0.5rem;
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 span {
                     font: inherit;
                     color: var(--color-primary-500);
@@ -542,7 +542,7 @@ const LecturesListSection = styled.section`
                 gap: 3.5rem;
 
                 p {
-                    font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                    font: 700 1.25rem/1.5rem 'AT Aero Bold';
                 }
             }
         }
@@ -565,8 +565,8 @@ const LecturesList = styled.div`
     span {
         font: inherit;
         color: var(--color-primary-500);
-        font-family: 'Space_Mono_Bold';
-        font-weight: 400;
+        font-family: 'AT Aero Bold';
+        font-weight: 700;
     }
 
     ul {
@@ -606,7 +606,7 @@ const GiftsProgressSection = styled.section`
             justify-content: center;
 
             p {
-                font: 400 0.875rem/1.5rem 'Space_Mono_Bold';
+                font: 700 0.875rem/1.5rem 'AT Aero Bold';
             }
 
             .available {
@@ -644,7 +644,7 @@ const GiftsProgressSection = styled.section`
 
             .table-container {
                 p {        
-                    font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                    font: 700 1rem/1.25rem 'AT Aero Bold';
                 }
                 
                 .available {
@@ -661,11 +661,11 @@ const ProgressTable = styled.table`
     border-spacing: 0;
     border-radius: 1rem;
     overflow: hidden;
-    font: 400 1rem/1.25rem 'Space_Mono_Bold';
+    font: 700 1rem/1.25rem 'AT Aero Bold';
 
     thead {
         background-color:  var(--color-neutral-700);
-        font: 400 0.95rem/1.5rem 'Space_Mono_Bold';
+        font: 700 0.95rem/1.5rem 'AT Aero Bold';
     }
 
     tbody {
@@ -691,10 +691,10 @@ const ProgressTable = styled.table`
     }
 
     @media (min-width:1021px) {
-        font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+        font: 700 1.25rem/1.5rem 'AT Aero Bold';
 
         thead {
-            font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+            font: 700 1.25rem/1.5rem 'AT Aero Bold';
         }
 
         th, td {

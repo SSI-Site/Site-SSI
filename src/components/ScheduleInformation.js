@@ -93,11 +93,11 @@ const ScheduleInformationStyle = styled.div`
         gap: 0.5rem;
 
         p.duration {
-            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            font: 400 1rem/1.25rem 'AT Aero Bold';
         }
 
         p.opposite-color {
-            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            font: 400 1rem/1.25rem 'AT Aero Bold';
             color: var(--color-primary-500);
         }
     }
@@ -114,7 +114,7 @@ const ScheduleInformationStyle = styled.div`
     }
 
     .speech-overview {
-        font: 400 1rem/1.25rem 'Space_Mono';
+        font: 400 1rem/1.25rem 'AT Aero';
     }
 
     @media (min-width:600px) {
@@ -140,18 +140,18 @@ const ScheduleInformationStyle = styled.div`
         .duration-box {
 
             p.duration {
-                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                font: 400 1.25rem/1.5rem 'AT Aero Bold';
                 color: var(--color-primary-500);
             }
 
             p.opposite-color {
-                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                font: 400 1.25rem/1.5rem 'AT Aero Bold';
                 color: var(--color-neutral-50);
             }
         }
         
         .speech-overview {
-            font: 400 1.125rem/1.75rem 'Space_Mono';
+            font: 400 1.125rem/1.75rem 'AT Aero';
         }
     }
 `

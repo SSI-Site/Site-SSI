@@ -231,7 +231,7 @@ const NavWrapper = styled.div`
     }
 
     .text-small {
-        font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
+        font: 700 0.875rem/1.125rem 'AT Aero Bold';
         color: var(--color-neutral-50);
     }
 
@@ -332,14 +332,14 @@ const NavMobile = styled.nav`
                     }
 
                     p {
-                        font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
+                        font: 700 0.875rem/1.125rem 'AT Aero Bold';
                         color: #fff;
                         margin-bottom: 2px;
                     }
 
                     a {
                         margin: 0;
-                        font: 700 0.75rem/1rem 'Space_Mono';
+                        font: 700 0.75rem/1rem 'AT Aero';
                         cursor: pointer;
                         
                         &:hover, &:active {
@@ -385,8 +385,8 @@ const NavMobile = styled.nav`
             ${props => props.currentPage && css`
                 li:nth-child(${pages[props.currentPage]+1}){
                     a {
-                        font-family: 'Space_Mono_Bold';
-                        font-weight: 400;
+                        font-family: 'AT Aero Bold';
+                        font-weight: 700;
                         padding: .2rem -5rem;
                         pointer-events: none;
                         /* border-bottom: 4px solid var(--color-primary-500); */
@@ -508,7 +508,7 @@ const NavDesktop = styled.nav`
         }
 
         a {
-            font: 700 1rem/1.25rem 'Space_Mono';
+            font: 700 1rem/1.25rem 'AT Aero';
             margin: 0 12px;
             transition: all .2s;
 
@@ -526,8 +526,8 @@ const NavDesktop = styled.nav`
         ${props => props.currentPage && css`
             li:nth-child(${pages[props.currentPage]}):not(:last-child) {
                 a {
-                    font-family: 'Space_Mono_Bold';
-                    font-weight: 400;
+                    font-family: 'AT Aero Bold';
+                    font-weight: 700;
                     padding: .2rem -5rem;
                     pointer-events: none;
                 }

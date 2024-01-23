@@ -66,7 +66,7 @@ const DateWrapper = styled.div`
     }
 
     p {
-        font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        font: 700 1rem/1.25rem 'AT Aero Bold';
     }
 
     @media (min-width: 840px) {
@@ -74,7 +74,7 @@ const DateWrapper = styled.div`
         height: 5.75rem;
 
         h6 {
-            font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            font: 700 2rem/2.5rem 'AT Aero Bold';
         }
 
         .day-emoji img {

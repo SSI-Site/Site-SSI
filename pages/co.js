@@ -201,8 +201,8 @@ const COExhibitionSection = styled.section`
             }
 
             p {
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
                 text-align: center;
                 max-width: 32rem;
 
@@ -225,7 +225,7 @@ const COExhibitionSection = styled.section`
             gap: 5rem;
 
             h3 {
-                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 3.5rem/4.25rem 'AT Aero Bold';
             }
 
             .image-text {
@@ -237,7 +237,7 @@ const COExhibitionSection = styled.section`
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                     text-align: left;
 
                     span {
@@ -262,7 +262,7 @@ const COMembersSection = styled.section`
         background-image: url('./images/background_imgs/background3_desktop.svg');
         
         h3 {
-            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            font: 700 3.5rem/4.25rem 'AT Aero Bold';
             margin-bottom: 4rem;
         }
     }

@@ -463,8 +463,8 @@ const LandingSection = styled.section`
                 max-width: 31rem;
                 gap: 1rem;
                 p {
-                    font-family: 'Space_Mono_Bold';
-                    font-weight: 400;
+                    font-family: 'AT Aero Bold';
+                    font-weight: 700;
                 }
                 span {
                     font: inherit;
@@ -487,7 +487,7 @@ const LandingSection = styled.section`
                 justify-content: center;
 
                 svg {
-                    font: 400 9rem/0rem 'Space_Mono_Bold';
+                    font: 700 9rem/0rem 'AT Aero Bold';
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -508,14 +508,14 @@ const LandingSection = styled.section`
                 }
 
                 p {
-                    font: 400 2.3rem/3rem 'Space_Mono_Bold';
+                    font: 700 2.3rem/3rem 'AT Aero Bold';
                     letter-spacing: 0.8rem;
                     color: var(--color-neutral-300);
                 }
             }
 
             p {
-                font: 400 1.3rem/1.5rem 'Space_Mono_Bold';
+                font: 700 1.3rem/1.5rem 'AT Aero Bold';
                 color: var(--color-neutral-500);
             }
         }
@@ -548,7 +548,7 @@ const LandingSection = styled.section`
                 .event-date {
                     scale: 1.2;
                     p {
-                        font: 400 2rem/3rem 'Space_Mono_Bold';
+                        font: 700 2rem/3rem 'AT Aero Bold';
                         letter-spacing: 0.8rem;
                         color: var(--color-neutral-300);
                     }
@@ -600,8 +600,8 @@ const SubscriptionSection = styled.section`
             }
 
             p {
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
 
                 span {
                     font: inherit;
@@ -619,11 +619,11 @@ const SubscriptionSection = styled.section`
 
             .subscription-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
         }
@@ -690,8 +690,8 @@ const EventInfoSection = styled.section`
             }
 
             p {
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
 
                 span {
                     font: inherit;
@@ -738,11 +738,11 @@ const EventInfoSection = styled.section`
 
             .about-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 
@@ -774,7 +774,7 @@ const CountdownSection = styled.section`
         }
 
         p {
-            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            font: 700 1rem/1.25rem 'AT Aero Bold';
             text-align: center;
             
             span {
@@ -813,7 +813,7 @@ const CountdownSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 color: #FFF;
             }
         }
@@ -840,11 +840,11 @@ const CountdownSection = styled.section`
 
         .countdown-text {
             h3 {
-                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 3.5rem/4.25rem 'AT Aero Bold';
             }
         
             p {
-                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                font: 700 1.5rem/1.75rem 'AT Aero Bold';
             }
         }
         
@@ -952,7 +952,7 @@ const SupportersSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 text-align: center;
 
             }
@@ -981,11 +981,11 @@ const SupportersSection = styled.section`
 
             .supporters-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 

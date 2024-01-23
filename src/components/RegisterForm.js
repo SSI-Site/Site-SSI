@@ -436,7 +436,7 @@ const FormWrapper = styled.div`
     }
 
     span {
-        font: 400 0.875rem/1rem 'Space_Mono_Bold';
+        font: 400 0.875rem/1rem 'AT Aero Bold';
         color: var(--color-invalid);
     }
 
@@ -586,7 +586,7 @@ const RadioBox = styled.div`
     }
     @media (min-width:560px) {
         label {
-            font: 700 1.125rem/1.75rem 'Space_Mono';
+            font: 700 1.125rem/1.75rem 'AT Aero';
         }
     }
 `
@@ -645,6 +645,6 @@ const CheckboxContainer = styled.div`
 
     .tiny-text {
         margin-left: 1.5rem;
-        font: 700 0.875rem/1rem 'Space_Mono';
+        font: 700 0.875rem/1rem 'AT Aero';
     }
 `
