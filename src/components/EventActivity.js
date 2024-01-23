@@ -201,7 +201,7 @@ const ActivityWrapper = styled.div`
                 }
 
                 p {
-                    font: 700 0.875rem/1.25rem 'Space_Mono';
+                    font: 700 0.875rem/1.25rem 'AT Aero';
                 }
             }
         }
@@ -227,7 +227,7 @@ const ActivityWrapper = styled.div`
             height: 427px;
 
             h6 {
-                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+                font: 700 2rem/2.5rem 'AT Aero Bold';
             }
 
             .front {            
@@ -276,7 +276,7 @@ const ActivityWrapper = styled.div`
                     }
 
                     p {
-                        font: 700 1rem/1.25rem 'Space_Mono';
+                        font: 700 1rem/1.25rem 'AT Aero';
                     }
                 }
 

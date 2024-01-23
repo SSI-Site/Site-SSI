@@ -68,40 +68,40 @@ export default createGlobalStyle`
     }
 
     button {
-        font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        font: 700 1rem/1.25rem 'AT Aero Bold';
         color: var(--color-neutral-50);
         cursor: pointer;
     }
 
     h1 {
-        font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+        font: 700 3.5rem/4.25rem 'AT Aero Bold';
         color: var(--color-neutral-50);
         text-align: center;
     }
 
     h2 {
-        font: 400 3rem/3.5rem 'Space_Mono_Bold';
+        font: 700 3rem/3.5rem 'AT Aero Bold';
         color: var(--color-neutral-50);
     }
 
     h3 {
-        font: 400 2.5rem/3rem 'Space_Mono_Bold';
+        font: 700 2.5rem/3rem 'AT Aero Bold';
         color: var(--color-neutral-50);
         text-align: left;
     }
 
     h4 {
-        font: 400 2rem/2.5rem 'Space_Mono_Bold';
+        font: 700 2rem/2.5rem 'AT Aero Bold';
         color: var(--color-neutral-50);
     }
 
     h5 {
-        font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+        font: 700 1.5rem/1.75rem 'AT Aero Bold';
         color: var(--color-neutral-50);
     }
 
     h6 {
-        font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+        font: 700 1.25rem/1.5rem 'AT Aero Bold';
         color: var(--color-neutral-100);
     }
 
@@ -112,7 +112,7 @@ export default createGlobalStyle`
     }
 
     body, p, span, a {
-        font: 700 1rem/1.25rem 'Space_Mono';
+        font: 700 1rem/1.25rem 'AT Aero';
         color: var(--color-neutral-50);
     }
 
@@ -121,12 +121,12 @@ export default createGlobalStyle`
     }
 
     label {
-        font: 700 1rem/1.25rem 'Space_Mono';
+        font: 700 1rem/1.25rem 'AT Aero';
         color: var(--color-neutral-50);
     }
 
     input[type=text] {
-        font: 700 1rem/1.25rem 'Space_Mono';
+        font: 700 1rem/1.25rem 'AT Aero';
         color: var(--color-neutral-400);
         background-color: var(--color-neutral-50);
         border: 0;
@@ -137,7 +137,7 @@ export default createGlobalStyle`
     }
     
     select, option {
-        font: 700 1rem/1.25rem 'Space_Mono';
+        font: 700 1rem/1.25rem 'AT Aero';
         color: var(--color-neutral-400);
         background-color: var(--color-neutral-50);
         border: 0;
@@ -161,7 +161,7 @@ export default createGlobalStyle`
 
     ::placeholder { /* Recent browsers */
         text-transform: none;
-        font: 700 1rem/1.25rem 'Space_Mono';
+        font: 700 1rem/1.25rem 'AT Aero';
         color: var(--color-neutral-400);
     }
 
@@ -172,15 +172,15 @@ export default createGlobalStyle`
     @media (min-width:560px) {
 
         input[type=text], select, option { 
-            font: 700 1.125rem/1.75rem 'Space_Mono';
+            font: 700 1.125rem/1.75rem 'AT Aero';
             
             ::placeholder {
-                font: 700 1.125rem/1.75rem 'Space_Mono';
+                font: 700 1.125rem/1.75rem 'AT Aero';
             }
         }
 
         button {
-            font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
+            font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
     }
 

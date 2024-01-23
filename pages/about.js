@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
@@ -22,18 +23,18 @@ import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 const About = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
-    // const { user } = false; // para deploy sem login
+    // const { user, signOut } = useAuth();
+    const { user } = false; // para deploy sem login
 
     return (
         <>
-            <Meta title='SSI 2023 | Sobre' />
+            <Meta title='SSI 2024 | Sobre' />
 
             <LogoTextSection>
                 <div className='logo-text'>
                     <div className='logo'>
-                        <img src={LogoPrincipal} alt="Logo SSI 2023" />
-                        <h3>Semana de Sistemas de Informação 2023</h3>
+                        <img src={LogoPrincipal} alt="Logo SSI 2024" />
+                        <h3>Semana de Sistemas de Informação 2024</h3>
                     </div>
                     <div className='text'>
                         <h3>O que é a SSI?</h3>
@@ -94,7 +95,15 @@ const About = () => {
                         <BaitContent>
                             <div className='bait-sample'>
                                 <div className='bait-image justify-left'>
-                                    <img src='./images/about/palestras.jpg' alt='Foto Palestra' />
+                                    <div className='image-container'>
+                                        <Image 
+                                            src='/images/about/palestras.jpg' 
+                                            alt='Foto Palestra'
+                                            layout="fill"
+                                            objectFit="cover"
+                                            objectPosition="center"
+                                        />
+                                    </div>
                                 </div>
                                 <div className='bait-sample-description'>
                                     <h4>Palestras com experts da área</h4>
@@ -109,7 +118,15 @@ const About = () => {
                         <BaitContent>
                             <div className='bait-sample middle-lecture'>
                                 <div className='bait-image justify-right'>
-                                    <img src='./images/about/workshops.jpg' alt='Foto Palestra' />
+                                    <div className='image-container'>
+                                        <Image 
+                                            src='/images/about/workshops.jpg' 
+                                            alt='Foto Palestra'
+                                            layout="fill"
+                                            objectFit="cover"
+                                            objectPosition="center"
+                                        />
+                                    </div>
                                 </div>
                                 <div className='bait-sample-description'>
                                     <h4>Workshops em laboratórios de informática</h4>
@@ -124,7 +141,15 @@ const About = () => {
                         <BaitContent>
                             <div className='bait-sample'>
                                 <div className='bait-image justify-left'>
-                                    <img src='./images/about/networking.jpg' alt='Foto Palestra' />
+                                    <div className='image-container'>
+                                        <Image 
+                                            src='/images/about/networking.jpg' 
+                                            alt='Foto Palestra' 
+                                            layout="fill"
+                                            objectFit="cover"
+                                            objectPosition="center"
+                                        />
+                                    </div>
                                 </div>
                                 <div className='bait-sample-description'>
                                     <h4>Networking com participantes</h4>
@@ -288,8 +313,8 @@ const LogoTextSection = styled.section`
         }
 
         p {
-            font-family: 'Space_Mono_Bold';
-            font-weight: 400;
+            font-family: 'AT Aero Bold';
+            font-weight: 700;
         }
 
         .arrow-container {
@@ -324,7 +349,7 @@ const LogoTextSection = styled.section`
         .logo {
             max-width: 31rem;
             h3 {
-                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+                font: 700 2rem/2.5rem 'AT Aero Bold';
             }
 
             img {
@@ -381,7 +406,7 @@ const ActivitiesSection = styled.section`
         }
 
         h3 {
-            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            font: 700 3.5rem/4.25rem 'AT Aero Bold';
         }
 
         .activities {
@@ -415,7 +440,7 @@ const BaitSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 text-align: center;
 
                 span {
@@ -448,11 +473,11 @@ const BaitSection = styled.section`
         .bait-container {
             .bait-text {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 
@@ -499,12 +524,13 @@ const BaitContent = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
+        max-width: 31rem;
         border-radius: 8px;
         border: 4px solid var(--color-primary-700);
-        width: 100%;
-        max-width: 31rem;
         /* max-height: 20rem; */
         background-color: var(--color-primary-700);
+        position: relative;
+        overflow: hidden;
 
         &::after {
             display: block;
@@ -512,10 +538,12 @@ const BaitContent = styled.div`
             padding-top: 56.25%;
         }
 
-        img {
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             border-radius: 8px;
         }
     }
@@ -538,8 +566,8 @@ const BaitContent = styled.div`
 
                 h4, p {
                     text-align: left;
-                    font-family: 'Space_Mono_Bold';
-                    font-weight: 400;
+                    font-family: 'AT Aero Bold';
+                    font-weight: 700;
                 }
             }
         }
@@ -574,7 +602,7 @@ const GiftsSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 text-align: center;
 
                 span {
@@ -612,11 +640,11 @@ const GiftsSection = styled.section`
 
             .gifts-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 
@@ -654,8 +682,8 @@ const LastYearSection = styled.section`
 
             p {
                 text-align: center;
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
                 span {
                     font: inherit;
                     color: var(--color-primary-700);
@@ -690,11 +718,11 @@ const LastYearSection = styled.section`
 
         .lastyear-text {
             h3 {
-                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 3.5rem/4.25rem 'AT Aero Bold';
             }
 
             p {
-                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                font: 700 1.5rem/1.75rem 'AT Aero Bold';
             }
 
         }
@@ -729,7 +757,7 @@ const EventNumbersBanner = styled.div`
         border-radius: 8px;
 
         h1 {
-            font: 400 4rem/4.25rem 'Space_Mono_Bold';
+            font: 700 4rem/4.25rem 'AT Aero Bold';
             color: var(--color-primary-600);
         }
     }
@@ -741,7 +769,7 @@ const EventNumbersBanner = styled.div`
             max-width: 24.5rem;
 
             h1 {
-                font: 400 5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 5rem/4.25rem 'AT Aero Bold';
             }
         }
     }

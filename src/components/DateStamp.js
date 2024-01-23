@@ -18,17 +18,17 @@ const DateStamp = ({ day, showEmoji }) => {
 
     const current = new Date();
     const currentDay = current.getDate();
-    const month = current.getMonth();
+    const month = current.getMonth() + 1;
     const year = current.getFullYear();
 
     return (
         <DateWrapper>
             <div className='day-emoji'>
                 <h6 className='day'>Dia {relativeDay}</h6>
-                {(currentDay>numericDay && month==7 && year==2023) && showEmoji &&
+                {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2023-08-${numericDay}`) && showEmoji) &&
                     <img src={CheckIcon}></img>
                 }
-                {(currentDay==numericDay && month==7 && year==2023) && showEmoji &&
+                {(currentDay==numericDay && month==8 && year==2023) && showEmoji &&
                     <img src={HourglassIcon}></img>
                 }
             </div>
@@ -66,7 +66,7 @@ const DateWrapper = styled.div`
     }
 
     p {
-        font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        font: 700 1rem/1.25rem 'AT Aero Bold';
     }
 
     @media (min-width: 840px) {
@@ -74,7 +74,7 @@ const DateWrapper = styled.div`
         height: 5.75rem;
 
         h6 {
-            font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            font: 700 2rem/2.5rem 'AT Aero Bold';
         }
 
         .day-emoji img {

@@ -124,7 +124,7 @@ const LectureWrapper = styled.div`
             flex-direction: column;
         
             p {
-                font-family: 'Space_Mono_Bold';
+                font-family: 'AT Aero Bold';
                 font-weight: 400;
                 word-break: break-word;
             }
@@ -140,7 +140,7 @@ const LectureWrapper = styled.div`
                 }
                 
                 span {
-                    font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
+                    font: 400 0.875rem/1.125rem 'AT Aero Bold';
                     color: var(--color-primary-700);
                 }
                 
@@ -174,7 +174,7 @@ const LectureWrapper = styled.div`
             }
 
             p {
-                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                font: 400 1.25rem/1.5rem 'AT Aero Bold';
             }
         }
     }
@@ -192,7 +192,7 @@ const LectureWrapper = styled.div`
         }
 
         p {
-            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            font: 400 1rem/1.25rem 'AT Aero Bold';
         }
     }
 
@@ -219,11 +219,11 @@ const LectureWrapper = styled.div`
 
             > div {
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 400 1.5rem/1.75rem 'AT Aero Bold';
                 }
                 
                 span {
-                    font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                    font: 400 1rem/1.25rem 'AT Aero Bold';
                     
                 }
             }
@@ -243,8 +243,8 @@ const LectureWrapper = styled.div`
         } */
 
         h5 {
-            font: 400 2.5rem/3rem 'Space_Mono_Bold';
-            font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            font: 400 2.5rem/3rem 'AT Aero Bold';
+            font: 400 2rem/2.5rem 'AT Aero Bold';
         }
 
         div.lecture-overview {
@@ -256,7 +256,7 @@ const LectureWrapper = styled.div`
                 }
 
                 p{
-                    font: 400 2rem/2.5rem 'Space_Mono_Bold';
+                    font: 400 2rem/2.5rem 'AT Aero Bold';
                 }
             }
 

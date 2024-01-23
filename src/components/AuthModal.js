@@ -51,7 +51,7 @@ const AuthModal = ({ onClose }) => {
                     </ModalHeader>
                     <ModalBody>
                         <figure>
-                            <img className='logo' src={Logo} alt="Logo SSI 2023" />
+                            <img className='logo' src={Logo} alt="Logo SSI 2024" />
                         </figure>
 
                         <h6>Entrar com</h6>
@@ -203,7 +203,7 @@ const SigninBtn = styled.button`
     cursor: pointer;
 
     span {
-        font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        font: 700 1rem/1.25rem 'AT Aero Bold';
     }
 
     svg {
@@ -241,7 +241,7 @@ const SigninBtn = styled.button`
         height: 3rem;
 
         span {
-            font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
+            font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
     }
 `

@@ -68,7 +68,7 @@ const SpeakerContainer = styled.div`
     }
 
     .speaker-name {
-        font: 400 0.75rem/1.25rem 'Space_Mono';
+        font: 400 0.75rem/1.25rem 'AT Aero';
         text-align: center;
     }
 
@@ -98,7 +98,7 @@ const SpeakerContainer = styled.div`
 
     @media (min-width:400px) {
         .speaker-name {
-            font: 400 0.875rem/1.25rem 'Space_Mono';
+            font: 400 0.875rem/1.25rem 'AT Aero';
         }
 
         .speaker-links {
@@ -118,7 +118,7 @@ const SpeakerContainer = styled.div`
         }
 
         .speaker-name {
-            font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+            font: 400 1.25rem/1.5rem 'AT Aero Bold';
         }
 
         .speaker-picture {

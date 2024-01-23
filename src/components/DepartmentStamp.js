@@ -36,7 +36,7 @@ const DepartmentWrapper = styled.div`
     transition: 0.3s all ease;
 
     p {
-        font: 400 1rem/1.25rem 'Space_Mono_Bold';
+        font: 700 1rem/1.25rem 'AT Aero Bold';
         text-align: left;
     }
 
@@ -48,7 +48,7 @@ const DepartmentWrapper = styled.div`
     @media (min-width: 840px) {
 
         p {
-            font: 400 1.125rem/1.5rem 'Space_Mono_Bold';
+            font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
     }
 `

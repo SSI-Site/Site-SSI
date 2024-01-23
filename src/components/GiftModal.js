@@ -75,7 +75,7 @@ const GiftModalHeader = styled.header`
     justify-content: space-between;
 
     h4 {
-        font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+        font: 400 1.5rem/1.75rem 'AT Aero Bold';
     }
 
     .close-btn-container {
@@ -100,7 +100,7 @@ const GiftModalHeader = styled.header`
     @media (min-width:412px) {
 
         h4 {
-            font: 400 2rem/2.5rem 'Space_Mono_Bold';
+            font: 400 2rem/2.5rem 'AT Aero Bold';
         }
     }
     
@@ -146,11 +146,11 @@ const GiftModalBody = styled.div`
         gap: 1rem;
 
         h6 {
-            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            font: 400 1rem/1.25rem 'AT Aero Bold';
         }
 
         p {
-            font: 400 0.875rem/1.25rem 'Space_Mono_Bold';
+            font: 400 0.875rem/1.25rem 'AT Aero Bold';
         }
 
         p, h6 {
@@ -185,11 +185,11 @@ const GiftModalBody = styled.div`
 
         .modal-text {
             h6 {
-                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                font: 400 1.25rem/1.5rem 'AT Aero Bold';
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 400 1rem/1.25rem 'AT Aero Bold';
             }
         }
 
@@ -210,11 +210,11 @@ const GiftModalBody = styled.div`
             
         .modal-text {
             p {
-                font: 400 1.25rem/1.5rem 'Space_Mono_Bold';
+                font: 400 1.25rem/1.5rem 'AT Aero Bold';
             }
 
             h6 {
-                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                font: 400 1.5rem/1.75rem 'AT Aero Bold';
             }
 
             .lecture-numbers > div {

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 const PartnerCard = ({ image, name, link }) => {
@@ -6,7 +7,13 @@ const PartnerCard = ({ image, name, link }) => {
         <PartnerWrapper>
             <a href={link} target="_blank" rel="noreferrer">
                 <figure className='partner-image'>
-                    <img src={image} alt={`Logo ${name}`}></img>
+                    <Image
+                        src={image}
+                        alt={`Logo ${name}`}
+                        layout="fill"
+                        objectFit="contain"
+                        objectPosition="center"
+                    />
                 </figure>
             </a>
         </PartnerWrapper>
@@ -47,17 +54,10 @@ const PartnerWrapper = styled.div`
     }
 
     .partner-image {
-        display: flex;
-        align-items: center;
+        position: relative;
         width: 100%;
         height: 100%;
         border-radius: 8px;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
     }
 
     @media (min-width:412px) {

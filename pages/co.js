@@ -28,7 +28,7 @@ const CO = () => {
                 members.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} anchor={member.anchor} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} />
                         </div>
                     );
                 })
@@ -40,7 +40,7 @@ const CO = () => {
                 sectorMembers.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} anchor={member.anchor} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} />
                         </div>
                     );
                 })
@@ -50,14 +50,14 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | CO' />
+            <Meta title='SSI 2024 | CO' />
 
             <COExhibitionSection>
                 <div className='exhibition-container'>
                     <h3>Comissão Organizadora</h3>
                     <div className='image-text'>
                         <img src='./images/co_members/co.jpg' alt='Foto Palestra' />
-                        <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação de 2023: o time que trabalhou para fazer este evento acontecer!</p>
+                        <p>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação de 2024: o time que trabalhou para fazer este evento acontecer!</p>
                     </div>
                 </div>
             </COExhibitionSection>
@@ -201,8 +201,8 @@ const COExhibitionSection = styled.section`
             }
 
             p {
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
                 text-align: center;
                 max-width: 32rem;
 
@@ -225,7 +225,7 @@ const COExhibitionSection = styled.section`
             gap: 5rem;
 
             h3 {
-                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 3.5rem/4.25rem 'AT Aero Bold';
             }
 
             .image-text {
@@ -237,7 +237,7 @@ const COExhibitionSection = styled.section`
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                     text-align: left;
 
                     span {
@@ -262,7 +262,7 @@ const COMembersSection = styled.section`
         background-image: url('./images/background_imgs/background3_desktop.svg');
         
         h3 {
-            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            font: 700 3.5rem/4.25rem 'AT Aero Bold';
             margin-bottom: 4rem;
         }
     }

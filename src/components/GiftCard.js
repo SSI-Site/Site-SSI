@@ -100,7 +100,7 @@ const GiftWrapper = styled.div`
 
         p {
             font-size: 0.85rem; // fonte menor para evitar quebra de linha
-            font-family: 'Space_Mono_Bold';
+            font-family: 'AT Aero Bold';
             font-weight: 400;
             text-align: center;
         }
@@ -154,8 +154,8 @@ const GiftWrapper = styled.div`
             }
 
             p {
-                font: 400 1.15rem/1.5rem 'Space_Mono_Bold'; // menor que no Figma, paa evitar quebra de linha
-                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                font: 400 1.15rem/1.5rem 'AT Aero Bold'; // menor que no Figma, paa evitar quebra de linha
+                font: 400 1.5rem/1.75rem 'AT Aero Bold';
             }
         }
     }

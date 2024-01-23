@@ -19,20 +19,20 @@ import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleShift';
 
 const supporters = [
-    { name: 'Rocketseat', image: './images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
-    { name: 'Griaule', image: './images/partners/griaule.svg', url: 'https://griaule.com/' },
-    { name: 'Poatek', image: './images/partners/poatek.png', url: 'https://poatek.com/' },
-    { name: 'BCR.CX', image: './images/partners/bcrcx.png', url: 'https://www.bcrcx.com/' },
-    { name: 'EACH', image: './images/partners/each.svg', url: 'http://www5.each.usp.br/' },
-    { name: 'PET-SI', image: './images/partners/pet.png', url: 'http://www.each.usp.br/petsi/' }
+    { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
+    { name: 'Griaule', image: '/images/partners/griaule.svg', url: 'https://griaule.com/' },
+    { name: 'Poatek', image: '/images/partners/poatek.png', url: 'https://poatek.com/' },
+    { name: 'BCR.CX', image: '/images/partners/bcrcx.png', url: 'https://www.bcrcx.com/' },
+    { name: 'EACH', image: '/images/partners/each.svg', url: 'http://www5.each.usp.br/' },
+    { name: 'PET-SI', image: '/images/partners/pet.png', url: 'http://www.each.usp.br/petsi/' }
 // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
 const Home = () => {
 
     const router = useRouter();
-    const { user, signOut } = useAuth();
-    // const { user } = false; // para deploy sem login
+    // const { user, signOut } = useAuth();
+    const { user } = false; // para deploy sem login
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
@@ -139,7 +139,7 @@ const Home = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | Início' />
+            <Meta title='SSI 2024 | Início' />
 
             <LandingSection>
                 <div className='landing-container'>
@@ -148,7 +148,7 @@ const Home = () => {
                             {!user ?
                                 <>
                                     <div className='landing-text'>
-                                        <h3>Semana de Sistemas de Informação 2023</h3>
+                                        <h3>Semana de Sistemas de Informação 2024</h3>
                                         <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
                                     <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
@@ -159,7 +159,7 @@ const Home = () => {
                                 {!isUserRegistered &&
                                     <>
                                         <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2023</h3>
+                                            <h3>Semana de Sistemas de Informação 2024</h3>
                                             <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p>
                                         </div>
                                         <Button onClick={() => router.push('/user')}>Finalizar cadastro</Button>
@@ -168,7 +168,7 @@ const Home = () => {
                                 {isUserRegistered &&
                                     <>
                                         <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2023</h3>
+                                            <h3>Semana de Sistemas de Informação 2024</h3>
                                             <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
                                         </div>
                                         <TokenModal/>
@@ -186,7 +186,7 @@ const Home = () => {
                         </div>
                         :
                         <Loading>
-                            <img src='./loading.svg' alt='SSI 2023 - Loading' />
+                            <img src='./loading.svg' alt='SSI 2024 - Loading' />
                         </Loading>
                     }
                     <div className='landing-bait'>
@@ -205,7 +205,7 @@ const Home = () => {
                 <TwitchWatchNow />
             </TwitchContainer>
 
-            <SubscriptionSection>
+            {/* <SubscriptionSection>
                 <div className='subscription-container'>
                     <div className='subscription-title'>
                         <h3>Inscrições abertas!</h3>
@@ -218,7 +218,7 @@ const Home = () => {
                         </a>
                     </Link>
                 </div>
-            </SubscriptionSection>
+            </SubscriptionSection> */}
 
             <EventInfoSection>
                 <div className='about-container'>
@@ -463,8 +463,8 @@ const LandingSection = styled.section`
                 max-width: 31rem;
                 gap: 1rem;
                 p {
-                    font-family: 'Space_Mono_Bold';
-                    font-weight: 400;
+                    font-family: 'AT Aero Bold';
+                    font-weight: 700;
                 }
                 span {
                     font: inherit;
@@ -487,7 +487,7 @@ const LandingSection = styled.section`
                 justify-content: center;
 
                 svg {
-                    font: 400 9rem/0rem 'Space_Mono_Bold';
+                    font: 700 9rem/0rem 'AT Aero Bold';
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -508,14 +508,14 @@ const LandingSection = styled.section`
                 }
 
                 p {
-                    font: 400 2.3rem/3rem 'Space_Mono_Bold';
+                    font: 700 2.3rem/3rem 'AT Aero Bold';
                     letter-spacing: 0.8rem;
                     color: var(--color-neutral-300);
                 }
             }
 
             p {
-                font: 400 1.3rem/1.5rem 'Space_Mono_Bold';
+                font: 700 1.3rem/1.5rem 'AT Aero Bold';
                 color: var(--color-neutral-500);
             }
         }
@@ -548,7 +548,7 @@ const LandingSection = styled.section`
                 .event-date {
                     scale: 1.2;
                     p {
-                        font: 400 2rem/3rem 'Space_Mono_Bold';
+                        font: 700 2rem/3rem 'AT Aero Bold';
                         letter-spacing: 0.8rem;
                         color: var(--color-neutral-300);
                     }
@@ -600,8 +600,8 @@ const SubscriptionSection = styled.section`
             }
 
             p {
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
 
                 span {
                     font: inherit;
@@ -619,11 +619,11 @@ const SubscriptionSection = styled.section`
 
             .subscription-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
         }
@@ -690,8 +690,8 @@ const EventInfoSection = styled.section`
             }
 
             p {
-                font-family: 'Space_Mono_Bold';
-                font-weight: 400;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
 
                 span {
                     font: inherit;
@@ -738,11 +738,11 @@ const EventInfoSection = styled.section`
 
             .about-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 
@@ -774,7 +774,7 @@ const CountdownSection = styled.section`
         }
 
         p {
-            font: 400 1rem/1.25rem 'Space_Mono_Bold';
+            font: 700 1rem/1.25rem 'AT Aero Bold';
             text-align: center;
             
             span {
@@ -813,7 +813,7 @@ const CountdownSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 color: #FFF;
             }
         }
@@ -840,11 +840,11 @@ const CountdownSection = styled.section`
 
         .countdown-text {
             h3 {
-                font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                font: 700 3.5rem/4.25rem 'AT Aero Bold';
             }
         
             p {
-                font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                font: 700 1.5rem/1.75rem 'AT Aero Bold';
             }
         }
         
@@ -952,7 +952,7 @@ const SupportersSection = styled.section`
             }
 
             p {
-                font: 400 1rem/1.25rem 'Space_Mono_Bold';
+                font: 700 1rem/1.25rem 'AT Aero Bold';
                 text-align: center;
 
             }
@@ -981,11 +981,11 @@ const SupportersSection = styled.section`
 
             .supporters-title {
                 h3 {
-                    font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 400 1.5rem/1.75rem 'Space_Mono_Bold';
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
             }
 

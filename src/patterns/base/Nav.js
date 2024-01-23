@@ -18,13 +18,15 @@ const pages = {
     "/schedule": 2,
     "/about": 3,
     "/co": 4,
-    "/user": 5,
+    "/hackssi": 5,
+    "/ctf": 6,
+    "/user": 7,
 }
 
 const Nav = () => {
 
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    // const { user } = useAuth();
+    const { user } = false; // para deploy sem login
     const router = useRouter();
     
     const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +57,7 @@ const Nav = () => {
                 <a className="logo-container">
                     <img src={LogoPrincipal} alt="SSI logo" />
                     <p className='text-small'>
-                        Semana de Sistemas de Informação 2023
+                        Semana de Sistemas de Informação 2024
                     </p>
                 </a>
             </Link>
@@ -89,6 +91,16 @@ const Nav = () => {
                     <li>
                         <Link href="/co"><a>Comissão Organizadora</a></Link>
                         <div></div>
+                    </li>
+
+                    <li>
+                        <Link href="/hackssi"><a>HackSSI</a></Link>
+                        <div></div>
+                    </li>
+
+                    <li>
+                        {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                        {/* <div></div> */}
                     </li>
 
                     {user ?
@@ -147,6 +159,16 @@ const Nav = () => {
                         <li onClick={() => setIsOpen(false)}>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
                             <div></div>
+                        </li>
+
+                        <li onClick={() => setIsOpen(false)}>
+                            <Link href="/hackssi"><a>HackSSI</a></Link>
+                            <div></div>
+                        </li>
+
+                        <li /* onClick={() => setIsOpen(false)} */>
+                            {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                            {/* <div></div> */}
                         </li>
 
                     </ul>
@@ -209,7 +231,7 @@ const NavWrapper = styled.div`
     }
 
     .text-small {
-        font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
+        font: 700 0.875rem/1.125rem 'AT Aero Bold';
         color: var(--color-neutral-50);
     }
 
@@ -310,14 +332,14 @@ const NavMobile = styled.nav`
                     }
 
                     p {
-                        font: 400 0.875rem/1.125rem 'Space_Mono_Bold';
+                        font: 700 0.875rem/1.125rem 'AT Aero Bold';
                         color: #fff;
                         margin-bottom: 2px;
                     }
 
                     a {
                         margin: 0;
-                        font: 700 0.75rem/1rem 'Space_Mono';
+                        font: 700 0.75rem/1rem 'AT Aero';
                         cursor: pointer;
                         
                         &:hover, &:active {
@@ -340,7 +362,7 @@ const NavMobile = styled.nav`
                     color: gray;
                     margin: 0 12px;
 
-                    cursor: default;
+                    cursor: not-allowed;
                 }
 
                 img {
@@ -363,8 +385,8 @@ const NavMobile = styled.nav`
             ${props => props.currentPage && css`
                 li:nth-child(${pages[props.currentPage]+1}){
                     a {
-                        font-family: 'Space_Mono_Bold';
-                        font-weight: 400;
+                        font-family: 'AT Aero Bold';
+                        font-weight: 700;
                         padding: .2rem -5rem;
                         pointer-events: none;
                         /* border-bottom: 4px solid var(--color-primary-500); */
@@ -486,7 +508,7 @@ const NavDesktop = styled.nav`
         }
 
         a {
-            font: 700 1rem/1.25rem 'Space_Mono';
+            font: 700 1rem/1.25rem 'AT Aero';
             margin: 0 12px;
             transition: all .2s;
 
@@ -498,14 +520,14 @@ const NavDesktop = styled.nav`
         span {
             color: gray;
             margin: 0 12px;
-            cursor: default;
+            cursor: not-allowed;
         }
 
         ${props => props.currentPage && css`
             li:nth-child(${pages[props.currentPage]}):not(:last-child) {
                 a {
-                    font-family: 'Space_Mono_Bold';
-                    font-weight: 400;
+                    font-family: 'AT Aero Bold';
+                    font-weight: 700;
                     padding: .2rem -5rem;
                     pointer-events: none;
                 }

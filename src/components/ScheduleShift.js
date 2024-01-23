@@ -102,7 +102,7 @@ const ShiftWrapper = styled.div`
             width: 100%;
 
             > h5 {
-                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+                font: 400 2rem/2.5rem 'AT Aero Bold';
                 align-self: flex-start;
             }
 
@@ -121,8 +121,8 @@ const ShiftWrapper = styled.div`
     @media (min-width:1024px) {
         .shift-name {
             > h5 {
-                font: 400 2rem/2.5rem 'Space_Mono_Bold';
-                font: 400 2.5rem/3rem 'Space_Mono_Bold';
+                font: 400 2rem/2.5rem 'AT Aero Bold';
+                font: 400 2.5rem/3rem 'AT Aero Bold';
             }
         }
 
@@ -130,8 +130,8 @@ const ShiftWrapper = styled.div`
             gap: 3rem;
                 
             h5 {
-                font: 400 2.5rem/3rem 'Space_Mono_Bold';
-                font: 400 2rem/2.5rem 'Space_Mono_Bold';
+                font: 400 2.5rem/3rem 'AT Aero Bold';
+                font: 400 2rem/2.5rem 'AT Aero Bold';
             }
         }
     }

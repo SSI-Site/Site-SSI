@@ -35,8 +35,8 @@ export default class MyDocument extends Document {
                 <Head>
                     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-                    <link rel="preload" href="/fonts/space_mono-regular.ttf" as="font" crossOrigin="" />
-                    <link rel="preload" href="/fonts/space_mono-bold.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/at_aero-regular.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/at_aero-bold.ttf" as="font" crossOrigin="" />
                 </Head>
                 <body id="modal-root">
                     <Main />

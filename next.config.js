@@ -2,6 +2,7 @@ const withImages = require('next-images');
 module.exports = {
     ...withImages(),
     images: {
-        disableStaticImages: true
+        disableStaticImages: true,
+        unoptimized: true,
     }
 };

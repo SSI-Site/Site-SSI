@@ -46,7 +46,7 @@ const Schedule = () => {
 
     return (
         <>
-            <Meta title='SSI 2023 | Programação' />
+            <Meta title='SSI 2024 | Programação' />
             
             <ScheduleSection>
                 <h3>Programação</h3>
@@ -137,7 +137,7 @@ const ScheduleSection = styled.section`
         gap: 4rem;
 
         h3 {
-            font: 400 3.5rem/4.25rem 'Space_Mono_Bold';
+            font: 700 3.5rem/4.25rem 'AT Aero Bold';
         }
     }
 
