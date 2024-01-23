@@ -3,5 +3,6 @@ module.exports = {
     ...withImages(),
     images: {
         disableStaticImages: true,
+        unoptimized: true,
     }
 };

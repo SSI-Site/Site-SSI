@@ -14,70 +14,70 @@ const saphira = {
         }
     },
 
-    registerUser: async (userData) => {
-        const requestUrl = BASE_URL + "/user/add";
+//     registerUser: async (userData) => {
+//         const requestUrl = BASE_URL + "/user/add";
 
-        const params = {
-            full_name: userData.fullName,
-            email: userData.email,
-            cpf: userData.cpf,
-            usp_number: userData.usp_number,
-            data_nascimento: userData.birthDate,
-            genero: userData.gender,
-            etnia: userData.ethnicity,
-            curso: userData.course,
-            periodo_curso: userData.graduationPeriod,
-            como_conheceu: userData.knowAbout,
-            em_estagio: userData.isInInternship,
-            aceita_receber_email: userData.acceptedRecieveEmails
-        };
+//         const params = {
+//             full_name: userData.fullName,
+//             email: userData.email,
+//             cpf: userData.cpf,
+//             usp_number: userData.usp_number,
+//             data_nascimento: userData.birthDate,
+//             genero: userData.gender,
+//             etnia: userData.ethnicity,
+//             curso: userData.course,
+//             periodo_curso: userData.graduationPeriod,
+//             como_conheceu: userData.knowAbout,
+//             em_estagio: userData.isInInternship,
+//             aceita_receber_email: userData.acceptedRecieveEmails
+//         };
 
-        return axios.get(requestUrl, { params });
-    },
+//         return axios.get(requestUrl, { params });
+//     },
 
-    updateUser: async (userData) => {
-        const requestUrl = `${BASE_URL}/user/${userData.email}/edit`
+//     updateUser: async (userData) => {
+//         const requestUrl = `${BASE_URL}/user/${userData.email}/edit`
 
-        const params = {
-            full_name: userData.fullName,
-            email: userData.email,
-            cpf: userData.cpf,
-            usp_number: userData.usp_number,
-            data_nascimento: userData.birthDate,
-            genero: userData.gender,
-            etnia: userData.ethnicity,
-            curso: userData.course,
-            periodo_curso: userData.graduationPeriod,
-            como_conheceu: userData.knowAbout,
-            em_estagio: userData.isInInternship,
-            aceita_receber_email: userData.acceptedRecieveEmails
-        };
+//         const params = {
+//             full_name: userData.fullName,
+//             email: userData.email,
+//             cpf: userData.cpf,
+//             usp_number: userData.usp_number,
+//             data_nascimento: userData.birthDate,
+//             genero: userData.gender,
+//             etnia: userData.ethnicity,
+//             curso: userData.course,
+//             periodo_curso: userData.graduationPeriod,
+//             como_conheceu: userData.knowAbout,
+//             em_estagio: userData.isInInternship,
+//             aceita_receber_email: userData.acceptedRecieveEmails
+//         };
 
-        return axios.get(requestUrl, { params });
-    },
+//         return axios.get(requestUrl, { params });
+//     },
 
-    getUser: async (email) => {
-        const requestUrl = `${BASE_URL}/user/${email}`
-        return axios.get(requestUrl);
-    },
+//     getUser: async (email) => {
+//         const requestUrl = `${BASE_URL}/user/${email}`
+//         return axios.get(requestUrl);
+//     },
 
-    registerPresence: async (email, token) => {
-        const requestUrl = `${BASE_URL}/user/${email}/presence/add`;
+//     registerPresence: async (email, token) => {
+//         const requestUrl = `${BASE_URL}/user/${email}/presence/add`;
 
-        const params = {
-          token: token
-        };
+//         const params = {
+//           token: token
+//         };
 
-        return axios.get(requestUrl, { params });
-    },
+//         return axios.get(requestUrl, { params });
+//     },
 
-    listPresences: async (email) => {
-        const requestUrl = `${BASE_URL}/user/${email}/presences`;
+//     listPresences: async (email) => {
+//         const requestUrl = `${BASE_URL}/user/${email}/presences`;
 
-        return axios.get(requestUrl);
-    },
+//         return axios.get(requestUrl);
+//     },
 
-    testTimeout: async () => new Promise(resolve => setTimeout(resolve, 3000)),
+//     testTimeout: async () => new Promise(resolve => setTimeout(resolve, 3000)),
 }
 
 export default saphira;
