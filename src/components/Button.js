@@ -14,9 +14,9 @@ const Button = styled.button`
     transition: var(--transition-duration);
     white-space: nowrap;
 
-    background-image: linear-gradient(var(--color-neutral-50), var(--color-neutral-50));
-    background-size: 200%;
-    background-position-x: 200%;
+    background-image: linear-gradient(var(--color-neutral-50), var(--color-neutral-50)); /* Coloca um background branco em cima do botão */
+    background-size: 200%;                                                              /* faz o background-position com porcentagem funcionar */
+    background-position-x: 200%;                                                        /* Tira o background branco do lugar */
     background-repeat: no-repeat;
 
     :disabled {
@@ -27,7 +27,7 @@ const Button = styled.button`
     }
 
     &:hover {
-        background-position-x:100%;
+        background-position-x:100%;     /* Coloca o background de volta no lugar */
         color: var(--color-primary);
     }
 
