@@ -8,7 +8,7 @@ const Button = styled.button`
     width: 100%;
     height: 2.75rem;
     padding: var(--padding);
-    border-radius: 9px;
+    border-radius: 0;
     border: var(--color-primary);
     background-color: var(--background);
     transition: var(--transition-duration);
@@ -22,11 +22,13 @@ const Button = styled.button`
     }
 
     &:hover {
-        --background: var(--color-primary-900);
+        --background: var(--color-neutral-50);
+        color: var(--color-primary);
     }
 
     &:active {
-        --background: var(--color-primary-800);
+        --background: var(--color-neutral-50);
+        color: var(--color-primary);
     }
 
     @media (min-width:560px) {
