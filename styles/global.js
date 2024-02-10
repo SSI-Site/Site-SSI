@@ -4,7 +4,7 @@ export default createGlobalStyle`
 
     :root {
         /* paleta de cores */
-        --color-primary: #3A006E;
+        --color-primary: #9638FF;
         --color-secondary: #FF82FF;
         --color-tertiary: #8A45C6; // excluir posteriormente
         --color-neutral: #0A0A0A;
