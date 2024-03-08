@@ -54,12 +54,12 @@ const LectureItem = ({ time, event,  }) => {
                     </div>
                     {show.includes(time) ?
                         <div className='open-close-sign-desktop'>
-                            <img src={MinusCircle}></img>
+                            <img src={MinusCircle} alt = "Ver menos"></img>
                             <p>Ver menos</p>
                         </div>
                     :
                         <div className='open-close-sign-desktop'>
-                            <img src={PlusCircle}></img>
+                            <img src={PlusCircle} alt = "Ver mais"></img>
                             <p>Ver mais</p>
                         </div>
                     }
@@ -78,12 +78,12 @@ const LectureItem = ({ time, event,  }) => {
                 </div>
                 {show.includes(time) ?
                     <div className='open-close-sign-mobile'>
-                        <img src={MinusCircle}></img>
+                        <img src={MinusCircle} alt = "Fechar"></img>
                         <p>Fechar</p>
                     </div>
                 :
                     <div className='open-close-sign-mobile'>
-                        <img src={PlusCircle}></img>
+                        <img src={PlusCircle} alt = "Ver mais"></img>
                         <p>Ver mais</p>
                     </div>
                 }

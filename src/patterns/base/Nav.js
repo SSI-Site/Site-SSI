@@ -181,7 +181,7 @@ const Nav = () => {
                     </div>
                 </div>
 
-                <button className='hamburguer-menu' type="button" onClick={() => setIsOpen(!isOpen)}>
+                <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
                     <span></span>
                     <span></span>
                     <span></span>

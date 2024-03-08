@@ -329,7 +329,7 @@ const Home = () => {
                     <h3 className='title-mobile'>Programação</h3>
                     <div className='title-btn-desktop'>
                         <h3>Programação</h3>
-                        <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+                        <Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
                     </div>
                     <div className='date-stamp'>
                         <DateStamp day={scheduleDay} showEmoji={false}/>
@@ -866,7 +866,8 @@ const CountdownSection = styled.section`
 const ScheduleSection = styled.section`
     padding-block: 3.5rem;
     background: url('./images/background_imgs/background3_mobile.svg') no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: repeat;
     
     .schedule-container {
         display: flex;

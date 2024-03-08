@@ -19,16 +19,20 @@ const ScheduleShift = ({day , shift}) => {
                     {Object.entries(shifts[day][shift]).map(([time , event], key) => {
                         if(!event.speakers) {
                             return (
-                                <div key={key} className='event'>
-                                    <h5>{time}</h5>
-                                    <div>
-                                        <h5>{event.title}</h5>
+                                <li key={key}>
+                                    <div className='event'>
+                                        <h5>{time}</h5>
+                                        <div>
+                                            <h5>{event.title}</h5>
+                                        </div>
                                     </div>
-                                </div>
+                                </li>
                             )
                         } else {
                             return (
-                                <LectureItem key={key} time={time} event={event} />
+                                <li key={key}>
+                                    <LectureItem time={time} event={event} />
+                                </li>
                             )
                         }
                     })}
@@ -55,7 +59,14 @@ const ShiftWrapper = styled.div`
         align-items: center;
         justify-content: center;
         gap: 1rem;
+
+        li {
+            width: 100%;
+            list-style-type: none
+        }
     }
+
+    
 
     .shift-name {
         display: flex;
