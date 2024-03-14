@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image'
 
 import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
@@ -12,6 +13,7 @@ import Button from '../../components/Button';
 // assets
 import LogoPrincipal from '../../../public/images/logos/logo_principal.svg';
 import CloseBtn from '../../../public/images/icons/close.svg';
+import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg'
 
 const pages = {
     "/": 1,
@@ -51,144 +53,135 @@ const Nav = () => {
     return (
         <NavWrapper>
             <div>
-                
-            {/* Logo que redireciona para a home */}
-            <Link href="/">
-                <a className="logo-container">
-                    <img src={LogoPrincipal} alt="SSI logo" />
-                    <p className='text-small'>
-                        Semana de Sistemas de Informação 2024
-                    </p>
-                </a>
-            </Link>
+                {/* Logo que redireciona para a home */}
+                <Link href="/">
+                    
+                    <Image
+                    src = { LogoHorizontal }
+                    width = { 180 }
+                    height = { 40 }
+                    />
 
-            {/* Caixa de autenticação/login */}
-            {showAuthModal &&
-                <AuthModal
-                    onClose={() => setShowAuthModal(false)}
-                    show={showAuthModal}
-                />
-            }
+                </Link>
+            </div>
 
-            {/* Navbar para Desktop */}
-            <NavDesktop currentPage={router.pathname}>
-                <ul>
-                    <li>
-                        <Link href="/"><a>Home</a></Link>
-                        <div></div>
-                    </li>
+                {/* Caixa de autenticação/login */}
+                {showAuthModal &&
+                    <AuthModal
+                        onClose={() => setShowAuthModal(false)}
+                        show={showAuthModal}
+                    />
+                }
 
-                    <li>
-                        <Link href="/schedule" ><a>Programação</a></Link>
-                        <div></div>
-                    </li>
-
-                    <li>
-                        <Link href="/about"><a>Evento</a></Link>
-                        <div></div>
-                    </li>
-
-                    <li>
-                        <Link href="/co"><a>Comissão Organizadora</a></Link>
-                        <div></div>
-                    </li>
-
-                    <li>
-                        <Link href="/hackssi"><a>HackSSI</a></Link>
-                        <div></div>
-                    </li>
-
-                    <li>
-                        {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
-                        {/* <div></div> */}
-                    </li>
-
-                    {user ?
-                        <li className='userPicContainer'>
-                            <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
-                        </li>
-                        :
-                        <li>
-                            <Button onClick={handleShowAuthModal}>Login</Button>
-                            {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
-                        </li>
-
-                    }
-                </ul>
-            </NavDesktop>
-
-            {/* Navbar para Mobile */}
-            <NavMobile isOpen={isOpen} currentPage={router.pathname}>
-                <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-
-                    <ul>
-                        {user ?
-                            <li onClick={() => setIsOpen(false)}>
-                                <div className='user-info' href="/user">
-                                
-                                    <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
-                                    <div>
-                                        <p className='welcome-user'>Olá{user.name ? `, ${user.name.split(' ')[0]}!` : '!'}</p>
-                                        <a href="/user">Ver perfil</a>
-                                    </div>
-                                
+                {/* Navbar para Mobile */}
+                <NavMobile isOpen = {isOpen} currentPage = {router.pathname}>
+                    <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
+                        
+                        <div 
+                        className = 'headerSidePanel'
+                        style = {{display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', height: '5rem', padding: '1rem'}}>
+                            <h6>Navegação Rápida</h6>                   
+                            <div className='close-btn' onClick={() => setIsOpen(!isOpen)}>
+                                <div className='close'>
+                                    <Image 
+                                    src = {CloseBtn} 
+                                    alt='Fechar'
+                                    width = { 15 }
+                                    height = { 15 }/>
                                 </div>
-                            </li>
-                            :
-                            <li className='login-button' onClick={() => setIsOpen(false)}>
-                                <Button onClick={handleShowAuthModal}>Login</Button>
-                                {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
-                            </li>
-                        }
+                            </div>
+                        </div>
 
-                        <li onClick={() => setIsOpen(false)}>
+                        <ul>
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/">
+                                    Home
+                                </Link>
+                
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/schedule">
+                                    Programação
+                                </Link>
+                                
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/about">
+                                    Evento
+                                </Link>
+                                
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/co">
+                                    Comissão Organizadora
+                                </Link>
+                                
+                            </li>
+
+                            <li /* onClick={() => setIsOpen(false)} */>
+                                {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                                {/* <div></div> */}
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </NavMobile>
+
+                {/* Navbar para Desktop */}
+                <NavDesktop currentPage={router.pathname}>
+                    <ul>
+                        <li>
                             <Link href="/"><a>Home</a></Link>
                             <div></div>
                         </li>
 
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/schedule"><a>Programação</a></Link>
+                        <li>
+                            <Link href="/schedule" ><a>Programação</a></Link>
                             <div></div>
                         </li>
 
-                        <li onClick={() => setIsOpen(false)}>
+                        <li>
                             <Link href="/about"><a>Evento</a></Link>
                             <div></div>
                         </li>
 
-                        <li onClick={() => setIsOpen(false)}>
+                        <li>
                             <Link href="/co"><a>Comissão Organizadora</a></Link>
                             <div></div>
                         </li>
 
-                        <li onClick={() => setIsOpen(false)}>
+                        <li>
                             <Link href="/hackssi"><a>HackSSI</a></Link>
                             <div></div>
                         </li>
 
-                        <li /* onClick={() => setIsOpen(false)} */>
+                        <li>
                             {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
                             {/* <div></div> */}
                         </li>
 
+                        {user ?
+                            <li className='userPicContainer'>
+                                <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                            </li>
+                            :
+                            <li>
+                                <Button onClick={handleShowAuthModal}>Login</Button>
+                                {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
+                            </li>
+
+                        }
                     </ul>
-
-                    <div className='close-btn' onClick={() => setIsOpen(!isOpen)}>
-                        <div className='close'>
-                            <img src={CloseBtn} alt='Botão de fechar'></img>
-                        </div>
-                        <p className='text-small'>Fechar</p>
-                    </div>
-                </div>
-
-                <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </NavMobile>
-
-            </div>
+                </NavDesktop>
         </NavWrapper>
     )
 }
@@ -200,39 +193,17 @@ const NavWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 1rem;
     position: fixed;
     width: 100%;
-    height: 3.75rem;
+    height: 5rem;
+    overflow: hidden;
     z-index: 10;
-    background-color: var(--color-neutral-900);
-    box-shadow: 0px 5px 24px 14px rgba(16,3,26,0.38);
+    padding: 1rem;
+    background-color: var(--color-neutral);
 
     > div {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         width: 100%;
         max-width: 1440px;
-        height: 100%;
-    }
-
-    .logo-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 14rem;
-        gap: 1rem;
-
-        img {
-            height: 2.75rem;
-        }
-    }
-
-    .text-small {
-        font: 700 0.875rem/1.125rem 'AT Aero Bold';
-        color: var(--color-neutral-50);
     }
 
     @media (min-width:1300px) {
@@ -247,23 +218,33 @@ const NavWrapper = styled.div`
 
 const NavMobile = styled.nav`
     overflow: hidden;
+    transition: all linear 100ms;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--color-neutral);
 
     .hamburguer-menu {
-        background-color: unset;
-        border: unset;
         display: flex;
+        width: 30%;
+        height: 30%;
         flex-direction: column;
         justify-content: space-between;
-        height: 1.375rem;
-        width: 2rem;
+        padding: .5rem;
+        gap: .4rem;
+        background: linear-gradient(to right, var(--color-neutral) 50%, var(--color-neutral-50) 50%);
+        background-position: left;
+        background-size: 200% 100%;
+        border: unset;
 
         span {
-            display: block;
-            height: 3px;
             width: 100%;
-            background: #FFF;
-            border-radius: 12px;
-            transition: all 0.3s ease;
+            height: 2px;
+            background-color: white;
+        }
+
+    .hamburguer-menu:hover{
+        background-position: right;
         }
     }
 
@@ -271,38 +252,26 @@ const NavMobile = styled.nav`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
         height: 100%;
-        width: fit-content;
+        width: 100%;
         position: fixed;
         top: 0;
         right: 0;
-        background-color: var(--color-neutral-900);
-        transition: all linear .15s;
-        border-radius: 12px;
-        padding: 1.5rem;
-        
-        .close-btn {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            width: 5rem;
-            cursor: pointer;
-            
-            .close {
-                img {
-                    width: 17.58px;
-                    margin-top: 0.3rem;
-                }
-            }
+        background-color: var(--color-neutral);
+        padding: 1rem ;
+        gap: 2rem;
+
+        .headerSidePanel {
+            border: 1px solid red;
         }
+        
 
         ul {
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            border: 1px solid red;
+            width: 100%;
 
             .login-button {
                 margin-bottom: 2rem;
@@ -323,85 +292,10 @@ const NavMobile = styled.nav`
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-
-                    > div {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: left;
-                        justify-content: left;
-                    }
-
-                    p {
-                        font: 700 0.875rem/1.125rem 'AT Aero Bold';
-                        color: #fff;
-                        margin-bottom: 2px;
-                    }
-
-                    a {
-                        margin: 0;
-                        font: 700 0.75rem/1rem 'AT Aero';
-                        cursor: pointer;
-                        
-                        &:hover, &:active {
-                            text-decoration: underline;
-                        }
-                    }
-
-                    ${props => props.currentPage == '/user' && css`
-                        pointer-events: none;
-                    `}
-                }
-
-                a {
-                    color: var(--color-neutral-50);
-                    margin: 0 12px;
-                    transition: all .2s;
-                }
-
-                span {
-                    color: gray;
-                    margin: 0 12px;
-
-                    cursor: not-allowed;
-                }
-
-                img {
-                    width: 2.75rem;
-                    border-radius: 100%;
-                    margin-right: 1rem;
-
-                    ${props => props.currentPage == '/user' && css`
-                        border: 4px solid var(--color-primary-500);
-                    `}
-                }
-
-                a:active {
-                    cursor: pointer;
-                    color: var(--color-secondary);
-                    filter: brightness(1.1);
-                }
             }
-
-            ${props => props.currentPage && css`
-                li:nth-child(${pages[props.currentPage]+1}){
-                    a {
-                        font-family: 'AT Aero Bold';
-                        font-weight: 700;
-                        padding: .2rem -5rem;
-                        pointer-events: none;
-                        /* border-bottom: 4px solid var(--color-primary-500); */
-                    }
-
-                    div {
-                        width: calc(100% - 24px);
-                        margin-left: 12px;
-                        height: 4px;
-                        background-color: var(--color-primary-500);
-                        border-radius: 12px;
-                    }
-                }
-            `}
         }
+    }
+
 
         @media (max-height:590px) {
             display: flex;
