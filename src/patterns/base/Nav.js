@@ -11,7 +11,6 @@ import AuthModal from '../../components/AuthModal';
 import Button from '../../components/Button';
 
 // assets
-import LogoPrincipal from '../../../public/images/logos/logo_principal.svg';
 import CloseBtn from '../../../public/images/icons/close.svg';
 import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg'
 
@@ -59,11 +58,10 @@ const Nav = () => {
                     <Image
                     src = { LogoHorizontal }
                     width = { 180 }
-                    height = { 40 }
+                    height = { 45 }
                     />
 
                 </Link>
-            </div>
 
                 {/* Caixa de autenticação/login */}
                 {showAuthModal &&
@@ -74,70 +72,75 @@ const Nav = () => {
                 }
 
                 {/* Navbar para Mobile */}
-                <NavMobile isOpen = {isOpen} currentPage = {router.pathname}>
-                    <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
+                <NavMobile isOpen = {isOpen}>
+                    <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
                         
-                        <div 
-                        className = 'headerSidePanel'
-                        style = {{display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', height: '5rem', padding: '1rem'}}>
-                            <h6>Navegação Rápida</h6>                   
-                            <div className='close-btn' onClick={() => setIsOpen(!isOpen)}>
-                                <div className='close'>
-                                    <Image 
-                                    src = {CloseBtn} 
-                                    alt='Fechar'
-                                    width = { 15 }
-                                    height = { 15 }/>
-                                </div>
+                        <div className = 'headerNav'>
+                            <h6>Navegação rápida</h6>
+                            <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
+                                <Image 
+                                src = { CloseBtn }
+                                width = { 18 }
+                                height = { 18 }
+                                alt = 'Fechar'/>
                             </div>
                         </div>
 
                         <ul>
                             <li onClick={() => setIsOpen(false)}>
-                                <Link href="/">
-                                    Home
+                                <Link href="/" passHref>
+                                    <a>Home</a>
                                 </Link>
-                
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
-                                <Link href="/schedule">
-                                    Programação
-                                </Link>
-                                
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/about">
-                                    Evento
+                                <Link href="/schedule" passHref>
+                                    <a>Programação</a>
                                 </Link>
                                 
                             </li>
 
                             <li onClick={() => setIsOpen(false)}>
-                                <Link href="/co">
-                                    Comissão Organizadora
+                                <Link href="/about" passHref>
+                                    <a>Evento</a>
+                                </Link>
+                                
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/co" passHref>
+                                    <a>Comissão Organizadora</a>
+                                </Link>
+                                
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)}>
+                                <Link href="/hackssi" passHref>
+                                    <a>HackSSI</a>
                                 </Link>
                                 
                             </li>
 
                             <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
+                                {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                                {/*<span target="blank">CTF</span>{/* </Link> */}
                                 {/* <div></div> */}
                             </li>
-
                         </ul>
+
                     </div>
 
-                    <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+                    <div className = 'hamburguerWrapper'>
+                        <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
                 </NavMobile>
 
                 {/* Navbar para Desktop */}
-                <NavDesktop currentPage={router.pathname}>
+                <NavDesktop>
                     <ul>
                         <li>
                             <Link href="/"><a>Home</a></Link>
@@ -182,6 +185,8 @@ const Nav = () => {
                         }
                     </ul>
                 </NavDesktop>
+
+            </div>
         </NavWrapper>
     )
 }
@@ -193,17 +198,29 @@ const NavWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-inline: 1rem;
     position: fixed;
     width: 100%;
-    height: 5rem;
-    overflow: hidden;
     z-index: 10;
-    padding: 1rem;
+    padding: 1.5rem 1rem; 
     background-color: var(--color-neutral);
 
     > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
         max-width: 1440px;
+        height: 100%;
+    }
+
+    .logo-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 14rem;
+        gap: 1rem;
     }
 
     @media (min-width:1300px) {
@@ -217,34 +234,50 @@ const NavWrapper = styled.div`
 `
 
 const NavMobile = styled.nav`
-    overflow: hidden;
-    transition: all linear 100ms;
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--color-neutral);
+    overflow: hidden;   
+
+    .headerNav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .close {
+        padding: 1rem;
+        cursor: pointer;       
+    }
+
+    .hamburguerWrapper{
+        padding: .75rem;
+        background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+        background-position: right;
+        background-size: 200% 100%;
+        transition: 100ms all ease-out;
+    }
+
+    .hamburguerWrapper:hover {
+        background-position: left;
+        span {
+            background-color: black;
+        }
+    }
+
 
     .hamburguer-menu {
+        background-color: unset;
+        border: unset;
         display: flex;
-        width: 30%;
-        height: 30%;
         flex-direction: column;
         justify-content: space-between;
-        padding: .5rem;
-        gap: .4rem;
-        background: linear-gradient(to right, var(--color-neutral) 50%, var(--color-neutral-50) 50%);
-        background-position: left;
-        background-size: 200% 100%;
-        border: unset;
+        width: 1.5rem;
+        gap: .25rem;
 
         span {
-            width: 100%;
+            display: block;
             height: 2px;
-            background-color: white;
-        }
-
-    .hamburguer-menu:hover{
-        background-position: right;
+            width: 100%;
+            background-color: #FFF;
         }
     }
 
@@ -257,45 +290,36 @@ const NavMobile = styled.nav`
         position: fixed;
         top: 0;
         right: 0;
-        background-color: var(--color-neutral);
-        padding: 1rem ;
-        gap: 2rem;
-
-        .headerSidePanel {
-            border: 1px solid red;
-        }
-        
+        background-color: var(--color-neutral-800);
+        transition: all linear 100ms;
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
 
         ul {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            border: 1px solid red;
+            align-items: flex-start;
             width: 100%;
-
-            .login-button {
-                margin-bottom: 2rem;
-                
-                button {
-                    padding-block: 0.65rem;
-                }
-            }
+            justify-content: center;
+            gap: 1rem;
 
             li {
-                margin-bottom: 1.5rem;
-                position: relative;
+                padding: 0.125rem .5rem;
+                background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+                background-size: 200% 100%;
+                background-position: right;
+                transition: all 100ms ease-out;
+                font-weight: 200;
 
-                .user-info {
-                    width: fit-content;
-                    max-width: 100%;
-                    height: 2.75rem;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
+                &:hover{
+                    background-position: left;
+                }
+
+                &:hover > a {
+                    color: black;
+                }
             }
         }
-    }
-
 
         @media (max-height:590px) {
             display: flex;
@@ -324,6 +348,7 @@ const NavMobile = styled.nav`
     @media (min-width:850px) {
         display: none;
     }
+    
 `
 
 const NavDesktop = styled.nav`
