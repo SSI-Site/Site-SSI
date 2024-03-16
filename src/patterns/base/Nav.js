@@ -114,7 +114,7 @@ const Nav = () => {
                                 
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/hackssi' ? 'active': ''}>
                                 <Link href="/hackssi" passHref>
                                     <a>HackSSI</a>
                                 </Link>
@@ -301,7 +301,7 @@ const NavMobile = styled.nav`
             align-items: flex-start;
             width: 100%;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
 
             li {
                 padding: 0.125rem .5rem;
@@ -318,8 +318,24 @@ const NavMobile = styled.nav`
                 &:hover > a {
                     color: black;
                 }
+
+            }
+
+            .active{
+                background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
+                background-size: 200% 100%;
+                background-position: right;
+                transition: 100ms all ease-out;
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
+                
+                &:hover > a{
+                    color: var(--color-primary)
+                };
             }
         }
+
+
 
         @media (max-height:590px) {
             display: flex;
