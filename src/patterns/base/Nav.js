@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image'
@@ -19,7 +19,6 @@ const Nav = () => {
     // const { user } = useAuth();
     const { user } = false; // para deploy sem login
     const router = useRouter();
-    console.log(router.pathname)
     
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
@@ -120,7 +119,9 @@ const Nav = () => {
 
                         {/* Editar esta div para o usuário logado*/}
                         {user
-                            ? <></>
+                            ? <>
+                                {/*Código do usuário logado */}
+                            </> 
                             :
                             <Button className = 'userButton'>Login</Button>
                         }
@@ -224,14 +225,17 @@ const NavWrapper = styled.div`
 
         li a{
             padding: 0.125rem .5rem;
-            background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
-            background-size: 200% 100%;
-            background-position: right;
+            background-color: transparent;
+            background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
+            background-size: 200%;
+            background-position-x: 200%;
             transition: all 100ms ease-out;
+            background-repeat: no-repeat;
+            white-space: nowrap;
             font-weight: 200;
 
-            &:hover, &:focus{
-                background-position: left;
+            &:hover{
+                background-position-x: 100%;
                 color: black;
             }
 
