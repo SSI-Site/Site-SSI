@@ -44,13 +44,16 @@ const Nav = () => {
         <NavWrapper>
             <div>
                 {/* Logo que redireciona para a home */}
-                <Link href="/">
-                    
-                    <Image
-                    src = { LogoHorizontal }
-                    width = { 180 }
-                    height = { 45 }
-                    />
+                <Link href="/" passHref>
+                    <a>
+                        <Image
+                        src = { LogoHorizontal }
+                        width = { 180 }
+                        height = { 45 }
+                        style = {{ cursor: 'pointer' }}
+                        alt = 'Semana de Sistemas de Informação'
+                        />
+                    </a>
 
                 </Link>
 
@@ -138,7 +141,7 @@ const Nav = () => {
                 <NavDesktop>
                     <ul>
                         <li className = {router.pathname == '/' ? 'active': ''}>
-                            <Link href="/" passHref >
+                            <Link href="/" passHref>
                                 <a>Home</a>
                             </Link>           
                         </li>
@@ -202,10 +205,6 @@ const NavWrapper = styled.div`
     padding: 1.5rem 1rem; 
     background-color: var(--color-neutral);
 
-    @media (min-width: 840px){
-        padding: 2.5rem 1rem;
-    }
-
     > div {
         display: flex;
         align-items: center;
@@ -231,7 +230,7 @@ const NavWrapper = styled.div`
             transition: all 100ms ease-out;
             font-weight: 200;
 
-            &:hover{
+            &:hover, &:focus{
                 background-position: left;
                 color: black;
             }
@@ -251,13 +250,14 @@ const NavWrapper = styled.div`
             
             &:hover > a{
                 color: var(--color-primary);
-            }
+            };
+
         }
     }
 
     @media (min-width:1300px) {
         position: unset;
-        height: 3.75rem;
+        padding-block: 1rem;
         z-index: unset;
         justify-content: center;
         box-shadow: unset;
@@ -357,7 +357,7 @@ const NavMobile = styled.nav`
         right: -999px;
     }
 
-    @media (min-width:840px) {
+    @media (min-width:995px) {
         display: none;
     }
     
@@ -367,7 +367,7 @@ const NavDesktop = styled.nav`
     display: none;
     margin-left: auto;
 
-    @media (min-width:840px) {
+    @media (min-width:995px) {
         display: flex;
         
         ul {

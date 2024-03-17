@@ -26,12 +26,12 @@ const Button = styled.button`
         pointer-events: none;
     }
 
-    &:hover {
+    &:hover, &:focus {
         background-position-x:100%;     /* Coloca o background de volta no lugar */
         color: var(--color-primary);
     }
 
-    &:active {
+    &:active, &:focus {
         background-position-x:100%;
         color: var(--color-primary);
     }
