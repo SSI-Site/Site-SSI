@@ -14,21 +14,12 @@ import Button from '../../components/Button';
 import CloseBtn from '../../../public/images/icons/close.svg';
 import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg'
 
-const pages = {
-    "/": 1,
-    "/schedule": 2,
-    "/about": 3,
-    "/co": 4,
-    "/hackssi": 5,
-    "/ctf": 6,
-    "/user": 7,
-}
-
 const Nav = () => {
 
     // const { user } = useAuth();
     const { user } = false; // para deploy sem login
     const router = useRouter();
+    console.log(router.pathname)
     
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
@@ -74,60 +65,63 @@ const Nav = () => {
                 {/* Navbar para Mobile */}
                 <NavMobile isOpen = {isOpen}>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-                        
-                        <div className = 'headerNav'>
-                            <h6>Navegação rápida</h6>
-                            <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                <Image 
-                                src = { CloseBtn }
-                                width = { 18 }
-                                height = { 18 }
-                                alt = 'Fechar'/>
+
+                            <div className = 'headerNav'>
+                                <h6>Navegação rápida</h6>
+                                <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
+                                    <Image 
+                                    src = { CloseBtn }
+                                    width = { 18 }
+                                    height = { 18 }
+                                    alt = 'Fechar'/>
+                                </div>
                             </div>
-                        </div>
 
-                        <ul>
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/" passHref>
-                                    <a>Home</a>
-                                </Link>
-                            </li>
+                            <ul>
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
+                                    <Link href="/" passHref>
+                                        <a>Home</a>
+                                    </Link>
+                                </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/schedule" passHref>
-                                    <a>Programação</a>
-                                </Link>
-                                
-                            </li>
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
+                                    <Link href="/schedule" passHref>
+                                        <a>Programação</a>
+                                    </Link>                                
+                                </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/about" passHref>
-                                    <a>Evento</a>
-                                </Link>
-                                
-                            </li>
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
+                                    <Link href="/about" passHref>
+                                        <a>Evento</a>
+                                    </Link>
+                                </li>
 
-                            <li onClick={() => setIsOpen(false)}>
-                                <Link href="/co" passHref>
-                                    <a>Comissão Organizadora</a>
-                                </Link>
-                                
-                            </li>
+                                <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                                    <Link href="/partnership" passHref >
+                                        <a>Parcerias</a>
+                                    </Link>
+                                </li>
 
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/hackssi' ? 'active': ''}>
-                                <Link href="/hackssi" passHref>
-                                    <a>HackSSI</a>
-                                </Link>
-                                
-                            </li>
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
+                                    <Link href="/co" passHref>
+                                        <a>Comissão Organizadora</a>
+                                    </Link>                                
+                                </li>
 
-                            <li /* onClick={() => setIsOpen(false)} */>
-                                {/* <Link href="https://ctfssi.intheshell.page/"> */}
-                                {/*<span target="blank">CTF</span>{/* </Link> */}
-                                {/* <div></div> */}
-                            </li>
-                        </ul>
+                                <li /* onClick={() => setIsOpen(false)} */>
+                                    {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                                    {/*<span target="blank">CTF</span>{/* </Link> */}
+                                    {/* <div></div> */}
+                                </li>
+                            </ul>
 
+                        {/* Editar esta div para o usuário logado*/}
+                        {user
+                            ? <></>
+                            :
+                            <Button className = 'userButton'>Login</Button>
+                        }
+                        
                     </div>
 
                     <div className = 'hamburguerWrapper'>
@@ -137,39 +131,45 @@ const Nav = () => {
                             <span></span>
                         </button>
                     </div>
+
                 </NavMobile>
 
                 {/* Navbar para Desktop */}
                 <NavDesktop>
                     <ul>
-                        <li>
-                            <Link href="/"><a>Home</a></Link>
-                            <div></div>
+                        <li className = {router.pathname == '/' ? 'active': ''}>
+                            <Link href="/" passHref >
+                                <a>Home</a>
+                            </Link>           
+                        </li>
+
+                        <li className = {router.pathname == '/schedule' ? 'active': ''}>
+                            <Link href="/schedule" passHref >
+                                <a>Programação</a>
+                            </Link>
+                        </li>
+
+                        <li className = {router.pathname == '/about' ? 'active': ''}>
+                            <Link href="/about" passHref >
+                                <a>Evento</a>
+                            </Link>
+                        </li>
+
+                        <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                            <Link href="/partnership" passHref >
+                                <a>Parcerias</a>
+                            </Link>
+                        </li>
+
+                        <li className = {router.pathname == '/co' ? 'active': ''}>
+                            <Link href="/co" passHref >
+                                <a>Comissão Organizadora</a>
+                            </Link>
                         </li>
 
                         <li>
-                            <Link href="/schedule" ><a>Programação</a></Link>
-                            <div></div>
-                        </li>
-
-                        <li>
-                            <Link href="/about"><a>Evento</a></Link>
-                            <div></div>
-                        </li>
-
-                        <li>
-                            <Link href="/co"><a>Comissão Organizadora</a></Link>
-                            <div></div>
-                        </li>
-
-                        <li>
-                            <Link href="/hackssi"><a>HackSSI</a></Link>
-                            <div></div>
-                        </li>
-
-                        <li>
-                            {/* <Link href="https://ctfssi.intheshell.page/"> */}<span target="blank">CTF</span>{/* </Link> */}
-                            {/* <div></div> */}
+                            {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                            {/*  */}
                         </li>
 
                         {user ?
@@ -181,7 +181,6 @@ const Nav = () => {
                                 <Button onClick={handleShowAuthModal}>Login</Button>
                                 {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
                             </li>
-
                         }
                     </ul>
                 </NavDesktop>
@@ -193,17 +192,19 @@ const Nav = () => {
 
 export default Nav;
 
-
 const NavWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 1rem;
-    position: fixed;
-    width: 100%;
+    max-width: 1576px;
+    margin: auto;
     z-index: 10;
     padding: 1.5rem 1rem; 
     background-color: var(--color-neutral);
+
+    @media (min-width: 840px){
+        padding: 2.5rem 1rem;
+    }
 
     > div {
         display: flex;
@@ -214,13 +215,44 @@ const NavWrapper = styled.div`
         height: 100%;
     }
 
-    .logo-container {
+    ul {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 14rem;
-        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        justify-content: center;
+        gap: 1.5rem;
+
+        li a{
+            padding: 0.125rem .5rem;
+            background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+            background-size: 200% 100%;
+            background-position: right;
+            transition: all 100ms ease-out;
+            font-weight: 200;
+
+            &:hover{
+                background-position: left;
+                color: black;
+            }
+
+        }
+
+        .active{
+            background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
+            background-size: 200% 100%;
+            background-position: right;
+            transition: 100ms all ease-out;
+
+            a {
+                font-family: 'AT Aero Bold';
+                font-weight: 400;
+            }
+            
+            &:hover > a{
+                color: var(--color-primary);
+            }
+        }
     }
 
     @media (min-width:1300px) {
@@ -263,7 +295,6 @@ const NavMobile = styled.nav`
         }
     }
 
-
     .hamburguer-menu {
         background-color: unset;
         border: unset;
@@ -285,83 +316,48 @@ const NavMobile = styled.nav`
         display: flex;
         flex-direction: column;
         align-items: center;
+        overflow-y: scroll;
         height: 100%;
         width: 100%;
         position: fixed;
+        z-index: 10;
         top: 0;
         right: 0;
         background-color: var(--color-neutral-800);
-        transition: all linear 100ms;
+        transition: all ease-out 100ms;
         padding: 1.5rem 1rem;
         gap: 1.5rem;
 
-        ul {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            justify-content: center;
-            gap: 1.5rem;
-
-            li {
-                padding: 0.125rem .5rem;
-                background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
-                background-size: 200% 100%;
-                background-position: right;
-                transition: all 100ms ease-out;
-                font-weight: 200;
-
-                &:hover{
-                    background-position: left;
-                }
-
-                &:hover > a {
-                    color: black;
-                }
-
-            }
-
-            .active{
-                background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
-                background-size: 200% 100%;
-                background-position: right;
-                transition: 100ms all ease-out;
-                font-family: 'AT Aero Bold';
-                font-weight: 700;
-                
-                &:hover > a{
-                    color: var(--color-primary)
-                };
-            }
+        @media (min-width: 648px){
+            width: 50%;
         }
 
+        h6 {
+            color: #FFF;
+        }
 
-
-        @media (max-height:590px) {
+        .userButton {
+            position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            height: 100%;
-            max-width: unset;
+            bottom: 0;
+            margin-bottom: 3.5rem;
+            padding: 1.2rem 1rem;
+            width: calc(100% - 2rem);
 
-            ul {
-                width: 45%;
-                margin-top: 0;
-                margin-right: 10px;
+            p {
+                font-family: 'AT Aero Bold';
+                font-weight: 700;
             }
         }
     }
 
     .sidepanel-hidden {
-        right: -450px;
-
-        @media (max-height:590px) {
-            right: -100%;
-        }
+        right: -999px;
     }
 
-    @media (min-width:850px) {
+    @media (min-width:840px) {
         display: none;
     }
     
@@ -371,123 +367,14 @@ const NavDesktop = styled.nav`
     display: none;
     margin-left: auto;
 
-    ul {
+    @media (min-width:840px) {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        height: 40px;
-
-        li {
-            position: relative;
-            max-height: 44px;
-
-            div {
-                position: absolute;
-                margin-top: 2px;
-                width: 0%;
-                margin-left: 50%;
-                height: 4px;
-                background-color: var(--color-neutral-50);
-                transition: all .2s;
-                border-radius: 12px;
-            }
-
-            &:last-child {
-                margin-left: 0.75rem;
-            }
-
-            a {
-                max-height: 44px;
-            }
-        }
-
-        button {
-            padding-block: 0.65rem;
-            height: 44px;
-            width: 108px;
-        }
-
-        .userPicContainer {
-            display: flex;
+        
+        ul {
             flex-direction: row;
             align-items: center;
-            justify-content: center;
-            margin-left: 0.75rem;
-
-            img {
-                width: 44px;
-                border-radius: 100%;
-                transition: 0.1s;
-
-                &:hover {
-                    border: 4px solid white;
-                }
-            }
-                        
-
-            ${props => props.currentPage == '/user' && css`
-
-                :nth-child(${pages[props.currentPage]}):hover {
-                    li, a {
-                        pointer-events: none;
-                    }
-                }
-            `}
-
-            ${props => props.currentPage == '/user' && css`
-            
-                img {
-                    border: 4px solid var(--color-primary-500);
-                }
-            `}
+            justify-content: unset;
+            gap: 1rem;
         }
-
-        a {
-            font: 700 1rem/1.25rem 'AT Aero';
-            margin: 0 12px;
-            transition: all .2s;
-
-            :hover {
-                cursor: pointer;
-            }
-        }
-
-        span {
-            color: gray;
-            margin: 0 12px;
-            cursor: not-allowed;
-        }
-
-        ${props => props.currentPage && css`
-            li:nth-child(${pages[props.currentPage]}):not(:last-child) {
-                a {
-                    font-family: 'AT Aero Bold';
-                    font-weight: 700;
-                    padding: .2rem -5rem;
-                    pointer-events: none;
-                }
-
-                div {
-                    width: calc(100% - 24px);
-                    margin-left: 12px;
-                    height: 4px;
-                    background-color: var(--color-primary-500);
-                }
-            }
-
-            li:not(:last-child):not(:nth-child(${pages[props.currentPage]})):hover {
-                div {
-                    width: calc(100% - 24px);
-                    margin-left: 12px;
-                    height: 4px;
-                    background-color: var(--color-neutral-50);
-                }
-            }
-        `}
-
-    }
-
-    @media (min-width:850px) {
-        display: block;
     }
 `
