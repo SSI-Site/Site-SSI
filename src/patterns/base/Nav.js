@@ -236,7 +236,7 @@ const NavWrapper = styled.div`
             white-space: nowrap;
             font-weight: 400;
 
-            &:hover{
+            &:hover, &:focus{
                 background-position-x: 100%;
                 color: black;
             }
