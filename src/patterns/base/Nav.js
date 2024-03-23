@@ -23,6 +23,7 @@ const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
 
+
     const handleShowAuthModal = () => {
         if (window.pageYOffset != 0) {
             setTimeout(() => { handleShowAuthModal() }, 50);
@@ -67,55 +68,56 @@ const Nav = () => {
                 {/* Navbar para Mobile */}
                 <NavMobile isOpen = {isOpen}>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-
-                            <div className = 'headerNav'>
-                                <h6>Navegação rápida</h6>
-                                <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                    <Image 
-                                    src = { CloseBtn }
-                                    width = { 18 }
-                                    height = { 18 }
-                                    alt = 'Fechar'/>
+                            <div className = "sidepanelWrapper">
+                                <div className = 'headerNav'>
+                                    <h6>Navegação rápida</h6>
+                                    <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
+                                        <Image 
+                                        src = { CloseBtn }
+                                        width = { 18 }
+                                        height = { 18 }
+                                        alt = 'Fechar'/>
+                                    </div>
                                 </div>
+
+                                <ul>
+                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
+                                        <Link href="/" passHref>
+                                            <a>Home</a>
+                                        </Link>
+                                    </li>
+
+                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
+                                        <Link href="/schedule" passHref>
+                                            <a>Programação</a>
+                                        </Link>                                
+                                    </li>
+
+                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
+                                        <Link href="/about" passHref>
+                                            <a>Evento</a>
+                                        </Link>
+                                    </li>
+
+                                    <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                                        <Link href="/partnership" passHref >
+                                            <a>Parcerias</a>
+                                        </Link>
+                                    </li>
+
+                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
+                                        <Link href="/co" passHref>
+                                            <a>Comissão Organizadora</a>
+                                        </Link>                                
+                                    </li>
+
+                                    <li /* onClick={() => setIsOpen(false)} */>
+                                        {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                                        {/*<span target="blank">CTF</span>{/* </Link> */}
+                                        {/* <div></div> */}
+                                    </li>
+                                </ul>
                             </div>
-
-                            <ul>
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                    <Link href="/" passHref>
-                                        <a>Home</a>
-                                    </Link>
-                                </li>
-
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                    <Link href="/schedule" passHref>
-                                        <a>Programação</a>
-                                    </Link>                                
-                                </li>
-
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                    <Link href="/about" passHref>
-                                        <a>Evento</a>
-                                    </Link>
-                                </li>
-
-                                <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                                    <Link href="/partnership" passHref >
-                                        <a>Parcerias</a>
-                                    </Link>
-                                </li>
-
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                    <Link href="/co" passHref>
-                                        <a>Comissão Organizadora</a>
-                                    </Link>                                
-                                </li>
-
-                                <li /* onClick={() => setIsOpen(false)} */>
-                                    {/* <Link href="https://ctfssi.intheshell.page/"> */}
-                                    {/*<span target="blank">CTF</span>{/* </Link> */}
-                                    {/* <div></div> */}
-                                </li>
-                            </ul>
 
                         {/* Editar esta div para o usuário logado*/}
                         {user
@@ -211,7 +213,7 @@ const NavWrapper = styled.div`
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        max-width: 1440px;
+        max-width: 1232px; // 1920px - (344px * 2)
         height: 100%;
     }
 
@@ -232,7 +234,7 @@ const NavWrapper = styled.div`
             transition: all 100ms ease-out;
             background-repeat: no-repeat;
             white-space: nowrap;
-            font-weight: 200;
+            font-weight: 400;
 
             &:hover{
                 background-position-x: 100%;
@@ -245,7 +247,6 @@ const NavWrapper = styled.div`
             background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
             background-size: 200% 100%;
             background-position: right;
-            transition: 100ms all ease-out;
 
             a {
                 font-family: 'AT Aero Bold';
@@ -271,6 +272,14 @@ const NavWrapper = styled.div`
 
 const NavMobile = styled.nav`
     overflow: hidden;   
+
+    .sidepanelWrapper{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1.5rem;
+        height: 100%;
+    }
 
     .headerNav {
         display: flex;
@@ -320,6 +329,7 @@ const NavMobile = styled.nav`
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         overflow-y: scroll;
         height: 100%;
         width: 100%;
@@ -341,15 +351,11 @@ const NavMobile = styled.nav`
         }
 
         .userButton {
-            position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
-            bottom: 0;
-            margin-bottom: 3.5rem;
             padding: 1.2rem 1rem;
-            width: calc(100% - 2rem);
-
+            width: 100%;
             p {
                 font-family: 'AT Aero Bold';
                 font-weight: 700;
