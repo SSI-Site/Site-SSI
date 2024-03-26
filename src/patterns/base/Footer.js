@@ -226,6 +226,7 @@ const FooterWrapper = styled.footer`
         background-position-x: 200%;                                                        /* Tira o background branco do lugar */
         background-repeat: no-repeat;
         transition: 100ms all ease-out;
+        font-weight: 400;
     }
 
     ul a:hover, ul a:focus{
