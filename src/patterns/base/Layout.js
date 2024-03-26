@@ -42,7 +42,7 @@ const SiteWrapper = styled.div`
     min-height: 100vh;
     margin: auto;
     position: relative;
-    padding-bottom: 50rem; /* match footer height */
+    //padding-bottom: 50rem; /* match footer height */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,7 +53,7 @@ const SiteWrapper = styled.div`
     }
 
     @media (min-width:960px) {
-        padding-bottom: 26.75rem; /* match footer height */
+        //padding-bottom: 26.75rem; /* match footer height */
     }
 
     @media (min-width:1365px) {
