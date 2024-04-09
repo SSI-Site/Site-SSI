@@ -201,12 +201,14 @@ const Nav = () => {
 export default Nav;
 
 const NavWrapper = styled.div`
+    position:sticky;
+    top:0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1576px;
+    /*max-width: 1576px;*/
     margin: auto;
-    z-index: 10;
+    z-index: 11;
     padding: 1.5rem 1rem; 
     background-color: var(--color-neutral);
 
@@ -263,9 +265,7 @@ const NavWrapper = styled.div`
     }
 
     @media (min-width:1300px) {
-        position: unset;
         padding-block: 1rem;
-        z-index: unset;
         justify-content: center;
         box-shadow: unset;
         padding-inline: 6.75rem;
