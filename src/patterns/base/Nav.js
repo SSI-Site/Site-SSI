@@ -67,6 +67,8 @@ const Nav = () => {
 
                 {/* Navbar para Mobile */}
                 <NavMobile isOpen = {isOpen}>
+                    <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
+                    </div>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
                             <div className = "sidepanelWrapper">
                                 <div className = 'headerNav'>
@@ -323,6 +325,20 @@ const NavMobile = styled.nav`
             width: 100%;
             background-color: #FFF;
         }
+    }
+
+    .click-out{
+        position:fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        z-index: 9;
+    }
+
+    .click-out-hidden{
+        display: none
     }
 
     .sidepanel {
