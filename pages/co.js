@@ -23,7 +23,12 @@ const CO = () => {
     const [activeItem, setActiveItem] = useState('Todos');
 
     function renderActiveItem() {
-        if (activeItem === 'Todos') {
+        return (
+            <div className="card-container" key={1}>
+                <MemberCard name={members[0].name} image={members[0].image} departments={members[0].departments} linkedin={members[0].linkedin} color={1} />
+            </div>
+        )
+        {/*if (activeItem === 'Todos') {
             return (
                 members.map(function(member, key) {
                     return (
@@ -45,7 +50,7 @@ const CO = () => {
                     );
                 })
             )
-        }
+        }*/}
     }
 
     return (

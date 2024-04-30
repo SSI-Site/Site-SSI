@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import BadgeCO from './BadgeCO';
 
 // assets
 import FinancesIcon from '../../public/images/co_icons/finances.svg';
@@ -11,8 +12,15 @@ import LectureIcon from '../../public/images/co_icons/lecture.svg';
 import PartnershipIcon from '../../public/images/co_icons/partnership.svg';
 import SiteIcon from '../../public/images/co_icons/web.svg';
 
+const colorSchemes = [
+    {
+        'background' : 'var(--color-neutral-50)',
+        'text-color' : 'var(--color-neutral)',
+        'director-badge' : '',
+    },
+]
 
-const MemberCard = ({ name, image, departments, linkedin }) => {
+const MemberCard = ({ name, image, departments, linkedin, colorScheme }) => {
 
     const departmentIcon = (department) => {
         switch (department) {
@@ -28,7 +36,8 @@ const MemberCard = ({ name, image, departments, linkedin }) => {
 
     return (
         <MemberWrapper>
-            <figure className='member-image'>
+            <BadgeCO text={'diretoria'} themeIndex={0}/>
+            {/*<figure className='member-image'>
                 <div className="image-container">
                     <Image 
                         src={image} 
@@ -64,7 +73,7 @@ const MemberCard = ({ name, image, departments, linkedin }) => {
                         </div>
                     )}
                 </div>
-            </figcaption>
+            </figcaption>*/}
         </MemberWrapper>
     )
 }
@@ -80,8 +89,7 @@ const MemberWrapper = styled.div`
     justify-content: center;
     padding: 1.5rem;
     gap: 1rem;
-    background-color: var(--color-neutral-800);
-    border-radius: 1rem;
+    background-color: ${colorSchemes[0].background};
 
     .member-image {
         display: flex;

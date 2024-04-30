@@ -16,7 +16,7 @@ const members = [
     {
         name: 'Membro 1', // 1 nome + 1 sobrenome
         image: '/images/co_members/MemberShadow.png', // NomeSobrenome.jpg
-        departments: ['Diretoria','Site'], // setores (em ordem alfabética)
+        departments: ['Diretoria','Site', 'Criação e Comunicação', 'Comercial e Financeiro', 'Palestrantes', 'Infraestrutura'], // setores (em ordem alfabética)
         linkedin: 'https://each.usp.br' // linkedin (opcional)
     },
     {
