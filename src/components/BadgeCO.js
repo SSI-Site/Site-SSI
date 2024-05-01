@@ -55,13 +55,16 @@ const BadgeCO = ({ text, themeIndex}) => {
 const BadgeWrapper = styled.div`
     width: fit-content;
     padding: 0.125rem 0.25rem;
-    max-width: 170px;
+    //max-width: 170px;
     background-color: ${props => colorSchemes[props.themeIndex].badgeColor};
+    display: inline-block;
 
     p{
+        font-family: 'AT Aero Bold';
         font-size: 0.875rem;
         font-weight: 400;
-        color: ${props => colorSchemes[props.themeIndex].textColor}
+        color: ${props => colorSchemes[props.themeIndex].textColor};
+        white-space: no
     }
 `
 

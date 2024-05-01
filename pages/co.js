@@ -17,6 +17,7 @@ import InfraIcon from '../public/images/co_icons/infra.svg';
 import LectureIcon from '../public/images/co_icons/lecture.svg';
 import PartnershipIcon from '../public/images/co_icons/partnership.svg';
 import SiteIcon from '../public/images/co_icons/web.svg';
+import BadgeCO from '../src/components/BadgeCO';
 
 const CO = () => {
 
@@ -25,7 +26,7 @@ const CO = () => {
     function renderActiveItem() {
         return (
             <div className="card-container" key={1}>
-                <MemberCard name={members[0].name} image={members[0].image} departments={members[0].departments} linkedin={members[0].linkedin} color={1} />
+                <MemberCard name={members[0].name} image={members[0].image} departments={members[0].departments} linkedin={members[0].linkedin} phrase={"uma frase bem grandona pra ver se alguma coisa quebra quando alguem tentar escrever a biblia aqui"} color={1} />
             </div>
         )
         {/*if (activeItem === 'Todos') {

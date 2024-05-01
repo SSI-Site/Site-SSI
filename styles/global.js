@@ -4,26 +4,29 @@ export default createGlobalStyle`
 
     :root {
         /* paleta de cores */
-        --color-primary: #9638FF;   //Ajustada
-        --color-secondary: #DDA6FF; //Ajustada
-        --color-tertiary: #8A45C6;  //excluir posteriormente
-        --color-neutral: #161616;   //Ajustada
+        --color-primary: #9638FF;   
+        --color-secondary: #DDA6FF; 
+        --color-tertiary: #8A45C6;  //Ainda não usou
+        --color-neutral: #161616;   
 
         /* variações da paleta - ainda tenho que dar uma olhada melhor nas cores que são usadas */
-        --color-primary-900: #390078; // Ajustada
-        --color-primary-800: #6618BB; // Ajustada
-        --color-primary-700: #7E25E1; // Ajustada
-        --color-primary-600: #9638FF; // Provavelmente vai trocar
-        --color-primary-500: #AF52FF; // Ajustada
-        --color-neutral-900: #000000; // Ajustada
-        --color-neutral-800: #252525; // Ajustada
+        --color-primary-900: #390078; 
+        --color-primary-800: #6618BB; 
+        --color-primary-700: #7E25E1; 
+        --color-primary-600: #9638FF; 
+        --color-primary-500: #AF52FF; 
+        --color-primary-400: #C66EFF;
+        --color-primary-300: #D98DFF;
+        --color-primary-200: #DDA6FF;
+        --color-neutral-900: #000000; 
+        --color-neutral-800: #252525; 
         --color-neutral-700: #3C3C3C; // Ainda não usou
         --color-neutral-600: #545454; // Ainda não usou
         --color-neutral-500: #6C6C6C; // Ainda não usou
         --color-neutral-400: #858585; // Ainda não usou
         --color-neutral-300: #A0A0A0; // Ainda não usou
         --color-neutral-100: #D7D7D7; // Ainda não usou
-        --color-neutral-50: #FFFFFF;  // Ajustada
+        --color-neutral-50: #FFFFFF;  
 
         /* 16 pixels (100% = 16 pixels) */
         font-size: 100%;
