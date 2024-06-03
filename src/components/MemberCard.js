@@ -58,7 +58,7 @@ const MemberCard = ({ name, image, departments, linkedin }) => {
                 </div>
                 <div className='member-department'>
                     {departments.map((department, index) =>
-                        <div className='tooltip'>
+                        <div className='tooltip' key={index}>
                             <img src={departmentIcon(department)} />
                             <span className='tooltiptext'>{department}</span>
                         </div>

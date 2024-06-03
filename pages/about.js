@@ -196,8 +196,7 @@ const About = () => {
                         <iframe 
                             src="https://www.youtube.com/embed/Ki6rharDp40" 
                             title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
+                            allow="fullscreen">
                         </iframe>
                     </div>
                     <EventNumbersBanner>
@@ -709,6 +708,7 @@ const LastYearSection = styled.section`
                 left: 0;
                 width: 100%;
                 height: 100%;
+                border: 0;
             }
         }
     }
