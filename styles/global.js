@@ -67,42 +67,32 @@ export default createGlobalStyle`
         }
     }
 
-    button {
-        font: 700 1rem/1.25rem 'AT Aero Bold';
-        color: var(--color-neutral-50);
-        cursor: pointer;
-    }
-
     h1 {
-        font: 700 3.5rem/4.25rem 'AT Aero Bold';
-        color: var(--color-neutral-50);
-        text-align: center;
+        font: 700 2.5rem/3rem 'AT Aero Bold';
     }
 
     h2 {
-        font: 700 3rem/3.5rem 'AT Aero Bold';
-        color: var(--color-neutral-50);
+        font: 700 2rem/2.5rem 'AT Aero Bold';
     }
 
     h3 {
-        font: 700 2.5rem/3rem 'AT Aero Bold';
-        color: var(--color-neutral-50);
-        text-align: left;
+        font: 700 1.5rem/1.75rem 'AT Aero Bold';
     }
 
     h4 {
-        font: 700 2rem/2.5rem 'AT Aero Bold';
-        color: var(--color-neutral-50);
+        font: 700 1.25rem/1.5rem 'AT Aero Bold';
     }
 
     h5 {
-        font: 700 1.5rem/1.75rem 'AT Aero Bold';
-        color: var(--color-neutral-50);
+        font: 700 1.125rem/1.5rem 'AT Aero Bold';
     }
 
     h6 {
-        font: 700 1.25rem/1.5rem 'AT Aero Bold';
-        color: var(--color-neutral-100);
+        font: 700 1rem/1.5rem 'AT Aero Bold';
+    }
+
+    button {
+        font: 700 1rem/1.25rem 'AT Aero Bold';
     }
 
     ul {
@@ -112,8 +102,7 @@ export default createGlobalStyle`
     }
 
     body, p, span, a {
-        font: 700 1rem/1.25rem 'AT Aero';
-        color: var(--color-neutral-50);
+        font: 700 0.875rem/1.5rem 'AT Aero';
     }
 
     a {
@@ -122,25 +111,18 @@ export default createGlobalStyle`
 
     label {
         font: 700 1rem/1.25rem 'AT Aero';
-        color: var(--color-neutral-50);
-    }
-
-    input[type=text] {
-        font: 700 1rem/1.25rem 'AT Aero';
-        color: var(--color-neutral-400);
-        background-color: var(--color-neutral-50);
-        border: 0;
-        
-        :disabled {
-            cursor: not-allowed;
-        }
     }
     
-    select, option {
+    input[type=text], select, option {
         font: 700 1rem/1.25rem 'AT Aero';
         color: var(--color-neutral-400);
         background-color: var(--color-neutral-50);
         border: 0;
+    }
+
+    button, h1, h2, h3, h4, h5, h6, body, p, span, a, label {
+        color: var(--color-neutral-50);
+        text-align: left;
     }
 
     ::-webkit-input-placeholder { /* WebKit browsers */
@@ -170,18 +152,7 @@ export default createGlobalStyle`
     }
 
     @media (min-width:560px) {
-
-        input[type=text], select, option { 
-            font: 700 1.125rem/1.75rem 'AT Aero';
-            
-            ::placeholder {
-                font: 700 1.125rem/1.75rem 'AT Aero';
-            }
-        }
-
-        button {
-            font: 700 1.125rem/1.5rem 'AT Aero Bold';
-        }
+        
     }
 
     @media (min-width:600px) {
@@ -189,7 +160,58 @@ export default createGlobalStyle`
     }
 
     @media (min-width:801px) {
+        h1 {
+            font: 700 4rem/4.5rem 'AT Aero Bold';
+        }
 
+        h2 {
+            font: 700 3.5rem/4.5rem 'AT Aero Bold';
+        }
+
+        h3 {
+            font: 700 3rem/3.5rem 'AT Aero Bold';
+        }
+
+        h4 {
+            font: 700 2.5rem/3.5rem 'AT Aero Bold';
+        }
+
+        h5 {
+            font: 700 2rem/2.5rem 'AT Aero Bold';
+        }
+
+        h6 {
+            font: 700 1.5rem/2rem 'AT Aero Bold';
+        }
+
+        button {
+            font: 700 1rem/1.25rem 'AT Aero Bold';
+            cursor: pointer;
+        }
+
+        body, p, span, a {
+            font: 700 1rem/1.5rem 'AT Aero';
+        }
+
+        label {
+            font: 700 1rem/1.25rem 'AT Aero';
+        }
+
+        input[type=text] {
+            font: 700 1rem/1.25rem 'AT Aero';
+            
+            :disabled {
+                cursor: not-allowed;
+            }
+        }
+        
+        select, option {
+            font: 700 1rem/1.25rem 'AT Aero';
+        }
+
+        ::placeholder { /* Recent browsers */
+            font: 700 1rem/1.25rem 'AT Aero';
+        }
     }
 
     @media (min-width:1021px) {
