@@ -17,18 +17,18 @@ const Footer = () => {
         <FooterWrapper>
             <FooterLogo>
                 <Image 
-                src = { LogoPrincipal } 
-                width = { 100 } 
-                height = { 100 }
-                alt = "Logo da Semana de Sistemas de Informação"
+                    src = { LogoPrincipal } 
+                    width = { 100 } 
+                    height = { 100 }
+                    alt = "Logo da Semana de Sistemas de Informação"
                 />
 
                 <div style = {{display: 'flex', gap: '.5rem'}}>
                     <Image
-                    src = { Copyright }
-                    width = { 20 }
-                    height = { 20 }
-                    alt = "Copyright Logo"
+                        src = { Copyright }
+                        width = { 20 }
+                        height = { 20 }
+                        alt = "Copyright Logo"
                     />
                     <p>2024</p>
                 </div>
@@ -77,17 +77,17 @@ const Footer = () => {
                     <p>Made with</p>
 
                     <Image
-                    src=  { Code }
-                    width = { 25 }
-                    height = { 25 }
+                        src=  { Code }
+                        width = { 25 }
+                        height = { 25 }
                     />
 
                     <p>and</p>
 
                     <Image
-                    src = { Coffee }
-                    width = { 25 }
-                    height = { 25 }
+                        src = { Coffee }
+                        width = { 25 }
+                        height = { 25 }
                     />
 
                 </FooterEnding>
@@ -95,12 +95,11 @@ const Footer = () => {
 
             <FooterLogos>
                 <div className = "arrowWrapper" tabIndex = {0} aria-label="Voltar para o Topo"
-                onClick = { () => {
-                    window.scrollTo(0, 0)
-                }}
+                    onClick = { () => {
+                        window.scrollTo(0, 0)
+                    }}
                 >
-
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white"/>
 
                         <clipPath id = "teste">
@@ -110,7 +109,6 @@ const Footer = () => {
                             <rect id = "arrow" width = "100" height = "100%"/>
                         </g>
                     </svg>
-
                 </div>
 
                 <div className = "logosWrapper">
@@ -171,21 +169,20 @@ const Footer = () => {
                 <p>Made with</p>
 
                 <Image
-                src=  { Code }
-                width = { 25 }
-                height = { 25 }
-                alt = "Ícone Programação"
+                    src=  { Code }
+                    width = { 25 }
+                    height = { 25 }
+                    alt = "Ícone Programação"
                 />
 
                 <p>and</p>
 
                 <Image
-                src = { Coffee }
-                width = { 25 }
-                height = { 25 }
-                alt = "Ícone Café"
+                    src = { Coffee }
+                    width = { 25 }
+                    height = { 25 }
+                    alt = "Ícone Café"
                 />
-
             </FooterEnding>
         </FooterWrapper>
     )
@@ -200,7 +197,7 @@ const FooterWrapper = styled.footer`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 3.5rem ;
+    padding: 4rem 1rem 3rem;
     width: 100%;
     max-width: 1232px;
     gap: 3rem;
@@ -211,7 +208,7 @@ const FooterWrapper = styled.footer`
     ul {
         display: flex;
         flex-direction: column;
-        gap: 2.5rem;
+        gap: 1.5rem;
         align-items: center;
     }
 
@@ -227,24 +224,29 @@ const FooterWrapper = styled.footer`
         background-repeat: no-repeat;
         transition: 100ms all ease-out;
         font-weight: 400;
+        line-height: 1.5rem;
     }
 
-    ul a:hover, ul a:focus{
-        background-position-x:100%; 
-        color: var(--color-neutral-900);
+    ul a:hover, ul a:focus-visible {
+        background-position-x: 100%;
+        color: var(--color-neutral);
+    }
+
+    ul a:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
     // Fim da animação
 
     // Rota ativada
-    .active{
+    .active {
         background-color: var(--color-primary);
         transition: 100ms all ease-out;
         font-family: 'AT Aero Bold';
-        font-weight: 400;
 
-        &:hover, &:focus{
-            color: var(--color-primary)
-        };
+        &:hover, &:focus-visible {
+            color: var(--color-primary);
+        }
     }
 
     // Desktop
@@ -266,9 +268,10 @@ const FooterLogo = styled.div`
 
     // Desktop
     @media (min-width:850px) {
-        width: 100%;
+        width: fit-content;
         height: 100%;
-        justify-content: space-between
+        justify-content: space-between;
+        justify-self: start;
     }
 `
 
@@ -279,12 +282,8 @@ const FooterLinks = styled.div`
     justify-content: center;
     transition: 100ms all ease-out;
 
-    div{
+    div {
         display: none;
-    }
-
-    a:hover, a:focus{
-        background-position: left;
     }
 
     // Desktop
@@ -299,7 +298,7 @@ const FooterLinks = styled.div`
             display: flex;
         }
         
-        ul{     
+        ul {     
             margin: auto;
             width: 65%;
             margin-bottom: 5.625rem;
@@ -307,7 +306,7 @@ const FooterLinks = styled.div`
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             grid-auto-flow: column;
-            gap: 1.5rem;
+            gap: 1.5rem 2.5rem;
         }
     }
 `
@@ -319,18 +318,30 @@ const FooterLogos = styled.div`
     align-items: center;
     justify-content: center;
 
-    .fillAnimation{
+    a {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fillAnimation {
         transform: translateX(-100%);
         transition: all 100ms ease-out;
     }
 
-    .animation:hover, .animation:focus{
+    .animation:hover, a:focus-visible {
         cursor: pointer;
         transition: all 100ms ease-out;
 
-        .fillAnimation{
+        .fillAnimation {
             transform: translateX(0);
-        }      
+        }
+    }
+
+    a:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
     
     .arrowWrapper {
@@ -341,7 +352,6 @@ const FooterLogos = styled.div`
         background-position: top;
         transition: all 100ms ease-out;
         cursor: pointer;
-
     }
 
     .logosWrapper {
@@ -349,29 +359,35 @@ const FooterLogos = styled.div`
         gap: 1.5rem;
     }
 
-    @media (min-width: 850px){
+    @media (min-width:850px) {
         height: 100%;
         justify-content: space-between;
         flex-direction: column;
-        width: 100%;
+        width: fit-content;
+        justify-self: end;
 
         .arrowWrapper {
             display: block;
             
-            #arrow{
+            #arrow {
                 transform: translateY(100%);
             }
         }
 
-        .arrowWrapper:hover, .arrowWrapper:focus{
+        .arrowWrapper:hover, .arrowWrapper:focus-visible {
             background-position: bottom;
 
-            #arrow{
+            #arrow {
                 transition: all 100ms ease-out;
                 fill: var(--color-primary);
                 transform: translateY(0);
             }
-        }    
+        }
+
+        .arrowWrapper:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
     }
 `
 
