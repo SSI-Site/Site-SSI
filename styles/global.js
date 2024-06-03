@@ -161,44 +161,44 @@ export default createGlobalStyle`
 
     @media (min-width:801px) {
         h1 {
-            font: 700 4rem/4.5rem;
+            font: 700 4rem/4.5rem 'AT Aero Bold';
         }
 
         h2 {
-            font: 700 3.5rem/4.5rem;
+            font: 700 3.5rem/4.5rem 'AT Aero Bold';
         }
 
         h3 {
-            font: 700 3rem/3.5rem;
+            font: 700 3rem/3.5rem 'AT Aero Bold';
         }
 
         h4 {
-            font: 700 2.5rem/3.5rem;
+            font: 700 2.5rem/3.5rem 'AT Aero Bold';
         }
 
         h5 {
-            font: 700 2rem/2.5rem;
+            font: 700 2rem/2.5rem 'AT Aero Bold';
         }
 
         h6 {
-            font: 700 1.5rem/2rem;
+            font: 700 1.5rem/2rem 'AT Aero Bold';
         }
 
         button {
-            font: 700 1rem/1.25rem;
+            font: 700 1rem/1.25rem 'AT Aero Bold';
             cursor: pointer;
         }
 
         body, p, span, a {
-            font: 700 1rem/1.5rem;
+            font: 700 1rem/1.5rem 'AT Aero';
         }
 
         label {
-            font: 700 1rem/1.25rem;
+            font: 700 1rem/1.25rem 'AT Aero';
         }
 
         input[type=text] {
-            font: 700 1rem/1.25rem;
+            font: 700 1rem/1.25rem 'AT Aero';
             
             :disabled {
                 cursor: not-allowed;
@@ -206,11 +206,11 @@ export default createGlobalStyle`
         }
         
         select, option {
-            font: 700 1rem/1.25rem;
+            font: 700 1rem/1.25rem 'AT Aero';
         }
 
         ::placeholder { /* Recent browsers */
-            font: 700 1rem/1.25rem;
+            font: 700 1rem/1.25rem 'AT Aero';
         }
     }
 
