@@ -27,14 +27,14 @@ const Button = styled.button`
         pointer-events: none;
     }
 
-    &:hover, &:focus {
-        background-position-x:100%;     /* Coloca o background de volta no lugar */
+    &:hover, &:focus-visible {
+        background-position-x: 100%;     /* Coloca o background de volta no lugar */
         color: var(--color-primary);
     }
 
-    &:active, &:focus {
-        background-position-x:100%;
-        color: var(--color-primary);
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
 
     @media (min-width:560px) {
