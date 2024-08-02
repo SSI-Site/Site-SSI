@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import LogoPrincipal from '../../../public/images/logos/logo_principal.svg'
 import Coffee from '../../../public/images/icons/coffee.svg'
 import Code from '../../../public/images/icons/sites.svg'
-import Copyright from '../../../public/images/icons/copyright.svg'
 
 const Footer = () => {
 
@@ -15,7 +14,20 @@ const Footer = () => {
 
     return (
         <FooterWrapper>
+            
             <FooterLogo>
+                <MobileBackToTop tabIndex = {0} aria-label="Voltar para o Topo"
+                    onClick = { () => {
+                        window.scrollTo(0, 0)
+                    }}
+                >
+                    Voltar ao topo
+                    <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white"/>
+
+                        <rect id = "arrow" width = "100" height = "100%"/>
+                    </svg>
+                </MobileBackToTop>
                 <Image 
                     src = { LogoPrincipal } 
                     width = { 100 } 
@@ -23,15 +35,7 @@ const Footer = () => {
                     alt = "Logo da Semana de Sistemas de Informação"
                 />
 
-                <div style = {{display: 'flex', gap: '.5rem'}}>
-                    <Image
-                        src = { Copyright }
-                        width = { 20 }
-                        height = { 20 }
-                        alt = "Copyright Logo"
-                    />
-                    <p>2024</p>
-                </div>
+                <p>Semana de<br/>Sistemas de Informação</p>
             </FooterLogo>
 
             <FooterLinks>
@@ -94,7 +98,7 @@ const Footer = () => {
             </FooterLinks>
 
             <FooterLogos>
-                <div className = "arrowWrapper" tabIndex = {0} aria-label="Voltar para o Topo"
+                <DesktopBackToTop tabIndex = {0} aria-label="Voltar para o Topo"
                     onClick = { () => {
                         window.scrollTo(0, 0)
                     }}
@@ -102,14 +106,9 @@ const Footer = () => {
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white"/>
 
-                        <clipPath id = "teste">
-                            <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" />
-                        </clipPath>
-                        <g clipPath = "url(#teste)">
-                            <rect id = "arrow" width = "100" height = "100%"/>
-                        </g>
+                        <rect width = "100" height = "100%" fill="none"/>
                     </svg>
-                </div>
+                </DesktopBackToTop>
 
                 <div className = "logosWrapper">
 
@@ -259,18 +258,95 @@ const FooterWrapper = styled.footer`
     }
 `
 
-const FooterLogo = styled.div`
-    width: 40%;
+const MobileBackToTop = styled.div`
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(to bottom, var(--color-primary) 50%, var(--color-neutral-50) 50%);
+    background-size: 100% 200%;
+    background-position: top;
+    transition: all 100ms ease-out;
+    cursor: pointer;
+    margin-bottom: 3rem; 
+           
+    rect {
+        transform: translateY(100%);
+    }
+
+    &:hover, &:focus-visible {
+        background-position: bottom;
+        color: var(--color-primary);
+
+        path {
+            transition: all 100ms ease-out;
+            fill: var(--color-primary);
+            transform: translateY(0);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+
+    @media (min-width:850px) {
+        display: none;
+    }
+`
+
+const DesktopBackToTop = styled.div`
+    display: none;
+
+    @media (min-width:850px) {
+        display: block;
+        padding: 1rem;
+        background: linear-gradient(to bottom, var(--color-primary) 50%, var(--color-neutral-50) 50%);
+        background-size: 100% 200%;
+        background-position: top;
+        transition: all 100ms ease-out;
+        cursor: pointer;
+
+        rect {
+            transform: translateY(100%);
+        }
+
+        &:hover, &:focus-visible {
+            background-position: bottom;
+
+            path {
+                transition: all 100ms ease-out;
+                fill: var(--color-primary);
+                transform: translateY(0);
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+    }
+`
+
+const FooterLogo = styled.div`
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    gap: 0.5rem;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    p {
+        text-align: center;
+        line-height: 1.2;
+    }
 
     // Desktop
     @media (min-width:850px) {
         width: fit-content;
         height: 100%;
-        justify-content: space-between;
         justify-self: start;
     }
 `
@@ -343,16 +419,6 @@ const FooterLogos = styled.div`
         outline: 2px solid var(--color-primary);
         outline-offset: 2px;
     }
-    
-    .arrowWrapper {
-        display: none;
-        padding: 1rem;
-        background: linear-gradient(to bottom, var(--color-primary) 50%, var(--color-neutral-50) 50%);
-        background-size: 100% 200%;
-        background-position: top;
-        transition: all 100ms ease-out;
-        cursor: pointer;
-    }
 
     .logosWrapper {
         display: flex;
@@ -365,29 +431,6 @@ const FooterLogos = styled.div`
         flex-direction: column;
         width: fit-content;
         justify-self: end;
-
-        .arrowWrapper {
-            display: block;
-            
-            #arrow {
-                transform: translateY(100%);
-            }
-        }
-
-        .arrowWrapper:hover, .arrowWrapper:focus-visible {
-            background-position: bottom;
-
-            #arrow {
-                transition: all 100ms ease-out;
-                fill: var(--color-primary);
-                transform: translateY(0);
-            }
-        }
-
-        .arrowWrapper:focus-visible {
-            outline: 2px solid var(--color-primary);
-            outline-offset: 2px;
-        }
     }
 `
 
