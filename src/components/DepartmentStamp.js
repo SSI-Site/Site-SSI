@@ -32,7 +32,11 @@ const DepartmentWrapper = styled.div`
     background-color: var(--color-neutral-800);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
-    transition: 0.3s all ease;
+    transition: 100ms;
+
+    background-size: 200%;
+    background-position-x: 200%;
+    background-repeat: no-repeat;
 
     p {
         font: 700 1rem/1.25rem 'AT Aero Bold';

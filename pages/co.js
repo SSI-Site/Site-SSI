@@ -21,9 +21,11 @@ import SiteIcon from '../public/images/co_icons/web.svg';
 const CO = () => {
 
     const [activeItem, setActiveItem] = useState('Todos')
+    const [isSelected, setIsSelected] = useState(false)
 
     const handleMobileSelectChange = (e) => {
         setActiveItem(e.target.value)
+        setIsSelected(true)
     }
 
     function renderActiveItem() {
@@ -73,11 +75,12 @@ const CO = () => {
                 <MobileCOFilterContainer>
                     <select 
                         id="sector-filter"
+                        className={isSelected ? 'selected' : ''}
                         aria-label="Filtre por setor"
                         defaultValue="Filtro" 
                         onChange={handleMobileSelectChange}
                     >
-                        <option value="Filtro" disabled hidden>Filtre por setor</option>
+                        <option value="Filtro" disabled hidden>Filtrar por setor</option>
                         <option value="Todos">Todos</option>
                         <option value="Comercial e Financeiro">Comercial e Financeiro</option>
                         <option value="Criação e Comunicação">Criação e Comunicação</option>
@@ -232,7 +235,7 @@ const MobileCOFilterContainer = styled.div`
     width: 100%;
     padding-block: 0 0.5rem;
 
-    select{
+    select {
         position: relative;
         display: flex;
         align-items: center;
@@ -258,6 +261,11 @@ const MobileCOFilterContainer = styled.div`
 
     #sector-filter::-ms-expand {
         display: none;
+    }
+
+    #sector-filter.selected {
+        background-color: var(--color-primary);
+        color: white;
     }
 
     @media (min-width:600px) {
@@ -291,18 +299,33 @@ const NavItem = styled.div`
     flex-shrink: 0;
     scroll-snap-align: center;
 
-    ${props => props.active == true && css`
-        pointer-events: none;
+    ${props => props.active == false && css`
         > div {
-            background-color: var(--color-primary);
+            background-image: linear-gradient(var(--color-primary), var(--color-primary));
+        }
+    `}
+
+    ${props => props.active == true && css`
+        > div {
+            background-color: var(--color-primary); 
+            background-image: linear-gradient(to right, white 50%, white 50%);
         }
     `}
 
     @media (min-width: 840px) {
+        > div:hover, > div:focus-visible {
+            background-position-x: 100%;    
+        }
         
-        ${props => props.active == false && css`
-            > div:hover {
-                background-color: var(--color-neutral-700);
+        ${props => props.active == true && css`
+            > div:hover, > div:focus-visible {
+                p {
+                    color: var(--color-primary);
+                }
+
+                img {
+                    filter: brightness(0) saturate(100%) invert(33%) sepia(43%) saturate(7450%) hue-rotate(256deg) brightness(98%) contrast(106%);
+                }
             }
         `}
     } 
