@@ -24,17 +24,17 @@ const CO = () => {
     const [activeItem, setActiveItem] = useState('Todos');
 
     function renderActiveItem() {
-        return (
+        {/*return (
             <div className="card-container" key={1}>
                 <MemberCard name={members[0].name} image={members[0].image} departments={members[0].departments} linkedin={members[0].linkedin} phrase={"uma frase bem grandona pra ver se alguma coisa quebra quando alguem tentar escrever a biblia aqui"} color={1} />
             </div>
-        )
-        {/*if (activeItem === 'Todos') {
+        )*/}
+        if (activeItem === 'Todos') {
             return (
                 members.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={(key%5)} />
                         </div>
                     );
                 })
@@ -46,12 +46,12 @@ const CO = () => {
                 sectorMembers.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={(key%5)} />
                         </div>
                     );
                 })
             )
-        }*/}
+        }
     }
 
     return (
