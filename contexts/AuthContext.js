@@ -1,8 +1,10 @@
-import { createContext, useState, useEffect } from 'react';
-import Router from 'next/router';
 import cookie from 'js-cookie';
+import Router from 'next/router';
+import { createContext, useEffect, useState } from 'react';
 
 import firebase from '../lib/firebase';
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL;
 
 const AuthContext = createContext();
 
@@ -20,7 +22,7 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const handleUser = async (currentUser) => {
+    const handleStudent = async (currentUser) => {
         if (currentUser) {
             const formatedUser = await formatUser(currentUser);
             setUser(formatedUser);
@@ -43,13 +45,38 @@ export function AuthProvider({ children }) {
         }
     }
 
-    const signinGoogle = async () => {
+    const signInGoogle = async () => {
         try {
             setLoading(true);
             const response = await firebase
                 .auth()
                 .signInWithPopup(new firebase.auth.GoogleAuthProvider());
-            handleUser(response.user);
+            console.log(firebase.auth().currentUser.getIdToken()) // PODE APAGAR ISSO
+            const firebaseToken = await response.user.getIdToken();
+
+            try {
+                const loginAPIResponse = await axios.post(`${API_BASE_URL}/student/login`, {
+                    name: response.user.displayName,
+                    email: response.user.email,
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${firebaseToken}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                const { access, refresh, id } = loginAPIResponse.data;
+
+                if (access && refresh && id) {
+                    localStorage.setItem('access_token', access);
+                    localStorage.setItem('refresh_token', refresh);
+                    localStorage.setItem('student_id', id);
+                }
+            } catch (error) {
+                console.error('Erro ao fazer login no Saphira...', error);
+            }
+
+            handleStudent(response.user);
         } finally {
             setLoading(false);
         }
@@ -59,21 +86,24 @@ export function AuthProvider({ children }) {
         try {
             Router.push('/');
             await firebase.auth().signOut();
-            handleUser(false);
+            handleStudent(false);
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            localStorage.removeItem('student_id');
         } finally {
             setLoading(false);
         }
     }
 
     useEffect(() => {
-        const unsubscribe = firebase.auth().onIdTokenChanged(handleUser);
+        const unsubscribe = firebase.auth().onIdTokenChanged(handleStudent);
         return () => unsubscribe();
     }, []);
 
     return <AuthContext.Provider value={{
         user,
         loading,
-        signinGoogle,
+        signInGoogle,
         signOut
     }}>{children}</AuthContext.Provider>;
 }
