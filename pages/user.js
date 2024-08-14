@@ -41,7 +41,7 @@ const User = () => {
 
         setIsLoading(true);
 
-        saphira.getUser(user.email)
+        saphira.getStudent()
             .then((res) => {
                 setIsUserRegistered(true);
                 setUserInfo({ ...saphiraUserDataToFormFormat(res.data) });
@@ -55,39 +55,16 @@ const User = () => {
 
     const saphiraUserDataToFormFormat = (userData) => {
         const nameElements = getFullNameComponents(userData.full_name);
-        // const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
-        const birthDateElements = userData.data_nascimento.split('-');
+        console.log("nameElements: ", nameElements);
 
         const data = {
             name: nameElements.name,
             last_name: nameElements.lastName,
-            birth_date: `${birthDateElements[2]}/${birthDateElements[1]}/${birthDateElements[0]}`,
-            accepted_terms: true,
-            is_in_internship: userData.em_estagio,
-            accepted_recieve_emails: userData.aceita_receber_email,
             usp_number: userData.usp_number,
-            cpf: userData.cpf,
-            gender: checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "outro",
-            custom_gender: !checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "",
-            ethnicity: checkIfValueIsASelectOption(selectOptions.ethnicity, userData.etnia) ? userData.etnia : "outro",
-            custom_ethnicity: !checkIfValueIsASelectOption(selectOptions.ethnicity, userData.etnia) ? userData.etnia : "",
-            know_about: checkIfValueIsASelectOption(selectOptions.knowAbout, userData.como_conheceu) ? userData.como_conheceu : "outro",
-            custom_know_about: !checkIfValueIsASelectOption(selectOptions.knowAbout, userData.como_conheceu) ? userData.como_conheceu : "",
-            course: checkIfValueIsASelectOption(selectOptions.course, userData.curso) ? userData.curso : "outro",
-            custom_course: !checkIfValueIsASelectOption(selectOptions.course, userData.curso) ? userData.curso : "",
-            graduation_period: userData.periodo_curso
+            code: userData.code,
         }
 
         return data;
-    }
-
-    const checkIfValueIsASelectOption = (options, target) => {
-        let isASelectOption = false;
-        options.forEach(element => {
-            if (element.value === target) isASelectOption = true;
-        });
-
-        return isASelectOption;
     }
 
     const getFullNameComponents = (fullName) => {
@@ -106,7 +83,7 @@ const User = () => {
     }
 
     const getPresences = () => {
-        saphira.listPresences(user.email)
+        saphira.listStudentPresences(user.email)
             .then((res) => {
                 setLectures([...res.data]);
             })
@@ -138,7 +115,7 @@ const User = () => {
     }, []);
 
     const { asPath } = useRouter('/user');
-    
+
     useEffect(() => {
         setTimeout(() => {
             const hash = asPath.split('#')[1];
@@ -180,11 +157,11 @@ const User = () => {
                 </Loading>
             }
 
-            {!isLoading && user && !isUserRegistered &&
+            {/* {!isLoading && user && !isUserRegistered &&
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
-            }
+            } */}
 
             {isEditing &&
                 <>

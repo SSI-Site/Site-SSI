@@ -6,7 +6,6 @@ import CountUp from 'react-countup';
 
 import Meta from '../src/infra/Meta';
 import useAuth from '../hooks/useAuth';
-import saphira from '../services/saphira';
 import '../utils/slugify';
 
 // components
@@ -49,18 +48,7 @@ const Home = () => {
 
     const checkUserRegister = () => {
         if (!user) return;
-
-        setIsLoading(true);
-
-        saphira.getUser(user.email)
-            .then(() => {
-                setIsUserRegistered(true);
-                setIsLoading(false);
-            })
-            .catch(() => {
-                setIsUserRegistered(false);
-                setIsLoading(false);
-            });
+        setIsUserRegistered(true);
     }
 
     useEffect(() => {
@@ -83,10 +71,10 @@ const Home = () => {
             // Horário e data de hoje
             now = new Date().getTime();
             if (now > countdownDate) { return };
-            
+
             // Distância entre a data do evento e hoje
             var distance = countdownDate - now;
-        
+
             // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
             setCountdownDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
             setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
@@ -156,15 +144,6 @@ const Home = () => {
                                 </>
                             :
                                 <>
-                                {!isUserRegistered &&
-                                    <>
-                                        <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2024</h3>
-                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p>
-                                        </div>
-                                        <Button onClick={() => router.push('/user')}>Finalizar cadastro</Button>
-                                    </>
-                                }
                                 {isUserRegistered &&
                                     <>
                                         <div className='landing-text'>
@@ -378,62 +357,6 @@ const Loading = styled.figure`
     }
 `
 
-const WelcomeComponent = styled.div`
-    --border: 1.75px solid var(--color-tertiary);
-    --background: rgba(138, 69, 198, 0.6);
-    --padding: 0.65em 2.65em;
-    --out-space-top: 0.1em;
-    --out-space-bottom: -0.25em;
-    --transition-duration: 500ms;
-
-    pointer-events: none;
-    border: var(--border);
-    border-radius: 0;
-    background-color: var(--background);
-    padding: var(--padding);
-    color: white;
-    position: relative;
-    text-align: center;
-    margin: 40px 0 15px 0;
-    transition: background-color var(--transition-duration);
-
-    &::before, &::after {
-        content: "";
-        position: absolute;
-        border: var(--border);
-        transition:
-            top var(--transition-duration),
-            bottom var(--transition-duration),
-            left var(--transition-duration),
-            right var(--transition-duration);
-    }
-
-    &::before {
-        top: var(--out-space-top);
-        bottom: var(--out-space-bottom);
-        left: calc(var(--out-space-top) * -2.5);
-        right: calc(var(--out-space-top) * 1.4);
-    }
-
-    &::after {
-        top: calc(var(--out-space-top) * -2.5);
-        bottom: calc(var(--out-space-top) * 1);
-        left: calc(var(--out-space-top) * 1.3);
-        right: calc(var(--out-space-top) * -2.5);
-    }
-
-    &:hover {
-        --out-space-top: 0em;
-        --out-space-bottom: 0em;
-        --background: transparent;
-    }
-
-    @media (min-width:1023px) {
-        --border: 2.6px solid var(--color-tertiary);
-        pointer-events: unset;
-        /* margin: 80px 0 25px 0; */
-    }
-`
 const LandingSection = styled.section`
     background: url('./images/background_imgs/background1_mobile.svg') no-repeat;
     background-size: cover;
