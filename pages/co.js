@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Link from 'next/link';
 
 import Meta from '../src/infra/Meta';
 import members from '../data/members';
@@ -73,23 +72,25 @@ const CO = () => {
             <COMembersSection>
                 {/* Para telas mobile */}
                 <MobileCOFilterContainer>
-                    <select 
-                        id="sector-filter"
-                        className={isSelected ? 'selected' : ''}
-                        aria-label="Filtre por setor"
-                        defaultValue="Filtro" 
-                        onChange={handleMobileSelectChange}
-                    >
-                        <option value="Filtro" disabled hidden>Filtrar por setor</option>
-                        <option value="Todos">Todos</option>
-                        <option value="Comercial e Financeiro">Comercial e Financeiro</option>
-                        <option value="Criação e Comunicação">Criação e Comunicação</option>
-                        <option value="Diretoria">Diretoria</option>
-                        <option value="Infraestrutura">Infraestrutura</option>
-                        <option value="Palestrantes">Palestrantes</option>
-                        <option value="Parcerias">Parcerias</option>
-                        <option value="Site">Site</option>
-                    </select>
+                    <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
+                        <select 
+                            id="sector-filter"
+                            aria-label="Filtre por setor"
+                            defaultValue="Filtro" 
+                            onChange={handleMobileSelectChange}
+                        >
+                            <option value="Filtro" disabled hidden>Filtrar por setor</option>
+                            <option value="Todos">Todos</option>
+                            <option value="Comercial e Financeiro">Comercial e Financeiro</option>
+                            <option value="Criação e Comunicação">Criação e Comunicação</option>
+                            <option value="Diretoria">Diretoria</option>
+                            <option value="Infraestrutura">Infraestrutura</option>
+                            <option value="Palestrantes">Palestrantes</option>
+                            <option value="Parcerias">Parcerias</option>
+                            <option value="Site">Site</option>
+                        </select>
+                        <img className='icon' src='./images/co_icons/filter.svg' alt='Ícone de filtro' />
+                    </div>
                 </MobileCOFilterContainer> 
                     
                 {/* Para telas desktop */}
@@ -235,37 +236,48 @@ const MobileCOFilterContainer = styled.div`
     width: 100%;
     padding-block: 0 0.5rem;
 
-    select {
-        position: relative;
+    .select-wrapper {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
-        font-size: 0.875rem;
+        cursor: pointer;
+
+        select {
+            position: relative;
+            width: 100%;
+            color: white;
+            background-color: var(--color-neutral-800);
+            appearance: none;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 0.5rem 2rem 0.5rem 0;
+
+            &::-ms-expand {
+                display: none;
+            }
+        }
+
+        .icon {
+            position: absolute;
+            pointer-events: none;
+            right: calc(50% - 4rem);
+        }
+    }
+
+    .select-wrapper.selected {
+        select {
+            background-color: var(--color-primary);
+            padding-right: 0;
+        }
+
+        .icon {
+            display: none;
+        }
     }
 
     option {
         font-size: 0.875rem;
-    }
-
-    #sector-filter {
-        width: 100%;
-        padding: 0.5rem 1.5rem;
-        border: none;
-        background-color: var(--color-neutral-800);
-        color: white;
-        appearance: none;
-        cursor: pointer;
-        transition: border-color 0.3s ease;
-    }
-
-    #sector-filter::-ms-expand {
-        display: none;
-    }
-
-    #sector-filter.selected {
-        background-color: var(--color-primary);
-        color: white;
     }
 
     @media (min-width:600px) {
