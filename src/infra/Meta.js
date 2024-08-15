@@ -3,7 +3,11 @@ import Head from 'next/head';
 // assets
 import img_src from '../../public/images/logos/preview_logo.jpg';
 
-const Meta = ({ title, keywords, description }) => {
+const Meta = ({
+    title = 'SSI 2024',
+    keywords = 'Semana, semana, Sistemas, sistemas, Informação, Informacao, informação, informacao, USP, usp, EACH, each, SI, si, SSI, ssi, Evento, evento, palestras, tecnologia, Universidade, universidade, universitário, universitario',
+    description = 'A Semana de Sistemas de Informação 2024 ocorrerá ao longo dos dias 19 a 23 de Agosto! Acesse para saber mais sobre o evento e sua programação!'
+}) => {
     
     return (
         <Head>
@@ -31,12 +35,6 @@ const Meta = ({ title, keywords, description }) => {
             <title>{title}</title>
         </Head>
     )
-}
-
-Meta.defaultProps = {
-    title: 'SSI 2024',
-    keywords: 'Semana, semana, Sistemas, sistemas, Informação, Informacao, informação, informacao, USP, usp, EACH, each, SI, si, SSI, ssi, Evento, evento, palestras, tecnologia, Universidade, universidade, universitário, universitario',
-    description: 'A Semana de Sistemas de Informação 2024 ocorrerá ao longo dos dias 19 a 23 de Agosto! Acesse para saber mais sobre o evento e sua programação!',
 }
 
 export default Meta;

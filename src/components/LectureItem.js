@@ -7,6 +7,7 @@ import ScheduleInformation from './ScheduleInformation';
 // assets
 import PlusCircle from '../../public/images/icons/plus-circle.svg';
 import MinusCircle from '../../public/images/icons/minus-circle.svg';
+import Image from 'next/image';
 
 const LectureItem = ({ time, event,  }) => {
 
@@ -26,7 +27,7 @@ const LectureItem = ({ time, event,  }) => {
 
     return ( 
         <>
-            <LectureWrapper className='lecture' onClick={() => handleShowLecture(time)} isExpanded={isExpanded}>
+            <LectureWrapper className='lecture' onClick={() => handleShowLecture(time)} $isExpanded={isExpanded}>
                 <div className='lecture-overview'>
                     <h5>{time}</h5>
                     <div>
@@ -54,12 +55,12 @@ const LectureItem = ({ time, event,  }) => {
                     </div>
                     {show.includes(time) ?
                         <div className='open-close-sign-desktop'>
-                            <img src={MinusCircle} alt = "Ver menos"></img>
+                            <Image src={MinusCircle} alt="Ver menos" />
                             <p>Ver menos</p>
                         </div>
                     :
                         <div className='open-close-sign-desktop'>
-                            <img src={PlusCircle} alt = "Ver mais"></img>
+                            <Image src={PlusCircle} alt="Ver mais" />
                             <p>Ver mais</p>
                         </div>
                     }
@@ -78,12 +79,12 @@ const LectureItem = ({ time, event,  }) => {
                 </div>
                 {show.includes(time) ?
                     <div className='open-close-sign-mobile'>
-                        <img src={MinusCircle} alt = "Fechar"></img>
+                        <Image src={MinusCircle} alt="Fechar" />
                         <p>Fechar</p>
                     </div>
                 :
                     <div className='open-close-sign-mobile'>
-                        <img src={PlusCircle} alt = "Ver mais"></img>
+                        <Image src={PlusCircle} alt="Ver mais" />
                         <p>Ver mais</p>
                     </div>
                 }
@@ -99,7 +100,7 @@ const LectureWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     align-self: stretch;
-    background-color: ${props => props.isExpanded==true ? `var(--color-neutral-800)` : `var(--color-neutral)`};
+    background-color: ${props => props.$isExpanded==true ? `var(--color-neutral-800)` : `var(--color-neutral)`};
     padding: 36px 24px;
     padding: 24px;
     gap: 16px;
@@ -171,6 +172,7 @@ const LectureWrapper = styled.div`
 
             img {
                 width: 44px;
+                height: auto;
             }
 
             p {
@@ -189,6 +191,7 @@ const LectureWrapper = styled.div`
 
         img {
             width: 24px;
+            height: auto;
         }
 
         p {

@@ -16,6 +16,7 @@ import AuthModal from '../src/components/AuthModal';
 import TokenModal from '../src/components/TokenModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleShift';
+import Image from 'next/image';
 
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
@@ -165,7 +166,7 @@ const Home = () => {
                         </div>
                         :
                         <Loading>
-                            <img src='./loading.svg' alt='SSI 2024 - Loading' />
+                            <Image src='./loading.svg' alt='SSI 2024 - Loading' />
                         </Loading>
                     }
                     <div className='landing-bait'>
@@ -354,6 +355,7 @@ const Loading = styled.figure`
 
     img {
         width: 25%;
+        height: auto;
     }
 `
 

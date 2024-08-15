@@ -56,27 +56,27 @@ const Schedule = () => {
                     <h6>Selecione o dia:</h6>
                     <div className='schedule-container'>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
                                 <DateStamp day='21' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-22'} onClick={() => setActiveItem('2023-08-22')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-22'} onClick={() => setActiveItem('2023-08-22')}>
                                 <DateStamp day='22' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-23'} onClick={() => setActiveItem('2023-08-23')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-23'} onClick={() => setActiveItem('2023-08-23')}>
                                 <DateStamp day='23' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-24'} onClick={() => setActiveItem('2023-08-24')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-24'} onClick={() => setActiveItem('2023-08-24')}>
                                 <DateStamp day='24' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-25'} onClick={() => setActiveItem('2023-08-25')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-25'} onClick={() => setActiveItem('2023-08-25')}>
                                 <DateStamp day='25' showEmoji={true} />
                             </NavItem>
                         </Link>
@@ -87,27 +87,27 @@ const Schedule = () => {
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
                                 <DateStamp day='21' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-22'} onClick={() => setActiveItem('2023-08-22')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-22'} onClick={() => setActiveItem('2023-08-22')}>
                                 <DateStamp day='22' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-23'} onClick={() => setActiveItem('2023-08-23')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-23'} onClick={() => setActiveItem('2023-08-23')}>
                                 <DateStamp day='23' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-24'} onClick={() => setActiveItem('2023-08-24')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-24'} onClick={() => setActiveItem('2023-08-24')}>
                                 <DateStamp day='24' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-25'} onClick={() => setActiveItem('2023-08-25')}>
+                            <NavItem className='day-selection' $active={activeItem == '2023-08-25'} onClick={() => setActiveItem('2023-08-25')}>
                                 <DateStamp day='25' showEmoji={true} />
                             </NavItem>
                         </Link>
@@ -202,7 +202,7 @@ const NavItem = styled.div`
     flex-shrink: 0;
     scroll-snap-align: center;
 
-    ${props => props.active == true && css`
+    ${props => props.$active == true && css`
         pointer-events: none;
         > div {
             background-color: var(--color-primary);
@@ -211,7 +211,7 @@ const NavItem = styled.div`
 
     @media (min-width: 840px) {
         
-        ${props => props.active == false && css`
+        ${props => props.$active == false && css`
             > div:hover {
                 background-color: var(--color-neutral-700);
             }

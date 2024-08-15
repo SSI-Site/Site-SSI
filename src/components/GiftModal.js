@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 // assets
 import CloseBtn from './../../public/images/icons/close.svg';
+import Image from "next/image";
 
 const GiftModal = ({ onClose, image, name, totalPres, presentialPres }) => {
 
@@ -19,7 +20,7 @@ const GiftModal = ({ onClose, image, name, totalPres, presentialPres }) => {
                 </GiftModalHeader>
                 <GiftModalBody>
                     <figure>
-                        <img src={image} alt={name} />
+                        <Image src={image} alt={name} />
                     </figure>
 
                     <div className='modal-text'>
@@ -134,6 +135,7 @@ const GiftModalBody = styled.div`
 
         img {
             height: 12rem;
+            width: auto;
         }
     }
 
@@ -196,6 +198,7 @@ const GiftModalBody = styled.div`
         figure {
             img {
                 height: 14rem;
+                width: auto;
             }
         }
     }
@@ -205,6 +208,7 @@ const GiftModalBody = styled.div`
         figure {
             img {
                 height: 18.5rem;
+                width: auto;
             }
         }
             

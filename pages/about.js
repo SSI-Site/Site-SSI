@@ -33,7 +33,7 @@ const About = () => {
             <LogoTextSection>
                 <div className='logo-text'>
                     <div className='logo'>
-                        <img src={LogoPrincipal} alt="Logo SSI 2024" />
+                        <Image src={LogoPrincipal} alt="Logo SSI 2024" />
                         <h3>Semana de Sistemas de Informação 2024</h3>
                     </div>
                     <div className='text'>
@@ -76,7 +76,7 @@ const About = () => {
                         />
                     </div>
                     <div className='btn-wrapper'>
-                        <Link href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
+                        <Link legacyBehavior href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
                             <a target="_blank">
                                 <Button>Acessar regulamento</Button>
                             </a>
@@ -99,9 +99,11 @@ const About = () => {
                                         <Image 
                                             src='/images/about/palestras.jpg' 
                                             alt='Foto Palestra'
-                                            layout="fill"
-                                            objectFit="cover"
-                                            objectPosition="center"
+                                            fill
+                                            style={{
+                                              objectFit: 'cover',
+                                              objectPosition: 'center',
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -121,10 +123,12 @@ const About = () => {
                                     <div className='image-container'>
                                         <Image 
                                             src='/images/about/workshops.jpg' 
-                                            alt='Foto Palestra'
-                                            layout="fill"
-                                            objectFit="cover"
-                                            objectPosition="center"
+                                            alt='Foto Workshop'
+                                            fill
+                                            style={{
+                                              objectFit: 'cover',
+                                              objectPosition: 'center',
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -144,10 +148,12 @@ const About = () => {
                                     <div className='image-container'>
                                         <Image 
                                             src='/images/about/networking.jpg' 
-                                            alt='Foto Palestra' 
-                                            layout="fill"
-                                            objectFit="cover"
-                                            objectPosition="center"
+                                            alt='Foto Networking'
+                                            fill
+                                            style={{
+                                              objectFit: 'cover',
+                                              objectPosition: 'center',
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -270,6 +276,7 @@ const Loading = styled.figure`
 
     img {
         width: 25%;
+        height: auto;
     }
 `
 
@@ -297,6 +304,7 @@ const LogoTextSection = styled.section`
 
         img {
             width: 13.3rem;
+            height: auto;
         }
         
         h3 {
@@ -353,6 +361,7 @@ const LogoTextSection = styled.section`
 
             img {
                 width: 21.42rem;
+                height: auto;
             }
         }
 

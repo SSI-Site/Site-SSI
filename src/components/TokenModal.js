@@ -6,6 +6,7 @@ import saphira from '../../services/saphira';
 
 // components
 import Button from './Button';
+import Image from 'next/image';
 
 
 const TOKEN_LENGTH = 5;
@@ -124,7 +125,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                 </ModalTokenWrapper >
                 :
                 <Loading>
-                    <img src='./loading.svg' alt='SSI 2024 - Loading' />
+                    <Image src='./loading.svg' alt='SSI 2024 - Loading' />
                 </Loading>
             }
         </>
@@ -140,6 +141,7 @@ const Loading = styled.figure`
 
     img {
         width: 50px;
+        height: auto;
     }
 `
 

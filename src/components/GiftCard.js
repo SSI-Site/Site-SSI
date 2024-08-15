@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // components
 import GiftModal from './GiftModal';
+import Image from 'next/image';
 
 const GiftCard = ({ image, name, totalPres, presentialPres }) => {
 
@@ -17,7 +18,7 @@ const GiftCard = ({ image, name, totalPres, presentialPres }) => {
             <GiftWrapper>
                 <div className='gift-box' onClick={() => handleBtnClick()}>
                     <figure className='gift-image'>
-                        <img src={image} alt={`Logo ${name}`}></img>
+                        <Image src={image} alt={`Logo ${name}`} />
                     </figure>
                     <p>{name}</p>
                 </div>
@@ -93,7 +94,9 @@ const GiftWrapper = styled.div`
 
             img {
                 width: 100%;
-                height: 100%;
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
                 object-fit: contain;
             }
         }

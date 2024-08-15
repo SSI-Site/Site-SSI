@@ -4,6 +4,7 @@ import semana from '../../utils/semana';
 // assets
 import CheckIcon from '../../public/images/icons/check.svg';
 import HourglassIcon from '../../public/images/icons/hourglass.svg';
+import Image from 'next/image';
 
 /**
  * A estilização nos estados de hover e active devem ser estabelecidos no arquivo 
@@ -26,10 +27,10 @@ const DateStamp = ({ day, showEmoji }) => {
             <div className='day-emoji'>
                 <h6 className='day'>Dia {relativeDay}</h6>
                 {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2023-08-${numericDay}`) && showEmoji) &&
-                    <img src={CheckIcon}></img>
+                    <Image src={CheckIcon} alt='Ícone de check' />
                 }
                 {(currentDay==numericDay && month==8 && year==2023) && showEmoji &&
-                    <img src={HourglassIcon}></img>
+                    <Image src={HourglassIcon} alt='Ícone de relógio' />
                 }
             </div>
             <p className='week-day'>{day} ago - {semana[day-20]}</p>
@@ -62,6 +63,7 @@ const DateWrapper = styled.div`
 
         img {
             height: 1.5rem;
+            width: auto;
         }
     }
 

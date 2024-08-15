@@ -3,13 +3,14 @@ import styled, { css } from 'styled-components';
 
 // assets
 import TapIcon from '../../public/images/about/icon_tap.svg';
+import Image from 'next/image';
 
 const EventActivity = ({ color, image, alt, title, description, showFront }) => {
 
     const [shouldShowFront, setShouldShowFront] = useState(showFront);
 
     return (
-        <ActivityWrapper isShowingFront={shouldShowFront==true} color={color}>
+        <ActivityWrapper $isShowingFront={shouldShowFront==true} color={color}>
             <div className='container' onClick={() => setShouldShowFront(!shouldShowFront)}>
 
                 {/* Parte que oculta o card */}
@@ -22,7 +23,7 @@ const EventActivity = ({ color, image, alt, title, description, showFront }) => 
                         <div className='click-container'>
                             <div className='click-content'>
                                 <div className='pulse-icon-animation'>
-                                    <img src={TapIcon} alt='Tap Icon' />
+                                    <Image src={TapIcon}alt='Tap Icon' />
                                 </div>
                             </div>
                         </div>
@@ -38,7 +39,7 @@ const EventActivity = ({ color, image, alt, title, description, showFront }) => 
                                 <div></div>
                             </div>
                             <div className='activity-logo'>
-                                <img src={image} alt={alt} />
+                                <Image src={image} alt={alt} width={44} height={10} />
                             </div>
                         </div>
                         <div className='activity-description'>
@@ -136,6 +137,11 @@ const ActivityWrapper = styled.div`
                         place-items: center;
                         color: #fff;
                         opacity: 0.5;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
         
                         &:before, &:after {
                             content: "";
@@ -196,6 +202,7 @@ const ActivityWrapper = styled.div`
                     .activity-logo {
                         img {
                             width: 44px;
+                            height: auto;
                         }
                     }
                 }
@@ -206,7 +213,7 @@ const ActivityWrapper = styled.div`
             }
         }
 
-        ${props => props.isShowingFront && css`
+        ${props => props.$isShowingFront && css`
             .front {
                 transform: rotateY(-180deg);
             }
@@ -272,6 +279,7 @@ const ActivityWrapper = styled.div`
 
                         .activity-logo img {
                             width: 4rem;
+                            height: auto;
                         }
                     }
 

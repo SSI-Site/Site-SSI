@@ -31,10 +31,13 @@ const ScheduleInformation = ({ lecture, startTime, endTime, lecturePicture, spea
                             <div className='lecture-picture'>
                                 <Image 
                                     src={lecturePicture} 
-                                    layout='responsive'
+                                    alt={`Foto da palestra ${title}`}
+                                    responsive
                                     width={340}
                                     height={140}
-                                    objectFit='cover'
+                                    style={{
+                                        objectFit: 'cover',
+                                    }}
                                 />
                             </div>
                             :

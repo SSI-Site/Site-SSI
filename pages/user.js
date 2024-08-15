@@ -15,6 +15,7 @@ import RegisterForm from '../src/components/RegisterForm';
 // assets
 import gifts from '../data/gifts';
 import CheckBox from '../public/images/icons/lecture-check-box.svg';
+import Image from 'next/image';
 
 const User = () => {
     
@@ -107,11 +108,11 @@ const User = () => {
     }, [isUserRegistered]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, [user]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, []);
 
     const { asPath } = useRouter('/user');
@@ -153,7 +154,7 @@ const User = () => {
 
             {isLoading &&
                 <Loading>
-                    <img src='./loading.svg' alt='SSI 2024 - Loading' />
+                    <Image src='./loading.svg' alt='SSI 2024 - Loading' />
                 </Loading>
             }
 
@@ -184,7 +185,7 @@ const User = () => {
 
                         <UserInfoWrapper>
                             <PhotoTextWrapper>
-                                <img className='user-pic' src={user.photoUrl} alt="user picture" />
+                                <Image className='user-pic' src={user.photoUrl} alt="user picture" />
                                 <div className='text-info'>
                                     {user.name ?
                                         <h6>{user.name}</h6>
@@ -194,7 +195,6 @@ const User = () => {
                                     <div className='user-info'>
                                         <p>Email: {user.email}</p>
                                         <div></div>
-                                        <p>CPF: {userInfo.cpf}</p>
                                     </div>
                                 </div>
                             </PhotoTextWrapper>
@@ -261,10 +261,10 @@ const User = () => {
                                                     {lectures.length >= gift.totalPres && presentialLecturesCount() >= gift.presentialPres ? 
                                                     <>
                                                         <td className='column-2'>
-                                                            <img src={CheckBox} alt='check box'/>
+                                                            <Image src={CheckBox} alt='check box'/>
                                                         </td>
                                                         <td className='column-3'>
-                                                            <img src={CheckBox} alt='check box' />
+                                                            <Image src={CheckBox} alt='check box' />
                                                         </td>
                                                     </>
                                                     :
@@ -279,7 +279,7 @@ const User = () => {
                                     </tbody>
                                 </ProgressTable>
                                 <div className='available'>
-                                    <img src={CheckBox} alt='check box' />
+                                    <Image src={CheckBox} alt='check box' />
                                     <p>: brinde disponível para retirada</p>
                                 </div>
                                 <p>x/y: x registros de y necessários</p>
@@ -304,6 +304,7 @@ const Loading = styled.figure`
     img {
         width: 50%;
         max-width: 250px;
+        height: auto;
     }
 `
 
@@ -594,6 +595,7 @@ const GiftsProgressSection = styled.section`
 
                 img {
                     width: 24px;
+                    height: auto;
                 }
             }
         }

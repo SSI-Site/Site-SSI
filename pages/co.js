@@ -16,6 +16,7 @@ import InfraIcon from '../public/images/co_icons/infra.svg';
 import LectureIcon from '../public/images/co_icons/lecture.svg';
 import PartnershipIcon from '../public/images/co_icons/partnership.svg';
 import SiteIcon from '../public/images/co_icons/web.svg';
+import Image from 'next/image';
 
 const CO = () => {
 
@@ -64,7 +65,7 @@ const CO = () => {
                         <h6>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação: o time que trabalha para fazer esse evento acontecer.</h6>
                     </div>
                     <div className='image-container'>
-                        <img src='./images/co_members/co.jpg' alt='Foto Palestra' />
+                        <Image src='/images/co_members/co.jpg' width={570} height={380} alt='Foto Palestra' priority />
                     </div>
                 </div>
             </COExhibitionSection>
@@ -89,35 +90,35 @@ const CO = () => {
                             <option value="Parcerias">Parcerias</option>
                             <option value="Site">Site</option>
                         </select>
-                        <img className='icon' src='./images/co_icons/filter.svg' alt='Ícone de filtro' />
+                        <Image className='icon' src='./images/co_icons/filter.svg' alt='Ícone de filtro' fill />
                     </div>
                 </MobileCOFilterContainer> 
                     
                 {/* Para telas desktop */}
                 <DesktopCOFilterContainer>
                     <div className='members-container'>
-                        <NavItem active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
+                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
                             <DepartmentStamp name='Todos' />
                         </NavItem>
-                        <NavItem active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
+                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
                                 <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
+                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
                                 <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
+                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
                                 <DepartmentStamp name='Diretoria' icon={BoardIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
+                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
                                 <DepartmentStamp name='Infraestrutura' icon={InfraIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
+                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
                                 <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
+                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
                                 <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                        <NavItem $active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
                             <DepartmentStamp name='Site' icon={SiteIcon} />
                         </NavItem>
                     </div>
@@ -193,7 +194,9 @@ const COExhibitionSection = styled.section`
                 max-width: 50rem;
 
                 img {
+                    width: 100%;
                     max-width: 35rem;
+                    height: auto;
                     border: 0.5rem solid white;
                 }
 
@@ -259,6 +262,8 @@ const MobileCOFilterContainer = styled.div`
         }
 
         .icon {
+            width: 100%;
+            height: auto;
             position: absolute;
             pointer-events: none;
             right: calc(50% - 4rem);
@@ -311,13 +316,13 @@ const NavItem = styled.div`
     flex-shrink: 0;
     scroll-snap-align: center;
 
-    ${props => props.active == false && css`
+    ${props => props.$active == false && css`
         > div {
             background-image: linear-gradient(var(--color-primary), var(--color-primary));
         }
     `}
 
-    ${props => props.active == true && css`
+    ${props => props.$active == true && css`
         > div {
             background-color: var(--color-primary); 
             background-image: linear-gradient(to right, white 50%, white 50%);
@@ -329,7 +334,7 @@ const NavItem = styled.div`
             background-position-x: 100%;    
         }
         
-        ${props => props.active == true && css`
+        ${props => props.$active == true && css`
             > div:hover, > div:focus-visible {
                 p {
                     color: var(--color-primary);

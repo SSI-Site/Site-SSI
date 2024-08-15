@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 
 // assets
 import Logo from '../../public/images/logos/logo_principal.svg';
+import Image from 'next/image';
 
 const AuthModal = ({ onClose }) => {
 
@@ -34,9 +35,9 @@ const AuthModal = ({ onClose }) => {
         window.addEventListener('click', backDropHandler);
 
         return () => {
-                        window.removeEventListener('click', backDropHandler);
-                        document.body.style.overflow = 'unset';
-                    };
+            window.removeEventListener('click', backDropHandler);
+            document.body.style.overflow = 'unset';
+        };
     }, []);
 
     const modalContent = (
@@ -51,7 +52,7 @@ const AuthModal = ({ onClose }) => {
                     </ModalHeader>
                     <ModalBody>
                         <figure>
-                            <img className='logo' src={Logo} alt="Logo SSI 2024" />
+                            <Image className='logo' src={Logo} alt="Logo SSI 2024" />
                         </figure>
 
                         <h6>Entrar com</h6>
@@ -173,6 +174,7 @@ const ModalBody = styled.div`
 
     img {
         width: 100%;
+        height: auto;
     }
 
     h6 {

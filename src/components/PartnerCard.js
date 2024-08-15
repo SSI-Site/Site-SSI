@@ -10,9 +10,12 @@ const PartnerCard = ({ image, name, link }) => {
                     <Image
                         src={image}
                         alt={`Logo ${name}`}
-                        layout="fill"
-                        objectFit="contain"
-                        objectPosition="center"
+                        fill
+                        style={{
+                            objectFit: 'contain',
+                            objectPosition: 'center',
+                        }}
+                        sizes="(max-width: 600px) 50vw, 10vw"
                     />
                 </figure>
             </a>
@@ -58,6 +61,14 @@ const PartnerWrapper = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 8px;
+
+        img:hover {
+            border: none;
+        }
+
+        &:hover {
+            border: none;
+        }
     }
 
     @media (min-width:412px) {

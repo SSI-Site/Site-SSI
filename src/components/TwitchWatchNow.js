@@ -5,6 +5,7 @@ import twitch from '../../services/twitch';
 
 // assets
 import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg';
+import Image from 'next/image';
 
 const TwitchWatchNow = () => {
 	
@@ -39,7 +40,7 @@ const TwitchWatchNow = () => {
 					{isLiveStreaming ? (
 						<div className="online-wrap">
 							<div className="online">
-								<img src={TwitchLogo} alt="Twitch Logo" />
+								<Image src={TwitchLogo} alt="Twitch Logo" />
 								<div className='text'>
 									<h6 className="streaming">Online</h6>
 									<p>Assistir transmissão</p>
@@ -49,7 +50,7 @@ const TwitchWatchNow = () => {
 						</div>
 					) : (
 						<div className="offline">
-							<img src={TwitchLogo} alt="Twitch Logo" />
+							<Image src={TwitchLogo} alt="Twitch Logo" />
 							<div className='text'>
 								<h6>Offline</h6>
 								<p>Ainda não começamos...</p>
@@ -80,6 +81,7 @@ const TwitchWatchNowWrapper = styled.div`
 
 	img {
 		width: 1.8rem;
+		height: auto;
 		margin-right: 2rem;
 	}
 
@@ -216,6 +218,7 @@ const TwitchWatchNowWrapper = styled.div`
 
 		img {
 			width: 4rem;
+			height: auto;
 		}
 
 		.text {

@@ -1,8 +1,8 @@
-const withImages = require('next-images');
 module.exports = {
-    ...withImages(),
-    images: {
-        disableStaticImages: true,
-        unoptimized: true,
-    }
+    webpack(config) {
+        return config;
+    },
+    compiler: {
+      styledComponents: true,
+    },
 };

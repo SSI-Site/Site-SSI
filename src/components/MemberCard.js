@@ -32,10 +32,13 @@ const MemberCard = ({ name, image, departments, linkedin }) => {
                 <div className="image-container">
                     <Image 
                         src={image} 
-                        alt={`Foto de ${name}`} 
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
+                        alt={`Foto de ${name}`}
+                        fill
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        style={{
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                        }}
                     />
                 </div>
             </figure>
@@ -59,7 +62,7 @@ const MemberCard = ({ name, image, departments, linkedin }) => {
                 <div className='member-department'>
                     {departments.map((department, index) =>
                         <div className='tooltip' key={index}>
-                            <img src={departmentIcon(department)} />
+                            <Image src={departmentIcon(department)} alt={`Ícone do setor de ${department}`} />
                             <span className='tooltiptext'>{department}</span>
                         </div>
                     )}
@@ -186,6 +189,7 @@ const MemberWrapper = styled.div`
 
             img {
                 width: 1.25rem;
+                height: auto;
             }
         }
 

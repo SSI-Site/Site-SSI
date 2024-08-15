@@ -30,9 +30,9 @@ const Footer = () => {
                 </MobileBackToTop>
                 <Image 
                     src = { LogoPrincipal } 
+                    alt = "Logo da Semana de Sistemas de Informação"
                     width = { 100 } 
                     height = { 100 }
-                    alt = "Logo da Semana de Sistemas de Informação"
                 />
 
                 <p>Semana de<br/>Sistemas de Informação</p>
@@ -41,35 +41,35 @@ const Footer = () => {
             <FooterLinks>
                 <ul>
                     <li>
-                        <Link href = "/" passHref>
+                        <Link legacyBehavior href = "/" passHref>
                             <a className = {router.pathname == '/' ? 'active': ''}>
                                 Home
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href = '/schedule' passHref>
+                        <Link legacyBehavior href = '/schedule' passHref>
                             <a className = {router.pathname == '/schedule' ? 'active' : ''}>
                                 Programação
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link  href = "/about" passHref>
+                        <Link legacyBehavior href = "/about" passHref>
                             <a className = {router.pathname == '/about' ? 'active' : ''}>
                                 Evento
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href = "/partnership" passHref>
+                        <Link legacyBehavior href = "/partnership" passHref>
                             <a className = {router.pathname == '/partnership' ? 'active' : ''}>
                                 Parcerias
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href = "/co" passHref>
+                        <Link legacyBehavior href = "/co" passHref>
                             <a className = {router.pathname == '/co' ? 'active' : ''}>
                                 Comissão Organizadora
                             </a>
@@ -81,7 +81,8 @@ const Footer = () => {
                     <p>Made with</p>
 
                     <Image
-                        src=  { Code }
+                        src = { Code }
+                        alt = "Ícone Programação"
                         width = { 25 }
                         height = { 25 }
                     />
@@ -90,6 +91,7 @@ const Footer = () => {
 
                     <Image
                         src = { Coffee }
+                        alt = "Ícone Café"
                         width = { 25 }
                         height = { 25 }
                     />
@@ -169,18 +171,18 @@ const Footer = () => {
 
                 <Image
                     src=  { Code }
+                    alt = "Ícone Programação"
                     width = { 25 }
                     height = { 25 }
-                    alt = "Ícone Programação"
                 />
 
                 <p>and</p>
 
                 <Image
                     src = { Coffee }
+                    alt = "Ícone Café"
                     width = { 25 }
                     height = { 25 }
-                    alt = "Ícone Café"
                 />
             </FooterEnding>
         </FooterWrapper>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import semana from '../../utils/semana';
+import Image from 'next/image';
 
 /**
  * A estilização nos estados de hover e active devem ser estabelecidos no arquivo 
@@ -12,7 +13,7 @@ const DepartmentStamp = ({ name, icon }) => {
         <DepartmentWrapper>
             <p>{name}</p>
             {icon &&
-                <img src={icon}></img>
+                <Image src={icon} alt={`Ícone do setor de ${name}`} />
             }
         </DepartmentWrapper>
     )
@@ -45,5 +46,6 @@ const DepartmentWrapper = styled.div`
 
     img {
         width: 1.5rem;
+        height: auto;
     }
 `

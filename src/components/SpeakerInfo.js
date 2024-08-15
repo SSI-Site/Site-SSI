@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -8,7 +9,7 @@ const SpeakerInfo = ({ speaker }) => {
             <SpeakerContainer>
                 <div className='speaker-image-name'>
                     {speaker['image'] &&
-                        <img className='speaker-picture' src={speaker['image']} />
+                        <Image className='speaker-picture' src={speaker['image']} alt={`Foto do palestrante ${speaker['name']}`} />
                     }
 
                     <p className='speaker-name'>{speaker['name']}</p>
@@ -54,6 +55,7 @@ const SpeakerContainer = styled.div`
         max-width: 34rem;
         min-height: 8rem;
         max-height: 14rem;
+        height: auto;
         border-radius: 16px;
         object-fit: cover;
     }
@@ -123,6 +125,7 @@ const SpeakerContainer = styled.div`
 
         .speaker-picture {
             height: 23.5rem;
+            width: auto;
             max-height: none;
             border-radius: 16px;
             object-fit: cover;
