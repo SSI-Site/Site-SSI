@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.2",
     "react-input-mask": "^2.0.4",
+    "sharp": "^0.33.4",
     "styled-components": "^6.1.12"
   },
   "devDependencies": {

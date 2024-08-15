@@ -26,7 +26,6 @@ import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptis
 import Lecture18_CarlosRischioto from '../public/images/lecture_imgs/18-Carlos_Rischioto.jpeg'
 // import Lecture19_GiovannaArana from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
 // import Lecture19_GuilhermeFernandes from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
-import Lecture20_MeyrileneAvelino from '../public/images/lecture_imgs/20-Meirylene_Avelino.jpg'
 import Lecture21_AntonioCarlos from '../public/images/lecture_imgs/21-Antonio_Carlos_Meira_Neto.jpg'
 import Lecture22_LucianoDigiampietri from '../public/images/lecture_imgs/22-Luciano_Digiampietri.jpg'
 import Lecture23_CarolinaGalvao from '../public/images/lecture_imgs/23-Carolina_Galvão_de_Oliveira.jpg'
@@ -290,7 +289,7 @@ const shifts = {
                 description : 'Conheça sobre uma das profissões mais promissoras do mercado de tecnologia e descubra que a segurança das informações também é uma responsabilidade sua! Meirylene Avelino é Analista de Segurança da Informação, Graduada e Mestre em Ciência da Computação, com linha de Pesquisa em garantia de autenticidade de conteúdos web utilizando Blockchain. Especialista em gestão de acessos privilegiados, IAM e implantação e arquiteturas de soluções de PAM. Palestrante em eventos sobre temas correlatos a tecnologia e a Segurança da Informação. Voluntária em projetos de diversidade de gêneros em carreiras de tecnologia. Realiza treinamentos de equipes em Segurança da Informação. Cocriadora e Idealizadora da GloboSec Week - Programa de integração entre academia e empresa com o objetivo de conscientizar e ensinar sobre Segurança da Informação e descobrir novos talentos para a área de Cybersecurity da Globo. Recebeu o XIV Prêmio Josué de Castro de Extensão, pela Universidade Federal Fluminense, na 21 Semana de Extensão da Universidade. Indicada para a premiação Woman that Build Awards da Globant 2022. Membro da CSBC Sociedade Brasileira de Computação. Voluntária no WOMCY Reconhecida pela instituição Daryus como uma das TOP 20 mulheres mais influentes em Segurança da Informação.',
                 local : 'online',// presential ou online
                 speakers : [
-                    {'name': 'Meirylene Avelino', 'linkedin': 'https://www.linkedin.com/in/meiryleneavelino/', 'image': Lecture20_MeyrileneAvelino},
+                    {'name': 'Meirylene Avelino', 'linkedin': 'https://www.linkedin.com/in/meiryleneavelino/', 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
