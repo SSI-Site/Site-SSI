@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Image from 'next/image'
 
 import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
@@ -26,6 +25,10 @@ const Nav = () => {
 
     const handleShowAuthModal = () => {
         if (window.pageYOffset != 0) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
             setTimeout(() => { handleShowAuthModal() }, 50);
         } else {
             setShowAuthModal(true);
@@ -44,14 +47,13 @@ const Nav = () => {
         <NavWrapper>
             <div>
                 {/* Logo que redireciona para a home */}
-                <Link href="/" passHref>
+                <Link legacyBehavior href="/" passHref>
                     <a>
-                        <Image
-                            src = { LogoHorizontal }
-                            width = { 180 }
-                            height = { 45 }
-                            style = {{ cursor: 'pointer' }}
-                            alt = 'Semana de Sistemas de Informação'
+                        <img
+                            src={LogoHorizontal}
+                            width={180}
+                            height={45}
+                            alt='Semana de Sistemas de Informação'
                         />
                     </a>
 
@@ -66,7 +68,7 @@ const Nav = () => {
                 }
 
                 {/* Navbar para Mobile */}
-                <NavMobile isOpen = {isOpen}>
+                <NavMobile $isOpen = {isOpen}>
                     <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                     </div>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
@@ -74,48 +76,48 @@ const Nav = () => {
                             <div className = 'headerNav'>
                                 <h6>Navegação rápida</h6>
                                 <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                    <Image 
-                                        src = { CloseBtn }
-                                        width = { 18 }
-                                        height = { 18 }
-                                        alt = 'Fechar'
+                                    <img 
+                                        src={CloseBtn}
+                                        width={18}
+                                        height={18}
+                                        alt='Fechar'
                                     />
                                 </div>
                             </div>
 
                             <ul>
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                    <Link href="/" passHref>
+                                    <Link legacyBehavior href="/" passHref>
                                         <a>Home</a>
                                     </Link>
                                 </li>
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                    <Link href="/schedule" passHref>
+                                    <Link legacyBehavior href="/schedule" passHref>
                                         <a>Programação</a>
                                     </Link>                                
                                 </li>
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                    <Link href="/about" passHref>
+                                    <Link legacyBehavior href="/about" passHref>
                                         <a>Evento</a>
                                     </Link>
                                 </li>
 
-                                <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                                    <Link href="/partnership" passHref>
+                                {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                                    <Link legacyBehavior href="/partnership" passHref>
                                         <a>Parcerias</a>
                                     </Link>
-                                </li>
+                                </li> */}
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                    <Link href="/co" passHref>
+                                    <Link legacyBehavior href="/co" passHref>
                                         <a>Comissão Organizadora</a>
                                     </Link>                                
                                 </li>
 
                                 {/* <li onClick={() => setIsOpen(false)}> */}
-                                    {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                                    {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
                                     {/*<span target="blank">CTF</span>{/* </Link> */}
                                     {/* <div></div> */}
                                 {/* </li> */}
@@ -147,43 +149,43 @@ const Nav = () => {
                 <NavDesktop>
                     <ul>
                         <li className = {router.pathname == '/' ? 'active': ''}>
-                            <Link href="/" passHref>
+                            <Link legacyBehavior href="/" passHref>
                                 <a>Home</a>
                             </Link>           
                         </li>
 
                         <li className = {router.pathname == '/schedule' ? 'active': ''}>
-                            <Link href="/schedule" passHref>
+                            <Link legacyBehavior href="/schedule" passHref>
                                 <a>Programação</a>
                             </Link>
                         </li>
 
                         <li className = {router.pathname == '/about' ? 'active': ''}>
-                            <Link href="/about" passHref>
+                            <Link legacyBehavior href="/about" passHref>
                                 <a>Evento</a>
                             </Link>
                         </li>
 
-                        <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                            <Link href="/partnership" passHref>
+                        {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                            <Link legacyBehavior href="/partnership" passHref>
                                 <a>Parcerias</a>
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li className = {router.pathname == '/co' ? 'active': ''}>
-                            <Link href="/co" passHref>
+                            <Link legacyBehavior href="/co" passHref>
                                 <a>Comissão Organizadora</a>
                             </Link>
                         </li>
 
                         {/* <li> */}
-                            {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                            {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
                             {/*  */}
                         {/* </li> */}
 
                         {user ?
                             <li className='userPicContainer'>
-                                <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                                <Link legacyBehavior href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                             </li>
                             :
                             <li>

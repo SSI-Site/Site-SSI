@@ -11,7 +11,6 @@ const AuthModal = ({ onClose }) => {
 
     const { signInGoogle } = useAuth();
     const modalWrapperRef = useRef();
-    
     const [isBrowser, setIsBrowser] = useState(false);
 
     const backDropHandler = e => {
@@ -30,13 +29,12 @@ const AuthModal = ({ onClose }) => {
     useEffect(() => {
         setIsBrowser(true);
 
-        document.body.style.overflow = 'hidden';
         window.addEventListener('click', backDropHandler);
 
         return () => {
-                        window.removeEventListener('click', backDropHandler);
-                        document.body.style.overflow = 'unset';
-                    };
+            window.removeEventListener('click', backDropHandler);
+            document.body.style.overflow = 'unset';
+        };
     }, []);
 
     const modalContent = (
@@ -84,7 +82,7 @@ export default AuthModal;
 
 
 const ModalOverlay = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

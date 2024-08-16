@@ -4,10 +4,8 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import Meta from '../src/infra/Meta';
-import saphira from '../services/saphira';
 import useAuth from '../hooks/useAuth';
 
 // components
@@ -76,7 +74,7 @@ const About = () => {
                         />
                     </div>
                     <div className='btn-wrapper'>
-                        <Link href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
+                        <Link legacyBehavior href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
                             <a target="_blank">
                                 <Button>Acessar regulamento</Button>
                             </a>
@@ -96,13 +94,7 @@ const About = () => {
                             <div className='bait-sample'>
                                 <div className='bait-image justify-left'>
                                     <div className='image-container'>
-                                        <Image 
-                                            src='/images/about/palestras.jpg' 
-                                            alt='Foto Palestra'
-                                            layout="fill"
-                                            objectFit="cover"
-                                            objectPosition="center"
-                                        />
+                                        <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
                                     </div>
                                 </div>
                                 <div className='bait-sample-description'>
@@ -119,13 +111,7 @@ const About = () => {
                             <div className='bait-sample middle-lecture'>
                                 <div className='bait-image justify-right'>
                                     <div className='image-container'>
-                                        <Image 
-                                            src='/images/about/workshops.jpg' 
-                                            alt='Foto Palestra'
-                                            layout="fill"
-                                            objectFit="cover"
-                                            objectPosition="center"
-                                        />
+                                        <img src="/images/about/workshops.jpg" alt="Foto Workshops" className="responsive-image" />
                                     </div>
                                 </div>
                                 <div className='bait-sample-description'>
@@ -142,13 +128,7 @@ const About = () => {
                             <div className='bait-sample'>
                                 <div className='bait-image justify-left'>
                                     <div className='image-container'>
-                                        <Image 
-                                            src='/images/about/networking.jpg' 
-                                            alt='Foto Palestra' 
-                                            layout="fill"
-                                            objectFit="cover"
-                                            objectPosition="center"
-                                        />
+                                        <img src="/images/about/networking.jpg" alt="Foto Networking" className="responsive-image" />
                                     </div>
                                 </div>
                                 <div className='bait-sample-description'>
@@ -544,6 +524,15 @@ const BaitContent = styled.div`
             width: 100%;
             height: 100%;
             border-radius: 8px;
+        }
+
+        .responsive-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 

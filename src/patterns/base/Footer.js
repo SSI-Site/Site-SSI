@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -28,12 +27,9 @@ const Footer = () => {
                         <rect id = "arrow" width = "100" height = "100%"/>
                     </svg>
                 </MobileBackToTop>
-                <Image 
-                    src = { LogoPrincipal } 
-                    width = { 100 } 
-                    height = { 100 }
-                    alt = "Logo da Semana de Sistemas de Informação"
-                />
+                <div className="logo-container">
+                    <img src={LogoPrincipal} alt="Logo da Semana de Sistemas de Informação" className="logo-image" />
+                </div>
 
                 <p>Semana de<br/>Sistemas de Informação</p>
             </FooterLogo>
@@ -41,35 +37,35 @@ const Footer = () => {
             <FooterLinks>
                 <ul>
                     <li>
-                        <Link href = "/" passHref>
+                        <Link legacyBehavior href = "/" passHref>
                             <a className = {router.pathname == '/' ? 'active': ''}>
                                 Home
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href = '/schedule' passHref>
+                        <Link legacyBehavior href = '/schedule' passHref>
                             <a className = {router.pathname == '/schedule' ? 'active' : ''}>
                                 Programação
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link  href = "/about" passHref>
+                        <Link legacyBehavior href = "/about" passHref>
                             <a className = {router.pathname == '/about' ? 'active' : ''}>
                                 Evento
                             </a>
                         </Link>
                     </li>
-                    <li>
-                        <Link href = "/partnership" passHref>
+                    {/* <li>
+                        <Link legacyBehavior href = "/partnership" passHref>
                             <a className = {router.pathname == '/partnership' ? 'active' : ''}>
                                 Parcerias
                             </a>
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
-                        <Link href = "/co" passHref>
+                        <Link legacyBehavior href = "/co" passHref>
                             <a className = {router.pathname == '/co' ? 'active' : ''}>
                                 Comissão Organizadora
                             </a>
@@ -79,21 +75,9 @@ const Footer = () => {
 
                 <FooterEnding>
                     <p>Made with</p>
-
-                    <Image
-                        src=  { Code }
-                        width = { 25 }
-                        height = { 25 }
-                    />
-
+                    <img src={Code} alt="Ícone Programação" />
                     <p>and</p>
-
-                    <Image
-                        src = { Coffee }
-                        width = { 25 }
-                        height = { 25 }
-                    />
-
+                    <img src={Coffee} alt="Ícone Café" />
                 </FooterEnding>
             </FooterLinks>
 
@@ -166,22 +150,9 @@ const Footer = () => {
 
             <FooterEnding>
                 <p>Made with</p>
-
-                <Image
-                    src=  { Code }
-                    width = { 25 }
-                    height = { 25 }
-                    alt = "Ícone Programação"
-                />
-
+                <img src={Code} alt="Ícone Programação" />
                 <p>and</p>
-
-                <Image
-                    src = { Coffee }
-                    width = { 25 }
-                    height = { 25 }
-                    alt = "Ícone Café"
-                />
+                <img src={Coffee} alt="Ícone Café" />
             </FooterEnding>
         </FooterWrapper>
     )
@@ -249,9 +220,9 @@ const FooterWrapper = styled.footer`
     }
 
     // Desktop
-    @media (min-width:850px) {
+    @media (min-width:930px) {
         display: grid;
-        padding: 4rem 0rem;
+        padding: 4rem 1rem;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
         gap: 0rem;
@@ -337,6 +308,17 @@ const FooterLogo = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .logo-container {
+        width: 100%;
+        max-width: 5rem;
+    }
+
+    .logo-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
     p {
         text-align: center;

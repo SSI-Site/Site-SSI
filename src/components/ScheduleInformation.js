@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 // components
 import SpeakerInfo from './SpeakerInfo';
@@ -29,13 +28,7 @@ const ScheduleInformation = ({ lecture, startTime, endTime, lecturePicture, spea
                         :
                         lecturePicture ?
                             <div className='lecture-picture'>
-                                <Image 
-                                    src={lecturePicture} 
-                                    layout='responsive'
-                                    width={340}
-                                    height={140}
-                                    objectFit='cover'
-                                />
+                                <img src={lecturePicture} alt={`Foto da palestra ${title}`} />
                             </div>
                             :
                             <div className='space-div'></div>
@@ -76,12 +69,22 @@ const ScheduleInformationStyle = styled.div`
         gap: 1rem;
 
         .lecture-picture {
+            position: relative;
             width: 100%;
             max-width: 34rem;
             min-height: 8rem;
             max-height: 14rem;
             border-radius: 16px;
             overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 

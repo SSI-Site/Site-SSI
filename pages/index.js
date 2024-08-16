@@ -39,11 +39,7 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleShowAuthModal = () => {
-        if (window.pageYOffset != 0) {
-            setTimeout(() => { handleShowAuthModal() }, 50);
-        } else {
-            setShowAuthModal(true);
-        }
+        setShowAuthModal(true);
     }
 
     const checkUserRegister = () => {
@@ -158,8 +154,8 @@ const Home = () => {
                     
                             {showAuthModal &&
                                 <AuthModal
-                                onClose={() => setShowAuthModal(false)}
-                                show={showAuthModal}
+                                    onClose={() => setShowAuthModal(false)}
+                                    show={showAuthModal}
                                 />
                             }
                         </div>
