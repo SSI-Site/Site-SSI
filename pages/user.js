@@ -194,7 +194,6 @@ const User = () => {
                                     <div className='user-info'>
                                         <p>Email: {user.email}</p>
                                         <div></div>
-                                        <p>CPF: {userInfo.cpf}</p>
                                     </div>
                                 </div>
                             </PhotoTextWrapper>
