@@ -61,16 +61,27 @@ export default saphira;
 //     // Função auxiliar - obtém o token de acesso
 //     getAccessToken: async () => {
 
+//         let accessToken = localStorage.getItem(ACCESS_TOKEN);
+
 //         // Se o token de acesso não existe ou está expirado, renova o token
 //         if (!accessToken || saphira.isTokenExpired(accessToken)) {
+//             const refreshToken = localStorage.getItem(REFRESH_TOKEN);
+
+//             if (!refreshToken) {
+//                 console.error('Refresh token não encontrado. Faça login novamente.');
+//                 return null;
+//             }
+
 //             try {
 //                 const response = await axios.post(`${API_BASE_URL}/api/token/refresh/`, {
+//                     refresh: refreshToken,
 //                 });
 //                 accessToken = response.data.access;
+//                 localStorage.setItem(ACCESS_TOKEN, accessToken);
+//                 return accessToken;
 //             } catch (error) {
 //                 console.error('Erro ao renovar token:', error);
 //             }
-//             console.error('Refresh token não encontrado. Faça login novamente');
 //         }
 
 //         return accessToken;
