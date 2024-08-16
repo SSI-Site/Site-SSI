@@ -18,12 +18,13 @@ const Nav = () => {
     const { user } = useAuth();
     // const { user } = false; // para deploy sem login
     const router = useRouter();
-    
+
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
 
 
     const handleShowAuthModal = () => {
+        setIsOpen(false);
         setShowAuthModal(true);
     }
 
@@ -60,7 +61,7 @@ const Nav = () => {
                 }
 
                 {/* Navbar para Mobile */}
-                <NavMobile $isOpen = {isOpen}>
+                <NavMobile $isOpen={isOpen}>
                     <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                     </div>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
@@ -117,17 +118,17 @@ const Nav = () => {
                         </div>
 
                         {/* Editar esta div para o usuário logado*/}
-                        {user
-                            ? <>
+                        {user ? 
+                            <>
                                 {/*Código do usuário logado */}
                             </> 
                             :
-                            <Button className = 'userButton'>Login</Button>
+                            <Button onClick={handleShowAuthModal} className='userButton'>Login</Button>
                         }
                         
                     </div>
 
-                    <div className = 'hamburguerWrapper'>
+                    <div className='hamburguerWrapper'>
                         <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
                             <span></span>
                             <span></span>
@@ -310,7 +311,7 @@ const NavMobile = styled.nav`
         padding: .75rem;
         background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
-        background-size: 200% 100%;
+        background-size: 202% 100%;
         transition: 100ms all ease-out;
     }
 
@@ -345,7 +346,8 @@ const NavMobile = styled.nav`
         bottom: 0;
         left: 0;
         right: 0;
-
+        background-color: rgba(0, 0, 0, 0.5);
+        
         z-index: 9;
     }
 

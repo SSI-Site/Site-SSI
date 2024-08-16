@@ -15,6 +15,7 @@ import RegisterForm from '../src/components/RegisterForm';
 // assets
 import gifts from '../data/gifts';
 import CheckBox from '../public/images/icons/lecture-check-box.svg';
+import SecondaryButton from '../src/components/SecondaryButton';
 
 const User = () => {
     
@@ -199,7 +200,7 @@ const User = () => {
                             </PhotoTextWrapper>
                             <div className='btn-wrapper'>
                                 <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
-                                <ButtonSecondary onClick={signOut}>Sair</ButtonSecondary>
+                                <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
                             </div>
                         </UserInfoWrapper>
                     </UserInfoSection>
@@ -435,37 +436,6 @@ const PhotoTextWrapper = styled.div`
             }
         }
 
-    }
-`
-
-const ButtonSecondary = styled.button`
-    --padding: 0.75rem 1.5rem;
-    --transition-duration: 500ms;
-
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.75rem;
-    padding: var(--padding);
-    border-radius: 9px;
-    border: 3px solid var(--color-neutral-50);
-    background-color: transparent;
-    transition: 500ms;
-    cursor: pointer;
-
-    &:hover {
-        background-color: var(--color-neutral-50);
-        color: var(--color-neutral-900);
-    }
-
-    &:active {
-        background-color: var(--color-neutral-100);
-        border-color: var(--color-neutral-100);
-    }
-        
-    @media (min-width:560px) {
-        height: 3rem;
     }
 `
 
