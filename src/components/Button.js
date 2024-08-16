@@ -5,9 +5,13 @@ const Button = styled.button`
     --transition-duration: 100ms;
     --background: var(--color-primary);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 2.75rem;
     padding: var(--padding);
+    gap: 0.5rem;
     border-radius: 0;
     border: var(--color-primary);
     background-color: var(--background);
