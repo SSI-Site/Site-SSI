@@ -189,7 +189,7 @@ const Home = () => {
 
                     <Link href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
                         <a target="_blank">
-                            <ButtonSecondary>Inscrever-se</ButtonSecondary>
+                            <SecondaryButton>Inscrever-se</SecondaryButton>
                         </a>
                     </Link>
                 </div>
@@ -546,38 +546,6 @@ const SubscriptionSection = styled.section`
                 }
             }
         }
-    }
-`
-
-const ButtonSecondary = styled.button`
-    --padding: 0.75rem 1.5rem;
-    --transition-duration: 500ms;
-
-    /* width: 100%; */
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.75rem;
-    padding: var(--padding);
-    border-radius: 9px;
-    border: 3px solid var(--color-neutral-50);
-    background-color: transparent;
-    transition: 500ms;
-    cursor: pointer;
-
-    &:hover {
-        background-color: var(--color-neutral-50);
-        color: var(--color-neutral-900);
-    }
-
-    &:active {
-        background-color: var(--color-neutral-100);
-        border-color: var(--color-neutral-100);
-    }
-        
-    @media (min-width:560px) {
-        height: 3rem;
     }
 `
 
