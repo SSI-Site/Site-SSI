@@ -44,7 +44,7 @@ const Nav = () => {
         <NavWrapper>
             <div>
                 {/* Logo que redireciona para a home */}
-                <Link href="/" passHref>
+                <Link legacyBehavior href="/" passHref>
                     <a>
                         <Image
                             src = { LogoHorizontal }
@@ -85,37 +85,37 @@ const Nav = () => {
 
                             <ul>
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                    <Link href="/" passHref>
+                                    <Link legacyBehavior href="/" passHref>
                                         <a>Home</a>
                                     </Link>
                                 </li>
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                    <Link href="/schedule" passHref>
+                                    <Link legacyBehavior href="/schedule" passHref>
                                         <a>Programação</a>
                                     </Link>                                
                                 </li>
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                    <Link href="/about" passHref>
+                                    <Link legacyBehavior href="/about" passHref>
                                         <a>Evento</a>
                                     </Link>
                                 </li>
 
                                 <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                                    <Link href="/partnership" passHref>
+                                    <Link legacyBehavior href="/partnership" passHref>
                                         <a>Parcerias</a>
                                     </Link>
                                 </li>
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                    <Link href="/co" passHref>
+                                    <Link legacyBehavior href="/co" passHref>
                                         <a>Comissão Organizadora</a>
                                     </Link>                                
                                 </li>
 
                                 {/* <li onClick={() => setIsOpen(false)}> */}
-                                    {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                                    {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
                                     {/*<span target="blank">CTF</span>{/* </Link> */}
                                     {/* <div></div> */}
                                 {/* </li> */}
@@ -147,43 +147,43 @@ const Nav = () => {
                 <NavDesktop>
                     <ul>
                         <li className = {router.pathname == '/' ? 'active': ''}>
-                            <Link href="/" passHref>
+                            <Link legacyBehavior href="/" passHref>
                                 <a>Home</a>
                             </Link>           
                         </li>
 
                         <li className = {router.pathname == '/schedule' ? 'active': ''}>
-                            <Link href="/schedule" passHref>
+                            <Link legacyBehavior href="/schedule" passHref>
                                 <a>Programação</a>
                             </Link>
                         </li>
 
                         <li className = {router.pathname == '/about' ? 'active': ''}>
-                            <Link href="/about" passHref>
+                            <Link legacyBehavior href="/about" passHref>
                                 <a>Evento</a>
                             </Link>
                         </li>
 
                         <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                            <Link href="/partnership" passHref>
+                            <Link legacyBehavior href="/partnership" passHref>
                                 <a>Parcerias</a>
                             </Link>
                         </li>
 
                         <li className = {router.pathname == '/co' ? 'active': ''}>
-                            <Link href="/co" passHref>
+                            <Link legacyBehavior href="/co" passHref>
                                 <a>Comissão Organizadora</a>
                             </Link>
                         </li>
 
                         {/* <li> */}
-                            {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                            {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
                             {/*  */}
                         {/* </li> */}
 
                         {user ?
                             <li className='userPicContainer'>
-                                <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                                <Link legacyBehavior href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
                             </li>
                             :
                             <li>

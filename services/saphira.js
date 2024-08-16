@@ -26,7 +26,6 @@ const saphira = {
         const params = {
             full_name: userData.fullName,
             email: userData.email,
-            cpf: userData.cpf,
             usp_number: userData.usp_number,
             data_nascimento: userData.birthDate,
             genero: userData.gender,
@@ -64,15 +63,14 @@ export default saphira;
 
 //         // Se o token de acesso não existe ou está expirado, renova o token
 //         if (!accessToken || saphira.isTokenExpired(accessToken)) {
-//                 try {
-//                     const response = await axios.post(`${API_BASE_URL}/api/token/refresh/`, {
-//                     });
-//                     accessToken = response.data.access;
-//                 } catch (error) {
-//                     console.error('Erro ao renovar token:', error);
-//                 }
-//                 console.error('Refresh token não encontrado. Faça login novamente');
+//             try {
+//                 const response = await axios.post(`${API_BASE_URL}/api/token/refresh/`, {
+//                 });
+//                 accessToken = response.data.access;
+//             } catch (error) {
+//                 console.error('Erro ao renovar token:', error);
 //             }
+//             console.error('Refresh token não encontrado. Faça login novamente');
 //         }
 
 //         return accessToken;

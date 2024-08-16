@@ -76,7 +76,7 @@ const About = () => {
                         />
                     </div>
                     <div className='btn-wrapper'>
-                        <Link href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
+                        <Link legacyBehavior href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
                             <a target="_blank">
                                 <Button>Acessar regulamento</Button>
                             </a>

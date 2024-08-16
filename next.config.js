@@ -4,5 +4,8 @@ module.exports = {
     images: {
         disableStaticImages: true,
         unoptimized: true,
-    }
+    },
+    compiler: {
+      styledComponents: true,
+    },
 };

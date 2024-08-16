@@ -41,35 +41,35 @@ const Footer = () => {
             <FooterLinks>
                 <ul>
                     <li>
-                        <Link href = "/" passHref>
+                        <Link legacyBehavior href = "/" passHref>
                             <a className = {router.pathname == '/' ? 'active': ''}>
                                 Home
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href = '/schedule' passHref>
+                        <Link legacyBehavior href = '/schedule' passHref>
                             <a className = {router.pathname == '/schedule' ? 'active' : ''}>
                                 Programação
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link  href = "/about" passHref>
+                        <Link legacyBehavior href = "/about" passHref>
                             <a className = {router.pathname == '/about' ? 'active' : ''}>
                                 Evento
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href = "/partnership" passHref>
+                        <Link legacyBehavior href = "/partnership" passHref>
                             <a className = {router.pathname == '/partnership' ? 'active' : ''}>
                                 Parcerias
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href = "/co" passHref>
+                        <Link legacyBehavior href = "/co" passHref>
                             <a className = {router.pathname == '/co' ? 'active' : ''}>
                                 Comissão Organizadora
                             </a>
