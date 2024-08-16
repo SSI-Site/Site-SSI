@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 // assets
 import FinancesIcon from '../../public/images/co_icons/finances.svg';
@@ -30,13 +29,7 @@ const MemberCard = ({ name, image, departments, linkedin }) => {
         <MemberWrapper>
             <figure className='member-image'>
                 <div className="image-container">
-                    <Image 
-                        src={image} 
-                        alt={`Foto de ${name}`} 
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
-                    />
+                    <img src={image} alt={`Foto de ${name}`} className="responsive-image" />
                 </div>
             </figure>
             <figcaption>
@@ -96,6 +89,16 @@ const MemberWrapper = styled.div`
             width: 100%;
             height: 100%;
             border-radius: 8px;
+        }
+
+        .responsive-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
 

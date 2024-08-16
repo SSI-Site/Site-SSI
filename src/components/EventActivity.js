@@ -9,7 +9,7 @@ const EventActivity = ({ color, image, alt, title, description, showFront }) => 
     const [shouldShowFront, setShouldShowFront] = useState(showFront);
 
     return (
-        <ActivityWrapper isShowingFront={shouldShowFront==true} color={color}>
+        <ActivityWrapper $isShowingFront={shouldShowFront==true} color={color}>
             <div className='container' onClick={() => setShouldShowFront(!shouldShowFront)}>
 
                 {/* Parte que oculta o card */}
@@ -206,7 +206,7 @@ const ActivityWrapper = styled.div`
             }
         }
 
-        ${props => props.isShowingFront && css`
+        ${props => props.$isShowingFront && css`
             .front {
                 transform: rotateY(-180deg);
             }

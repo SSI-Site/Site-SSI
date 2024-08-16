@@ -96,28 +96,28 @@ const CO = () => {
                 {/* Para telas desktop */}
                 <DesktopCOFilterContainer>
                     <div className='members-container'>
-                        <NavItem active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
+                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
                             <DepartmentStamp name='Todos' />
                         </NavItem>
-                        <NavItem active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
+                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
                                 <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
+                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
                                 <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
+                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
                                 <DepartmentStamp name='Diretoria' icon={BoardIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
+                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
                                 <DepartmentStamp name='Infraestrutura' icon={InfraIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
+                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
                                 <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
+                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
                                 <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
                             </NavItem>
-                        <NavItem active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                        <NavItem $active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
                             <DepartmentStamp name='Site' icon={SiteIcon} />
                         </NavItem>
                     </div>
@@ -311,13 +311,13 @@ const NavItem = styled.div`
     flex-shrink: 0;
     scroll-snap-align: center;
 
-    ${props => props.active == false && css`
+    ${props => props.$active == false && css`
         > div {
             background-image: linear-gradient(var(--color-primary), var(--color-primary));
         }
     `}
 
-    ${props => props.active == true && css`
+    ${props => props.$active == true && css`
         > div {
             background-color: var(--color-primary); 
             background-image: linear-gradient(to right, white 50%, white 50%);
@@ -329,7 +329,7 @@ const NavItem = styled.div`
             background-position-x: 100%;    
         }
         
-        ${props => props.active == true && css`
+        ${props => props.$active == true && css`
             > div:hover, > div:focus-visible {
                 p {
                     color: var(--color-primary);

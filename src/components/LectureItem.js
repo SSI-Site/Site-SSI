@@ -26,7 +26,7 @@ const LectureItem = ({ time, event,  }) => {
 
     return ( 
         <>
-            <LectureWrapper className='lecture' onClick={() => handleShowLecture(time)} isExpanded={isExpanded}>
+            <LectureWrapper className='lecture' onClick={() => handleShowLecture(time)} $isExpanded={isExpanded}>
                 <div className='lecture-overview'>
                     <h5>{time}</h5>
                     <div>
@@ -99,7 +99,7 @@ const LectureWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     align-self: stretch;
-    background-color: ${props => props.isExpanded==true ? `var(--color-neutral-800)` : `var(--color-neutral)`};
+    background-color: ${props => props.$isExpanded==true ? `var(--color-neutral-800)` : `var(--color-neutral)`};
     padding: 36px 24px;
     padding: 24px;
     gap: 16px;

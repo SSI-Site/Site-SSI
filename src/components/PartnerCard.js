@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 
 const PartnerCard = ({ image, name, link }) => {
@@ -6,15 +5,9 @@ const PartnerCard = ({ image, name, link }) => {
     return (
         <PartnerWrapper>
             <a href={link} target="_blank" rel="noreferrer">
-                <figure className='partner-image'>
-                    <Image
-                        src={image}
-                        alt={`Logo ${name}`}
-                        layout="fill"
-                        objectFit="contain"
-                        objectPosition="center"
-                    />
-                </figure>
+                <div className='partner-image'>
+                    <img src={image} alt={`Logo ${name}`} />
+                </div>
             </a>
         </PartnerWrapper>
     )
@@ -38,12 +31,12 @@ const PartnerWrapper = styled.div`
     transition: 0.3s;
     z-index: 2;
 
-    :hover {
+    &:hover {
         border: solid 4px var(--color-primary-700);
         background-color: var(--color-neutral-700);
     }
 
-    :active {
+    &:active {
         background-color: var(--color-neutral-600);
     }
 
@@ -58,6 +51,17 @@ const PartnerWrapper = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 8px;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transform: translate(-50%, -50%);
+        }
     }
 
     @media (min-width:412px) {

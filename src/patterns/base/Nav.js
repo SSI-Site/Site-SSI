@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Image from 'next/image'
 
 import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
@@ -26,6 +25,10 @@ const Nav = () => {
 
     const handleShowAuthModal = () => {
         if (window.pageYOffset != 0) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
             setTimeout(() => { handleShowAuthModal() }, 50);
         } else {
             setShowAuthModal(true);
@@ -46,12 +49,11 @@ const Nav = () => {
                 {/* Logo que redireciona para a home */}
                 <Link legacyBehavior href="/" passHref>
                     <a>
-                        <Image
-                            src = { LogoHorizontal }
-                            width = { 180 }
-                            height = { 45 }
-                            style = {{ cursor: 'pointer' }}
-                            alt = 'Semana de Sistemas de Informação'
+                        <img
+                            src={LogoHorizontal}
+                            width={180}
+                            height={45}
+                            alt='Semana de Sistemas de Informação'
                         />
                     </a>
 
@@ -66,7 +68,7 @@ const Nav = () => {
                 }
 
                 {/* Navbar para Mobile */}
-                <NavMobile isOpen = {isOpen}>
+                <NavMobile $isOpen = {isOpen}>
                     <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                     </div>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
@@ -74,11 +76,11 @@ const Nav = () => {
                             <div className = 'headerNav'>
                                 <h6>Navegação rápida</h6>
                                 <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                    <Image 
-                                        src = { CloseBtn }
-                                        width = { 18 }
-                                        height = { 18 }
-                                        alt = 'Fechar'
+                                    <img 
+                                        src={CloseBtn}
+                                        width={18}
+                                        height={18}
+                                        alt='Fechar'
                                     />
                                 </div>
                             </div>
@@ -102,11 +104,11 @@ const Nav = () => {
                                     </Link>
                                 </li>
 
-                                <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                                {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
                                     <Link legacyBehavior href="/partnership" passHref>
                                         <a>Parcerias</a>
                                     </Link>
-                                </li>
+                                </li> */}
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
                                     <Link legacyBehavior href="/co" passHref>
@@ -164,11 +166,11 @@ const Nav = () => {
                             </Link>
                         </li>
 
-                        <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                        {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
                             <Link legacyBehavior href="/partnership" passHref>
                                 <a>Parcerias</a>
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li className = {router.pathname == '/co' ? 'active': ''}>
                             <Link legacyBehavior href="/co" passHref>
