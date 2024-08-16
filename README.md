@@ -4,8 +4,8 @@
 
 É preciso ter o **node.js** e o **npm** instalados na máquina e executar os comandos:
 
-* `npm install` ou `yarn` para instalar as dependências
-* `npm run dev` ou `yarn dev` para subir a aplicação no **localhost:3000**
+* `yarn install` para instalar as dependências
+* `yarn dev` para subir a aplicação no **localhost:3000**
 
 Para executar o projeto por completo localmente, é preciso incluir as variáveis de ambiente para a configuração do Google Firebase.
 ```
@@ -17,7 +17,7 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=VALOR
 NEXT_PUBLIC_FIREBASE_APP_ID=VALOR
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=VALOR
 ```
-Basta criar um arquivo `.env` com as variáveis acima, substituindo os valores pelos relacionados a sua aplicação no *firebase*.
+Basta criar um arquivo `.env.local` com as variáveis acima, substituindo os valores pelos relacionados a sua aplicação no *firebase*.
 
 ## Obs da base do projeto:
 
@@ -40,4 +40,4 @@ A *build* de produção estará sempre ligada a branch **main** e será feita au
 Da branch **main**: https://ssi-atual.netlify.app/ <br />
 Estrutura do link de *preview* em **PRs**: https://deploy-preview-<ID_da_PR>--ssi-atual.netlify.app/
 
-Caso perceba-se que atualizações na *branch* **main** não refletiram no *deploy* ou o *link* de *preview* não tenha sido gerado, provavelmente algo causou uma falha na *build* do Netlify. Recomenda-se que seja executado o comando `npm run build` ou `yarn build` localmente para verificar se o problema se repete ao mesmo tempo que verifica-se os logs da *build* que falhou na plataforma.
+Caso perceba-se que atualizações na *branch* **main** não refletiram no *deploy* ou o *link* de *preview* não tenha sido gerado, provavelmente algo causou uma falha na *build* do Netlify. Recomenda-se que seja executado o comando `yarn build` localmente para verificar se o problema se repete ao mesmo tempo que verifica-se os logs da *build* que falhou na plataforma.
