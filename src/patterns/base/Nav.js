@@ -15,8 +15,8 @@ import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg'
 
 const Nav = () => {
 
-    // const { user } = useAuth();
-    const { user } = false; // para deploy sem login
+    const { user } = useAuth();
+    // const { user } = false; // para deploy sem login
     const router = useRouter();
     
     const [isOpen, setIsOpen] = useState(false);
@@ -24,15 +24,7 @@ const Nav = () => {
 
 
     const handleShowAuthModal = () => {
-        if (window.pageYOffset != 0) {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            setTimeout(() => { handleShowAuthModal() }, 50);
-        } else {
-            setShowAuthModal(true);
-        }
+        setShowAuthModal(true);
     }
 
     useEffect(() => {

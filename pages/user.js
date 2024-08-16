@@ -28,7 +28,7 @@ const User = () => {
     const { user, signOut } = useAuth();
     // const { user } = false; // para deploy sem login
 
-    const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const [isUserRegistered, setIsUserRegistered] = useState(true); // Lembrar de trocar pra false
     const [userInfo, setUserInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -101,17 +101,17 @@ const User = () => {
     }
 
     useEffect(() => {
-        if (isUserRegistered) {
-            getPresences();
-        }
+        // if (isUserRegistered) {
+        //     getPresences();
+        // }
     }, [isUserRegistered]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, [user]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, []);
 
     const { asPath } = useRouter('/user');
@@ -149,7 +149,7 @@ const User = () => {
                 }} 
             />
 
-            <Meta title='SSI 2024 | Seu Perfil' />
+            <Meta title='SSI 2024 | Meu Perfil' />
 
             {isLoading &&
                 <Loading>
