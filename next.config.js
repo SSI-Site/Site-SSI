@@ -3,6 +3,9 @@ module.exports = {
     webpack(config) {
         return config;
     },
+    images: {
+      unoptimized: true,
+    },
     compiler: {
       styledComponents: true,
     },
