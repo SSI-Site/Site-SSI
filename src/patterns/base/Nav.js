@@ -15,7 +15,11 @@ import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg'
 
 const Nav = () => {
 
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const user = {
+        name_user: "Fulano",
+        photoUrl: "/images/profile/user_pic.svg"
+        };
     // const { user } = false; // para deploy sem login
     const router = useRouter();
 
@@ -97,11 +101,11 @@ const Nav = () => {
                                     </Link>
                                 </li>
 
-                                {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                                <li className = {router.pathname == '/partnership' ? 'active': ''}>
                                     <Link legacyBehavior href="/partnership" passHref>
                                         <a>Parcerias</a>
                                     </Link>
-                                </li> */}
+                                </li>
 
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
                                     <Link legacyBehavior href="/co" passHref>
@@ -159,11 +163,11 @@ const Nav = () => {
                             </Link>
                         </li>
 
-                        {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                        <li className = {router.pathname == '/partnership' ? 'active': ''}>
                             <Link legacyBehavior href="/partnership" passHref>
                                 <a>Parcerias</a>
                             </Link>
-                        </li> */}
+                        </li>
 
                         <li className = {router.pathname == '/co' ? 'active': ''}>
                             <Link legacyBehavior href="/co" passHref>
@@ -176,15 +180,22 @@ const Nav = () => {
                             {/*  */}
                         {/* </li> */}
 
-                        {user ?
-                            <li className='userPicContainer'>
-                                <Link legacyBehavior href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                        {user ? (
+                            <li className='profileContainer'>
+                                <Link legacyBehavior href= "/user"><a className='profileContent'>
+                                    <p className='userPicContainer'>
+                                        <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                        {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
+                                    </p>
+                                    <div className='userNameText'>Fulano</div>
+                                </a></Link>
                             </li>
-                            :
+                         ) : (
                             <li>
                                 <Button onClick={handleShowAuthModal}>Login</Button>
                                 {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
                             </li>
+                         )
                         }
                     </ul>
                 </NavDesktop>
@@ -417,5 +428,42 @@ const NavDesktop = styled.nav`
             justify-content: unset;
             gap: 1rem;
         }
+
+        .userPicContainer{
+            background: var(--background-brand-primary, #9638FF);
+            width: 36px;
+            height: 36px;
+            padding: 0px 0px 0px 0px;
+            gap: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .userPicContainer img{
+            align-items: center
+        }
+        
+        .profileContainer{
+            background: var(--background-neutrals-secondary, #252525);
+        }
+
+        .profileContent{
+            width: 106px;
+            height: 44px;
+            padding: 0px 4px 0px 4px;
+            gap: 8px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .userNameText{
+            font-family: var(--TypographMainFontFamilyAtHaussAero);
+            font-size: var(--TypographLabelMediumsize);
+            font-weight: 700;
+            line-height: var(--TypographLabelMediumheight);
+            text-align: left;
+        }
+        
     }
 `
