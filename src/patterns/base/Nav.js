@@ -124,7 +124,31 @@ const Nav = () => {
                         {/* Editar esta div para o usuário logado*/}
                         {user ? 
                             <>
-                                {/*Código do usuário logado */}
+                            <ul>
+                                <li className="profileSideBar">
+                                    <Link legacyBehavior href="/user">
+                                        <a className='navProfileBar'>
+                                            <div className='profileContent'>
+                                               <p className='userPicContainer'>
+                                                <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                                {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
+                                                </p>
+                                                <div className='userNameText'>Fulano</div> 
+                                            </div>
+
+                                            <div className='seeProfile'>
+                                                <div className='userNameText'>Ver Perfil</div>
+                                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+
+                                                    <rect id = "arrow" width = "100" height = "100%"/>
+                                                            
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </Link>
+                                </li>
+                            </ul>
                             </> 
                             :
                             <Button onClick={handleShowAuthModal} className='userButton'>Login</Button>
@@ -389,6 +413,81 @@ const NavMobile = styled.nav`
 
         h6 {
             color: #FFF;
+        }
+
+        .profileSideBar{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 44px;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .navProfileBar{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .userPicContainer{
+            background: var(--background-brand-primary, #9638FF);
+            width: 36px;
+            height: 36px;
+            padding: 0px 0px 0px 0px;
+            gap: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .userPicContainer img{
+            align-items: center
+        }
+
+        .profileContent{
+            width: 106px;
+            height: 44px;
+            padding: 0px 4px 0px 4px;
+            gap: 8px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .userNameText{
+            font-family: var(--TypographMainFontFamilyAtHaussAero);
+            font-size: var(--TypographLabelMediumsize);
+            font-weight: 700;
+            line-height: var(--TypographLabelMediumheight);
+            text-align: left;
+        }
+
+        .seeProfile{
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+        }
+
+        rect {
+                transform: translateX(100%);
+            }
+        
+        &:hover, &:focus-visible {
+            color: var(--color-neutral);
+            background-position-x: 100%;
+
+            path {
+                transition: all 100ms ease-out;
+                fill: var(--color-primary);
+                transform: translateY(0);
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
         }
 
         .userButton {
