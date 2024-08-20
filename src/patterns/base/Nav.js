@@ -65,8 +65,8 @@ const Nav = () => {
                     <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                     </div>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-                        <div className = "sidepanelWrapper">
-                            <div className = 'headerNav'>
+                        <div className = "sidepanel-wrapper">
+                            <div className = 'header-nav'>
                                 <h6>Navegação rápida</h6>
                                 <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
                                     <img 
@@ -120,15 +120,39 @@ const Nav = () => {
                         {/* Editar esta div para o usuário logado*/}
                         {user ? 
                             <>
-                                {/*Código do usuário logado */}
+                            <ul>
+                                <li onClick={() => setIsOpen(false)} className="profile-side-bar">
+                                    <Link legacyBehavior href="/user">
+                                        <a>
+                                            <div className='profile-content'>
+                                               <div className='user-pic-container'>
+                                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                                    {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
+                                                </div>
+                                                <p>{user.name.split(" ")[0]}</p>
+                                            </div>
+
+                                            <div className='see-profile'>
+                                                <p>Ver Perfil</p>
+                                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+
+                                                    <rect id = "arrow" width = "100" height = "100%"/>
+                                                            
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </Link>
+                                </li>
+                            </ul>
                             </> 
                             :
-                            <Button onClick={handleShowAuthModal} className='userButton'>Login</Button>
+                            <Button onClick={handleShowAuthModal} className='user-button'>Login</Button>
                         }
                         
                     </div>
 
-                    <div className='hamburguerWrapper'>
+                    <div className='hamburguer-wrapper'>
                         <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
                             <span></span>
                             <span></span>
@@ -176,15 +200,24 @@ const Nav = () => {
                             {/*  */}
                         {/* </li> */}
 
-                        {user ?
-                            <li className='userPicContainer'>
-                                <Link legacyBehavior href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                        {user ? (
+                            <li className='profile-container'>
+                                <Link legacyBehavior href= "/user">
+                                    <a className='profile-content'>
+                                        <div className='user-pic-container'>
+                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                            {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
+                                        </div>
+                                        <p>{user.name.split(" ")[0]}</p>
+                                    </a>
+                                </Link>
                             </li>
-                            :
+                         ) : (
                             <li>
                                 <Button onClick={handleShowAuthModal}>Login</Button>
                                 {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
                             </li>
+                         )
                         }
                     </ul>
                 </NavDesktop>
@@ -287,7 +320,7 @@ const NavWrapper = styled.div`
 const NavMobile = styled.nav`
     overflow: hidden;   
 
-    .sidepanelWrapper {
+    .sidepanel-wrapper {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -295,7 +328,7 @@ const NavMobile = styled.nav`
         height: 100%;
     }
 
-    .headerNav {
+    .header-nav {
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -307,7 +340,7 @@ const NavMobile = styled.nav`
         cursor: pointer;       
     }
 
-    .hamburguerWrapper {
+    .hamburguer-wrapper {
         padding: .75rem;
         background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
@@ -315,7 +348,7 @@ const NavMobile = styled.nav`
         transition: 100ms all ease-out;
     }
 
-    .hamburguerWrapper:hover {
+    .hamburguer-wrapper:hover {
         background-position: left;
 
         span {
@@ -372,7 +405,7 @@ const NavMobile = styled.nav`
         padding: 1.5rem 1rem;
         gap: 1.5rem;
 
-        @media (min-width: 648px) {
+        @media (min-width:648px) {
             width: 50%;
         }
 
@@ -380,7 +413,81 @@ const NavMobile = styled.nav`
             color: #FFF;
         }
 
-        .userButton {
+        .profile-side-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 44px;
+            flex-direction: row;
+            justify-content: space-between;
+    
+            a {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                padding: 0 0.25rem;
+            }
+    
+            .profile-content{
+                width: 6.625rem;
+                height: 2.75rem;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+    
+            .user-pic-container {
+                background: var(--color-primary);
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            p {
+                text-align: left;
+                font-family: 'AT Aero Bold';
+                font-size: 1rem;
+            }
+    
+            .see-profile {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            &:hover, &:focus-visible {
+                color: var(--color-neutral);
+                background-position-x: 100%;
+
+                p {
+                    color: var(--color-neutral);
+                }
+
+                svg path {
+                    fill: var(--color-primary);
+                }
+            }
+            
+            &:focus-visible {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+        }
+        
+        .user-button {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -401,7 +508,6 @@ const NavMobile = styled.nav`
     @media (min-width:995px) {
         display: none;
     }
-    
 `
 
 const NavDesktop = styled.nav`
@@ -417,5 +523,41 @@ const NavDesktop = styled.nav`
             justify-content: unset;
             gap: 1rem;
         }
+        
+        .profile-container {
+            background-color: var(--color-neutral-800);
+
+            .profile-content {
+                gap: 0.5rem;
+                display: flex;
+                flex-direction: row;
+                padding: 0.25rem;
+            }
+
+            .user-pic-container {
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &:hover, &:focus-visible {
+                background: var(--color-neutral-800);
+                color: var(--color-neutral);
+
+                p {
+                    color: var(--color-neutral);
+                }
+            }
+        }        
     }
 `
