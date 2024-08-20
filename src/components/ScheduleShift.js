@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 // assets
-import shifts from '../../data/shiftInformation';
-import LectureItem from './LectureItem';
+import schedule from '../../data/scheduleInformation'
+import LectureItem from './LectureItem'
 
-const ScheduleShift = ({day , shift}) => {
+const ScheduleShift = ({ day }) => {
 
-    return ( 
-        <>
-            <ShiftWrapper>
-                <div className='shift-name'>
-                    <h5>{shift}</h5>
-                    <div></div>
-                </div>
-                <ul>
-                    {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
-                    {Object.entries(shifts[day][shift]).map(([time , event], key) => {
-                        if(!event.speakers) {
-                            return (
-                                <li key={key}>
-                                    <div className='event'>
-                                        <h5>{time}</h5>
-                                        <div>
-                                            <h5>{event.title}</h5>
-                                        </div>
-                                    </div>
-                                </li>
-                            )
-                        } else {
-                            return (
-                                <li key={key}>
-                                    <LectureItem time={time} event={event} />
-                                </li>
-                            )
-                        }
-                    })}
-                </ul>
-            </ShiftWrapper>
-        </>
-    )
+  return (
+    <>
+        <ShiftWrapper>
+            <div className="shift-name">
+                <h5>{day}</h5>
+                <div></div>
+            </div>
+            <ul>
+                {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
+                {Object.entries(schedule[day]).map(([time, event], key) => {
+                    if (!event.speakers) {
+                    return (
+                        <li key={key}>
+                            <div className="event">
+                                <h5>{time}</h5>
+                                <div>
+                                    <h5>{event.title}</h5>
+                                </div>
+                            </div>
+                        </li>
+                    )
+                    } else {
+                    return (
+                        <li key={key}>
+                            <LectureItem time={time} event={event} />
+                        </li>
+                    )
+                    }
+                })}
+            </ul>
+        </ShiftWrapper>
+    </>
+  )
 }
- 
-export default ScheduleShift;
+
+export default ScheduleShift
 
 const ShiftWrapper = styled.div`
     display: flex;
@@ -62,11 +62,9 @@ const ShiftWrapper = styled.div`
 
         li {
             width: 100%;
-            list-style-type: none
+            list-style-type: none;
         }
     }
-
-    
 
     .shift-name {
         display: flex;
@@ -129,7 +127,7 @@ const ShiftWrapper = styled.div`
         }
     }
 
-    @media (min-width:1024px) {
+  @media (min-width:1024px) {
         .shift-name {
             > h5 {
                 font: 400 2rem/2.5rem 'AT Aero Bold';
@@ -139,7 +137,7 @@ const ShiftWrapper = styled.div`
 
         div.event {
             gap: 3rem;
-                
+
             h5 {
                 font: 400 2.5rem/3rem 'AT Aero Bold';
                 font: 400 2rem/2.5rem 'AT Aero Bold';
