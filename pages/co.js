@@ -73,8 +73,7 @@ const CO = () => {
                 {/* Para telas mobile */}
                 <MobileCOFilterContainer>
                     <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
-                        <select 
-                            id="sector-filter"
+                        <select
                             aria-label="Filtre por setor"
                             defaultValue="Filtro" 
                             onChange={handleMobileSelectChange}

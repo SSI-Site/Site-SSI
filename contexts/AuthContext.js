@@ -57,32 +57,33 @@ export function AuthProvider({ children }) {
       const provider = new GoogleAuthProvider()
       const response = await signInWithPopup(auth, provider)
       const firebaseToken = await getIdToken(response.user)
+      console.log('firebaseToken', firebaseToken)
 
-      try {
-        const loginAPIResponse = await axios.post(
-          `${API_BASE_URL}/student/login`,
-          {
-            name: response.user.displayName,
-            email: response.user.email,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${firebaseToken}`,
-              'Content-Type': 'application/json',
-            },
-          }
-        )
+      // try {
+      //   const loginAPIResponse = await axios.post(
+      //     `${API_BASE_URL}/student/login`,
+      //     {
+      //       name: response.user.displayName,
+      //       email: response.user.email,
+      //     },
+      //     {
+      //       headers: {
+      //         Authorization: `Bearer ${firebaseToken}`,
+      //         'Content-Type': 'application/json',
+      //       },
+      //     }
+      //   )
 
-        const { access, refresh, id } = loginAPIResponse.data
+      //   const { access, refresh, id } = loginAPIResponse.data
 
-        if (access && refresh && id) {
-          localStorage.setItem('access_token', access)
-          localStorage.setItem('refresh_token', refresh)
-          localStorage.setItem('student_id', id)
-        }
-      } catch (error) {
-        console.error('Erro ao fazer login no Saphira...', error)
-      }
+      //   if (access && refresh && id) {
+      //     localStorage.setItem('access_token', access)
+      //     localStorage.setItem('refresh_token', refresh)
+      //     localStorage.setItem('student_id', id)
+      //   }
+      // } catch (error) {
+      //   console.error('Erro ao fazer login no Saphira...', error)
+      // }
 
       handleStudent(response.user)
     } catch (error) {

@@ -55,7 +55,7 @@ import Lecture43_CassioSantos from '../public/images/lecture_imgs/43-Cassio_Sant
 
 
 const shifts = {
-    '2023-08-21' : {
+    '2024-10-07' : {
         'Manhã': {
             '08:40' : {
                 title : 'Abertura'
@@ -155,7 +155,7 @@ const shifts = {
             },
         } 
     },
-    '2023-08-22' : {
+    '2024-10-08' : {
         'Manhã' : {
             '08:40' : {
                 title : 'SSI Talks: Privacidade - Até onde você está seguro?',
@@ -264,7 +264,7 @@ const shifts = {
             }
         }
     },
-    '2023-08-23' : {
+    '2024-10-09' : {
         'Manhã' : {
             '08:40' : {
                 title : 'Blockchain além das Criptomoedas',
@@ -361,7 +361,7 @@ const shifts = {
             }
         }
     },
-    '2023-08-24' : {
+    '2024-10-10' : {
         'Manhã' : {
             '08:40' : {
                 title : 'Como se tornar um Consultor SAP',
@@ -459,7 +459,7 @@ const shifts = {
             }
         }
     },
-    '2023-08-25' : {
+    '2024-10-11' : {
         'Manhã' : {
             '08:40' : {
                 title : 'SSI Talks: Uso de PLN para análise de redes sociais',

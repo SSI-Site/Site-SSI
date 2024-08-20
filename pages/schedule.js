@@ -1,10 +1,10 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Link from 'next/link';
 
+import schedule from '../data/shiftInformation';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
-import schedule from '../data/shiftInformation';
 
 // components
 import DateStamp from '../src/components/DateStamp';
@@ -19,7 +19,6 @@ const Schedule = () => {
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false)
 
-    // estado "selecionado" para alterar o estilo da opção do filtro
     const handleMobileSelectChange = (e) => {
         setActiveItem(e.target.value)
         setIsSelected(true)
@@ -35,7 +34,7 @@ const Schedule = () => {
 
     function renderActiveItem() {
         if (!isDuringEvent(activeItem)) {
-            setActiveItem('2023-08-21'); // se não for um dos dias do evento, apresenta a programação do primeiro dia
+            setActiveItem('2024-10-07'); // se não for um dos dias do evento, apresenta a programação do primeiro dia
         }
 
         return (
@@ -59,53 +58,50 @@ const Schedule = () => {
                 <h3>Programação</h3>
 
                 {/* Para telas mobile */}
-                <MobileProgramFilterContainer>
-                    { /* implementando a mesma ideia do filtro da CO */}
+                <MobileScheduleFilterContainer>
                     <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
-                        <select 
-                            id="day-filter"
+                        <select
                             aria-label="Filtre por dia"
-                            defaultValue="Filtro" 
+                            defaultValue="Filtro"
                             onChange={handleMobileSelectChange}
                         >
-                            <option value="Filtro" disabled hidden>Filtro por dia</option>
-                            <option value="Todos">Todos</option>
-                            <option value="07 Out">07 Out</option>
-                            <option value="08 Out">08 Out</option>
-                            <option value="09 Out">09 Out</option>
-                            <option value="10 Out">10 Out</option>
-                            <option value="11 Out">11 Out</option>
+                            <option value="Filtro" disabled hidden>Filtrar por dia</option>
+                            <option value="2024-10-07">Dia 1</option>
+                            <option value="2024-10-08">Dia 2</option>
+                            <option value="2024-10-09">Dia 3</option>
+                            <option value="2024-10-10">Dia 4</option>
+                            <option value="2024-10-11">Dia 5</option>
                         </select>
                         <img className='icon' src='./images/co_icons/filter.svg' alt='Ícone de filtro' />
                     </div>
-                </MobileProgramFilterContainer> 
+                </MobileScheduleFilterContainer> 
 
                 {/* Para telas desktop */}
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
-                                <DateStamp day='21' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-07'} onClick={() => setActiveItem('2024-10-07')}>
+                                <DateStamp day='07' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-22'} onClick={() => setActiveItem('2023-08-22')}>
-                                <DateStamp day='22' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-08'} onClick={() => setActiveItem('2024-10-08')}>
+                                <DateStamp day='08' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-23'} onClick={() => setActiveItem('2023-08-23')}>
-                                <DateStamp day='23' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-09'} onClick={() => setActiveItem('2024-10-09')}>
+                                <DateStamp day='09' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-24'} onClick={() => setActiveItem('2023-08-24')}>
-                                <DateStamp day='24' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-10'} onClick={() => setActiveItem('2024-10-10')}>
+                                <DateStamp day='10' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' active={activeItem == '2023-08-25'} onClick={() => setActiveItem('2023-08-25')}>
-                                <DateStamp day='25' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-11'} onClick={() => setActiveItem('2024-10-11')}>
+                                <DateStamp day='11' showEmoji={true} />
                             </NavItem>
                         </Link>
                     </div>
@@ -124,9 +120,6 @@ export default Schedule;
 
 
 const ScheduleSection = styled.section`
-    background: url('./images/background_imgs/background3_mobile.svg') fixed;
-    background-size: cover;
-    overflow-x: hidden;
     padding-block: 7.25rem 3.75rem;
     gap: 1rem;
 
@@ -137,14 +130,9 @@ const ScheduleSection = styled.section`
             font: 700 3.5rem/4.25rem 'AT Aero Bold';
         }
     }
-
-    @media (min-width:800px) {
-        background-image: url('./images/background_imgs/background3_desktop.svg');
-    }
 `
 
-// estilo do filtro da programação
-const MobileProgramFilterContainer = styled.div`
+const MobileScheduleFilterContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
