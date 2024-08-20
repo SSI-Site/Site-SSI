@@ -118,7 +118,7 @@ const Home = () => {
                                         <h3>Semana de Sistemas de Informação 2024</h3>
                                         <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
-                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                    <Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button>
                                     {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
                                 </>
                             :
@@ -275,8 +275,8 @@ const Home = () => {
                     </div>
                     {!user &&
                         <div className='countdown-btn'>
-                            <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button></Link>
-                            {/* <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button></Link> */}
+                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
+                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button> */}
                         </div>
                     }
                 </CountdownSection>
