@@ -426,6 +426,24 @@ const NavMobile = styled.nav`
                 width: 100%;
                 justify-content: space-between;
                 padding: 0 0.25rem;
+            
+                &:hover, &:focus-visible {
+                    color: var(--color-neutral);
+                    background-position-x: 100%;
+
+                    p {
+                        color: var(--color-neutral);
+                    }
+
+                    svg path {
+                        fill: var(--color-primary);
+                    }
+                }
+                
+                &:focus-visible {
+                    outline: 2px solid var(--color-primary);
+                    outline-offset: 2px;
+                }
             }
     
             .profile-content{
@@ -466,24 +484,6 @@ const NavMobile = styled.nav`
                 flex-direction: row;
                 gap: 0.5rem;
                 align-items: center;
-            }
-            
-            &:hover, &:focus-visible {
-                color: var(--color-neutral);
-                background-position-x: 100%;
-
-                p {
-                    color: var(--color-neutral);
-                }
-
-                svg path {
-                    fill: var(--color-primary);
-                }
-            }
-            
-            &:focus-visible {
-                outline: 2px solid var(--color-primary);
-                outline-offset: 2px;
             }
         }
         
