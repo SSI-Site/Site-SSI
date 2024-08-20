@@ -59,7 +59,7 @@ const Home = () => {
     const [countdownHours, setCountdownHours] = useState();
     const [countdownMinutes, setCountdownMinutes] = useState();
     const [countdownSeconds, setCountdownSeconds] = useState();
-    var countdownDate = new Date("Aug 21, 2023 00:00:00").getTime();
+    var countdownDate = new Date("Out 07, 2024 00:00:00").getTime();
     var now = new Date().getTime();
 
     useEffect(() => {
@@ -79,8 +79,8 @@ const Home = () => {
         }, 1000);
     }, []);
 
-    const firstEventDay = new Date(2023, 7, 21);
-    const lastEventDay = new Date(2023, 7, 26);
+    const firstEventDay = new Date(2024, 9, 7);
+    const lastEventDay = new Date(2024, 9, 11);
     const current = new Date();
     const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
 
@@ -97,29 +97,12 @@ const Home = () => {
     const title = sentenceTitle.slice(0,2)+simpleWeekDay.replace(/.$/, "ou")+sentenceTitle.slice(1,);
 
     // Dia correto para o DateComponent
-    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '21');
+    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '07');
     // const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? `${currentTime >= '21:40' ? (parseInt(day, 10) + 1).toString() : day}` : '21'); // para mostrar palestras do dia seguinte após 21:40
-
-    // Turno correto para o DateComponent
-    const scheduleShift = () => {
-        if (current >= firstEventDay && current <= lastEventDay) {
-            // if (currentTime >= '21:40') { // para mostrar palestras do dia seguinte após 21:40 (mudar o scheduleDay também)
-            //     return 'Manhã';
-            // }
-            console.log(currentTime);
-            if (currentTime >= '18:20') {
-                return 'Noite';
-            }
-            if (currentTime >= '12:20') {
-                return 'Tarde';
-            }
-        }
-        return 'Manhã';
-    }
     
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
-    const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2023-08-21';
+    const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
 
     return (
         <>
@@ -311,7 +294,6 @@ const Home = () => {
                     </div>
                     <ScheduleShift
                         day={formatedScheduleDate}
-                        shift={scheduleShift()}
                         />
                     <div className='btn-mobile'>
                         <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
