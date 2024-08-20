@@ -532,6 +532,12 @@ const NavDesktop = styled.nav`
                 display: flex;
                 flex-direction: row;
                 padding: 0.25rem;
+
+                &:hover, &:focus-visible {
+                    p {
+                        color: var(--color-neutral);
+                    }
+                }
             }
 
             .user-pic-container {
@@ -552,11 +558,6 @@ const NavDesktop = styled.nav`
 
             &:hover, &:focus-visible {
                 background: var(--color-neutral-800);
-                color: var(--color-neutral);
-
-                p {
-                    color: var(--color-neutral);
-                }
             }
         }        
     }
