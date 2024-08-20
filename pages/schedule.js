@@ -1,10 +1,10 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Link from 'next/link';
 
+import schedule from '../data/shiftInformation';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
-import schedule from '../data/shiftInformation';
 
 // components
 import DateStamp from '../src/components/DateStamp';
@@ -17,6 +17,12 @@ const Schedule = () => {
     const currentDate = `${new Date().getFullYear()}-${(new Date().getMonth()+1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')}`;
 
     const [activeItem, setActiveItem] = useState(currentDate);
+    const [isSelected, setIsSelected] = useState(false)
+
+    const handleMobileSelectChange = (e) => {
+        setActiveItem(e.target.value)
+        setIsSelected(true)
+    }
 
     const isDuringEvent = (date) => {
         var temp = false;
@@ -28,7 +34,7 @@ const Schedule = () => {
 
     function renderActiveItem() {
         if (!isDuringEvent(activeItem)) {
-            setActiveItem('2023-08-21'); // se não for um dos dias do evento, apresenta a programação do primeiro dia
+            setActiveItem('2024-10-07'); // se não for um dos dias do evento, apresenta a programação do primeiro dia
         }
 
         return (
@@ -52,63 +58,50 @@ const Schedule = () => {
                 <h3>Programação</h3>
 
                 {/* Para telas mobile */}
-                <MobileSelectionContainer>
-                    <h6>Selecione o dia:</h6>
-                    <div className='schedule-container'>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
-                                <DateStamp day='21' showEmoji={true} />
-                            </NavItem>
-                        </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-22'} onClick={() => setActiveItem('2023-08-22')}>
-                                <DateStamp day='22' showEmoji={true} />
-                            </NavItem>
-                        </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-23'} onClick={() => setActiveItem('2023-08-23')}>
-                                <DateStamp day='23' showEmoji={true} />
-                            </NavItem>
-                        </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-24'} onClick={() => setActiveItem('2023-08-24')}>
-                                <DateStamp day='24' showEmoji={true} />
-                            </NavItem>
-                        </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-25'} onClick={() => setActiveItem('2023-08-25')}>
-                                <DateStamp day='25' showEmoji={true} />
-                            </NavItem>
-                        </Link>
+                <MobileScheduleFilterContainer>
+                    <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
+                        <select
+                            aria-label="Filtre por dia"
+                            defaultValue="Filtro"
+                            onChange={handleMobileSelectChange}
+                        >
+                            <option value="Filtro" disabled hidden>Filtrar por dia</option>
+                            <option value="2024-10-07">Dia 1</option>
+                            <option value="2024-10-08">Dia 2</option>
+                            <option value="2024-10-09">Dia 3</option>
+                            <option value="2024-10-10">Dia 4</option>
+                            <option value="2024-10-11">Dia 5</option>
+                        </select>
+                        <img className='icon' src='./images/co_icons/filter.svg' alt='Ícone de filtro' />
                     </div>
-                </MobileSelectionContainer>
+                </MobileScheduleFilterContainer> 
 
                 {/* Para telas desktop */}
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-21'} onClick={() => setActiveItem('2023-08-21')}>
-                                <DateStamp day='21' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-07'} onClick={() => setActiveItem('2024-10-07')}>
+                                <DateStamp day='07' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-22'} onClick={() => setActiveItem('2023-08-22')}>
-                                <DateStamp day='22' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-08'} onClick={() => setActiveItem('2024-10-08')}>
+                                <DateStamp day='08' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-23'} onClick={() => setActiveItem('2023-08-23')}>
-                                <DateStamp day='23' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-09'} onClick={() => setActiveItem('2024-10-09')}>
+                                <DateStamp day='09' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-24'} onClick={() => setActiveItem('2023-08-24')}>
-                                <DateStamp day='24' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-10'} onClick={() => setActiveItem('2024-10-10')}>
+                                <DateStamp day='10' showEmoji={true} />
                             </NavItem>
                         </Link>
                         <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2023-08-25'} onClick={() => setActiveItem('2023-08-25')}>
-                                <DateStamp day='25' showEmoji={true} />
+                            <NavItem className='day-selection' active={activeItem == '2024-10-11'} onClick={() => setActiveItem('2024-10-11')}>
+                                <DateStamp day='11' showEmoji={true} />
                             </NavItem>
                         </Link>
                     </div>
@@ -127,9 +120,6 @@ export default Schedule;
 
 
 const ScheduleSection = styled.section`
-    background: url('./images/background_imgs/background3_mobile.svg') fixed;
-    background-size: cover;
-    overflow-x: hidden;
     padding-block: 7.25rem 3.75rem;
     gap: 1rem;
 
@@ -140,36 +130,57 @@ const ScheduleSection = styled.section`
             font: 700 3.5rem/4.25rem 'AT Aero Bold';
         }
     }
-
-    @media (min-width:800px) {
-        background-image: url('./images/background_imgs/background3_desktop.svg');
-    }
 `
 
-const MobileSelectionContainer = styled.div`
+const MobileScheduleFilterContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     width: 100%;
-    gap: 1rem;
-    
+    padding-block: 0 0.5rem;
 
-    .schedule-container {
+    .select-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
 
-        &::-webkit-scrollbar {
+        select {
+            position: relative;
+            width: 100%;
+            color: white;
+            background-color: var(--color-neutral-800);
+            appearance: none;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 0.5rem 2rem 0.5rem 1rem;
+
+            &::-ms-expand {
+                display: none;
+            }
+        }
+
+        .icon {
+            position: absolute;
+            pointer-events: none;
+            right: calc(50% - 4rem);
+        }
+    }
+
+    .select-wrapper.selected {
+        select {
+            background-color: var(--color-primary);
+            padding-right: 0;
+        }
+
+        .icon {
             display: none;
         }
-        
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        height: auto;
-        width: 100vw;
-        padding-inline: 1rem;
-        overflow: auto;  
-        display: flex;
-        scroll-snap-type: x mandatory;
-        gap: 0.875rem;
+    }
+
+    option {
+        font-size: 0.875rem;
     }
 
     @media (min-width:600px) {
@@ -203,7 +214,7 @@ const NavItem = styled.div`
     flex-shrink: 0;
     scroll-snap-align: center;
 
-    ${props => props.$active == true && css`
+    ${props => props.active == true && css`
         pointer-events: none;
         > div {
             background-color: var(--color-primary);
@@ -212,7 +223,7 @@ const NavItem = styled.div`
 
     @media (min-width: 840px) {
         
-        ${props => props.$active == false && css`
+        ${props => props.active == false && css`
             > div:hover {
                 background-color: var(--color-neutral-700);
             }
