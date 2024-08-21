@@ -18,12 +18,12 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     // Estados: escrevendo, inválido e registrado
-    const [isWritting, setIsWritting] = useState(true);
+    const [isWriting, setIsWriting] = useState(true);
     const [isInvalid, setIsInvalid] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
 
     const handleChangeToken = event => {
-        setIsWritting(true);
+        setIsWriting(true);
         setIsInvalid(false);
         setIsRegistered(false);
         const { value } = event.target;
@@ -34,7 +34,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
     const handleSendToken = async event => {
         event.preventDefault();
-        setIsWritting(false);
+        setIsWriting(false);
 
         if (token.length < TOKEN_LENGTH) {
             setIsInvalid(true);
@@ -43,7 +43,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
 
         setIsLoading(true);
 
-        await saphira.registerPresence(user.email, token)
+        await saphira.registerOnlinePresence(token)
             .then(() => {
                 setIsRegistered(true);
                 setIsInvalid(false);
@@ -83,10 +83,10 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                             {isRegistered &&
                                 <Button className='token-registered'>Registrada!</Button>
                             }
-                            {isWritting && token.length == TOKEN_LENGTH &&
+                            {isWriting && token.length == TOKEN_LENGTH &&
                                 <Button type="submit">Registrar</Button>
                             }
-                            {isWritting && token.length != TOKEN_LENGTH &&
+                            {isWriting && token.length != TOKEN_LENGTH &&
                                 <div className={getClassActiveBtn()}>
                                     <Button disabled>Registrar</Button>
                                 </div>
@@ -111,10 +111,10 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                             {isRegistered &&
                                 <Button className='token-registered'>Presença registrada!</Button>
                             }
-                            {isWritting && token.length == TOKEN_LENGTH &&
+                            {isWriting && token.length == TOKEN_LENGTH &&
                                 <Button type="submit">Registrar presença</Button>
                             }
-                            {isWritting && token.length != TOKEN_LENGTH &&
+                            {isWriting && token.length != TOKEN_LENGTH &&
                                 <div className={getClassActiveBtn()}>
                                     <Button disabled>Registrar presença</Button>
                                 </div>

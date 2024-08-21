@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const SecondaryButton = styled.button`
     --padding: 0.75rem 1.5rem;
     --transition-duration: 100ms;
     --background: var(--color-primary);
@@ -13,15 +13,15 @@ const Button = styled.button`
     padding: var(--padding);
     gap: 0.5rem;
     border-radius: 0;
-    border: var(--color-primary);
-    background-color: var(--background);
+    border: 2px solid white;
+    background-color: transparent;
     transition: var(--transition-duration);
     white-space: nowrap;
     text-align: center;
 
-    background-image: linear-gradient(var(--color-neutral-50), var(--color-neutral-50)); /* Coloca um background branco em cima do botão */
-    background-size: 200%;                                                              /* faz o background-position com porcentagem funcionar */
-    background-position-x: 200%;                                                        /* Tira o background branco do lugar */
+    background-image: linear-gradient(white, white); /* Coloca um background branco em cima do botão */
+    background-size: 200%;
+    background-position-x: 200%;
     background-repeat: no-repeat;
 
     &:disabled {
@@ -32,7 +32,8 @@ const Button = styled.button`
     }
 
     &:hover, &:focus-visible {
-        background-position-x: 90%;     /* Coloca o background de volta no lugar */
+        background-position-x: 90%;
+        border: white;
         color: var(--color-primary);
 
         svg path {
@@ -50,4 +51,4 @@ const Button = styled.button`
     }
 `
 
-export default Button;
+export default SecondaryButton;

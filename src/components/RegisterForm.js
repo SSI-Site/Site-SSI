@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { cpf } from 'cpf-cnpj-validator';
 import InputMask from 'react-input-mask';
 
 import useAuth from '../../hooks/useAuth';
@@ -67,7 +66,6 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
         return {
             fullName: `${data.name} ${data.last_name}`,
             email: user.email,
-            cpf: data.cpf,
             usp_number: data.usp_number,
             birthDate: `${birthDateElements[2]}-${birthDateElements[1]}-${birthDateElements[0]}`,
             gender: data.gender === "outro" ? data.custom_gender : data.gender,
@@ -108,19 +106,6 @@ const RegisterForm = ({ userInfo, isEditing, cancelCallback }) => {
                     </div>
                     
                     <div className='two-items'>
-                        <InputBoxSmall>
-                            <LabelLeft htmlFor='cpf' className='required' >CPF</LabelLeft>
-                            <div className='form-input'>
-                            {!isEditing ?
-                                <InputMask id='cpf' type='text' mask='999.999.999-99' placeholder='Insira seu CPF' className={errors.cpf && 'error-border'} disabled={isEditing}
-                                {...register("cpf", { required: true, validate: value => cpf.isValid(value) || "Documento inválido" })} />
-                                :
-                                <input id='cpf' type='text' placeholder='Insira seu CPF' className={errors.cpf && 'error-border'} disabled={isEditing}
-                                {...register("cpf", { required: true })} />
-                            }
-                            </div>
-                            {errors.cpf && <ErrorMessage>{errors.cpf?.message}</ErrorMessage>}
-                        </InputBoxSmall>
 
                         <InputBoxSmall>
                             <LabelLeft htmlFor='nusp' > Nº USP </LabelLeft>

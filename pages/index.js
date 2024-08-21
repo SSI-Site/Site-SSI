@@ -6,7 +6,6 @@ import CountUp from 'react-countup';
 
 import Meta from '../src/infra/Meta';
 import useAuth from '../hooks/useAuth';
-import saphira from '../services/saphira';
 import '../utils/slugify';
 
 // components
@@ -40,27 +39,12 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleShowAuthModal = () => {
-        if (window.pageYOffset != 0) {
-            setTimeout(() => { handleShowAuthModal() }, 50);
-        } else {
-            setShowAuthModal(true);
-        }
+        setShowAuthModal(true);
     }
 
     const checkUserRegister = () => {
         if (!user) return;
-
-        setIsLoading(true);
-
-        saphira.getUser(user.email)
-            .then(() => {
-                setIsUserRegistered(true);
-                setIsLoading(false);
-            })
-            .catch(() => {
-                setIsUserRegistered(false);
-                setIsLoading(false);
-            });
+        setIsUserRegistered(true);
     }
 
     useEffect(() => {
@@ -75,7 +59,7 @@ const Home = () => {
     const [countdownHours, setCountdownHours] = useState();
     const [countdownMinutes, setCountdownMinutes] = useState();
     const [countdownSeconds, setCountdownSeconds] = useState();
-    var countdownDate = new Date("Aug 21, 2023 00:00:00").getTime();
+    var countdownDate = new Date("Out 07, 2024 00:00:00").getTime();
     var now = new Date().getTime();
 
     useEffect(() => {
@@ -83,10 +67,10 @@ const Home = () => {
             // Horário e data de hoje
             now = new Date().getTime();
             if (now > countdownDate) { return };
-            
+
             // Distância entre a data do evento e hoje
             var distance = countdownDate - now;
-        
+
             // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
             setCountdownDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
             setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
@@ -95,8 +79,8 @@ const Home = () => {
         }, 1000);
     }, []);
 
-    const firstEventDay = new Date(2023, 7, 21);
-    const lastEventDay = new Date(2023, 7, 26);
+    const firstEventDay = new Date(2024, 9, 7);
+    const lastEventDay = new Date(2024, 9, 11);
     const current = new Date();
     const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
 
@@ -113,29 +97,12 @@ const Home = () => {
     const title = sentenceTitle.slice(0,2)+simpleWeekDay.replace(/.$/, "ou")+sentenceTitle.slice(1,);
 
     // Dia correto para o DateComponent
-    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '21');
+    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '07');
     // const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? `${currentTime >= '21:40' ? (parseInt(day, 10) + 1).toString() : day}` : '21'); // para mostrar palestras do dia seguinte após 21:40
-
-    // Turno correto para o DateComponent
-    const scheduleShift = () => {
-        if (current >= firstEventDay && current <= lastEventDay) {
-            // if (currentTime >= '21:40') { // para mostrar palestras do dia seguinte após 21:40 (mudar o scheduleDay também)
-            //     return 'Manhã';
-            // }
-            console.log(currentTime);
-            if (currentTime >= '18:20') {
-                return 'Noite';
-            }
-            if (currentTime >= '12:20') {
-                return 'Tarde';
-            }
-        }
-        return 'Manhã';
-    }
     
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
-    const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2023-08-21';
+    const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
 
     return (
         <>
@@ -151,20 +118,11 @@ const Home = () => {
                                         <h3>Semana de Sistemas de Informação 2024</h3>
                                         <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
                                     </div>
-                                    <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button></Link>
+                                    <Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button>
                                     {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
                                 </>
                             :
                                 <>
-                                {!isUserRegistered &&
-                                    <>
-                                        <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2024</h3>
-                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}!` : '!'}</span> Finalize seu cadastro para registrar presenças:</p>
-                                        </div>
-                                        <Button onClick={() => router.push('/user')}>Finalizar cadastro</Button>
-                                    </>
-                                }
                                 {isUserRegistered &&
                                     <>
                                         <div className='landing-text'>
@@ -179,8 +137,8 @@ const Home = () => {
                     
                             {showAuthModal &&
                                 <AuthModal
-                                onClose={() => setShowAuthModal(false)}
-                                show={showAuthModal}
+                                    onClose={() => setShowAuthModal(false)}
+                                    show={showAuthModal}
                                 />
                             }
                         </div>
@@ -214,7 +172,7 @@ const Home = () => {
 
                     <Link href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
                         <a target="_blank">
-                            <ButtonSecondary>Inscrever-se</ButtonSecondary>
+                            <SecondaryButton>Inscrever-se</SecondaryButton>
                         </a>
                     </Link>
                 </div>
@@ -317,8 +275,8 @@ const Home = () => {
                     </div>
                     {!user &&
                         <div className='countdown-btn'>
-                            <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button></Link>
-                            {/* <Link href="#modal-root"><Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button></Link> */}
+                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
+                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button> */}
                         </div>
                     }
                 </CountdownSection>
@@ -336,7 +294,6 @@ const Home = () => {
                     </div>
                     <ScheduleShift
                         day={formatedScheduleDate}
-                        shift={scheduleShift()}
                         />
                     <div className='btn-mobile'>
                         <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
@@ -378,62 +335,6 @@ const Loading = styled.figure`
     }
 `
 
-const WelcomeComponent = styled.div`
-    --border: 1.75px solid var(--color-tertiary);
-    --background: rgba(138, 69, 198, 0.6);
-    --padding: 0.65em 2.65em;
-    --out-space-top: 0.1em;
-    --out-space-bottom: -0.25em;
-    --transition-duration: 500ms;
-
-    pointer-events: none;
-    border: var(--border);
-    border-radius: 0;
-    background-color: var(--background);
-    padding: var(--padding);
-    color: white;
-    position: relative;
-    text-align: center;
-    margin: 40px 0 15px 0;
-    transition: background-color var(--transition-duration);
-
-    &::before, &::after {
-        content: "";
-        position: absolute;
-        border: var(--border);
-        transition:
-            top var(--transition-duration),
-            bottom var(--transition-duration),
-            left var(--transition-duration),
-            right var(--transition-duration);
-    }
-
-    &::before {
-        top: var(--out-space-top);
-        bottom: var(--out-space-bottom);
-        left: calc(var(--out-space-top) * -2.5);
-        right: calc(var(--out-space-top) * 1.4);
-    }
-
-    &::after {
-        top: calc(var(--out-space-top) * -2.5);
-        bottom: calc(var(--out-space-top) * 1);
-        left: calc(var(--out-space-top) * 1.3);
-        right: calc(var(--out-space-top) * -2.5);
-    }
-
-    &:hover {
-        --out-space-top: 0em;
-        --out-space-bottom: 0em;
-        --background: transparent;
-    }
-
-    @media (min-width:1023px) {
-        --border: 2.6px solid var(--color-tertiary);
-        pointer-events: unset;
-        /* margin: 80px 0 25px 0; */
-    }
-`
 const LandingSection = styled.section`
     background: url('./images/background_imgs/background1_mobile.svg') no-repeat;
     background-size: cover;
@@ -627,38 +528,6 @@ const SubscriptionSection = styled.section`
                 }
             }
         }
-    }
-`
-
-const ButtonSecondary = styled.button`
-    --padding: 0.75rem 1.5rem;
-    --transition-duration: 500ms;
-
-    /* width: 100%; */
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.75rem;
-    padding: var(--padding);
-    border-radius: 9px;
-    border: 3px solid var(--color-neutral-50);
-    background-color: transparent;
-    transition: 500ms;
-    cursor: pointer;
-
-    &:hover {
-        background-color: var(--color-neutral-50);
-        color: var(--color-neutral-900);
-    }
-
-    &:active {
-        background-color: var(--color-neutral-100);
-        border-color: var(--color-neutral-100);
-    }
-        
-    @media (min-width:560px) {
-        height: 3rem;
     }
 `
 

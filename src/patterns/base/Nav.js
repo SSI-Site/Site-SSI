@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Image from 'next/image'
 
 import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
@@ -16,20 +15,17 @@ import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg'
 
 const Nav = () => {
 
-    // const { user } = useAuth();
-    const { user } = false; // para deploy sem login
+    const { user } = useAuth();
+    // const { user } = false; // para deploy sem login
     const router = useRouter();
-    
+
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
 
 
     const handleShowAuthModal = () => {
-        if (window.pageYOffset != 0) {
-            setTimeout(() => { handleShowAuthModal() }, 50);
-        } else {
-            setShowAuthModal(true);
-        }
+        setIsOpen(false);
+        setShowAuthModal(true);
     }
 
     useEffect(() => {
@@ -44,14 +40,13 @@ const Nav = () => {
         <NavWrapper>
             <div>
                 {/* Logo que redireciona para a home */}
-                <Link href="/" passHref>
+                <Link legacyBehavior href="/" passHref>
                     <a>
-                        <Image
-                        src = { LogoHorizontal }
-                        width = { 180 }
-                        height = { 45 }
-                        style = {{ cursor: 'pointer' }}
-                        alt = 'Semana de Sistemas de Informação'
+                        <img
+                            src={LogoHorizontal}
+                            width={180}
+                            height={45}
+                            alt='Semana de Sistemas de Informação'
                         />
                     </a>
 
@@ -66,73 +61,98 @@ const Nav = () => {
                 }
 
                 {/* Navbar para Mobile */}
-                <NavMobile isOpen = {isOpen}>
+                <NavMobile $isOpen={isOpen}>
                     <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                     </div>
                     <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-                            <div className = "sidepanelWrapper">
-                                <div className = 'headerNav'>
-                                    <h6>Navegação rápida</h6>
-                                    <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                        <Image 
-                                        src = { CloseBtn }
-                                        width = { 18 }
-                                        height = { 18 }
-                                        alt = 'Fechar'/>
-                                    </div>
+                        <div className = "sidepanel-wrapper">
+                            <div className = 'header-nav'>
+                                <h6>Navegação rápida</h6>
+                                <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
+                                    <img 
+                                        src={CloseBtn}
+                                        width={18}
+                                        height={18}
+                                        alt='Fechar'
+                                    />
                                 </div>
-
-                                <ul>
-                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                        <Link href="/" passHref>
-                                            <a>Home</a>
-                                        </Link>
-                                    </li>
-
-                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                        <Link href="/schedule" passHref>
-                                            <a>Programação</a>
-                                        </Link>                                
-                                    </li>
-
-                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                        <Link href="/about" passHref>
-                                            <a>Evento</a>
-                                        </Link>
-                                    </li>
-
-                                    <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                                        <Link href="/partnership" passHref >
-                                            <a>Parcerias</a>
-                                        </Link>
-                                    </li>
-
-                                    <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                        <Link href="/co" passHref>
-                                            <a>Comissão Organizadora</a>
-                                        </Link>                                
-                                    </li>
-
-                                    <li /* onClick={() => setIsOpen(false)} */>
-                                        {/* <Link href="https://ctfssi.intheshell.page/"> */}
-                                        {/*<span target="blank">CTF</span>{/* </Link> */}
-                                        {/* <div></div> */}
-                                    </li>
-                                </ul>
                             </div>
 
+                            <ul>
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
+                                    <Link legacyBehavior href="/" passHref>
+                                        <a>Home</a>
+                                    </Link>
+                                </li>
+
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
+                                    <Link legacyBehavior href="/schedule" passHref>
+                                        <a>Programação</a>
+                                    </Link>                                
+                                </li>
+
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
+                                    <Link legacyBehavior href="/about" passHref>
+                                        <a>Evento</a>
+                                    </Link>
+                                </li>
+
+                                {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                                    <Link legacyBehavior href="/partnership" passHref>
+                                        <a>Parcerias</a>
+                                    </Link>
+                                </li> */}
+
+                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
+                                    <Link legacyBehavior href="/co" passHref>
+                                        <a>Comissão Organizadora</a>
+                                    </Link>                                
+                                </li>
+
+                                {/* <li onClick={() => setIsOpen(false)}> */}
+                                    {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
+                                    {/*<span target="blank">CTF</span>{/* </Link> */}
+                                    {/* <div></div> */}
+                                {/* </li> */}
+                            </ul>
+                        </div>
+
                         {/* Editar esta div para o usuário logado*/}
-                        {user
-                            ? <>
-                                {/*Código do usuário logado */}
+                        {user ? 
+                            <>
+                            <ul>
+                                <li onClick={() => setIsOpen(false)} className="profile-side-bar">
+                                    <Link legacyBehavior href="/user">
+                                        <a>
+                                            <div className='profile-content'>
+                                               <div className='user-pic-container'>
+                                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                                    {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
+                                                </div>
+                                                <p>{user.name.split(" ")[0]}</p>
+                                            </div>
+
+                                            <div className='see-profile'>
+                                                <p>Ver Perfil</p>
+                                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+
+                                                    <rect id = "arrow" width = "100" height = "100%"/>
+                                                            
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </Link>
+                                </li>
+                            </ul>
                             </> 
                             :
-                            <Button className = 'userButton'>Login</Button>
+                            <Button onClick={handleShowAuthModal} className='user-button'>Login</Button>
                         }
                         
                     </div>
 
-                    <div className = 'hamburguerWrapper'>
+                    <div className='hamburguer-wrapper'>
                         <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
                             <span></span>
                             <span></span>
@@ -146,49 +166,58 @@ const Nav = () => {
                 <NavDesktop>
                     <ul>
                         <li className = {router.pathname == '/' ? 'active': ''}>
-                            <Link href="/" passHref>
+                            <Link legacyBehavior href="/" passHref>
                                 <a>Home</a>
                             </Link>           
                         </li>
 
                         <li className = {router.pathname == '/schedule' ? 'active': ''}>
-                            <Link href="/schedule" passHref >
+                            <Link legacyBehavior href="/schedule" passHref>
                                 <a>Programação</a>
                             </Link>
                         </li>
 
                         <li className = {router.pathname == '/about' ? 'active': ''}>
-                            <Link href="/about" passHref >
+                            <Link legacyBehavior href="/about" passHref>
                                 <a>Evento</a>
                             </Link>
                         </li>
 
-                        <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                            <Link href="/partnership" passHref >
+                        {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
+                            <Link legacyBehavior href="/partnership" passHref>
                                 <a>Parcerias</a>
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li className = {router.pathname == '/co' ? 'active': ''}>
-                            <Link href="/co" passHref >
+                            <Link legacyBehavior href="/co" passHref>
                                 <a>Comissão Organizadora</a>
                             </Link>
                         </li>
 
-                        <li>
-                            {/* <Link href="https://ctfssi.intheshell.page/"> */}
+                        {/* <li> */}
+                            {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
                             {/*  */}
-                        </li>
+                        {/* </li> */}
 
-                        {user ?
-                            <li className='userPicContainer'>
-                                <Link href="/user"><a><img src={user.photoUrl} alt="user pic" referrerPolicy="no-referrer" /></a></Link>
+                        {user ? (
+                            <li className='profile-container'>
+                                <Link legacyBehavior href= "/user">
+                                    <a className='profile-content'>
+                                        <div className='user-pic-container'>
+                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                            {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
+                                        </div>
+                                        <p>{user.name.split(" ")[0]}</p>
+                                    </a>
+                                </Link>
                             </li>
-                            :
+                         ) : (
                             <li>
                                 <Button onClick={handleShowAuthModal}>Login</Button>
                                 {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
                             </li>
+                         )
                         }
                     </ul>
                 </NavDesktop>
@@ -219,6 +248,17 @@ const NavWrapper = styled.div`
         width: 100%;
         max-width: 1232px; // 1920px - (344px * 2)
         height: 100%;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:focus-visible {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+        }
     }
 
     ul {
@@ -229,8 +269,9 @@ const NavWrapper = styled.div`
         justify-content: center;
         gap: 1.5rem;
 
-        li a{
-            padding: 0.125rem .5rem;
+        li a {
+            display: block;
+            padding: 0.125rem 0.5rem;
             background-color: transparent;
             background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
             background-size: 200%;
@@ -238,29 +279,33 @@ const NavWrapper = styled.div`
             transition: all 100ms ease-out;
             background-repeat: no-repeat;
             white-space: nowrap;
+            line-height: 1.5rem;
             font-weight: 400;
 
-            &:hover, &:focus{
+            &:hover, &:focus-visible {
+                color: var(--color-neutral);
                 background-position-x: 100%;
-                color: black;
             }
 
+            &:focus-visible {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+                
         }
 
-        .active{
+        .active {            
             background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
-            background-size: 200% 100%;
+            background-size: 250% 100%;
             background-position: right;
-
-            a {
-                font-family: 'AT Aero Bold';
-                font-weight: 400;
-            }
             
-            &:hover > a{
-                color: var(--color-primary);
-            };
+            a {
+                font-family: 'At Aero Bold';
+            }
 
+            &:hover a, a:focus-visible {
+                color: var(--color-primary);
+            }
         }
     }
 
@@ -275,7 +320,7 @@ const NavWrapper = styled.div`
 const NavMobile = styled.nav`
     overflow: hidden;   
 
-    .sidepanelWrapper{
+    .sidepanel-wrapper {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -283,7 +328,7 @@ const NavMobile = styled.nav`
         height: 100%;
     }
 
-    .headerNav {
+    .header-nav {
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -295,18 +340,19 @@ const NavMobile = styled.nav`
         cursor: pointer;       
     }
 
-    .hamburguerWrapper{
+    .hamburguer-wrapper {
         padding: .75rem;
         background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
-        background-size: 200% 100%;
+        background-size: 202% 100%;
         transition: 100ms all ease-out;
     }
 
-    .hamburguerWrapper:hover {
+    .hamburguer-wrapper:hover {
         background-position: left;
+
         span {
-            background-color: black;
+            background-color: #161616;
         }
     }
 
@@ -321,23 +367,24 @@ const NavMobile = styled.nav`
 
         span {
             display: block;
-            height: 2px;
+            height: 3px;
             width: 100%;
             background-color: #FFF;
         }
     }
 
-    .click-out{
+    .click-out {
         position:fixed;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-
+        background-color: rgba(0, 0, 0, 0.5);
+        
         z-index: 9;
     }
 
-    .click-out-hidden{
+    .click-out-hidden {
         display: none
     }
 
@@ -358,7 +405,7 @@ const NavMobile = styled.nav`
         padding: 1.5rem 1rem;
         gap: 1.5rem;
 
-        @media (min-width: 648px){
+        @media (min-width:648px) {
             width: 50%;
         }
 
@@ -366,12 +413,87 @@ const NavMobile = styled.nav`
             color: #FFF;
         }
 
-        .userButton {
+        .profile-side-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 44px;
+            flex-direction: row;
+            justify-content: space-between;
+    
+            a {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                padding: 0 0.25rem;
+            
+                &:hover, &:focus-visible {
+                    color: var(--color-neutral);
+                    background-position-x: 100%;
+
+                    p {
+                        color: var(--color-neutral);
+                    }
+
+                    svg path {
+                        fill: var(--color-primary);
+                    }
+                }
+                
+                &:focus-visible {
+                    outline: 2px solid var(--color-primary);
+                    outline-offset: 2px;
+                }
+            }
+    
+            .profile-content{
+                width: 6.625rem;
+                height: 2.75rem;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+    
+            .user-pic-container {
+                background: var(--color-primary);
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            p {
+                text-align: left;
+                font-family: 'AT Aero Bold';
+                font-size: 1rem;
+            }
+    
+            .see-profile {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                align-items: center;
+            }
+        }
+        
+        .user-button {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1.2rem 1rem;
             width: 100%;
+
             p {
                 font-family: 'AT Aero Bold';
                 font-weight: 700;
@@ -386,7 +508,6 @@ const NavMobile = styled.nav`
     @media (min-width:995px) {
         display: none;
     }
-    
 `
 
 const NavDesktop = styled.nav`
@@ -402,5 +523,42 @@ const NavDesktop = styled.nav`
             justify-content: unset;
             gap: 1rem;
         }
+        
+        .profile-container {
+            background-color: var(--color-neutral-800);
+
+            .profile-content {
+                gap: 0.5rem;
+                display: flex;
+                flex-direction: row;
+                padding: 0.25rem;
+
+                &:hover, &:focus-visible {
+                    p {
+                        color: var(--color-neutral);
+                    }
+                }
+            }
+
+            .user-pic-container {
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                gap: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &:hover, &:focus-visible {
+                background: var(--color-neutral-800);
+            }
+        }        
     }
 `

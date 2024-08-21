@@ -15,6 +15,7 @@ import RegisterForm from '../src/components/RegisterForm';
 // assets
 import gifts from '../data/gifts';
 import CheckBox from '../public/images/icons/lecture-check-box.svg';
+import SecondaryButton from '../src/components/SecondaryButton';
 
 const User = () => {
     
@@ -28,7 +29,7 @@ const User = () => {
     const { user, signOut } = useAuth();
     // const { user } = false; // para deploy sem login
 
-    const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const [isUserRegistered, setIsUserRegistered] = useState(true); // Lembrar de trocar pra false
     const [userInfo, setUserInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +42,7 @@ const User = () => {
 
         setIsLoading(true);
 
-        saphira.getUser(user.email)
+        saphira.getStudent()
             .then((res) => {
                 setIsUserRegistered(true);
                 setUserInfo({ ...saphiraUserDataToFormFormat(res.data) });
@@ -55,39 +56,16 @@ const User = () => {
 
     const saphiraUserDataToFormFormat = (userData) => {
         const nameElements = getFullNameComponents(userData.full_name);
-        // const documentType = `${userData.document}`.length >= 11 ? "cpf" : "nusp";
-        const birthDateElements = userData.data_nascimento.split('-');
+        console.log("nameElements: ", nameElements);
 
         const data = {
             name: nameElements.name,
             last_name: nameElements.lastName,
-            birth_date: `${birthDateElements[2]}/${birthDateElements[1]}/${birthDateElements[0]}`,
-            accepted_terms: true,
-            is_in_internship: userData.em_estagio,
-            accepted_recieve_emails: userData.aceita_receber_email,
             usp_number: userData.usp_number,
-            cpf: userData.cpf,
-            gender: checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "outro",
-            custom_gender: !checkIfValueIsASelectOption(selectOptions.gender, userData.genero) ? userData.genero : "",
-            ethnicity: checkIfValueIsASelectOption(selectOptions.ethnicity, userData.etnia) ? userData.etnia : "outro",
-            custom_ethnicity: !checkIfValueIsASelectOption(selectOptions.ethnicity, userData.etnia) ? userData.etnia : "",
-            know_about: checkIfValueIsASelectOption(selectOptions.knowAbout, userData.como_conheceu) ? userData.como_conheceu : "outro",
-            custom_know_about: !checkIfValueIsASelectOption(selectOptions.knowAbout, userData.como_conheceu) ? userData.como_conheceu : "",
-            course: checkIfValueIsASelectOption(selectOptions.course, userData.curso) ? userData.curso : "outro",
-            custom_course: !checkIfValueIsASelectOption(selectOptions.course, userData.curso) ? userData.curso : "",
-            graduation_period: userData.periodo_curso
+            code: userData.code,
         }
 
         return data;
-    }
-
-    const checkIfValueIsASelectOption = (options, target) => {
-        let isASelectOption = false;
-        options.forEach(element => {
-            if (element.value === target) isASelectOption = true;
-        });
-
-        return isASelectOption;
     }
 
     const getFullNameComponents = (fullName) => {
@@ -106,7 +84,7 @@ const User = () => {
     }
 
     const getPresences = () => {
-        saphira.listPresences(user.email)
+        saphira.listStudentPresences(user.email)
             .then((res) => {
                 setLectures([...res.data]);
             })
@@ -124,21 +102,21 @@ const User = () => {
     }
 
     useEffect(() => {
-        if (isUserRegistered) {
-            getPresences();
-        }
+        // if (isUserRegistered) {
+        //     getPresences();
+        // }
     }, [isUserRegistered]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, [user]);
 
     useEffect(() => {
-        checkUserRegister();
+        // checkUserRegister();
     }, []);
 
     const { asPath } = useRouter('/user');
-    
+
     useEffect(() => {
         setTimeout(() => {
             const hash = asPath.split('#')[1];
@@ -172,7 +150,7 @@ const User = () => {
                 }} 
             />
 
-            <Meta title='SSI 2024 | Seu Perfil' />
+            <Meta title='SSI 2024 | Meu Perfil' />
 
             {isLoading &&
                 <Loading>
@@ -180,11 +158,11 @@ const User = () => {
                 </Loading>
             }
 
-            {!isLoading && user && !isUserRegistered &&
+            {/* {!isLoading && user && !isUserRegistered &&
                 <FormContainer>
                     <RegisterForm />
                 </FormContainer>
-            }
+            } */}
 
             {isEditing &&
                 <>
@@ -217,13 +195,12 @@ const User = () => {
                                     <div className='user-info'>
                                         <p>Email: {user.email}</p>
                                         <div></div>
-                                        <p>CPF: {userInfo.cpf}</p>
                                     </div>
                                 </div>
                             </PhotoTextWrapper>
                             <div className='btn-wrapper'>
                                 <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
-                                <ButtonSecondary onClick={signOut}>Sair</ButtonSecondary>
+                                <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
                             </div>
                         </UserInfoWrapper>
                     </UserInfoSection>
@@ -459,37 +436,6 @@ const PhotoTextWrapper = styled.div`
             }
         }
 
-    }
-`
-
-const ButtonSecondary = styled.button`
-    --padding: 0.75rem 1.5rem;
-    --transition-duration: 500ms;
-
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.75rem;
-    padding: var(--padding);
-    border-radius: 9px;
-    border: 3px solid var(--color-neutral-50);
-    background-color: transparent;
-    transition: 500ms;
-    cursor: pointer;
-
-    &:hover {
-        background-color: var(--color-neutral-50);
-        color: var(--color-neutral-900);
-    }
-
-    &:active {
-        background-color: var(--color-neutral-100);
-        border-color: var(--color-neutral-100);
-    }
-        
-    @media (min-width:560px) {
-        height: 3rem;
     }
 `
 

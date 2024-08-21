@@ -16,9 +16,9 @@ const GiftCard = ({ image, name, totalPres, presentialPres }) => {
         <>
             <GiftWrapper>
                 <div className='gift-box' onClick={() => handleBtnClick()}>
-                    <figure className='gift-image'>
+                    <div className='gift-image'>
                         <img src={image} alt={`Logo ${name}`}></img>
-                    </figure>
+                    </div>
                     <p>{name}</p>
                 </div>
             </GiftWrapper>
@@ -70,7 +70,7 @@ const GiftWrapper = styled.div`
     border-radius: 8px;
     transition: 0.3s;
 
-    :active {
+    &:active {
         background-color: var(--color-neutral-600);
     }
 
@@ -122,7 +122,7 @@ const GiftWrapper = styled.div`
         height: 14.75rem;
         border: 4px solid transparent;
 
-        :hover:not(:active) {
+        &:hover:not(:active) {
             border: 4px solid var(--color-primary-700);
             background-color: var(--color-neutral-700);  
             animation: shake 1s;

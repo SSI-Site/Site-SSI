@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import BadgeCO from './BadgeCO';
 
+
 // assets
 import FinancesIcon from '../../public/images/co_icons/finances.svg';
 import CreationIcon from '../../public/images/co_icons/creation.svg';
@@ -63,13 +64,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
         <MemberWrapper>
             <figure className='member-image'>
                 <div className="image-container">
-                    <Image 
-                        src={image} 
-                        alt={`Foto de ${name}`} 
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
-                    />
+                    <img src={image} alt={`Foto de ${name}`} className="responsive-image" />
                 </div>
             </figure>
             <div className={'card-back b' + (colorScheme%5)} id={'back b' + (colorScheme)}>
@@ -142,7 +137,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                 </div>
                 <div className='member-department'>
                     {departments.map((department, index) =>
-                        <div className='tooltip'>
+                        <div className='tooltip' key={index}>
                             <img src={departmentIcon(department)} />
                             <span className='tooltiptext'>{department}</span>
                         </div>
@@ -191,6 +186,16 @@ const MemberWrapper = styled.div`
             border-bottom: solid var(--color-neutral-50) 0.3rem;
             transform:rotate(45deg);
             translate: 0 -0.35rem
+        }
+
+        .responsive-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
 
