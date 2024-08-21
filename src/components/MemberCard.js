@@ -72,7 +72,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     />
                 </div>
             </figure>
-            <div className={'card-back b' + colorScheme} id='back'>
+            <div className={'card-back b' + (colorScheme%5)} id={'back b' + (colorScheme)}>
                 <div className='member-name'>
                     {linkedin ?
                         <>
@@ -98,9 +98,9 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     
                     <div className='member-department'>
                         { departments.map((department, index) => {
-                            let badges = colorSchemes[colorScheme].badgeSequence;
+                            let badges = colorSchemes[colorScheme%5].badgeSequence;
                             if(index === 0 && department === 'Diretoria')
-                            return <BadgeCO text={department} themeIndex={colorSchemes[colorScheme].directorBadge}/>
+                            return <BadgeCO text={department} themeIndex={colorSchemes[colorScheme%5].directorBadge}/>
                             return <BadgeCO text={department} themeIndex={badges[index % badges.length]}/>
                         })
 
@@ -108,7 +108,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     </div>
                 </div>
             </div>
-            <button active='false' className={'info-button '}>
+            <button id={'c' + colorScheme} className={'info-button '} onClick={() => flip(colorScheme)}>
                 <div></div>
             </button>
             {/*
@@ -154,6 +154,14 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
     )
 }
 
+const flip = (index) => {
+    console.log(index)
+    let card = document.getElementById('back b' + index)
+    let button = document.getElementById('c' + index)
+    card.classList.toggle('info-show')
+    button.classList.toggle('button-flip')
+}
+
 export default MemberCard;
 
 const MemberWrapper = styled.div`
@@ -186,16 +194,9 @@ const MemberWrapper = styled.div`
         }
     }
 
-    .button-flip{
-        div{
-            transform: rotate(-135deg);
-            translate: 0 0.35rem;
-        }
-    }
-
     .card-back{
         transition: 0.1s;
-        transform: translateY(-100%);
+        translate: 0 -100%;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -283,8 +284,15 @@ const MemberWrapper = styled.div`
     
     }
 
-    .back-show {
-        transform: translateY(0);
+    .info-show{
+        translate: 0 0;
+    }
+
+    .button-flip{
+        div{
+            transform: rotate(-135deg);
+            translate: 0 0.35rem;
+        }
     }
 
     .b0 {
@@ -508,7 +516,7 @@ const MemberWrapper = styled.div`
 
         &:hover{
             .card-back{
-                transform: translateY(0);
+                translate: 0 0;
             }
         }
     }
