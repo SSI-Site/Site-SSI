@@ -65,6 +65,7 @@ const SpeakerContainer = styled.div`
 		}
 
 		svg {
+			/* Used to move svg down and align with name and cargo */
 			transform: translateY(0.5em);
 		}
 	}
@@ -85,7 +86,6 @@ const SpeakerContainer = styled.div`
 			transition: 250ms all ease-out;
 
 			svg path {
-				/* Used to move svg down and align with name and cargo */
 				transform: translateY(0em);
 			}
 
