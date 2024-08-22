@@ -65,7 +65,7 @@ const shifts = {
                 description : 'Carla Vieira é mestre em Inteligência Artificial pela USP e Engenheira de Dados na QuantumBlack. Foi reconhecida como Google Developer Expert em Machine Learning e participa das discussões sobre Inteligência Artificial e ética - tema da sua dissertação de mestrado.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Carla Vieira', 'linkedin' : 'https://www.linkedin.com/in/carlaprv/', 'image': Lecture01_CarlaVieira},
+                    {'name': 'Carla Vieira', 'role':'Software Engineer', 'linkedin' : 'https://www.linkedin.com/in/carlaprv/', 'image': Lecture01_CarlaVieira},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -74,7 +74,7 @@ const shifts = {
                 description : 'Jorge Maia é Arquiteto de soluções de IoT e Nuvem na CrazyTechLabs desde 2014. Reconhecido como Learn Expert e Regional Lead para Treinadores Certificados pela Microsoft, que também o premiou nos últimos 7 anos o MVP (Most Valuable Professional) na categoria de Azure e IoT, é também Mestre em Sistemas Mecatrônicos e Doutorando no tema.\n Nesta sessão ele discutirá com a audiência sobre o panorama de soluções conectadas e também sobre as evoluções no desenvolvimento de software com a chegada do GPT e outras ferramentas de IA.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Jorge Maia', 'linkedin' : 'https://www.linkedin.com/in/jorgeasmaia/', 'image': Lecture02_JorgeMaia},
+                    {'name': 'Jorge Maia', 'role':'Software Engineer', 'linkedin' : 'https://www.linkedin.com/in/jorgeasmaia/', 'image': Lecture02_JorgeMaia},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -193,7 +193,7 @@ const shifts = {
                 description : 'Formada em Sistemas de Informação, pós graduada em Engenharia de Software pela UNICAMP e atualmente cursando a segunda pós graduação em Arquitetura de Software. Com mais de 10 anos de experiência em desenvolvimento, dos quais 5 deles focada em desenvolvimento Mobile (Android). No tema da palestra de hoje, o intuito é abordar a modularização de um aplicativo: O que significa modularizar, quais as vantagens, desvantagens, riscos e algumas formas de realizar tal modularização.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Aline Souza', 'linkedin' : 'https://www.linkedin.com/in/assouza94/', 'image': Lecture11_AlineSouza},
+                    {'name': 'Aline Souza', 'role':'Software Engineer', 'linkedin' : 'https://www.linkedin.com/in/assouza94/', 'image': Lecture11_AlineSouza},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -249,7 +249,7 @@ const shifts = {
                 description : 'A revolução digital trouxe consigo a transformação radical das infraestruturas de TI, impulsionando a adoção de soluções em nuvem para empresas de todos os tamanhos. Nessa palestra exploraremos a jornada das arquiteturas em nuvem, desde o estágio inicial da adoção de um único provedor até a complexidade das arquiteturas híbridas e multicloud.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Luiz de Oliveira', /*'website': 'https:semanadesi.com' Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture16_LuizDeOliveira},
+                    {'name': 'Luiz de Oliveira', /*'website': 'https:semanadesi.com' Informações de contato, 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture16_LuizDeOliveira},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -280,8 +280,8 @@ const shifts = {
                 description : 'A área de Sistemas de Informação é ampla, são diversas as aplicações e possibilidades de atuação. Por vezes, encontramos um foco maior em áreas populares como front-end e back-end, mas nem todo estudante tem isso como objetivo ideal. O DASI irá apresentar e informar outras carreiras em tecnologias e como você pode ser introduzido a elas, aproveitando ao máximo suas habilidades e paixões.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Giovanna Arana Paganotti', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
-                    {'name': 'Guilherme Fernandes da Costa', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Giovanna Arana Paganotti', /*'website': 'https:semanadesi.com', 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Guilherme Fernandes da Costa', /*'website': 'https:semanadesi.com', 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -314,7 +314,7 @@ const shifts = {
                 description : 'Nesta palestra, descreverei o funcionamento do ChatGPT, contextualizando a área de Processamento de Língua Natural (PLN), diferentes formas de representação de texto e os grandes modelos de linguagem (LLM). Dentre conceitos explorados estão: bag-of-words, n-gramas, word embeddings, transformers, BERT e GPT.',
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture22_LucianoDigiampietri},
+                    {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture22_LucianoDigiampietri},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -412,7 +412,7 @@ const shifts = {
                 local : 'presential',// presential ou online
                 speakers : [
                     {'name': 'Leandro Meili', 'website': 'https://bcrcx.com'/*Informações de contato*/, 'image': Lecture31_LeandroMeili/*Aqui vem a imagem do palestrante*/},
-                    {'name': 'Guilherme Nascimento', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
+                    {'name': 'Guilherme Nascimento', /*'website': 'https:semanadesi.com', 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -467,7 +467,7 @@ const shifts = {
                 local : 'presential',// presential ou online
                 endTime : '09:10',
                 speakers : [
-                    {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture36_GabrielMedeiros},
+                    {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture36_GabrielMedeiros},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -477,8 +477,8 @@ const shifts = {
                 local : 'presential',// presential ou online
                 endTime : '09:40',
                 speakers : [
-                    {'name': 'Palácio', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
-                    {'name': 'Giovanna Paganotti', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Palácio', /*'website': 'https:semanadesi.com'/*Informações de contato, 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
+                    {'name': 'Giovanna Paganotti', /*'website': 'https:semanadesi.com'/*Informações de contato, 'role':'Software Engineer', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -520,7 +520,7 @@ const shifts = {
                 description : 'Professor doutor pelo ICMC/USP,  na área de Robótica e Inteligência Artificial, trabalhando com pesquisas em Visão Computacional para Veículos Autônomos e ADAS. É Mestre pela UNESP/IBILCE, com pesquisas em Robótica Móvel e algoritmos de Inteligência Artificial. Atualmente é professor da FATEC e Pós-doutorando no ICMC/USP. Também é CEO e Founder da Algoritma, empresa focada em Inteligência Artificial e Machine Learning. Palestra: A área de veículos inteligentes está cada vez mais forte no cenário industrial, focando tanto para veículos totalmente autônomos, quanto para dar suporte e maior segurança para um motorista humano. Nessa apresentação serão abordados conceitos relacionados com a navegação e percepção de veículos autônomos, envolvendo Inteligência Artificial e Visão Computacional para o projeto Rota2030, com inserção nacional e internacional. Serão então apresentados projetos em andamento em nosso grupo de pesquisa de veículos inteligentes, em conjunto com empresas multinacionais, focando principalmente em nossos sistemas de Visão Computacional para detecção de obstáculos.',
                 local : 'online',// presential ou online
                 speakers : [
-                    {'name': 'Diego Renan Bruno', 'linkedin' : '', 'image': Lecture40_DiegoRenan},
+                    {'name': 'Diego Renan Bruno', 'role':'Software Engineer', 'linkedin' : '', 'image': Lecture40_DiegoRenan},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
             },
@@ -552,7 +552,7 @@ const shifts = {
                 description : "Você já se perguntou como é possível garantir a segurança no desenvolvimento de software? Se sim, saiba que você não está sozinho! Iremos abordar os princípios essenciais e as melhores práticas para garantir a segurança em todas as etapas do ciclo de desenvolvimento. Larissa Benevides e Cassio Santos trabalham atualmente como Analistas de Segurança de Aplicações no BTG Pactual e apresentarão as principais estratégias e ferramentas para incorporar a segurança desde o início do ciclo de desenvolvimento de forma transparente aos processos ágeis e DevOps.",
                 local : 'presential',// presential ou online
                 speakers : [
-                    {'name': 'Larissa Benevides', 'linkedin' : 'https://www.linkedin.com/in/larissa-benevides/', 'image': Lecture43_LarissaBenevides},
+                    {'name': 'Larissa Benevides', 'role':'Software Engineer', 'linkedin' : 'https://www.linkedin.com/in/larissa-benevides/', 'image': Lecture43_LarissaBenevides},
                     {'name': 'Cassio Santos', 'image': Lecture43_CassioSantos},
                 ],
                 image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
