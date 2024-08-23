@@ -123,18 +123,18 @@ const MemberWrapper = styled.div`
 
     .info-button {
         position: absolute;
-        border: 0;
-        display: flex;
-        left: 1.5rem;
+        bottom: 1rem;
+        right: 1rem;
         width: 3rem;
         height: 3rem;
-        background-color: var(--color-primary);
-        transform: translate(14.5rem, 20.5rem);
+        display: flex;
         align-items: center;
         justify-content: center;
+        background-color: var(--color-primary);
+        border: 0;
 
         svg {
-            transition: 0.1s;
+            transition: 0.3s;
         }
 
         .responsive-image {
