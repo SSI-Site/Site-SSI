@@ -184,8 +184,8 @@ const MemberWrapper = styled.div`
             height: 1.5rem;
             border-right: solid var(--color-neutral-50) 0.3rem;
             border-bottom: solid var(--color-neutral-50) 0.3rem;
-            transform:rotate(45deg);
-            translate: 0 -0.35rem
+            transform:rotate(-135deg);
+            translate: 0 0.35rem
         }
 
         .responsive-image {
@@ -295,8 +295,8 @@ const MemberWrapper = styled.div`
 
     .button-flip{
         div{
-            transform: rotate(-135deg);
-            translate: 0 0.35rem;
+            transform: rotate(45deg);
+            translate: 0 -0.35rem;
         }
     }
 
@@ -529,6 +529,10 @@ const MemberWrapper = styled.div`
             .card-back{
                 translate: 0 0;
             }
+        }
+
+        .info-show{
+            translate: 0 101%;
         }
     }
 `
