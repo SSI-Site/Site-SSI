@@ -114,7 +114,7 @@ export default MemberCard;
 
 const MemberWrapper = styled.div`
     position: relative;
-    width: 20.5rem;
+    width: 18.4rem;
     height: 24.625rem;
     gap: 1rem;
     overflow-y: hidden;
@@ -155,7 +155,7 @@ const MemberWrapper = styled.div`
         flex-direction: column;
         padding: 1.5rem;
         background-color: ${colorSchemes[1].background};
-        width: 20.5rem;
+        width: 18.4rem;
         height: 24.625rem;
         gap: 1rem;
     
@@ -465,7 +465,7 @@ const MemberWrapper = styled.div`
         align-items: center;
         justify-content: center;
         height: 24.625rem;
-        width: 20.5rem;
+        width: 18.4rem;
 
         .member-image {
             position: absolute;

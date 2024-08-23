@@ -64,7 +64,7 @@ export default createGlobalStyle`
 
         > div {
             width: 100%;
-            max-width: 1224px;
+            max-width: 1232px;
             margin: 0;
             padding: 0;
         }

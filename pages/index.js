@@ -861,7 +861,7 @@ const SupportersSection = styled.section`
 
             .supporters-cards {
                 gap: 1.5rem;
-                max-width: 1224px;
+                max-width: 1232px;
             }
         }
     }
