@@ -245,8 +245,8 @@ const User = () => {
                                 <ProgressTable>
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Brinde</th>
-                                            <th colspan="2">Palestras</th>
+                                            <th rowSpan="2">Brinde</th>
+                                            <th colSpan="2">Palestras</th>
                                         </tr>
                                         <tr>
                                             <th>Totais</th>
