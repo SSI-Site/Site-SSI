@@ -201,7 +201,7 @@ const MemberWrapper = styled.div`
 
     .card-back{
         transition: 0.1s;
-        translate: 0 -100%;
+        translate: 0 101%;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -488,14 +488,20 @@ const MemberWrapper = styled.div`
         align-items: center;
         height: 24.6rem;
         width: 18.5rem;
-        border-radius: 8px;
-        overflow: hidden;
+        /* overflow: hidden; */
 
         .image-container {
             position: relative;
             width: 100%;
             height: 100%;
-            border-radius: 8px;
+            background-color: var(--color-neutral-800);
+            display:flex;
+            flex-direction: column-reverse;
+
+            .responsive-image{
+                width: 100%;
+                bottom:0;
+            }
         }
     }
 
