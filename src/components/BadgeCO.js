@@ -46,7 +46,7 @@ const colorSchemes = [
 const BadgeCO = ({ text, themeIndex}) => {
 
     return (
-        <BadgeWrapper themeIndex = {themeIndex}>
+        <BadgeWrapper $themeIndex = {themeIndex}>
             <p>{text}</p>
         </BadgeWrapper>
     )
@@ -56,15 +56,13 @@ const BadgeWrapper = styled.div`
     width: fit-content;
     padding: 0.125rem 0.25rem;
     //max-width: 170px;
-    background-color: ${props => colorSchemes[props.themeIndex].badgeColor};
+    background-color: ${props => colorSchemes[props.$themeIndex].badgeColor};
     display: inline-block;
 
-    p{
-        font-family: 'AT Aero Bold';
+    p {
         font-size: 0.875rem;
-        font-weight: 400;
-        color: ${props => colorSchemes[props.themeIndex].textColor};
-        white-space: no
+        color: ${props => colorSchemes[props.$themeIndex].textColor};
+        white-space: no;
     }
 `
 
