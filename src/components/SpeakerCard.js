@@ -7,6 +7,7 @@ import Close from '../../public/images/icons/close.svg'
 import MemberShadow from '../../public/images/co_members/MemberShadow.png'
 import InstagramIcon from '../../public/images/social_media/InstagramLogo.svg'
 import LinkedinIcon from '../../public/images/social_media/LinkedinLogo.svg'
+import SpeakerBottom from '../../public/images/background_imgs/SpeakerBottom.png'
 
 const SpeakerCard = () => {
 
@@ -40,7 +41,7 @@ const SpeakerCard = () => {
 
                 <SpeakerDesc>
                     <h6>Sobre</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis. </p>
+                    <p>Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis. Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis. </p>
                 </SpeakerDesc>
 
                 <SocialMedia>
@@ -48,6 +49,8 @@ const SpeakerCard = () => {
                     <img src = {InstagramIcon} alt = ""/>
                 </SocialMedia>
             </SpeakerContent>
+
+            <img src = {SpeakerBottom} className = 'bottomImg'/>
         </SpeakerWrapper>
     )
 }
@@ -57,19 +60,26 @@ export default SpeakerCard
 const SpeakerWrapper = styled.div`
     width: 100vw;
     height: 100vh;
-    border: 1px solid red;  
     background-color: var(--color-neutral-800);
     z-index: 12;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+
+    .bottomImg{
+        width: 100%;
+    }
 `
 
 const SpeakerContent = styled.div`
     width: 100%;
+    height: 100%;
     padding: 1.7em;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-
+    gap: 1em;
 `
 
 const SpeakerHead = styled.div`
@@ -89,7 +99,6 @@ const SpeakerInfo = styled.div`
 
 div{
     width: 100%;
-
 }
 
 div img{
@@ -101,7 +110,16 @@ div img{
 const SpeakerDesc = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .5rem;
+    height: 100%;
+    overflow: hidden;
+
+   
+    p {
+        max-height: 23.5rem;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
 `
 
 const SocialMedia = styled.div`
