@@ -18,7 +18,7 @@ import CheckBox from '../public/images/icons/lecture-check-box.svg';
 import SecondaryButton from '../src/components/SecondaryButton';
 
 const User = () => {
-    
+
     // // Array de palestras-exemplo para permitir o desenvolvimento do front
     // const lectures = [
     //     'Palestra muito foda 1',
@@ -73,7 +73,7 @@ const User = () => {
         const name = fullNameParts[0];
         let lastName = "";
 
-        for (let i=1; i<fullNameParts.length; i++) {
+        for (let i = 1; i < fullNameParts.length; i++) {
             lastName += ` ${fullNameParts[i]}`;
         }
 
@@ -134,7 +134,7 @@ const User = () => {
             ref.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
-             });
+            });
         }, 1000);
     };
 
@@ -147,7 +147,7 @@ const User = () => {
                         window.location.href = "/"
                     }
                 `
-                }} 
+                }}
             />
 
             <Meta title='SSI 2024 | Meu Perfil' />
@@ -199,8 +199,28 @@ const User = () => {
                                 </div>
                             </PhotoTextWrapper>
                             <div className='btn-wrapper'>
-                                <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
+                                {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
                                 <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
+                            </div>
+                            <div className="section-info">
+                                <h4>Código SSI</h4>
+                                <Button>
+                                    A24
+                                </Button>
+                                <h4>Número USP:</h4>
+                                <SecondaryButton onClick={signOut} >Adicionar Número USP
+                                    <svg
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 48 48"
+                                        fill="#fff"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+
+                                        <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z" />
+                                    </svg>
+                                </SecondaryButton>
+
                             </div>
                         </UserInfoWrapper>
                     </UserInfoSection>
@@ -208,7 +228,7 @@ const User = () => {
                     <LecturesListSection>
                         <div className='lectures-info-wrapper'>
                             <h4>Registro de presenças</h4>
-                            <TokenModal/>
+                            <TokenModal />
                             <div className='lectures-count'>
                                 <p>N<sup>o</sup> total de registros: <span>{lectures.length}</span></p>
                                 <p>N<sup>o</sup> de registros presenciais: <span>{presentialLecturesCount()}</span></p>
@@ -258,20 +278,20 @@ const User = () => {
                                             return (
                                                 <tr key={key}>
                                                     <td className='column-1'>{gift.name}</td>
-                                                    {lectures.length >= gift.totalPres && presentialLecturesCount() >= gift.presentialPres ? 
-                                                    <>
-                                                        <td className='column-2'>
-                                                            <img src={CheckBox} alt='check box'/>
-                                                        </td>
-                                                        <td className='column-3'>
-                                                            <img src={CheckBox} alt='check box' />
-                                                        </td>
-                                                    </>
-                                                    :
-                                                    <>
-                                                        <td className='column-2'>{lectures.length}/{gift.totalPres}</td>
-                                                        <td className='column-3'>{presentialLecturesCount()}/{gift.presentialPres}</td>
-                                                    </>
+                                                    {lectures.length >= gift.totalPres && presentialLecturesCount() >= gift.presentialPres ?
+                                                        <>
+                                                            <td className='column-2'>
+                                                                <img src={CheckBox} alt='check box' />
+                                                            </td>
+                                                            <td className='column-3'>
+                                                                <img src={CheckBox} alt='check box' />
+                                                            </td>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <td className='column-2'>{lectures.length}/{gift.totalPres}</td>
+                                                            <td className='column-3'>{presentialLecturesCount()}/{gift.presentialPres}</td>
+                                                        </>
                                                     }
                                                 </tr>
                                             )
@@ -323,8 +343,10 @@ const FormContainer = styled.section`
 `
 
 const UserInfoSection = styled.section`
-    padding-block: 7.25rem 3.75rem;
-    gap: 3.5rem;
+    display: flex;
+    align-items: flex-start;
+    padding-block: 1rem;
+    gap: 2rem;
 
     @media (min-width:1021px) {
         padding-block: 6.75rem 3.5rem;
@@ -363,6 +385,15 @@ const UserInfoWrapper = styled.div`
         flex-direction: row;
         padding: 2rem 6.5rem;
     }
+
+    .section-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1rem;
+    }
 `
 
 const PhotoTextWrapper = styled.div`
@@ -380,7 +411,7 @@ const PhotoTextWrapper = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         gap: 1rem;
 
         h6 {
@@ -398,6 +429,7 @@ const PhotoTextWrapper = styled.div`
             }
         }
     }
+
 
     @media (min-width:560px) {
         .text-info h6 {
