@@ -113,12 +113,8 @@ const SpeakerDesc = styled.div`
     gap: .5rem;
     height: 100%;
     overflow: hidden;
-
-   
     p {
-        max-height: 23.5rem;
-        overflow: hidden;
-        flex-shrink: 0;
+        max-height: 23.5em;
     }
 `
 
