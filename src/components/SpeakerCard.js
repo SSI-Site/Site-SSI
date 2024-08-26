@@ -1,40 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 // ASSETS
-import Close from '../../public/images/icons/close.svg'
-import MemberShadow from '../../public/images/co_members/MemberShadow.png'
 import InstagramIcon from '../../public/images/social_media/InstagramLogo.svg'
 import LinkedinIcon from '../../public/images/social_media/LinkedinLogo.svg'
-import SpeakerBottom from '../../public/images/background_imgs/SpeakerBottom.png'
 import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png'
 
-const SpeakerCard = () => {
+const SpeakerCard = ({ speaker, setIsOpen, isOpen }) => {
 
-    const [isOpen, setIsOpen] = useState(false)
-    
+    document.body.style.overflow = 'hidden';
+
     return (
-        <SpeakerWrapper>
+        <SpeakerWrapper classname = {isOpen ? "opened" : "closed hidden"}>
+            <div className = "click-out" onClick={() => {setIsOpen(false); document.body.style.overflow = 'unset' }}>
+            </div>
             <SpeakerContent>
                 <SpeakerHead>
                     <h6>Palestrante</h6>    
-                    <img src = {Close}/>
+                    <div onClick = {() => {setIsOpen(false); document.body.style.overflow = 'unset';}}>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className = 'teste' xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="currentColor"/>
+                        </svg>
+                    </div>
                 </SpeakerHead>
 
                 <SpeakerInfo>
                     <div className = 'imgDiv'>
-                        <img src = {MemberShadow}/>
+                        <img src = {speaker['image']} alt = {`Foto de ${speaker['image']}`}/>
                     </div>
 
                     <div className = 'headTextWrapper'>
                         <div>
-                            <h6>Fulano da Silva</h6>
-                            <p>ele/dele</p>
+                            <h6>{speaker['name']}</h6>
+                            <p>{speaker['pronouns']}</p>
                         </div>
 
                         <div>
                             <label>Cargo</label>
-                            <p>Website Developer</p>
+                            <p>{speaker['role']}</p>
                         </div>
                     </div>
                 </SpeakerInfo>
@@ -45,16 +48,16 @@ const SpeakerCard = () => {
                     </div>
                     
                     <div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis. </p>
+                        <p>{speaker['description']}</p>
                     </div>
                 </SpeakerDesc>
 
                 <SocialMedia>
-                    <a href = "" target="_blank" aria-label = "Linkedin da Semana de Sistemas de Informação">
+                    <a href = {speaker['linkedin']} target="_blank" aria-label = {`Linkedin de ${speaker['name']}`}>
                         <img src = { LinkedinIcon } alt = "Linkedin"/>
                     </a>
 
-                    <a href = "" target = "_blank" aria-label = "Instagram da Semana de Sistemas de Informação">
+                    <a href = {speaker['instagram']} target = "_blank" aria-label = {`Instagram de ${speaker['name']}`}>
                         <img src = { InstagramIcon } alt = "Instagram"/>                        
                     </a>
                     
@@ -72,15 +75,15 @@ const SpeakerCard = () => {
 export default SpeakerCard
 
 const SpeakerWrapper = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: var(--color-neutral-800);
     z-index: 12;
-    position: absolute;
+    position: fixed;
+    top: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
 
     .bottomImg{
         width: 100%;
@@ -97,6 +100,16 @@ const SpeakerWrapper = styled.div`
     @media screen and (min-width: 1024px){
         width: 60%;
         right: 0;
+
+        .click-out {
+            position:fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
     }
 `
 
@@ -107,6 +120,7 @@ const SpeakerContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: .5em; 
+    z-index: 12;
 `
 
 const SpeakerHead = styled.div`
@@ -114,6 +128,23 @@ const SpeakerHead = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1.75em;
+    position: relative;
+    
+    div {
+        padding: .75em;
+        background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+        background-position: right;
+        background-size: 202% 100%;
+        transition: 100ms all ease-out;
+    }
+
+    div:hover {
+        background-position: left;
+
+        svg {
+            color: black;
+        }
+    }
     
     @media screen and (min-width: 1024px){
         display: none;
