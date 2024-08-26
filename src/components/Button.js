@@ -32,7 +32,7 @@ const Button = styled.button`
     }
 
     &:hover, &:focus-visible {
-        background-position-x: 100%;     /* Coloca o background de volta no lugar */
+        background-position-x: 90%;     /* Coloca o background de volta no lugar */
         color: var(--color-primary);
 
         svg path {

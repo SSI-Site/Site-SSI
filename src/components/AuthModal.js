@@ -5,7 +5,8 @@ import ReactDOM from "react-dom";
 import useAuth from '../../hooks/useAuth';
 
 // assets
-import Logo from '../../public/images/logos/logo_principal.svg';
+import LogoGif from '../../public/images/logos/logo.gif';
+import IconeFechar from '../../public/images/icons/close.svg';
 import SecondaryButton from './SecondaryButton';
 
 const AuthModal = ({ onClose }) => {
@@ -43,25 +44,25 @@ const AuthModal = ({ onClose }) => {
             <ModalWrapper ref={modalWrapperRef}>
                 <StyledModal>
                     <ModalHeader>
-                        <button className="close-btn-container" onClick={onClose}>
-                            <div className="leftright"></div>
-                            <div className="rightleft"></div>
+                        <h6>Fazer login</h6>
+                        <button className="close-icon-container" onClick={onClose}>
+                            <img className='close-icon' src={IconeFechar}  alt="Ícone de fechar"></img>
                         </button>
                     </ModalHeader>
                     <ModalBody>
+                        <div></div>
                         <figure>
-                            <img className='logo' src={Logo} alt="Logo SSI 2024" />
+                            <img className='logo' src={LogoGif} alt="Logo SSI 2024" />
                         </figure>
 
-                        <h6>Entrar com</h6>
-                        <div></div>
+                        <p>Faça login para conseguir registrar suas presenças e garantir brindes!</p>
 
                         <SecondaryButton onClick={handleGoogleSignIn}>
                             {/* Logo da Google */}
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.064 5.51C1.89601 3.85324 3.17237 2.46051 4.75043 1.48747C6.32849 0.514427 8.14606 -0.000583569 10 4.96231e-07C12.695 4.96231e-07 14.959 0.991001 16.69 2.605L13.823 5.473C12.786 4.482 11.468 3.977 10 3.977C7.395 3.977 5.19 5.737 4.405 8.1C4.205 8.7 4.091 9.34 4.091 10C4.091 10.66 4.205 11.3 4.405 11.9C5.191 14.264 7.395 16.023 10 16.023C11.345 16.023 12.49 15.668 13.386 15.068C13.9054 14.726 14.3501 14.2822 14.6932 13.7635C15.0363 13.2448 15.2706 12.6619 15.382 12.05H10V8.182H19.418C19.536 8.836 19.6 9.518 19.6 10.227C19.6 13.273 18.51 15.837 16.618 17.577C14.964 19.105 12.7 20 10 20C8.68663 20.0005 7.38604 19.7422 6.17254 19.2399C4.95905 18.7375 3.85645 18.0009 2.92776 17.0722C1.99907 16.1436 1.2625 15.041 0.760135 13.8275C0.257774 12.614 -0.000524861 11.3134 8.00714e-07 10C8.00714e-07 8.386 0.386001 6.86 1.064 5.51Z" fill="#F3F3F3"/>
                             </svg>
-                            Google
+                            Entrar com o Google
                         </SecondaryButton>
                     </ModalBody>
                 </StyledModal>
@@ -96,65 +97,56 @@ const ModalOverlay = styled.div`
 `
 
 const ModalWrapper = styled.div`
-    width: 280px;
-    height: 390px;
-    border-radius: 12px;
+    max-width: 328px;
+    max-height: 404px;
 `
 
+// alterações da cor de fundo, bordas e padding
 const StyledModal = styled.div`
-    background-color: var(--color-neutral-900);
-    height:100%;
-    width:100%;
-    border-radius: 16px;
-    padding: 5px;
-    border: 4px solid var(--color-primary-800);
+    background-color: var(--color-neutral-800);
+    height: 100%;
+    width: 100%;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
 `
 
 const ModalHeader = styled.header`
-    position: relative;
-    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    .close-btn-container {
-        position: absolute;
-        right: 0.5rem;
-        top: 0.5rem;
-        width: 21px;
-        height: 21px;
+    .close-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
         cursor: pointer;
-        background-color: #151023;
         border: none;
-    }
+        background-color: transparent;
+        background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
+        background-size: 200%;
+        background-position-x: 200%;
+        transition: all 100ms ease-out;
+        background-repeat: no-repeat;
 
-    .leftright {
-        height: 3px;
-        width: 20px;
-        position: absolute;
-        background-color: var(--color-neutral-50);
-        border-radius: 10px;
-        transform: rotate(45deg);
-        transition: all .3s ease-in;
-    }
+        .close-icon {
+            width: 30%;
+            height: 30%;
+            transition: filter 100ms ease-out;
+        }
 
-    .rightleft {
-        height: 3px;
-        width: 20px;
-        position: absolute;
-        background-color: var(--color-neutral-50);
-        border-radius: 10px;
-        transform: rotate(-45deg);
-        transition: all .3s ease-in;
-    }
+        &:hover, &:focus-visible {
+            background-position-x: 100%;
 
-    .close-btn-container:hover > .leftright {
-        transform: rotate(-45deg);
-        box-shadow: var(--glow);
-        background-color: var(--color-primary-500);
-    }
+            .close-icon {
+                filter: brightness(0);
+            }
+        }
 
-    .close-btn-container:hover > .rightleft {
-        transform: rotate(45deg);
-        box-shadow: var(--glow);
-        background-color: var(--color-primary-500);
+        &:focus-visible {
+            outline: 2px solid var(--color-primary-700);
+            outline-offset: 2px;
+        }
     }
 `
 
@@ -163,25 +155,25 @@ const ModalBody = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 10px;
-
-    figure {
-        width: 120px;
-        margin-bottom: 20px;
-    }
-
-    img {
-        width: 100%;
-    }
-
-    h6 {
-        margin-bottom: 1rem;
-    }
+    gap: 1rem;
 
     div {
-        width: 60%;
-        height: 2px;
-        background-color: var(--color-primary-800);
-        margin-block: 0.5rem 2rem;
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-neutral-secondary);
+        margin: 0.7rem 2rem;
+    }
+
+    figure {
+        width: 8rem;
+        
+        img {
+            width: 100%;
+        }
+    }
+
+    p {
+        font-weight: 400;
+        margin-bottom: 0.5rem;
     }
 `
