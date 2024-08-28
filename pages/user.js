@@ -186,6 +186,8 @@ const User = () => {
                         <UserInfoWrapper>
                             <PhotoTextWrapper>
                                 <img className='user-pic' src={user.photoUrl} alt="user picture" />
+                            </PhotoTextWrapper>
+                            <InfoUser>
                                 <div className='text-info'>
                                     {user.name ?
                                         <h6>{user.name}</h6>
@@ -194,21 +196,23 @@ const User = () => {
                                     }
                                     <div className='user-info'>
                                         <p>Email: {user.email}</p>
-                                        <div></div>
                                     </div>
                                 </div>
-                            </PhotoTextWrapper>
-                            <div className='btn-wrapper'>
-                                {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
-                                <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
-                            </div>
+                                <div className='btn-wrapper'>
+                                    {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
+                                    <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
+                                </div>
+                            </InfoUser>
+
                             <div className="section-info">
                                 <h4>Código SSI</h4>
-                                <Button>
-                                    A24
-                                </Button>
+                                <div className='section-cod-ssi'>
+                                    <Button>
+                                        A24
+                                    </Button>
+                                </div>
                                 <h4>Número USP:</h4>
-                                <SecondaryButton onClick={signOut} >Adicionar Número USP
+                                <SecondaryButton onClick={() => { }} >Adicionar Número USP
                                     <svg
                                         width="24px"
                                         height="24px"
@@ -220,7 +224,6 @@ const User = () => {
                                         <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z" />
                                     </svg>
                                 </SecondaryButton>
-
                             </div>
                         </UserInfoWrapper>
                     </UserInfoSection>
@@ -373,12 +376,6 @@ const UserInfoWrapper = styled.div`
         gap: 1rem;
     }
 
-    @media (min-width:560px) {
-        .btn-wrapper {
-            width: fit-content;
-        }
-    }
-
     @media (min-width:1021px) {
         width: 100%;
         justify-content: space-between;
@@ -394,6 +391,10 @@ const UserInfoWrapper = styled.div`
         justify-content: center;
         gap: 1rem;
     }
+    
+    .section-cod-ssi {
+        width: 4rem;
+    }
 `
 
 const PhotoTextWrapper = styled.div`
@@ -407,30 +408,6 @@ const PhotoTextWrapper = styled.div`
         min-width: 150px;
     }
 
-    .text-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 1rem;
-
-        h6 {
-            text-align: center;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-            }
-        }
-    }
-
-
     @media (min-width:560px) {
         .text-info h6 {
             font: 700 1.5rem/1.75rem 'AT Aero Bold';
@@ -441,35 +418,59 @@ const PhotoTextWrapper = styled.div`
         gap: 2rem;
         flex-direction: row;
 
-        .text-info {
-            align-items: flex-start;
+        // .text-info {
+        //     align-items: flex-start;
 
-            h6 {
-                text-align: left;
-                font: 700 2rem/2.5rem 'AT Aero Bold';
-            }
+        //     h6 {
+        //         text-align: left;
+        //         font: 700 2rem/2.5rem 'AT Aero Bold';
+        //     }
 
-            .user-info {
-                display: flex;
-                flex-direction: row;
-                gap: 0.5rem;
+        //     .user-info {
+        //         display: flex;
+        //         flex-direction: row;
+        //         gap: 0.5rem;
     
-                p {
-                    font: 700 1.25rem/1.5rem 'AT Aero Bold';
-                }
+        //         p {
+        //             font: 700 1.25rem/1.5rem 'AT Aero Bold';
+        //         }
 
-                > div {
-                    width: 4px;
-                    height: 28px;
-                    background-color: var(--color-neutral-600);
-                    margin-inline: 1rem;
-                    border-radius: 2px;
-                }
-            }
-        }
+        //         > div {
+        //             width: 4px;
+        //             height: 28px;
+        //             background-color: var(--color-neutral-600);
+        //             margin-inline: 1rem;
+        //             border-radius: 2px;
+        //         }
+        //     }
+        // }
 
     }
 `
+const InfoUser = styled.div`
+    width: 100%;
+    
+    h6{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .user-info{
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+     @media (min-width:1021px) {
+        margin-left: 1.5rem;
+
+        .btn-wrapper{
+            width: 100px;
+        }
+     }
+
+    
+`
+
 
 const LecturesListSection = styled.section`
 
