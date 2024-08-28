@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import styled from 'styled-components'
 
 // assets
-import LogoPrincipal from "../../../public/images/logos/logo_principal.svg";
-import Coffee from "../../../public/images/icons/coffee.svg";
-import Code from "../../../public/images/icons/sites.svg";
+import Coffee from '../../../public/images/icons/coffee.svg'
+import Code from '../../../public/images/icons/sites.svg'
+import LogoPrincipal from '../../../public/images/logos/logo_principal.svg'
 
 const Footer = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <FooterWrapper>
@@ -17,7 +17,7 @@ const Footer = () => {
           tabIndex={0}
           aria-label="Voltar para o Topo"
           onClick={() => {
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0)
           }}
         >
           Voltar ao topo
@@ -55,19 +55,19 @@ const Footer = () => {
         <ul>
           <li>
             <Link legacyBehavior href="/" passHref>
-              <a className={router.pathname == "/" ? "active" : ""}>Home</a>
+              <a className={router.pathname == '/' ? 'active' : ''}>Home</a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/schedule" passHref>
-              <a className={router.pathname == "/schedule" ? "active" : ""}>
+              <a className={router.pathname == '/schedule' ? 'active' : ''}>
                 Programação
               </a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/about" passHref>
-              <a className={router.pathname == "/about" ? "active" : ""}>
+              <a className={router.pathname == '/about' ? 'active' : ''}>
                 Evento
               </a>
             </Link>
@@ -81,7 +81,7 @@ const Footer = () => {
                     </li> */}
           <li>
             <Link legacyBehavior href="/co" passHref>
-              <a className={router.pathname == "/co" ? "active" : ""}>
+              <a className={router.pathname == '/co' ? 'active' : ''}>
                 Comissão Organizadora
               </a>
             </Link>
@@ -101,7 +101,7 @@ const Footer = () => {
           tabIndex={0}
           aria-label="Voltar para o Topo"
           onClick={() => {
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0)
           }}
         >
           <svg
@@ -301,10 +301,10 @@ const Footer = () => {
         <img src={Coffee} alt="Ícone Café" />
       </FooterEnding>
     </FooterWrapper>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
 
 const FooterWrapper = styled.footer`
   border-top: 2px solid #4b4b4b;
@@ -315,7 +315,7 @@ const FooterWrapper = styled.footer`
   justify-content: space-between;
   padding: 4rem 1rem 3rem;
   width: 100%;
-  max-width: 1232px;
+  max-width: 1328px;
   gap: 3rem;
   font-size: 100%;
   background-color: var(--color-neutral);
@@ -362,7 +362,7 @@ const FooterWrapper = styled.footer`
   .active {
     background-color: var(--color-primary);
     transition: 100ms all ease-out;
-    font-family: "AT Aero Bold";
+    font-family: 'AT Aero Bold';
 
     &:hover,
     &:focus-visible {
@@ -378,7 +378,7 @@ const FooterWrapper = styled.footer`
     grid-template-rows: 1fr;
     gap: 0rem;
   }
-`;
+`
 
 const MobileBackToTop = styled.div`
   display: flex;
@@ -421,7 +421,7 @@ const MobileBackToTop = styled.div`
   @media (min-width: 850px) {
     display: none;
   }
-`;
+`
 
 const DesktopBackToTop = styled.div`
   display: none;
@@ -459,7 +459,7 @@ const DesktopBackToTop = styled.div`
       outline-offset: 2px;
     }
   }
-`;
+`
 
 const FooterLogo = styled.div`
   width: fit-content;
@@ -492,7 +492,7 @@ const FooterLogo = styled.div`
     height: 100%;
     justify-self: start;
   }
-`;
+`
 
 const FooterLinks = styled.div`
   display: flex;
@@ -528,7 +528,7 @@ const FooterLinks = styled.div`
       gap: 1.5rem 2.5rem;
     }
   }
-`;
+`
 
 const FooterLogos = styled.div`
   display: flex;
@@ -576,7 +576,7 @@ const FooterLogos = styled.div`
     width: fit-content;
     justify-self: end;
   }
-`;
+`
 
 const FooterEnding = styled.div`
   display: flex;
@@ -588,4 +588,4 @@ const FooterEnding = styled.div`
   @media (min-width: 850px) {
     display: none;
   }
-`;
+`

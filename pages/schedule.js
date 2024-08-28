@@ -55,7 +55,7 @@ const Schedule = () => {
             <Meta title='SSI 2024 | Programação' />
             
             <ScheduleSection>
-                <h3>Programação</h3>
+                <h1>Programação</h1>
 
                 {/* Para telas mobile */}
                 <MobileScheduleFilterContainer>
@@ -79,30 +79,40 @@ const Schedule = () => {
                 {/* Para telas desktop */}
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2024-10-07'} onClick={() => setActiveItem('2024-10-07')}>
-                                <DateStamp day='07' showEmoji={true} />
-                            </NavItem>
+                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-07')}>
+                            <DateStamp
+                                day='07'
+                                isActive={activeItem == '2024-10-07'}
+                                showEmoji={true}
+                            />
                         </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2024-10-08'} onClick={() => setActiveItem('2024-10-08')}>
-                                <DateStamp day='08' showEmoji={true} />
-                            </NavItem>
+                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-08')}>
+                            <DateStamp
+                                day='08'
+                                isActive={activeItem == '2024-10-08'}
+                                showEmoji={true}
+                            />
                         </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2024-10-09'} onClick={() => setActiveItem('2024-10-09')}>
-                                <DateStamp day='09' showEmoji={true} />
-                            </NavItem>
+                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-09')}>
+                            <DateStamp
+                                day='09'
+                                isActive={activeItem == '2024-10-09'}
+                                showEmoji={true}
+                            />
                         </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2024-10-10'} onClick={() => setActiveItem('2024-10-10')}>
-                                <DateStamp day='10' showEmoji={true} />
-                            </NavItem>
+                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-10')}>
+                            <DateStamp
+                                day='10'
+                                isActive={activeItem == '2024-10-10'}
+                                showEmoji={true}
+                            />
                         </Link>
-                        <Link href='#schedule'>
-                            <NavItem className='day-selection' $active={activeItem == '2024-10-11'} onClick={() => setActiveItem('2024-10-11')}>
-                                <DateStamp day='11' showEmoji={true} />
-                            </NavItem>
+                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-11')}>
+                            <DateStamp
+                                day='11'
+                                isActive={activeItem == '2024-10-11'}
+                                showEmoji={true}
+                            />
                         </Link>
                     </div>
                 </DesktopSelectionContainer>
@@ -120,14 +130,16 @@ export default Schedule;
 
 
 const ScheduleSection = styled.section`
-    padding-block: 7.25rem 3.75rem;
+    padding-block: 1.5rem;
     gap: 1rem;
 
     @media (min-width:600px) {
-        gap: 4rem;
+        padding-block: 7.5rem 3.75rem;
+        gap: 2rem;
 
-        h3 {
-            font: 700 3.5rem/4.25rem 'AT Aero Bold';
+        h1 {
+            width: 100%;
+            max-width: 1328px; 
         }
     }
 `
@@ -137,7 +149,7 @@ const MobileScheduleFilterContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-block: 0 0.5rem;
+    padding-block: 1rem 1.5rem;
 
     .select-wrapper {
         width: 100%;
@@ -199,7 +211,7 @@ const DesktopSelectionContainer = styled.div`
         width: 100%;
 
         .schedule-container {
-            gap: 1.5rem;
+            gap: 1rem;
             display: flex;
             flex-direction: row;
             flex-flow: wrap;
@@ -207,28 +219,6 @@ const DesktopSelectionContainer = styled.div`
             justify-content: center;
         }
     }
-`
-
-const NavItem = styled.div`
-    cursor: pointer;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-
-    ${props => props.$active == true && css`
-        pointer-events: none;
-        > div {
-            background-color: var(--color-primary);
-        }
-    `}
-
-    @media (min-width: 840px) {
-        
-        ${props => props.$active == false && css`
-            > div:hover {
-                background-color: var(--color-neutral-700);
-            }
-        `}
-    } 
 `
 
 const DayScheduleWrapper = styled.div`

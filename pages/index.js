@@ -1,21 +1,19 @@
-import { React, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import styled from 'styled-components';
+import { React, useEffect, useState } from 'react';
 import CountUp from 'react-countup';
+import styled from 'styled-components';
 
 import Meta from '../src/infra/Meta';
-import useAuth from '../hooks/useAuth';
 import '../utils/slugify';
 
 // components
+import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
 import DateStamp from '../src/components/DateStamp';
-import TwitchWatchNow from '../src/components/TwitchWatchNow';
-import AuthModal from '../src/components/AuthModal';
-import TokenModal from '../src/components/TokenModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleShift';
+import TokenModal from '../src/components/TokenModal';
+import TwitchWatchNow from '../src/components/TwitchWatchNow';
 
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
@@ -861,7 +859,7 @@ const SupportersSection = styled.section`
 
             .supporters-cards {
                 gap: 1.5rem;
-                max-width: 1232px;
+                max-width: 1328px;
             }
         }
     }
