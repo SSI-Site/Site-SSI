@@ -1,18 +1,16 @@
 
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
-import CountUp from 'react-countup';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import CountUp from 'react-countup';
+import styled from 'styled-components';
 
 import Meta from '../src/infra/Meta';
-import useAuth from '../hooks/useAuth';
 
 // components
-import EventActivity from '../src/components/EventActivity';
-import ScrollArrow from '../src/components/ScrollArrow';
-import GiftCard from '../src/components/GiftCard';
 import Button from '../src/components/Button';
+import EventActivity from '../src/components/EventActivity';
+import GiftCard from '../src/components/GiftCard';
+import ScrollArrow from '../src/components/ScrollArrow';
 
 // assets
 import gifts from '../data/gifts';
@@ -638,7 +636,7 @@ const GiftsSection = styled.section`
 
             .gifts-cards {
                 gap: 1.5rem;
-                max-width: 1232px;
+                max-width: 1328px;
             }
         }
     }

@@ -1,19 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import semana from '../../utils/semana';
 
 // assets
 import CheckIcon from '../../public/images/icons/check.svg';
 import HourglassIcon from '../../public/images/icons/hourglass.svg';
 
-/**
- * A estilização nos estados de hover e active devem ser estabelecidos no arquivo 
- * que chama o componente, pois há seções em que esta componente é estático
- */
 
-const DateStamp = ({ day, showEmoji }) => {
+const DateStamp = ({ day, isActive, showEmoji }) => {
 
-    // se day = 21, então relativeDay = 01 e assim por diante (para os dias do evento)
-    const relativeDay = `0${day - 20}` 
+    // se day = 7, então relativeDay = 1 e assim por diante (para os dias do evento)
+    const relativeDay = `${day - 6}` 
     const numericDay = parseInt(day);
 
     const current = new Date();
@@ -22,17 +18,17 @@ const DateStamp = ({ day, showEmoji }) => {
     const year = current.getFullYear();
 
     return (
-        <DateWrapper>
+        <DateWrapper $isActive={isActive} >
             <div className='day-emoji'>
-                <h6 className='day'>Dia {relativeDay}</h6>
-                {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2023-08-${numericDay}`) && showEmoji) &&
-                    <img src={CheckIcon}></img>
+                <h5 className='day'>Dia {relativeDay}</h5>
+                {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2024-10-${numericDay}`) && showEmoji) &&
+                    <img src={CheckIcon} alt="Check icon" />
                 }
-                {(currentDay==numericDay && month==8 && year==2023) && showEmoji &&
-                    <img src={HourglassIcon}></img>
+                {(currentDay==numericDay && month==10 && year==2024) && showEmoji &&
+                    <img src={HourglassIcon} alt="Hourglass icon" />
                 }
             </div>
-            <p className='week-day'>{day} ago - {semana[day-20]}</p>
+            <p className='week-day'>{day} out - {semana[day-6]}</p>
         </DateWrapper>
     )
 }
@@ -41,17 +37,39 @@ export default DateStamp;
 
 
 const DateWrapper = styled.div`
-    width: 16.5rem;
-    height: 4.75rem;
+    width: 15rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     background-color: var(--color-neutral-800);
-    border-radius: 8px;
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.3s all ease;
+    background-color: ${props => props.$isActive ? 'var(--color-primary)' : 'var(--color-neutral-800)'};
+    background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--color-primary) 50%, white 50%)' : 'linear-gradient(to right, var(--color-neutral-800) 50%, var(--color-primary) 50%)'};
+    background-size: 200%;
+    background-position-x: 200%;
+
+    &:hover, &:focus-visible {
+        background-position-x: 100%;
+        background-color: ${props => props.$isActive ? 'white' : 'var(--color-primary)'};
+
+        h5, p {
+            color: ${props => props.$isActive && 'var(--color-primary)'};
+        }
+
+        ${props => props.$isActive && css`
+            svg path {
+                fill: var(--color-primary);
+            }
+        `}
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 4px;
+    }
 
     .day-emoji {
         width: 100%;
@@ -65,17 +83,16 @@ const DateWrapper = styled.div`
         }
     }
 
+    h5, p {
+        color: white;
+    }
+
     p {
-        font: 700 1rem/1.25rem 'AT Aero Bold';
+        font-family: 'AT Aero Bold'; 
     }
 
     @media (min-width: 840px) {
-        width: 24.5rem;
-        height: 5.75rem;
-
-        h6 {
-            font: 700 2rem/2.5rem 'AT Aero Bold';
-        }
+        width: 25rem;
 
         .day-emoji img {
             height: 2rem;
