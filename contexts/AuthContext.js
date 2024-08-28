@@ -11,6 +11,7 @@ import {
   signInWithPopup,
 } from 'firebase/auth'
 import { auth } from '../lib/firebase'
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL
 
 const AuthContext = createContext()
@@ -108,8 +109,26 @@ export function AuthProvider({ children }) {
     }
   }
 
+  const checkAuthStatus = async () => {
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      cookie.remove('ssi-site-auth');
+      setUser(false);
+      setLoading(false);
+    } else {
+      try {
+        await currentUser.getIdToken(true); // Revalida o token no Firebase
+      } catch (error) {
+        cookie.remove('ssi-site-auth');
+        setUser(false);
+        setLoading(false);
+      }
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, handleStudent)
+    checkAuthStatus()
     return () => unsubscribe()
   }, [])
 
