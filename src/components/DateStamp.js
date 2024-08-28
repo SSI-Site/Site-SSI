@@ -26,7 +26,7 @@ const DateStamp = ({ day, showEmoji }) => {
             <div className='day-emoji'>
                 <h6 className='day'>Dia {relativeDay}</h6>
                 {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2024-10-${numericDay}`) && showEmoji) &&
-                    <img src={CheckIcon}></img>
+                    <img src={CheckIcon} alt="Checked icon" />
                 }
                 {(currentDay==numericDay && month==10 && year==2024) && showEmoji &&
                     <img src={HourglassIcon}></img>
@@ -39,19 +39,25 @@ const DateStamp = ({ day, showEmoji }) => {
 
 export default DateStamp;
 
-
 const DateWrapper = styled.div`
-    width: 16.5rem;
-    height: 4.75rem;
+    width: 25rem;
+    height: 6rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     background-color: var(--color-neutral-800);
-    border-radius: 8px;
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.3s all ease;
+    background-image: linear-gradient(to right, var(--color-neutral-800) 50%, var(--color-primary) 50%);
+    background-size: 200%;
+    background-position-x: 200%;
+
+    &:hover, &:focus-visible {
+        background-position-x: 100%;
+        background-color: var(--color-primary); /* Cor roxa no hover */
+    }
 
     .day-emoji {
         width: 100%;
