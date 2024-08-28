@@ -13,7 +13,7 @@ import HourglassIcon from '../../public/images/icons/hourglass.svg';
 const DateStamp = ({ day, showEmoji }) => {
 
     // se day = 21, então relativeDay = 01 e assim por diante (para os dias do evento)
-    const relativeDay = `0${day - 20}` 
+    const relativeDay = `0${day - 6}` 
     const numericDay = parseInt(day);
 
     const current = new Date();
@@ -25,14 +25,14 @@ const DateStamp = ({ day, showEmoji }) => {
         <DateWrapper>
             <div className='day-emoji'>
                 <h6 className='day'>Dia {relativeDay}</h6>
-                {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2023-08-${numericDay}`) && showEmoji) &&
+                {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2024-10-${numericDay}`) && showEmoji) &&
                     <img src={CheckIcon}></img>
                 }
-                {(currentDay==numericDay && month==8 && year==2023) && showEmoji &&
+                {(currentDay==numericDay && month==10 && year==2024) && showEmoji &&
                     <img src={HourglassIcon}></img>
                 }
             </div>
-            <p className='week-day'>{day} ago - {semana[day-20]}</p>
+            <p className='week-day'>{day} ago - {semana[day-6]}</p>
         </DateWrapper>
     )
 }
