@@ -6,19 +6,17 @@ import InstagramIcon from '../../public/images/social_media/InstagramLogo.svg'
 import LinkedinIcon from '../../public/images/social_media/LinkedinLogo.svg'
 import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png'
 
-const SpeakerCard = ({ speaker, setIsOpen, isOpen }) => {
+const SpeakerCard = ({ speaker, setIsOpen }) => {
 
     document.body.style.overflow = 'hidden';
 
     return (
-        <SpeakerWrapper classname = {isOpen ? "opened" : "closed hidden"}>
-            <div className = "click-out" onClick={() => {setIsOpen(false); document.body.style.overflow = 'unset' }}>
-            </div>
+        <SpeakerWrapper>
             <SpeakerContent>
                 <SpeakerHead>
                     <h6>Palestrante</h6>    
-                    <div onClick = {() => {setIsOpen(false); document.body.style.overflow = 'unset';}}>
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className = 'teste' xmlns="http://www.w3.org/2000/svg">
+                    <div className = "close" onClick = {() => {setIsOpen(false); document.body.style.overflow = 'unset';}}>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="currentColor"/>
                         </svg>
                     </div>
@@ -84,10 +82,18 @@ const SpeakerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation-name: slide-in;
+    animation-duration: 500ms;
+
+    @keyframes slide-in{
+        0% {transform: translateX(100%);}
+        100% {transform: translateX(0%);}   
+    }
 
     .bottomImg{
         width: 100%;
         height: 10%;
+        z-index: inherit;
 
         img {
             width: 100%;
@@ -100,16 +106,6 @@ const SpeakerWrapper = styled.div`
     @media screen and (min-width: 1024px){
         width: 60%;
         right: 0;
-
-        .click-out {
-            position:fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9;
-        }
     }
 `
 
@@ -128,14 +124,16 @@ const SpeakerHead = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1.75em;
-    position: relative;
-    
+    width: 100%;
+    z-index: 13;
+
     div {
-        padding: .75em;
+        padding: .5em .75em;
         background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 100ms all ease-out;
+        cursor: pointer;
     }
 
     div:hover {
@@ -147,7 +145,14 @@ const SpeakerHead = styled.div`
     }
     
     @media screen and (min-width: 1024px){
-        display: none;
+        position: absolute;
+        top: 0;
+        justify-content: flex-end;
+        padding: 1.75em;
+
+        h6 {
+            display: none;
+        }
     }
 `
 
@@ -158,6 +163,7 @@ const SpeakerInfo = styled.div`
     gap: 1.75em;
     padding: 0em 1.75em;
     margin-bottom: 1.7em; // 1.7em + gap .5em
+    z-index: 12;
 
     label{
         font-family: 'AT Aero Bold';
@@ -170,7 +176,6 @@ const SpeakerInfo = styled.div`
     }
 
     .imgDiv{
-        border: 1px solid blue;
         width: 40%;
         height: 100%;
 
