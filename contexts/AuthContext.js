@@ -44,11 +44,11 @@ export function AuthProvider({ children }) {
 
   const setSession = (session) => {
     if (session) {
-      cookie.set('ssi-site-auth', session, {
+      cookie.set('ssi-student-auth', session, {
         expires: 1,
       })
     } else {
-      cookie.remove('ssi-site-auth')
+      cookie.remove('ssi-student-auth')
     }
   }
 
@@ -112,14 +112,14 @@ export function AuthProvider({ children }) {
   const checkAuthStatus = async () => {
     const currentUser = auth.currentUser;
     if (!currentUser) {
-      cookie.remove('ssi-site-auth');
+      cookie.remove('ssi-student-auth');
       setUser(false);
       setLoading(false);
     } else {
       try {
         await currentUser.getIdToken(true); // Revalida o token no Firebase
       } catch (error) {
-        cookie.remove('ssi-site-auth');
+        cookie.remove('ssi-student-auth');
         setUser(false);
         setLoading(false);
       }
