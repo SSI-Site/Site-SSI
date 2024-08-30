@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SpeakerCard from './SpeakerCard';
 
@@ -6,15 +6,22 @@ const SpeakerInfo = ({ speaker }) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
+    // Está fazendo o conteúdo no fundo (ao lado do card aberto) se deslocar, pois remove a scrollbar...
+    // useEffect(() => {
+    //     if (isOpen) {
+    //         document.body.style.overflow = 'hidden';
+    //     } else {
+    //         document.body.style.overflow = 'unset';
+    //     }
+    // }, [isOpen]);
+
     return (
         <SpeakerContainer>
-            {isOpen &&
-                <>
-                    <div className = "click-out" onClick={() => {setIsOpen(false); document.body.style.overflow = 'unset' }}>
-                    </div>
-                    <SpeakerCard setIsOpen = {setIsOpen} speaker = {speaker}/>
-                </>
-            }
+            <div className={isOpen ? 'click-outside' : "click-outside click-outside-hidden"} onClick={() => setIsOpen(false)}>
+            </div>
+            <div className={isOpen ? 'side-card side-card-open' : 'side-card'}>
+                <SpeakerCard setIsOpen={setIsOpen} speaker={speaker}/>
+            </div>
             <figure className='speaker-image-container'>
                 {speaker['image'] &&
                     <img src={speaker['image']} alt={`Foto do palestrante ${speaker['name']}`} />
@@ -49,22 +56,45 @@ const SpeakerContainer = styled.div`
     align-items: center;
     gap: 1rem;
     padding-right: 0.25rem;
+    overflow: hidden;
 
-    .click-out {
-        position:fixed;
+    .click-outside {
+        position: fixed;
         top: 0;
-        bottom: 0;
         left: 0;
-        right: 0;
-        z-index: 12;
+        width: 100%;
+        height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        animation-name: obscure;
-        animation-duration: 500ms;
         
-        @keyframes obscure {
-            0% {background-color: unset}
-            100% {background-color: rgba(0, 0, 0, 0.5);}
-        }
+        z-index: 11;
+    }
+
+    .click-outside-hidden {
+        display: none;
+    }
+
+    .side-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow-y: hidden;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 11;
+        top: 0;
+        right: 0;
+        transition: transform 300ms ease-in-out;
+        transform: translateX(100%);
+    }
+
+    .side-card-open {
+        transform: translateX(0);
+    }
+
+    .side-card-hidden {
+        right: -999px;
     }
 
 	.speaker-image-container {
@@ -131,6 +161,10 @@ const SpeakerContainer = styled.div`
 	@media(min-width:801px) {
 		flex-direction: column;
         width: 14.5rem;
+
+        .side-card {
+            max-width: 60%;
+        }
 
         .speaker-image-container {
             width: 100%;

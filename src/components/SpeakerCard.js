@@ -8,14 +8,12 @@ import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png
 
 const SpeakerCard = ({ speaker, setIsOpen }) => {
 
-    document.body.style.overflow = 'hidden';
-
     return (
         <SpeakerWrapper>
             <SpeakerContent>
                 <SpeakerHead>
                     <h6>Palestrante</h6>    
-                    <div className = "close" onClick = {() => {setIsOpen(false); document.body.style.overflow = 'unset';}}>
+                    <div className = "close" onClick = {() => { setIsOpen(false); }}>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="currentColor"/>
                         </svg>
@@ -34,8 +32,7 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
                         </div>
 
                         <div>
-                            <label>Cargo</label>
-                            <p>{speaker['role']}</p>
+                            <label>{speaker['role']}</label>
                         </div>
                     </div>
                 </SpeakerInfo>
@@ -79,6 +76,7 @@ const SpeakerWrapper = styled.div`
     z-index: 12;
     position: fixed;
     top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -104,8 +102,8 @@ const SpeakerWrapper = styled.div`
     }
 
     @media screen and (min-width: 1024px){
-        width: 60%;
         right: 0;
+        left: unset;
     }
 `
 
@@ -115,7 +113,6 @@ const SpeakerContent = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: .5em; 
     z-index: 12;
 `
 
@@ -173,13 +170,23 @@ const SpeakerInfo = styled.div`
         display: flex;
         flex-direction: column;
         gap: .5em;
+
+        p {
+            font-family: 'AT Aero';
+            font-weight: 400;
+        }
     }
 
     .imgDiv{
         width: 40%;
-        height: 100%;
+        max-width: 14rem;
+        aspect-ratio: 1 / 1;
+        position: relative;
 
         img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -193,7 +200,7 @@ const SpeakerInfo = styled.div`
         padding: 0em;
 
         .imgDiv{
-            max-width: 30%;
+            max-width: 25%;
         }
 
         .headTextWrapper{
@@ -203,6 +210,10 @@ const SpeakerInfo = styled.div`
                 font-size: 1.2rem;
             }
         }
+    }
+
+    @media screen and (min-width: 1440px){
+        margin-bottom: 0;
     }
 `
 
@@ -218,7 +229,14 @@ const SpeakerDesc = styled.div`
     p {
         width: 100%;
         height: 100%;
-        overflow: scroll;
+        font-family: 'AT Aero';
+        font-weight: 400;
+    }
+
+    @media screen and (min-width: 801px){
+        h6 {
+            font: 700 1.125rem/1.5rem 'AT Aero Bold';
+        }
     }
     
     @media screen and (min-width: 1024px){
@@ -245,5 +263,9 @@ const SocialMedia = styled.div`
 
     img {
         width: 100%;
+    }
+    
+    @media screen and (min-width: 1440px){
+        padding-left: 4em;
     }
 `
