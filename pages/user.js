@@ -16,6 +16,7 @@ import RegisterForm from '../src/components/RegisterForm';
 import gifts from '../data/gifts';
 import CheckBox from '../public/images/icons/lecture-check-box.svg';
 import SecondaryButton from '../src/components/SecondaryButton';
+import InputSecondary from '../src/components/InputSecondary';
 
 const User = () => {
 
@@ -35,6 +36,8 @@ const User = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [showList, setShowList] = useState(false);
+    const [addNumberUsp, setAddNumberUsp] = useState(false);
+    const [numUpsTemp, setNumUpsTemp] = useState('');
 
     const checkUserRegister = () => {
         if (!user) return;
@@ -212,18 +215,43 @@ const User = () => {
                                     </Button>
                                 </div>
                                 <h4>Número USP:</h4>
-                                <SecondaryButton onClick={() => { }} >Adicionar Número USP
-                                    <svg
-                                        width="24px"
-                                        height="24px"
-                                        viewBox="0 0 48 48"
-                                        fill="#fff"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
+                                {
+                                    userInfo.usp_number || numUpsTemp !== '' ? // se o usuário já tiver um número USP vinculado na conta
+                                        <>
+                                            <Button>
+                                                {numUpsTemp}
+                                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white" />
+                                                </svg>
+                                            </Button>
+                                        </>
+                                        : // caso o usuário não tenha nenhum número usp vinculado a conta
+                                        <>
+                                            {addNumberUsp ?
+                                                <div className='number-usp'>
+                                                    <InputSecondary type="number" placeholder="Digite seu número USP" />
+                                                    <Button className='btn-save-number-usp' onClick={() => setNumUpsTemp("12111111")}>Salvar</Button>
+                                                </div>
+                                                :
+                                                <div className='number-usp'>
 
-                                        <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z" />
-                                    </svg>
-                                </SecondaryButton>
+                                                    <SecondaryButton onClick={() => { setAddNumberUsp(true) }} >Adicionar Número USP
+                                                        <svg
+                                                            width="24px"
+                                                            height="24px"
+                                                            viewBox="0 0 48 48"
+                                                            fill="#fff"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+
+                                                            <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z" />
+                                                        </svg>
+                                                    </SecondaryButton>
+                                                </div>
+                                            }
+                                        </>
+                                }
+
                             </div>
                         </UserInfoWrapper>
                     </UserInfoSection>
@@ -394,6 +422,25 @@ const UserInfoWrapper = styled.div`
     
     .section-cod-ssi {
         width: 4rem;
+    }
+    
+    .number-usp {
+        display: flex;
+        gap: 1rem;
+        
+        input{
+            width: 100%;
+        }
+
+        @media (min-width:1021px) {
+            input{
+               min-width: 200px;
+            }
+        }
+
+        .btn-save-number-usp{
+            width: 30%;
+        }
     }
 `
 
