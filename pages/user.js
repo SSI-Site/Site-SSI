@@ -14,6 +14,7 @@ import RegisterForm from '../src/components/RegisterForm';
 import UserGiftCard from '../src/components/UserGiftCard';
 
 // assets
+import gifts from '../data/gifts';
 import CheckBox from '../public/images/icons/lecture-check-box.svg';
 import SecondaryButton from '../src/components/SecondaryButton';
 
@@ -235,59 +236,18 @@ const User = () => {
                         </div>
                     </LecturesListSection>
 
-					<UserGiftCard totalPres={lectures.length} presentialPres={presentialLecturesCount()}></UserGiftCard>
 
-                    {/* <GiftsProgressSection id='meus-brindes'> */}
-                    {/*     <div className='gifts-progress-wrapper'> */}
-                    {/*         <h4>Painel de progresso dos brindes</h4> */}
-                    {/*         <div className='progress-table'></div> */}
-                    {/*     </div> */}
-                    {/*     <div className='table-card'> */}
-                    {/*         <div className='table-container'> */}
-                    {/*             <ProgressTable> */}
-                    {/*                 <thead> */}
-                    {/*                     <tr> */}
-                    {/*                         <th rowSpan="2">Brinde</th> */}
-                    {/*                         <th colSpan="2">Palestras</th> */}
-                    {/*                     </tr> */}
-                    {/*                     <tr> */}
-                    {/*                         <th>Totais</th> */}
-                    {/*                         <th>Presenciais</th> */}
-                    {/*                     </tr> */}
-                    {/*                 </thead> */}
-                    {/*                 <tbody> */}
-                    {/*                     {Object.entries(gifts).map(([key, gift]) => { */}
-                    {/*                         return ( */}
-                    {/*                             <tr key={key}> */}
-                    {/*                                 <td className='column-1'>{gift.name}</td> */}
-                    {/*                                 {lectures.length >= gift.totalPres && presentialLecturesCount() >= gift.presentialPres ?  */}
-                    {/*                                 <> */}
-                    {/*                                     <td className='column-2'> */}
-                    {/*                                         <img src={CheckBox} alt='check box'/> */}
-                    {/*                                     </td> */}
-                    {/*                                     <td className='column-3'> */}
-                    {/*                                         <img src={CheckBox} alt='check box' /> */}
-                    {/*                                     </td> */}
-                    {/*                                 </> */}
-                    {/*                                 : */}
-                    {/*                                 <> */}
-                    {/*                                     <td className='column-2'>{lectures.length}/{gift.totalPres}</td> */}
-                    {/*                                     <td className='column-3'>{presentialLecturesCount()}/{gift.presentialPres}</td> */}
-                    {/*                                 </> */}
-                    {/*                                 } */}
-                    {/*                             </tr> */}
-                    {/*                         ) */}
-                    {/*                     })} */}
-                    {/*                 </tbody> */}
-                    {/*             </ProgressTable> */}
-                    {/*             <div className='available'> */}
-                    {/*                 <img src={CheckBox} alt='check box' /> */}
-                    {/*                 <p>: brinde disponível para retirada</p> */}
-                    {/*             </div> */}
-                    {/*             <p>x/y: x registros de y necessários</p> */}
-                    {/*         </div> */}
-                    {/*     </div> */}
-                    {/* </GiftsProgressSection> */}
+                    <GiftsProgressSection id='meus-brindes'>
+                        <h5>Progresso dos brindes</h5>
+
+                        <div className='user-gifts-wrapper'>
+                            {Object.entries(gifts).map(([key, gift]) => {
+                                return (
+                                    <UserGiftCard key={key} gift={gift} totalPres={10} presentialPres={5}></UserGiftCard>
+                                )
+                            })}
+                        </div>
+                    </GiftsProgressSection>
                 </>
             }
         </>
@@ -525,144 +485,33 @@ const LecturesList = styled.div`
     }
 `
 
-const GiftsProgressSection = styled.section`
-    padding-block: 3.75rem;
-    overflow-x: hidden;
-
-    .table-card {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 3rem 1rem 2.5rem 1rem;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        height: auto;
-        width: 100vw;
-        overflow: auto;  
-        display: flex;
-        scroll-snap-type: x mandatory;
-
-        .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-
-            p {
-                font: 700 0.875rem/1.5rem 'AT Aero Bold';
-            }
-
-            .available {
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                margin-block: 0.5rem 0.2rem;
-
-                img {
-                    width: 24px;
-                }
-            }
-        }
-    }
-
-    @media (min-width:480px) {
-
-        .table-card {
-            align-items: center;
-        }
-    }
-
-    @media (min-width:1021px) {
-        padding-block: 6.75rem;
-
-        h4 {
-            margin-bottom: 3.5rem;
-        }
-
-        .table-card {
-            width: 100%;
-            padding: 4rem 6.5rem 3.5rem 6.5rem;
-            background-color: var(--color-neutral-800);
-            border-radius: 1rem;
-
-            .table-container {
-                p {        
-                    font: 700 1rem/1.25rem 'AT Aero Bold';
-                }
-                
-                .available {
-                    margin-block: 1rem 0.4rem;
-                }
-            }
-        }
-    }
+const UserGiftsWrapper = styled.section`
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	display: flex;
+	padding-inline: 2rem;
+	gap: 2rem;
+	flex-direction: column;
 `
 
-const ProgressTable = styled.table`
-    border: 2px solid var(--color-neutral-600);
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 1rem;
-    overflow: hidden;
-    font: 700 1rem/1.25rem 'AT Aero Bold';
+const GiftsProgressSection = styled.section`
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
-    thead {
-        background-color:  var(--color-neutral-700);
-        font: 700 0.95rem/1.5rem 'AT Aero Bold';
-    }
+    .user-gifts-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
 
-    tbody {
-        background-color:  var(--color-neutral-800);
-    }
-
-    th, td {
-        border: 1.5px solid var(--color-neutral-600);
-        vertical-align: middle;
-        text-align: center;
-    }
-
-    th {
-        padding: 0.5rem;
-    }
-
-    td {
-        padding: 1rem;
-    }
-
-    .column-2, .column-3 {
-        width: 9rem;
-    }
-
-    @media (min-width:1021px) {
-        font: 700 1.25rem/1.5rem 'AT Aero Bold';
-
-        thead {
-            font: 700 1.25rem/1.5rem 'AT Aero Bold';
-        }
-
-        th, td {
-            border: 2px solid var(--color-neutral-600);
-        }
-
-        th {
-            padding: 1rem;
-        }
-
-        td {
-            padding: 1.5rem;
-        }
-
-        .column-1 {
-            width: 17rem;
-        }
-
-        .column-2, .column-3 {
-            width: 23rem;
+        @media(min-width: 800px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
         }
     }
 `
