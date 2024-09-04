@@ -11,9 +11,9 @@ import selectOptions from '../data/registerFormSelectOptions';
 import Button from '../src/components/Button';
 import TokenModal from '../src/components/TokenModal';
 import RegisterForm from '../src/components/RegisterForm';
+import UserGiftCard from '../src/components/UserGiftCard';
 
 // assets
-import gifts from '../data/gifts';
 import CheckBox from '../public/images/icons/lecture-check-box.svg';
 import SecondaryButton from '../src/components/SecondaryButton';
 
@@ -235,57 +235,59 @@ const User = () => {
                         </div>
                     </LecturesListSection>
 
-                    <GiftsProgressSection id='meus-brindes'>
-                        <div className='gifts-progress-wrapper'>
-                            <h4>Painel de progresso dos brindes</h4>
-                            <div className='progress-table'></div>
-                        </div>
-                        <div className='table-card'>
-                            <div className='table-container'>
-                                <ProgressTable>
-                                    <thead>
-                                        <tr>
-                                            <th rowSpan="2">Brinde</th>
-                                            <th colSpan="2">Palestras</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Totais</th>
-                                            <th>Presenciais</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {Object.entries(gifts).map(([key, gift]) => {
-                                            return (
-                                                <tr key={key}>
-                                                    <td className='column-1'>{gift.name}</td>
-                                                    {lectures.length >= gift.totalPres && presentialLecturesCount() >= gift.presentialPres ? 
-                                                    <>
-                                                        <td className='column-2'>
-                                                            <img src={CheckBox} alt='check box'/>
-                                                        </td>
-                                                        <td className='column-3'>
-                                                            <img src={CheckBox} alt='check box' />
-                                                        </td>
-                                                    </>
-                                                    :
-                                                    <>
-                                                        <td className='column-2'>{lectures.length}/{gift.totalPres}</td>
-                                                        <td className='column-3'>{presentialLecturesCount()}/{gift.presentialPres}</td>
-                                                    </>
-                                                    }
-                                                </tr>
-                                            )
-                                        })}
-                                    </tbody>
-                                </ProgressTable>
-                                <div className='available'>
-                                    <img src={CheckBox} alt='check box' />
-                                    <p>: brinde disponível para retirada</p>
-                                </div>
-                                <p>x/y: x registros de y necessários</p>
-                            </div>
-                        </div>
-                    </GiftsProgressSection>
+					<UserGiftCard totalPres={lectures.length} presentialPres={presentialLecturesCount()}></UserGiftCard>
+
+                    {/* <GiftsProgressSection id='meus-brindes'> */}
+                    {/*     <div className='gifts-progress-wrapper'> */}
+                    {/*         <h4>Painel de progresso dos brindes</h4> */}
+                    {/*         <div className='progress-table'></div> */}
+                    {/*     </div> */}
+                    {/*     <div className='table-card'> */}
+                    {/*         <div className='table-container'> */}
+                    {/*             <ProgressTable> */}
+                    {/*                 <thead> */}
+                    {/*                     <tr> */}
+                    {/*                         <th rowSpan="2">Brinde</th> */}
+                    {/*                         <th colSpan="2">Palestras</th> */}
+                    {/*                     </tr> */}
+                    {/*                     <tr> */}
+                    {/*                         <th>Totais</th> */}
+                    {/*                         <th>Presenciais</th> */}
+                    {/*                     </tr> */}
+                    {/*                 </thead> */}
+                    {/*                 <tbody> */}
+                    {/*                     {Object.entries(gifts).map(([key, gift]) => { */}
+                    {/*                         return ( */}
+                    {/*                             <tr key={key}> */}
+                    {/*                                 <td className='column-1'>{gift.name}</td> */}
+                    {/*                                 {lectures.length >= gift.totalPres && presentialLecturesCount() >= gift.presentialPres ?  */}
+                    {/*                                 <> */}
+                    {/*                                     <td className='column-2'> */}
+                    {/*                                         <img src={CheckBox} alt='check box'/> */}
+                    {/*                                     </td> */}
+                    {/*                                     <td className='column-3'> */}
+                    {/*                                         <img src={CheckBox} alt='check box' /> */}
+                    {/*                                     </td> */}
+                    {/*                                 </> */}
+                    {/*                                 : */}
+                    {/*                                 <> */}
+                    {/*                                     <td className='column-2'>{lectures.length}/{gift.totalPres}</td> */}
+                    {/*                                     <td className='column-3'>{presentialLecturesCount()}/{gift.presentialPres}</td> */}
+                    {/*                                 </> */}
+                    {/*                                 } */}
+                    {/*                             </tr> */}
+                    {/*                         ) */}
+                    {/*                     })} */}
+                    {/*                 </tbody> */}
+                    {/*             </ProgressTable> */}
+                    {/*             <div className='available'> */}
+                    {/*                 <img src={CheckBox} alt='check box' /> */}
+                    {/*                 <p>: brinde disponível para retirada</p> */}
+                    {/*             </div> */}
+                    {/*             <p>x/y: x registros de y necessários</p> */}
+                    {/*         </div> */}
+                    {/*     </div> */}
+                    {/* </GiftsProgressSection> */}
                 </>
             }
         </>
