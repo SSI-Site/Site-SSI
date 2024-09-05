@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import useAuth from '../../hooks/useAuth';
@@ -78,7 +78,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                             />
                             
                             {isInvalid && !isRegistered &&
-                                <Button type="submit" className='invalid-token'>Inválido...</Button>
+                                <Button type="submit" className='invalid-token'>Inválido!</Button>
                             }
                             {isRegistered &&
                                 <Button className='token-registered'>Registrada!</Button>
@@ -106,7 +106,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                             />
                     
                             {isInvalid && !isRegistered &&
-                                <Button type="submit" className='invalid-token'>Token inválido...</Button>
+                                <Button type="submit" className='invalid-token'>Token inválido!</Button>
                             }
                             {isRegistered &&
                                 <Button className='token-registered'>Presença registrada!</Button>
@@ -144,11 +144,10 @@ const Loading = styled.figure`
 `
 
 const ModalTokenWrapper = styled.div`
-    --color-invalid: #F24822;
-    --color-valid: #14AE5C;
+    --color-invalid: #FF8980;
+    --color-valid: #52C84D;
     width: 100%;
-    background-color: var(--color-neutral-50);
-    border-radius: 16px;
+    background-color: var(--color-background-neutrals-secondary);
     padding: 0.5rem;
     margin-left: -4px;
 
@@ -179,10 +178,13 @@ const ModalTokenWrapper = styled.div`
     }
 
     input[type=text] {
+        color: var(--color-content-neutrals-tertiary);
+        background-color: var(--color-background-neutrals-secondary);
         text-transform: uppercase;
         margin-left: 1rem;
         width: 9rem;
     }
+
 
     button {
         width: fit-content;
@@ -201,6 +203,11 @@ const ModalTokenWrapper = styled.div`
     .disabled-btn {
         cursor: not-allowed;
         width: fit-content;
+
+        button {
+            background-color: var(--color-background-neutrals-tertiary);
+            color: var(--color-neutral);
+        }
     }
 
     @media (min-width:560px) {
