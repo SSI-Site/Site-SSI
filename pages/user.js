@@ -243,7 +243,7 @@ const User = () => {
                         <div className='user-gifts-wrapper'>
                             {Object.entries(gifts).map(([key, gift]) => {
                                 return (
-                                    <UserGiftCard key={key} gift={gift} totalPres={10} presentialPres={5}></UserGiftCard>
+                                    <UserGiftCard key={key} index={key} gift={gift} totalPres={10} presentialPres={5}></UserGiftCard>
                                 )
                             })}
                         </div>
