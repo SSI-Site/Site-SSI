@@ -1,260 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // components
-import ScheduleInformation from './ScheduleInformation';
+// import ScheduleInformation from './ScheduleInformation';
+import BadgeCO from './BadgeCO'
+import SpeakerInfo from './SpeakerInfo'
 
 // assets
-import PlusCircle from '../../public/images/icons/plus-circle.svg';
-import MinusCircle from '../../public/images/icons/minus-circle.svg';
+import LectureBottom from '../../public/images/background_imgs/detail.png'
 
-const LectureItem = ({ time, event,  }) => {
+const LectureItem = ({ time, event }) => {
 
-    const [show, setShow] = useState([]);
-    const [isExpanded, setIsExpanded] = useState(false);
-
-    const handleShowLecture = time => {
-        setIsExpanded(!isExpanded);
-        const index = show.indexOf(time);
-
-        if (index < 0) {
-            setShow(prev => [...prev, time]);
-        } else {
-            setShow(prev => prev.filter((e, i) => i !== index));
-        }
+    const speaker = {
+        "name": "Eduardo",
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAQlBMVEX///+hoaGenp6ampr39/fHx8fOzs7j4+P8/Pyvr6/d3d3FxcX29va6urqYmJjs7OzU1NSlpaW1tbWtra3n5+e/v78TS0zBAAACkUlEQVR4nO3b63KCMBCGYUwUUVEO6v3fagWVY4LYZMbZnff51xaZ5jON7CZNEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQb5tvI8qzX4/nH84XG5Upfj2ir2V2E5fZ/XpIX9saMnhkYLIkiyRJjdgMoiEDMmiQgfwM8rSu77ew2wnPoLTmwdZBs0J2BuXrYckcQm4nOoP+WcmWAbcTnUHZPy9eA24nOoN7n0HI54ToDM5k8PjluwyqgNuJzqDoaugPg8gWZ4noDAYLwuIg75fLeeHHsjNIzrZJwWwW+0DNsmEWPjiEZ5AcD8ZUu8VZ8HyQMifvBdIz+PS33i8adu+7Qn4Gn1Tdupl7rlCfQb9seosK7RkcBy1o30iVZ5CPOtDW3WhQnsF13IV3v0p3BqfJRoSpXVepzmA/24+yqeMyzRm4tqOs44lSUwa3yfgOri25av5CPRnklR33VlPnrqSZV09qMsiqSWV082xOz1uPajJ49pTM/f115k6guWa6JGjJ4N1lt8fXN2rv/vysjFaSQdFXBc/KKF04ptFPliclGVR9Bu27XCyeVOkmy5OODAZN9rYyyip/AIPJ8qIig+PoXbf7YdPdncFoSdCQQT4ZceV+MhiFMBy0hgyu0yGvOLI17KwpyGBaHK5jtt0N5GcwLw7XZdB31sRn8O+ziqYro8Vn4CwOV+k6a9Iz+PwRsKC7h+gMfMXhKu/OmuwM/MXhKq8yWnYG/uJw5Uxoy2jRGZTBZ/jboxuSM1guDtdNhKazJjiDbNMe0AxzKUVnkO+jEJxBxNtJzWCTxlNLzSB8KehJ/H+mJGYAjaDjzj9SnHZRuXZiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECXP1XDHv7U4SNFAAAAAElFTkSuQmCC",
+        "role": "Software Engineer"
+        
     }
 
     return ( 
-        <>
-            <LectureWrapper className='lecture' onClick={() => handleShowLecture(time)} $isExpanded={isExpanded}>
-                <div className='lecture-overview'>
-                    <h5>{time}</h5>
+        <LectureWrapper>
+            <LectureContent>
+                <LectureHeader>
+                    <h3>Título da Palestra</h3>
+                    <label>13:20 - 14:10h</label>
+
                     <div>
-                        <p>{event.title}</p>
-                        {/* Itera dentro dos palestrantes para escrever o nome de cada um */}
-                        <ul>
-                            <li>
-                                <span>
-                                {event['speakers'].map((s, index) => {
-                                    return(
-                                        <React.Fragment key={index}>
-                                            {s['linkedin'] ? 
-                                                (<a target='_blank' href={s['linkedin']}>{s['name']}</a>)
-                                                : 
-                                                s['name']
-                                            }
-                                            {index < event['speakers'].length - 2 ? ', ' : index == event['speakers'].length - 2 && ' e '}
-                                            {index == event['speakers'].length - 1 && '.'}
-                                        </React.Fragment>
-                                    )
-                                })}
-                                </span>
-                            </li>
-                        </ul>
+                        <BadgeCO text="Presencial" themeIndex = {5}/> 
                     </div>
-                    {show.includes(time) ?
-                        <div className='open-close-sign-desktop'>
-                            <img src={MinusCircle} alt = "Ver menos"></img>
-                            <p>Ver menos</p>
-                        </div>
-                    :
-                        <div className='open-close-sign-desktop'>
-                            <img src={PlusCircle} alt = "Ver mais"></img>
-                            <p>Ver mais</p>
-                        </div>
-                    }
+                    
+                </LectureHeader>
+
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis. </p>
                 </div>
-                    <ScheduleInformation
-                        lecture={event}
-                        startTime={time}
-                        lecturePicture={event['image']}
-                        // speakerName={ }
-                        title={event['title']}
-                        overview={event['description']}
-                        local = {event['local']}
-                        endTime={event['endTime']}
-                    />
-            </LectureWrapper>
-        </>
+                
+                <SpeakersWrapper>
+                    <SpeakerInfo speaker = {speaker}/>
+                    <SpeakerInfo speaker = {speaker}/>
+                </SpeakersWrapper>
+
+            </LectureContent>
+
+            <div className = "imgDetail">
+                <img src = { LectureBottom } />
+            </div>
+        </LectureWrapper>
      )
 }
  
 export default LectureItem;
 
 const LectureWrapper = styled.div`
+    width: 100%;
+    background-color: var(--color-background-neutrals-secondary);
+    display: flex;   
+    flex-direction: column;
+    gap: 1em;
+
+    .imgDetail {
+        width: 100%;
+        height: 6em;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left;
+    }
+`
+
+const LectureContent = styled.div`
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+`
+
+const LectureHeader = styled.div`
+    display: flex;
+    flex-direction: inherit;
+    gap: inherit;
+`
+
+const SpeakersWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-self: stretch;
-    background-color: ${props => props.$isExpanded==true ? `var(--color-neutral-800)` : `var(--color-neutral)`};
-    padding: 36px 24px;
-    padding: 24px;
-    gap: 16px;
-
-    min-height: 148px;
-    border-radius: 8px;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
-    .lecture-overview {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-
-        > div {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        
-            p {
-                font-family: 'AT Aero Bold';
-                font-weight: 400;
-                word-break: break-word;
-            }
-            
-            ul {
-                display: flex;
-                flex-direction: column;
-                
-                margin-top: 8px;
-                
-                li {
-                    display:block;
-                }
-                
-                span {
-                    font: 400 0.875rem/1.125rem 'AT Aero Bold';
-                    color: var(--color-primary-700);
-                }
-                
-                a {
-                    text-decoration: underline;
-                    font: inherit;
-                    color: inherit;
-                    transition: .2s;
-
-                    &:hover {
-                        color: var(--color-primary-600);
-                    }
-                    &:active {
-                        color: var(--color-primary-500);
-                    }
-                }
-            }
-        }
-
-        .open-close-sign-desktop {
-            margin-left: auto;
-            display: none;
-            flex-direction: row;
-            white-space: nowrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-
-            img {
-                width: 44px;
-            }
-
-            p {
-                font: 400 1.25rem/1.5rem 'AT Aero Bold';
-            }
-        }
-    }
-
-    .open-close-sign-mobile {
-        display: flex;
-        flex-direction: row;
-        white-space: nowrap;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-
-        img {
-            width: 24px;
-        }
-
-        p {
-            font: 400 1rem/1.25rem 'AT Aero Bold';
-        }
-    }
-
-    .lecture-content {
-        display: none;
-        margin: 1em;
-    }
-
-    .lecture-content.show-content {
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-
-    @media (min-width:560px) {
-        padding: 36px 56px;
-        gap: 48px;
-
-        div.lecture-overview {
-            flex-direction: row;
-            gap: 3.5rem;
-
-            > div {
-                p {
-                    font: 400 1.5rem/1.75rem 'AT Aero Bold';
-                }
-                
-                span {
-                    font: 400 1rem/1.25rem 'AT Aero Bold';
-                    
-                }
-            }
-        }
-    }
-
-    @media (min-width:1024px) {
-        transition: .3s all;
-        
-        &:hover {
-            background-color: var(--color-neutral-800);
-            cursor: pointer;
-        }
-
-        /* &:active {
-            background-color: var(--color-neutral-700);
-        } */
-
-        h5 {
-            font: 400 2.5rem/3rem 'AT Aero Bold';
-            font: 400 2rem/2.5rem 'AT Aero Bold';
-        }
-
-        div.lecture-overview {
-            gap: 3rem;
-
-            > div{
-                ul{
-                    flex-direction:row;
-                }
-
-                p{
-                    font: 400 2rem/2.5rem 'AT Aero Bold';
-                }
-            }
-
-            .open-close-sign-desktop{
-                display: flex;
-                width: fit-content;
-            }
-        }
-            
-        .open-close-sign-mobile{
-            display: none;
-        }
-    }
+    gap: 1em;
 `
