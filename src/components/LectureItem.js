@@ -20,14 +20,16 @@ const LectureItem = ({ time, event }) => {
                     <label>{time.start.getHours()}:{time.start.getMinutes()} - {time.end.getHours()}:{time.end.getMinutes()}h</label>
 
                     <div className = "badgeWrapper">
-                        <BadgeCO text="Presencial" themeIndex = {5}/> 
-                        <BadgeCO text="Workshop" themeIndex = {6}/> 
+                        {event.badges.map(i => 
+                                <BadgeCO text = {i.text} themeIndex = {i.themeIndex}/> 
+                            )
+                        }
                     </div>
                     
                 </LectureHeader>
 
                 <div className = "lectureDescription">
-                    <p>Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis. </p>
+                    <p>{event.description}</p>
                 </div>
                 
                 <SpeakersWrapper>
@@ -51,7 +53,7 @@ const LectureItem = ({ time, event }) => {
  
 export default LectureItem;
 
-const LectureWrapper = styled.div`
+const LectureWrapper = styled.article`
     background-color: var(--color-background-neutrals-secondary);
     display: flex;   
     flex-direction: column;
@@ -110,7 +112,7 @@ const LectureContent = styled.div`
     }
 `
 
-const LectureHeader = styled.div`
+const LectureHeader = styled.header`
     display: flex;
     flex-direction: inherit;
     gap: inherit;
