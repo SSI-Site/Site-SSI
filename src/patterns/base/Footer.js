@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 // assets
 import Coffee from '../../../public/images/icons/coffee.svg'
-import Code from '../../../public/images/icons/sites.svg'
+import Code from '../../../public/images/icons/code.svg'
 import LogoPrincipal from '../../../public/images/logos/logo_principal.svg'
 
 const Footer = () => {
