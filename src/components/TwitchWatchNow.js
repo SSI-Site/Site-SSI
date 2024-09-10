@@ -7,7 +7,7 @@ import twitch from '../../services/twitch';
 const TwitchWatchNow = () => {
 	
 	const [isLiveStreaming, setIsLiveStreaming] = useState(false);
-	const [streamData, setStreamData] = useState({});
+	// const [streamData, setStreamData] = useState({});
 
 	const getStreamData = () => {
 		twitch.getStreamData()
@@ -16,7 +16,7 @@ const TwitchWatchNow = () => {
 
 				if (streamsData && streamsData.length > 0) {
 					setIsLiveStreaming(true);
-					setStreamData({ ...streamsData[0] });
+					// setStreamData({ ...streamsData[0] });
 				} else {
 					setIsLiveStreaming(false);
 				}

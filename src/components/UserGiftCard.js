@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import gifts from '../../data/gifts';
-import giftLocked from '../../public/images/gift-locked.png';
-import giftUnlocked from '../../public/images/gift-unlocked.png';
+import giftLocked from '../../public/images/gifts/gift-locked.png';
+import giftUnlocked from '../../public/images/gifts/gift-unlocked.png';
 
 const UserGiftCard = ({ gift, index, totalPres, presentialPres }) => {
     const locked = totalPres < gift.totalPres && presentialPres < gift.presentialPres;

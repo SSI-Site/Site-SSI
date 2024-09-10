@@ -1,21 +1,18 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
-import Meta from '../src/infra/Meta';
-import saphira from '../services/saphira';
 import useAuth from '../hooks/useAuth';
-import selectOptions from '../data/registerFormSelectOptions';
+import saphira from '../services/saphira';
+import Meta from '../src/infra/Meta';
 
 // components
 import Button from '../src/components/Button';
 import TokenModal from '../src/components/TokenModal';
-import RegisterForm from '../src/components/RegisterForm';
 import UserGiftCard from '../src/components/UserGiftCard';
 
 // assets
 import gifts from '../data/gifts';
-import CheckBox from '../public/images/icons/lecture-check-box.svg';
 import SecondaryButton from '../src/components/SecondaryButton';
 
 const User = () => {
@@ -159,26 +156,6 @@ const User = () => {
                 </Loading>
             }
 
-            {/* {!isLoading && user && !isUserRegistered &&
-                <FormContainer>
-                    <RegisterForm />
-                </FormContainer>
-            } */}
-
-            {isEditing &&
-                <>
-                    <FormContainer>
-                        <RegisterForm
-                            userInfo={userInfo}
-                            isEditing={true}
-                            cancelCallback={() => {
-                                setIsEditing(false);
-                                window.scrollTo(0, 0);
-                            }} />
-                    </FormContainer>
-                </>
-            }
-
             {!isLoading && !isEditing && user && isUserRegistered &&
                 <>
                     <UserInfoSection>
@@ -266,21 +243,6 @@ const Loading = styled.figure`
     img {
         width: 50%;
         max-width: 250px;
-    }
-`
-
-const FormContainer = styled.section`
-    padding-block: 7.25rem 3.75rem;
-    background: url('./images/background_imgs/background4_mobile.svg') fixed;
-    background-size: cover;
-    overflow-x: hidden;
-
-    @media (min-width:800px) {
-        background-image: url('./images/background_imgs/background4_desktop.svg');
-    }
-
-    @media (min-width:1021px) {
-        padding-block: 6.75rem;
     }
 `
 
@@ -483,15 +445,6 @@ const LecturesList = styled.div`
             margin-bottom: 1rem;
         }
     }
-`
-
-const UserGiftsWrapper = styled.section`
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	display: flex;
-	padding-inline: 2rem;
-	gap: 2rem;
-	flex-direction: column;
 `
 
 const GiftsProgressSection = styled.section`
