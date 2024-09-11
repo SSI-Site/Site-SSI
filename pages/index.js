@@ -1,21 +1,19 @@
-import { React, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import styled from 'styled-components';
+import { React, useEffect, useState } from 'react';
 import CountUp from 'react-countup';
+import styled from 'styled-components';
 
 import Meta from '../src/infra/Meta';
-import useAuth from '../hooks/useAuth';
 import '../utils/slugify';
 
 // components
+import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
 import DateStamp from '../src/components/DateStamp';
-import TwitchWatchNow from '../src/components/TwitchWatchNow';
-import AuthModal from '../src/components/AuthModal';
-import TokenModal from '../src/components/TokenModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleShift';
+import TokenModal from '../src/components/TokenModal';
+import TwitchWatchNow from '../src/components/TwitchWatchNow';
 
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
@@ -336,8 +334,6 @@ const Loading = styled.figure`
 `
 
 const LandingSection = styled.section`
-    background: url('./images/background_imgs/background1_mobile.svg') no-repeat;
-    background-size: cover;
     padding-block: 3.5rem 6.625rem;
 
     .landing-container {
@@ -427,7 +423,6 @@ const LandingSection = styled.section`
     }
 
     @media (min-width:800px) {
-        background-image: url('./images/background_imgs/background1_desktop.svg');
         height: 44rem;
 
         .landing-container {
@@ -476,8 +471,6 @@ const TwitchContainer = styled.div`
 const SubscriptionSection = styled.section`
     padding-block: 6.625rem 3.5rem;
     background-color: var(--color-primary);
-    background-position: bottom left;
-    background-size: cover;
     gap: 2rem;
 
     .subscription-container {
@@ -533,9 +526,6 @@ const SubscriptionSection = styled.section`
 
 const EventInfoSection = styled.section`
     padding-block: 6.625rem 3.5rem;
-    background: url('./images/background_imgs/background2_mobile.svg') no-repeat;
-    background-position: bottom left;
-    background-size: cover;
     gap: 2rem;
 
     .about-container {
@@ -599,7 +589,6 @@ const EventInfoSection = styled.section`
     }
 
     @media (min-width:1000px) {
-        background-image: url('./images/background_imgs/background2_desktop.svg');
         padding-block: 6.75rem;
 
         .about-container {
@@ -734,9 +723,6 @@ const CountdownSection = styled.section`
 
 const ScheduleSection = styled.section`
     padding-block: 3.5rem;
-    background: url('./images/background_imgs/background3_mobile.svg') no-repeat;
-    background-size: contain;
-    background-repeat: repeat;
     
     .schedule-container {
         display: flex;
@@ -762,7 +748,6 @@ const ScheduleSection = styled.section`
     }
 
     @media (min-width:1021px) {
-        background-image: url('./images/background_imgs/background3_desktop.svg');
 
         .schedule-container {
             gap: 4rem;
@@ -799,8 +784,6 @@ const ScheduleSection = styled.section`
 
 const SupportersSection = styled.section`
     padding-block: 3.5rem;
-    background: url('./images/background_imgs/background4_mobile.svg') no-repeat;
-    background-size: cover;
 
     .supporters-container {
         display: flex;
@@ -839,10 +822,6 @@ const SupportersSection = styled.section`
         }
     }
 
-    @media (min-width:600px) {
-        background-image: url('./images/background_imgs/background4_desktop.svg');
-    }
-
     @media (min-width:1000px) {
         padding-block: 6.75rem 11.75rem;
 
@@ -861,7 +840,7 @@ const SupportersSection = styled.section`
 
             .supporters-cards {
                 gap: 1.5rem;
-                max-width: 1232px;
+                max-width: 1328px;
             }
         }
     }

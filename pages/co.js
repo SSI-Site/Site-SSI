@@ -173,17 +173,7 @@ const COExhibitionSection = styled.section`
                 height: auto;
                 object-fit: cover;
                 border: 0.25rem solid white;
-            }
-            
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0.75rem;
-                left: 0.75rem;
-                width: calc(100% - 0.5rem);
-                height: calc(100% - 0.95rem);
-                background-color: var(--color-primary);
-                z-index: -1;
+                box-shadow: 0.5rem 0.5rem 0 var(--color-primary);
             }
         }
     }
@@ -200,13 +190,7 @@ const COExhibitionSection = styled.section`
                 img {
                     max-width: 35rem;
                     border: 0.5rem solid white;
-                }
-
-                &::after {
-                    top: 1.5rem;
-                    left: 1.5rem;
-                    width: calc(100% - 1rem);
-                    height: calc(100% - 1.35rem);
+                    box-shadow: 0.5rem 0.5rem 0 var(--color-primary);
                 }
             }
         }

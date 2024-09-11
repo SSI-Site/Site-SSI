@@ -64,7 +64,6 @@ const LectureItem = ({ time, event,  }) => {
                         </div>
                     }
                 </div>
-                <div className={`lecture-content ${show.includes(time) && 'show-content'}`}>
                     <ScheduleInformation
                         lecture={event}
                         startTime={time}
@@ -75,18 +74,6 @@ const LectureItem = ({ time, event,  }) => {
                         local = {event['local']}
                         endTime={event['endTime']}
                     />
-                </div>
-                {show.includes(time) ?
-                    <div className='open-close-sign-mobile'>
-                        <img src={MinusCircle} alt = "Fechar"></img>
-                        <p>Fechar</p>
-                    </div>
-                :
-                    <div className='open-close-sign-mobile'>
-                        <img src={PlusCircle} alt = "Ver mais"></img>
-                        <p>Ver mais</p>
-                    </div>
-                }
             </LectureWrapper>
         </>
      )

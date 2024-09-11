@@ -3,13 +3,11 @@ import styled from 'styled-components';
 
 import twitch from '../../services/twitch';
 
-// assets
-import TwitchLogo from '../../public/images/social_media/TwitchLogo.svg';
 
 const TwitchWatchNow = () => {
 	
 	const [isLiveStreaming, setIsLiveStreaming] = useState(false);
-	const [streamData, setStreamData] = useState({});
+	// const [streamData, setStreamData] = useState({});
 
 	const getStreamData = () => {
 		twitch.getStreamData()
@@ -18,7 +16,7 @@ const TwitchWatchNow = () => {
 
 				if (streamsData && streamsData.length > 0) {
 					setIsLiveStreaming(true);
-					setStreamData({ ...streamsData[0] });
+					// setStreamData({ ...streamsData[0] });
 				} else {
 					setIsLiveStreaming(false);
 				}
@@ -39,7 +37,10 @@ const TwitchWatchNow = () => {
 					{isLiveStreaming ? (
 						<div className="online-wrap">
 							<div className="online">
-								<img src={TwitchLogo} alt="Twitch Logo" />
+                                {/* Twitch Logo */}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+                                <path d="M27.1596 13.837H30.4963V23.8237H27.1596M36.3296 13.837H39.6663V23.8237H36.3296M16.3329 4.66699L8.00293 12.997V43.0037H17.9896V51.3337L26.3429 43.0037H32.9929L47.9963 28.0003V4.66699M44.6596 26.3437L38.0096 32.9937H31.3363L25.5029 38.827V32.9937H17.9896V8.00366H44.6596V26.3437Z" fill="white"/>
+                                </svg>
 								<div className='text'>
 									<h6 className="streaming">Online</h6>
 									<p>Assistir transmissão</p>
@@ -49,9 +50,12 @@ const TwitchWatchNow = () => {
 						</div>
 					) : (
 						<div className="offline">
-							<img src={TwitchLogo} alt="Twitch Logo" />
+                            {/* Twitch Logo */}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+                            <path d="M27.1596 13.837H30.4963V23.8237H27.1596M36.3296 13.837H39.6663V23.8237H36.3296M16.3329 4.66699L8.00293 12.997V43.0037H17.9896V51.3337L26.3429 43.0037H32.9929L47.9963 28.0003V4.66699M44.6596 26.3437L38.0096 32.9937H31.3363L25.5029 38.827V32.9937H17.9896V8.00366H44.6596V26.3437Z" fill="white"/>
+                            </svg>
 							<div className='text'>
-								<h6>Offline</h6>
+								<h6>offline</h6>
 								<p>Ainda não começamos...</p>
 							</div>
 						</div>
@@ -70,17 +74,12 @@ const TwitchWatchNowWrapper = styled.div`
     flex-direction: row;
 	align-items: center;
 	width: 21rem;
-	height: 6.75rem;
+	height: 5rem;
 
 	a {
 		display: flex;
 		width: 100%;
 		height: 100%;
-	}
-
-	img {
-		width: 1.8rem;
-		margin-right: 2rem;
 	}
 
 	.online-wrap {
@@ -103,9 +102,8 @@ const TwitchWatchNowWrapper = styled.div`
 		display: flex;
     	flex-direction: row;
 		align-items: center;
-		padding: 1.5rem;
+		padding: 0.75rem 1.5rem;
 		background-color: var(--color-neutral-900);
-		border-radius: 12px;
 		transition: 0.3s all ease-in-out;
 	}
 
@@ -116,10 +114,11 @@ const TwitchWatchNowWrapper = styled.div`
     	flex-direction: column;
 		align-items: flex-start;
 		justify-content: space-between;
-		gap: 8px;
 	}
 
 	.offline {
+        display: flex;
+        gap: 1.5rem;
 		background-color: var(--color-neutral-800);
 		border: 4px solid transparent;
 
@@ -143,7 +142,7 @@ const TwitchWatchNowWrapper = styled.div`
 	h6 {
 		letter-spacing: 0.03rem;
 		color: var(--color-neutral-100);
-		margin-left: 32px;
+		margin-left: 24px;
 		position: relative;
     }
 
@@ -156,7 +155,7 @@ const TwitchWatchNowWrapper = styled.div`
 	h6::before {
 		content: '';
 		position: absolute;
-		left: -32px;
+		left: -24px;
 		top: calc(50% - 8px);
 		width: 16px;
 		height: 16px;
@@ -211,12 +210,8 @@ const TwitchWatchNowWrapper = styled.div`
 	}
 
     @media (min-width:560px) {
-		width: 31rem;
-		height: 7.5rem;
-
-		img {
-			width: 4rem;
-		}
+		width: 25rem;
+		height: 5rem;
 
 		.text {
 			width: 100%;
@@ -230,7 +225,6 @@ const TwitchWatchNowWrapper = styled.div`
 			width: 100%;
 			-webkit-line-clamp: 2; // number of lines to show
 			line-clamp: 2;
-        	font: 400 1.25rem/1.5rem 'AT Aero Bold';
 		}
 	}
 `

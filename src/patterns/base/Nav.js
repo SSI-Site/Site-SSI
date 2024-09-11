@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import useAuth from '../../../hooks/useAuth';
 import AuthModal from '../../components/AuthModal';
@@ -11,7 +11,7 @@ import Button from '../../components/Button';
 
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';
-import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg'
+import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg';
 
 const Nav = () => {
 
@@ -246,7 +246,7 @@ const NavWrapper = styled.div`
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        max-width: 1232px; // 1920px - (344px * 2)
+        max-width: 1328px; // 1920px - (344px * 2)
         height: 100%;
 
         a {
