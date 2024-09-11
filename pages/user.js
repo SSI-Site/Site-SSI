@@ -215,10 +215,11 @@ const User = () => {
                                     </Button>
                                 </div>
                                 <h4>Número USP:</h4>
+                                { /* TODO: É necessário implementar a logica do número usp nessa parte */}
                                 {
                                     userInfo.usp_number || numUpsTemp !== '' ? // se o usuário já tiver um número USP vinculado na conta
                                         <>
-                                            <Button>
+                                            <Button onClick={() => { setNumUpsTemp('') }}>
                                                 {numUpsTemp}
                                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white" />
@@ -390,6 +391,7 @@ const UserInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: center;
     background-color: var(--color-neutral-800);
     border-radius: 1rem;
     padding: 2.25rem;
