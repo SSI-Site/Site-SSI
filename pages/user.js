@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
 import styled from 'styled-components';
 
 import useAuth from '../hooks/useAuth';
@@ -8,15 +9,15 @@ import Meta from '../src/infra/Meta';
 
 // components
 import Button from '../src/components/Button';
+import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import UserGiftCard from '../src/components/UserGiftCard';
 
 // assets
 import gifts from '../data/gifts';
-import SecondaryButton from '../src/components/SecondaryButton';
 
 const User = () => {
-    
+
     // // Array de palestras-exemplo para permitir o desenvolvimento do front
     // const lectures = [
     //     'Palestra muito foda 1',
@@ -26,13 +27,15 @@ const User = () => {
 
     const { user, signOut } = useAuth();
     // const { user } = false; // para deploy sem login
-
+    
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [isUserRegistered, setIsUserRegistered] = useState(true); // Lembrar de trocar pra false
     const [userInfo, setUserInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [showList, setShowList] = useState(false);
+    const [addNumberUsp, setAddNumberUsp] = useState(false);
 
     const checkUserRegister = () => {
         if (!user) return;
@@ -71,7 +74,7 @@ const User = () => {
         const name = fullNameParts[0];
         let lastName = "";
 
-        for (let i=1; i<fullNameParts.length; i++) {
+        for (let i = 1; i < fullNameParts.length; i++) {
             lastName += ` ${fullNameParts[i]}`;
         }
 
@@ -98,6 +101,21 @@ const User = () => {
         }
         return count;
     }
+
+    const onSubmit = data => {
+        setIsLoading(true);
+        console.log(data);
+
+        // TODO: fazer a lógica de atualizar o user
+        saphira.updateStudent(data.usp_number)
+            .then((res) => {
+                console.log(res);
+                setIsLoading(false);
+            }).catch((err) => {
+                console.error(err);
+                setIsLoading(false);
+            });
+    };
 
     useEffect(() => {
         // if (isUserRegistered) {
@@ -132,7 +150,7 @@ const User = () => {
             ref.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
-             });
+            });
         }, 1000);
     };
 
@@ -145,7 +163,7 @@ const User = () => {
                         window.location.href = "/"
                     }
                 `
-                }} 
+                }}
             />
 
             <Meta title='SSI 2024 | Meu Perfil' />
@@ -159,34 +177,79 @@ const User = () => {
             {!isLoading && !isEditing && user && isUserRegistered &&
                 <>
                     <UserInfoSection>
-                        <h3>Meu perfil</h3>
+                        <div>
+                            <h2>Meu perfil</h2>
 
-                        <UserInfoWrapper>
-                            <PhotoTextWrapper>
-                                <img className='user-pic' src={user.photoUrl} alt="user picture" />
-                                <div className='text-info'>
-                                    {user.name ?
-                                        <h6>{user.name}</h6>
-                                        :
-                                        <h6>{userInfo.name}</h6>
-                                    }
-                                    <div className='user-info'>
-                                        <p>Email: {user.email}</p>
-                                        <div></div>
+                            <UserInfoWrapper>
+                                <PhotoTextWrapper>
+                                    <img className='user-pic' src={user.photoUrl} alt="user picture" />
+                                </PhotoTextWrapper>
+                                <InfoUser>
+                                    <div className='text-info'>
+                                        {user.name ?
+                                            <h4>{user.name}</h4>
+                                            :
+                                            <h4>{userInfo.name}</h4>
+                                        }
+                                        <div className='user-info'>
+                                            <p>Email: {user.email}</p>
+                                        </div>
                                     </div>
+                                    <div className='btn-wrapper'>
+                                        {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
+                                        <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
+                                    </div>
+                                </InfoUser>
+
+                                <div className="section-info">
+                                    <p>Código SSI:</p>
+                                    <div className='unique-code'>
+                                        <h6>{user.code}</h6>
+                                    </div>
+
+                                    <p>Número USP:</p>
+                                    { /* TODO: É necessário implementar a logica do número usp nessa parte */}
+                                    {userInfo.usp_number ? // se o usuário já tiver um número USP vinculado na conta
+                                        <>
+                                            <Button className='contained-width-btn defined-nusp'>
+                                                {userInfo.usp_number}
+                                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white" />
+                                                </svg>
+                                            </Button>
+                                        </>
+                                        :
+                                        <div className='number-usp'>
+                                            {addNumberUsp ?
+                                                <form onSubmit={handleSubmit(onSubmit)}>
+                                                    <InputBox>
+                                                        <div className='form-input'>
+                                                            <input id='usp_number' type='number' placeholder='Digite aqui...' className={`${errors.usp_number && 'error-border'}`}
+                                                                {...register("usp_number", {required: true, minLength: 5, maxLength: 10 })} />
+                                                        </div>
+                                                        {errors.usp_number && <ErrorMessage> Número USP inválido </ErrorMessage>}
+                                                    </InputBox>
+                                                    <Button className='contained-width-btn'>Salvar</Button>
+                                                </form>
+                                                :
+                                                <SecondaryButton onClick={() => { setAddNumberUsp(true) }}>
+                                                    Adicionar Número USP
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                                        <path d="M19.5 12.998H13.5V18.998H11.5V12.998H5.5V10.998H11.5V4.99805H13.5V10.998H19.5V12.998Z" fill="white"/>
+                                                    </svg>
+                                                </SecondaryButton>
+                                            }
+                                        </div>
+                                    }
                                 </div>
-                            </PhotoTextWrapper>
-                            <div className='btn-wrapper'>
-                                <Button onClick={() => setIsEditing(true)}>Editar perfil</Button>
-                                <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
-                            </div>
-                        </UserInfoWrapper>
+                            </UserInfoWrapper>
+                        </div>
                     </UserInfoSection>
 
                     <LecturesListSection>
                         <div className='lectures-info-wrapper'>
                             <h4>Registro de presenças</h4>
-                            <TokenModal/>
+                            <TokenModal />
                             <div className='lectures-count'>
                                 <p>N<sup>o</sup> total de registros: <span>{lectures.length}</span></p>
                                 <p>N<sup>o</sup> de registros presenciais: <span>{presentialLecturesCount()}</span></p>
@@ -247,8 +310,13 @@ const Loading = styled.figure`
 `
 
 const UserInfoSection = styled.section`
-    padding-block: 7.25rem 3.75rem;
-    gap: 3.5rem;
+    padding-block: 1.5rem;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
     @media (min-width:1021px) {
         padding-block: 6.75rem 3.5rem;
@@ -261,107 +329,234 @@ const UserInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: center;
     background-color: var(--color-neutral-800);
-    border-radius: 1rem;
-    padding: 2.25rem;
+    padding: 1rem;
     gap: 1rem;
 
-    .btn-wrapper {
+    @media (min-width:1021px) {
         width: 100%;
+        gap: 3rem;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 2rem 7rem;
+    }
+
+    .section-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.5rem;
+
+        p {
+            font: 700 0.875rem/1.5rem 'AT Aero Bold';
+        }
+
+        button {
+            padding-inline: 0.75rem;
+        }
+
+        .contained-width-btn {
+            width: fit-content;
+        }
+
+        .defined-nusp {
+            font: 700 1rem/1.5rem 'AT Aero Bold';
+
+            @media (min-width: 801px) {
+                font: 700 1.5rem/2rem 'AT Aero Bold';
+            }
+        }
+    }
+    
+    .unique-code {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.25rem;
+        background-color: var(--color-primary);
+    }
+    
+    .number-usp {
+        display: flex;
+        gap: 0.5rem;
+        width: 100%;
+
+        form {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+            @media (min-width: 801px) {
+                max-width: 16rem;
+            }
+        }
+        
+        input {
+            width: 100%;
+        }
+
+        @media (min-width:1021px) {
+            max-width: 16rem;
+        }
+    }
+`
+
+const ErrorMessage = styled.span`
+    color: var(--color-invalid);
+    text-decoration: underline;
+    position: absolute;
+    bottom: -1.1rem;
+`
+
+const InputBox = styled.div`
+    --color-invalid: #F24822;
+    --color-valid: #14AE5C;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+
+    .form-input {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
-    }
+        width: 100%;
+        background-color: var(--color-neutral-50);
+        padding: 0.5rem;
+        margin-left: -4px;
 
-    @media (min-width:560px) {
-        .btn-wrapper {
-            width: fit-content;
+        border: 2px solid white;
+        background: transparent;
+        background-clip: padding-box;
+        color: white;
+
+        &:has(input[type=number]:focus):not(:has(.error-border)) {
+            border-color: var(--color-primary);
+        }
+
+        &:has(.error-border) {
+            border-color: var(--color-invalid);
+        }
+
+        input[type=number] {
+            width: 95%;
+            border: none;
+            height: fit-content;
+            background-color: transparent;
+            color: white;
+            font: 400 1rem/1.5rem 'AT Aero';
+        }
+
+        ::placeholder {
+            color: white;
+            font: 400 1rem/1.5rem 'AT Aero';
+        }
+
+        ::-ms-input-placeholder {
+            color: white;
+            font: 400 1rem/1.5rem 'AT Aero';
         }
     }
 
-    @media (min-width:1021px) {
-        width: 100%;
-        justify-content: space-between;
-        flex-direction: row;
-        padding: 2rem 6.5rem;
+    /* Remove setas do input number em navegadores */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Remove setas do input number no Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    span {
+        font: 400 0.875rem/1rem 'AT Aero Bold';
+        color: var(--color-invalid);
     }
 `
 
 const PhotoTextWrapper = styled.div`
+    width: 100%;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 1.5rem;
 
-    .user-pic {
-        border-radius: 100%;
-        min-width: 150px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    .text-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-
-        h6 {
-            text-align: center;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-            }
-        }
-    }
-
-    @media (min-width:560px) {
-        .text-info h6 {
-            font: 700 1.5rem/1.75rem 'AT Aero Bold';
-        }
+    @media (min-width:520px) {
+        max-width: 9.375rem;
     }
 
     @media (min-width:1021px) {
         gap: 2rem;
         flex-direction: row;
 
-        .text-info {
-            align-items: flex-start;
+        // .text-info {
+        //     align-items: flex-start;
 
-            h6 {
-                text-align: left;
-                font: 700 2rem/2.5rem 'AT Aero Bold';
-            }
+        //     h6 {
+        //         text-align: left;
+        //         font: 700 2rem/2.5rem 'AT Aero Bold';
+        //     }
 
-            .user-info {
-                display: flex;
-                flex-direction: row;
-                gap: 0.5rem;
+        //     .user-info {
+        //         display: flex;
+        //         flex-direction: row;
+        //         gap: 0.5rem;
     
-                p {
-                    font: 700 1.25rem/1.5rem 'AT Aero Bold';
-                }
+        //         p {
+        //             font: 700 1.25rem/1.5rem 'AT Aero Bold';
+        //         }
 
-                > div {
-                    width: 4px;
-                    height: 28px;
-                    background-color: var(--color-neutral-600);
-                    margin-inline: 1rem;
-                    border-radius: 2px;
-                }
-            }
-        }
+        //         > div {
+        //             width: 4px;
+        //             height: 28px;
+        //             background-color: var(--color-neutral-600);
+        //             margin-inline: 1rem;
+        //             border-radius: 2px;
+        //         }
+        //     }
+        // }
 
     }
 `
+const InfoUser = styled.div`
+    width: 100%;
+    
+    h6 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .user-info {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    @media (min-width:1021px) {
+        button {
+            width: fit-content;
+        }
+    }
+
+    
+`
+
 
 const LecturesListSection = styled.section`
 

@@ -33,7 +33,6 @@ const SecondaryButton = styled.button`
 
     &:hover, &:focus-visible {
         background-position-x: 90%;
-        border: white;
         color: var(--color-primary);
 
         svg path {
