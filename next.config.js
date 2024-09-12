@@ -7,6 +7,6 @@ module.exports = {
         unoptimized: true,
     },
     compiler: {
-      styledComponents: true,
+        styledComponents: true,
     },
 };

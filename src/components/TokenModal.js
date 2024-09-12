@@ -10,7 +10,7 @@ import Button from './Button';
 
 const TOKEN_LENGTH = 5;
 
-const ModalTokenComponent = ({ toggleVisibility }) => {
+const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
 
     const { user } = useAuth();
     
@@ -49,6 +49,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                 setIsInvalid(false);
                 // alert(`Presença Registrada!`);
                 setToken('');
+                if (onSuccess) onSuccess();
                 toggleVisibility();
             })
             .catch(() => {
