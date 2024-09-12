@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
 import styled from 'styled-components';
 
 import useAuth from '../hooks/useAuth';
@@ -8,13 +9,12 @@ import Meta from '../src/infra/Meta';
 
 // components
 import Button from '../src/components/Button';
+import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import UserGiftCard from '../src/components/UserGiftCard';
 
 // assets
 import gifts from '../data/gifts';
-import SecondaryButton from '../src/components/SecondaryButton';
-import InputSecondary from '../src/components/InputSecondary';
 
 const User = () => {
 
@@ -27,7 +27,8 @@ const User = () => {
 
     const { user, signOut } = useAuth();
     // const { user } = false; // para deploy sem login
-
+    
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [isUserRegistered, setIsUserRegistered] = useState(true); // Lembrar de trocar pra false
     const [userInfo, setUserInfo] = useState({});
     const [lectures, setLectures] = useState([]);
@@ -35,7 +36,6 @@ const User = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [showList, setShowList] = useState(false);
     const [addNumberUsp, setAddNumberUsp] = useState(false);
-    const [numUpsTemp, setNumUpsTemp] = useState('');
 
     const checkUserRegister = () => {
         if (!user) return;
@@ -102,6 +102,21 @@ const User = () => {
         return count;
     }
 
+    const onSubmit = data => {
+        setIsLoading(true);
+        console.log(data);
+
+        // TODO: fazer a lógica de atualizar o user
+        saphira.updateStudent(data.usp_number)
+            .then((res) => {
+                console.log(res);
+                setIsLoading(false);
+            }).catch((err) => {
+                console.error(err);
+                setIsLoading(false);
+            });
+    };
+
     useEffect(() => {
         // if (isUserRegistered) {
         //     getPresences();
@@ -162,77 +177,73 @@ const User = () => {
             {!isLoading && !isEditing && user && isUserRegistered &&
                 <>
                     <UserInfoSection>
-                        <h3>Meu perfil</h3>
+                        <div>
+                            <h2>Meu perfil</h2>
 
-                        <UserInfoWrapper>
-                            <PhotoTextWrapper>
-                                <img className='user-pic' src={user.photoUrl} alt="user picture" />
-                            </PhotoTextWrapper>
-                            <InfoUser>
-                                <div className='text-info'>
-                                    {user.name ?
-                                        <h6>{user.name}</h6>
-                                        :
-                                        <h6>{userInfo.name}</h6>
-                                    }
-                                    <div className='user-info'>
-                                        <p>Email: {user.email}</p>
+                            <UserInfoWrapper>
+                                <PhotoTextWrapper>
+                                    <img className='user-pic' src={user.photoUrl} alt="user picture" />
+                                </PhotoTextWrapper>
+                                <InfoUser>
+                                    <div className='text-info'>
+                                        {user.name ?
+                                            <h4>{user.name}</h4>
+                                            :
+                                            <h4>{userInfo.name}</h4>
+                                        }
+                                        <div className='user-info'>
+                                            <p>Email: {user.email}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='btn-wrapper'>
-                                    {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
-                                    <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
-                                </div>
-                            </InfoUser>
+                                    <div className='btn-wrapper'>
+                                        {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
+                                        <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
+                                    </div>
+                                </InfoUser>
 
-                            <div className="section-info">
-                                <h4>Código SSI</h4>
-                                <div className='section-cod-ssi'>
-                                    <Button>
-                                        A24
-                                    </Button>
-                                </div>
-                                <h4>Número USP:</h4>
-                                { /* TODO: É necessário implementar a logica do número usp nessa parte */}
-                                {
-                                    userInfo.usp_number || numUpsTemp !== '' ? // se o usuário já tiver um número USP vinculado na conta
+                                <div className="section-info">
+                                    <p>Código SSI:</p>
+                                    <div className='unique-code'>
+                                        <h6>{user.code}</h6>
+                                    </div>
+
+                                    <p>Número USP:</p>
+                                    { /* TODO: É necessário implementar a logica do número usp nessa parte */}
+                                    {userInfo.usp_number ? // se o usuário já tiver um número USP vinculado na conta
                                         <>
-                                            <Button onClick={() => { setNumUpsTemp('') }}>
-                                                {numUpsTemp}
+                                            <Button className='contained-width-btn defined-nusp'>
+                                                {userInfo.usp_number}
                                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white" />
                                                 </svg>
                                             </Button>
                                         </>
-                                        : // caso o usuário não tenha nenhum número usp vinculado a conta
-                                        <>
+                                        :
+                                        <div className='number-usp'>
                                             {addNumberUsp ?
-                                                <div className='number-usp'>
-                                                    <InputSecondary type="number" placeholder="Digite seu número USP" />
-                                                    <Button className='btn-save-number-usp' onClick={() => setNumUpsTemp("12111111")}>Salvar</Button>
-                                                </div>
+                                                <form onSubmit={handleSubmit(onSubmit)}>
+                                                    <InputBox>
+                                                        <div className='form-input'>
+                                                            <input id='usp_number' type='number' placeholder='Digite aqui...' className={`${errors.usp_number && 'error-border'}`}
+                                                                {...register("usp_number", {required: true, minLength: 5, maxLength: 10 })} />
+                                                        </div>
+                                                        {errors.usp_number && <ErrorMessage> Número USP inválido </ErrorMessage>}
+                                                    </InputBox>
+                                                    <Button className='contained-width-btn'>Salvar</Button>
+                                                </form>
                                                 :
-                                                <div className='number-usp'>
-
-                                                    <SecondaryButton onClick={() => { setAddNumberUsp(true) }} >Adicionar Número USP
-                                                        <svg
-                                                            width="24px"
-                                                            height="24px"
-                                                            viewBox="0 0 48 48"
-                                                            fill="#fff"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                        >
-
-                                                            <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z" />
-                                                        </svg>
-                                                    </SecondaryButton>
-                                                </div>
+                                                <SecondaryButton onClick={() => { setAddNumberUsp(true) }}>
+                                                    Adicionar Número USP
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                                        <path d="M19.5 12.998H13.5V18.998H11.5V12.998H5.5V10.998H11.5V4.99805H13.5V10.998H19.5V12.998Z" fill="white"/>
+                                                    </svg>
+                                                </SecondaryButton>
                                             }
-                                        </>
-                                }
-
-                            </div>
-                        </UserInfoWrapper>
+                                        </div>
+                                    }
+                                </div>
+                            </UserInfoWrapper>
+                        </div>
                     </UserInfoSection>
 
                     <LecturesListSection>
@@ -299,10 +310,13 @@ const Loading = styled.figure`
 `
 
 const UserInfoSection = styled.section`
-    display: flex;
-    align-items: flex-start;
-    padding-block: 1rem;
-    gap: 2rem;
+    padding-block: 1.5rem;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
     @media (min-width:1021px) {
         padding-block: 6.75rem 3.5rem;
@@ -317,24 +331,15 @@ const UserInfoWrapper = styled.div`
     align-items: center;
     align-self: center;
     background-color: var(--color-neutral-800);
-    border-radius: 1rem;
-    padding: 2.25rem;
+    padding: 1rem;
     gap: 1rem;
-
-    .btn-wrapper {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-    }
 
     @media (min-width:1021px) {
         width: 100%;
+        gap: 3rem;
         justify-content: space-between;
         flex-direction: row;
-        padding: 2rem 6.5rem;
+        padding: 2rem 7rem;
     }
 
     .section-info {
@@ -343,48 +348,158 @@ const UserInfoWrapper = styled.div`
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        gap: 1rem;
+        gap: 0.5rem;
+
+        p {
+            font: 700 0.875rem/1.5rem 'AT Aero Bold';
+        }
+
+        button {
+            padding-inline: 0.75rem;
+        }
+
+        .contained-width-btn {
+            width: fit-content;
+        }
+
+        .defined-nusp {
+            font: 700 1rem/1.5rem 'AT Aero Bold';
+
+            @media (min-width: 801px) {
+                font: 700 1.5rem/2rem 'AT Aero Bold';
+            }
+        }
     }
     
-    .section-cod-ssi {
-        width: 4rem;
+    .unique-code {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.25rem;
+        background-color: var(--color-primary);
     }
     
     .number-usp {
         display: flex;
-        gap: 1rem;
+        gap: 0.5rem;
+        width: 100%;
+
+        form {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+            @media (min-width: 801px) {
+                max-width: 16rem;
+            }
+        }
         
-        input{
+        input {
             width: 100%;
         }
 
         @media (min-width:1021px) {
-            input{
-               min-width: 200px;
-            }
-        }
-
-        .btn-save-number-usp{
-            width: 30%;
+            max-width: 16rem;
         }
     }
 `
 
+const ErrorMessage = styled.span`
+    color: var(--color-invalid);
+    text-decoration: underline;
+    position: absolute;
+    bottom: -1.1rem;
+`
+
+const InputBox = styled.div`
+    --color-invalid: #F24822;
+    --color-valid: #14AE5C;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+
+    .form-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: var(--color-neutral-50);
+        padding: 0.5rem;
+        margin-left: -4px;
+
+        border: 2px solid white;
+        background: transparent;
+        background-clip: padding-box;
+        color: white;
+
+        &:has(input[type=number]:focus):not(:has(.error-border)) {
+            border-color: var(--color-primary);
+        }
+
+        &:has(.error-border) {
+            border-color: var(--color-invalid);
+        }
+
+        input[type=number] {
+            width: 95%;
+            border: none;
+            height: fit-content;
+            background-color: transparent;
+            color: white;
+            font: 400 1rem/1.5rem 'AT Aero';
+        }
+
+        ::placeholder {
+            color: white;
+            font: 400 1rem/1.5rem 'AT Aero';
+        }
+
+        ::-ms-input-placeholder {
+            color: white;
+            font: 400 1rem/1.5rem 'AT Aero';
+        }
+    }
+
+    /* Remove setas do input number em navegadores */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Remove setas do input number no Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    span {
+        font: 400 0.875rem/1rem 'AT Aero Bold';
+        color: var(--color-invalid);
+    }
+`
+
 const PhotoTextWrapper = styled.div`
+    width: 100%;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 1.5rem;
 
-    .user-pic {
-        border-radius: 100%;
-        min-width: 150px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    @media (min-width:560px) {
-        .text-info h6 {
-            font: 700 1.5rem/1.75rem 'AT Aero Bold';
-        }
+    @media (min-width:520px) {
+        max-width: 9.375rem;
     }
 
     @media (min-width:1021px) {
@@ -423,23 +538,21 @@ const PhotoTextWrapper = styled.div`
 const InfoUser = styled.div`
     width: 100%;
     
-    h6{
+    h6 {
         font-size: 2rem;
         margin-bottom: 1rem;
     }
 
-    .user-info{
+    .user-info {
         font-size: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
 
-     @media (min-width:1021px) {
-        margin-left: 1.5rem;
-
-        .btn-wrapper{
-            width: 100px;
+    @media (min-width:1021px) {
+        button {
+            width: fit-content;
         }
-     }
+    }
 
     
 `
