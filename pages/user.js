@@ -29,35 +29,29 @@ const User = () => {
     // const { user } = false; // para deploy sem login
     
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [isUserRegistered, setIsUserRegistered] = useState(true); // Lembrar de trocar pra false
-    const [userInfo, setUserInfo] = useState({});
+    const [studentInfo, setStudentInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
-    const [showList, setShowList] = useState(false);
-    const [addNumberUsp, setAddNumberUsp] = useState(false);
+    const [addOrEditNUSP, setAddOrEditNUSP] = useState(false);
 
-    const checkUserRegister = () => {
+    const getStudentInfo = () => {
         if (!user) return;
-        // console.log("Usuário:", user);
 
         setIsLoading(true);
 
         saphira.getStudent()
             .then((res) => {
-                setIsUserRegistered(true);
-                setUserInfo({ ...saphiraUserDataToFormFormat(res.data) });
+                setStudentInfo({ ...saphiraUserDataToFormFormat(res.data) });
                 setIsLoading(false);
             })
             .catch(() => {
-                setIsUserRegistered(false);
                 setIsLoading(false);
             });
     }
 
     const saphiraUserDataToFormFormat = (userData) => {
-        const nameElements = getFullNameComponents(userData.full_name);
-        console.log("nameElements: ", nameElements);
+        const nameElements = getFullNameComponents(userData.name);
 
         const data = {
             name: nameElements.name,
@@ -85,7 +79,7 @@ const User = () => {
     }
 
     const getPresences = () => {
-        saphira.listStudentPresences(user.email)
+        saphira.listStudentPresences()
             .then((res) => {
                 setLectures([...res.data]);
             })
@@ -103,32 +97,32 @@ const User = () => {
     }
 
     const onSubmit = data => {
-        setIsLoading(true);
-        console.log(data);
+        if (data.usp_number === studentInfo.usp_number) {
+            setAddOrEditNUSP(false);
+            return;
+        }
 
-        // TODO: fazer a lógica de atualizar o user
+        setIsLoading(true);
+
         saphira.updateStudent(data.usp_number)
             .then((res) => {
-                console.log(res);
+                setStudentInfo({ ...studentInfo, usp_number: data.usp_number });
+                setAddOrEditNUSP(false);
                 setIsLoading(false);
             }).catch((err) => {
                 console.error(err);
+                setAddOrEditNUSP(false);
                 setIsLoading(false);
             });
     };
 
     useEffect(() => {
-        // if (isUserRegistered) {
-        //     getPresences();
-        // }
-    }, [isUserRegistered]);
-
-    useEffect(() => {
-        // checkUserRegister();
+        getStudentInfo();
+        getPresences();
     }, [user]);
 
     useEffect(() => {
-        // checkUserRegister();
+        getStudentInfo();
     }, []);
 
     const { asPath } = useRouter('/user');
@@ -174,7 +168,7 @@ const User = () => {
                 </Loading>
             }
 
-            {!isLoading && !isEditing && user && isUserRegistered &&
+            {!isLoading && !isEditing && user &&
                 <>
                     <UserInfoSection>
                         <div>
@@ -189,7 +183,7 @@ const User = () => {
                                         {user.name ?
                                             <h4>{user.name}</h4>
                                             :
-                                            <h4>{userInfo.name}</h4>
+                                            <h4>{studentInfo.name}</h4>
                                         }
                                         <div className='user-info'>
                                             <p>Email: {user.email}</p>
@@ -204,23 +198,14 @@ const User = () => {
                                 <div className="section-info">
                                     <p>Código SSI:</p>
                                     <div className='unique-code'>
-                                        <h6>{user.code}</h6>
+                                        <h6>{studentInfo.code}</h6>
                                     </div>
 
                                     <p>Número USP:</p>
                                     { /* TODO: É necessário implementar a logica do número usp nessa parte */}
-                                    {userInfo.usp_number ? // se o usuário já tiver um número USP vinculado na conta
+                                    {addOrEditNUSP ? // se o usuário já tiver um número USP vinculado na conta
                                         <>
-                                            <Button className='contained-width-btn defined-nusp'>
-                                                {userInfo.usp_number}
-                                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white" />
-                                                </svg>
-                                            </Button>
-                                        </>
-                                        :
-                                        <div className='number-usp'>
-                                            {addNumberUsp ?
+                                            <div className='number-usp'>
                                                 <form onSubmit={handleSubmit(onSubmit)}>
                                                     <InputBox>
                                                         <div className='form-input'>
@@ -231,15 +216,28 @@ const User = () => {
                                                     </InputBox>
                                                     <Button className='contained-width-btn'>Salvar</Button>
                                                 </form>
+                                            </div>
+                                        </>
+                                        :
+                                        <>
+                                            {studentInfo.usp_number ?
+                                                <Button className='contained-width-btn defined-nusp' onClick={() => { setAddOrEditNUSP(true) }}>
+                                                {studentInfo.usp_number}
+                                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white" />
+                                                </svg>
+                                                </Button>
                                                 :
-                                                <SecondaryButton onClick={() => { setAddNumberUsp(true) }}>
-                                                    Adicionar Número USP
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                                        <path d="M19.5 12.998H13.5V18.998H11.5V12.998H5.5V10.998H11.5V4.99805H13.5V10.998H19.5V12.998Z" fill="white"/>
-                                                    </svg>
-                                                </SecondaryButton>
+                                                <div className='number-usp'>
+                                                    <SecondaryButton onClick={() => { setAddOrEditNUSP(true) }}>
+                                                        Adicionar Número USP
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                                            <path d="M19.5 12.998H13.5V18.998H11.5V12.998H5.5V10.998H11.5V4.99805H13.5V10.998H19.5V12.998Z" fill="white"/>
+                                                        </svg>
+                                                    </SecondaryButton>
+                                                </div>
                                             }
-                                        </div>
+                                        </>
                                     }
                                 </div>
                             </UserInfoWrapper>
@@ -249,30 +247,25 @@ const User = () => {
                     <LecturesListSection>
                         <div className='lectures-info-wrapper'>
                             <h4>Registro de presenças</h4>
-                            <TokenModal />
+                            <TokenModal  onSuccess={getPresences} />
                             <div className='lectures-count'>
                                 <p>N<sup>o</sup> total de registros: <span>{lectures.length}</span></p>
                                 <p>N<sup>o</sup> de registros presenciais: <span>{presentialLecturesCount()}</span></p>
                             </div>
-                            <Button onClick={() => setShowList(!showList)}>
-                                {showList ? "Ocultar registros" : "Exibir registros"}
-                            </Button>
-                            {showList &&
-                                <LecturesList>
-                                    <div className='lecture-list-container'>
-                                        <ul>
-                                            {lectures.length === 0 &&
-                                                <p className="no-presences-message">Você ainda não tem nenhuma presença registrada...</p>
-                                            }
-                                            {lectures.map((lecture, key) =>
-                                                <li key={key}>
-                                                    {lecture.talk_title} - {lecture.online ? "Online" : "Presencial"}
-                                                </li>)
-                                            }
-                                        </ul>
-                                    </div>
-                                </LecturesList>
-                            }
+                            <LecturesList>
+                                <div className='lecture-list-container'>
+                                    <ul>
+                                        {lectures.length === 0 &&
+                                            <p className="no-presences-message">Você ainda não tem nenhuma presença registrada neste dia...</p>
+                                        }
+                                        {lectures.map((lecture, key) =>
+                                            <li key={key}>
+                                                {lecture.talk_title} - {lecture.online ? "Online" : "Presencial"} - {lecture.date_time}
+                                            </li>)
+                                        }
+                                    </ul>
+                                </div>
+                            </LecturesList>
                         </div>
                     </LecturesListSection>
 
@@ -283,7 +276,7 @@ const User = () => {
                         <div className='user-gifts-wrapper'>
                             {Object.entries(gifts).map(([key, gift]) => {
                                 return (
-                                    <UserGiftCard key={key} index={key} gift={gift} totalPres={10} presentialPres={5}></UserGiftCard>
+                                    <UserGiftCard key={key} index={key} gift={gift} totalPres={lectures.length} presentialPres={presentialLecturesCount()}></UserGiftCard>
                                 )
                             })}
                         </div>
@@ -505,34 +498,6 @@ const PhotoTextWrapper = styled.div`
     @media (min-width:1021px) {
         gap: 2rem;
         flex-direction: row;
-
-        // .text-info {
-        //     align-items: flex-start;
-
-        //     h6 {
-        //         text-align: left;
-        //         font: 700 2rem/2.5rem 'AT Aero Bold';
-        //     }
-
-        //     .user-info {
-        //         display: flex;
-        //         flex-direction: row;
-        //         gap: 0.5rem;
-    
-        //         p {
-        //             font: 700 1.25rem/1.5rem 'AT Aero Bold';
-        //         }
-
-        //         > div {
-        //             width: 4px;
-        //             height: 28px;
-        //             background-color: var(--color-neutral-600);
-        //             margin-inline: 1rem;
-        //             border-radius: 2px;
-        //         }
-        //     }
-        // }
-
     }
 `
 const InfoUser = styled.div`
@@ -553,10 +518,7 @@ const InfoUser = styled.div`
             width: fit-content;
         }
     }
-
-    
 `
-
 
 const LecturesListSection = styled.section`
 
@@ -655,7 +617,7 @@ const GiftsProgressSection = styled.section`
         justify-content: center;
         gap: 1rem;
 
-        @media(min-width: 800px) {
+        @media (min-width: 800px) {
             flex-direction: row;
             flex-wrap: wrap;
             gap: 2rem;

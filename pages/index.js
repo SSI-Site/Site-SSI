@@ -9,11 +9,11 @@ import '../utils/slugify';
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
-import DateStamp from '../src/components/DateStamp';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleShift';
 import TokenModal from '../src/components/TokenModal';
 import TwitchWatchNow from '../src/components/TwitchWatchNow';
+import useAuth from '../hooks/useAuth';
 
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
@@ -28,30 +28,15 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    // const { user, signOut } = useAuth();
-    const { user } = false; // para deploy sem login
+    const { user } = useAuth();
+    // const { user } = false; // para deploy sem login
 
     const [showAuthModal, setShowAuthModal] = useState(false);
-    const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
-    const [isUserRegistered, setIsUserRegistered] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
     }
-
-    const checkUserRegister = () => {
-        if (!user) return;
-        setIsUserRegistered(true);
-    }
-
-    useEffect(() => {
-        checkUserRegister();
-    }, [user]);
-
-    useEffect(() => {
-        checkUserRegister();
-    }, []);
 
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
@@ -121,15 +106,11 @@ const Home = () => {
                                 </>
                             :
                                 <>
-                                {isUserRegistered &&
-                                    <>
-                                        <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2024</h3>
-                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
-                                        </div>
-                                        <TokenModal/>
-                                    </>
-                                }
+                                    <div className='landing-text'>
+                                        <h3>Semana de Sistemas de Informação 2024</h3>
+                                        <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
+                                    </div>
+                                    <TokenModal/>
                                 </>
                             }
                     
@@ -286,9 +267,6 @@ const Home = () => {
                     <div className='title-btn-desktop'>
                         <h3>Programação</h3>
                         <Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                    </div>
-                    <div className='date-stamp'>
-                        <DateStamp day={scheduleDay} showEmoji={false}/>
                     </div>
                     <ScheduleShift
                         day={formatedScheduleDate}
