@@ -161,6 +161,7 @@ const MobileScheduleFilterContainer = styled.div`
         select {
             position: relative;
             width: 100%;
+            min-height: 3rem; 
             color: white;
             background-color: var(--color-neutral-800);
             appearance: none;
