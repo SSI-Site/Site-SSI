@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
             const provider = new GoogleAuthProvider()
             const response = await signInWithPopup(auth, provider)
             const firebaseToken = await getIdToken(response.user)
-            console.log('firebaseToken', firebaseToken)
+            // console.log('firebaseToken', firebaseToken)
 
             try {
                 const loginAPIResponse = await axios.post(
@@ -84,12 +84,13 @@ export function AuthProvider({ children }) {
                 }
             } catch (error) {
                 console.error('Erro ao fazer login no Saphira...', error)
+                signOut()
             }
 
             handleStudent(response.user)
         } catch (error) {
             if (error.code === 'auth/popup-closed-by-user') {
-                console.log('O usuário fechou o pop-up antes de concluir o login.')
+                console.error('O usuário fechou o pop-up antes de concluir o login.')
             }
         } finally {
             setLoading(false)

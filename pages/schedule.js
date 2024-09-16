@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import schedule from '../data/scheduleInformation';
 import Meta from '../src/infra/Meta';

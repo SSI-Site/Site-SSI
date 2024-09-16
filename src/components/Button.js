@@ -24,11 +24,11 @@ const Button = styled.button`
     background-position-x: 200%;                                                        /* Tira o background branco do lugar */
     background-repeat: no-repeat;
 
-    &:disabled {
+    &:disabled, &:disabled:hover, &:disabled:focus-visible {
         --background: var(--color-neutral-800);
         color: var(--color-neutral-600);
-        cursor: unset;
-        pointer-events: none;
+        background-position-x: 200%; 
+        cursor: not-allowed;
     }
 
     &:hover, &:focus-visible {

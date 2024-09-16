@@ -206,7 +206,7 @@ const ModalTokenWrapper = styled.div`
         width: fit-content;
 
         button {
-            background-color: var(--color-background-neutrals-tertiary);
+            background-color: var(--color-neutral-secondary);
             color: var(--color-neutral);
         }
     }

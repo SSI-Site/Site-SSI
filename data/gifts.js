@@ -5,7 +5,6 @@ import Keychain from '../public/images/gifts/keychain.png';
 import Pen from '../public/images/gifts/pen.png';
 import Holder from '../public/images/gifts/holder.png';
 import Copo from '../public/images/gifts/copo.png';
-import Bag from '../public/images/gifts/bag.png';
 
 const gifts = {
     1: {
@@ -43,12 +42,6 @@ const gifts = {
         image: Copo,
         totalPres: 29,
         presentialPres: 18
-    },
-    8: {
-        name: 'Sacochila',
-        image: Bag,
-        totalPres: 35,
-        presentialPres: 20
     }
 }
 
