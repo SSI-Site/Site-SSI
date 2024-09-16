@@ -54,7 +54,7 @@ const Schedule = () => {
         )
     }
 
-	const [dayNumber, setDayNumber] = useState(0);
+	const [dayNumber, setDayNumber] = useState(isDuringEvent(activeItem)? dayFull.indexOf(activeItem) : 0);
 
 	const moveDayNumber = (num) => {
 		setDayNumber(dayNumber + num)
