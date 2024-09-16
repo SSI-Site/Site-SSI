@@ -14,7 +14,7 @@ const shifts = ['Manhã', 'Tarde', 'Noite'];
 
 const dayOfSSI = ["07 Out", "08 Out", "09 Out", "10 Out", "11 Out"]
 const dayFull = ["2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11"]
-const weekDays = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
+const weekDays = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira"]
 
 const Schedule = () => {
 
@@ -303,7 +303,7 @@ const ButtonFilter = styled.button`
 	&:disabled {
 		background-image: none;
 		background-color: var(--color-neutral-secondary);
-		pointer-events: none;
+        cursor: not-allowed;
 
 		svg {
 			path {
