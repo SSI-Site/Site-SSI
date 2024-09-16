@@ -13,6 +13,7 @@ import ScheduleShift from '../src/components/ScheduleShift';
 const shifts = ['Manhã', 'Tarde', 'Noite'];
 
 const dayOfSSI = ["07 Out", "08 Out", "09 Out", "10 Out", "11 Out"]
+const dayFull = ["2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11"]
 const weekDays = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
 
 const Schedule = () => {
@@ -54,6 +55,11 @@ const Schedule = () => {
     }
 
 	const [dayNumber, setDayNumber] = useState(0);
+
+	const moveDayNumber = (num) => {
+		setDayNumber(dayNumber + num)
+		setActiveItem(dayFull[dayNumber + num])
+	}
 
     return (
         <>
@@ -124,7 +130,7 @@ const Schedule = () => {
 
 				<MobileBarFilterContainer>
 					<div className='filter-container'>
-						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => setDayNumber(dayNumber - 1)}>
+						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
@@ -133,7 +139,7 @@ const Schedule = () => {
 							<p>{dayOfSSI[dayNumber]}</p>
 							<p>{weekDays[dayNumber]}</p>
 						</div>
-						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => setDayNumber(dayNumber + 1)}>
+						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => moveDayNumber(1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
@@ -151,13 +157,13 @@ const Schedule = () => {
 						<p>{dayOfSSI[dayNumber]} - {weekDays[dayNumber]}</p>
 					</div>
 					<div className='filter-button-container'>
-						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => setDayNumber(dayNumber - 1)}>
+						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
 						</ButtonFilter>
 
-						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => setDayNumber(dayNumber + 1)}>
+						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => moveDayNumber(1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
