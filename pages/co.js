@@ -140,14 +140,14 @@ const CO = () => {
 export default CO;
 
 const COExhibitionSection = styled.section`
-    padding-block: 3rem;
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .exhibition-container {
+        border-inline: 1px solid var(--color-neutral-secondary);
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
 
         .title-text {
             display: flex;
@@ -155,6 +155,8 @@ const COExhibitionSection = styled.section`
             align-items: start;
             justify-content: center;
             gap: 1.5rem;
+            padding: 1.5rem 1rem 1.5rem 1rem;
+            border-bottom: 1px solid var(--color-neutral-secondary);
 
             h6 span {
                 font: inherit;
@@ -165,6 +167,7 @@ const COExhibitionSection = styled.section`
         .image-container {
             width: 100%;
             max-width: 25rem;
+            padding: 1.5rem 1.5rem 1.5rem 1rem;
             position: relative;
             z-index: 1;
             
@@ -179,16 +182,24 @@ const COExhibitionSection = styled.section`
     }
 
     @media (min-width:1021px) {
-        padding-block: 7.5rem;
-        
         .exhibition-container {
             flex-direction: row;
+            
+            .title-text {
+                height: 48rem;
+                width: 50%;
+                border-bottom: 0;
+                border-right: 1px solid var(--color-neutral-secondary);
+                padding-block: 0;
+            }
 
             .image-container {
                 max-width: 50rem;
+                width: 50%;
+                padding: 0 1.5rem 0rem 1rem;
 
                 img {
-                    max-width: 35rem;
+                    max-width: 45rem;
                     border: 0.5rem solid white;
                     box-shadow: 0.5rem 0.5rem 0 var(--color-primary);
                 }
@@ -198,7 +209,6 @@ const COExhibitionSection = styled.section`
 `
 
 const COMembersSection = styled.section`
-    padding-block: 0.5rem 4rem;
 
     h3 {
         text-align: center;
@@ -223,7 +233,7 @@ const MobileCOFilterContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-block: 0 0.5rem;
+    padding-block: 1.5rem;
 
     .select-wrapper {
         width: 100%;
@@ -284,6 +294,7 @@ const DesktopCOFilterContainer = styled.div `
         align-items: center;
         justify-content: center;
         width: 100%;
+        padding-block: 4rem 2rem;
 
         .members-container {
             gap: 1rem;
@@ -340,9 +351,9 @@ const MemberCardsWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-bottom: 4rem;
 
     @media (min-width:800px) {
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
 `

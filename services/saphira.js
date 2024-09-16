@@ -8,44 +8,6 @@ const REFRESH_TOKEN = 'refresh_token'
 const STUDENT_ID = 'student_id'
 
 
-// const saphira = {
-
-//     // Para o exemplo -> COMENTAR
-//     getActivity: async () => {
-//         try {
-//             const response = await axios.get(base_url);
-//             return response.data;
-//         } catch (err) {
-//             console.log(err);
-//         }
-//     },
-
-//     registerUser: async (userData) => {
-//         const requestUrl = API_BASE_URL + "/user/add";
-
-//         const params = {
-//             full_name: userData.fullName,
-//             email: userData.email,
-//             usp_number: userData.usp_number,
-//             data_nascimento: userData.birthDate,
-//             genero: userData.gender,
-//             etnia: userData.ethnicity,
-//             curso: userData.course,
-//             periodo_curso: userData.graduationPeriod,
-//             como_conheceu: userData.knowAbout,
-//             em_estagio: userData.isInInternship,
-//             aceita_receber_email: userData.acceptedRecieveEmails
-//         };
-
-//         return axios.get(requestUrl, { params });
-//     },
-// }
-
-// export default saphira;
-
-
-
-
 const saphira = {
 
     // Para o exemplo -> COMENTAR

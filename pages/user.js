@@ -247,11 +247,11 @@ const User = () => {
                     <LecturesListSection>
                         <div className='lectures-info-wrapper'>
                             <h4>Registro de presenças</h4>
-                            <TokenModal  onSuccess={getPresences} />
                             <div className='lectures-count'>
-                                <p>N<sup>o</sup> total de registros: <span>{lectures.length}</span></p>
-                                <p>N<sup>o</sup> de registros presenciais: <span>{presentialLecturesCount()}</span></p>
+                                <p>Total de registros: <span>{lectures.length}</span></p>
+                                <p>Registros presenciais: <span>{presentialLecturesCount()}</span></p>
                             </div>
+                            <TokenModal  onSuccess={getPresences} />
                             <LecturesList>
                                 <div className='lecture-list-container'>
                                     <ul>
@@ -304,6 +304,7 @@ const Loading = styled.figure`
 
 const UserInfoSection = styled.section`
     padding-block: 1.5rem;
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     > div {
         display: flex;
@@ -312,7 +313,7 @@ const UserInfoSection = styled.section`
     }
 
     @media (min-width:1021px) {
-        padding-block: 6.75rem 3.5rem;
+        padding-block: 6.75rem 2rem;
         gap: 3.5rem;
     }
 `
@@ -521,6 +522,8 @@ const InfoUser = styled.div`
 `
 
 const LecturesListSection = styled.section`
+    padding-block: 2rem;
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .lectures-info-wrapper {
         display: flex;

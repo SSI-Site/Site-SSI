@@ -242,6 +242,20 @@ const GiftContainer = styled.div`
     }
 
 	@media (min-width:1021px) {
+        width: 26.3rem;
+
+        .gift-card-front {
+            width: 26.3rem;
+            height: 24.625rem;
+            gap: 1.12rem;
+        }
+
+        .gift-card-back {
+            width: 26.3rem;
+            height: 24.625rem;
+            padding: 2rem;
+        }
+
 		&:hover, &:focus-visible {
 			.gift-card-back {
 				translate: 0 0;
