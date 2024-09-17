@@ -725,25 +725,27 @@ const ScheduleSection = styled.section`
 `
 
 const SupportersSection = styled.section`
-    padding-block: 3.5rem;
+    padding-block: 1rem;
 
     .supporters-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3.5rem;
+        gap: 1rem;
 
         .supporters-title {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             max-width: 63.5rem;
 
             h3 {
                 text-align: center;
+				background-color: var(--color-primary);
+				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
             p {
@@ -755,14 +757,22 @@ const SupportersSection = styled.section`
 
         .supporters-cards {
             display: flex;
-            flex-direction: row;
-            flex-flow: wrap;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 1rem;
             width: 100%;
         }
     }
+
+	@media (min-width: 800px) {
+		.supporters-container {
+			.supporters-cards {
+				flex-direction: row;
+				flex-flow: wrap;
+			}
+		}
+	}
 
     @media (min-width:1000px) {
         padding-block: 6.75rem 11.75rem;
@@ -772,7 +782,7 @@ const SupportersSection = styled.section`
 
             .supporters-title {
                 h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
+                    font: 700 3rem/3.5rem 'AT Aero Bold';
                 }
 
                 p {
