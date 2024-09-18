@@ -44,13 +44,13 @@ const LectureItem = ({ time, event }) => {
                     <p>{event.description}</p>
                 </div>
 
-                {Object.entries(event.speakers).map(([key, speaker], index) => {
-                    return (
-                        <SpeakersWrapper key = {index}>
-                            <SpeakerInfo speaker = {speaker}/>
-                        </SpeakersWrapper>
-                    )
-                })}
+                <SpeakersWrapper>
+                    {Object.entries(event.speakers).map(([key, speaker], index) => {
+                        return (
+                                <SpeakerInfo key = {index} speaker = {speaker}/>
+                        )
+                    })}
+                </SpeakersWrapper>
 
             </LectureContent>
 
@@ -164,5 +164,6 @@ const SpeakersWrapper = styled.div`
 
     @media screen and (min-width:801px) {
         flex-direction: row;
+        width: 100%;
     }
 `

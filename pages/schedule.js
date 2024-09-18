@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-import schedule from '../data/scheduleInformation';
+import schedule from '../data/schedule';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 
@@ -172,6 +172,19 @@ const Schedule = () => {
 
 export default Schedule;
 
+const ScheduleSection = styled.section`
+    padding-block: 1.5rem;
+
+    @media (min-width:600px) {
+        padding-block: 7.5rem 3.75rem;
+
+        h1 {
+            width: 100%;
+            max-width: 1328px; 
+        }
+    }
+`
+
 const MobileBarFilterContainer = styled.div`
 	position: sticky;
 	top: 0;
@@ -183,7 +196,8 @@ const MobileBarFilterContainer = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		border-top: 0.0625rem solid var(--color-neutral-secondary);
+
+        box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
 		border-bottom: 0.0625rem solid var(--color-neutral-secondary);
 	}
 
@@ -202,7 +216,7 @@ const DesktopBarFilterContainer = styled.div`
 	display: none;
 
 	@media(min-width: 600px) {
-		height: 5rem;
+		height: calc(5rem - (2 * 0.0625rem));
 		display: flex;
 		position: sticky;
 		top: 0;
@@ -210,8 +224,8 @@ const DesktopBarFilterContainer = styled.div`
 		justify-content: space-between;
 		align-items: center;
 		background-color: var(--color-neutral);
-		
-		border-top: 0.0625rem solid var(--color-neutral-secondary);
+
+		box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
 		border-bottom: 0.0625rem solid var(--color-neutral-secondary);
 
 		div {
@@ -303,27 +317,12 @@ const ButtonFilter = styled.button`
 	}
 `
 
-const ScheduleSection = styled.section`
-    padding-block: 1.5rem;
-    gap: 1rem;
-
-    @media (min-width:600px) {
-        padding-block: 7.5rem 3.75rem;
-        gap: 2rem;
-
-        h1 {
-            width: 100%;
-            max-width: 1328px; 
-        }
-    }
-`
-
 const MobileScheduleFilterContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-block: 1rem 1.5rem;
+    padding-block: 2rem 2.5rem;
 
     .select-wrapper {
         width: 100%;
@@ -384,6 +383,7 @@ const DesktopSelectionContainer = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
+        padding-block: 2rem 4rem;
 
         .schedule-container {
             gap: 1rem;

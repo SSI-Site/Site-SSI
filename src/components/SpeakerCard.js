@@ -144,7 +144,7 @@ const SpeakerWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: var(--color-neutral-800);
-    z-index: 12;
+    z-index: 20;
     position: fixed;
     top: 0;
     left: 0;
@@ -184,7 +184,7 @@ const SpeakerContent = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    z-index: 12;
+    z-index: 15;
 `
 
 const SpeakerHead = styled.div`
@@ -193,7 +193,7 @@ const SpeakerHead = styled.div`
     align-items: center;
     padding: 1.75em;
     width: 100%;
-    z-index: 13;
+    z-index: 15;
 
     div {
         padding: .5em .75em;
@@ -231,7 +231,7 @@ const SpeakerInfo = styled.div`
     gap: 1.75em;
     padding: 0em 1.75em;
     margin-bottom: 1.7em; // 1.7em + gap .5em
-    z-index: 12;
+    z-index: 15;
 
     label{
         font-family: 'AT Aero Bold';

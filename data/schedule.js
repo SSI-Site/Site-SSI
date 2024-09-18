@@ -54,14 +54,48 @@ import Lecture43_CassioSantos from '../public/images/lecture_imgs/00-Member_Shad
 
 
 const schedule = {
+    // Modelo de como adicionar uma nova palestra
+    // 'aaaa-mm-dd' : {
+    //     'hh:mm' : {
+    //         title : 'Nome do intervalo/janta/almoço',
+    //         endTime : 'hh:mm',
+    //     },
+    //     'hh:mm' : {
+    //         title : 'Título da palestra',
+    //         description : 'Descrição da palestra',
+    //         local : 'presential',// presential ou online
+    //         endTime : 'hh:mm',
+    //         activityType : 'Workshop',// se não for 'Workshop', deixar vazio
+    //         speakers : [
+    //             {
+    //                 'name': 'Nome da palestrante',
+    //                 'pronouns': 'ela/dela',
+    //                 'role': 'Cargo',
+    //                 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+    //                 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+    //                 'image': Lecture01_NomeSobrenome
+    //             },
+    //             {
+    //                 'name': 'Nome do palestrante',
+    //                 'pronouns': 'ele/dele',
+    //                 'role': 'Cargo',
+    //                 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',
+    //                 'image': Lecture01_NomeSobrenome
+    //             },
+    //         ],
+    //     },
+    // },
     '2024-10-07' : {
         '08:40' : {
-            title : 'Abertura'
+            title : 'Abertura',
+            endTime : '09:00',
         },
         '10:00' : {
             title : 'Como usar o exemplo no arquivo scheduleInformation.js para organizar a programação',
             description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit - descrição da palestra, que pode ser longa, mas tem limite para caber dentro da div que está no desgin - deve ser cerca de sei lá quantos caracteres no total.',
             local : 'presential',// presential ou online
+            endTime : '11:00',
+            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
                     'name': 'Palestrante Exemplar',
@@ -72,20 +106,30 @@ const schedule = {
                     'description': 'Descrição do palestrante. Também tem lmite de caracteres, mas não sei exatamente qual é. Deve caber dentro do design sem quebrar nada',
                     'image': Lecture01_NomeSobrenome
                 },
+                {
+                    'name': 'Palestrante Exemplar',
+                    'pronouns': 'ela/dela',
+                    'role': 'Cargo do Exemplo',
+                    'instagram': 'https://www.instagram.com/semanadesi',
+                    'linkedin' : 'https://www.linkedin.com/in',
+                    'description': 'Descrição do palestrante. Também tem lmite de caracteres, mas não sei exatamente qual é. Deve caber dentro do design sem quebrar nada',
+                    'image': Lecture01_NomeSobrenome
+                },
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '11:20' : {
             title : 'Inteligência Artificial - O que mudou nos dispositivos conectados e no desenvolvimento de software?',
             description : 'Jorge Maia é Arquiteto de soluções de IoT e Nuvem na CrazyTechLabs desde 2014. Reconhecido como Learn Expert e Regional Lead para Treinadores Certificados pela Microsoft, que também o premiou nos últimos 7 anos o MVP (Most Valuable Professional) na categoria de Azure e IoT, é também Mestre em Sistemas Mecatrônicos e Doutorando no tema.\n Nesta sessão ele discutirá com a audiência sobre o panorama de soluções conectadas e também sobre as evoluções no desenvolvimento de software com a chegada do GPT e outras ferramentas de IA.',
             local : 'presential',// presential ou online
+            endTime : '12:00',
+            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
                 {'name': 'Jorge Maia', 'linkedin' : 'https://www.linkedin.com/in/jorgeasmaia/', 'image': Lecture02_JorgeMaia},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '12:20' : {
-            title : 'Almoço'
+            title : 'Almoço',
+            endTime : '13:00',
         },
         '13:20' : {
             title : 'IA Enterprise - o "Mundo Real"',
@@ -94,7 +138,6 @@ const schedule = {
             speakers : [
                 {'name': 'Fernando De Come', 'linkedin': 'https://www.linkedin.com/in/fernandodecome/', 'image': Lecture03_FernandoDeCome},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '14:40' : {
             title : 'Desmistificando Pós-graduação em SI',
@@ -104,7 +147,6 @@ const schedule = {
             speakers : [
                 {'name': 'Felipe Furquim', 'image': Lecture04_FelipeFurquim},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '15:10' : {
             title : 'Introdução a Containers: Benefícios e Trade-offs',
@@ -114,7 +156,6 @@ const schedule = {
             speakers : [
                 {'name': 'Renan Nakazawa', 'image': Lecture04_RenanNakazawa},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '16:00' : {
             title : 'Desmistificando a carreira em tecnologia: de estágio a liderança técnica',
@@ -123,7 +164,6 @@ const schedule = {
             speakers : [
                 {'name': 'Kamila Santos Oliveira', 'linkedin': 'https://www.linkedin.com/in/kamila-santos-oliveira', 'image': Lecture05_KamilaSantos}
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '17:20' : {
             title : 'ChatGPT: hype or reality? (Poatek)',
@@ -132,10 +172,10 @@ const schedule = {
             speakers : [
                 {'name': 'Milton Leal', 'website': 'https://poatek.com/', 'image': Lecture06_MiltonLeal},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '18:20' : {
-            title : 'Jantar'
+            title : 'Jantar',
+            endTime : '19:00',
         },
         '19:20' : {
             title : 'Além do Código: Habilidades Vitais para Desenvolvedores (Rocketseat)',
@@ -144,7 +184,6 @@ const schedule = {
             speakers : [
                 {'name': 'Jakeliny Gracielly', 'website': 'https://www.rocketseat.com.br/', 'image': Lecture07_JakelinyGracielly},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '20:40' : {
             title : 'Computação Quântica: o que é, e aplicações em biotecnologia', // Computação quântica
@@ -153,7 +192,6 @@ const schedule = {
             speakers : [
                 {'name': 'André Juan Ferreira Martins', 'image': Lecture08_AndreJuan},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
     },
     '2024-10-08' : {
@@ -166,7 +204,6 @@ const schedule = {
                 {'name': 'Gustavo Almeida de Jesus', 'website': 'https://intheshell.page/', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_GustavoAlmeida*/},
                 {'name': 'Eduarda Lima Porongaba', 'website': 'https://intheshell.page/', /*'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Lecture09_EduardaLima*/},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '09:10' : {
             title : 'SSI Talks:  Revelando padrões ocultos - análises e aplicações de dados das redes sociais',
@@ -186,7 +223,6 @@ const schedule = {
             speakers : [
                 {'name': 'Leonardo Dalri', 'image': Lecture10_LeonardoDalri},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '11:20' : {
             title : 'Modularização: Vantagens e desvantagens',
@@ -195,7 +231,6 @@ const schedule = {
             speakers : [
                 {'name': 'Aline Souza', 'linkedin' : 'https://www.linkedin.com/in/assouza94/', 'image': Lecture11_AlineSouza},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '12:20' : {
             title : 'Almoço'
@@ -207,7 +242,6 @@ const schedule = {
             speakers : [
                 {'name': 'Luiz Paulo Carvalho', 'image': Lecture12_LuizPaulo},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '14:40' : {
             title : 'UX, deficiência e um mercado emergente',
@@ -216,7 +250,6 @@ const schedule = {
             speakers : [
                 {'name': 'Janaina Moreira', 'image': Lecture13_JanainaMoreira},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '16:00' : {
             title : 'Data Science skills: O que o mercado busca?',
@@ -225,7 +258,6 @@ const schedule = {
             speakers : [
                 {'name': 'Juliana Mascarenhas', 'linkedin': 'https://www.linkedin.com/in/juliana-mascarenhas-ds/', 'image': Lecture14_JulianaMascarenhas}
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '17:20' : {
             title : 'Push Notifications na Web moderna',
@@ -234,7 +266,6 @@ const schedule = {
             speakers : [
                 {'name': 'Andrew Rosário', 'image': Lecture15_AndrewRosario},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '18:20' : {
             title : 'Jantar'
@@ -246,7 +277,6 @@ const schedule = {
             speakers : [
                 {'name': 'Luiz de Oliveira', /*'website': 'https:semanadesi.com' Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture16_LuizDeOliveira},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '20:40' : {
             title : 'Trabalhando com Game Design no Brasil',
@@ -255,7 +285,6 @@ const schedule = {
             speakers : [
                 {'name': 'Davi Arcos Baptista', 'linkedin': 'https://www.linkedin.com/in/davi-baptista/', 'image': Lecture17_DaviBaptista},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         }
     },
     '2024-10-09' : {
@@ -266,7 +295,6 @@ const schedule = {
             speakers : [
                 {'name': 'Carlos Rischioto', 'image': Lecture18_CarlosRischioto},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '10:00' : {
             title : 'SSI Talks: Carreiras de um aluno de SI: além do front e backend',
@@ -276,7 +304,6 @@ const schedule = {
                 {'name': 'Giovanna Arana Paganotti', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 {'name': 'Guilherme Fernandes da Costa', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '11:20' : {
             title : 'Segurança da Informação: Conheça uma das profissões mais promissoras do mercado',
@@ -285,7 +312,6 @@ const schedule = {
             speakers : [
                 {'name': 'Meirylene Avelino', 'linkedin': 'https://www.linkedin.com/in/meiryleneavelino/', 'image': Lecture20_MeyrileneAvelino},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '12:20' : {
             title : 'Almoço'
@@ -297,7 +323,6 @@ const schedule = {
             speakers : [
                 {'name': 'Antonio Carlos Meira Neto', 'linkedin': 'https://www.linkedin.com/in/ac-meira/', 'image': Lecture21_AntonioCarlos},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '14:40' : {
             title : 'Os bastidores do ChatGPT: Como funciona esta tecnologia de PLN?',
@@ -306,7 +331,6 @@ const schedule = {
             speakers : [
                 {'name': 'Luciano Antonio Digiampietri', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture22_LucianoDigiampietri},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '16:00' : {
             title : 'Descomplicando as Entrevistas',
@@ -315,7 +339,6 @@ const schedule = {
             speakers : [
                 {'name': 'Carolina Galvão de Oliveira', 'linkedin': 'https://www.linkedin.com/in/carolina-galv%C3%A3o/', 'image': Lecture23_CarolinaGalvao},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '17:20' : {
             title : 'CSI brasileiro - a tecnologia nacional que identifica criminosos ao redor do mundo (Griaule)',
@@ -324,7 +347,6 @@ const schedule = {
             speakers : [
                 {'name': 'Clara Santos', 'website': 'https://griaule.com/', 'image': Lecture24_ClaraSantos},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '18:20' : {
             title : 'Jantar'
@@ -336,7 +358,6 @@ const schedule = {
             speakers : [
                 {'name': 'Giulia Bordignon', 'image': Lecture25_GiuliaBordignon},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '20:40' : {
             title : 'Quem é essa tal de Experiência do Usuário? ',
@@ -345,7 +366,6 @@ const schedule = {
             speakers : [
                 {'name': 'Mayza Cristina da Silva', 'linkedin': 'https://www.linkedin.com/in/mayzasilva/', 'image': Lecture26_MayzaCristina},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         }
     },
     '2024-10-10' : {
@@ -356,7 +376,6 @@ const schedule = {
             speakers : [
                 {'name': 'Roberto Azevedo', 'image': Lecture27_RobertoAzevedo},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '10:00' : {
             title : 'Tecnologia & Inovação: a prática da teoria e a teoria na prática (BCR CX)',
@@ -365,7 +384,6 @@ const schedule = {
             speakers : [
                 {'name': 'Rodrigo Leme Freitas', 'website': 'https://www.bcrcx.com/', 'image': Lecture28_RodrigoLeme},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '11:20' : {
             title : 'Fazer Jogos NÃO É Arte',
@@ -374,7 +392,6 @@ const schedule = {
             speakers : [
                 {'name': 'Ygor Speranza', 'linkedin': 'https://www.linkedin.com/in/ygor-speranza-391a4b29/', 'image': Lecture29_YgorSperanza},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '12:20' : {
             title : 'Almoço'
@@ -387,7 +404,6 @@ const schedule = {
                 {'name': 'Silvia Trein Heimfarth Dapper', 'image': Lecture30_SilviaTrein},
 
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '14:40' : {
             title : 'Desenvolvimento de Software em Estágios: Do Conceito ao MVP',
@@ -397,7 +413,6 @@ const schedule = {
                 {'name': 'Leandro Meili', 'website': 'https://bcrcx.com'/*Informações de contato*/, 'image': Lecture31_LeandroMeili/*Aqui vem a imagem do palestrante*/},
                 {'name': 'Guilherme Nascimento', /*'website': 'https:semanadesi.com', 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01/*Aqui vem a imagem do palestrante*/},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '16:00' : {
             title : 'Dicas para um pitch de sucesso!',
@@ -406,7 +421,6 @@ const schedule = {
             speakers : [
                 {'name': 'Renata Miranda', 'image': Lecture32_RenataMiranda/*Aqui vem a imagem do palestrante*/},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '17:20' : {
             title : 'Carreiras em tecnologias quânticas',
@@ -415,7 +429,6 @@ const schedule = {
             speakers : [
                 {'name': 'Bruna Shinohara de Mendonça', 'image': Lecture33_BrunaShinohara},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '18:20' : {
             title : 'Jantar'
@@ -427,7 +440,6 @@ const schedule = {
             speakers : [
                 {'name': 'Vitor David', 'linkedin': 'https://www.linkedin.com/in/vitordavid/', 'image': Lecture34_VitorDavid},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '20:40' : {
             title : 'Explorando tecnologias imersivas: AR, VR e metaverso e o impacto na sociedade e negócios ',
@@ -436,7 +448,6 @@ const schedule = {
             speakers : [
                 {'name': 'Jefferson Brandão', 'linkedin': 'https://www.linkedin.com/in/jeff-brandao/', 'image': Lecture35_JeffersonBrandao},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         }
     },
     '2024-10-11' : {
@@ -448,7 +459,6 @@ const schedule = {
             speakers : [
                 {'name': 'Gabriel Medeiros Jospin', /*'website': 'https:semanadesi.com', Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture36_GabrielMedeiros},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '09:10' : {
             title : 'SSI Talks: Aprender divulgando conhecimento',
@@ -459,7 +469,6 @@ const schedule = {
                 {'name': 'Palácio', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
                 {'name': 'Giovanna Paganotti', /*'website': 'https:semanadesi.com'/*Informações de contato, 'linkedin' : 'https://semanadesi.com',*/ 'image': Lecture00_SpeakerName01},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '10:00' : {
             title : 'Maximizando a Eficiência nas Entregas por Meio das Métricas de Fluxo',
@@ -468,7 +477,6 @@ const schedule = {
             speakers : [
                 {'name': 'Thyago Thompson Veras Oliveira', 'image': Lecture37_ThyagoOliveira},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '11:20' : {
             title : 'Diferentes formas de se fazer DevOps',
@@ -477,7 +485,6 @@ const schedule = {
             speakers : [
                 {'name': 'Leonardo Alexandre Ferreira Leite', 'linkedin': 'https://www.linkedin.com/in/leonardo-alexandre-ferreira-leite-phd-17194322/', 'image': Lecture38_LeonardoLeite},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '12:20' : {
             title : 'Almoço'
@@ -489,7 +496,6 @@ const schedule = {
             speakers : [
                 {'name': 'Simara Conceição do Nascimento', 'linkedin': 'https://www.linkedin.com/in/simaraconceicao/', 'image': Lecture39_SimaraConceicao},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '14:40' : {
             title : 'Projeto CARINA: Sistemas de Atenção Visual para Navegação Autônoma',
@@ -498,7 +504,6 @@ const schedule = {
             speakers : [
                 {'name': 'Diego Renan Bruno', 'linkedin' : '', 'image': Lecture40_DiegoRenan},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '16:00' : {
             title : 'Arquiteturas de Processamento de Dados na Nuvem',
@@ -507,7 +512,6 @@ const schedule = {
             speakers : [
                 {'name': 'Luiz Yanai', 'image': Lecture41_LuizYanai}
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '17:20' : {
             title : 'Carreira em desenvolvimento de jogos',
@@ -516,7 +520,6 @@ const schedule = {
             speakers : [
                 {'name': 'Karol Attekita', 'linkedin': 'https://www.linkedin.com/in/bullas-attekita/', 'image': Lecture42_KarolAttekita},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '18:20' : {
             title : 'Jantar'
@@ -529,7 +532,6 @@ const schedule = {
                 {'name': 'Larissa Benevides', 'linkedin' : 'https://www.linkedin.com/in/larissa-benevides/', 'image': Lecture43_LarissaBenevides},
                 {'name': 'Cassio Santos', 'image': Lecture43_CassioSantos},
             ],
-            image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },
         '20:40' : {
             title : 'Encerramento',
