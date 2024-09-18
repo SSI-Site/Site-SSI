@@ -8,9 +8,7 @@ import '../utils/slugify';
 
 // components
 import DateStamp from '../src/components/DateStamp';
-import ScheduleShift from '../src/components/ScheduleShift';
-
-const shifts = ['Manhã', 'Tarde', 'Noite'];
+import ScheduleItems from '../src/components/ScheduleItems';
 
 const dayOfSSI = ["07 Out", "08 Out", "09 Out", "10 Out", "11 Out"]
 const dayFull = ["2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11"]
@@ -42,15 +40,7 @@ const Schedule = () => {
         }
 
         return (
-            shifts.map(function(shift, key) {
-                return (
-                    <ScheduleShift
-                        key={key}
-                        day={activeItem}
-                        shift={shift}
-                    />
-                )
-            })
+            <ScheduleItems day={activeItem} />
         )
     }
 
@@ -412,10 +402,6 @@ const DayScheduleWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 2rem;
-
-    > div {
-        margin-top: 1rem;
-    }
 
     @media (min-width:600px) {
         gap: 3.6rem;

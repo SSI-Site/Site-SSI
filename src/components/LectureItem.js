@@ -1,260 +1,168 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // components
-import ScheduleInformation from './ScheduleInformation';
+import BadgeCO from './BadgeCO';
+import SpeakerInfo from './SpeakerInfo';
 
 // assets
-import PlusCircle from '../../public/images/icons/plus-circle.svg';
-import MinusCircle from '../../public/images/icons/minus-circle.svg';
+import LectureRight from '../../public/images/background_imgs/desktopDetail.png';
+import LectureBottom from '../../public/images/background_imgs/detail.png';
+import { formatTime } from '../../utils/format-time';
 
-const LectureItem = ({ time, event,  }) => {
+const LectureItem = ({ time, event }) => {
 
-    const [show, setShow] = useState([]);
-    const [isExpanded, setIsExpanded] = useState(false);
+    return (
+        <LectureWrapper>
+            <LectureContent>
+                <LectureHeader>
+                    <h3>{event.title}</h3>
 
-    const handleShowLecture = time => {
-        setIsExpanded(!isExpanded);
-        const index = show.indexOf(time);
-
-        if (index < 0) {
-            setShow(prev => [...prev, time]);
-        } else {
-            setShow(prev => prev.filter((e, i) => i !== index));
-        }
-    }
-
-    return ( 
-        <>
-            <LectureWrapper className='lecture' onClick={() => handleShowLecture(time)} $isExpanded={isExpanded}>
-                <div className='lecture-overview'>
-                    <h5>{time}</h5>
-                    <div>
-                        <p>{event.title}</p>
-                        {/* Itera dentro dos palestrantes para escrever o nome de cada um */}
-                        <ul>
-                            <li>
-                                <span>
-                                {event['speakers'].map((s, index) => {
-                                    return(
-                                        <React.Fragment key={index}>
-                                            {s['linkedin'] ? 
-                                                (<a target='_blank' href={s['linkedin']}>{s['name']}</a>)
-                                                : 
-                                                s['name']
-                                            }
-                                            {index < event['speakers'].length - 2 ? ', ' : index == event['speakers'].length - 2 && ' e '}
-                                            {index == event['speakers'].length - 1 && '.'}
-                                        </React.Fragment>
-                                    )
-                                })}
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                    {show.includes(time) ?
-                        <div className='open-close-sign-desktop'>
-                            <img src={MinusCircle} alt = "Ver menos"></img>
-                            <p>Ver menos</p>
-                        </div>
-                    :
-                        <div className='open-close-sign-desktop'>
-                            <img src={PlusCircle} alt = "Ver mais"></img>
-                            <p>Ver mais</p>
-                        </div>
+                    {event.endTime ?
+                        <label>{formatTime(time)} - {formatTime(event.endTime)}</label>
+                        :
+                        <label>{formatTime(time)}</label>
                     }
+
+                    <div className='badgeWrapper'>
+                        <BadgeCO
+                            text={event.local === 'presential'? 'Presencial': 'Online'}
+                            themeIndex={event.local === 'presential' ? 5 : 9}
+                            />
+
+                        {event.activityType &&
+                            <BadgeCO
+                            text={event.activityType}
+                            themeIndex={event.activityType === 'Workshop'? 1 : 2}
+                            />
+                        }
+                    </div>
+                    
+                </LectureHeader>
+
+                <div className = "lectureDescription">
+                    <p>{event.description}</p>
                 </div>
-                    <ScheduleInformation
-                        lecture={event}
-                        startTime={time}
-                        lecturePicture={event['image']}
-                        // speakerName={ }
-                        title={event['title']}
-                        overview={event['description']}
-                        local = {event['local']}
-                        endTime={event['endTime']}
-                    />
-            </LectureWrapper>
-        </>
+
+                {Object.entries(event.speakers).map(([key, speaker], index) => {
+                    return (
+                        <SpeakersWrapper key = {index}>
+                            <SpeakerInfo speaker = {speaker}/>
+                        </SpeakersWrapper>
+                    )
+                })}
+
+            </LectureContent>
+
+            <ImgDetail>
+                <picture>
+                    <source media = "(max-width: 800px)" srcSet = {LectureBottom}/>
+                    <source media = "(min-width: 801px)" srcSet = {LectureRight}/>
+                    <img src = { LectureBottom } alt = "Imagem de Detalhe"/>
+                </picture>
+                
+            </ImgDetail>
+        </LectureWrapper>
      )
 }
  
 export default LectureItem;
 
-const LectureWrapper = styled.div`
-    display: flex;
+const LectureWrapper = styled.article`
+    background-color: var(--color-background-neutrals-secondary);
+    display: flex;   
     flex-direction: column;
-    align-items: center;
-    align-self: stretch;
-    background-color: ${props => props.$isExpanded==true ? `var(--color-neutral-800)` : `var(--color-neutral)`};
-    padding: 36px 24px;
-    padding: 24px;
-    gap: 16px;
+    gap: 1em;
+    width: 100%;
+    max-width: 1224px;
+    margin: auto;
 
-    min-height: 148px;
-    border-radius: 8px;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
-    .lecture-overview {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-
-        > div {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        
-            p {
-                font-family: 'AT Aero Bold';
-                font-weight: 400;
-                word-break: break-word;
-            }
-            
-            ul {
-                display: flex;
-                flex-direction: column;
-                
-                margin-top: 8px;
-                
-                li {
-                    display:block;
-                }
-                
-                span {
-                    font: 400 0.875rem/1.125rem 'AT Aero Bold';
-                    color: var(--color-primary-700);
-                }
-                
-                a {
-                    text-decoration: underline;
-                    font: inherit;
-                    color: inherit;
-                    transition: .2s;
-
-                    &:hover {
-                        color: var(--color-primary-600);
-                    }
-                    &:active {
-                        color: var(--color-primary-500);
-                    }
-                }
-            }
-        }
-
-        .open-close-sign-desktop {
-            margin-left: auto;
-            display: none;
-            flex-direction: row;
-            white-space: nowrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-
-            img {
-                width: 44px;
-            }
-
-            p {
-                font: 400 1.25rem/1.5rem 'AT Aero Bold';
-            }
-        }
+    @media screen and (min-width:801px) {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    .open-close-sign-mobile {
-        display: flex;
-        flex-direction: row;
-        white-space: nowrap;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-
-        img {
-            width: 24px;
-        }
+    .lectureDescription {
+        width: 100%;
+        max-width: 704px;
 
         p {
-            font: 400 1rem/1.25rem 'AT Aero Bold';
+            font: 400 0.875rem / 1.5rem 'At Aero';
+        }
+
+        @media screen and (min-width:801px) {
+            p {
+                font: 400 1rem / 1.5rem 'At Aero';
+            }
         }
     }
+`
 
-    .lecture-content {
-        display: none;
-        margin: 1em;
+const ImgDetail = styled.div`
+    width: inherit;
+    height: 6em;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+
+    @media screen and (min-width: 801px) {
+        width: 25%;
+        height: auto;
     }
 
-    .lecture-content.show-content {
-        display: block;
+    img {
         width: 100%;
-        margin: 0;
-        padding: 0;
-    }
+        height: 100%;
+        object-fit: cover;
+        object-position: left;
 
-
-    @media (min-width:560px) {
-        padding: 36px 56px;
-        gap: 48px;
-
-        div.lecture-overview {
-            flex-direction: row;
-            gap: 3.5rem;
-
-            > div {
-                p {
-                    font: 400 1.5rem/1.75rem 'AT Aero Bold';
-                }
-                
-                span {
-                    font: 400 1rem/1.25rem 'AT Aero Bold';
-                    
-                }
-            }
+        @media screen and (min-width: 801px){
+            position: absolute;
+            object-position: top;
         }
     }
+`;
 
-    @media (min-width:1024px) {
-        transition: .3s all;
-        
-        &:hover {
-            background-color: var(--color-neutral-800);
-            cursor: pointer;
+const LectureContent = styled.div`
+    width: 100%;
+    padding: 2em 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    box-sizing: border-box;
+
+    @media screen and (min-width: 1024px) {
+        padding: 3.5em;
+    }
+`
+
+const LectureHeader = styled.header`
+    display: flex;
+    flex-direction: inherit;
+    gap: inherit;
+
+    .badgeWrapper {
+        display: flex;
+        width: fit-content;
+        gap: 1em;
+    }
+
+    label { 
+        // LARGE VARIANT
+        font-family: 'At Aero Bold';
+
+        @media screen and (min-width: 801px) {
+            font: 700 1.125rem / 1.5rem 'At Aero Bold';
         }
+    }
+`
 
-        /* &:active {
-            background-color: var(--color-neutral-700);
-        } */
+const SpeakersWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 
-        h5 {
-            font: 400 2.5rem/3rem 'AT Aero Bold';
-            font: 400 2rem/2.5rem 'AT Aero Bold';
-        }
-
-        div.lecture-overview {
-            gap: 3rem;
-
-            > div{
-                ul{
-                    flex-direction:row;
-                }
-
-                p{
-                    font: 400 2rem/2.5rem 'AT Aero Bold';
-                }
-            }
-
-            .open-close-sign-desktop{
-                display: flex;
-                width: fit-content;
-            }
-        }
-            
-        .open-close-sign-mobile{
-            display: none;
-        }
+    @media screen and (min-width:801px) {
+        flex-direction: row;
     }
 `
