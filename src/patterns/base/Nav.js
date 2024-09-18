@@ -105,7 +105,7 @@ const Nav = () => {
 
                                 {/* <li onClick={() => setIsOpen(false)}> */}
                                     {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
-                                    {/*<span target="blank">CTF</span>{/* </Link> */}
+                                    {/*<span target="_blank">CTF</span>{/* </Link> */}
                                     {/* <div></div> */}
                                 {/* </li> */}
                             </ul>
@@ -434,7 +434,7 @@ const NavMobile = styled.nav`
             }
     
             .profile-content{
-                width: 6.625rem;
+                width: fit-content;
                 height: 2.75rem;
                 padding: 0;
                 gap: 0.5rem;
