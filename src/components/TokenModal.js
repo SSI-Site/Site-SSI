@@ -212,10 +212,10 @@ const ModalTokenWrapper = styled.div`
     }
 
     @media (min-width:560px) {
-        width: 33.5rem;
+        width: 26.9rem;
 
         input[type=text] {
-            width: 14rem;
+            width: 10rem;
         }
 
         .btns-desktop {

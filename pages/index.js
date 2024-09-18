@@ -15,7 +15,7 @@ import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
-import TwitchWatchNow from '../src/components/TwitchWatchNow';
+import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
@@ -133,7 +133,7 @@ const Home = () => {
             </LandingSection>
 
             <TwitchContainer>
-                <TwitchWatchNow />
+                <YoutubeWatchNow />
             </TwitchContainer>
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
