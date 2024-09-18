@@ -277,7 +277,7 @@ const Home = () => {
                 <div className='supporters-container'>
                     <div className='supporters-title'>
                         <h3>Parcerias</h3>
-                        <p>Empresas e marcas que estão conosco para tornar este evento um sucesso</p>
+                        <h6>Empresas e marcas que estão conosco para tornar este evento um sucesso</h6>
                     </div>
                     <div className='supporters-cards'>
                         {Object.entries(supporters).map(([key, supporter]) => {
@@ -738,38 +738,38 @@ const ScheduleSection = styled.section`
 `
 
 const SupportersSection = styled.section`
-    padding-block: 3.5rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--color-neutral-secondary);
 
     .supporters-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3.5rem;
+        gap: 1rem;
 
         .supporters-title {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             max-width: 63.5rem;
 
             h3 {
                 text-align: center;
+				background-color: var(--color-primary);
+				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
+            h6 {
                 text-align: center;
-
             }
         }
 
         .supporters-cards {
             display: flex;
-            flex-direction: row;
-            flex-flow: wrap;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 1rem;
@@ -777,21 +777,19 @@ const SupportersSection = styled.section`
         }
     }
 
+	@media (min-width: 800px) {
+		.supporters-container {
+			.supporters-cards {
+				flex-direction: row;
+				flex-flow: wrap;
+			}
+		}
+	}
+
     @media (min-width:1000px) {
-        padding-block: 6.75rem 11.75rem;
+        padding-block: 4.5rem;
 
         .supporters-container {
-            gap: 3.5rem;
-
-            .supporters-title {
-                h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
-                }
-
-                p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                }
-            }
 
             .supporters-cards {
                 gap: 1.5rem;
