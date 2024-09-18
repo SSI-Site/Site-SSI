@@ -275,7 +275,7 @@ const Home = () => {
                 <div className='supporters-container'>
                     <div className='supporters-title'>
                         <h3>Parcerias</h3>
-                        <p>Empresas e marcas que estão conosco para tornar este evento um sucesso</p>
+                        <h6>Empresas e marcas que estão conosco para tornar este evento um sucesso</h6>
                     </div>
                     <div className='supporters-cards'>
                         {Object.entries(supporters).map(([key, supporter]) => {
@@ -725,7 +725,8 @@ const ScheduleSection = styled.section`
 `
 
 const SupportersSection = styled.section`
-    padding-block: 1rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--color-neutral-secondary);
 
     .supporters-container {
         display: flex;
@@ -748,10 +749,8 @@ const SupportersSection = styled.section`
 				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
+            h6 {
                 text-align: center;
-
             }
         }
 
@@ -775,20 +774,9 @@ const SupportersSection = styled.section`
 	}
 
     @media (min-width:1000px) {
-        padding-block: 6.75rem 11.75rem;
+        padding-block: 4.5rem;
 
         .supporters-container {
-            gap: 3.5rem;
-
-            .supporters-title {
-                h3 {
-                    font: 700 3rem/3.5rem 'AT Aero Bold';
-                }
-
-                p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                }
-            }
 
             .supporters-cards {
                 gap: 1.5rem;
