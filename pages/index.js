@@ -11,7 +11,7 @@ import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
 import DateStamp from '../src/components/DateStamp';
 import PartnerCard from '../src/components/PartnerCard';
-import ScheduleShift from '../src/components/ScheduleShift';
+import ScheduleShift from '../src/components/ScheduleItems';
 import TokenModal from '../src/components/TokenModal';
 import TwitchWatchNow from '../src/components/TwitchWatchNow';
 

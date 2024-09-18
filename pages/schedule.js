@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import schedule from '../data/scheduleInformation';
 import Meta from '../src/infra/Meta';
@@ -8,9 +8,7 @@ import '../utils/slugify';
 
 // components
 import DateStamp from '../src/components/DateStamp';
-import ScheduleShift from '../src/components/ScheduleShift';
-
-const shifts = ['Manhã', 'Tarde', 'Noite'];
+import ScheduleItems from '../src/components/ScheduleItems';
 
 const Schedule = () => {
 
@@ -38,15 +36,7 @@ const Schedule = () => {
         }
 
         return (
-            shifts.map(function(shift, key) {
-                return (
-                    <ScheduleShift
-                        key={key}
-                        day={activeItem}
-                        shift={shift}
-                    />
-                )
-            })
+            <ScheduleItems day={activeItem} />
         )
     }
 
@@ -227,10 +217,6 @@ const DayScheduleWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 2rem;
-
-    > div {
-        margin-top: 1rem;
-    }
 
     @media (min-width:600px) {
         gap: 3.6rem;

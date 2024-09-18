@@ -2,27 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-// import ScheduleInformation from './ScheduleInformation';
-import BadgeCO from './BadgeCO'
-import SpeakerInfo from './SpeakerInfo'
+import BadgeCO from './BadgeCO';
+import SpeakerInfo from './SpeakerInfo';
 
 // assets
-import LectureBottom from '../../public/images/background_imgs/detail.png'
-import LectureRight from '../../public/images/background_imgs/desktopDetail.png'
+import LectureRight from '../../public/images/background_imgs/desktopDetail.png';
+import LectureBottom from '../../public/images/background_imgs/detail.png';
+import { formatTime } from '../../utils/format-time';
 
 const LectureItem = ({ time, event }) => {
 
-    return ( 
+    return (
         <LectureWrapper>
             <LectureContent>
                 <LectureHeader>
                     <h3>{event.title}</h3>
-                    <label>{time.start.getHours()}:{time.start.getMinutes()} - {time.end.getHours()}:{time.end.getMinutes()}h</label>
 
-                    <div className = "badgeWrapper">
-                        {event.badges.map(i => 
-                                <BadgeCO text = {i.text} themeIndex = {i.themeIndex}/> 
-                            )
+                    {event.endTime ?
+                        <label>{formatTime(time)} - {formatTime(event.endTime)}</label>
+                        :
+                        <label>{formatTime(time)}</label>
+                    }
+
+                    <div className='badgeWrapper'>
+                        <BadgeCO
+                            text={event.local === 'presential'? 'Presencial': 'Online'}
+                            themeIndex={event.local === 'presential' ? 5 : 9}
+                            />
+
+                        {event.activityType &&
+                            <BadgeCO
+                            text={event.activityType}
+                            themeIndex={event.activityType === 'Workshop'? 1 : 2}
+                            />
                         }
                     </div>
                     
@@ -31,22 +43,25 @@ const LectureItem = ({ time, event }) => {
                 <div className = "lectureDescription">
                     <p>{event.description}</p>
                 </div>
-                
-                <SpeakersWrapper>
-                    <SpeakerInfo speaker = {event.speaker}/>
-                    
-                </SpeakersWrapper>
+
+                {Object.entries(event.speakers).map(([key, speaker], index) => {
+                    return (
+                        <SpeakersWrapper key = {index}>
+                            <SpeakerInfo speaker = {speaker}/>
+                        </SpeakersWrapper>
+                    )
+                })}
 
             </LectureContent>
 
-            <div className = "imgDetail">
+            <ImgDetail>
                 <picture>
                     <source media = "(max-width: 800px)" srcSet = {LectureBottom}/>
                     <source media = "(min-width: 801px)" srcSet = {LectureRight}/>
                     <img src = { LectureBottom } alt = "Imagem de Detalhe"/>
                 </picture>
                 
-            </div>
+            </ImgDetail>
         </LectureWrapper>
      )
 }
@@ -62,30 +77,37 @@ const LectureWrapper = styled.article`
     max-width: 1224px;
     margin: auto;
 
-    @media screen and (min-width: 801px){
+    @media screen and (min-width:801px) {
         flex-direction: row;
         justify-content: space-between;
-       
     }
 
-    @media screen and (min-width: 1024px){
-        max-height: 688px;
-    }
-
-    .lectureDescription{
+    .lectureDescription {
         width: 100%;
         max-width: 704px;
-    }
 
-    .imgDetail {
-        width: inherit;
-        height: 6em;
-        user-select: none;
-
-        @media screen and (min-width: 801px){
-            width: 25%;
-            height: auto;
+        p {
+            font: 400 0.875rem / 1.5rem 'At Aero';
         }
+
+        @media screen and (min-width:801px) {
+            p {
+                font: 400 1rem / 1.5rem 'At Aero';
+            }
+        }
+    }
+`
+
+const ImgDetail = styled.div`
+    width: inherit;
+    height: 6em;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+
+    @media screen and (min-width: 801px) {
+        width: 25%;
+        height: auto;
     }
 
     img {
@@ -95,19 +117,21 @@ const LectureWrapper = styled.article`
         object-position: left;
 
         @media screen and (min-width: 801px){
+            position: absolute;
             object-position: top;
         }
     }
-`
+`;
 
 const LectureContent = styled.div`
     width: 100%;
-    padding: 2em;
+    padding: 2em 1.5em;
     display: flex;
-    gap: 1em;
     flex-direction: column;
+    gap: 1em;
+    box-sizing: border-box;
 
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) {
         padding: 3.5em;
     }
 `
@@ -117,21 +141,20 @@ const LectureHeader = styled.header`
     flex-direction: inherit;
     gap: inherit;
 
-    .badgeWrapper{
+    .badgeWrapper {
         display: flex;
         width: fit-content;
         gap: 1em;
     }
 
-    label{ 
+    label { 
         // LARGE VARIANT
         font-family: 'At Aero Bold';
 
-        @media screen and (min-width: 801px){
+        @media screen and (min-width: 801px) {
             font: 700 1.125rem / 1.5rem 'At Aero Bold';
         }
     }
-
 `
 
 const SpeakersWrapper = styled.div`
@@ -139,7 +162,7 @@ const SpeakersWrapper = styled.div`
     flex-direction: column;
     gap: 1em;
 
-    @media screen and (min-width: 801px){
+    @media screen and (min-width:801px) {
         flex-direction: row;
     }
 `
