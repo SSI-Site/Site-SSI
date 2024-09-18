@@ -15,6 +15,8 @@ import UserGiftCard from '../src/components/UserGiftCard';
 
 // assets
 import gifts from '../data/gifts';
+import UserWatchedLecture from '../src/components/UserWatchedLecture';
+import LecturesList from '../src/components/LecturesList';
 
 const User = () => {
 
@@ -246,26 +248,22 @@ const User = () => {
 
                     <LecturesListSection>
                         <div className='lectures-info-wrapper'>
-                            <h4>Registro de presenças</h4>
-                            <div className='lectures-count'>
-                                <p>Total de registros: <span>{lectures.length}</span></p>
-                                <p>Registros presenciais: <span>{presentialLecturesCount()}</span></p>
-                            </div>
-                            <TokenModal  onSuccess={getPresences} />
-                            <LecturesList>
-                                <div className='lecture-list-container'>
-                                    <ul>
-                                        {lectures.length === 0 &&
-                                            <p className="no-presences-message">Você ainda não tem nenhuma presença registrada neste dia...</p>
-                                        }
-                                        {lectures.map((lecture, key) =>
-                                            <li key={key}>
-                                                {lecture.talk_title} - {lecture.online ? "Online" : "Presencial"} - {lecture.date_time}
-                                            </li>)
-                                        }
-                                    </ul>
+                            <h5>Palestras assistidas</h5>
+
+                            <div className="statusPres">
+                                <div className='display-pres b0 '>
+                                    <p>Total de registros</p>
+                                    <h4>10</h4>
                                 </div>
-                            </LecturesList>
+                                <div className='display-pres b1'>
+                                    <p>Registros presenciais</p>
+                                    <h4>5</h4>
+                                </div>
+                            </div>
+                            
+                            <TokenModal  onSuccess={getPresences} />
+
+                            <LecturesList lectures={lectures} />
                         </div>
                     </LecturesListSection>
 
@@ -385,7 +383,7 @@ const UserInfoWrapper = styled.div`
             justify-content: center;
             width: 100%;
 
-            @media (min-width: 801px) {
+            @media (min-width:801px) {
                 max-width: 16rem;
             }
         }
@@ -532,77 +530,73 @@ const LecturesListSection = styled.section`
         justify-content: center;
         gap: 1.5rem;
 
-        h4 {
-            text-align: center;
-            margin-bottom: 1.25rem;
-        }
-
-        .lectures-count {
-            display: flex;
+		.statusPres {
+			width: 100%;
+			display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+			gap: 1rem;
 
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-                span {
-                    font: inherit;
-                    color: var(--color-primary-500);
-                }
-            }
-        }
+			.display-pres {
+				width: 100%;
+				display: flex;
+                flex-direction: column;
+				padding: 0.75rem;
+                gap: 0.5rem;
+
+				span {
+					font: 700 2rem/2.5rem 'AT Aero Bold';
+				}
+
+				p {
+					text-align: left;
+					font: 400 1rem/1.5rem 'AT Aero Bold';
+				}
+			}
+
+			.b0 {
+				background-color: var(--color-primary);
+				
+				p, h4 {
+					color: white;
+				}
+			}
+
+			.b1 {
+				background-color: white;
+
+				p, h4 {
+					color: var(--color-primary);
+				}
+			}
+
+		}
 
         button {
             width: fit-content;
         }
     }
 
-    @media (min-width:1021px) {
-        gap: 2.25rem;
+    @media (min-width:520px) {
 
+        .lectures-info-wrapper .statusPres {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            .b0, .b1 {
+                max-width: 18.5rem;
+            }
+        }
+    }
+
+    @media (min-width:1021px) {
         .lectures-info-wrapper {
+            gap: 2rem;
+
             h4 {
                 width: 100%;
                 text-align: left;
             }
-
-            .lectures-count {
-                flex-direction: row;
-                gap: 3.5rem;
-
-                p {
-                    font: 700 1.25rem/1.5rem 'AT Aero Bold';
-                }
-            }
-        }
-    }
-`
-
-const LecturesList = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .lecture-list-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    span {
-        font: inherit;
-        color: var(--color-primary-500);
-        font-family: 'AT Aero Bold';
-        font-weight: 700;
-    }
-
-    ul {
-
-        li {
-            margin-bottom: 1rem;
         }
     }
 `
@@ -619,12 +613,14 @@ const GiftsProgressSection = styled.section`
         align-items: center;
         justify-content: center;
         gap: 1rem;
+        padding-inline: 1rem;
 
-        @media (min-width: 800px) {
+        @media (min-width:800px) {
             flex-direction: row;
             flex-wrap: wrap;
             gap: 2rem;
             justify-content: center;
+            padding-inline: 0;
         }
     }
 `

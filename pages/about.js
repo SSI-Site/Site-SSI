@@ -227,7 +227,7 @@ const About = () => {
 
                     </EventNumbersBanner>
 
-                    <a target="blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
+                    <a target="_blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
                         <Button>Nosso canal na Twitch</Button>
                     </a>
                 </div>
