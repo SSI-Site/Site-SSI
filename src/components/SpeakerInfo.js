@@ -169,7 +169,7 @@ const SpeakerContainer = styled.div`
         width: 14.5rem;
 
         .side-card {
-            max-width: 60%;
+            max-width: min(48rem, 60%);
         }
 
         .speaker-image-container {
