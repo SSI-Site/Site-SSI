@@ -34,7 +34,7 @@ const LectureItem = ({ time, event }) => {
                 
                 <SpeakersWrapper>
                     <SpeakerInfo speaker = {event.speaker}/>
-                    <SpeakerInfo speaker = {event.speaker}/>
+                    
                 </SpeakersWrapper>
 
             </LectureContent>
