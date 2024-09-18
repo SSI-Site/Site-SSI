@@ -1,19 +1,21 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { React, useEffect, useState } from 'react';
 import CountUp from 'react-countup';
 import styled from 'styled-components';
 
+import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
-import DateStamp from '../src/components/DateStamp';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
+import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
-import TwitchWatchNow from '../src/components/TwitchWatchNow';
+import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
@@ -28,36 +30,20 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    // const { user, signOut } = useAuth();
-    const { user } = false; // para deploy sem login
+    const { user } = useAuth();
+    // const { user } = false; // para deploy sem login
 
     const [showAuthModal, setShowAuthModal] = useState(false);
-    const [isModalTokenOpen, setIsModalTokenOpen] = useState(false);
-    const [isUserRegistered, setIsUserRegistered] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
     }
 
-    const checkUserRegister = () => {
-        if (!user) return;
-        setIsUserRegistered(true);
-    }
-
-    useEffect(() => {
-        checkUserRegister();
-    }, [user]);
-
-    useEffect(() => {
-        checkUserRegister();
-    }, []);
-
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
     const [countdownMinutes, setCountdownMinutes] = useState();
     const [countdownSeconds, setCountdownSeconds] = useState();
-    var countdownDate = new Date("Out 07, 2024 00:00:00").getTime();
+    var countdownDate = new Date("Oct 07, 2024 00:00:00").getTime();
     var now = new Date().getTime();
 
     useEffect(() => {
@@ -108,43 +94,34 @@ const Home = () => {
 
             <LandingSection>
                 <div className='landing-container'>
-                    {!isLoading ?
-                        <div className='landing-info'>
-                            {!user ?
-                                <>
-                                    <div className='landing-text'>
-                                        <h3>Semana de Sistemas de Informação 2024</h3>
-                                        <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
-                                    </div>
-                                    <Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button>
-                                    {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
-                                </>
-                            :
-                                <>
-                                {isUserRegistered &&
-                                    <>
-                                        <div className='landing-text'>
-                                            <h3>Semana de Sistemas de Informação 2024</h3>
-                                            <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
-                                        </div>
-                                        <TokenModal/>
-                                    </>
-                                }
-                                </>
-                            }
-                    
-                            {showAuthModal &&
-                                <AuthModal
-                                    onClose={() => setShowAuthModal(false)}
-                                    show={showAuthModal}
-                                />
-                            }
-                        </div>
+                    <div className='landing-info'>
+                        {!user ?
+                            <>
+                                <div className='landing-text'>
+                                    <h3>Semana de Sistemas de Informação 2024</h3>
+                                    <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
+                                </div>
+                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button>
+                                {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
+                            </>
                         :
-                        <Loading>
-                            <img src='./loading.svg' alt='SSI 2024 - Loading' />
-                        </Loading>
-                    }
+                            <>
+                                <div className='landing-text'>
+                                    <h3>Semana de Sistemas de Informação 2024</h3>
+                                    <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
+                                </div>
+                                <TokenModal/>
+                            </>
+                        }
+                
+                        {showAuthModal &&
+                            <AuthModal
+                                onClose={() => setShowAuthModal(false)}
+                                show={showAuthModal}
+                            />
+                        }
+                    </div>
+                        
                     <div className='landing-bait'>
                         <div className='event-date'>
                             <svg viewBox="0 0 450 50">
@@ -158,23 +135,64 @@ const Home = () => {
             </LandingSection>
 
             <TwitchContainer>
-                <TwitchWatchNow />
+                <YoutubeWatchNow />
             </TwitchContainer>
 
-            {/* <SubscriptionSection>
+            {/* Seção de contagem regressiva - só aparece antes do evento */}
+            {(now < countdownDate) &&
+                <CountdownSection>
+                    <div className='countdown-text'>
+                        <h3>Contagem regressiva</h3>
+                        <h6>Faltam poucos dias para você participar dessa <span>experiência única!</span></h6>
+                    </div>
+                    
+                    <div className='countdown-clock'>
+                        {(now < countdownDate - 24 * 60 * 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h3>{countdownDays}</h3>
+                                <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
+                            </div>
+                        }
+                        {(now < countdownDate - 60 * 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h3>{countdownHours}</h3>
+                                <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
+                            </div>
+                        }
+                        {(now < countdownDate - 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h3>{countdownMinutes}</h3>
+                                <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
+                            </div>
+                        }
+                        <div className='clock-container'>
+                            <h3>{countdownSeconds}</h3>
+                            <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
+                        </div>
+                    </div>
+                    {!user &&
+                        <div className='countdown-btn'>
+                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Fazer cadastro</Button>
+                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Fazer cadastro</Button> */}
+                        </div>
+                    }
+                </CountdownSection>
+            }
+
+            <SubscriptionSection>
                 <div className='subscription-container'>
                     <div className='subscription-title'>
                         <h3>Inscrições abertas!</h3>
                         <p>Faça parte da <span>Comissão Organizadora</span> do <span>melhor evento acadêmico</span> de Sistemas de Informação! </p>
                     </div>
 
-                    <Link href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
+                    <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
                         <a target="_blank">
                             <SecondaryButton>Inscrever-se</SecondaryButton>
                         </a>
                     </Link>
                 </div>
-            </SubscriptionSection> */}
+            </SubscriptionSection>
 
             <EventInfoSection>
                 <div className='about-container'>
@@ -239,56 +257,12 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
-            {/* Seção de contagem regressiva - só aparece antes do evento */}
-            {(now < countdownDate) &&
-                <CountdownSection>
-                    <div className='countdown-text'>
-                        <h3>Contagem regressiva</h3>
-                        <p>Faltam poucos dias para participar dessa <span>experiência única!</span></p>
-                    </div>
-                    
-                    <div className='countdown-clock'>
-                        {(now < countdownDate - 24 * 60 * 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h3>{countdownDays}</h3>
-                                <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
-                            </div>
-                        }
-                        {(now < countdownDate - 60 * 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h3>{countdownHours}</h3>
-                                <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
-                            </div>
-                        }
-                        {(now < countdownDate - 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h3>{countdownMinutes}</h3>
-                                <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
-                            </div>
-                        }
-                        <div className='clock-container'>
-                            <h3>{countdownSeconds}</h3>
-                            <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
-                        </div>
-                    </div>
-                    {!user &&
-                        <div className='countdown-btn'>
-                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
-                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button> */}
-                        </div>
-                    }
-                </CountdownSection>
-            }
-
             <ScheduleSection>
                 <div className='schedule-container'>
                     <h3 className='title-mobile'>Programação</h3>
                     <div className='title-btn-desktop'>
                         <h3>Programação</h3>
                         <Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                    </div>
-                    <div className='date-stamp'>
-                        <DateStamp day={scheduleDay} showEmoji={false}/>
                     </div>
                     <ScheduleShift
                         day={formatedScheduleDate}
@@ -303,7 +277,7 @@ const Home = () => {
                 <div className='supporters-container'>
                     <div className='supporters-title'>
                         <h3>Parcerias</h3>
-                        <p>Empresas e marcas que estão conosco para tornar este evento um sucesso</p>
+                        <h6>Empresas e marcas que estão conosco para tornar este evento um sucesso</h6>
                     </div>
                     <div className='supporters-cards'>
                         {Object.entries(supporters).map(([key, supporter]) => {
@@ -321,21 +295,7 @@ const Home = () => {
 export default Home;
 
 
-const Loading = styled.figure`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 2rem;
-
-    img {
-        width: 25%;
-    }
-`
-
 const LandingSection = styled.section`
-    background: url('./images/background_imgs/background1_mobile.svg') no-repeat;
-    background-size: cover;
     padding-block: 3.5rem 6.625rem;
 
     .landing-container {
@@ -425,7 +385,6 @@ const LandingSection = styled.section`
     }
 
     @media (min-width:800px) {
-        background-image: url('./images/background_imgs/background1_desktop.svg');
         height: 44rem;
 
         .landing-container {
@@ -452,7 +411,6 @@ const LandingSection = styled.section`
                         color: var(--color-neutral-300);
                     }
                 }
-
             }
         }
     }
@@ -474,8 +432,6 @@ const TwitchContainer = styled.div`
 const SubscriptionSection = styled.section`
     padding-block: 6.625rem 3.5rem;
     background-color: var(--color-primary);
-    background-position: bottom left;
-    background-size: cover;
     gap: 2rem;
 
     .subscription-container {
@@ -531,9 +487,6 @@ const SubscriptionSection = styled.section`
 
 const EventInfoSection = styled.section`
     padding-block: 6.625rem 3.5rem;
-    background: url('./images/background_imgs/background2_mobile.svg') no-repeat;
-    background-position: bottom left;
-    background-size: cover;
     gap: 2rem;
 
     .about-container {
@@ -597,7 +550,6 @@ const EventInfoSection = styled.section`
     }
 
     @media (min-width:1000px) {
-        background-image: url('./images/background_imgs/background2_desktop.svg');
         padding-block: 6.75rem;
 
         .about-container {
@@ -640,14 +592,9 @@ const CountdownSection = styled.section`
             text-align: center;
         }
 
-        p {
-            font: 700 1rem/1.25rem 'AT Aero Bold';
-            text-align: center;
-            
-            span {
-                font: inherit;
-                color: var(--color-primary-700);
-            }
+        h6 span {
+            font: inherit;
+            color: var(--color-primary-700);
         }
     }
 
@@ -732,9 +679,6 @@ const CountdownSection = styled.section`
 
 const ScheduleSection = styled.section`
     padding-block: 3.5rem;
-    background: url('./images/background_imgs/background3_mobile.svg') no-repeat;
-    background-size: contain;
-    background-repeat: repeat;
     
     .schedule-container {
         display: flex;
@@ -760,7 +704,6 @@ const ScheduleSection = styled.section`
     }
 
     @media (min-width:1021px) {
-        background-image: url('./images/background_imgs/background3_desktop.svg');
 
         .schedule-container {
             gap: 4rem;
@@ -786,7 +729,6 @@ const ScheduleSection = styled.section`
                 display: none;
             }
         }
-
     }
 
     @media (min-width:1021px) {
@@ -796,40 +738,38 @@ const ScheduleSection = styled.section`
 `
 
 const SupportersSection = styled.section`
-    padding-block: 3.5rem;
-    background: url('./images/background_imgs/background4_mobile.svg') no-repeat;
-    background-size: cover;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--color-neutral-secondary);
 
     .supporters-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3.5rem;
+        gap: 1rem;
 
         .supporters-title {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             max-width: 63.5rem;
 
             h3 {
                 text-align: center;
+				background-color: var(--color-primary);
+				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
+            h6 {
                 text-align: center;
-
             }
         }
 
         .supporters-cards {
             display: flex;
-            flex-direction: row;
-            flex-flow: wrap;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 1rem;
@@ -837,25 +777,19 @@ const SupportersSection = styled.section`
         }
     }
 
-    @media (min-width:600px) {
-        background-image: url('./images/background_imgs/background4_desktop.svg');
-    }
+	@media (min-width: 800px) {
+		.supporters-container {
+			.supporters-cards {
+				flex-direction: row;
+				flex-flow: wrap;
+			}
+		}
+	}
 
     @media (min-width:1000px) {
-        padding-block: 6.75rem 11.75rem;
+        padding-block: 4.5rem;
 
         .supporters-container {
-            gap: 3.5rem;
-
-            .supporters-title {
-                h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
-                }
-
-                p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                }
-            }
 
             .supporters-cards {
                 gap: 1.5rem;

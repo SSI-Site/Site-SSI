@@ -10,7 +10,7 @@ import Button from './Button';
 
 const TOKEN_LENGTH = 5;
 
-const ModalTokenComponent = ({ toggleVisibility }) => {
+const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
 
     const { user } = useAuth();
     
@@ -49,6 +49,7 @@ const ModalTokenComponent = ({ toggleVisibility }) => {
                 setIsInvalid(false);
                 // alert(`Presença Registrada!`);
                 setToken('');
+                if (onSuccess) onSuccess();
                 toggleVisibility();
             })
             .catch(() => {
@@ -205,16 +206,16 @@ const ModalTokenWrapper = styled.div`
         width: fit-content;
 
         button {
-            background-color: var(--color-background-neutrals-tertiary);
+            background-color: var(--color-neutral-secondary);
             color: var(--color-neutral);
         }
     }
 
     @media (min-width:560px) {
-        width: 33.5rem;
+        width: 26.9rem;
 
         input[type=text] {
-            width: 14rem;
+            width: 10rem;
         }
 
         .btns-desktop {

@@ -227,7 +227,7 @@ const About = () => {
 
                     </EventNumbersBanner>
 
-                    <a target="blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
+                    <a target="_blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
                         <Button>Nosso canal na Twitch</Button>
                     </a>
                 </div>
@@ -252,8 +252,6 @@ const Loading = styled.figure`
 `
 
 const LogoTextSection = styled.section`
-    background: url('./images/background_imgs/background1_mobile.svg') no-repeat;
-    background-size: cover;
 
     .logo-text {
         display: flex;
@@ -313,7 +311,6 @@ const LogoTextSection = styled.section`
     }
 
     @media (min-width:1000px) {
-        background-image: url('./images/background_imgs/background1_desktop.svg');
 
         .logo-text {
             margin-top: 0;
@@ -345,8 +342,6 @@ const LogoTextSection = styled.section`
 `
 
 const ActivitiesSection = styled.section`
-    background: url('./images/background_imgs/background5_mobile.svg') no-repeat;
-    background-size: cover;
     padding-block: 3.5rem;
 
     > div {
@@ -375,7 +370,6 @@ const ActivitiesSection = styled.section`
     }
 
     @media (min-width:800px) {
-        background-image: url('./images/background_imgs/background5_desktop.svg');
         padding-block: 6.75rem;
 
         > div {

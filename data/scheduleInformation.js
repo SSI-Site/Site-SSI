@@ -1,57 +1,56 @@
 // assets
 import Lecture00_SpeakerName01 from '../public/images/lecture_imgs/00-Member_Shadow.png'
-import Lecture00_SpeakerName02 from '../public/images/lecture_imgs/00-Member_Shadow.png'
 
-import Lecture01_CarlaVieira from '../public/images/lecture_imgs/01-Carla_Vieira.jpeg'
-import Lecture02_JorgeMaia from '../public/images/lecture_imgs/02-Jorge_Maia.png'
-import Lecture03_FernandoDeCome from '../public/images/lecture_imgs/03-Fernando_de_Come.jpeg'
-import Lecture04_FelipeFurquim from '../public/images/lecture_imgs/04-Felipe_Furquim.jpg'
-import Lecture04_RenanNakazawa from '../public/images/lecture_imgs/04-Renan_Nakazawa.jpg'
-import Lecture05_KamilaSantos from '../public/images/lecture_imgs/05-Kamila_Santos.png'
-import Lecture06_MiltonLeal from '../public/images/lecture_imgs/06-Milton_Leal.jpg'
-import Lecture07_JakelinyGracielly from '../public/images/lecture_imgs/07-Jakeliny_Gracielly.jpg'
-import Lecture08_AndreJuan from '../public/images/lecture_imgs/08-Andre_Juan.jpeg'
-// import Lecture09_GustavoAlmeida from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
-// import Lecture09_EduardaLima from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
-// import Lecture09_YagoPrimerano from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
-// import Lecture09_FelipeMateos from '../public/images/lecture_imgs/09-Speaker_Name_01.png'
-import Lecture10_LeonardoDalri from '../public/images/lecture_imgs/10-Leonardo_Dalri.jpg'
-import Lecture11_AlineSouza from '../public/images/lecture_imgs/11-Aline_Souza.jpeg'
-import Lecture12_LuizPaulo from '../public/images/lecture_imgs/12-Luiz_Paulo_Carvalho.png'
-import Lecture13_JanainaMoreira from '../public/images/lecture_imgs/13-Janaina_Moreira.jpeg'
-import Lecture14_JulianaMascarenhas from '../public/images/lecture_imgs/14-Juliana_mascarenhas.png'
-import Lecture15_AndrewRosario from '../public/images/lecture_imgs/15-Andrew_Rosario.jpeg'
-import Lecture16_LuizDeOliveira from '../public/images/lecture_imgs/16-Luiz_de_Oliveira.png'
-import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptista.jpg'
-import Lecture18_CarlosRischioto from '../public/images/lecture_imgs/18-Carlos_Rischioto.jpeg'
-// import Lecture19_GiovannaArana from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
-// import Lecture19_GuilhermeFernandes from '../public/images/lecture_imgs/19-Speaker_Name_01.png'
-import Lecture20_MeyrileneAvelino from '../public/images/lecture_imgs/20-Meirylene_Avelino.jpg'
-import Lecture21_AntonioCarlos from '../public/images/lecture_imgs/21-Antonio_Carlos_Meira_Neto.jpg'
-import Lecture22_LucianoDigiampietri from '../public/images/lecture_imgs/22-Luciano_Digiampietri.jpg'
-import Lecture23_CarolinaGalvao from '../public/images/lecture_imgs/23-Carolina_Galvão_de_Oliveira.jpg'
-import Lecture24_ClaraSantos from '../public/images/lecture_imgs/24-Clara_Santos.jpeg'
-import Lecture25_GiuliaBordignon from '../public/images/lecture_imgs/25-Giulia_Bordignon.jpg'
-import Lecture26_MayzaCristina from '../public/images/lecture_imgs/26-Mayza_Cristina.jpg'
-import Lecture27_RobertoAzevedo from '../public/images/lecture_imgs/27-Roberto_Azevedo.jpg'
-import Lecture28_RodrigoLeme from '../public/images/lecture_imgs/28-Rodrigo_Leme.jpg'
-import Lecture29_YgorSperanza from '../public/images/lecture_imgs/29-Ygor_Speranza.jpeg'
-import Lecture30_SilviaTrein from '../public/images/lecture_imgs/30-Silvia_Heimfarth_Dapper.jpg'
-import Lecture31_LeandroMeili from '../public/images/lecture_imgs/31-LeandroMeili.jpeg'
-import Lecture32_RenataMiranda from '../public/images/lecture_imgs/32-Renata_Miranda.jpg'
-import Lecture33_BrunaShinohara from '../public/images/lecture_imgs/33-Bruna_Shinohara.jpg'
-import Lecture34_VitorDavid from '../public/images/lecture_imgs/34-Vitor_David.png'
-import Lecture35_JeffersonBrandao from '../public/images/lecture_imgs/35-Jeff_Brandão.jpeg'
-import Lecture36_GabrielMedeiros from '../public/images/lecture_imgs/36-Gabriel_Medeiros.jpg'
-// import Lecture36_GiovannaArana from '../public/images/lecture_imgs/36-Speaker_Name_01.png'
-import Lecture37_ThyagoOliveira from '../public/images/lecture_imgs/37-Thyago_Oliveira.png'
-import Lecture38_LeonardoLeite from '../public/images/lecture_imgs/38-Leonardo_Leite.jpg'
-import Lecture39_SimaraConceicao from '../public/images/lecture_imgs/39-Simara_Conceicao.jpg'
-import Lecture40_DiegoRenan from '../public/images/lecture_imgs/40-Diego_Renan.jpg'
-import Lecture41_LuizYanai from '../public/images/lecture_imgs/41-Luiz_Yanai.png'
-import Lecture42_KarolAttekita from '../public/images/lecture_imgs/42-Karol_Attekita.png'
-import Lecture43_LarissaBenevides from '../public/images/lecture_imgs/43-Larissa_Benevides.png'
-import Lecture43_CassioSantos from '../public/images/lecture_imgs/43-Cassio_Santos.png'
+import Lecture01_NomeSobrenome from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture02_JorgeMaia from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture03_FernandoDeCome from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture04_FelipeFurquim from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture04_RenanNakazawa from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture05_KamilaSantos from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture06_MiltonLeal from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture07_JakelinyGracielly from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture08_AndreJuan from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture09_GustavoAlmeida from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture09_EduardaLima from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture09_YagoPrimerano from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture09_FelipeMateos from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture10_LeonardoDalri from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture11_AlineSouza from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture12_LuizPaulo from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture13_JanainaMoreira from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture14_JulianaMascarenhas from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture15_AndrewRosario from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture16_LuizDeOliveira from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture17_DaviBaptista from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture18_CarlosRischioto from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture19_GiovannaArana from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture19_GuilhermeFernandes from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture20_MeyrileneAvelino from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture21_AntonioCarlos from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture22_LucianoDigiampietri from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture23_CarolinaGalvao from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture24_ClaraSantos from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture25_GiuliaBordignon from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture26_MayzaCristina from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture27_RobertoAzevedo from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture28_RodrigoLeme from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture29_YgorSperanza from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture30_SilviaTrein from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture31_LeandroMeili from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture32_RenataMiranda from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture33_BrunaShinohara from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture34_VitorDavid from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture35_JeffersonBrandao from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture36_GabrielMedeiros from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture36_GiovannaArana from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture37_ThyagoOliveira from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture38_LeonardoLeite from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture39_SimaraConceicao from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture40_DiegoRenan from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture41_LuizYanai from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture42_KarolAttekita from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture43_LarissaBenevides from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture43_CassioSantos from '../public/images/lecture_imgs/00-Member_Shadow.png'
 
 
 const schedule = {
@@ -60,11 +59,19 @@ const schedule = {
             title : 'Abertura'
         },
         '10:00' : {
-            title : 'Como a computação pode combater a discriminação algorítmica',
-            description : 'Carla Vieira é mestre em Inteligência Artificial pela USP e Engenheira de Dados na QuantumBlack. Foi reconhecida como Google Developer Expert em Machine Learning e participa das discussões sobre Inteligência Artificial e ética - tema da sua dissertação de mestrado.',
+            title : 'Como usar o exemplo no arquivo scheduleInformation.js para organizar a programação',
+            description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit - descrição da palestra, que pode ser longa, mas tem limite para caber dentro da div que está no desgin - deve ser cerca de sei lá quantos caracteres no total.',
             local : 'presential',// presential ou online
             speakers : [
-                {'name': 'Carla Vieira', 'linkedin' : 'https://www.linkedin.com/in/carlaprv/', 'image': Lecture01_CarlaVieira},
+                {
+                    'name': 'Palestrante Exemplar',
+                    'pronouns': 'ela/dela',
+                    'role': 'Cargo do Exemplo',
+                    'instagram': 'https://www.instagram.com/semanadesi',
+                    'linkedin' : 'https://www.linkedin.com/in',
+                    'description': 'Descrição do palestrante. Também tem lmite de caracteres, mas não sei exatamente qual é. Deve caber dentro do design sem quebrar nada',
+                    'image': Lecture01_NomeSobrenome
+                },
             ],
             image: '' /* Se a palestra não tiver foto do palestrante, mas tiver alguma outra imagem, vem aqui */
         },

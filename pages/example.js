@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import Meta from '../src/infra/Meta';
 import saphira from '../services/saphira';
+import Meta from '../src/infra/Meta';
 
 // components
-import Working from '../src/components/Working';
 import Example from '../src/components/Example';
+import Working from '../src/components/Working';
 
 const ExamplePage = () => {
 

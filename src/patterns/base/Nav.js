@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import useAuth from '../../../hooks/useAuth';
-import AuthModal from '../../components/AuthModal';
 
 // components
+import AuthModal from '../../components/AuthModal';
 import Button from '../../components/Button';
 
 // assets
@@ -97,12 +97,6 @@ const Nav = () => {
                                     </Link>
                                 </li>
 
-                                {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                                    <Link legacyBehavior href="/partnership" passHref>
-                                        <a>Parcerias</a>
-                                    </Link>
-                                </li> */}
-
                                 <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
                                     <Link legacyBehavior href="/co" passHref>
                                         <a>Comissão Organizadora</a>
@@ -111,7 +105,7 @@ const Nav = () => {
 
                                 {/* <li onClick={() => setIsOpen(false)}> */}
                                     {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
-                                    {/*<span target="blank">CTF</span>{/* </Link> */}
+                                    {/*<span target="_blank">CTF</span>{/* </Link> */}
                                     {/* <div></div> */}
                                 {/* </li> */}
                             </ul>
@@ -127,7 +121,6 @@ const Nav = () => {
                                             <div className='profile-content'>
                                                <div className='user-pic-container'>
                                                     <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                                    {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
                                                 </div>
                                                 <p>{user.name.split(" ")[0]}</p>
                                             </div>
@@ -183,12 +176,6 @@ const Nav = () => {
                             </Link>
                         </li>
 
-                        {/* <li className = {router.pathname == '/partnership' ? 'active': ''}>
-                            <Link legacyBehavior href="/partnership" passHref>
-                                <a>Parcerias</a>
-                            </Link>
-                        </li> */}
-
                         <li className = {router.pathname == '/co' ? 'active': ''}>
                             <Link legacyBehavior href="/co" passHref>
                                 <a>Comissão Organizadora</a>
@@ -206,7 +193,6 @@ const Nav = () => {
                                     <a className='profile-content'>
                                         <div className='user-pic-container'>
                                             <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                            {/* <img src="/images/profile/user_pic.svg"  referrerPolicy="no-referrer" /> */}
                                         </div>
                                         <p>{user.name.split(" ")[0]}</p>
                                     </a>
@@ -240,6 +226,7 @@ const NavWrapper = styled.div`
     z-index: 11;
     padding: 1.5rem 1rem; 
     background-color: var(--color-neutral);
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     > div {
         display: flex;
@@ -447,7 +434,7 @@ const NavMobile = styled.nav`
             }
     
             .profile-content{
-                width: 6.625rem;
+                width: fit-content;
                 height: 2.75rem;
                 padding: 0;
                 gap: 0.5rem;
