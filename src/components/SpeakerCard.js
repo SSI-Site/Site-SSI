@@ -193,7 +193,7 @@ const SpeakerHead = styled.div`
     align-items: center;
     padding: 1.75em;
     width: 100%;
-    z-index: 15;
+    z-index: 16;
 
     div {
         padding: .5em .75em;
@@ -207,12 +207,12 @@ const SpeakerHead = styled.div`
     div:hover {
         background-position: left;
 
-        svg {
-            color: black;
+        svg path {
+            fill: var(--color-neutral);
         }
     }
     
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width:1024px) {
         position: absolute;
         top: 0;
         justify-content: flex-end;
@@ -233,11 +233,11 @@ const SpeakerInfo = styled.div`
     margin-bottom: 1.7em; // 1.7em + gap .5em
     z-index: 15;
 
-    label{
+    label {
         font-family: 'AT Aero Bold';
     }
 
-    .headTextWrapper{
+    .headTextWrapper {
         display: flex;
         flex-direction: column;
         gap: .5em;
@@ -248,7 +248,7 @@ const SpeakerInfo = styled.div`
         }
     }
 
-    .imgDiv{
+    .imgDiv {
         width: 40%;
         max-width: 14rem;
         aspect-ratio: 1 / 1;
@@ -283,7 +283,7 @@ const SpeakerInfo = styled.div`
         }
     }
 
-    @media screen and (min-width: 1440px){
+    @media screen and (min-width:1440px) {
         margin-bottom: 0;
     }
 `
@@ -304,22 +304,22 @@ const SpeakerDesc = styled.div`
         font-weight: 400;
     }
 
-    @media screen and (min-width: 801px){
+    @media screen and (min-width:801px) {
         h6 {
             font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
     }
     
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width:1024px) {
         flex-direction: row;
         justify-content: space-between;
         
-        div:nth-child(2){
+        div:nth-child(2) {
             width: 72%; // imgWidth = 30%, então 70% + algoAí deixa alinhado.
         }
     }
 
-    @media screen and (min-width: 1440px){
+    @media screen and (min-width:1440px) {
         padding: 4em;
     }
 `

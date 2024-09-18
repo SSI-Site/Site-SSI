@@ -6,14 +6,20 @@ const SpeakerInfo = ({ speaker }) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    // Está fazendo o conteúdo no fundo (ao lado do card aberto) se deslocar, pois remove a scrollbar...
-    // useEffect(() => {
-    //     if (isOpen) {
-    //         document.body.style.overflow = 'hidden';
-    //     } else {
-    //         document.body.style.overflow = 'unset';
-    //     }
-    // }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [isOpen]);
 
     return (
         <SpeakerContainer>

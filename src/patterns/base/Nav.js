@@ -29,195 +29,205 @@ const Nav = () => {
     }
 
     useEffect(() => {
-        if (isOpen) {
+        if (showAuthModal) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
             document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
         } else {
             document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
         }
-    }, [isOpen]);
+    }, [showAuthModal]);
 
     return (
-        <NavWrapper>
-            <div>
-                {/* Logo que redireciona para a home */}
-                <Link legacyBehavior href="/" passHref>
-                    <a>
-                        <img
-                            src={LogoHorizontal}
-                            width={180}
-                            height={45}
-                            alt='Semana de Sistemas de Informação'
+        <>
+            <NavWrapper>
+                <div>
+                    {/* Logo que redireciona para a home */}
+                    <Link legacyBehavior href="/" passHref>
+                        <a>
+                            <img
+                                src={LogoHorizontal}
+                                width={180}
+                                height={45}
+                                alt='Semana de Sistemas de Informação'
+                            />
+                        </a>
+
+                    </Link>
+
+                    {/* Caixa de autenticação/login */}
+                    {showAuthModal &&
+                        <AuthModal
+                            onClose={() => setShowAuthModal(false)}
+                            show={showAuthModal}
                         />
-                    </a>
+                    }
 
-                </Link>
+                    {/* Navbar para Mobile */}
+                    <NavMobile $isOpen={isOpen}>
 
-                {/* Caixa de autenticação/login */}
-                {showAuthModal &&
-                    <AuthModal
-                        onClose={() => setShowAuthModal(false)}
-                        show={showAuthModal}
-                    />
-                }
-
-                {/* Navbar para Mobile */}
-                <NavMobile $isOpen={isOpen}>
-                    <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
-                    </div>
-                    <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-                        <div className = "sidepanel-wrapper">
-                            <div className = 'header-nav'>
-                                <h6>Navegação rápida</h6>
-                                <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                    <img 
-                                        src={CloseBtn}
-                                        width={18}
-                                        height={18}
-                                        alt='Fechar'
-                                    />
-                                </div>
-                            </div>
-
-                            <ul>
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                    <Link legacyBehavior href="/" passHref>
-                                        <a>Home</a>
-                                    </Link>
-                                </li>
-
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                    <Link legacyBehavior href="/schedule" passHref>
-                                        <a>Programação</a>
-                                    </Link>                                
-                                </li>
-
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                    <Link legacyBehavior href="/about" passHref>
-                                        <a>Evento</a>
-                                    </Link>
-                                </li>
-
-                                <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                    <Link legacyBehavior href="/co" passHref>
-                                        <a>Comissão Organizadora</a>
-                                    </Link>                                
-                                </li>
-
-                                {/* <li onClick={() => setIsOpen(false)}> */}
-                                    {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
-                                    {/*<span target="_blank">CTF</span>{/* </Link> */}
-                                    {/* <div></div> */}
-                                {/* </li> */}
-                            </ul>
+                        <div className='hamburguer-wrapper'>
+                            <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
                         </div>
 
-                        {/* Editar esta div para o usuário logado*/}
-                        {user ? 
-                            <>
-                            <ul>
-                                <li onClick={() => setIsOpen(false)} className="profile-side-bar">
-                                    <Link legacyBehavior href="/user">
-                                        <a>
-                                            <div className='profile-content'>
-                                               <div className='user-pic-container'>
-                                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                                </div>
-                                                <p>{user.name.split(" ")[0]}</p>
-                                            </div>
+                    </NavMobile>
 
-                                            <div className='see-profile'>
-                                                <p>Ver Perfil</p>
-                                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+                    {/* Navbar para Desktop */}
+                    <NavDesktop>
+                        <NavigationList>
+                            <li className = {router.pathname == '/' ? 'active': ''}>
+                                <Link legacyBehavior href="/" passHref>
+                                    <a>Home</a>
+                                </Link>           
+                            </li>
 
-                                                    <rect id = "arrow" width = "100" height = "100%"/>
-                                                            
-                                                </svg>
+                            <li className = {router.pathname == '/schedule' ? 'active': ''}>
+                                <Link legacyBehavior href="/schedule" passHref>
+                                    <a>Programação</a>
+                                </Link>
+                            </li>
+
+                            <li className = {router.pathname == '/about' ? 'active': ''}>
+                                <Link legacyBehavior href="/about" passHref>
+                                    <a>Evento</a>
+                                </Link>
+                            </li>
+
+                            <li className = {router.pathname == '/co' ? 'active': ''}>
+                                <Link legacyBehavior href="/co" passHref>
+                                    <a>Comissão Organizadora</a>
+                                </Link>
+                            </li>
+
+                            {/* <li> */}
+                                {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
+                                {/*  */}
+                            {/* </li> */}
+
+                            {user ? (
+                                <li className='profile-container'>
+                                    <Link legacyBehavior href= "/user">
+                                        <a className='profile-content'>
+                                            <div className='user-pic-container'>
+                                                <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
                                             </div>
+                                            <p>{user.name.split(" ")[0]}</p>
                                         </a>
                                     </Link>
                                 </li>
-                            </ul>
-                            </> 
-                            :
-                            <Button onClick={handleShowAuthModal} className='user-button'>Login</Button>
-                        }
-                        
+                            ) : (
+                                <li>
+                                    <Button onClick={handleShowAuthModal}>Login</Button>
+                                    {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
+                                </li>
+                            )
+                            }
+                        </NavigationList>
+                    </NavDesktop>
+
+                </div>
+            </NavWrapper>
+            <Sidepanel>
+                <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
+                </div>
+                <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
+                    <div className = "sidepanel-wrapper">
+                        <div className = 'header-nav'>
+                            <h6>Navegação rápida</h6>
+                            <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
+                                <img 
+                                    src={CloseBtn}
+                                    width={18}
+                                    height={18}
+                                    alt='Fechar'
+                                />
+                            </div>
+                        </div>
+
+                        <NavigationList>
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
+                                <Link legacyBehavior href="/" passHref>
+                                    <a>Home</a>
+                                </Link>
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
+                                <Link legacyBehavior href="/schedule" passHref>
+                                    <a>Programação</a>
+                                </Link>                                
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
+                                <Link legacyBehavior href="/about" passHref>
+                                    <a>Evento</a>
+                                </Link>
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
+                                <Link legacyBehavior href="/co" passHref>
+                                    <a>Comissão Organizadora</a>
+                                </Link>                                
+                            </li>
+
+                            {/* <li onClick={() => setIsOpen(false)}> */}
+                                {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
+                                {/*<span target="_blank">CTF</span>{/* </Link> */}
+                                {/* <div></div> */}
+                            {/* </li> */}
+                        </NavigationList>
                     </div>
 
-                    <div className='hamburguer-wrapper'>
-                        <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-
-                </NavMobile>
-
-                {/* Navbar para Desktop */}
-                <NavDesktop>
-                    <ul>
-                        <li className = {router.pathname == '/' ? 'active': ''}>
-                            <Link legacyBehavior href="/" passHref>
-                                <a>Home</a>
-                            </Link>           
-                        </li>
-
-                        <li className = {router.pathname == '/schedule' ? 'active': ''}>
-                            <Link legacyBehavior href="/schedule" passHref>
-                                <a>Programação</a>
-                            </Link>
-                        </li>
-
-                        <li className = {router.pathname == '/about' ? 'active': ''}>
-                            <Link legacyBehavior href="/about" passHref>
-                                <a>Evento</a>
-                            </Link>
-                        </li>
-
-                        <li className = {router.pathname == '/co' ? 'active': ''}>
-                            <Link legacyBehavior href="/co" passHref>
-                                <a>Comissão Organizadora</a>
-                            </Link>
-                        </li>
-
-                        {/* <li> */}
-                            {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
-                            {/*  */}
-                        {/* </li> */}
-
-                        {user ? (
-                            <li className='profile-container'>
-                                <Link legacyBehavior href= "/user">
-                                    <a className='profile-content'>
-                                        <div className='user-pic-container'>
-                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                    {/* Editar esta div para o usuário logado*/}
+                    {user ? 
+                        <>
+                        <NavigationList>
+                            <li onClick={() => setIsOpen(false)} className="profile-side-bar">
+                                <Link legacyBehavior href="/user">
+                                    <a>
+                                        <div className='profile-content'>
+                                            <div className='user-pic-container'>
+                                                <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                            </div>
+                                            <p>{user.name.split(" ")[0]}</p>
                                         </div>
-                                        <p>{user.name.split(" ")[0]}</p>
+
+                                        <div className='see-profile'>
+                                            <p>Ver Perfil</p>
+                                            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+
+                                                <rect id = "arrow" width = "100" height = "100%"/>
+                                                        
+                                            </svg>
+                                        </div>
                                     </a>
                                 </Link>
                             </li>
-                         ) : (
-                            <li>
-                                <Button onClick={handleShowAuthModal}>Login</Button>
-                                {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
-                            </li>
-                         )
-                        }
-                    </ul>
-                </NavDesktop>
-
-            </div>
-        </NavWrapper>
+                        </NavigationList>
+                        </> 
+                        :
+                        <Button onClick={handleShowAuthModal} className='user-button'>Login</Button>
+                    }
+                    
+                </div>
+            </Sidepanel>
+        </>
     )
 }
 
 export default Nav;
 
 const NavWrapper = styled.div`
-    position:sticky;
-    top:0;
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -249,54 +259,6 @@ const NavWrapper = styled.div`
         }
     }
 
-    ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        justify-content: center;
-        gap: 1.5rem;
-
-        li a {
-            display: block;
-            padding: 0.125rem 0.5rem;
-            background-color: transparent;
-            background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
-            background-size: 200%;
-            background-position-x: 200%;
-            transition: all 100ms ease-out;
-            background-repeat: no-repeat;
-            white-space: nowrap;
-            line-height: 1.5rem;
-            font-weight: 400;
-
-            &:hover, &:focus-visible {
-                color: var(--color-neutral);
-                background-position-x: 100%;
-            }
-
-            &:focus-visible {
-                outline: 2px solid var(--color-primary);
-                outline-offset: 2px;
-            }
-                
-        }
-
-        .active {            
-            background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
-            background-size: 250% 100%;
-            background-position: right;
-            
-            a {
-                font-family: 'At Aero Bold';
-            }
-
-            &:hover a, a:focus-visible {
-                color: var(--color-primary);
-            }
-        }
-    }
-
     @media (min-width:1300px) {
         padding-block: 1rem;
         justify-content: center;
@@ -307,26 +269,6 @@ const NavWrapper = styled.div`
 
 const NavMobile = styled.nav`
     overflow: hidden;   
-
-    .sidepanel-wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 1.5rem;
-        height: 100%;
-    }
-
-    .header-nav {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .close {
-        padding: 1rem;
-        cursor: pointer;       
-    }
 
     .hamburguer-wrapper {
         padding: .75rem;
@@ -361,15 +303,94 @@ const NavMobile = styled.nav`
         }
     }
 
+    @media (min-width:995px) {
+        display: none;
+    }
+`
+
+const NavigationList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+
+    li a {
+        display: block;
+        padding: 0.125rem 0.5rem;
+        background-color: transparent;
+        background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
+        background-size: 200%;
+        background-position-x: 200%;
+        transition: all 100ms ease-out;
+        background-repeat: no-repeat;
+        white-space: nowrap;
+        line-height: 1.5rem;
+        font-weight: 400;
+
+        &:hover, &:focus-visible {
+            color: var(--color-neutral);
+            background-position-x: 100%;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+            
+    }
+
+    .active {            
+        background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
+        background-size: 250% 100%;
+        background-position: right;
+        
+        a {
+            font-family: 'At Aero Bold';
+        }
+
+        &:hover a, a:focus-visible {
+            color: var(--color-primary);
+        }
+    }
+`
+
+const Sidepanel = styled.div`
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    .sidepanel-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1.5rem;
+        height: 100%;
+    }
+
+    .header-nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .close {
+        padding: 1rem;
+        cursor: pointer;       
+    }
+
     .click-out {
-        position:fixed;
+        position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.5);
         
-        z-index: 9;
+        z-index: 17;
     }
 
     .click-out-hidden {
@@ -385,7 +406,7 @@ const NavMobile = styled.nav`
         height: 100%;
         width: 100%;
         position: fixed;
-        z-index: 10;
+        z-index: 17;
         top: 0;
         right: 0;
         background-color: var(--color-neutral-800);

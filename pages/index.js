@@ -88,6 +88,20 @@ const Home = () => {
     const todayDate = new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
     const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
 
+    useEffect(() => {
+        if (showAuthModal) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [showAuthModal]);
+
     return (
         <>
             <Meta title='SSI 2024 | Início' />
