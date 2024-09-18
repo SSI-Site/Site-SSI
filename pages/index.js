@@ -98,16 +98,16 @@ const Home = () => {
                         {!user ?
                             <>
                                 <div className='landing-text'>
-                                    <h3>Semana de Sistemas de Informação 2024</h3>
-                                    <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
+                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
                                 </div>
-                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button>
+                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastre-se</Button>
                                 {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
                             </>
                         :
-                            <>
+                            <>  
                                 <div className='landing-text'>
-                                    <h3>Semana de Sistemas de Informação 2024</h3>
+                                    <h1>Semana de Sistemas de Informação 2024</h1>
                                     <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
                                 </div>
                                 <TokenModal/>
@@ -121,16 +121,9 @@ const Home = () => {
                             />
                         }
                     </div>
-                        
-                    <div className='landing-bait'>
-                        <div className='event-date'>
-                            <svg viewBox="0 0 450 50">
-                                <text y="80">21-25</text>
-                            </svg>
-                            <p>AGO 2023</p>
-                        </div>
-                        <p>online e presencial</p>
-                    </div>
+                    
+
+
                 </div>
             </LandingSection>
 
@@ -298,6 +291,12 @@ export default Home;
 const LandingSection = styled.section`
     padding-block: 3.5rem 6.625rem;
 
+    .btn-entrar{
+        padding: 1.5em;
+        font: 700 1rem/1.25rem 'AT Aero Bold';
+        font-weight: 400;
+    }
+
     .landing-container {
         display: flex;
         flex-direction: column;
@@ -314,6 +313,7 @@ const LandingSection = styled.section`
             gap: 1.5rem;
             max-width: 33rem;
             
+            
             .landing-text {
                 display: flex;
                 flex-direction: column;
@@ -321,10 +321,11 @@ const LandingSection = styled.section`
                 align-items: flex-start;
                 max-width: 31rem;
                 gap: 1rem;
+
                 p {
-                    font-family: 'AT Aero Bold';
-                    font-weight: 700;
+                    font-weight: 400;
                 }
+
                 span {
                     font: inherit;
                     color: var(--color-primary-700);
@@ -344,38 +345,6 @@ const LandingSection = styled.section`
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-
-                svg {
-                    font: 700 9rem/0rem 'AT Aero Bold';
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 18rem;
-                    height: 6rem;
-                }
-
-                text {
-                    fill: none;
-                    stroke: var(--color-neutral-400);
-                    stroke-width: 4px;
-                    stroke-linejoin: round;
-                    animation: 2s pulsate infinite;
-                }
-
-                @keyframes pulsate {
-                    50%{ stroke-width:8px }
-                }
-
-                p {
-                    font: 700 2.3rem/3rem 'AT Aero Bold';
-                    letter-spacing: 0.8rem;
-                    color: var(--color-neutral-300);
-                }
-            }
-
-            p {
-                font: 700 1.3rem/1.5rem 'AT Aero Bold';
-                color: var(--color-neutral-500);
             }
         }
     }
