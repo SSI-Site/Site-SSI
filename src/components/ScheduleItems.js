@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { formatTime } from '../../utils/format-time'
 
 // assets
-import schedule from '../../data/scheduleInformation'
+import schedule from '../../data/schedule'
 
 // components
 import LectureItem from './LectureItem'
@@ -70,7 +70,7 @@ const ScheduleWrapper = styled.div`
             width: 100%;
             list-style-type: none;
             padding-block: 1rem;
-            border-bottom: 1px solid var(--color-background-neutrals-tertiary);
+            border-bottom: 1px solid var(--color-neutral-secondary);
 
             h5 {
                 color: white;
@@ -85,7 +85,7 @@ const ScheduleWrapper = styled.div`
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        background: var(--color-background-neutrals-tertiary);
+        background: var(--color-neutral-secondary);
         padding: 0.75rem 1.5rem;
 
         p {

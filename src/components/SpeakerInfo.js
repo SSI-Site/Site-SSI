@@ -55,7 +55,7 @@ const SpeakerContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    padding-right: 0.25rem;
+    /* padding-right: 0.25rem; */
     overflow: hidden;
 
     .click-outside {
@@ -66,7 +66,7 @@ const SpeakerContainer = styled.div`
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         
-        z-index: 11;
+        z-index: 14;
     }
 
     .click-outside-hidden {
@@ -82,7 +82,7 @@ const SpeakerContainer = styled.div`
         height: 100%;
         width: 100%;
         position: fixed;
-        z-index: 11;
+        z-index: 15;
         top: 0;
         right: 0;
         transition: transform 300ms ease-in-out;

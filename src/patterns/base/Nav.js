@@ -222,6 +222,7 @@ const NavWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     /*max-width: 1576px;*/
+    max-height: 5rem;
     margin: auto;
     z-index: 11;
     padding: 1.5rem 1rem; 
