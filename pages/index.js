@@ -94,7 +94,7 @@ const Home = () => {
 	const filterEventDays = ["07 Out - Segunda-feira", "08 Out - Terça-feira", "09 Out - Quarta-feira", "10 Out - Quinta-feira", "11 Out - Sexta-feira"];
 	const filterEventDaysId = scheduleDay - firstEventDay.getDate();
 
-	// Transforma  00:00 em minutos depois da meia noite para fazer calculos
+	// Transforma 00:00 em minutos depois da meia noite para fazer calculos
 	const minutesAfterMidNight = (time) => {
 		const [hours, minutes] = time.split(":").map(Number);
 		return hours * 60 + minutes;
@@ -103,23 +103,30 @@ const Home = () => {
 	const morningEnd = minutesAfterMidNight("13:00"); // Final do almoco
 	const eveningEnd = minutesAfterMidNight("19:00"); // Final do jantar
 
+	let shift = "Manhã"; // Turno do dia
+	if (current >= firstEventDay) {
+		if (currentTimeMinutes >= morningEnd && currentTimeMinutes < eveningEnd) {
+			shift = "Tarde";
+		} else if (currentTimeMinutes >= eveningEnd) {
+			shift = "Noite";
+		}
+	}
+
 	// Array intermediario com de horario e atividades
 	const filteredArray = Object.entries(schedule[formatedScheduleDate]).filter(([key, _]) => {
 		
 		// Horário de cada atividade
-		const scheduleDurationMinutes = minutesAfterMidNight(key);
+		const scheduleStartTimeMinutes = minutesAfterMidNight(key);
 
-		if (current < firstEventDay) { // Fora do evento, mostrar palestras da manha
-			return scheduleDurationMinutes < morningEnd;
-		} else if (currentTimeMinutes < morningEnd) { // palestras da manha
-			return scheduleDurationMinutes < morningEnd;
-		} else if (currentTimeMinutes < eveningEnd) { // palestras da tarde
-			return scheduleDurationMinutes > morningEnd && scheduleDurationMinutes < eveningEnd;
-		} else {
-			return scheduleDurationMinutes > eveningEnd; // palestras da noite
+		switch (shift) {
+			case "Manhã":
+				return scheduleStartTimeMinutes < morningEnd;
+			case "Tarde":
+				return scheduleStartTimeMinutes > morningEnd && scheduleStartTimeMinutes < eveningEnd;
+			case "Noite":
+				return scheduleStartTimeMinutes > eveningEnd;
 		}
 	})
-
 	// Cria um object com base no array intermediario
 	const filteredSchedule = Object.fromEntries(filteredArray);
 
@@ -315,7 +322,7 @@ const Home = () => {
 							</div>
 
 							<div>
-								<p>Manhã</p>
+								<p>{shift}</p>
 							</div>
 						</div>
 
