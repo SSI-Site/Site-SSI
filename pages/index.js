@@ -99,7 +99,7 @@ const Home = () => {
                             <>
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2024</h1>
-                                    <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
+                                    <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
                                 <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastre-se</Button>
                                 {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
@@ -121,9 +121,7 @@ const Home = () => {
                             />
                         }
                     </div>
-                    
-
-
+            
                 </div>
             </LandingSection>
 
@@ -289,7 +287,8 @@ export default Home;
 
 
 const LandingSection = styled.section`
-    padding-block: 3.5rem 6.625rem;
+    padding: 0rem 1rem 6.5rem 1rem;
+    
 
     .btn-entrar{
         padding: 1.5em;
@@ -298,11 +297,15 @@ const LandingSection = styled.section`
     }
 
     .landing-container {
+        padding: 2rem 1rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 3.75rem; /* match navbar height */
+        border-right: 1px solid var(--color-neutral-secondary);
+        border-left: 1px solid var(--color-neutral-secondary);
+        border-bottom: 1px solid var(--color-neutral-secondary);
+        //margin-top: 3.75rem; /* match navbar height */
         gap: 3.5rem;
         
         .landing-info {
