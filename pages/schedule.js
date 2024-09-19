@@ -20,23 +20,24 @@ const Schedule = () => {
 
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false)
+    const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
 
     const handleMobileSelectChange = (e) => {
-        setActiveItem(e.target.value)
+        const selectedDate = e.target.value
+        setActiveItem(selectedDate)
         setIsSelected(true)
+        setDayNumber(dayFull.indexOf(selectedDate))
     }
 
     const isDuringEvent = (date) => {
-        var temp = false;
-        Object.entries(schedule).map(([key]) => {
-            if (date==key) {temp = true;}
-        })
-        return temp;
+        return Object.keys(schedule).includes(date)
     }
 
     function renderActiveItem() {
         if (!isDuringEvent(activeItem)) {
-            setActiveItem('2024-10-07'); // se não for um dos dias do evento, apresenta a programação do primeiro dia
+            const firstDay = '2024-10-07'
+            setActiveItem(firstDay)
+            setDayNumber(dayFull.indexOf(firstDay))
         }
 
         return (
@@ -44,12 +45,14 @@ const Schedule = () => {
         )
     }
 
-	const [dayNumber, setDayNumber] = useState(isDuringEvent(activeItem)? dayFull.indexOf(activeItem) : 0);
 
 	const moveDayNumber = (num) => {
-		setDayNumber(dayNumber + num)
-		setActiveItem(dayFull[dayNumber + num])
-	}
+        const newDayNumber = dayNumber + num
+        if (newDayNumber >= 0 && newDayNumber < dayFull.length) {
+            setDayNumber(newDayNumber)
+            setActiveItem(dayFull[newDayNumber])
+        }
+    }
 
     return (
         <>
@@ -80,41 +83,22 @@ const Schedule = () => {
                 {/* Filtro Desktop */}
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-07')}>
-                            <DateStamp
-                                day='07'
-                                isActive={activeItem == '2024-10-07'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-08')}>
-                            <DateStamp
-                                day='08'
-                                isActive={activeItem == '2024-10-08'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-09')}>
-                            <DateStamp
-                                day='09'
-                                isActive={activeItem == '2024-10-09'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-10')}>
-                            <DateStamp
-                                day='10'
-                                isActive={activeItem == '2024-10-10'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-11')}>
-                            <DateStamp
-                                day='11'
-                                isActive={activeItem == '2024-10-11'}
-                                showEmoji={true}
-                            />
-                        </Link>
+                        {dayFull.map((date, index) => (
+                            <Link
+                                key={date}
+                                href='#'
+                                onClick={() => {
+                                    setActiveItem(date)
+                                    setDayNumber(index)
+                                }}
+                            >
+                                <DateStamp
+                                    day={date.split('-')[2]}
+                                    isActive={activeItem === date}
+                                    showEmoji={true}
+                                />
+                            </Link>
+                        ))}
                     </div>
                 </DesktopSelectionContainer>
 
@@ -173,6 +157,7 @@ const Schedule = () => {
 
 export default Schedule;
 
+
 const ScheduleSection = styled.section`
     padding-block: 1.5rem;
 
@@ -209,7 +194,7 @@ const MobileBarFilterContainer = styled.div`
 		}
 	}
 	
-	@media(min-width: 600px) {
+	@media(min-width:600px) {
 		display: none;
 	}
 `
