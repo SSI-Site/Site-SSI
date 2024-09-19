@@ -1,13 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
-import styled from "styled-components";
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from "react-dom";
+import styled from "styled-components";
 
 import useAuth from '../../hooks/useAuth';
 
-// assets
-import LogoGif from '../../public/images/logos/logo.gif';
-import IconeFechar from '../../public/images/icons/close.svg';
+// components
 import SecondaryButton from './SecondaryButton';
+
+// assets
+import IconeFechar from '../../public/images/icons/close.svg';
+import LogoGif from '../../public/images/logos/logo.gif';
 
 const AuthModal = ({ onClose }) => {
 
@@ -101,7 +103,6 @@ const ModalWrapper = styled.div`
     max-height: 404px;
 `
 
-// alterações da cor de fundo, bordas e padding
 const StyledModal = styled.div`
     background-color: var(--color-neutral-800);
     height: 100%;

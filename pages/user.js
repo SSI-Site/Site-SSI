@@ -9,32 +9,23 @@ import Meta from '../src/infra/Meta';
 
 // components
 import Button from '../src/components/Button';
+import LecturesList from '../src/components/LecturesList';
 import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import UserGiftCard from '../src/components/UserGiftCard';
 
 // assets
 import gifts from '../data/gifts';
-import UserWatchedLecture from '../src/components/UserWatchedLecture';
-import LecturesList from '../src/components/LecturesList';
 
 const User = () => {
 
-    // // Array de palestras-exemplo para permitir o desenvolvimento do front
-    // const lectures = [
-    //     'Palestra muito foda 1',
-    //     'Palestra muito foda 2',
-    //     'Palestra muito foda 3',
-    // ]; // Para o exemplo -> COMENTAR
-
     const { user, signOut } = useAuth();
     // const { user } = false; // para deploy sem login
-    
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [studentInfo, setStudentInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [isEditing, setIsEditing] = useState(false);
     const [addOrEditNUSP, setAddOrEditNUSP] = useState(false);
 
     const getStudentInfo = () => {
@@ -47,7 +38,8 @@ const User = () => {
                 setStudentInfo({ ...saphiraUserDataToFormFormat(res.data) });
                 setIsLoading(false);
             })
-            .catch(() => {
+            .catch((err) => {
+                console.error(err);
                 setIsLoading(false);
             });
     }
@@ -108,7 +100,7 @@ const User = () => {
 
         saphira.updateStudent(data.usp_number)
             .then((res) => {
-                setStudentInfo({ ...studentInfo, usp_number: data.usp_number });
+                setStudentInfo({ ...studentInfo, usp_number: res.data.usp_number });
                 setAddOrEditNUSP(false);
                 setIsLoading(false);
             }).catch((err) => {
@@ -170,7 +162,7 @@ const User = () => {
                 </Loading>
             }
 
-            {!isLoading && !isEditing && user &&
+            {!isLoading && user &&
                 <>
                     <UserInfoSection>
                         <div>
@@ -180,11 +172,12 @@ const User = () => {
                                 <PhotoTextWrapper>
                                     <img className='user-pic' src={user.photoUrl} alt="user picture" />
                                 </PhotoTextWrapper>
+
                                 <InfoUser>
                                     <div className='text-info'>
                                         {user.name ?
                                             <h4>{user.name}</h4>
-                                            :
+                                        :
                                             <h4>{studentInfo.name}</h4>
                                         }
                                         <div className='user-info'>
@@ -192,7 +185,6 @@ const User = () => {
                                         </div>
                                     </div>
                                     <div className='btn-wrapper'>
-                                        {/* <Button onClick={() => setIsEditing(true)}>Editar perfil</Button> */}
                                         <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
                                     </div>
                                 </InfoUser>
@@ -204,32 +196,36 @@ const User = () => {
                                     </div>
 
                                     <p>Número USP:</p>
-                                    { /* TODO: É necessário implementar a logica do número usp nessa parte */}
-                                    {addOrEditNUSP ? // se o usuário já tiver um número USP vinculado na conta
+                                    {addOrEditNUSP ?
                                         <>
                                             <div className='number-usp'>
                                                 <form onSubmit={handleSubmit(onSubmit)}>
                                                     <InputBox>
                                                         <div className='form-input'>
-                                                            <input id='usp_number' type='number' placeholder='Digite aqui...' className={`${errors.usp_number && 'error-border'}`}
-                                                                {...register("usp_number", {required: true, minLength: 5, maxLength: 10 })} />
+                                                            <input 
+                                                                id='usp_number'
+                                                                type='number'
+                                                                placeholder='Digite aqui...'
+                                                                className={`${errors.usp_number && 'error-border'}`}
+                                                                {...register("usp_number", {required: true, minLength: 5, maxLength: 10 })} 
+                                                            />
                                                         </div>
-                                                        {errors.usp_number && <ErrorMessage> Número USP inválido </ErrorMessage>}
+                                                        {errors.usp_number && <ErrorMessage>Número USP inválido</ErrorMessage>}
                                                     </InputBox>
                                                     <Button className='contained-width-btn'>Salvar</Button>
                                                 </form>
                                             </div>
                                         </>
-                                        :
+                                    :
                                         <>
                                             {studentInfo.usp_number ?
                                                 <Button className='contained-width-btn defined-nusp' onClick={() => { setAddOrEditNUSP(true) }}>
-                                                {studentInfo.usp_number}
-                                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white" />
-                                                </svg>
+                                                    {studentInfo.usp_number}
+                                                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white"/>
+                                                    </svg>
                                                 </Button>
-                                                :
+                                            :
                                                 <div className='number-usp'>
                                                     <SecondaryButton onClick={() => { setAddOrEditNUSP(true) }}>
                                                         Adicionar Número USP
@@ -253,11 +249,11 @@ const User = () => {
                             <div className="statusPres">
                                 <div className='display-pres b0 '>
                                     <p>Total de registros</p>
-                                    <h4>10</h4>
+                                    <h4>{lectures.length}</h4>
                                 </div>
                                 <div className='display-pres b1'>
                                     <p>Registros presenciais</p>
-                                    <h4>5</h4>
+                                    <h4>{presentialLecturesCount()}</h4>
                                 </div>
                             </div>
                             
@@ -274,7 +270,13 @@ const User = () => {
                         <div className='user-gifts-wrapper'>
                             {Object.entries(gifts).map(([key, gift]) => {
                                 return (
-                                    <UserGiftCard key={key} index={key} gift={gift} totalPres={lectures.length} presentialPres={presentialLecturesCount()}></UserGiftCard>
+                                    <UserGiftCard 
+                                        key={key}
+                                        index={key}
+                                        gift={gift}
+                                        totalPres={lectures.length}
+                                        presentialPres={presentialLecturesCount()}
+                                    />
                                 )
                             })}
                         </div>
@@ -336,6 +338,7 @@ const UserInfoWrapper = styled.div`
 
     .section-info {
         width: 100%;
+        min-width: 16rem;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -357,9 +360,13 @@ const UserInfoWrapper = styled.div`
         .defined-nusp {
             font: 700 1rem/1.5rem 'AT Aero Bold';
 
-            @media (min-width: 801px) {
+            @media (min-width:801px) {
                 font: 700 1.5rem/2rem 'AT Aero Bold';
             }
+        }
+
+        @media (min-width:1021px) {
+            width: unset;
         }
     }
     

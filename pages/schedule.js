@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import schedule from '../data/schedule';
@@ -58,7 +58,7 @@ const Schedule = () => {
             <ScheduleSection>
                 <h1>Programação</h1>
 
-                {/* Para telas mobile */}
+                {/* Filtro Mobile */}
                 <MobileScheduleFilterContainer>
                     <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
                         <select
@@ -77,7 +77,7 @@ const Schedule = () => {
                     </div>
                 </MobileScheduleFilterContainer> 
 
-                {/* Para telas desktop */}
+                {/* Filtro Desktop */}
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
                         <Link href='#schedule' onClick={() => setActiveItem('2024-10-07')}>
@@ -118,6 +118,7 @@ const Schedule = () => {
                     </div>
                 </DesktopSelectionContainer>
 
+                {/* Barra de filtro Mobile */}
 				<MobileBarFilterContainer>
 					<div className='filter-container'>
 						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
@@ -137,7 +138,7 @@ const Schedule = () => {
 					</div>
 				</MobileBarFilterContainer>
 
-				{/* Tela pra Desktop */}
+				{/* Barra de filtro Desktop */}
 				<DesktopBarFilterContainer>
 					<div className='filter-label'>
 						<p>Horário</p>
@@ -215,7 +216,7 @@ const MobileBarFilterContainer = styled.div`
 const DesktopBarFilterContainer = styled.div`
 	display: none;
 
-	@media(min-width: 600px) {
+	@media(min-width:600px) {
 		height: calc(5rem - (2 * 0.0625rem));
 		display: flex;
 		position: sticky;

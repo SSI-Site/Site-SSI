@@ -1,10 +1,4 @@
 import styled from 'styled-components';
-import semana from '../../utils/semana';
-
-/**
- * A estilização nos estados de hover e active devem ser estabelecidos no arquivo 
- * que chama o componente, pois há seções em que esta componente é estático
- */
 
 const DepartmentStamp = ({ name, icon }) => {
 

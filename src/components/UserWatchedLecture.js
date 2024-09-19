@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const UserWatchedLecture = ({ title, begin, watchMode }) => {
+    
     const titleRef = useRef(null);
     const [isTruncated, setIsTruncated] = useState(false);
 

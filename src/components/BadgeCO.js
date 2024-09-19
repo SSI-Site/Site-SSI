@@ -43,7 +43,7 @@ const colorSchemes = [
     },
 ]
 
-const BadgeCO = ({ text, themeIndex}) => {
+const BadgeCO = ({ text, themeIndex }) => {
 
     return (
         <BadgeWrapper $themeIndex = {themeIndex}>
@@ -51,6 +51,9 @@ const BadgeCO = ({ text, themeIndex}) => {
         </BadgeWrapper>
     )
 }
+
+export default BadgeCO;
+
 
 const BadgeWrapper = styled.div`
     width: fit-content;
@@ -65,5 +68,3 @@ const BadgeWrapper = styled.div`
         white-space: no;
     }
 `
-
-export default BadgeCO;

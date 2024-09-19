@@ -6,7 +6,9 @@ import giftLocked from '../../public/images/gifts/gift-locked.png';
 import giftUnlocked from '../../public/images/gifts/gift-unlocked.png';
 
 const UserGiftCard = ({ gift, index, totalPres, presentialPres }) => {
+    
     const locked = totalPres < gift.totalPres && presentialPres < gift.presentialPres;
+
     return (
         <GiftContainer tabIndex={0}>
             <div className={"gift-card-front " + (locked ? "locked-front" : "")} >
