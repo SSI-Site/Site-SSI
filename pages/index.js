@@ -88,6 +88,9 @@ const Home = () => {
     const todayDate = new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
     const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
 
+	const filterEventDays = ["07 Out - Segunda-feira", "08 Out - Terça-feira", "09 Out - Quarta-feira", "10 Out - Quinta-feira", "11 Out - Sexta-feira"];
+	const filterEventDaysId = scheduleDay - firstEventDay.getDate();
+
     return (
         <>
             <Meta title='SSI 2024 | Início' />
@@ -255,21 +258,42 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
-            <ScheduleSection>
-                <div className='schedule-container'>
-                    <h3 className='title-mobile'>Programação</h3>
-                    <div className='title-btn-desktop'>
-                        <h3>Programação</h3>
-                        <Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                    </div>
-                    <ScheduleShift
-                        day={formatedScheduleDate}
-                        />
-                    <div className='btn-mobile'>
-                        <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                    </div>
-                </div>
-            </ScheduleSection>
+			{ (current <= lastEventDay) &&
+				<ScheduleSection>
+					<div className='schedule-container'>
+						<h3 className='title-mobile'>Programação</h3>
+						<div className='title-btn-desktop'>
+							<h3>Programação</h3>
+							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+						</div>
+						<div className='filter-bar-container'>
+							<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
+						</div>
+
+						<div className='desktop-filter-bar-container'>
+							<div className='subtitle'>
+								<p>Horário</p>
+								<p>Atividade</p>
+							</div>
+
+							<div>
+								<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
+							</div>
+
+							<div>
+								<p>Manhã</p>
+							</div>
+
+						</div>
+						<ScheduleShift
+							day={formatedScheduleDate}
+						/>
+						<div className='btn-mobile'>
+							<Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+						</div>
+					</div>
+				</ScheduleSection>
+			}
 
             <SupportersSection>
                 <div className='supporters-container'>
@@ -677,11 +701,56 @@ const ScheduleSection = styled.section`
         .title-mobile {
             display: flex;
             flex-direction: row;
+			background-color: var(--color-primary);
+			padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
         .title-btn-desktop {
             display: none;
         }
+
+		.filter-bar-container {
+			height: 3.5rem;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
+			border-bottom: 0.0625rem solid var(--color-neutral-secondary);
+
+			p {
+				font: 700 1rem/1.25rem 'AT Aero Bold';
+			}
+
+			@media (min-width: 601px) {
+				display: none;
+			}
+		}
+
+		.desktop-filter-bar-container {
+			@media (max-width: 600px) {
+				display: none;
+			}
+
+			height: 3.5rem;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
+			border-bottom: 0.0625rem solid var(--color-neutral-secondary);
+
+			p {
+				font: 700 1rem/1.25rem 'AT Aero Bold';
+			}
+
+			.subtitle {
+				display: flex;
+				gap: 5.5rem;
+			}
+		}
         
         .date-stamp {
             > div {
