@@ -17,6 +17,9 @@ import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 
+// assets
+import schedule from '../data/schedule'
+
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
     { name: 'Griaule', image: '/images/partners/griaule.svg', url: 'https://griaule.com/' },
@@ -90,6 +93,35 @@ const Home = () => {
 
 	const filterEventDays = ["07 Out - Segunda-feira", "08 Out - Terça-feira", "09 Out - Quarta-feira", "10 Out - Quinta-feira", "11 Out - Sexta-feira"];
 	const filterEventDaysId = scheduleDay - firstEventDay.getDate();
+
+	// Transforma  00:00 em minutos depois da meia noite para fazer calculos
+	const minutesAfterMidNight = (time) => {
+		const [hours, minutes] = time.split(":").map(Number);
+		return hours * 60 + minutes;
+	}
+	const currentTimeMinutes = minutesAfterMidNight(currentTime); // horario atual
+	const morningEnd = minutesAfterMidNight("13:00"); // Final do almoco
+	const eveningEnd = minutesAfterMidNight("19:00"); // Final do jantar
+
+	// Array intermediario com de horario e atividades
+	const filteredArray = Object.entries(schedule[formatedScheduleDate]).filter(([key, _]) => {
+		
+		// Horário de cada atividade
+		const scheduleDurationMinutes = minutesAfterMidNight(key);
+
+		if (current < firstEventDay) { // Fora do evento, mostrar palestras da manha
+			return scheduleDurationMinutes < morningEnd;
+		} else if (currentTimeMinutes < morningEnd) { // palestras da manha
+			return scheduleDurationMinutes < morningEnd;
+		} else if (currentTimeMinutes < eveningEnd) { // palestras da tarde
+			return scheduleDurationMinutes > morningEnd && scheduleDurationMinutes < eveningEnd;
+		} else {
+			return scheduleDurationMinutes > eveningEnd; // palestras da noite
+		}
+	})
+
+	// Cria um object com base no array intermediario
+	const filteredSchedule = Object.fromEntries(filteredArray);
 
     return (
         <>
@@ -283,10 +315,10 @@ const Home = () => {
 							<div>
 								<p>Manhã</p>
 							</div>
-
 						</div>
+
 						<ScheduleShift
-							day={formatedScheduleDate}
+							schedule={filteredSchedule}
 						/>
 						<div className='btn-mobile'>
 							<Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
