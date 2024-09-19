@@ -128,6 +128,10 @@ const SpeakerContainer = styled.div`
             width: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
+            background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+            background-position: right;
+            background-size: 202% 100%;
+            transition: 250ms all ease-out;
 
             p {
                 font: 700 1rem/1.5rem 'AT Aero Bold';
@@ -185,17 +189,9 @@ const SpeakerContainer = styled.div`
             
             .speaker-info {
                 padding-inline: 0.25rem;
-                background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
-                background-position: right;
-                background-size: 202% 100%;
-                transition: 250ms all ease-out;
     
                 p {
                     font: 700 1.125rem/1.5rem 'AT Aero Bold';
-                }
-    
-                svg path {
-                    transform: translateY(0em);
                 }
             }
 

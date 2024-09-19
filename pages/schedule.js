@@ -239,7 +239,7 @@ const ButtonFilter = styled.button`
 	height: 3rem;
 	align-items: center;
 	justify-content: center;
-	background-size: 200% 100%;
+	background-size: 202% 100%;
 	transition: 100ms all ease-out;
 
 	svg {
@@ -255,6 +255,11 @@ const ButtonFilter = styled.button`
 			}
 		}
 	}
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
 
 	&.right {
 		background-image: linear-gradient(
