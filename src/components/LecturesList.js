@@ -120,7 +120,7 @@ const LecturesListWrapper = styled.div`
         flex-flow: wrap; 
         gap: 1rem;
 
-        @media (min-width: 840px) {
+        @media (min-width:840px) {
             gap: 2rem;
         }
     }
@@ -146,7 +146,7 @@ const FilterItem = styled.div`
         }
     `}
 
-    @media (min-width: 840px) {
+    @media (min-width:840px) {
         width: 12rem;
 
         > div:hover, > div:focus-visible {

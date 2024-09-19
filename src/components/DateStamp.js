@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import semana from '../../utils/semana';
 
-
 const DateStamp = ({ day, isActive, showEmoji }) => {
 
     // se day = 7, então relativeDay = 1 e assim por diante (para os dias do evento)
@@ -93,7 +92,7 @@ const DateWrapper = styled.div`
         font-family: 'AT Aero Bold'; 
     }
 
-    @media (min-width: 840px) {
+    @media (min-width:840px) {
         width: 25rem;
 
         .day-emoji img {

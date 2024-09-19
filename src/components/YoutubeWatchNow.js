@@ -127,7 +127,7 @@ const YoutubeWatchNowWrapper = styled.div`
 	.offline {
         display: flex;
         gap: 1.5rem;
-        background-color: var(--color-background-neutrals-secondary);
+        background-color: var(--color-neutral-800);
 
         background-image: linear-gradient(white, white);
         background-size: 200%;
