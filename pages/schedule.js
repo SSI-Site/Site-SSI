@@ -230,10 +230,6 @@ const DesktopBarFilterContainer = styled.div`
 			gap: 1rem;
 		}
 	}
-
-    @media(min-width:1300px) {
-		height: calc(5rem - (2 * 0.0625rem));
-    }
 `
 
 const ButtonFilter = styled.button`
