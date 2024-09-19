@@ -159,7 +159,7 @@ const SpeakerWrapper = styled.div`
         100% {transform: translateX(0%);}   
     }
 
-    .bottomIm g {
+    .bottomImg {
         width: 100%;
         height: 10%;
         z-index: inherit;
