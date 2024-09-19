@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+
+// components
 import BadgeCO from './BadgeCO';
 
 const colorSchemes = [
@@ -64,10 +66,8 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                         <h6>{name}</h6>
                     }
                 </div>
-                {phrase ?
+                {phrase &&
                     <p className='phrase'>"{phrase}"</p>
-                    :
-                    <></>
                 }
                 <div>
                     <p className='department-title'>Setores</p>
@@ -91,8 +91,8 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
-                    d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z"
-                    fill="white"
+                        d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z"
+                        fill="white"
                     />
 
                     <rect id="arrow" width="100" height="100%" />
@@ -218,7 +218,7 @@ const MemberWrapper = styled.div`
         }
 
         .department-title {
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             text-align: left;
             font: 700 1.25rem/1.5rem 'AT Aero Bold';
             color: ${colorSchemes[1].textColor};

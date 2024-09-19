@@ -2,21 +2,20 @@ import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import Meta from '../src/infra/Meta';
-import members from '../data/members';
 
 // components
-import MemberCard from '../src/components/MemberCard';
 import DepartmentStamp from '../src/components/DepartmentStamp';
+import MemberCard from '../src/components/MemberCard';
 
 // assets
-import FinancesIcon from '../public/images/co_icons/finances.svg';
-import CreationIcon from '../public/images/co_icons/creation.svg';
+import members from '../data/members';
 import BoardIcon from '../public/images/co_icons/board.svg';
+import CreationIcon from '../public/images/co_icons/creation.svg';
+import FinancesIcon from '../public/images/co_icons/finances.svg';
 import InfraIcon from '../public/images/co_icons/infra.svg';
 import LectureIcon from '../public/images/co_icons/lecture.svg';
 import PartnershipIcon from '../public/images/co_icons/partnership.svg';
 import SiteIcon from '../public/images/co_icons/web.svg';
-import BadgeCO from '../src/components/BadgeCO';
 
 const CO = () => {
 
@@ -29,11 +28,6 @@ const CO = () => {
     }
 
     function renderActiveItem() {
-        {/*return (
-            <div className="card-container" key={1}>
-                <MemberCard name={members[0].name} image={members[0].image} departments={members[0].departments} linkedin={members[0].linkedin} phrase={"uma frase bem grandona pra ver se alguma coisa quebra quando alguem tentar escrever a biblia aqui"} color={1} />
-            </div>
-        )*/}
         if (activeItem === 'Todos') {
             return (
                 members.map(function(member, key) {
@@ -138,6 +132,7 @@ const CO = () => {
 }
 
 export default CO;
+
 
 const COExhibitionSection = styled.section`
     border-bottom: 1px solid var(--color-neutral-secondary);
@@ -325,7 +320,7 @@ const NavItem = styled.div`
         }
     `}
 
-    @media (min-width: 840px) {
+    @media (min-width:840px) {
         > div:hover, > div:focus-visible {
             background-position-x: 100%;    
         }

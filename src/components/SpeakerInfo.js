@@ -6,7 +6,6 @@ const SpeakerInfo = ({ speaker }) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
-
     useEffect(() => {
         if (isOpen) {
             // Calcula a largura da barra de rolagem
