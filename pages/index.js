@@ -122,6 +122,13 @@ const Home = () => {
                         }
                     </div>
             
+                    <div className = "dateWrapper">
+                        <div className = "dates">
+                            <h1 id = "dateEvent">07-11</h1>
+                            <h2>Out 2024</h2>
+                        </div>
+                        <h6>Online e Presencial</h6>
+                    </div>
                 </div>
             </LandingSection>
 
@@ -288,7 +295,6 @@ export default Home;
 
 const LandingSection = styled.section`
     padding: 0rem 1rem 6.5rem 1rem;
-    
 
     .btn-entrar{
         padding: 1.5em;
@@ -297,7 +303,7 @@ const LandingSection = styled.section`
     }
 
     .landing-container {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -307,7 +313,7 @@ const LandingSection = styled.section`
         border-bottom: 1px solid var(--color-neutral-secondary);
         //margin-top: 3.75rem; /* match navbar height */
         gap: 3.5rem;
-        
+
         .landing-info {
             display: flex;
             flex-direction: column;
@@ -336,18 +342,27 @@ const LandingSection = styled.section`
             }
         }
 
-        .landing-bait {
-            width: fit-content;
+        .dateWrapper{
+            width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding: 1.5rem 1rem;
+            background-color: var(--color-primary);
 
-            .event-date {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
+            h1 {
+                font-size: 6rem;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            h2{
+                text-align: center;
+                line-height: 150%;
+                letter-spacing: 0.2em;
+            }
+
+            h6{
+                text-align: center;
             }
         }
     }
