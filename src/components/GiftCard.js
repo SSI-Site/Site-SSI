@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
+// assets
 import giftBox from '../../public/images/gifts/gift-box.png';
 
 const GiftCard = ({ index, image, name, totalPres, presentialPres }) => {
 	return (
 		<GiftContainer tabIndex={0}>
-			<div className={"gift-card-front"} >
+			<div className='gift-card-front'>
 				<figure>
 					<img className="gift-img" src={image} alt={`Brinde ${name} SSI`} />
 				</figure>
@@ -15,8 +16,10 @@ const GiftCard = ({ index, image, name, totalPres, presentialPres }) => {
 			<div className='gift-card-back' id={"gift" + index}>
 				<img className="icon-image" src={giftBox} alt="gift box" />
 
-				<p className='card-back-text'>Para resgatar esse brinde você deve participar de um total de <span>{totalPres}</span> atividades,
-					sendo <span>{presentialPres}</span> delas presencialmente.</p>
+				<p className='card-back-text'>
+                    Para resgatar esse brinde você deve participar de um total de <span>{totalPres}</span> atividades,
+					sendo <span>{presentialPres}</span> delas presencialmente.
+                </p>
 				
 			</div>
 			<button id={"btn" + index} className='info-button' onClick={() => flip(index)} tabIndex={0}>
@@ -26,7 +29,6 @@ const GiftCard = ({ index, image, name, totalPres, presentialPres }) => {
 			</button>
 		</GiftContainer>
 	)
-
 }
 
 const flip = (index) => {
@@ -37,6 +39,7 @@ const flip = (index) => {
 }
 
 export default GiftCard;
+
 
 const GiftContainer = styled.div`
 	width: 100%;
