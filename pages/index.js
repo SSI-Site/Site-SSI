@@ -305,11 +305,11 @@ const Home = () => {
 							<h3>Programação</h3>
 							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
 						</div>
-						<div className='filter-bar-container'>
+						<div className='filter-bar-container filter-bar-mobile'>
 							<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
 						</div>
 
-						<div className='desktop-filter-bar-container'>
+						<div className='filter-bar-container filter-bar-desktop'>
 							<div className='subtitle'>
 								<p>Horário</p>
 								<p>Atividade</p>
@@ -761,36 +761,26 @@ const ScheduleSection = styled.section`
 			p {
 				font: 700 1rem/1.25rem 'AT Aero Bold';
 			}
+		}
 
+		.filter-bar-mobile {
 			@media (min-width: 601px) {
 				display: none;
 			}
 		}
 
-		.desktop-filter-bar-container {
+		.filter-bar-desktop {
 			@media (max-width: 600px) {
 				display: none;
 			}
-
-			height: 3.5rem;
-			width: 100%;
-			display: flex;
 			justify-content: space-between;
-			align-items: center;
-
-			box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
-			border-bottom: 0.0625rem solid var(--color-neutral-secondary);
-
-			p {
-				font: 700 1rem/1.25rem 'AT Aero Bold';
-			}
-
+			
 			.subtitle {
 				display: flex;
 				gap: 5.5rem;
 			}
 		}
-        
+
         .date-stamp {
             > div {
                 background-color: var(--color-primary);
