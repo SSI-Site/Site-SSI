@@ -302,9 +302,9 @@ const Home = () => {
 			{ (current <= lastEventDay) &&
 				<ScheduleSection>
 					<div className='schedule-container'>
-						<h3 className='title-mobile'>Programação</h3>
+						<h3 className='title-mobile schedule-section-title'>Programação</h3>
 						<div className='title-btn-desktop'>
-							<h3>Programação</h3>
+							<h3 className='schedule-section-title'>Programação</h3>
 							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
 						</div>
 						<div className='filter-bar-container filter-bar-mobile'>
@@ -741,14 +741,20 @@ const CountdownSection = styled.section`
 `
 
 const ScheduleSection = styled.section`
-    padding-block: 3.5rem;
+    padding-block: 2rem;
+    border-top: 1px solid var(--color-neutral-secondary);
     
     .schedule-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        gap: 1rem;
+
+        .schedule-section-title {
+            background-color: var(--color-primary);
+            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+        }
 
         .title-mobile {
             display: flex;
@@ -777,15 +783,20 @@ const ScheduleSection = styled.section`
 		}
 
 		.filter-bar-mobile {
-			@media (min-width: 601px) {
+            margin-bottom: -1rem;
+
+			@media (min-width: 1024px) {
 				display: none;
 			}
 		}
 
 		.filter-bar-desktop {
-			@media (max-width: 600px) {
+            margin-bottom: -2rem;
+
+			@media (max-width: 1023px) {
 				display: none;
 			}
+
 			justify-content: space-between;
 			
 			.subtitle {
@@ -799,12 +810,17 @@ const ScheduleSection = styled.section`
                 background-color: var(--color-primary);
             }
         }
+
+        .btn-mobile {
+            width: 100%;
+        }
     }
 
     @media (min-width:1021px) {
+        padding-block: 4.5rem 2rem;
 
         .schedule-container {
-            gap: 4rem;
+            gap: 1.5rem;
             align-items: flex-start;
 
             .title-mobile {
@@ -827,11 +843,6 @@ const ScheduleSection = styled.section`
                 display: none;
             }
         }
-    }
-
-    @media (min-width:1021px) {
-        padding-block: 6.75rem;
-
     }
 `
 
