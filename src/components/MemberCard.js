@@ -493,9 +493,6 @@ const MemberWrapper = styled.div`
 
 
     @media (min-width:800px) {
-        .info-button {
-            display: none;
-        }
 
         &:hover, &:focus-visible {
             .card-back {
@@ -510,6 +507,12 @@ const MemberWrapper = styled.div`
 
         .info-show {
             translate: 0 101%;
+        }
+    }
+
+    @media (min-width:1024px) {
+        .info-button {
+            display: none;
         }
     }
 `
