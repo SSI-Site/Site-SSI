@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import schedule from '../data/schedule';
 import Meta from '../src/infra/Meta';
+import semana from '../utils/semana';
 import '../utils/slugify';
 
 // components
@@ -12,20 +13,18 @@ import ScheduleItems from '../src/components/ScheduleItems';
 
 const dayOfSSI = ["07 Out", "08 Out", "09 Out", "10 Out", "11 Out"]
 const dayFull = ["2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11"]
-const weekDays = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira"]
+const weekDays = semana.filter(dia => dia !== 'Domingo' && dia !== 'Sábado')
 
 const Schedule = () => {
 
     const currentDate = `${new Date().getFullYear()}-${(new Date().getMonth()+1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')}`;
 
     const [activeItem, setActiveItem] = useState(currentDate);
-    const [isSelected, setIsSelected] = useState(false)
     const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
 
     const handleMobileSelectChange = (e) => {
         const selectedDate = e.target.value
         setActiveItem(selectedDate)
-        setIsSelected(true)
         setDayNumber(dayFull.indexOf(selectedDate))
     }
 
@@ -62,20 +61,19 @@ const Schedule = () => {
 
                 {/* Filtro Mobile */}
                 <MobileScheduleFilterContainer>
-                    <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
+                    <p>Filtre por dia:</p>
+                    <div className={`select-wrapper`}>
                         <select
                             aria-label="Filtre por dia"
-                            defaultValue="Filtro"
+                            value={dayFull[dayNumber]}
                             onChange={handleMobileSelectChange}
                         >
-                            <option value="Filtro" disabled hidden>Filtrar por dia</option>
                             <option value="2024-10-07">Dia 1</option>
                             <option value="2024-10-08">Dia 2</option>
                             <option value="2024-10-09">Dia 3</option>
                             <option value="2024-10-10">Dia 4</option>
                             <option value="2024-10-11">Dia 5</option>
                         </select>
-                        <img className='icon' src='./images/co_icons/filter.svg' alt='Ícone de filtro' />
                     </div>
                 </MobileScheduleFilterContainer> 
 
@@ -94,7 +92,6 @@ const Schedule = () => {
                                 <DateStamp
                                     day={date.split('-')[2]}
                                     isActive={activeItem === date}
-                                    showEmoji={true}
                                 />
                             </Link>
                         ))}
@@ -309,10 +306,17 @@ const ButtonFilter = styled.button`
 
 const MobileScheduleFilterContainer = styled.div`
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding-block: 2rem 2.5rem;
+
+    p {
+        font: 700 0.875rem/1.5rem 'AT Aero Bold';
+        width: 100%;
+    }
 
     .select-wrapper {
         width: 100%;
@@ -324,34 +328,17 @@ const MobileScheduleFilterContainer = styled.div`
         select {
             position: relative;
             width: 100%;
-            min-height: 3rem; 
+            min-height: 2.75rem; 
             color: white;
-            background-color: var(--color-neutral-800);
+            background-color: var(--color-primary);
             appearance: none;
             font-size: 0.875rem;
             text-align: center;
-            padding: 0.5rem 2rem 0.5rem 1rem;
+            padding: 0.5rem 1rem;
 
             &::-ms-expand {
                 display: none;
             }
-        }
-
-        .icon {
-            position: absolute;
-            pointer-events: none;
-            right: calc(50% - 4rem);
-        }
-    }
-
-    .select-wrapper.selected {
-        select {
-            background-color: var(--color-primary);
-            padding-right: 0;
-        }
-
-        .icon {
-            display: none;
         }
     }
 

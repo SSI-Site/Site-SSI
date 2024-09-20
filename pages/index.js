@@ -18,7 +18,7 @@ import TokenModal from '../src/components/TokenModal';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 
 // assets
-import schedule from '../data/schedule'
+import schedule from '../data/schedule';
 
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
@@ -46,7 +46,7 @@ const Home = () => {
     const [countdownHours, setCountdownHours] = useState();
     const [countdownMinutes, setCountdownMinutes] = useState();
     const [countdownSeconds, setCountdownSeconds] = useState();
-    var countdownDate = new Date("Oct 07, 2024 00:00:00").getTime();
+    var countdownDate = new Date("Oct 07, 2024 09:40:00").getTime();
     var now = new Date().getTime();
 
     useEffect(() => {
@@ -72,61 +72,50 @@ const Home = () => {
     const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
 
     const day = `${current.getDate()}`;
-    const month = `${current.getMonth()+1}`;
-    const year = `${current.getFullYear()}`;
-    const weekDayNames = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
-    const weekDay = weekDayNames[`${current.getDay()}`];
-    const simpleWeekDayNames = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
-    const simpleWeekDay = simpleWeekDayNames[`${current.getDay()}`];
-    
-    const description = "Nesta "+weekDay+", teremos mais um dia de palestras recheadas de informações sobre tecnologia e carreira para você. Não deixe de participar!";
-    const sentenceTitle = "E com mais palestras incríveis!";
-    const title = sentenceTitle.slice(0,2)+simpleWeekDay.replace(/.$/, "ou")+sentenceTitle.slice(1,);
 
     // Dia correto para o DateComponent
     const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '07');
-    // const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? `${currentTime >= '21:40' ? (parseInt(day, 10) + 1).toString() : day}` : '21'); // para mostrar palestras do dia seguinte após 21:40
     
     // Dia no formato yyyy-mm-dd para o ScheduleShift
-    const todayDate = new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
-    const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
+    const todayDate = current.toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
+    const formattedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
 
     const filterEventDays = ["07 Out - Segunda-feira", "08 Out - Terça-feira", "09 Out - Quarta-feira", "10 Out - Quinta-feira", "11 Out - Sexta-feira"];
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();
 
     // Transforma 00:00 em minutos depois da meia noite para fazer calculos
     const minutesAfterMidNight = (time) => {
-      const [hours, minutes] = time.split(":").map(Number);
-      return hours * 60 + minutes;
+        const [hours, minutes] = time.split(":").map(Number);
+        return hours * 60 + minutes;
     }
+
     const currentTimeMinutes = minutesAfterMidNight(currentTime); // horario atual
     const morningEnd = minutesAfterMidNight("13:00"); // Final do almoco
     const eveningEnd = minutesAfterMidNight("19:00"); // Final do jantar
 
     let shift = "Manhã"; // Turno do dia
     if (current >= firstEventDay) {
-      if (currentTimeMinutes >= morningEnd && currentTimeMinutes < eveningEnd) {
-        shift = "Tarde";
-      } else if (currentTimeMinutes >= eveningEnd) {
-        shift = "Noite";
-      }
+        if (currentTimeMinutes >= morningEnd && currentTimeMinutes < eveningEnd) {
+            shift = "Tarde";
+        } else if (currentTimeMinutes >= eveningEnd) {
+            shift = "Noite";
+        }
     }
 
     // Array intermediario com de horario e atividades
-    const filteredArray = Object.entries(schedule[formatedScheduleDate]).filter(([key, _]) => {
+    const filteredArray = Object.entries(schedule[formattedScheduleDate]).filter(([key, _]) => {
+        const scheduleStartTimeMinutes = minutesAfterMidNight(key); // Horário de cada atividade
 
-      // Horário de cada atividade
-      const scheduleStartTimeMinutes = minutesAfterMidNight(key);
-
-      switch (shift) {
-        case "Manhã":
-          return scheduleStartTimeMinutes < morningEnd;
-        case "Tarde":
-          return scheduleStartTimeMinutes > morningEnd && scheduleStartTimeMinutes < eveningEnd;
-        case "Noite":
-          return scheduleStartTimeMinutes > eveningEnd;
-      }
+        switch (shift) {
+            case "Manhã":
+                return scheduleStartTimeMinutes < morningEnd;
+            case "Tarde":
+                return scheduleStartTimeMinutes > morningEnd && scheduleStartTimeMinutes < eveningEnd;
+            case "Noite":
+                return scheduleStartTimeMinutes > eveningEnd;
+        }
     })
+
     // Cria um object com base no array intermediario
     const filteredSchedule = Object.fromEntries(filteredArray);
   
@@ -199,7 +188,7 @@ const Home = () => {
                 <CountdownSection>
                     <div className='countdown-text'>
                         <h3>Contagem regressiva</h3>
-                        <h6>Faltam poucos dias para você participar dessa <span>experiência única!</span></h6>
+                        <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000  ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
                     </div>
                     
                     <div className='countdown-clock'>
@@ -323,6 +312,7 @@ const Home = () => {
 						</div>
 						<div className='filter-bar-container filter-bar-mobile'>
 							<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
+                            <p>{shift}</p>
 						</div>
 
 						<div className='filter-bar-container filter-bar-desktop'>
@@ -782,7 +772,8 @@ const ScheduleSection = styled.section`
         }
 
 		.filter-bar-container {
-			height: 3.5rem;
+			height: fit-content;
+            padding-block: 1rem;
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -797,6 +788,9 @@ const ScheduleSection = styled.section`
 		}
 
 		.filter-bar-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
             margin-bottom: -1rem;
 
 			@media (min-width: 1024px) {
