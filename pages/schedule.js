@@ -183,7 +183,7 @@ const ScheduleSection = styled.section`
     padding-block: 1.5rem;
 
     @media (min-width:600px) {
-        padding-block: 7.5rem 3.75rem;
+        padding-block: 7.5rem 2rem;
 
         h1 {
             width: 100%;
