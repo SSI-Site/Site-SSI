@@ -20,11 +20,13 @@ const Schedule = () => {
     const currentDate = `${new Date().getFullYear()}-${(new Date().getMonth()+1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')}`;
 
     const [activeItem, setActiveItem] = useState(currentDate);
+    const [isSelected, setIsSelected] = useState(false);
     const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
 
     const handleMobileSelectChange = (e) => {
         const selectedDate = e.target.value
         setActiveItem(selectedDate)
+        setIsSelected(true)
         setDayNumber(dayFull.indexOf(selectedDate))
     }
 
@@ -62,7 +64,7 @@ const Schedule = () => {
                 {/* Filtro Mobile */}
                 <MobileScheduleFilterContainer>
                     <p>Filtre por dia:</p>
-                    <div className={`select-wrapper`}>
+                    <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
                         <select
                             aria-label="Filtre por dia"
                             value={dayFull[dayNumber]}
@@ -74,6 +76,9 @@ const Schedule = () => {
                             <option value="2024-10-10">Dia 4</option>
                             <option value="2024-10-11">Dia 5</option>
                         </select>
+                        <svg className='icon' xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                            <path d="M18.3188 7L12.5 12.8187L6.68125 7L4.5 9.18125L12.5 17.1813L20.5 9.18125L18.3188 7Z" fill="white"/>
+                        </svg>
                     </div>
                 </MobileScheduleFilterContainer> 
 
@@ -330,7 +335,7 @@ const MobileScheduleFilterContainer = styled.div`
             width: 100%;
             min-height: 2.75rem; 
             color: white;
-            background-color: var(--color-primary);
+            background-color: var(--color-neutral-800);
             appearance: none;
             font-size: 0.875rem;
             text-align: center;
@@ -340,6 +345,16 @@ const MobileScheduleFilterContainer = styled.div`
                 display: none;
             }
         }
+
+        .icon {
+            position: absolute;
+            pointer-events: none;
+            right: 7.5%;
+        }
+    }
+
+    .selected select {
+        background-color: var(--color-primary);
     }
 
     option {
