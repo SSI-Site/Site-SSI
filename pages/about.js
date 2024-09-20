@@ -147,7 +147,7 @@ const About = () => {
                     <div className='gifts-cards'>
                         {Object.entries(gifts).map(([key, gift]) => {
                             return (
-                                <GiftCard key={key} name={gift.name} image={gift.image} totalPres={gift.totalPres} presentialPres={gift.presentialPres} />
+                                <GiftCard key={key} index={key} name={gift.name} image={gift.image} totalPres={gift.totalPres} presentialPres={gift.presentialPres} />
                             )
                         })}
                     </div>
