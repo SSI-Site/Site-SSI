@@ -45,14 +45,6 @@ const Schedule = () => {
         )
     }
 
-
-	// Faz a barra de filtragem atualizar quando um filtro da programacao e clicado
-	useEffect(() => {
-		if (activeItem) {
-			setDayNumber(isDuringEvent(activeItem)? dayFull.indexOf(activeItem) : 0);
-		}
-	}, [activeItem]);
-
 	const moveDayNumber = (num) => {
         const newDayNumber = dayNumber + num
         if (newDayNumber >= 0 && newDayNumber < dayFull.length) {
