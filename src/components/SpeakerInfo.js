@@ -6,14 +6,19 @@ const SpeakerInfo = ({ speaker }) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    // Está fazendo o conteúdo no fundo (ao lado do card aberto) se deslocar, pois remove a scrollbar...
-    // useEffect(() => {
-    //     if (isOpen) {
-    //         document.body.style.overflow = 'hidden';
-    //     } else {
-    //         document.body.style.overflow = 'unset';
-    //     }
-    // }, [isOpen]);
+    useEffect(() => {
+        if (isOpen) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [isOpen]);
 
     return (
         <SpeakerContainer>
@@ -123,6 +128,10 @@ const SpeakerContainer = styled.div`
             width: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
+            background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+            background-position: right;
+            background-size: 202% 100%;
+            transition: 250ms all ease-out;
 
             p {
                 font: 700 1rem/1.5rem 'AT Aero Bold';
@@ -163,7 +172,7 @@ const SpeakerContainer = styled.div`
         width: 14.5rem;
 
         .side-card {
-            max-width: 60%;
+            max-width: min(48rem, 60%);
         }
 
         .speaker-image-container {
@@ -180,17 +189,9 @@ const SpeakerContainer = styled.div`
             
             .speaker-info {
                 padding-inline: 0.25rem;
-                background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
-                background-position: right;
-                background-size: 202% 100%;
-                transition: 250ms all ease-out;
     
                 p {
                     font: 700 1.125rem/1.5rem 'AT Aero Bold';
-                }
-    
-                svg path {
-                    transform: translateY(0em);
                 }
             }
 

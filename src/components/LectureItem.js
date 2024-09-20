@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { formatTime } from '../../utils/format-time';
+
 // components
 import BadgeCO from './BadgeCO';
 import SpeakerInfo from './SpeakerInfo';
@@ -8,7 +10,6 @@ import SpeakerInfo from './SpeakerInfo';
 // assets
 import LectureRight from '../../public/images/background_imgs/desktopDetail.png';
 import LectureBottom from '../../public/images/background_imgs/detail.png';
-import { formatTime } from '../../utils/format-time';
 
 const LectureItem = ({ time, event }) => {
 
@@ -20,34 +21,34 @@ const LectureItem = ({ time, event }) => {
 
                     {event.endTime ?
                         <label>{formatTime(time)} - {formatTime(event.endTime)}</label>
-                        :
+                    :
                         <label>{formatTime(time)}</label>
                     }
 
-                    <div className='badgeWrapper'>
+                    <div className='badge-wrapper'>
                         <BadgeCO
                             text={event.local === 'presential'? 'Presencial': 'Online'}
                             themeIndex={event.local === 'presential' ? 5 : 9}
-                            />
+                        />
 
                         {event.activityType &&
                             <BadgeCO
-                            text={event.activityType}
-                            themeIndex={event.activityType === 'Workshop'? 1 : 2}
+                                text={event.activityType}
+                                themeIndex={event.activityType === 'Workshop'? 1 : 2}
                             />
                         }
                     </div>
                     
                 </LectureHeader>
 
-                <div className = "lectureDescription">
+                <div className = "lecture-description">
                     <p>{event.description}</p>
                 </div>
 
                 <SpeakersWrapper>
                     {Object.entries(event.speakers).map(([key, speaker], index) => {
                         return (
-                                <SpeakerInfo key = {index} speaker = {speaker}/>
+                            <SpeakerInfo key={index} speaker={speaker}/>
                         )
                     })}
                 </SpeakersWrapper>
@@ -56,9 +57,9 @@ const LectureItem = ({ time, event }) => {
 
             <ImgDetail>
                 <picture>
-                    <source media = "(max-width: 800px)" srcSet = {LectureBottom}/>
-                    <source media = "(min-width: 801px)" srcSet = {LectureRight}/>
-                    <img src = { LectureBottom } alt = "Imagem de Detalhe"/>
+                    <source media="(max-width: 800px)" srcSet={LectureBottom}/>
+                    <source media="(min-width: 801px)" srcSet={LectureRight}/>
+                    <img src={LectureBottom} alt="Imagem de Detalhe"/>
                 </picture>
                 
             </ImgDetail>
@@ -69,7 +70,7 @@ const LectureItem = ({ time, event }) => {
 export default LectureItem;
 
 const LectureWrapper = styled.article`
-    background-color: var(--color-background-neutrals-secondary);
+    background-color: var(--color-neutral-800);
     display: flex;   
     flex-direction: column;
     gap: 1em;
@@ -82,7 +83,7 @@ const LectureWrapper = styled.article`
         justify-content: space-between;
     }
 
-    .lectureDescription {
+    .lecture-description {
         width: 100%;
         max-width: 704px;
 
@@ -116,7 +117,7 @@ const ImgDetail = styled.div`
         object-fit: cover;
         object-position: left;
 
-        @media screen and (min-width: 801px){
+        @media screen and (min-width:801px) {
             position: absolute;
             object-position: top;
         }
@@ -131,7 +132,7 @@ const LectureContent = styled.div`
     gap: 1em;
     box-sizing: border-box;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width:1024px) {
         padding: 3.5em;
     }
 `
@@ -141,7 +142,7 @@ const LectureHeader = styled.header`
     flex-direction: inherit;
     gap: inherit;
 
-    .badgeWrapper {
+    .badge-wrapper {
         display: flex;
         width: fit-content;
         gap: 1em;
@@ -151,7 +152,7 @@ const LectureHeader = styled.header`
         // LARGE VARIANT
         font-family: 'At Aero Bold';
 
-        @media screen and (min-width: 801px) {
+        @media screen and (min-width:801px) {
             font: 700 1.125rem / 1.5rem 'At Aero Bold';
         }
     }

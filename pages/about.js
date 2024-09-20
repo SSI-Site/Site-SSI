@@ -1,16 +1,15 @@
-
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import CountUp from 'react-countup';
 import styled from 'styled-components';
 
+import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 
 // components
 import Button from '../src/components/Button';
 import EventActivity from '../src/components/EventActivity';
 import GiftCard from '../src/components/GiftCard';
-import ScrollArrow from '../src/components/ScrollArrow';
 
 // assets
 import gifts from '../data/gifts';
@@ -19,8 +18,8 @@ import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 const About = () => {
 
     const router = useRouter();
-    // const { user, signOut } = useAuth();
-    const { user } = false; // para deploy sem login
+    const { user } = useAuth();
+    // const { user } = false; // para deploy sem login
 
     return (
         <>
@@ -35,9 +34,6 @@ const About = () => {
                     <div className='text'>
                         <h3>O que é a SSI?</h3>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
-                        <div className='arrow-container'>
-                            <ScrollArrow />
-                        </div>
                     </div>
                 </div>
             </LogoTextSection>

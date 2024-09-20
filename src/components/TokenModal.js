@@ -7,7 +7,6 @@ import saphira from '../../services/saphira';
 // components
 import Button from './Button';
 
-
 const TOKEN_LENGTH = 5;
 
 const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
@@ -148,7 +147,7 @@ const ModalTokenWrapper = styled.div`
     --color-invalid: #FF8980;
     --color-valid: #52C84D;
     width: 100%;
-    background-color: var(--color-background-neutrals-secondary);
+    background-color: var(--color-neutral-800);
     padding: 0.5rem;
     margin-left: -4px;
 
@@ -180,7 +179,7 @@ const ModalTokenWrapper = styled.div`
 
     input[type=text] {
         color: var(--color-content-neutrals-tertiary);
-        background-color: var(--color-background-neutrals-secondary);
+        background-color: var(--color-neutral-800);
         text-transform: uppercase;
         margin-left: 1rem;
         width: 9rem;

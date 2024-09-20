@@ -8,7 +8,6 @@ export default createGlobalStyle`
         --color-tertiary: #8A45C6;  //excluir posteriormente
         --color-neutral: #161616;   //Ajustada
         --color-neutral-secondary: #4B4B4B;
-        --color-background-neutrals-secondary: #252525;
         --color-content-neutrals-tertiary: #CACACA;
 
         /* variações da paleta - ainda tenho que dar uma olhada melhor nas cores que são usadas */
@@ -21,7 +20,7 @@ export default createGlobalStyle`
         --color-primary-300: #D98DFF;
         --color-primary-200: #DDA6FF;
         --color-neutral-900: #000000; 
-        --color-neutral-800: #252525; 
+        --color-neutral-800: #252525;
         --color-neutral-700: #3C3C3C; // Ainda não usou
         --color-neutral-600: #545454; // Ainda não usou
         --color-neutral-500: #6C6C6C; // Ainda não usou

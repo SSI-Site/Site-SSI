@@ -50,19 +50,19 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
                         <a href={speaker['linkedin']} target="_blank" aria-label={`Linkedin de ${speaker['name']}`}>
                             {/*Linkedin Logo*/}
                             <svg
-                            className="animation"
-                            width="40"
-                            height="40"
-                            viewBox="0 0 40 40"
-                            fill='none'
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-label="LinkedIn da Semana de Sistemas de Informação"
+                                className="animation"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 40 40"
+                                fill='none'
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-label="LinkedIn da Semana de Sistemas de Informação"
                             >
                             <mask id="mask0_2244_1729" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
                                 <path 
-                                fillRule="evenodd" 
-                                d="M36.34 6.70333V32.6267V36.33H32.6356H6.70444H3V32.6267V6.70333V3H6.70444H32.6356H36.34V6.70333ZM31.7094 21.887V31.7008H26.5417V22.5721C26.5417 21.8846 26.2685 21.2252 25.7822 20.7391C25.2959 20.2529 24.6364 19.9798 23.9486 19.9798C22.5224 19.9798 21.374 21.1463 21.374 22.5721V31.7008H16.2063V16.2024H21.374V18.2577C22.2631 16.8134 24.0968 15.8506 25.6712 15.8506C27.2726 15.8506 28.8085 16.4865 29.9409 17.6186C31.0733 18.7506 31.7094 20.286 31.7094 21.887ZM12.387 12.3841C11.8034 12.9675 11.0119 13.2953 10.1866 13.2953C8.46406 13.2953 7.05637 11.9065 7.05637 10.1845C7.05637 9.35452 7.38616 8.55857 7.9732 7.97171C8.56023 7.38484 9.35643 7.05515 10.1866 7.05515C11.9092 7.05515 13.2984 8.46242 13.2984 10.1845C13.2984 11.0095 12.9705 11.8007 12.387 12.3841ZM12.7612 16.2024V31.7008H7.63056V16.2024H12.7612Z"
-                                fill="#E8E8E8"
+                                    fillRule="evenodd" 
+                                    d="M36.34 6.70333V32.6267V36.33H32.6356H6.70444H3V32.6267V6.70333V3H6.70444H32.6356H36.34V6.70333ZM31.7094 21.887V31.7008H26.5417V22.5721C26.5417 21.8846 26.2685 21.2252 25.7822 20.7391C25.2959 20.2529 24.6364 19.9798 23.9486 19.9798C22.5224 19.9798 21.374 21.1463 21.374 22.5721V31.7008H16.2063V16.2024H21.374V18.2577C22.2631 16.8134 24.0968 15.8506 25.6712 15.8506C27.2726 15.8506 28.8085 16.4865 29.9409 17.6186C31.0733 18.7506 31.7094 20.286 31.7094 21.887ZM12.387 12.3841C11.8034 12.9675 11.0119 13.2953 10.1866 13.2953C8.46406 13.2953 7.05637 11.9065 7.05637 10.1845C7.05637 9.35452 7.38616 8.55857 7.9732 7.97171C8.56023 7.38484 9.35643 7.05515 10.1866 7.05515C11.9092 7.05515 13.2984 8.46242 13.2984 10.1845C13.2984 11.0095 12.9705 11.8007 12.387 12.3841ZM12.7612 16.2024V31.7008H7.63056V16.2024H12.7612Z"
+                                    fill="#E8E8E8"
                                 />
                             </mask>
                             <g mask="url(#mask0_2244_1729)">
@@ -72,10 +72,10 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
                             {/*Mask utilizada para realizar a animação */}
                             <g mask="url(#mask0_2244_1729)">
                                 <rect
-                                className="fillAnimation"
-                                fill="#9638FF"
-                                width="40"
-                                height="50"
+                                    className="fillAnimation"
+                                    fill="#9638FF"
+                                    width="40"
+                                    height="50"
                                 ></rect>
                             </g>
                             </svg>
@@ -86,13 +86,13 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
                         <a href={speaker['instagram']} target="_blank" aria-label={`Instagram de ${speaker['name']}`}>
                             {/*Instagram Logo*/}
                             <svg
-                            className="animation"
-                            width="40"
-                            height="40"
-                            viewBox="0 0 40 40"
-                            fill='none'
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-label="Instagram da Semana de Sistemas de Informação"
+                                className="animation"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 40 40"
+                                fill='none'
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-label="Instagram da Semana de Sistemas de Informação"
                             >
                             <mask id="mask0_2244_1725" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
 
@@ -101,26 +101,26 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
                                     fill="#E8E8E8"
                                 />
                                 <path
-                                d="M19.9977 14.9984C20.6619 14.9862 21.3219 15.1064 21.939 15.3521C22.5562 15.5978 23.1183 15.964 23.5924 16.4293C24.0664 16.8947 24.443 17.4498 24.7001 18.0623C24.9572 18.6748 25.0897 19.3324 25.0898 19.9967C25.0899 20.661 24.9577 21.3187 24.7008 21.9313C24.4439 22.5439 24.0675 23.0991 23.5935 23.5646C23.1196 24.0301 22.5577 24.3965 21.9406 24.6424C21.3235 24.8883 20.6636 25.0088 19.9994 24.9967C18.6733 24.9967 17.4015 24.47 16.4639 23.5323C15.5262 22.5946 14.9994 21.3228 14.9994 19.9967C14.9994 18.6707 15.5262 17.3989 16.4639 16.4612C17.4015 15.5235 18.6733 14.9967 19.9994 14.9967L19.9977 14.9984Z"
-                                fill="#E8E8E8"
+                                    d="M19.9977 14.9984C20.6619 14.9862 21.3219 15.1064 21.939 15.3521C22.5562 15.5978 23.1183 15.964 23.5924 16.4293C24.0664 16.8947 24.443 17.4498 24.7001 18.0623C24.9572 18.6748 25.0897 19.3324 25.0898 19.9967C25.0899 20.661 24.9577 21.3187 24.7008 21.9313C24.4439 22.5439 24.0675 23.0991 23.5935 23.5646C23.1196 24.0301 22.5577 24.3965 21.9406 24.6424C21.3235 24.8883 20.6636 25.0088 19.9994 24.9967C18.6733 24.9967 17.4015 24.47 16.4639 23.5323C15.5262 22.5946 14.9994 21.3228 14.9994 19.9967C14.9994 18.6707 15.5262 17.3989 16.4639 16.4612C17.4015 15.5235 18.6733 14.9967 19.9994 14.9967L19.9977 14.9984Z"
+                                    fill="#E8E8E8"
                                 />
                             </mask>
                             <g mask="url(#mask0_2244_1725)">
                                 <rect
-                                x="0.330078"
-                                y="0.330078"
-                                width="40"
-                                height="40"
-                                fill="white"
+                                    x="0.330078"
+                                    y="0.330078"
+                                    width="40"
+                                    height="40"
+                                    fill="white"
                                 />
                             </g>
                             {/*Mask utilizada para realizar a animação */}
                             <g mask="url(#mask0_2244_1725)">
                                 <rect
-                                className="fillAnimation"
-                                fill="#9638FF"
-                                width="40"
-                                height="40"
+                                    className="fillAnimation"
+                                    fill="#9638FF"
+                                    width="40"
+                                    height="40"
                                 />
                             </g>
                             </svg>                        
@@ -154,12 +154,12 @@ const SpeakerWrapper = styled.div`
     animation-name: slide-in;
     animation-duration: 500ms;
 
-    @keyframes slide-in{
+    @keyframes slide-in {
         0% {transform: translateX(100%);}
         100% {transform: translateX(0%);}   
     }
 
-    .bottomImg{
+    .bottomImg {
         width: 100%;
         height: 10%;
         z-index: inherit;
@@ -172,7 +172,7 @@ const SpeakerWrapper = styled.div`
         }
     }
 
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width:1024px) {
         right: 0;
         left: unset;
     }
@@ -193,7 +193,7 @@ const SpeakerHead = styled.div`
     align-items: center;
     padding: 1.75em;
     width: 100%;
-    z-index: 15;
+    z-index: 16;
 
     div {
         padding: .5em .75em;
@@ -207,12 +207,12 @@ const SpeakerHead = styled.div`
     div:hover {
         background-position: left;
 
-        svg {
-            color: black;
+        svg path {
+            fill: var(--color-neutral);
         }
     }
     
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width:1024px) {
         position: absolute;
         top: 0;
         justify-content: flex-end;
@@ -230,14 +230,14 @@ const SpeakerInfo = styled.div`
     align-items: center;
     gap: 1.75em;
     padding: 0em 1.75em;
-    margin-bottom: 1.7em; // 1.7em + gap .5em
+    margin-bottom: 1.7em;
     z-index: 15;
 
-    label{
+    label {
         font-family: 'AT Aero Bold';
     }
 
-    .headTextWrapper{
+    .headTextWrapper {
         display: flex;
         flex-direction: column;
         gap: .5em;
@@ -248,7 +248,7 @@ const SpeakerInfo = styled.div`
         }
     }
 
-    .imgDiv{
+    .imgDiv {
         width: 40%;
         max-width: 14rem;
         aspect-ratio: 1 / 1;
@@ -264,17 +264,17 @@ const SpeakerInfo = styled.div`
         }
     }
 
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width:1024px) {
         justify-content: flex-start;
         gap: 4em;
         background-color: var(--color-primary-900);
         padding: 0em;
 
-        .imgDiv{
+        .imgDiv {
             max-width: 25%;
         }
 
-        .headTextWrapper{
+        .headTextWrapper {
             gap: 1rem;
 
             label {
@@ -283,7 +283,7 @@ const SpeakerInfo = styled.div`
         }
     }
 
-    @media screen and (min-width: 1440px){
+    @media screen and (min-width:1440px) {
         margin-bottom: 0;
     }
 `
@@ -304,22 +304,22 @@ const SpeakerDesc = styled.div`
         font-weight: 400;
     }
 
-    @media screen and (min-width: 801px){
+    @media screen and (min-width:801px) {
         h6 {
             font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
     }
     
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width:1024px) {
         flex-direction: row;
         justify-content: space-between;
         
-        div:nth-child(2){
+        div:nth-child(2) {
             width: 72%; // imgWidth = 30%, então 70% + algoAí deixa alinhado.
         }
     }
 
-    @media screen and (min-width: 1440px){
+    @media screen and (min-width:1440px) {
         padding: 4em;
     }
 `
@@ -357,7 +357,7 @@ const SocialMedia = styled.div`
         outline-offset: 2px;
     }
     
-    @media screen and (min-width: 1440px){
+    @media screen and (min-width:1440px) {
         padding-left: 4em;
     }
 `

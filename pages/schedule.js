@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import schedule from '../data/schedule';
@@ -20,23 +20,24 @@ const Schedule = () => {
 
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false)
+    const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
 
     const handleMobileSelectChange = (e) => {
-        setActiveItem(e.target.value)
+        const selectedDate = e.target.value
+        setActiveItem(selectedDate)
         setIsSelected(true)
+        setDayNumber(dayFull.indexOf(selectedDate))
     }
 
     const isDuringEvent = (date) => {
-        var temp = false;
-        Object.entries(schedule).map(([key]) => {
-            if (date==key) {temp = true;}
-        })
-        return temp;
+        return Object.keys(schedule).includes(date)
     }
 
     function renderActiveItem() {
         if (!isDuringEvent(activeItem)) {
-            setActiveItem('2024-10-07'); // se não for um dos dias do evento, apresenta a programação do primeiro dia
+            const firstDay = '2024-10-07'
+            setActiveItem(firstDay)
+            setDayNumber(dayFull.indexOf(firstDay))
         }
 
         return (
@@ -44,7 +45,6 @@ const Schedule = () => {
         )
     }
 
-	const [dayNumber, setDayNumber] = useState(isDuringEvent(activeItem)? dayFull.indexOf(activeItem) : 0);
 
 	// Faz a barra de filtragem atualizar quando um filtro da programacao e clicado
 	useEffect(() => {
@@ -54,9 +54,12 @@ const Schedule = () => {
 	}, [activeItem]);
 
 	const moveDayNumber = (num) => {
-		setDayNumber(dayNumber + num)
-		setActiveItem(dayFull[dayNumber + num])
-	}
+        const newDayNumber = dayNumber + num
+        if (newDayNumber >= 0 && newDayNumber < dayFull.length) {
+            setDayNumber(newDayNumber)
+            setActiveItem(dayFull[newDayNumber])
+        }
+    }
 
     return (
         <>
@@ -65,7 +68,7 @@ const Schedule = () => {
             <ScheduleSection>
                 <h1>Programação</h1>
 
-                {/* Para telas mobile */}
+                {/* Filtro Mobile */}
                 <MobileScheduleFilterContainer>
                     <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
                         <select
@@ -84,47 +87,29 @@ const Schedule = () => {
                     </div>
                 </MobileScheduleFilterContainer> 
 
-                {/* Para telas desktop */}
+                {/* Filtro Desktop */}
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-07')}>
-                            <DateStamp
-                                day='07'
-                                isActive={activeItem == '2024-10-07'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-08')}>
-                            <DateStamp
-                                day='08'
-                                isActive={activeItem == '2024-10-08'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-09')}>
-                            <DateStamp
-                                day='09'
-                                isActive={activeItem == '2024-10-09'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-10')}>
-                            <DateStamp
-                                day='10'
-                                isActive={activeItem == '2024-10-10'}
-                                showEmoji={true}
-                            />
-                        </Link>
-                        <Link href='#schedule' onClick={() => setActiveItem('2024-10-11')}>
-                            <DateStamp
-                                day='11'
-                                isActive={activeItem == '2024-10-11'}
-                                showEmoji={true}
-                            />
-                        </Link>
+                        {dayFull.map((date, index) => (
+                            <Link
+                                key={date}
+                                href='#'
+                                onClick={() => {
+                                    setActiveItem(date)
+                                    setDayNumber(index)
+                                }}
+                            >
+                                <DateStamp
+                                    day={date.split('-')[2]}
+                                    isActive={activeItem === date}
+                                    showEmoji={true}
+                                />
+                            </Link>
+                        ))}
                     </div>
                 </DesktopSelectionContainer>
 
+                {/* Barra de filtro Mobile */}
 				<MobileBarFilterContainer>
 					<div className='filter-container'>
 						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
@@ -144,7 +129,7 @@ const Schedule = () => {
 					</div>
 				</MobileBarFilterContainer>
 
-				{/* Tela pra Desktop */}
+				{/* Barra de filtro Desktop */}
 				<DesktopBarFilterContainer>
 					<div className='filter-label'>
 						<p>Horário</p>
@@ -178,6 +163,7 @@ const Schedule = () => {
 }
 
 export default Schedule;
+
 
 const ScheduleSection = styled.section`
     padding-block: 1.5rem;
@@ -215,15 +201,15 @@ const MobileBarFilterContainer = styled.div`
 		}
 	}
 	
-	@media(min-width: 600px) {
+	@media(min-width:600px) {
 		display: none;
 	}
 `
 const DesktopBarFilterContainer = styled.div`
 	display: none;
 
-	@media(min-width: 600px) {
-		height: calc(5rem - (2 * 0.0625rem));
+	@media(min-width:600px) {
+		height: 5rem;
 		display: flex;
 		position: sticky;
 		top: 0;
@@ -260,7 +246,7 @@ const ButtonFilter = styled.button`
 	height: 3rem;
 	align-items: center;
 	justify-content: center;
-	background-size: 200% 100%;
+	background-size: 202% 100%;
 	transition: 100ms all ease-out;
 
 	svg {
@@ -276,6 +262,11 @@ const ButtonFilter = styled.button`
 			}
 		}
 	}
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
 
 	&.right {
 		background-image: linear-gradient(
