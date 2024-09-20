@@ -2,12 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { formatTime } from '../../utils/format-time'
 
-// assets
-// import schedule from '../../data/schedule'
-
 // components
 import LectureItem from './LectureItem'
-
 
 const ScheduleItems = ({ schedule }) => {
 
@@ -71,6 +67,10 @@ const ScheduleWrapper = styled.div`
             list-style-type: none;
             padding-block: 1rem;
             border-bottom: 1px solid var(--color-neutral-secondary);
+
+            &:last-child {
+                border-bottom: none;
+            }
 
             h5 {
                 color: white;
