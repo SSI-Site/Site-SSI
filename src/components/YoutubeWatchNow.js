@@ -6,7 +6,7 @@ const YoutubeWatchNow = () => {
 	return (
 		<>
 			<YoutubeWatchNowWrapper>
-				<a target="_blank" href="https://www.youtube.com/channel/UCGpuqrzN2VKKT5kNoOfKiog">
+				<a target="_blank" href="https://www.youtube.com/@semanadesi">
                     <div className="online-wrap">
                         <div className="online">
                             {/* Youtube Logo */}

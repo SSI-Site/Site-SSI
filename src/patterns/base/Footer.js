@@ -200,10 +200,11 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="https://www.twitch.tv/each_ssi"
+                            href="https://www.youtube.com/@semanadesi"
                             target="_blank"
-                            aria-label="Twitch da Semana de Sistemas de Informação"
+                            aria-label="YouTube da Semana de Sistemas de Informação"
                         >
+                            {/* YouTube Logo */}
                             <svg
                                 className="animation"
                                 width="40"
@@ -211,32 +212,16 @@ const Footer = () => {
                                 viewBox="0 0 40 40"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                aria-label="Twitch da Semana de Sistemas de Informação"
+                                aria-label="YouTube da Semana de Sistemas de Informação"
                             >
-                                <mask
-                                    id="mask0_76_1370"
-                                    maskUnits="userSpaceOnUse"
-                                    x="5"
-                                    y="3"
-                                    width="30"
-                                    height="34"
-                                >
-                                    <path
-                                        d="M19.4031 9.88008H21.7864V17.0134H19.4031M25.9531 9.88008H28.3364V17.0134H25.9531M11.6697 3.33008L5.71973 9.28008V30.7134H12.8531V36.6634L18.8197 30.7134H23.5697L34.2864 19.9967V3.33008M31.9031 18.8134L27.1531 23.5634H22.3864L18.2197 27.7301V23.5634H12.8531V5.71341H31.9031V18.8134Z"
-                                        fill="#E8E8E8"
-                                    />
+                                <mask id="mask0_2769_498"  maskUnits="userSpaceOnUse" x="3" y="8" width="34" height="24">
+                                    <path d="M16.3333 24.6667L24.9833 19.6667L16.3333 14.6667V24.6667ZM35.6 11.6167C35.8167 12.4 35.9667 13.45 36.0667 14.7833C36.1833 16.1167 36.2333 17.2667 36.2333 18.2667L36.3333 19.6667C36.3333 23.3167 36.0667 26 35.6 27.7167C35.1833 29.2167 34.2167 30.1833 32.7167 30.6C31.9333 30.8167 30.5 30.9667 28.3 31.0667C26.1333 31.1833 24.15 31.2333 22.3167 31.2333L19.6667 31.3333C12.6833 31.3333 8.33333 31.0667 6.61667 30.6C5.11667 30.1833 4.15 29.2167 3.73333 27.7167C3.51667 26.9333 3.36667 25.8833 3.26667 24.55C3.15 23.2167 3.1 22.0667 3.1 21.0667L3 19.6667C3 16.0167 3.26667 13.3333 3.73333 11.6167C4.15 10.1167 5.11667 9.15 6.61667 8.73333C7.4 8.51667 8.83333 8.36667 11.0333 8.26667C13.2 8.15 15.1833 8.1 17.0167 8.1L19.6667 8C26.65 8 31 8.26667 32.7167 8.73333C34.2167 9.15 35.1833 10.1167 35.6 11.6167Z" fill="white"/>
                                 </mask>
-                                <g mask="url(#mask0_76_1370)">
-                                    <rect
-                                        x="-0.280273"
-                                        y="0.330078"
-                                        width="40"
-                                        height="40"
-                                        fill="white"
-                                    />
+                                <g mask="url(#mask0_2769_498)">
+                                    <rect width="40" height="40" fill="white"/>
                                 </g>
 
-                                <g mask="url(#mask0_76_1370)">
+                                <g mask="url(#mask0_2769_498)">
                                     <rect
                                         className="fillAnimation"
                                         fill="#9638FF"
