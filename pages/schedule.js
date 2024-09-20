@@ -41,10 +41,17 @@ const Schedule = () => {
         }
 
         return (
-            <ScheduleItems day={activeItem} />
+            <ScheduleItems schedule={schedule[activeItem]} />
         )
     }
 
+
+	// Faz a barra de filtragem atualizar quando um filtro da programacao e clicado
+	useEffect(() => {
+		if (activeItem) {
+			setDayNumber(isDuringEvent(activeItem)? dayFull.indexOf(activeItem) : 0);
+		}
+	}, [activeItem]);
 
 	const moveDayNumber = (num) => {
         const newDayNumber = dayNumber + num
@@ -162,7 +169,7 @@ const ScheduleSection = styled.section`
     padding-block: 1.5rem;
 
     @media (min-width:600px) {
-        padding-block: 7.5rem 3.75rem;
+        padding-block: 7.5rem 2rem;
 
         h1 {
             width: 100%;

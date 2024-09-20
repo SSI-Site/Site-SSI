@@ -2,21 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import { formatTime } from '../../utils/format-time'
 
-// assets
-import schedule from '../../data/schedule'
-
 // components
 import LectureItem from './LectureItem'
 
-
-const ScheduleItems = ({ day }) => {
+const ScheduleItems = ({ schedule }) => {
 
     return (
         <>
             <ScheduleWrapper>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
-                    {Object.entries(schedule[day] || {}).map(([time, event], key) => {
+                    {Object.entries(schedule).map(([time, event], key) => {
                         if (!event.speakers) {
                             return (
                                 <li key={key}>
@@ -71,6 +67,10 @@ const ScheduleWrapper = styled.div`
             list-style-type: none;
             padding-block: 1rem;
             border-bottom: 1px solid var(--color-neutral-secondary);
+
+            &:last-child {
+                border-bottom: none;
+            }
 
             h5 {
                 color: white;

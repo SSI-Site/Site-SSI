@@ -17,6 +17,9 @@ import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 
+// assets
+import schedule from '../data/schedule'
+
 const supporters = [
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
     { name: 'Griaule', image: '/images/partners/griaule.svg', url: 'https://griaule.com/' },
@@ -88,6 +91,45 @@ const Home = () => {
     const todayDate = new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
     const formatedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
 
+    const filterEventDays = ["07 Out - Segunda-feira", "08 Out - Terça-feira", "09 Out - Quarta-feira", "10 Out - Quinta-feira", "11 Out - Sexta-feira"];
+    const filterEventDaysId = scheduleDay - firstEventDay.getDate();
+
+    // Transforma 00:00 em minutos depois da meia noite para fazer calculos
+    const minutesAfterMidNight = (time) => {
+      const [hours, minutes] = time.split(":").map(Number);
+      return hours * 60 + minutes;
+    }
+    const currentTimeMinutes = minutesAfterMidNight(currentTime); // horario atual
+    const morningEnd = minutesAfterMidNight("13:00"); // Final do almoco
+    const eveningEnd = minutesAfterMidNight("19:00"); // Final do jantar
+
+    let shift = "Manhã"; // Turno do dia
+    if (current >= firstEventDay) {
+      if (currentTimeMinutes >= morningEnd && currentTimeMinutes < eveningEnd) {
+        shift = "Tarde";
+      } else if (currentTimeMinutes >= eveningEnd) {
+        shift = "Noite";
+      }
+    }
+
+    // Array intermediario com de horario e atividades
+    const filteredArray = Object.entries(schedule[formatedScheduleDate]).filter(([key, _]) => {
+
+      // Horário de cada atividade
+      const scheduleStartTimeMinutes = minutesAfterMidNight(key);
+
+      switch (shift) {
+        case "Manhã":
+          return scheduleStartTimeMinutes < morningEnd;
+        case "Tarde":
+          return scheduleStartTimeMinutes > morningEnd && scheduleStartTimeMinutes < eveningEnd;
+        case "Noite":
+          return scheduleStartTimeMinutes > eveningEnd;
+      }
+    })
+    // Cria um object com base no array intermediario
+    const filteredSchedule = Object.fromEntries(filteredArray);
+  
     useEffect(() => {
         if (showAuthModal) {
             // Calcula a largura da barra de rolagem
@@ -271,21 +313,42 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
-            <ScheduleSection>
-                <div className='schedule-container'>
-                    <h3 className='title-mobile'>Programação</h3>
-                    <div className='title-btn-desktop'>
-                        <h3>Programação</h3>
-                        <Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                    </div>
-                    <ScheduleShift
-                        day={formatedScheduleDate}
-                        />
-                    <div className='btn-mobile'>
-                        <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                    </div>
-                </div>
-            </ScheduleSection>
+			{ (current <= lastEventDay) &&
+				<ScheduleSection>
+					<div className='schedule-container'>
+						<h3 className='title-mobile schedule-section-title'>Programação</h3>
+						<div className='title-btn-desktop'>
+							<h3 className='schedule-section-title'>Programação</h3>
+							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+						</div>
+						<div className='filter-bar-container filter-bar-mobile'>
+							<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
+						</div>
+
+						<div className='filter-bar-container filter-bar-desktop'>
+							<div className='subtitle'>
+								<p>Horário</p>
+								<p>Atividade</p>
+							</div>
+
+							<div>
+								<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
+							</div>
+
+							<div>
+								<p>{shift}</p>
+							</div>
+						</div>
+
+						<ScheduleShift
+							schedule={filteredSchedule}
+						/>
+						<div className='btn-mobile'>
+							<Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+						</div>
+					</div>
+				</ScheduleSection>
+			}
 
             <SupportersSection>
                 <div className='supporters-container'>
@@ -692,35 +755,86 @@ const CountdownSection = styled.section`
 `
 
 const ScheduleSection = styled.section`
-    padding-block: 3.5rem;
+    padding-block: 2rem;
+    border-top: 1px solid var(--color-neutral-secondary);
     
     .schedule-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        gap: 1rem;
+
+        .schedule-section-title {
+            background-color: var(--color-primary);
+            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+        }
 
         .title-mobile {
             display: flex;
             flex-direction: row;
+			background-color: var(--color-primary);
+			padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
         .title-btn-desktop {
             display: none;
         }
-        
+
+		.filter-bar-container {
+			height: 3.5rem;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
+			border-bottom: 0.0625rem solid var(--color-neutral-secondary);
+
+			p {
+				font: 700 1rem/1.25rem 'AT Aero Bold';
+			}
+		}
+
+		.filter-bar-mobile {
+            margin-bottom: -1rem;
+
+			@media (min-width: 1024px) {
+				display: none;
+			}
+		}
+
+		.filter-bar-desktop {
+            margin-bottom: -2rem;
+
+			@media (max-width: 1023px) {
+				display: none;
+			}
+
+			justify-content: space-between;
+			
+			.subtitle {
+				display: flex;
+				gap: 5.5rem;
+			}
+		}
+
         .date-stamp {
             > div {
                 background-color: var(--color-primary);
             }
         }
+
+        .btn-mobile {
+            width: 100%;
+        }
     }
 
     @media (min-width:1021px) {
+        padding-block: 4.5rem 2rem;
 
         .schedule-container {
-            gap: 4rem;
+            gap: 1.5rem;
             align-items: flex-start;
 
             .title-mobile {
@@ -743,11 +857,6 @@ const ScheduleSection = styled.section`
                 display: none;
             }
         }
-    }
-
-    @media (min-width:1021px) {
-        padding-block: 6.75rem;
-
     }
 `
 
