@@ -72,13 +72,13 @@ const CO = () => {
             <COMembersSection>
                 {/* Para telas mobile */}
                 <MobileCOFilterContainer>
+                    <p>Filtrar por setor:</p>
                     <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
                         <select
                             aria-label="Filtre por setor"
-                            defaultValue="Filtro" 
+                            defaultValue="Todos" 
                             onChange={handleMobileSelectChange}
                         >
-                            <option value="Filtro" disabled hidden>Filtrar por setor</option>
                             <option value="Todos">Todos</option>
                             <option value="Comercial e Financeiro">Comercial e Financeiro</option>
                             <option value="Criação e Comunicação">Criação e Comunicação</option>
@@ -88,7 +88,9 @@ const CO = () => {
                             <option value="Parcerias">Parcerias</option>
                             <option value="Site">Site</option>
                         </select>
-                        <img className='icon' src='./images/co_icons/filter.svg' alt='Ícone de filtro' />
+                        <svg className='icon' xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                            <path d="M18.3188 7L12.5 12.8187L6.68125 7L4.5 9.18125L12.5 17.1813L20.5 9.18125L18.3188 7Z" fill="white"/>
+                        </svg>
                     </div>
                 </MobileCOFilterContainer> 
                     
@@ -225,10 +227,17 @@ const COMembersSection = styled.section`
 
 const MobileCOFilterContainer = styled.div`
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding-block: 1.5rem;
+
+    p {
+        font: 700 0.875rem/1.5rem 'AT Aero Bold';
+        width: 100%;
+    }
 
     .select-wrapper {
         width: 100%;
@@ -246,7 +255,7 @@ const MobileCOFilterContainer = styled.div`
             appearance: none;
             font-size: 0.875rem;
             text-align: center;
-            padding: 0.5rem 2rem 0.5rem 0;
+            padding: 0.5rem 1rem;
 
             &::-ms-expand {
                 display: none;
@@ -256,19 +265,12 @@ const MobileCOFilterContainer = styled.div`
         .icon {
             position: absolute;
             pointer-events: none;
-            right: calc(50% - 4rem);
+            right: 7.5%;
         }
     }
 
-    .select-wrapper.selected {
-        select {
-            background-color: var(--color-primary);
-            padding-right: 0;
-        }
-
-        .icon {
-            display: none;
-        }
+    .selected select {
+        background-color: var(--color-primary);
     }
 
     option {
