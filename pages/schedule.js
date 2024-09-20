@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import schedule from '../data/schedule';
 import Meta from '../src/infra/Meta';
+import semana from '../utils/semana';
 import '../utils/slugify';
 
 // components
@@ -12,7 +13,7 @@ import ScheduleItems from '../src/components/ScheduleItems';
 
 const dayOfSSI = ["07 Out", "08 Out", "09 Out", "10 Out", "11 Out"]
 const dayFull = ["2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11"]
-const weekDays = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira"]
+const weekDays = semana.filter(dia => dia !== 'Domingo' && dia !== 'Sábado')
 
 const Schedule = () => {
 
@@ -94,7 +95,6 @@ const Schedule = () => {
                                 <DateStamp
                                     day={date.split('-')[2]}
                                     isActive={activeItem === date}
-                                    showEmoji={true}
                                 />
                             </Link>
                         ))}
