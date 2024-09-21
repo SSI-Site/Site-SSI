@@ -130,12 +130,11 @@ const MemberWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--color-primary);
         border: 0;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         svg {
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
         .responsive-image {
@@ -149,58 +148,108 @@ const MemberWrapper = styled.div`
         }
     }
 
-    .i0.button-flip {
-        background-color: ${colorSchemes[0].textColor};
-        
-        svg {
-            path {
-                fill: ${colorSchemes[0].background};
+    .i0 {
+        background: linear-gradient(
+            to bottom,
+            var(--color-primary) 50%,
+            ${colorSchemes[0].textColor} 50%
+        );
+        background-size: 100% 200%;
+        background-position: top;
+
+        &.button-flip {
+            background-position: bottom;
+            
+            svg {
+                path {
+                    fill: ${colorSchemes[0].background};
+                }
             }
         }
     }
 
-    .i1.button-flip {
-        background-color: ${colorSchemes[1].textColor};
-        
-        svg {
-            path {
-                fill: ${colorSchemes[1].background};
+    .i1 {
+        background: linear-gradient(
+            to bottom,
+            var(--color-primary) 50%,
+            ${colorSchemes[1].textColor} 50%
+        );
+        background-size: 100% 200%;
+        background-position: top;
+
+        &.button-flip {
+            background-position: bottom;
+            
+            svg {
+                path {
+                    fill: ${colorSchemes[1].background};
+                }
             }
         }
     }
 
-    .i2.button-flip {
-        background-color: ${colorSchemes[2].textColor};
-        
-        svg {
-            path {
-                fill: ${colorSchemes[2].background};
+    .i2 {
+        background: linear-gradient(
+            to bottom,
+            var(--color-primary) 50%,
+            ${colorSchemes[2].textColor} 50%
+        );
+        background-size: 100% 200%;
+        background-position: top;
+
+        &.button-flip {
+            background-position: bottom;
+            
+            svg {
+                path {
+                    fill: ${colorSchemes[2].background};
+                }
             }
         }
     }
 
-    .i3.button-flip {
-        background-color: ${colorSchemes[3].textColor};
-        
-        svg {
-            path {
-                fill: ${colorSchemes[3].background};
+    .i3 {
+        background: linear-gradient(
+            to bottom,
+            var(--color-primary) 50%,
+            ${colorSchemes[3].textColor} 50%
+        );
+        background-size: 100% 200%;
+        background-position: top;
+
+        &.button-flip {
+            background-position: bottom;
+            
+            svg {
+                path {
+                    fill: ${colorSchemes[3].background};
+                }
             }
         }
     }
 
-    .i4.button-flip {
-        background-color: ${colorSchemes[4].textColor};
-        
-        svg {
-            path {
-                fill: ${colorSchemes[4].background};
+    .i4 {
+        background: linear-gradient(
+            to bottom,
+            var(--color-primary) 50%,
+            ${colorSchemes[4].textColor} 50%
+        );
+        background-size: 100% 200%;
+        background-position: top;
+
+        &.button-flip {
+            background-position: bottom;
+            
+            svg {
+                path {
+                    fill: ${colorSchemes[4].background};
+                }
             }
         }
     }
 
     .card-back {
-        transition: 0.1s;
+        transition: all 0.2s ease-in-out;
         translate: 0 101%;
         display: flex;
         flex-direction: column;
@@ -237,7 +286,7 @@ const MemberWrapper = styled.div`
                 gap: 0.25rem;
 
                 svg path {
-                    transition: all .2s;
+                    transition: all 0.2s;
                     fill: ${colorSchemes[1].textColor};
                 }
 

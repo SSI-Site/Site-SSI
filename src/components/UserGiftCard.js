@@ -133,7 +133,7 @@ const GiftContainer = styled.div`
 		width: 100%;
         max-width: 26.3rem;
 		height: 24.625rem;
-		transition: 0.1s;
+		transition: 0.2s;
 		translate: 0 101%;
 		position: relative;
 		padding: 1.5rem;
@@ -218,14 +218,21 @@ const GiftContainer = styled.div`
         position: absolute;
         width: 3rem;
         height: 3rem;
-        background-color: var(--color-neutral-50);
+        background: linear-gradient(
+            to bottom,
+            var(--color-neutral-50) 50%,
+            var(--color-primary) 50%
+        );
+        background-size: 100% 200%;
+        background-position: top;
         right: 1rem;
         bottom: 1rem;
         align-items: center;
         justify-content: center;
+        transition: all 0.2s ease-in-out;
 
 		svg {
-			transition: 0.3s;
+			transition: 0.2s;
 		}
     }
 
@@ -234,6 +241,7 @@ const GiftContainer = styled.div`
 	}
 
 	.button-flip {
+        background-position: bottom;
         svg {
             transform: rotate(-180deg);
 
@@ -241,7 +249,6 @@ const GiftContainer = styled.div`
                 fill: white;
             }
         }
-        background-color: var(--color-primary);
     }
 
     button:focus-visible {
