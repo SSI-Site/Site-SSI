@@ -168,10 +168,8 @@ const Home = () => {
                     </div>
             
                     <div className = "dateWrapper">
-                        <div className = "dates">
-                            <h1 id = "dateEvent">07-11</h1>
-                            <h2>Out 2024</h2>
-                        </div>
+                        <h1>07-11</h1>
+                        <h2>Out 2024</h2>
                         <h6>Online e Presencial</h6>
                     </div>
                 </div>
@@ -381,34 +379,6 @@ const LandingSection = styled.section`
         //margin-top: 3.75rem; /* match navbar height */
         gap: 3.5rem;
 
-        .landing-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 1.5rem;
-            max-width: 33rem;
-            
-            
-            .landing-text {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                max-width: 31rem;
-                gap: 1rem;
-
-                p {
-                    font-weight: 400;
-                }
-
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
-            }
-        }
-
         .dateWrapper{
             width: 100%;
             display: flex;
@@ -416,20 +386,19 @@ const LandingSection = styled.section`
             padding: 1.5rem 1rem;
             background-color: var(--color-primary);
 
-            h1 {
-                font-size: 6rem;
+            h1, h2, h6{
                 text-align: center;
+            }
+            
+            h1 {
+                margin-top: 1rem; // gambiarra para deixar centralizado, tire para ver
+                font-size: 6rem;
                 margin-bottom: 1rem;
             }
 
             h2{
-                text-align: center;
                 line-height: 150%;
                 letter-spacing: 0.2em;
-            }
-
-            h6{
-                text-align: center;
             }
         }
     }
