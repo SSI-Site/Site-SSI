@@ -379,6 +379,34 @@ const LandingSection = styled.section`
         //margin-top: 3.75rem; /* match navbar height */
         gap: 3.5rem;
 
+        .landing-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1.5rem;
+            max-width: 33rem;
+            
+            
+            .landing-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                max-width: 31rem;
+                gap: 1rem;
+
+                p {
+                    font-weight: 400;
+                }
+
+                span {
+                    font: inherit;
+                    color: var(--color-primary-700);
+                }
+            }
+        }
+
         .dateWrapper{
             width: 100%;
             display: flex;
