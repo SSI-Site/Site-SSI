@@ -166,11 +166,13 @@ const Home = () => {
                             />
                         }
                     </div>
-            
-                    <div className = "dateWrapper">
-                        <h1>07-11</h1>
-                        <h2>Out 2024</h2>
-                        <h6>Online e Presencial</h6>
+                    
+                    <div className = "dates">
+                        <div className = "dateWrapper">
+                            <h1>07-11</h1>
+                            <h2>Out 2024</h2>
+                            <h6>Online e Presencial</h6>
+                        </div>
                     </div>
                 </div>
             </LandingSection>
@@ -359,7 +361,7 @@ export default Home;
 
 
 const LandingSection = styled.section`
-    padding: 0rem 1rem 6.5rem 1rem;
+    padding: 0rem 1rem;
 
     .btn-entrar{
         padding: 1.5em;
@@ -368,7 +370,6 @@ const LandingSection = styled.section`
     }
 
     .landing-container {
-        padding: 1.5rem 1rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -377,16 +378,15 @@ const LandingSection = styled.section`
         border-left: 1px solid var(--color-neutral-secondary);
         border-bottom: 1px solid var(--color-neutral-secondary);
         //margin-top: 3.75rem; /* match navbar height */
-        gap: 3.5rem;
 
         .landing-info {
+            padding: 1.5rem 1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
             gap: 1.5rem;
             max-width: 33rem;
-            
             
             .landing-text {
                 display: flex;
@@ -399,12 +399,15 @@ const LandingSection = styled.section`
                 p {
                     font-weight: 400;
                 }
-
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
             }
+        }
+
+
+        .dates {
+            width: 100%;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid var(--color-neutral-secondary);
+            margin-bottom: 3rem;
         }
 
         .dateWrapper{
