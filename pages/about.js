@@ -570,7 +570,7 @@ const GiftsSection = styled.section`
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             max-width: 63.5rem;
 
             h3 {
