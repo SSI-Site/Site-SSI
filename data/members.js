@@ -91,7 +91,7 @@ const members = [
 		name: 'Emmily Boesing',
 		image: '/images/co_members/EmmilyBoesing.jpg',
 		departments: ['Criação e Comunicação', 'Diretoria'],
-		linkedin: 'www.linkedin.com/in/emmily-boesing',
+		linkedin: 'https://www.linkedin.com/in/emmily-boesing',
 		phrase: 'O ontem é história, o amanhã é um mistério, mas o hoje é uma dádiva, é por isso que se chama presente.',
 	},
 	{
@@ -154,14 +154,14 @@ const members = [
 		name: 'Lion Chen',
 		image: '/images/co_members/LionChen.jpg',
 		departments: ['Infraestrutura'],
-		linkedin: 'www.linkedin.com/in/lion-chen-a89a36299',
+		linkedin: 'https://www.linkedin.com/in/lion-chen-a89a36299',
 		phrase: 'SI S2',
 	},
 	{
 		name: 'Lucas Antunes',
 		image: '/images/co_members/LucasAntunes.png',
 		departments: ['Infraestrutura'],
-		linkedin: 'www.linkedin.com/in/lucas-fernandes-antunes-6b2073260',
+		linkedin: 'https://www.linkedin.com/in/lucas-fernandes-antunes-6b2073260',
 		phrase: 'segmentation fault',
 	},
 	{
@@ -175,7 +175,7 @@ const members = [
 		name: 'Marcio Lopes',
 		image: '/images/co_members/MarcioLopes.jpg',
 		departments: ['Palestrantes', 'Parcerias', 'Site'],
-		linkedin: 'linkedin.com/in/marcio-lopes-ol',
+		linkedin: 'https://www.linkedin.com/in/marcio-lopes-ol',
 		phrase: 'Funciona no meu computador!',
 	},
 	{
