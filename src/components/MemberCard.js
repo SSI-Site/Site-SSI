@@ -12,7 +12,7 @@ const colorSchemes = [
         'badgeSequence' : [3, 9, 6, 8, 5, 4]
     },
     {
-        'background' : 'var(--color-neutral)',
+        'background' : 'var(--color-neutral-800)',
         'textColor' : 'var(--color-neutral-50)',
         'directorBadge' : 1,
         'badgeSequence' : [3, 9, 6, 8, 5, 4]
@@ -82,7 +82,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     </div>
                 </div>
             </div>
-            <button id={'c' + colorScheme} className={'info-button'} onClick={() => flip(colorScheme)}>
+            <button id={'c' + colorScheme} className={'info-button i'+colorScheme%5} onClick={() => flip(colorScheme)}>
                 <svg
                     width="24"
                     height="24"
@@ -132,6 +132,7 @@ const MemberWrapper = styled.div`
         justify-content: center;
         background-color: var(--color-primary);
         border: 0;
+        transition: all 0.3s ease-in-out;
 
         svg {
             transition: 0.3s;
@@ -145,6 +146,56 @@ const MemberWrapper = styled.div`
             height: 100%;
             object-fit: cover;
             object-position: center;
+        }
+    }
+
+    .i0.button-flip {
+        background-color: ${colorSchemes[0].textColor};
+        
+        svg {
+            path {
+                fill: ${colorSchemes[0].background};
+            }
+        }
+    }
+
+    .i1.button-flip {
+        background-color: ${colorSchemes[1].textColor};
+        
+        svg {
+            path {
+                fill: ${colorSchemes[1].background};
+            }
+        }
+    }
+
+    .i2.button-flip {
+        background-color: ${colorSchemes[2].textColor};
+        
+        svg {
+            path {
+                fill: ${colorSchemes[2].background};
+            }
+        }
+    }
+
+    .i3.button-flip {
+        background-color: ${colorSchemes[3].textColor};
+        
+        svg {
+            path {
+                fill: ${colorSchemes[3].background};
+            }
+        }
+    }
+
+    .i4.button-flip {
+        background-color: ${colorSchemes[4].textColor};
+        
+        svg {
+            path {
+                fill: ${colorSchemes[4].background};
+            }
         }
     }
 
