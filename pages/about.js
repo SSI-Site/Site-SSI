@@ -142,7 +142,7 @@ const About = () => {
                 <div className='gifts-container'>
                     <div className='gifts-title'>
                         <h3>Brindes exclusivos</h3>
-                        <p>Não perca a oportunidade de <span>ganhar brindes incríveis</span> ao participar das nossas atividades e palestras!</p>
+                        <p>Não perca a oportunidade de ganhar brindes incríveis ao participar das nossas atividades e palestras!</p>
                     </div>
                     <div className='gifts-cards'>
                         {Object.entries(gifts).map(([key, gift]) => {
@@ -555,7 +555,7 @@ const BaitContent = styled.div`
 `
 
 const GiftsSection = styled.section`
-    padding-block: 3.5rem;
+    padding-block: 2rem;
     background-color: var(--color-neutral);
 
     .gifts-container {
@@ -563,7 +563,7 @@ const GiftsSection = styled.section`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3.5rem;
+        gap: 1rem;
 
         .gifts-title {
             display: flex;
@@ -575,16 +575,13 @@ const GiftsSection = styled.section`
 
             h3 {
                 text-align: center;
+				background-color: var(--color-primary);
+				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
             p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
+                font: 700 1rem/1.5rem 'AT Aero Bold';
                 text-align: center;
-
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
             }
         }
 
@@ -609,23 +606,23 @@ const GiftsSection = styled.section`
     }
 
     @media (min-width:1000px) {
-        padding-block: 6.75rem;
+        padding-block: 4.5rem;
 
         .gifts-container {
-            gap: 3.5rem;
+            gap: 1rem;
 
             .gifts-title {
                 h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
+                    font: 700 3rem/3.5rem 'AT Aero Bold';
                 }
 
                 p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                    font: 700 1.5rem/2rem 'AT Aero Bold';
                 }
             }
 
             .gifts-cards {
-                gap: 1.5rem;
+                gap: 1rem;
                 max-width: 1328px;
             }
         }
