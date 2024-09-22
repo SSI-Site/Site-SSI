@@ -28,7 +28,7 @@ const PartnerWrapper = styled.div`
     cursor: pointer;
     border-radius: 8px;
     border: 4px solid transparent;
-    transition: 0.3s;
+    transition: 0.2s;
     z-index: 2;
 
     &:hover {

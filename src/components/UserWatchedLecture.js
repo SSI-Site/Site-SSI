@@ -127,7 +127,7 @@ const WatchedLectureContainer = styled.div`
         transform: translateX(-50%);
 
         opacity: 0;
-        transition: opacity 0.3s, visibility 0.3s;
+        transition: opacity 0.2s, visibility 0.2s;
     }
 
     .tooltiptext::after {

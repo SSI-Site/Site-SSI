@@ -201,7 +201,8 @@ const members = [
 	},
 	{
 		name: 'Rômulo Júnior',
-		image: '/images/co_members/RômuloJúnior.jpg',
+
+		image: '/images/co_members/RomuloJunior.jpg',
 		departments: ['Infraestrutura'],
 		linkedin: 'https://www.linkedin.com/in/romulojr1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
 		phrase: 'TI por dinheiro. DASI por amor!',
