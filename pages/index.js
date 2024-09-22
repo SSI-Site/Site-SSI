@@ -169,9 +169,13 @@ const Home = () => {
                     
                     <div className = "dates">
                         <div className = "dateWrapper">
-                            <h1>07-11</h1>
-                            <h2>Out 2024</h2>
-                            <h6>Online e Presencial</h6>
+                            <div>
+                                <h1>07-11</h1>
+                                <h2>Out 2024</h2>
+                            </div>
+                            <div>
+                                <h6>Online e Presencial</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -361,12 +365,13 @@ export default Home;
 
 
 const LandingSection = styled.section`
-    padding: 0rem 1rem;
+    padding-inline: 1rem;
 
     .btn-entrar{
         padding: 1.5em;
         font: 700 1rem/1.25rem 'AT Aero Bold';
         font-weight: 400;
+        max-width: 25rem;
     }
 
     .landing-container {
@@ -376,7 +381,6 @@ const LandingSection = styled.section`
         align-items: center;
         border-right: 1px solid var(--color-neutral-secondary);
         border-left: 1px solid var(--color-neutral-secondary);
-        border-bottom: 1px solid var(--color-neutral-secondary);
         //margin-top: 3.75rem; /* match navbar height */
 
         .landing-info {
@@ -386,14 +390,14 @@ const LandingSection = styled.section`
             justify-content: center;
             align-items: flex-start;
             gap: 1.5rem;
-            max-width: 33rem;
+            //max-width: 33rem;
             
             .landing-text {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                max-width: 31rem;
+                max-width: 40rem;
                 gap: 1rem;
 
                 p {
@@ -402,8 +406,10 @@ const LandingSection = styled.section`
             }
         }
 
-
         .dates {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             padding: 1.5rem 1rem;
             border-top: 1px solid var(--color-neutral-secondary);
@@ -414,63 +420,96 @@ const LandingSection = styled.section`
             width: 100%;
             display: flex;
             flex-direction: column;
-            padding: 1.5rem 1rem;
+            padding: inherit;
             background-color: var(--color-primary);
 
             h1, h2, h6{
                 text-align: center;
+                line-height: 100%;
             }
             
             h1 {
-                margin-top: 1rem; // gambiarra para deixar centralizado, tire para ver
-                font-size: 6rem;
-                margin-bottom: 1rem;
+                font-size: 5rem;
             }
 
             h2{
-                line-height: 150%;
                 letter-spacing: 0.2em;
+                margin-bottom: 1rem;
             }
         }
     }
 
-    @media (min-width:600px) {
-        padding-right: 2.5rem;
+    @media (min-width: 800px){
+        .landing-container{
+
+            .dateWrapper{
+                width: 85%;
+            }
+        }
+        
     }
 
-    @media (min-width:800px) {
-        height: 44rem;
+    @media (min-width:1100px) {
+        //height: 44rem;
 
         .landing-container {
-            margin-top: 0;
-            padding-block: 7.5rem 6.5rem;
             flex-direction: row;
             justify-content: space-between;
 
-            .landing-bait {
-                flex-direction: row;
-                gap: 4rem;
+            .btn-entrar {
+                width: 30%;
+                margin-bottom: 6rem;
+            }
 
-                > p {
-                    writing-mode:vertical-rl;
-                    transform: rotate(180deg);
-                    max-height: 9.25rem;
+            .landing-info{
+                padding: 1.5rem;
+                border-right: 1px solid var(--color-neutral-secondary);
+            }
+
+            .landing-text{
+                margin-top: 6rem;
+            }
+
+            .dates{
+                padding-inline: 3rem;
+                display: flex;
+                border: none;
+                margin:0;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+            }
+
+            .dateWrapper{
+                flex-direction: row;
+                padding: 3.5rem 2rem;
+                align-items: center;
+                gap: 1rem;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+
+                h1{
+                    font-size: 9rem;
                 }
 
-                .event-date {
-                    scale: 1.2;
-                    p {
-                        font: 700 2rem/3rem 'AT Aero Bold';
-                        letter-spacing: 0.8rem;
-                        color: var(--color-neutral-300);
-                    }
+                h2{
+                    margin-bottom: 0;
+                }
+
+                h6{
+                    writing-mode: vertical-rl;
+                    transform: rotate(180deg);
+                    height: 30%;
+                    max-height: 10rem;
+                    text-align: left;
                 }
             }
         }
     }
 
-    @media (min-width:1400px) {
-        padding-right: 0;
+    @media (min-width: 1300px){
+        padding-inline: 6.75rem;
     }
 `
 
