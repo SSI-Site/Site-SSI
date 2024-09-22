@@ -230,14 +230,19 @@ const Home = () => {
                 <div className='subscription-container'>
                     <div className='subscription-title'>
                         <h3>Inscrições abertas!</h3>
-                        <p>Faça parte da <span>Comissão Organizadora</span> do <span>melhor evento acadêmico</span> de Sistemas de Informação! </p>
                     </div>
+
+                    <h6>Faça parte da Comissão Organizadora do melhor evento acadêmico de Sistemas de Informação</h6>
 
                     <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
                         <a target="_blank">
-                            <SecondaryButton>Inscrever-se</SecondaryButton>
+                            <Button className = "subButton">Inscrever-se</Button>
                         </a>
                     </Link>
+                </div>
+
+                <div className = 'coMembers'>
+                    <img src = "./images/co_members/co.jpg"/>
                 </div>
             </SubscriptionSection>
 
@@ -523,59 +528,47 @@ const TwitchContainer = styled.div`
 `
 
 const SubscriptionSection = styled.section`
-    padding-block: 6.625rem 3.5rem;
-    background-color: var(--color-primary);
-    gap: 2rem;
+    padding-inline: 1rem;
+    background-color: var(--color-neutral-800);
+    border-block: 1px solid var(--color-neutral-secondary);
 
-    .subscription-container {
+    .subscription-container{
+        border-inline: 1px solid var(--color-neutral-secondary);
+        border-bottom: 1px solid var(--color-neutral-secondary);
+        padding: 1.5rem 1rem;
+        gap: 1rem;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
 
-        .subscription-title {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            text-align: center;
-            max-width: 63.5rem;
+        h6{
+            font-weight: 500;
+        }   
+
+        .subscription-title{
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: var(--color-primary);
 
             h3 {
                 text-align: center;
             }
+        }
 
-            p {
-                font-family: 'AT Aero Bold';
-                font-weight: 700;
-
-                span {
-                    font: inherit;
-                    color: var(--color-primary-500);
-                }
-            }
+        .subButton{
+            padding-block: 1.5rem; //deixar o botao gordinho
         }
     }
 
-    @media (min-width:1000px) {
-        padding-block: 6.75rem;
+    .coMembers{
+        padding: 1.5rem 1rem;
+        border-inline: 1px solid var(--color-neutral-secondary);
 
-        .subscription-container {
-            gap: 3.5rem;
-
-            .subscription-title {
-                h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
-                }
-
-                p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                }
-            }
+        img{
+            width: 100%;
+            box-shadow: 0px 0px 0px 4px #FFF, 4px 4px 0px 4px #9638FF; // copiado do figma
         }
     }
+
 `
 
 const EventInfoSection = styled.section`
