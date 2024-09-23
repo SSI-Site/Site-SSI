@@ -679,7 +679,6 @@ const EventInfoSection = styled.section`
 
 const CountdownSection = styled.section`
     padding-block: 4rem 2rem;
-    background-color: var(--color-neutral-900);
     gap: 1.5rem;
     border-top: 1px solid var(--color-neutral-secondary);
 
