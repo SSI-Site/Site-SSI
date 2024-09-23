@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // components
@@ -47,9 +47,10 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
 	// Movimentacoes por Tab ativam a animacao e colocam o foco no link/titulo do card-back
 	const cardRef = useRef(null);
 	const [animating, setAnimating] = useState(false);
+	const isMobile = useIsMobile();
 	const handleFocus = () => {
 		// Espera a animacao de um card terminar antes de comecar outra (muito glitches sem isso)
-		if (!animating) {
+		if (!animating && !isMobile) { // Nao executa em width menor que 800px (trocar de abas buga a animcao do card)
 			setAnimating(true);
 			setTimeout(() => {
 				// Seleciona o link ou nome do membro
@@ -127,6 +128,26 @@ const flip = (index) => {
     card.classList.toggle('info-show')
     button.classList.toggle('button-flip')
 }
+
+// hook que confere se as dimensoes sao menores que 800px (mobile)
+const useIsMobile = () => {
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.matchMedia("(max-width: 800px)").matches);
+		};
+
+		handleResize(); // Set initial state
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize); // Clean up on unmount
+		};
+	}, []);
+
+	return isMobile;
+};
 
 export default MemberCard;
 
@@ -358,6 +379,10 @@ const MemberWrapper = styled.div`
     .info-show {
         translate: 0 0;
     }
+
+	&:focus-within {
+		translate: 0 0;
+	}
 
     .button-flip {
         svg {
