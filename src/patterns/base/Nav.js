@@ -15,8 +15,7 @@ import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg';
 
 const Nav = () => {
 
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    const { user, disableAuth } = useAuth();
     const router = useRouter();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -112,7 +111,7 @@ const Nav = () => {
                                 {/*  */}
                             {/* </li> */}
 
-                            {user ? (
+                            {!disableAuth && user ? (
                                 <li className='profile-container'>
                                     <Link legacyBehavior href= "/user">
                                         <a className='profile-content'>
@@ -125,8 +124,7 @@ const Nav = () => {
                                 </li>
                             ) : (
                                 <li>
-                                    <Button onClick={handleShowAuthModal}>Login</Button>
-                                    {/* <Button onClick={handleShowAuthModal} disabled>Login</Button> */}
+                                    <Button onClick={handleShowAuthModal} disabled={disableAuth}>Login</Button>
                                 </li>
                             )
                             }
@@ -186,7 +184,7 @@ const Nav = () => {
                     </div>
 
                     {/* Editar esta div para o usuário logado*/}
-                    {user ?
+                    {!disableAuth && user ?
                         <>
                             <NavigationList>
                                 <li onClick={() => setIsOpen(false)} className="profile-side-bar">
@@ -214,7 +212,7 @@ const Nav = () => {
                             </NavigationList>
                         </> 
                     :
-                        <Button onClick={handleShowAuthModal} className='user-button'>Login</Button>
+                        <Button onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
                     }
                     
                 </div>

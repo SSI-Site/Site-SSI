@@ -18,8 +18,7 @@ import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 const About = () => {
 
     const router = useRouter();
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    const { user, disableAuth } = useAuth();
 
     return (
         <>
@@ -152,7 +151,7 @@ const About = () => {
                         })}
                     </div>
 
-                    {user &&
+                    {!disableAuth && user &&
                         <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
                     }
                 </div>

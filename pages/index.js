@@ -33,8 +33,7 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    const { user, disableAuth } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
 
@@ -141,14 +140,15 @@ const Home = () => {
             <LandingSection>
                 <div className='landing-container'>
                     <div className='landing-info'>
-                        {!user ?
+                        {disableAuth || !user ?
                             <>
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2024</h1>
                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
-                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
-                                {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
+                                <Button onClick={handleShowAuthModal} disabled={disableAuth}>
+                                    {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                                </Button>
                             </>
                         :
                             <>  
@@ -220,8 +220,9 @@ const Home = () => {
                     </div>
                     {!user &&
                         <>
-                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
-                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button> */}
+                            <Button onClick={handleShowAuthModal} disabled={disableAuth}>
+                                {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                            </Button>
                         </>
                     }
                 </CountdownSection>
@@ -368,13 +369,6 @@ export default Home;
 const LandingSection = styled.section`
     padding-inline: 1rem;
 
-    .btn-entrar{
-        padding: 1.5em;
-        font: 700 1rem/1.25rem 'AT Aero Bold';
-        font-weight: 400;
-        max-width: 25rem;
-    }
-
     .landing-container {
         display: flex;
         flex-direction: column;
@@ -382,7 +376,6 @@ const LandingSection = styled.section`
         align-items: center;
         border-right: 1px solid var(--color-neutral-secondary);
         border-left: 1px solid var(--color-neutral-secondary);
-        //margin-top: 3.75rem; /* match navbar height */
 
         .landing-info {
             padding: 1.5rem 1rem;
@@ -391,7 +384,6 @@ const LandingSection = styled.section`
             justify-content: center;
             align-items: flex-start;
             gap: 1rem;
-            //max-width: 33rem;
             
             .landing-text {
                 display: flex;
@@ -426,14 +418,14 @@ const LandingSection = styled.section`
             margin-bottom: 2.5rem;
         }
 
-        .dateWrapper{
+        .dateWrapper {
             width: 100%;
             display: flex;
             flex-direction: column;
             padding: inherit;
             background-color: var(--color-primary);
 
-            h1, h2, h6{
+            h1, h2, h6 {
                 text-align: center;
                 line-height: 100%;
             }
@@ -442,21 +434,19 @@ const LandingSection = styled.section`
                 font-size: 5rem;
             }
 
-            h2{
+            h2 {
                 letter-spacing: 0.2em;
                 margin-bottom: 1rem;
             }
         }
     }
 
-    @media (min-width: 800px){
-        .landing-container{
-
-            .dateWrapper{
+    @media (min-width:800px) {
+        .landing-container {
+            .dateWrapper {
                 width: 85%;
             }
         }
-        
     }
 
     @media (min-width:1100px) {
@@ -467,18 +457,18 @@ const LandingSection = styled.section`
             flex-direction: row;
             justify-content: space-between;
 
-            .btn-entrar {
-                width: 30%;
-                margin-bottom: 6rem;
+            button {
+                width: fit-content;
             }
 
-            .landing-info{
+            .landing-info {
                 height: 100%;
+                width: 50%;
                 padding: 1.5rem;
                 border-right: 1px solid var(--color-neutral-secondary);
             }
 
-            .dates{
+            .dates {
                 padding-inline: 3rem;
                 display: flex;
                 border: none;
@@ -488,7 +478,7 @@ const LandingSection = styled.section`
                 width: 50%;
             }
 
-            .dateWrapper{
+            .dateWrapper {
                 flex-direction: row;
                 padding: 3.5rem 2rem;
                 align-items: center;
@@ -497,15 +487,15 @@ const LandingSection = styled.section`
                 align-items: center;
                 justify-content: center;
 
-                h1{
+                h1 {
                     font-size: 9rem;
                 }
 
-                h2{
+                h2 {
                     margin-bottom: 0;
                 }
 
-                h6{
+                h6 {
                     writing-mode: vertical-rl;
                     transform: rotate(180deg);
                     height: 30%;
@@ -516,7 +506,7 @@ const LandingSection = styled.section`
         }
     }
 
-    @media (min-width: 1300px){
+    @media (min-width:1300px) {
         padding-inline: 6.75rem;
     }
 `

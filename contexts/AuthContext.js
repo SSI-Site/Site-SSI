@@ -1,5 +1,4 @@
 import cookie from 'js-cookie'
-import Router from 'next/router'
 import { createContext, useEffect, useState } from 'react'
 
 import axios from 'axios'
@@ -26,6 +25,7 @@ const formatUser = async (user) => ({
 })
 
 export function AuthProvider({ children }) {
+    const disableAuth = false // false para ativar a autenticação
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -99,7 +99,6 @@ export function AuthProvider({ children }) {
 
     const signOut = async () => {
         try {
-            Router.push('/')
             await firebaseSignOut(auth)
             handleStudent(false)
             localStorage.removeItem('access_token')
@@ -136,6 +135,7 @@ export function AuthProvider({ children }) {
     return (
         <AuthContext.Provider
             value={{
+                disableAuth,
                 user,
                 loading,
                 signInGoogle,
