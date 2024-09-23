@@ -183,7 +183,7 @@ const COExhibitionSection = styled.section`
             flex-direction: row;
             
             .title-text {
-                height: 48rem;
+                height: calc(100vh - 8rem);
                 width: 50%;
                 border-bottom: 0;
                 border-right: 1px solid var(--color-neutral-secondary);

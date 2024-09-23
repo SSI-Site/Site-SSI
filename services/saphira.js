@@ -1,5 +1,5 @@
 import axios from 'axios';
-const base_url = 'http://www.boredapi.com/api/activity'; // para o exemplo -> COMENTAR
+const base_url = 'http://bored.api.lewagon.com/api/activity'; // para o exemplo -> COMENTAR
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL;
 
@@ -7,9 +7,7 @@ const ACCESS_TOKEN = 'access_token'
 const REFRESH_TOKEN = 'refresh_token'
 const STUDENT_ID = 'student_id'
 
-
 const saphira = {
-
     // Para o exemplo -> COMENTAR
     getActivity: async () => {
         try {

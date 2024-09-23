@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import useAuth from '../../hooks/useAuth';
 import saphira from '../../services/saphira';
 
 // components
@@ -10,8 +9,6 @@ import Button from './Button';
 const TOKEN_LENGTH = 5;
 
 const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
-
-    const { user } = useAuth();
     
     const [token, setToken] = useState('')
     const [isLoading, setIsLoading] = useState(false);
@@ -78,7 +75,7 @@ const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
                             />
                             
                             {isInvalid && !isRegistered &&
-                                <Button type="submit" className='invalid-token'>Inválido!</Button>
+                                <Button type="submit" className='invalid-token'>Inválido...</Button>
                             }
                             {isRegistered &&
                                 <Button className='token-registered'>Registrada!</Button>
@@ -106,7 +103,7 @@ const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
                             />
                     
                             {isInvalid && !isRegistered &&
-                                <Button type="submit" className='invalid-token'>Token inválido!</Button>
+                                <Button type="submit" className='invalid-token'>Token inválido...</Button>
                             }
                             {isRegistered &&
                                 <Button className='token-registered'>Presença registrada!</Button>
