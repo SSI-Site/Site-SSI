@@ -619,8 +619,7 @@ const RightBanner = styled.div`
 `
 
 const LastYearSection = styled.section`
-    background-color: var(--color-neutral-900);
-    border: 1px solid var(--color-neutral-secondary);   
+    background-color: var(--color-neutral-900);  
 
     .lastyear-container {
         display: flex;
@@ -630,7 +629,7 @@ const LastYearSection = styled.section`
         width: 100%;
         
         .lastyear-text {
-            padding: 4rem 1rem;
+            padding: 3rem 1rem;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -692,11 +691,10 @@ const LastYearSection = styled.section`
         }
         .lastyear-rightside {
             display: flex;
+            padding: 0 1rem 3rem 1rem;
             flex-direction: column;
             gap: 1.5rem;
             height: 100%;
-            padding: 4rem 1rem;
-            border: 1px solid var(--color-neutral-secondary); 
             .lastyear-video {
                 position: relative;
                 overflow: hidden;
@@ -741,6 +739,7 @@ const LastYearSection = styled.section`
                 }
             }
             .lastyear-rightside {
+                padding: 3rem 1rem;
                 align-items: center; 
                 gap: 2rem; 
             }
