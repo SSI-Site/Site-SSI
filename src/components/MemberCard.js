@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // components
@@ -44,8 +44,27 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
         return departments.sort((a, b) => a.localeCompare(b));
     };
 
+	// Movimentacoes por Tab ativam a animacao e colocam o foco no link/titulo do card-back
+	const cardRef = useRef(null);
+	const [animating, setAnimating] = useState(false);
+	const handleFocus = () => {
+		// Espera a animacao de um card terminar antes de comecar outra (muito glitches sem isso)
+		if (!animating) {
+			setAnimating(true);
+			setTimeout(() => {
+				// Seleciona o link ou nome do membro
+				const backlink = cardRef.current.querySelector(".card-back .member-name a") || cardRef.current.querySelector(".card-back .member-name h6");
+
+				if (backlink) {
+					backlink.focus();
+				}
+				setAnimating(false);
+			}, 200) // Deixa a mudanca de foco mais suave
+		}
+	}
+
     return (
-        <MemberWrapper>
+        <MemberWrapper onFocus={handleFocus} ref={cardRef}>
             <div className="image-container">
                 <figure className='member-image'>
                     <img src={image} alt={`Foto de ${name}`} className="responsive-image" />
@@ -63,7 +82,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                             </a>
                         </>
                         :
-                        <h6>{name}</h6>
+                        <h6 tabIndex={0}>{name}</h6>
                     }
                 </div>
                 {phrase &&
@@ -607,7 +626,7 @@ const MemberWrapper = styled.div`
 
     @media (min-width:800px) {
 
-        &:hover, &:focus-visible {
+        &:hover, &:focus-within, &:focus-visible {
             .card-back {
                 translate: 0 0;
             }
