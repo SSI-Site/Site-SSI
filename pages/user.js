@@ -9,10 +9,10 @@ import Meta from '../src/infra/Meta';
 
 // components
 import Button from '../src/components/Button';
-import LecturesList from '../src/components/LecturesList';
 import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import UserGiftCard from '../src/components/UserGiftCard';
+import UserWatchedLecturesList from '../src/components/UserWatchedLecturesList';
 
 // assets
 import gifts from '../data/gifts';
@@ -242,7 +242,7 @@ const User = () => {
                         </div>
                     </UserInfoSection>
 
-                    <LecturesListSection>
+                    <UserWatchedLecturesListSection>
                         <div className='lectures-info-wrapper'>
                             <h5>Palestras assistidas</h5>
 
@@ -259,9 +259,9 @@ const User = () => {
                             
                             <TokenModal  onSuccess={getPresences} />
 
-                            <LecturesList lectures={lectures} />
+                            <UserWatchedLecturesList lectures={lectures} />
                         </div>
-                    </LecturesListSection>
+                    </UserWatchedLecturesListSection>
 
 
                     <GiftsProgressSection id='meus-brindes'>
@@ -526,7 +526,7 @@ const InfoUser = styled.div`
     }
 `
 
-const LecturesListSection = styled.section`
+const UserWatchedLecturesListSection = styled.section`
     padding-block: 2rem;
     border-bottom: 1px solid var(--color-neutral-secondary);
 

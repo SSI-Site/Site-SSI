@@ -147,7 +147,7 @@ const Home = () => {
                                     <h1>Semana de Sistemas de Informação 2024</h1>
                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
-                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastre-se</Button>
+                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
                                 {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
                             </>
                         :
@@ -308,9 +308,9 @@ const Home = () => {
 			{ (current <= lastEventDay) &&
 				<ScheduleSection>
 					<div className='schedule-container'>
-						<h3 className='title-mobile schedule-section-title'>Programação</h3>
+						<h3 className='title-mobile schedule-section-title'>Próximas atividades</h3>
 						<div className='title-btn-desktop'>
-							<h3 className='schedule-section-title'>Programação</h3>
+							<h3 className='schedule-section-title'>Próximas atividades</h3>
 							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
 						</div>
 						<div className='filter-bar-container filter-bar-mobile'>
@@ -463,7 +463,7 @@ const LandingSection = styled.section`
         //height: 44rem;
 
         .landing-container {
-            height: 43.5rem;
+            height: calc(100vh - 8rem);
             flex-direction: row;
             justify-content: space-between;
 
