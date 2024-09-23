@@ -59,10 +59,11 @@ const Home = () => {
             var distance = countdownDate - now;
 
             // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
-            setCountdownDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
-            setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            setCountdownMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-            setCountdownSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+            // (O padStart serve para adicionar '0' se o número for menor que 10)
+            setCountdownDays(String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0'));
+            setCountdownHours(String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'));
+            setCountdownMinutes(String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'));
+            setCountdownSeconds(String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0'));
         }, 1000);
     }, []);
 
@@ -187,9 +188,7 @@ const Home = () => {
             {(now < countdownDate) &&
                 <CountdownSection>
                     <div className='countdown-text'>
-                        <div className='countdown-text-title'>
-                            <h3>Contagem regressiva</h3>
-                        </div>
+                        <h3>Contagem regressiva</h3>
                         <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000  ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
                     </div>
                     
@@ -218,10 +217,10 @@ const Home = () => {
                         </div>
                     </div>
                     {!user &&
-                        <div className='countdown-btn'>
-                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Fazer cadastro</Button>
-                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Fazer cadastro</Button> */}
-                        </div>
+                        <>
+                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
+                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button> */}
+                        </>
                     }
                 </CountdownSection>
             }
@@ -646,9 +645,9 @@ const EventInfoSection = styled.section`
 `
 
 const CountdownSection = styled.section`
-    padding-block: 4rem;
+    padding-block: 4rem 2rem;
     background-color: var(--color-neutral-900);
-    gap: 2rem;
+    gap: 1.5rem;
     border-top: 1px solid var(--color-neutral-secondary);
 
     .countdown-text {
@@ -656,7 +655,7 @@ const CountdownSection = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        gap: 1.5rem;
 
         div {
             background-color: var(--color-primary-600);
@@ -666,15 +665,17 @@ const CountdownSection = styled.section`
 
         h3 {
             text-align: center;
+            background-color: var(--color-primary);
+            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
         h6 {
             text-align: center;
-            width: 80%;
         }
 
         span {
-            font: 700 1rem/1.25rem 'AT Aero Bold';
+            font: inherit;
+            background-color: var(--color-primary-900);
         }
     }
 
@@ -687,80 +688,46 @@ const CountdownSection = styled.section`
         gap: 1rem;
 
         .clock-container {
-            padding: 0.75rem;
+            padding: 1.5rem;
             background-color: var(--color-neutral-50);
             width: 100%;
-            height: 9rem;
+            height: 8rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
 
-            :nth-child(4) {
-                display: none;
-            }
-
             h1 {
                 color: var(--color-primary-600);
             }
 
             p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
+                font: 700 1rem/1.5rem 'AT Aero Bold';
                 color: var(--color-primary-600);
             }
         }
     }
 
-    .countdown-btn {
-        width: 100%;
-        max-width: 30rem;
-    }
-    
-    @media (min-width:560px) {
-        .countdown-clock {
-            .clock-container {
-                :nth-child(4) {
-                    display: flex;
-                }
-            }
-        }
-    }
-
     @media (min-width:1100px) {
-        padding: 6.75rem;
+        padding-block: 5rem 4rem;        
 
-        .countdown-text {
-            h3 {
-                font: 700 3.5rem/4.25rem 'AT Aero Bold';
-            }
-
-            h6 {
-                width: 100%;
-            }
-        
-            span {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                background-color: var(--color-primary-900);
-            }
-        }
-        
         .countdown-clock {
             gap: 1rem;
             flex-direction: row;
             
             .clock-container {
-                width: 11.25rem;
-                height: 9.25rem;
-                
-                :nth-child(4) {
-                    display: flex;
+                width: 13rem;
+                height: 9.5rem;
+
+                p {
+                    font: 700 1.125rem/1.5rem 'AT Aero Bold';
                 }
             }
         }
 
-        .countdown-btn {
-            width: 20%;
+        button {
+            width: fit-content;
         }
     }  
 `
