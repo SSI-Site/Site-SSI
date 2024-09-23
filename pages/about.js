@@ -161,69 +161,81 @@ const About = () => {
             <LastYearSection>
                 <div className='lastyear-container'>
                     <div className='lastyear-text'>
-                        <h3>Veja como foi em 2022</h3>
-                        <p>Confira o que rolou no evento do ano passado e <span>sinta a energia</span> que tomou conta do <span>nosso público</span>!</p>
+                        <div className='lastyear-title'>
+                            <h3>Veja como foi em 2023</h3>
+                        </div>
+                        <p>Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!</p>
+                        <a target="_blank" href="https://www.youtube.com/@semanadesi">Acesse nosso canal
+                                <div>
+                                    {/* Youtube Logo */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none" style={{display: 'block'}}>
+                                        <path className='background' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000"/>
+                                        <path className='meio' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white"/>
+                                    </svg>
+                                </div>
+				        </a>
                     </div>
-                    <div className='lastyear-video'>
-                        <iframe 
-                            src="https://www.youtube.com/embed/Ki6rharDp40" 
-                            title="YouTube video player" 
-                            allow="fullscreen">
-                        </iframe>
-                    </div>
-                    <EventNumbersBanner>
+                    <RightBanner>
+                        <div className='lastyear-video'>
+                            <iframe 
+                                src="https://www.youtube.com/embed/H1xUuCUckPA?si=cYSvxtmyDtI7TwTP" 
+                                title="YouTube video player" 
+                                allow="fullscreen">
+                            </iframe>
+                        </div>
+                        <EventNumbersBanner>
 
-                        <CountUp
-                            start={0}
-                            end={2}
-                            delay={0}
-                            decimals={1}
-                            suffix="k+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='event-info-container'>
-                                    <h1 ref={countUpRef} />
-                                    <h5>Espectadores</h5>
-                                </div>
-                            )}
-                        </CountUp>
+                            <CountUp
+                                start={0}
+                                end={2}
+                                delay={0}
+                                decimals={1}
+                                suffix="k+"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='event-info-container'>
+                                        <h1 ref={countUpRef} />
+                                        <h5>espectadores</h5>
+                                    </div>
+                                )}
+                            </CountUp>
 
-                        <CountUp
-                            start={0}
-                            end={600}
-                            delay={0}
-                            suffix="+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='event-info-container'>
-                                    <h1 ref={countUpRef} />
-                                    <h5>Inscritos</h5>
-                                </div>
-                            )}
-                        </CountUp>
+                            <CountUp
+                                start={0}
+                                end={600}
+                                delay={0}
+                                suffix="+"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='event-info-container'>
+                                        <h1 ref={countUpRef} />
+                                        <h5>inscritos</h5>
+                                    </div>
+                                )}
+                            </CountUp>
 
-                        <CountUp
-                            start={0}
-                            end={43}
-                            delay={0}
-                            suffix="h+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='event-info-container'>
-                                    <h1 ref={countUpRef} />
-                                    <h5>Conteúdo</h5>
-                                </div>
-                            )}
-                        </CountUp>
+                            <CountUp
+                                start={0}
+                                end={43}
+                                delay={0}
+                                suffix="h"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='event-info-container'>
+                                        <h1 ref={countUpRef} />
+                                        <h5>conteúdo</h5>
+                                    </div>
+                                )}
+                            </CountUp>
 
-                    </EventNumbersBanner>
+                        </EventNumbersBanner>
+                    </RightBanner>
+                    
 
-                    <a target="_blank" href="https://www.twitch.tv/each_ssi" className='lastyear-btn'>
-                        <Button>Nosso canal na Twitch</Button>
-                    </a>
+                    
                 </div>
             </LastYearSection>
         </>
@@ -610,9 +622,22 @@ const GiftsSection = styled.section`
     }
 `
 
+const RightBanner = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    @media (min-width: 880px) {
+        align-items: center; 
+        gap: 2rem; 
+    }
+    padding: 4rem 1rem;
+    border: 1px solid var(--color-neutral-secondary); 
+`
+
 const LastYearSection = styled.section`
     background-color: var(--color-neutral-900);
-    padding-block: 3.5rem;
+    border: 1px solid var(--color-neutral-secondary);   
 
     .lastyear-container {
         display: flex;
@@ -620,9 +645,10 @@ const LastYearSection = styled.section`
         align-items: center;
         justify-content: center;
         width: 100%;
-        gap: 3.5rem;
         
         .lastyear-text {
+            padding: 4rem 1rem;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -630,18 +656,55 @@ const LastYearSection = styled.section`
             gap: 1rem;
             max-width: 1016px;
             
-            h3 {
-                text-align: center;
+            .lastyear-title {
+                background-color: var(--color-primary-600);
+                width: 100%;
+                padding: 1rem 2rem;
+                h3 {
+                    font-size: 1.8rem;
+                    line-height: 2rem;
+                    text-align: center;
+                }
+            }
+            
+            a {
+                display: block;
+                padding: 0.5rem 4rem;
+                width: 100%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.3rem;
+                border: 2px solid var(--color-neutral-50);
+                transition: 100ms;
+
+                background-image: linear-gradient(to right, white 90%, var(--color-primary) 100%); 
+                background-size: 200%;
+                background-position-x: 200%;
+                background-repeat: no-repeat;
+
+                &:hover {
+                    background-position-x: 100%;
+                    color: var(--color-primary);
+                    border: 2px solid transparent;
+
+                    svg {
+                        .background { fill: var(--color-primary); }
+                        .meio { fill: white; }
+                    }
+                }
+                @media (min-width:560px) {
+                    height: 3rem;
+                }
             }
 
             p {
-                text-align: center;
-                font-family: 'AT Aero Bold';
-                font-weight: 700;
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
+                line-height: 1.8rem;
+                font-size: 1.3rem;
+                text-align: justify;
+                font-family: 'AT Aero';
+                font-weight: 500;
             }
         }
 
@@ -649,8 +712,6 @@ const LastYearSection = styled.section`
             position: relative;
             overflow: hidden;
             width: 100%;
-            border-radius: 8px;
-
             &::after {
                 display: block;
                 content: "";
@@ -668,23 +729,30 @@ const LastYearSection = styled.section`
         }
     }
 
-    @media (min-width:820px) {
-        padding-block: 6.75rem;
-
-        .lastyear-text {
-            h3 {
-                font: 700 3.5rem/4.25rem 'AT Aero Bold';
-            }
-
-            p {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
-            }
-
-        }
-
+    @media (min-width:880px) {
         .lastyear-container {
-            .lastyear-video  {
-                max-width: 50rem;
+            justify-content: space-between; 
+            align-items: flex-start;
+            gap: 3rem;
+            width: 90%;
+            flex-direction: row;
+            .lastyear-text {
+                gap: 1.5rem;
+                .lastyear-title {
+                    padding: 1rem 2rem;
+                    h3 {
+                        text-align: left;
+                        font-size: 3rem;
+                        line-height: 3rem;
+                    }
+                }
+                p {
+                    text-align: left;
+                }
+            }
+            .lastyear-video {
+                flex: 1;
+                max-width: 100%;
             }
         }
     }
@@ -692,28 +760,36 @@ const LastYearSection = styled.section`
 
 const EventNumbersBanner = styled.div`
     display: flex;
-    flex-direction: row;
-    flex-flow: wrap;
+    flex-direction: column;
+    width: 100%;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    width: 100%;
+    width: 90vw;
 
     .event-info-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         width: 100%;
         max-width: 23.75rem;
         padding: 2rem 4rem;
         gap: 0.5rem;
-        background-color: var(--color-neutral-800);
-        border-radius: 8px;
+        background-color: var(--color-neutral-50);
+        color: var(--color-primary-600);
 
-        h1 {
-            font: 700 4rem/4.25rem 'AT Aero Bold';
+        h1, h5 {
+            font: 700 1.2rem 'AT Aero Bold';
+            line-height: 1rem;
             color: var(--color-primary-600);
+        }
+    }
+    @media (min-width: 880px) {
+        width: 100%;
+        flex-direction: row;
+        .event-info-container {
+            align-items: start;
+            padding: 1rem 0.8rem;
         }
     }
 
@@ -721,10 +797,11 @@ const EventNumbersBanner = styled.div`
         gap: 1.5rem;
         .event-info-container {
             align-items: flex-start;
-            max-width: 24.5rem;
+            width: 15rem;
+            height: 100%;
 
-            h1 {
-                font: 700 5rem/4.25rem 'AT Aero Bold';
+            h1,h5 {
+                font: 700 1.5rem 'AT Aero Bold';
             }
         }
     }
