@@ -59,10 +59,11 @@ const Home = () => {
             var distance = countdownDate - now;
 
             // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
-            setCountdownDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
-            setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            setCountdownMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-            setCountdownSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+            // (O padStart serve para adicionar '0' se o número for menor que 10)
+            setCountdownDays(String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0'));
+            setCountdownHours(String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'));
+            setCountdownMinutes(String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'));
+            setCountdownSeconds(String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0'));
         }, 1000);
     }, []);
 
@@ -194,32 +195,32 @@ const Home = () => {
                     <div className='countdown-clock'>
                         {(now < countdownDate - 24 * 60 * 60 * 1000) &&
                             <div className='clock-container'>
-                                <h3>{countdownDays}</h3>
+                                <h1>{countdownDays}</h1>
                                 <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
                             </div>
                         }
                         {(now < countdownDate - 60 * 60 * 1000) &&
                             <div className='clock-container'>
-                                <h3>{countdownHours}</h3>
+                                <h1>{countdownHours}</h1>
                                 <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
                             </div>
                         }
                         {(now < countdownDate - 60 * 1000) &&
                             <div className='clock-container'>
-                                <h3>{countdownMinutes}</h3>
+                                <h1>{countdownMinutes}</h1>
                                 <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
                             </div>
                         }
                         <div className='clock-container'>
-                            <h3>{countdownSeconds}</h3>
+                            <h1>{countdownSeconds}</h1>
                             <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
                         </div>
                     </div>
                     {!user &&
-                        <div className='countdown-btn'>
-                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Fazer cadastro</Button>
-                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Fazer cadastro</Button> */}
-                        </div>
+                        <>
+                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastrar-se</Button>
+                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Cadastrar-se</Button> */}
+                        </>
                     }
                 </CountdownSection>
             }
@@ -644,102 +645,89 @@ const EventInfoSection = styled.section`
 `
 
 const CountdownSection = styled.section`
-    padding-block: 3.5rem;
+    padding-block: 4rem 2rem;
     background-color: var(--color-neutral-900);
-    gap: 3.5rem;
+    gap: 1.5rem;
+    border-top: 1px solid var(--color-neutral-secondary);
 
     .countdown-text {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 1.5rem;
+
+        div {
+            background-color: var(--color-primary-600);
+            width: 70%;
+            padding: 1rem 0;
+        }
 
         h3 {
             text-align: center;
+            background-color: var(--color-primary);
+            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
-        h6 span {
+        h6 {
+            text-align: center;
+        }
+
+        span {
             font: inherit;
-            color: var(--color-primary-700);
+            background-color: var(--color-primary-900);
         }
     }
 
     .countdown-clock {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1rem;
 
         .clock-container {
-            padding: 0.75rem;
-            background-color: var(--color-neutral-800);
-            width: 7.25rem;
-            height: 6.25rem;
+            padding: 1.5rem;
+            background-color: var(--color-neutral-50);
+            width: 100%;
+            height: 8rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
             gap: 0.5rem;
 
-            :nth-child(4) {
-                display: none;
-            }
-
-            h3 {
-                color: #FFF;
+            h1 {
+                color: var(--color-primary-600);
             }
 
             p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-                color: #FFF;
-            }
-        }
-    }
-
-    .countdown-btn {
-        width: 100%;
-        max-width: 24.5rem;
-    }
-    
-    @media (min-width:560px) {
-        
-        .countdown-clock {
-            .clock-container {
-                :nth-child(4) {
-                    display: flex;
-                }
+                font: 700 1rem/1.5rem 'AT Aero Bold';
+                color: var(--color-primary-600);
             }
         }
     }
 
     @media (min-width:1100px) {
-        padding: 6.75rem;
+        padding-block: 5rem 4rem;        
 
-        .countdown-text {
-            h3 {
-                font: 700 3.5rem/4.25rem 'AT Aero Bold';
-            }
-        
-            p {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
-            }
-        }
-        
         .countdown-clock {
-            gap: 2.875rem;
+            gap: 1rem;
+            flex-direction: row;
             
             .clock-container {
-                width: 11.25rem;
-                height: 9.25rem;
-                
-                :nth-child(4) {
-                    display: flex;
+                width: 13rem;
+                height: 9.5rem;
+
+                p {
+                    font: 700 1.125rem/1.5rem 'AT Aero Bold';
                 }
             }
+        }
+
+        button {
+            width: fit-content;
         }
     }  
 `
