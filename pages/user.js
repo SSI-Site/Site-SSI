@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import styled from 'styled-components';
@@ -19,8 +19,7 @@ import gifts from '../data/gifts';
 
 const User = () => {
 
-    const { user, signOut } = useAuth();
-    // const { user } = false; // para deploy sem login
+    const { user, disableAuth, signOut } = useAuth();
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [studentInfo, setStudentInfo] = useState({});
@@ -111,13 +110,13 @@ const User = () => {
     };
 
     useEffect(() => {
-        getStudentInfo();
-        getPresences();
+        if (disableAuth || !user) {
+            Router.push('/');
+        } else {
+            getStudentInfo();
+            getPresences();
+        }
     }, [user]);
-
-    useEffect(() => {
-        getStudentInfo();
-    }, []);
 
     const { asPath } = useRouter('/user');
 
@@ -147,7 +146,7 @@ const User = () => {
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
-                    if (!document.cookie || !document.cookie.includes('ssi-site-auth')) {
+                    if (!document.cookie || !document.cookie.includes('ssi-student-auth')) {
                         window.location.href = "/"
                     }
                 `
@@ -162,7 +161,7 @@ const User = () => {
                 </Loading>
             }
 
-            {!isLoading && user &&
+            {!isLoading && !disableAuth && user &&
                 <>
                     <UserInfoSection>
                         <div>
