@@ -153,7 +153,7 @@ const Home = () => {
                             <>  
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2024</h1>
-                                    <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
+                                    <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
                                 </div>
                                 <TokenModal/>
                             </>
@@ -389,7 +389,7 @@ const LandingSection = styled.section`
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            gap: 1.5rem;
+            gap: 1rem;
             //max-width: 33rem;
             
             .landing-text {
@@ -403,6 +403,15 @@ const LandingSection = styled.section`
                 p {
                     font-weight: 400;
                 }
+
+                .greetings-text {
+                    font: 700 1rem/1.5rem 'AT Aero Bold';
+
+                    span {
+                        font: inherit;
+                        background-color: var(--color-primary-900);
+                    }
+                }
             }
         }
 
@@ -413,7 +422,7 @@ const LandingSection = styled.section`
             width: 100%;
             padding: 1.5rem 1rem;
             border-top: 1px solid var(--color-neutral-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .dateWrapper{
@@ -453,6 +462,7 @@ const LandingSection = styled.section`
         //height: 44rem;
 
         .landing-container {
+            height: 43.5rem;
             flex-direction: row;
             justify-content: space-between;
 
@@ -462,6 +472,7 @@ const LandingSection = styled.section`
             }
 
             .landing-info{
+                height: 100%;
                 padding: 1.5rem;
                 border-right: 1px solid var(--color-neutral-secondary);
             }
