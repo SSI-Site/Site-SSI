@@ -166,16 +166,13 @@ const About = () => {
                         </div>
                         <p>Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!</p>
                         <a target="_blank" href="https://www.youtube.com/@semanadesi">Acesse nosso canal
-                                <div>
-                                    {/* Youtube Logo */}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none" style={{display: 'block'}}>
-                                        <path className='background' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000"/>
-                                        <path className='meio' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white"/>
-                                    </svg>
-                                </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none" style={{display: 'block'}}>
+                                <path className='background' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000"/>
+                                <path className='meio' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white"/>
+                            </svg>
 				        </a>
                     </div>
-                    <RightBanner>
+                    <div className='lastyear-rightside'>
                         <div className='lastyear-video'>
                             <iframe 
                                 src="https://www.youtube.com/embed/H1xUuCUckPA?si=cYSvxtmyDtI7TwTP" 
@@ -184,7 +181,6 @@ const About = () => {
                             </iframe>
                         </div>
                         <EventNumbersBanner>
-
                             <CountUp
                                 start={0}
                                 end={2}
@@ -230,12 +226,8 @@ const About = () => {
                                     </div>
                                 )}
                             </CountUp>
-
                         </EventNumbersBanner>
-                    </RightBanner>
-                    
-
-                    
+                    </div>
                 </div>
             </LastYearSection>
         </>
@@ -623,16 +615,7 @@ const GiftsSection = styled.section`
 `
 
 const RightBanner = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    height: 100%;
-    @media (min-width: 880px) {
-        align-items: center; 
-        gap: 2rem; 
-    }
-    padding: 4rem 1rem;
-    border: 1px solid var(--color-neutral-secondary); 
+    
 `
 
 const LastYearSection = styled.section`
@@ -707,26 +690,33 @@ const LastYearSection = styled.section`
                 font-weight: 500;
             }
         }
-
-        .lastyear-video {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            &::after {
-                display: block;
-                content: "";
-                padding-top: 56.25%;
-            }
-
-            iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
+        .lastyear-rightside {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            height: 100%;
+            padding: 4rem 1rem;
+            border: 1px solid var(--color-neutral-secondary); 
+            .lastyear-video {
+                position: relative;
+                overflow: hidden;
                 width: 100%;
-                height: 100%;
-                border: 0;
+                &::after {
+                    display: block;
+                    content: "";
+                    padding-top: 56.25%;
+                }
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                }
             }
         }
+
     }
 
     @media (min-width:880px) {
@@ -742,13 +732,17 @@ const LastYearSection = styled.section`
                     padding: 1rem 2rem;
                     h3 {
                         text-align: left;
-                        font-size: 3rem;
+                        font-size: 2.7rem;
                         line-height: 3rem;
                     }
                 }
                 p {
                     text-align: left;
                 }
+            }
+            .lastyear-rightside {
+                align-items: center; 
+                gap: 2rem; 
             }
             .lastyear-video {
                 flex: 1;
