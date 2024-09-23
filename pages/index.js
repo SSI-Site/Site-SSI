@@ -478,10 +478,6 @@ const LandingSection = styled.section`
                 border-right: 1px solid var(--color-neutral-secondary);
             }
 
-            .landing-text{
-                margin-top: 6rem;
-            }
-
             .dates{
                 padding-inline: 3rem;
                 display: flex;
