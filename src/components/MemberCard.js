@@ -380,10 +380,6 @@ const MemberWrapper = styled.div`
         translate: 0 0;
     }
 
-	&:focus-within {
-		translate: 0 0;
-	}
-
     .button-flip {
         svg {
             transform: rotate(-180deg);
