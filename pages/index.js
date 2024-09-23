@@ -829,7 +829,7 @@ const ScheduleSection = styled.section`
 			
 			.subtitle {
 				display: flex;
-				gap: 5.5rem;
+				gap: 6.31rem;
 			}
 		}
 
