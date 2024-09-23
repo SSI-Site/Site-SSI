@@ -146,6 +146,7 @@ const GiftContainer = styled.div`
 	}
 
 	.button-flip {
+
         background-position: bottom;
         svg {
             transform: rotate(-180deg);
@@ -154,6 +155,12 @@ const GiftContainer = styled.div`
                 fill: white;
             }
         }
+        background-color: var(--color-primary);
+    }
+
+    button:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
 
     button:focus-visible {

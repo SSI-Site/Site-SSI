@@ -195,12 +195,14 @@ const MobileBarFilterContainer = styled.div`
 		}
 	}
 	
+
 	@media(min-width:1024px) {
 		display: none;
 	}
 `
 const DesktopBarFilterContainer = styled.div`
 	display: none;
+
 
 	@media(min-width:1024px) {
 		height: 5rem;

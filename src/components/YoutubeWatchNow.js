@@ -69,6 +69,7 @@ const YoutubeWatchNowWrapper = styled.div`
 
         h6, p {
             color: var(--color-primary);
+
             transition: 0.2s ease-in-out;
         }
 
@@ -122,6 +123,7 @@ const YoutubeWatchNowWrapper = styled.div`
 			border-top: 3px solid var(--color-primary);
 			border-right: 3px solid var(--color-primary);
 			transform: rotateY(0deg) rotate(45deg);
+
 			transition: 0.2s ease-in-out;
 		}
 	}
