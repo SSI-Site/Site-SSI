@@ -701,7 +701,7 @@ const LastYearSection = styled.section`
 
             .lastyear-text {
                 border: none;
-                padding: 4.5rem auto 0 0;
+                padding: 4.5rem 1rem 0 0;
                 gap: 1.5rem;
                 max-width: 25.6rem;
 
