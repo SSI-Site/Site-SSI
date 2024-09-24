@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // assets
-import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png'
+import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png';
 
 const SpeakerCard = ({ speaker, setIsOpen }) => {
 
@@ -109,7 +109,7 @@ const SpeakerWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     animation-name: slide-in;
-    animation-duration: 500ms;
+    animation-duration: 0.15s;
 
     @keyframes slide-in {
         0% {transform: translateX(100%);}
@@ -157,7 +157,7 @@ const SpeakerHead = styled.div`
         background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
-        transition: 100ms all ease-out;
+        transition: 0.15s all ease-out;
         cursor: pointer;
     }
 
@@ -297,12 +297,12 @@ const SocialMedia = styled.div`
 
     .fillAnimation {
         transform: translateX(-100%);
-        transition: all 100ms ease-out;
+        transition: all 0.15s ease-out;
     }
 
     .animation:hover, a:focus-visible {
         cursor: pointer;
-        transition: all 100ms ease-out;
+        transition: all 0.15s ease-out;
 
         .fillAnimation {
             transform: translateX(0);

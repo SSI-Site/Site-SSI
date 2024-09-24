@@ -179,7 +179,7 @@ const About = () => {
                     <div className='lastyear-rightside'>
                         <div className='lastyear-video'>
                             <iframe 
-                                src="https://www.youtube-nocookie.com/embed/H1xUuCUckPA?si=cYSvxtmyDtI7TwTP" 
+                                src="https://www.youtube-nocookie.com/embed/gQ9ka_8D1Bo?si=p55JZ0U2CYeNv--E" 
                                 title="YouTube video player" 
                                 allow="fullscreen">
                             </iframe>

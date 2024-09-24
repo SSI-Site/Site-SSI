@@ -26,7 +26,7 @@ const DepartmentWrapper = styled.div`
     background-color: var(--color-neutral-800);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
-    transition: 100ms;
+    transition: 0.15s;
 
     background-size: 200%;
     background-position-x: 200%;

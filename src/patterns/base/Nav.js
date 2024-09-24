@@ -273,7 +273,7 @@ const NavMobile = styled.nav`
         background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
-        transition: 100ms all ease-out;
+        transition: 0.15s all ease-out;
     }
 
     .hamburguer-wrapper:hover {
@@ -321,7 +321,7 @@ const NavigationList = styled.ul`
         background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
         background-size: 200%;
         background-position-x: 200%;
-        transition: all 100ms ease-out;
+        transition: all 0.15s ease-out;
         background-repeat: no-repeat;
         white-space: nowrap;
         line-height: 1.5rem;
@@ -408,7 +408,7 @@ const Sidepanel = styled.div`
         top: 0;
         right: 0;
         background-color: var(--color-neutral-800);
-        transition: all ease-out 100ms;
+        transition: all ease-out 0.15s;
         padding: 1.5rem 1rem;
         gap: 1.5rem;
 

@@ -171,10 +171,10 @@ const MemberWrapper = styled.div`
         align-items: center;
         justify-content: center;
         border: 0;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.15s ease-in-out;
 
         svg {
-            transition: 0.2s;
+            transition: 0.15s;
         }
 
         .responsive-image {
@@ -289,7 +289,7 @@ const MemberWrapper = styled.div`
     }
 
     .card-back {
-        transition: all 0.2s ease-in-out;
+        transition: all 0.15s ease-in-out;
         translate: 0 101%;
         display: flex;
         flex-direction: column;
@@ -311,13 +311,13 @@ const MemberWrapper = styled.div`
 
             h6 {
                 font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                transition: 0.2s;
+                transition: 0.15s ease-in-out;
                 color: ${colorSchemes[1].textColor}
             }
         }
 
         .animate {
-            transition: background-position 0.2s;
+            transition: background-position 0.15s ease-in-out;
 
             a {
                 display: flex;
@@ -326,7 +326,7 @@ const MemberWrapper = styled.div`
                 gap: 0.25rem;
 
                 svg path {
-                    transition: all 0.2s;
+                    transition: all 0.15s;
                     fill: ${colorSchemes[1].textColor};
                 }
 
