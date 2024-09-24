@@ -107,6 +107,7 @@ const SpeakerContainer = styled.div`
         height: 5rem;
         overflow: hidden;
         flex-shrink: 0;
+        background-color: #363636;
 
         img {
             width: 100%;
@@ -185,10 +186,10 @@ const SpeakerContainer = styled.div`
 			flex-direction: column;
 			width: 100%;
             gap: 0.25rem;
-            cursor: pointer;
             
             .speaker-info {
                 padding-inline: 0.25rem;
+                cursor: pointer;
     
                 p {
                     font: 700 1.125rem/1.5rem 'AT Aero Bold';

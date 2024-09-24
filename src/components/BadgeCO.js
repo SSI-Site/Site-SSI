@@ -64,6 +64,7 @@ const BadgeWrapper = styled.div`
 
     p {
         font-size: 0.875rem;
+        font-weight: 400;
         color: ${props => colorSchemes[props.$themeIndex].textColor};
         white-space: no;
     }
