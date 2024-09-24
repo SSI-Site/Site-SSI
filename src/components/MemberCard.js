@@ -154,8 +154,8 @@ export default MemberCard;
 
 const MemberWrapper = styled.div`
     position: relative;
-    width: 18.4rem;
-    height: 24.625rem;
+    width: 20.5rem;
+    height: 27.3rem;
     gap: 1rem;
     overflow-y: hidden;
     display: flex;
@@ -295,8 +295,8 @@ const MemberWrapper = styled.div`
         flex-direction: column;
         padding: 1.5rem;
         background-color: ${colorSchemes[1].background};
-        width: 18.4rem;
-        height: 24.625rem;
+        width: 20.5rem;
+        height: 27.3rem;
         gap: 1rem;
     
         .member-name {
@@ -617,8 +617,8 @@ const MemberWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 24.625rem;
-        width: 18.4rem;
+        height: 27.3rem;
+        width: 20.5rem;
 
         .member-image {
             position: absolute;
@@ -664,6 +664,14 @@ const MemberWrapper = styled.div`
     }
 
     @media (min-width:1024px) {
+        width: 18.4rem;
+        height: 24.625rem;
+
+        .image-container, .card-back {
+            width: 18.4rem;
+            height: 24.625rem;
+        }
+
         .info-button {
             display: none;
         }

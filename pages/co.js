@@ -152,7 +152,7 @@ const COExhibitionSection = styled.section`
             align-items: start;
             justify-content: center;
             gap: 1.5rem;
-            padding: 1.5rem 1rem 1.5rem 1rem;
+            padding: 1.5rem;
             border-bottom: 1px solid var(--color-neutral-secondary);
 
             h6 span {
