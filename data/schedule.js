@@ -28,7 +28,8 @@ import Lecture21_KarinaOliveira from '../public/images/lecture_imgs/21-Karina_Ol
 // import Lecture23_NomeSobrenome from '../public/images/lecture_imgs/23-Nome_Sobrenome.png'
 // import Lecture24_NomeSobrenome from '../public/images/lecture_imgs/24-Nome_Sobrenome.png'
 // import Lecture25_NomeSobrenome from '../public/images/lecture_imgs/25-Nome_Sobrenome.png'
-import Lecture26_NomeSobrenome from '../public/images/lecture_imgs/00-Member_Shadow.png'
+import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovanne_Bertotti.jpeg'
+import Lecture26_FlaviaMartins from '../public/images/lecture_imgs/26-Flavia_Martins.jpeg'
 // import Lecture27_NomeSobrenome from '../public/images/lecture_imgs/27-Nome_Sobrenome.png'
 import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Craveiro.png'
 // import Lecture29_NomeSobrenome from '../public/images/lecture_imgs/29-Nome_Sobrenome.png'
@@ -39,6 +40,8 @@ import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexand
 import Lecture34_JoseCorreia from '../public/images/lecture_imgs/34-Jose_Correia.jpg'
 // import Lecture35_NomeSobrenome from '../public/images/lecture_imgs/35-Nome_Sobrenome.png'
 import Lecture36_LauraDamaceno from '../public/images/lecture_imgs/36-Laura_Damaceno.jpeg'
+// import Lecture37_NomeSobrenome from '../public/images/lecture_imgs/37-Nome_Sobrenome.png'
+// import Lecture38_NomeSobrenome from '../public/images/lecture_imgs/38-Nome_Sobrenome.png'
 
 const schedule = {
     // Modelo de como adicionar uma nova palestra
@@ -92,7 +95,7 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Wheslley Rimar Bezerra',
+                    'name': 'Wheslley Rimar',
                     'pronouns': 'Ele/Dele',
                     'role': 'Software Technical Leader',
                     'description': 'Wheslley Rimar é Software Technical Leader no Mercado Livre e especializado em Java. Ele dedica sua carreira ao ensino de programação, criando materiais didáticos para instituições de ensino. Wheslley também lidera programas de capacitação em programação, desenvolvendo conteúdos que facilitam o aprendizado dos alunos. É apaixonado por música e games, hobbies que alimentam sua criatividade e inovação no campo da tecnologia.',
@@ -158,7 +161,7 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Vanessa Poskus ',
+                    'name': 'Vanessa Poskus',
                     'pronouns': 'Ela/Dela',
                     'role': 'CEO',
                     'description': 'Sou Vanessa Poskus, e atualmente sou CEO da Uppo. Sou uma pessoa apaixonada por inovação, tecnologia e empreendedorismo. Sou administradora e financista por formação e com MBA em Business Innovation. Nos últimos 7 anos me conectei com o ambiente de inovação e startups, onde me encontro hoje participando dos principais hubs de inovação como o Cubo-Itaú, Google For Startups e Sebrae For Startups. Sou uma das lideranças do pilar de diversidade do Cubo que é o #MulheresaoCubo e o #AfroCubo.',
@@ -460,7 +463,7 @@ const schedule = {
                 {
                     'name': 'Davi Baptixta',
                     'pronouns': 'Ele/Dele',
-                    'role': 'Game Designer na Dumativa e Professor na FIAP',
+                    'role': 'Game Designer e Professor',
                     'description': `Davi Baptixta é game designer, atualmente trabalhando na Dumativa, além de ser sócio fundador da Nano Knight Studio, e professor na FIAP.\n\nJá trabalhou em jogos para as plataformas mobile, pc e console, em títulos como: Cobra Kai 2: Dojo's Rising, Avalon Vivo Keyd, e atualmente trabalha no MMORPG Rasek.\n\nAlém disso, também ensina Game Design por meio de seu curso "GDX", totalmente em português.`,
                     'instagram': 'https://www.instagram.com/baptixta/',// opcional
                     'linkedin' : 'https://linkedin.com/in/baptixta',// opcional
@@ -548,7 +551,7 @@ const schedule = {
                 {
                     'name': 'Karina de Oliveira',
                     'pronouns': 'Ela/Dela',
-                    'role': 'Arquiteta Corporativa no Itaú e Engenheira de Computação',
+                    'role': 'Arquiteta Corporativa e Engenheira de Computação',
                     'description': 'Com mais de uma década de experiência em tecnologia e formada em Engenharia de Computação, ofereço consultoria personalizada para ajudar você a alcançar seus objetivos de carreira.\n\n🌈 Mentoro mulheres na tecnologia, pessoas com deficiência e membros da comunidade LGBTQIA+, promovendo um ambiente de trabalho inclusivo e seguro.',
                     'instagram': 'https://www.instagram.com/karinaoliveira.tea/',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/karina-de-oliveira-0341b557/',// opcional
@@ -656,20 +659,20 @@ const schedule = {
                 {
                     'name': 'Giovanne Bertotti',
                     'pronouns': 'Ele/Dele',
-                    'role': 'Analista de qualidade III',
+                    'role': 'Analista de Qualidade III',
                     'description': 'Olá, Eu sou o Giovanne sou pessoa com deficiência visual e sou especialista de acessibilidade digital na B3. Tenho 33 anos e sou um aficionado por tecnologia. Sou psicólogo clínico e também palestrante. Hoje tenho uma paixão pela t.i e sou responsável pela mudança cultural de acessibilidade digital e arquitetônica da bolsa de valores do Brasil.',
                     'instagram': '',// opcional
                     'linkedin' : 'https://www.linkedin.com/authwall?trk=qf&original_referer=https://www.google.com.br/&sessionRedirect=https%3A%2F%2Fbr.linkedin.com%2Fin%2Fgiovanne-bertotti-942299181',// opcional
-                    'image': Lecture26_NomeSobrenome
+                    'image': Lecture26_GiovanneBertotti
                 },
                 {
-                    'name': 'Flavia Martins Bertotti',
+                    'name': 'Flavia Bertotti',
                     'pronouns': 'Ela/Dela',
                     'role': 'Especialista de Acessibilidade Digital',
                     'description': 'Sou a Flavia, tenho 34 anos e sou pessoa com deficiência Visual. Sou especialista de acessibilidade digital na GFT Brasil, consultoria alemã que oferece soluções em tecnologia, além de atuar também como psicóloga clínica. Sou casada com o Giovanne e mãe do pequeno Lucca de 2 anos. Meu trabalho é garantir que sites e aplicações ofereçam acessibilidade, garantindo assim que serviços e produtos possam ser acessados por todas as pessoas, independentemente de terem ou não algum tipo de deficiência.',
                     'instagram': '',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/fl%C3%A1via-martins-bertotti-a8a978205/',// opcional
-                    'image': Lecture26_NomeSobrenome
+                    'image': Lecture26_FlaviaMartins
                 },
             ],
         },
@@ -707,7 +710,7 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Monica Craveiro de Menezes',
+                    'name': 'Monica Craveiro',
                     'pronouns': 'Ela/Dela',
                     'role': 'Desenvolvedora Back-end',
                     'description': 'Carioca, Bacharel em Sistemas de Informação e Matemática, Desenvolvedora Back-end, ex-patinadora artística, ex-aluna do [des]programe, {reprograma} e DigitalHouse, Professora de Programação, Palestrante, Apresentadora/Mestre de Cerimônias e Participante de Diversos Eventos na área de Tecnologia, Coordenadora e Voluntária em Diversas Comunidades de TI, Embaixadora da Programaria, Host do Canal da NodeBR do YouTube e Criadora de Conteúdo para as Redes Sociais.',
@@ -776,7 +779,7 @@ const schedule = {
                     'name': 'David Arty',
                     'pronouns': 'Ele/Dele',
                     'role': 'Designer/Dono',
-                    'description': 'David Arty, Designer especialista em Design de interação visual, Formado em Design Gráfico e Pós Graduado em UX Design. Empreendedor e entusiasta  por tecnologia, trabalha no mercado criativo desde 2009, atuando também como professor, consultor e palestrante .É fundador do Chief of Design que trata-se de um conglomerado educacional que conta com mais de 200k seguidores nas redes sociais.',
+                    'description': 'David Arty, Designer especialista em Design de interação visual, Formado em Design Gráfico e Pós Graduado em UX Design. Empreendedor e entusiasta  por tecnologia, trabalha no mercado criativo desde 2009, atuando também como professor, consultor e palestrante. É fundador do Chief of Design que trata-se de um conglomerado educacional que conta com mais de 200k seguidores nas redes sociais.',
                     'instagram': 'https://www.instagram.com/chiefofdesign.br',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/davidarty/',// opcional
                     'image': Lecture31_DavidArty
@@ -793,7 +796,7 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Alexandre da Costa Tavares Junior',
+                    'name': 'Alexandre Tavares',
                     'pronouns': 'Ele/Dele',
                     'role': 'Arquiteto de BigData',
                     'description': 'Alexandre Tavares é um profissional de tecnologia com vasta experiência em arquitetura de dados, implementação de Plataformas de Dados e cultura de dados. Ao longo de sua carreira, liderou projetos inovadores em grandes empresas, promovendo a transformação digital e a eficiência operacional.',
@@ -881,9 +884,9 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Laura Damaceno de Almeida',
+                    'name': 'Laura Damaceno',
                     'pronouns': 'Ela/Dela',
-                    'role': 'Cientista de dados sênior e Mestranda em ciências da computação',
+                    'role': 'Cientista de Dados Sênior e Mestranda em Computação',
                     'description': 'Cientista de dados sênior e LinkedIn Top Voice, mestranda em Ciências da Computação com ênfase em IA, apaixonada por desvendar histórias através dos dados. Co-fundadora da AI Girls, comunidade que capacita mulheres brasileiras em IA e ciência de dados, e fundadora da Laura Data Talks Academy, com a missão de ajudar pessoas a construir e trilhar carreiras de sucesso no mundo da Ciência de Dados e Inteligência Artificial.',
                     'instagram': 'https://www.instagram.com/laura_data_talks?igsh=ZDR6bnlmMmV2d3p5',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/laura-data-talks/',// opcional
