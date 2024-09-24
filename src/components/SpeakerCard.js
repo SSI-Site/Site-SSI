@@ -259,6 +259,7 @@ const SpeakerDesc = styled.div`
         height: 100%;
         font-family: 'AT Aero';
         font-weight: 400;
+        white-space: pre-line;
     }
 
     @media screen and (min-width:801px) {
