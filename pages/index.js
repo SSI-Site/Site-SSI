@@ -165,6 +165,7 @@ const Home = () => {
                                 show={showAuthModal}
                             />
                         }
+
                     </div>
                     
                     <div className = "dates">
@@ -173,6 +174,7 @@ const Home = () => {
                                 <h1>07-11</h1>
                                 <h2>Out 2024</h2>
                             </div>
+                            
                             <div>
                                 <h6>Online e Presencial</h6>
                             </div>
@@ -186,126 +188,99 @@ const Home = () => {
             </TwitchContainer>
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
-            {(now < countdownDate) &&
-                <CountdownSection>
-                    <div className='countdown-text'>
-                        <h3>Contagem regressiva</h3>
-                        <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000  ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
-                    </div>
-                    
-                    <div className='countdown-clock'>
-                        {(now < countdownDate - 24 * 60 * 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h3>{countdownDays}</h3>
-                                <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
-                            </div>
-                        }
-                        {(now < countdownDate - 60 * 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h3>{countdownHours}</h3>
-                                <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
-                            </div>
-                        }
-                        {(now < countdownDate - 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h3>{countdownMinutes}</h3>
-                                <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
-                            </div>
-                        }
-                        <div className='clock-container'>
-                            <h3>{countdownSeconds}</h3>
-                            <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
-                        </div>
-                    </div>
-                    {!user &&
-                        <div className='countdown-btn'>
-                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Fazer cadastro</Button>
-                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Fazer cadastro</Button> */}
-                        </div>
-                    }
-                </CountdownSection>
-            }
-
             <SubscriptionSection>
-                <div className='subscription-container'>
-                    <div className='subscription-title'>
-                        <h3>Inscrições abertas!</h3>
+                <div className='landing-container'>
+                    <div className='subscription-container'>
+                        <div className='subscription-title'>
+                            <h3>Inscrições abertas!</h3>
+                        </div>
+
+                        <h6>Faça parte da Comissão Organizadora do melhor evento acadêmico de Sistemas de Informação!</h6>
+
+                        <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
+                            <a target="_blank">
+                                <Button className = "subButton">Inscrever-se</Button>
+                            </a>
+                        </Link>
                     </div>
 
-                    <h6>Faça parte da Comissão Organizadora do melhor evento acadêmico de Sistemas de Informação</h6>
-
-                    <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
-                        <a target="_blank">
-                            <Button className = "subButton">Inscrever-se</Button>
-                        </a>
-                    </Link>
-                </div>
-
-                <div className = 'coMembers'>
-                    <img src = "./images/co_members/co.jpg"/>
+                    <div className = 'coMembers'>
+                        <img src = "./images/co_members/co.jpg"/>
+                    </div>
                 </div>
             </SubscriptionSection>
 
             <EventInfoSection>
-                <div className='about-container'>
-                    <div className='about-title'>
-                        <h3>Sobre o evento</h3>
-                        <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso <span>canal na Twitch</span>.</p>
+                <div className='about-title'>
+                    <div className = 'title'>
+                        <h3>Sobre o evento</h3> 
                     </div>
-                    <div className='about-cards'>
+                    <p>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos auditórios da EACH. Além disso, elas também serão transmitidas no nosso canal na Twitch.</p>
+                </div>
 
-                        <CountUp
-                            start={0}
-                            end={40}
-                            delay={0}
-                            decimals={0}
-                            suffix="+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <h1 ref={countUpRef} />
+                <div className='about-cards'>
+                    <CountUp
+                        start={0}
+                        end={40}
+                        delay={0}
+                        decimals={0}
+                        suffix="+"
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='card'>
+                                <div>
+                                    <h5 ref={countUpRef}/>
                                     <h5>Palestrantes</h5>
                                 </div>
-                            )}
-                        </CountUp>
+                                <p>Junte-se ao evento que 
+                                contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
+                            </div>
+                        )}
+                    </CountUp>
 
-                        <CountUp
-                            start={0}
-                            end={70}
-                            delay={0}
-                            decimals={0}
-                            suffix="+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <h1 ref={countUpRef} />
+                    <CountUp
+                        start={0}
+                        end={70}
+                        delay={0}
+                        decimals={0}
+                        suffix="+"
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='card'>
+                                <div>
+                                    <h5 ref={countUpRef} />
                                     <h5>Sorteios</h5>
                                 </div>
-                            )}
-                        </CountUp>
+                                <p>Participe do evento de tecnologia e concorra a mais de 70 sorteios exclusivos, repletos de prêmios 
+                                incríveis!</p>
+                            </div>
+                        )}
+                    </CountUp>
 
-                        <CountUp
-                            start={0}
-                            end={45}
-                            delay={0}
-                            decimals={0}
-                            suffix="h"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <h1 ref={countUpRef} />
+                    <CountUp
+                        start={0}
+                        end={45}
+                        delay={0}
+                        decimals={0}
+                        suffix="h"
+                        enableScrollSpy 
+                    >
+                        {({ countUpRef }) => (
+                            <div className='card'>
+                                <div>
+                                    <h5 ref={countUpRef} />
                                     <h5>Atividades</h5>
                                 </div>
-                            )}
-                        </CountUp>
+                                <p>Não perca um evento com 45 horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
+                            </div>
+                        )}
+                    </CountUp>
+                </div>
 
-                    </div>
-                    <div className='about-btn'>
-                        <Button onClick={() => router.push('/about')}>Saiba mais</Button>
-                    </div>
+                <div className='about-btn'>
+                    <SecondaryButton onClick={() => router.push('/about')}>Saber mais</SecondaryButton>
                 </div>
             </EventInfoSection>
 
@@ -367,7 +342,6 @@ const Home = () => {
 }
 
 export default Home;
-
 
 const LandingSection = styled.section`
     padding-inline: 1rem;
@@ -569,95 +543,57 @@ const SubscriptionSection = styled.section`
         }
     }
 
+    @media screen and (min-width: 1400px){
+        .landing-container{
+            display: flex;
+            flex-direction: row;
+        }
+    }
 `
 
 const EventInfoSection = styled.section`
-    padding-block: 6.625rem 3.5rem;
-    gap: 2rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
-    .about-container {
+    .about-title{
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 2rem;
+        gap: 1.5rem;
 
-        .about-title {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            text-align: center;
-            max-width: 63.5rem;
-
-            h3 {
-                text-align: center;
-            }
-
-            p {
-                font-family: 'AT Aero Bold';
-                font-weight: 700;
-
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
-            }
-        }
-
-        .about-cards {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            flex-flow: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-
-            .card {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-                width: 100%;
-                max-width: 19.5rem;
-                padding: 2rem 4rem;
-                background-color: var(--color-neutral-800);
-                border-radius: 8px;
-            }
-        }
-
-        .about-btn {
-            width: 100%;
-            max-width: 24.5rem;
-        }   
+        .title{
+            padding: 0.75rem 1.5rem;
+            width: fit-content;
+            background-color: var(--color-primary);
+        }        
     }
 
-    @media (min-width:1000px) {
-        padding-block: 6.75rem;
+    .about-cards{
+        display: flex;
 
-        .about-container {
-            gap: 3.5rem;
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        height: auto;
+        width: 100vw;
+        padding-left: 1rem; // match pattern
+        overflow: auto;  
+        display: flex;
+        scroll-snap-type: x mandatory;
+        gap: 1.5rem;
 
-            .about-title {
-                h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
-                }
-
-                p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                }
-            }
-
-            .about-cards {
-                gap: 1.5rem;
-
-                .card {
-                    height: 19.5rem;
-                }
-            }
+        .card{
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            width: 75%;
+            flex-shrink: 0;
+            display: block;
         }
     }
 `
