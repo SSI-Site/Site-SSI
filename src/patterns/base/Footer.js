@@ -215,7 +215,7 @@ const FooterWrapper = styled.footer`
         background-size: 200%; /* faz o background-position com porcentagem funcionar */
         background-position-x: 200%; /* Tira o background branco do lugar */
         background-repeat: no-repeat;
-        transition: 100ms all ease-out;
+        transition: 0.15s all ease-out;
         font-weight: 400;
         line-height: 1.5rem;
     }
@@ -235,7 +235,7 @@ const FooterWrapper = styled.footer`
     // Rota ativada
     .active {
         background-color: var(--color-primary);
-        transition: 100ms all ease-out;
+        transition: 0.15s all ease-out;
         font-family: 'AT Aero Bold';
 
         &:hover,
@@ -269,7 +269,7 @@ const MobileBackToTop = styled.div`
     );
     background-size: 100% 200%;
     background-position: top;
-    transition: all 100ms ease-out;
+    transition: all 0.15s ease-out;
     cursor: pointer;
     margin-bottom: 3rem;
 
@@ -283,7 +283,7 @@ const MobileBackToTop = styled.div`
         color: var(--color-primary);
 
         path {
-            transition: all 100ms ease-out;
+            transition: all 0.15s ease-out;
             fill: var(--color-primary);
             transform: translateY(0);
         }
@@ -312,7 +312,7 @@ const DesktopBackToTop = styled.div`
         );
         background-size: 100% 200%;
         background-position: top;
-        transition: all 100ms ease-out;
+        transition: all 0.15s ease-out;
         cursor: pointer;
 
         rect {
@@ -324,7 +324,7 @@ const DesktopBackToTop = styled.div`
             background-position: bottom;
 
             path {
-                transition: all 100ms ease-out;
+                transition: all 0.15s ease-out;
                 fill: var(--color-primary);
                 transform: translateY(0);
             }
@@ -375,7 +375,7 @@ const FooterLinks = styled.div`
     width: 100%;
     height: 100%;
     justify-content: center;
-    transition: 100ms all ease-out;
+    transition: 0.15s all ease-out;
 
     div {
         display: none;
@@ -422,13 +422,13 @@ const FooterLogos = styled.div`
 
     .fillAnimation {
         transform: translateX(-100%);
-        transition: all 100ms ease-out;
+        transition: all 0.15s ease-out;
     }
 
     .animation:hover,
     a:focus-visible {
         cursor: pointer;
-        transition: all 100ms ease-out;
+        transition: all 0.15s ease-out;
 
         .fillAnimation {
             transform: translateX(0);

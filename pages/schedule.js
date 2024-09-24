@@ -243,7 +243,7 @@ const ButtonFilter = styled.button`
 	align-items: center;
 	justify-content: center;
 	background-size: 202% 100%;
-	transition: 100ms all ease-out;
+	transition: 0.15s all ease-out;
 
 	svg {
 		path {
