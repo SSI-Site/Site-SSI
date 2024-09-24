@@ -33,8 +33,7 @@ const supporters = [
 const Home = () => {
 
     const router = useRouter();
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    const { user, disableAuth } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
 
@@ -59,10 +58,11 @@ const Home = () => {
             var distance = countdownDate - now;
 
             // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
-            setCountdownDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
-            setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            setCountdownMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-            setCountdownSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+            // (O padStart serve para adicionar '0' se o número for menor que 10)
+            setCountdownDays(String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0'));
+            setCountdownHours(String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'));
+            setCountdownMinutes(String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'));
+            setCountdownSeconds(String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0'));
         }, 1000);
     }, []);
 
@@ -140,20 +140,21 @@ const Home = () => {
             <LandingSection>
                 <div className='landing-container'>
                     <div className='landing-info'>
-                        {!user ?
+                        {disableAuth || !user ?
                             <>
                                 <div className='landing-text'>
-                                    <h3>Semana de Sistemas de Informação 2024</h3>
-                                    <p>Participe da Semana de Sistemas de Informação: palestras exclusivas sobre tecnologia, oferecidas de forma online e presencial!</p>
+                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
-                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Entrar</Button>
-                                {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
+                                <Button onClick={handleShowAuthModal} disabled={disableAuth}>
+                                    {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                                </Button>
                             </>
                         :
-                            <>
+                            <>  
                                 <div className='landing-text'>
-                                    <h3>Semana de Sistemas de Informação 2024</h3>
-                                    <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
+                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
                                 </div>
                                 <TokenModal/>
                             </>
@@ -166,15 +167,17 @@ const Home = () => {
                             />
                         }
                     </div>
-                        
-                    <div className='landing-bait'>
-                        <div className='event-date'>
-                            <svg viewBox="0 0 450 50">
-                                <text y="80">21-25</text>
-                            </svg>
-                            <p>AGO 2023</p>
+                    
+                    <div className = "dates">
+                        <div className = "dateWrapper">
+                            <div>
+                                <h1>07-11</h1>
+                                <h2>Out 2024</h2>
+                            </div>
+                            <div>
+                                <h6>Online e Presencial</h6>
+                            </div>
                         </div>
-                        <p>online e presencial</p>
                     </div>
                 </div>
             </LandingSection>
@@ -194,32 +197,33 @@ const Home = () => {
                     <div className='countdown-clock'>
                         {(now < countdownDate - 24 * 60 * 60 * 1000) &&
                             <div className='clock-container'>
-                                <h3>{countdownDays}</h3>
+                                <h1>{countdownDays}</h1>
                                 <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
                             </div>
                         }
                         {(now < countdownDate - 60 * 60 * 1000) &&
                             <div className='clock-container'>
-                                <h3>{countdownHours}</h3>
+                                <h1>{countdownHours}</h1>
                                 <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
                             </div>
                         }
                         {(now < countdownDate - 60 * 1000) &&
                             <div className='clock-container'>
-                                <h3>{countdownMinutes}</h3>
+                                <h1>{countdownMinutes}</h1>
                                 <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
                             </div>
                         }
                         <div className='clock-container'>
-                            <h3>{countdownSeconds}</h3>
+                            <h1>{countdownSeconds}</h1>
                             <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
                         </div>
                     </div>
                     {!user &&
-                        <div className='countdown-btn'>
-                            <Button className="btn-entrar" onClick={handleShowAuthModal}>Fazer cadastro</Button>
-                            {/* <Button className="btn-entrar" onClick={handleShowAuthModal} disabled>Fazer cadastro</Button> */}
-                        </div>
+                        <>
+                            <Button onClick={handleShowAuthModal} disabled={disableAuth}>
+                                {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                            </Button>
+                        </>
                     }
                 </CountdownSection>
             }
@@ -305,9 +309,9 @@ const Home = () => {
 			{ (current <= lastEventDay) &&
 				<ScheduleSection>
 					<div className='schedule-container'>
-						<h3 className='title-mobile schedule-section-title'>Programação</h3>
+						<h3 className='title-mobile schedule-section-title'>Próximas atividades</h3>
 						<div className='title-btn-desktop'>
-							<h3 className='schedule-section-title'>Programação</h3>
+							<h3 className='schedule-section-title'>Próximas atividades</h3>
 							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
 						</div>
 						<div className='filter-bar-container filter-bar-mobile'>
@@ -363,127 +367,147 @@ export default Home;
 
 
 const LandingSection = styled.section`
-    padding-block: 3.5rem 6.625rem;
+    padding-inline: 1rem;
 
     .landing-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 3.75rem; /* match navbar height */
-        gap: 3.5rem;
-        
+        border-right: 1px solid var(--color-neutral-secondary);
+        border-left: 1px solid var(--color-neutral-secondary);
+
         .landing-info {
+            padding: 1.5rem 1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            gap: 1.5rem;
-            max-width: 33rem;
+            gap: 1rem;
             
             .landing-text {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                max-width: 31rem;
+                max-width: 40rem;
                 gap: 1rem;
-                p {
-                    font-family: 'AT Aero Bold';
-                    font-weight: 700;
-                }
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
-            }
-        }
-
-        .landing-bait {
-            width: fit-content;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            .event-date {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-
-                svg {
-                    font: 700 9rem/0rem 'AT Aero Bold';
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 18rem;
-                    height: 6rem;
-                }
-
-                text {
-                    fill: none;
-                    stroke: var(--color-neutral-400);
-                    stroke-width: 4px;
-                    stroke-linejoin: round;
-                    animation: 2s pulsate infinite;
-                }
-
-                @keyframes pulsate {
-                    50%{ stroke-width:8px }
-                }
 
                 p {
-                    font: 700 2.3rem/3rem 'AT Aero Bold';
-                    letter-spacing: 0.8rem;
-                    color: var(--color-neutral-300);
-                }
-            }
-
-            p {
-                font: 700 1.3rem/1.5rem 'AT Aero Bold';
-                color: var(--color-neutral-500);
-            }
-        }
-    }
-
-    @media (min-width:600px) {
-        padding-right: 2.5rem;
-    }
-
-    @media (min-width:800px) {
-        height: 44rem;
-
-        .landing-container {
-            margin-top: 0;
-            padding-block: 7.5rem 6.5rem;
-            flex-direction: row;
-            justify-content: space-between;
-
-            .landing-bait {
-                flex-direction: row;
-                gap: 4rem;
-
-                > p {
-                    writing-mode:vertical-rl;
-                    transform: rotate(180deg);
-                    max-height: 9.25rem;
+                    font-weight: 400;
                 }
 
-                .event-date {
-                    scale: 1.2;
-                    p {
-                        font: 700 2rem/3rem 'AT Aero Bold';
-                        letter-spacing: 0.8rem;
-                        color: var(--color-neutral-300);
+                .greetings-text {
+                    font: 700 1rem/1.5rem 'AT Aero Bold';
+
+                    span {
+                        font: inherit;
+                        background-color: var(--color-primary-900);
                     }
                 }
             }
         }
+
+        .dates {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid var(--color-neutral-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        .dateWrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: inherit;
+            background-color: var(--color-primary);
+
+            h1, h2, h6 {
+                text-align: center;
+                line-height: 100%;
+            }
+            
+            h1 {
+                font-size: 5rem;
+            }
+
+            h2 {
+                letter-spacing: 0.2em;
+                margin-bottom: 1rem;
+            }
+        }
     }
 
-    @media (min-width:1400px) {
-        padding-right: 0;
+    @media (min-width:800px) {
+        .landing-container {
+            .dateWrapper {
+                width: 85%;
+            }
+        }
+    }
+
+    @media (min-width:1100px) {
+        //height: 44rem;
+
+        .landing-container {
+            height: calc(100vh - 8rem);
+            flex-direction: row;
+            justify-content: space-between;
+
+            button {
+                width: fit-content;
+            }
+
+            .landing-info {
+                height: 100%;
+                width: 50%;
+                padding: 1.5rem;
+                border-right: 1px solid var(--color-neutral-secondary);
+            }
+
+            .dates {
+                padding-inline: 3rem;
+                display: flex;
+                border: none;
+                margin:0;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+            }
+
+            .dateWrapper {
+                flex-direction: row;
+                padding: 3.5rem 2rem;
+                align-items: center;
+                gap: 1rem;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+
+                h1 {
+                    font-size: 9rem;
+                }
+
+                h2 {
+                    margin-bottom: 0;
+                }
+
+                h6 {
+                    writing-mode: vertical-rl;
+                    transform: rotate(180deg);
+                    height: 30%;
+                    max-height: 10rem;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    @media (min-width:1300px) {
+        padding-inline: 6.75rem;
     }
 `
 
@@ -644,102 +668,88 @@ const EventInfoSection = styled.section`
 `
 
 const CountdownSection = styled.section`
-    padding-block: 3.5rem;
-    background-color: var(--color-neutral-900);
-    gap: 3.5rem;
+    padding-block: 4rem 2rem;
+    gap: 1.5rem;
+    border-top: 1px solid var(--color-neutral-secondary);
 
     .countdown-text {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 1.5rem;
+
+        div {
+            background-color: var(--color-primary-600);
+            width: 70%;
+            padding: 1rem 0;
+        }
 
         h3 {
             text-align: center;
+            background-color: var(--color-primary);
+            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
-        h6 span {
+        h6 {
+            text-align: center;
+        }
+
+        span {
             font: inherit;
-            color: var(--color-primary-700);
+            background-color: var(--color-primary-900);
         }
     }
 
     .countdown-clock {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1rem;
 
         .clock-container {
-            padding: 0.75rem;
-            background-color: var(--color-neutral-800);
-            width: 7.25rem;
-            height: 6.25rem;
+            padding: 1.5rem;
+            background-color: var(--color-neutral-50);
+            width: 100%;
+            height: 8rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
             gap: 0.5rem;
 
-            :nth-child(4) {
-                display: none;
-            }
-
-            h3 {
-                color: #FFF;
+            h1 {
+                color: var(--color-primary-600);
             }
 
             p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-                color: #FFF;
-            }
-        }
-    }
-
-    .countdown-btn {
-        width: 100%;
-        max-width: 24.5rem;
-    }
-    
-    @media (min-width:560px) {
-        
-        .countdown-clock {
-            .clock-container {
-                :nth-child(4) {
-                    display: flex;
-                }
+                font: 700 1rem/1.5rem 'AT Aero Bold';
+                color: var(--color-primary-600);
             }
         }
     }
 
     @media (min-width:1100px) {
-        padding: 6.75rem;
+        padding-block: 5rem 4rem;        
 
-        .countdown-text {
-            h3 {
-                font: 700 3.5rem/4.25rem 'AT Aero Bold';
-            }
-        
-            p {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
-            }
-        }
-        
         .countdown-clock {
-            gap: 2.875rem;
+            gap: 1rem;
+            flex-direction: row;
             
             .clock-container {
-                width: 11.25rem;
-                height: 9.25rem;
-                
-                :nth-child(4) {
-                    display: flex;
+                width: 13rem;
+                height: 9.5rem;
+
+                p {
+                    font: 700 1.125rem/1.5rem 'AT Aero Bold';
                 }
             }
+        }
+
+        button {
+            width: fit-content;
         }
     }  
 `
@@ -809,7 +819,7 @@ const ScheduleSection = styled.section`
 			
 			.subtitle {
 				display: flex;
-				gap: 5.5rem;
+				gap: 6.31rem;
 			}
 		}
 

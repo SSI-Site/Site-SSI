@@ -107,6 +107,7 @@ const SpeakerContainer = styled.div`
         height: 5rem;
         overflow: hidden;
         flex-shrink: 0;
+        background-color: #363636;
 
         img {
             width: 100%;
@@ -131,7 +132,7 @@ const SpeakerContainer = styled.div`
             background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
             background-position: right;
             background-size: 202% 100%;
-            transition: 250ms all ease-out;
+            transition: 0.15s all ease-out;
 
             p {
                 font: 700 1rem/1.5rem 'AT Aero Bold';
@@ -152,7 +153,7 @@ const SpeakerContainer = styled.div`
 
                 svg path {
                     fill: var(--color-neutral);
-                    transition: fill 300ms ease;
+                    transition: fill 0.15s ease;
                 }
             }
 
@@ -185,10 +186,10 @@ const SpeakerContainer = styled.div`
 			flex-direction: column;
 			width: 100%;
             gap: 0.25rem;
-            cursor: pointer;
             
             .speaker-info {
                 padding-inline: 0.25rem;
+                cursor: pointer;
     
                 p {
                     font: 700 1.125rem/1.5rem 'AT Aero Bold';

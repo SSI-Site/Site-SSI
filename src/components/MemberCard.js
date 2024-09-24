@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // components
@@ -44,8 +44,28 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
         return departments.sort((a, b) => a.localeCompare(b));
     };
 
+	// Movimentacoes por Tab ativam a animacao e colocam o foco no link/titulo do card-back
+	const cardRef = useRef(null);
+	const [animating, setAnimating] = useState(false);
+	const isMobile = useIsMobile();
+	const handleFocus = () => {
+		// Espera a animacao de um card terminar antes de comecar outra (muito glitches sem isso)
+		if (!animating && !isMobile) { // Nao executa em width menor que 800px (trocar de abas buga a animcao do card)
+			setAnimating(true);
+			setTimeout(() => {
+				// Seleciona o link ou nome do membro
+				const backlink = cardRef.current.querySelector(".card-back .member-name a") || cardRef.current.querySelector(".card-back .member-name h6");
+
+				if (backlink) {
+					backlink.focus();
+				}
+				setAnimating(false);
+			}, 200) // Deixa a mudanca de foco mais suave
+		}
+	}
+
     return (
-        <MemberWrapper>
+        <MemberWrapper onFocus={handleFocus} ref={cardRef}>
             <div className="image-container">
                 <figure className='member-image'>
                     <img src={image} alt={`Foto de ${name}`} className="responsive-image" />
@@ -63,7 +83,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                             </a>
                         </>
                         :
-                        <h6>{name}</h6>
+                        <h6 tabIndex={0}>{name}</h6>
                     }
                 </div>
                 {phrase &&
@@ -109,13 +129,33 @@ const flip = (index) => {
     button.classList.toggle('button-flip')
 }
 
+// hook que confere se as dimensoes sao menores que 800px (mobile)
+const useIsMobile = () => {
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.matchMedia("(max-width: 800px)").matches);
+		};
+
+		handleResize(); // Set initial state
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize); // Clean up on unmount
+		};
+	}, []);
+
+	return isMobile;
+};
+
 export default MemberCard;
 
 
 const MemberWrapper = styled.div`
     position: relative;
-    width: 18.4rem;
-    height: 24.625rem;
+    width: 20.5rem;
+    height: 27.3rem;
     gap: 1rem;
     overflow-y: hidden;
     display: flex;
@@ -131,10 +171,10 @@ const MemberWrapper = styled.div`
         align-items: center;
         justify-content: center;
         border: 0;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.15s ease-in-out;
 
         svg {
-            transition: 0.2s;
+            transition: 0.15s;
         }
 
         .responsive-image {
@@ -249,14 +289,14 @@ const MemberWrapper = styled.div`
     }
 
     .card-back {
-        transition: all 0.2s ease-in-out;
+        transition: all 0.15s ease-in-out;
         translate: 0 101%;
         display: flex;
         flex-direction: column;
         padding: 1.5rem;
         background-color: ${colorSchemes[1].background};
-        width: 18.4rem;
-        height: 24.625rem;
+        width: 20.5rem;
+        height: 27.3rem;
         gap: 1rem;
     
         .member-name {
@@ -271,13 +311,13 @@ const MemberWrapper = styled.div`
 
             h6 {
                 font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                transition: 0.2s;
+                transition: 0.15s ease-in-out;
                 color: ${colorSchemes[1].textColor}
             }
         }
 
         .animate {
-            transition: background-position 0.2s;
+            transition: background-position 0.15s ease-in-out;
 
             a {
                 display: flex;
@@ -286,7 +326,7 @@ const MemberWrapper = styled.div`
                 gap: 0.25rem;
 
                 svg path {
-                    transition: all 0.2s;
+                    transition: all 0.15s;
                     fill: ${colorSchemes[1].textColor};
                 }
 
@@ -577,8 +617,8 @@ const MemberWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 24.625rem;
-        width: 18.4rem;
+        height: 27.3rem;
+        width: 20.5rem;
 
         .member-image {
             position: absolute;
@@ -607,7 +647,7 @@ const MemberWrapper = styled.div`
 
     @media (min-width:800px) {
 
-        &:hover, &:focus-visible {
+        &:hover, &:focus-within, &:focus-visible {
             .card-back {
                 translate: 0 0;
             }
@@ -624,6 +664,14 @@ const MemberWrapper = styled.div`
     }
 
     @media (min-width:1024px) {
+        width: 18.4rem;
+        height: 24.625rem;
+
+        .image-container, .card-back {
+            width: 18.4rem;
+            height: 24.625rem;
+        }
+
         .info-button {
             display: none;
         }

@@ -43,7 +43,7 @@ export default GiftCard;
 
 const GiftContainer = styled.div`
 	width: 100%;
-    max-width: 26.3rem;
+    max-width: 27rem;
 	height: 24.625rem;
 	display: flex;
 	gap: 1rem;
@@ -54,7 +54,7 @@ const GiftContainer = styled.div`
 
 	.gift-card-front {
 		width: 100%;
-        max-width: 26.3rem;
+        max-width: 27rem;
 		height: 24.625rem;
 		display: flex;
 		gap: 2rem;
@@ -84,9 +84,9 @@ const GiftContainer = styled.div`
 
 	.gift-card-back {
 		width: 100%;
-        max-width: 26.3rem;
+        max-width: 27rem;
 		height: 24.625rem;
-		transition: 0.2s;
+		transition: 0.15s;
 		translate: 0 101%;
 		position: relative;
 		padding: 1.5rem;
@@ -134,10 +134,10 @@ const GiftContainer = styled.div`
         bottom: 1rem;
         align-items: center;
         justify-content: center;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.15s ease-in-out;
 
 		svg {
-			transition: 0.2s;
+			transition: 0.15s;
 		}
     }
 
@@ -146,6 +146,7 @@ const GiftContainer = styled.div`
 	}
 
 	.button-flip {
+
         background-position: bottom;
         svg {
             transform: rotate(-180deg);
@@ -154,6 +155,12 @@ const GiftContainer = styled.div`
                 fill: white;
             }
         }
+        background-color: var(--color-primary);
+    }
+
+    button:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
 
     button:focus-visible {
@@ -162,16 +169,16 @@ const GiftContainer = styled.div`
     }
 
 	@media (min-width:1021px) {
-        width: 26.3rem;
+        width: 27rem;
 
         .gift-card-front {
-            width: 26.3rem;
+            width: 27rem;
             height: 24.625rem;
             gap: 1.12rem;
         }
 
         .gift-card-back {
-            width: 26.3rem;
+            width: 27rem;
             height: 24.625rem;
             padding: 2rem;
         }

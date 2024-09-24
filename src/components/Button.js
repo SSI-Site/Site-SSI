@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Button = styled.button`
     --padding: 0.75rem 1.5rem;
-    --transition-duration: 100ms;
+    --transition-duration: 0.15s;
     --background: var(--color-primary);
 
     display: flex;

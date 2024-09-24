@@ -195,12 +195,14 @@ const MobileBarFilterContainer = styled.div`
 		}
 	}
 	
+
 	@media(min-width:1024px) {
 		display: none;
 	}
 `
 const DesktopBarFilterContainer = styled.div`
 	display: none;
+
 
 	@media(min-width:1024px) {
 		height: 5rem;
@@ -241,7 +243,7 @@ const ButtonFilter = styled.button`
 	align-items: center;
 	justify-content: center;
 	background-size: 202% 100%;
-	transition: 100ms all ease-out;
+	transition: 0.15s all ease-out;
 
 	svg {
 		path {

@@ -19,8 +19,7 @@ import LogoPrincipal from '../public/images/logos/logo_principal.svg';
 const About = () => {
 
     const router = useRouter();
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    const { user, disableAuth } = useAuth();
 
     return (
         <>
@@ -153,7 +152,7 @@ const About = () => {
                         })}
                     </div>
 
-                    {user &&
+                    {!disableAuth && user &&
                         <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
                     }
                 </div>
@@ -166,21 +165,21 @@ const About = () => {
                             <h3>Veja como foi em 2023</h3>
                         </div>
                         <p>Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!</p>
-                        <a href='' target='_blank'>
-                            <SecondaryButton>
+                        <a href='https://www.youtube.com/@semanadesi' target='_blank'>
+                            <SecondaryButton $noSvgColorChange>
                                 Acesse nosso canal
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none">
-                                    <path className='background' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000"/>
-                                    <path className='meio' d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white"/>
+                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000"/>
+                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white"/>
                                 </svg>
                             </SecondaryButton>
                         </a>
-                        
                     </div>
+
                     <div className='lastyear-rightside'>
                         <div className='lastyear-video'>
                             <iframe 
-                                src="https://www.youtube.com/embed/H1xUuCUckPA?si=cYSvxtmyDtI7TwTP" 
+                                src="https://www.youtube-nocookie.com/embed/gQ9ka_8D1Bo?si=p55JZ0U2CYeNv--E" 
                                 title="YouTube video player" 
                                 allow="fullscreen">
                             </iframe>
@@ -196,7 +195,7 @@ const About = () => {
                             >
                                 {({ countUpRef }) => (
                                     <div className='event-info-container'>
-                                        <h1 ref={countUpRef} />
+                                        <h5 ref={countUpRef} />
                                         <h5>espectadores</h5>
                                     </div>
                                 )}
@@ -211,7 +210,7 @@ const About = () => {
                             >
                                 {({ countUpRef }) => (
                                     <div className='event-info-container'>
-                                        <h1 ref={countUpRef} />
+                                        <h5 ref={countUpRef} />
                                         <h5>inscritos</h5>
                                     </div>
                                 )}
@@ -226,7 +225,7 @@ const About = () => {
                             >
                                 {({ countUpRef }) => (
                                     <div className='event-info-container'>
-                                        <h1 ref={countUpRef} />
+                                        <h5 ref={countUpRef} />
                                         <h5>conteúdo</h5>
                                     </div>
                                 )}
@@ -619,11 +618,8 @@ const GiftsSection = styled.section`
     }
 `
 
-
 const LastYearSection = styled.section`
-    --border: 1px solid var(--color-neutral-secondary); 
-
-    background-color: var(--color-neutral-900);  
+    --border: 1px solid var(--color-neutral-secondary);
     border-top: var(--border);
 
     .lastyear-container {
@@ -641,45 +637,25 @@ const LastYearSection = styled.section`
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            max-width: 1016px;
             border-left: var(--border);
             border-right: var(--border);
             
             .lastyear-title {
-                background-color: var(--color-primary-600);
-                width: 100%;
-                padding: 1rem 2rem;
+                background-color: var(--color-primary);
+                width: fit-content;
+                padding: 0.75rem 1.5rem;
+
                 h3 {
-                    line-height: 2rem;
                     text-align: center;
-                }
-            }
-            
-            a {
-                width: 100%;
-                cursor: pointer;
-
-                &:hover {
-
-                    svg {
-
-                        .background { 
-                            fill: red;
-                        }
-
-                        .meio { 
-                            fill: white; 
-                        }
-                    }
                 }
             }
 
             p {
-                line-height: 1.5rem;
-                font-size: 1rem;
-                text-align: justify;
-                font-family: 'AT Aero';
-                font-weight: 500;
+                font: 400 1rem/1.5rem 'AT Aero';
+            }
+
+            a {
+                width: 100%;
             }
         }
 
@@ -687,8 +663,7 @@ const LastYearSection = styled.section`
             display: flex;
             padding: 1.5rem 1rem;
             flex-direction: column;
-            gap: 1.5rem;
-            max-width: 100%;
+            gap: 1rem;
             width: 100%;
             border-left: var(--border);
             border-right: var(--border);
@@ -715,43 +690,33 @@ const LastYearSection = styled.section`
                 }
             }
         }
-
     }
 
-    @media (min-width:880px) {
-
+    @media (min-width:1045px) {
         .lastyear-container {
-            width: 90%;
             flex-direction: row;
             justify-content: space-between; 
             align-items: flex-start;
-            gap: 3rem;
+            gap: auto;
 
             .lastyear-text {
                 border: none;
-                padding-top: 4rem;
+                padding: 4.5rem 1rem 0 0;
                 gap: 1.5rem;
-
-                .lastyear-title {
-                    padding: 1rem 1.5rem;
-
-                    h3 {
-                        text-align: left;
-                        line-height: normal;
-                    }
-                }
+                max-width: 25.6rem;
 
                 p {
-                    font-size: 1.2rem;
-                    text-align: left;
+                    font: 400 1.125rem/1.75rem 'AT Aero';
                 }
             }
 
             .lastyear-rightside {
                 border-top: none;
-                padding: 4rem 1rem;
+                padding: 4.5rem 1.5rem;
                 align-items: center; 
-                gap: 2rem; 
+                gap: 2rem;
+                width: 100%;
+                max-width: 55rem;
             }
 
             .lastyear-video {
@@ -767,27 +732,24 @@ const EventNumbersBanner = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     max-width: 100%;
 
     .event-info-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
         width: 100%;
-        padding: 2rem 4rem;
-        background-color: var(--color-neutral-50);
-        color: var(--color-primary-600);
+        padding: 1.5rem;
+        background-color: white;
+        color: var(--color-primary);
 
-        h1, h5 {
-            font: 700 1.2rem 'AT Aero Bold';
-            line-height: 1rem;
-            color: var(--color-primary-600);
+        h5 {
+            color: var(--color-primary);
         }
     }
-    @media (min-width: 880px) {
 
+    @media (min-width:880px) {
         width: 100%;
         flex-direction: row;
 
@@ -799,16 +761,12 @@ const EventNumbersBanner = styled.div`
     }
 
     @media (min-width:1000px) {
-        gap: 1.5rem;
+        gap: 1rem;
         
         .event-info-container {
             align-items: flex-start;
-            width: 15rem;
+            width: 100%;
             height: 100%;
-
-            h1,h5 {
-                font: 700 1.5rem 'AT Aero Bold';
-            }
         }
     }
 `

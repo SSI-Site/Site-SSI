@@ -74,6 +74,12 @@ const members = [
 		phrase: 'Oi, tudo bem?',
 	},
 	{
+		name: 'Daniel Countinho',
+		image: '/images/co_members/DanielCoutinho.jpg',
+		departments: ['Diretoria', 'Palestrantes', 'Parcerias'],
+		phrase: 'Eu pensava que nós seguíamos caminhos já feitos, mas parece que não os há. O nosso ir faz o caminho.'
+	},
+	{
 		name: 'Dérick Arriado',
 		image: '/images/co_members/DerickArriado.jpeg',
 		departments: ['Comercial e Financeiro'],
@@ -93,6 +99,12 @@ const members = [
 		departments: ['Criação e Comunicação', 'Diretoria'],
 		linkedin: 'https://www.linkedin.com/in/emmily-boesing',
 		phrase: 'O ontem é história, o amanhã é um mistério, mas o hoje é uma dádiva, é por isso que se chama presente.',
+	},
+	{
+		name: 'Eric Chou',
+		image: '/images/co_members/EricChou.jpg',
+		departments: ['Criação e Comunicação', 'Infraestrutura'],
+		phrase: 'printf("Frase pessoal ou de efeito\\n");'
 	},
 	{
 		name: 'Felipe Colona',
@@ -193,6 +205,12 @@ const members = [
 		phrase: 'Código limpo, mente afiada, futuro brilhante.',
 	},
 	{
+		name: 'Rafaela Santana',
+		image: '/images/co_members/RafaelaSantana.jpeg',
+		departments: ['Palestrantes'],
+		phrase: 'Estudem orientação objeto',
+	},
+	{
 		name: 'Rebecka Bocci',
 		image: '/images/co_members/RebeckaBocci.jpg',
 		departments: ['Criação e Comunicação', 'Infraestrutura'],
@@ -201,6 +219,7 @@ const members = [
 	},
 	{
 		name: 'Rômulo Júnior',
+
 		image: '/images/co_members/RomuloJunior.jpg',
 		departments: ['Infraestrutura'],
 		linkedin: 'https://www.linkedin.com/in/romulojr1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
