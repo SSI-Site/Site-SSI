@@ -98,6 +98,10 @@ const About = () => {
                                         Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
                                     </p>
                                 </div>
+
+
+
+                                
                             </div>
                         </BaitContent>
                         <div className='purple-divider'></div>
