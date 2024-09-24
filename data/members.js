@@ -146,9 +146,9 @@ const members = [
 	{
 		name: 'Karina Yang',
 		image: '/images/co_members/KarinaYang.jpeg',
-		departments: ['Comercial e Financeiro', 'Palestrantes'],
+		departments: ['Comercial e Financeiro', 'Site'],
 		linkedin: 'http://linkedin.com/in/kayangch',
-		phrase: 'Dormir é bom 😌',
+		phrase: 'Jogue para cima o que te aprisiona',
 	},
 	{
 		name: 'Lion Chen',
