@@ -43,7 +43,7 @@ export default GiftCard;
 
 const GiftContainer = styled.div`
 	width: 100%;
-    max-width: 26.3rem;
+    max-width: 27rem;
 	height: 24.625rem;
 	display: flex;
 	gap: 1rem;
@@ -54,7 +54,7 @@ const GiftContainer = styled.div`
 
 	.gift-card-front {
 		width: 100%;
-        max-width: 26.3rem;
+        max-width: 27rem;
 		height: 24.625rem;
 		display: flex;
 		gap: 2rem;
@@ -84,7 +84,7 @@ const GiftContainer = styled.div`
 
 	.gift-card-back {
 		width: 100%;
-        max-width: 26.3rem;
+        max-width: 27rem;
 		height: 24.625rem;
 		transition: 0.2s;
 		translate: 0 101%;
@@ -162,16 +162,16 @@ const GiftContainer = styled.div`
     }
 
 	@media (min-width:1021px) {
-        width: 26.3rem;
+        width: 27rem;
 
         .gift-card-front {
-            width: 26.3rem;
+            width: 27rem;
             height: 24.625rem;
             gap: 1.12rem;
         }
 
         .gift-card-back {
-            width: 26.3rem;
+            width: 27rem;
             height: 24.625rem;
             padding: 2rem;
         }
