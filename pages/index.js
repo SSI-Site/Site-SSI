@@ -21,10 +21,11 @@ import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import schedule from '../data/schedule';
 
 const supporters = [
+    { name: 'Notion', image: '/images/partners/notion.svg', url: 'https://www.notion.so/pt' },
+    { name: 'Alura', image: '/images/partners/alura.svg', url: 'https://www.alura.com.br/' },
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
     { name: 'EACH', image: '/images/partners/each.svg', url: 'https://www5.each.usp.br/' },
-    // { name: 'DASI', image: '/images/partners/each.svg', url: 'https://dasiusp.com/' },
-    { name: 'PET-SI', image: '/images/partners/pet.png', url: 'http://www.each.usp.br/petsi/' }
+    // { name: 'DASI', image: '/images/partners/dasi.svg', url: 'https://dasiusp.com/' },
 // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
@@ -346,7 +347,7 @@ const Home = () => {
                 <div className='supporters-container'>
                     <div className='supporters-title'>
                         <h3>Parcerias</h3>
-                        <h6>Empresas e marcas que estão conosco para tornar este evento um sucesso</h6>
+                        <h6>Organizações e marcas que estão conosco para tornar este evento um sucesso</h6>
                     </div>
                     <div className='supporters-cards'>
                         {Object.entries(supporters).map(([key, supporter]) => {
