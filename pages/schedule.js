@@ -195,14 +195,16 @@ const MobileBarFilterContainer = styled.div`
 		}
 	}
 	
-	@media(min-width:600px) {
+
+	@media(min-width:1024px) {
 		display: none;
 	}
 `
 const DesktopBarFilterContainer = styled.div`
 	display: none;
 
-	@media(min-width:600px) {
+
+	@media(min-width:1024px) {
 		height: 5rem;
 		display: flex;
 		position: sticky;
@@ -224,7 +226,7 @@ const DesktopBarFilterContainer = styled.div`
 		}
 
 		.filter-label {
-			gap: 5.5rem;
+			gap: 6.31rem;
 		}
 
 		.filter-button-container {
@@ -241,7 +243,7 @@ const ButtonFilter = styled.button`
 	align-items: center;
 	justify-content: center;
 	background-size: 202% 100%;
-	transition: 100ms all ease-out;
+	transition: 0.15s all ease-out;
 
 	svg {
 		path {

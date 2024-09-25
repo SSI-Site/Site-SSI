@@ -17,7 +17,7 @@ const ScheduleItems = ({ schedule }) => {
                             return (
                                 <li key={key}>
                                     <h5>{formatTime(time)}</h5>
-                                    <div className="event">
+                                    <div className={`event ${event.title == 'Abertura' || event.title == 'Encerramento' ? 'special-event' : ''}`}>
                                         <h6>{event.title}</h6>
                                         {event.endTime ?
                                             <p>{formatTime(time)} - {formatTime(event.endTime)}</p>
@@ -90,6 +90,14 @@ const ScheduleWrapper = styled.div`
 
         p {
             font: 400 0.875rem/1.5rem 'AT Aero Bold';
+        }
+    }
+
+    div.special-event {
+        background: white;
+
+        h6, p {
+            color: var(--color-neutral);
         }
     }
 

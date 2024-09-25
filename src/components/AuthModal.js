@@ -127,13 +127,13 @@ const ModalHeader = styled.header`
         background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
         background-size: 200%;
         background-position-x: 200%;
-        transition: all 100ms ease-out;
+        transition: all 0.15s ease-out;
         background-repeat: no-repeat;
 
         .close-icon {
             width: 30%;
             height: 30%;
-            transition: filter 100ms ease-out;
+            transition: filter 0.15s ease-out;
         }
 
         &:hover, &:focus-visible {

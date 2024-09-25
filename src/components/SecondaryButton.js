@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const SecondaryButton = styled.button`
     --padding: 0.75rem 1.5rem;
-    --transition-duration: 100ms;
+    --transition-duration: 0.15s;
     --background: var(--color-primary);
 
     display: flex;
@@ -35,9 +35,12 @@ const SecondaryButton = styled.button`
         background-position-x: 90%;
         color: var(--color-primary);
 
-        svg path {
-            fill: var(--color-primary);
-        }
+        ${(props) =>
+          !props.$noSvgColorChange && css`
+                svg path {
+                    fill: var(--color-primary);
+                }
+        `}
     }
 
     &:focus-visible {

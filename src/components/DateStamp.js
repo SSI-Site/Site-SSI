@@ -46,7 +46,7 @@ const DateWrapper = styled.div`
     background-color: var(--color-neutral-800);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
-    transition: 0.3s all ease;
+    transition: 0.15s all ease;
     background-color: ${props => props.$isActive ? 'var(--color-primary)' : 'var(--color-neutral-800)'};
     background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--color-primary) 50%, white 50%)' : 'linear-gradient(to right, var(--color-neutral-800) 50%, var(--color-primary) 50%)'};
     background-size: 200%;

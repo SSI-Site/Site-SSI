@@ -21,20 +21,18 @@ import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import schedule from '../data/schedule';
 
 const supporters = [
+    { name: 'Notion', image: '/images/partners/notion.svg', url: 'https://www.notion.so/pt' },
+    { name: 'Alura', image: '/images/partners/alura.svg', url: 'https://www.alura.com.br/' },
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
-    { name: 'Griaule', image: '/images/partners/griaule.svg', url: 'https://griaule.com/' },
-    { name: 'Poatek', image: '/images/partners/poatek.png', url: 'https://poatek.com/' },
-    { name: 'BCR.CX', image: '/images/partners/bcrcx.png', url: 'https://www.bcrcx.com/' },
-    { name: 'EACH', image: '/images/partners/each.svg', url: 'http://www5.each.usp.br/' },
-    { name: 'PET-SI', image: '/images/partners/pet.png', url: 'http://www.each.usp.br/petsi/' }
+    { name: 'EACH', image: '/images/partners/each.svg', url: 'https://www5.each.usp.br/' },
+    // { name: 'DASI', image: '/images/partners/dasi.svg', url: 'https://dasiusp.com/' },
 // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
 const Home = () => {
 
     const router = useRouter();
-    const { user } = useAuth();
-    // const { user } = false; // para deploy sem login
+    const { user, disableAuth } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
 
@@ -59,10 +57,11 @@ const Home = () => {
             var distance = countdownDate - now;
 
             // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
-            setCountdownDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
-            setCountdownHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            setCountdownMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-            setCountdownSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+            // (O padStart serve para adicionar '0' se o número for menor que 10)
+            setCountdownDays(String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0'));
+            setCountdownHours(String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'));
+            setCountdownMinutes(String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'));
+            setCountdownSeconds(String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0'));
         }, 1000);
     }, []);
 
@@ -140,20 +139,21 @@ const Home = () => {
             <LandingSection>
                 <div className='landing-container'>
                     <div className='landing-info'>
-                        {!user ?
+                        {disableAuth || !user ?
                             <>
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2024</h1>
                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
-                                <Button className="btn-entrar" onClick={handleShowAuthModal}>Cadastre-se</Button>
-                                {/* <Button className="btn-entrar" disabled>Cadastros em breve...</Button> */}
+                                <Button onClick={handleShowAuthModal} disabled={disableAuth}>
+                                    {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                                </Button>
                             </>
                         :
                             <>  
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2024</h1>
-                                    <p>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>, registre sua presença online aqui:</p>
+                                    <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
                                 </div>
                                 <TokenModal/>
                             </>
@@ -194,6 +194,46 @@ const Home = () => {
                         <div className='subscription-title'>
                             <h3>Inscrições abertas!</h3>
                         </div>
+            {(now < countdownDate) &&
+                <CountdownSection>
+                    <div className='countdown-text'>
+                        <h3>Contagem regressiva</h3>
+                        <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000  ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
+                    </div>
+                    
+                    <div className='countdown-clock'>
+                        {(now < countdownDate - 24 * 60 * 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h1>{countdownDays}</h1>
+                                <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
+                            </div>
+                        }
+                        {(now < countdownDate - 60 * 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h1>{countdownHours}</h1>
+                                <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
+                            </div>
+                        }
+                        {(now < countdownDate - 60 * 1000) &&
+                            <div className='clock-container'>
+                                <h1>{countdownMinutes}</h1>
+                                <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
+                            </div>
+                        }
+                        <div className='clock-container'>
+                            <h1>{countdownSeconds}</h1>
+                            <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
+                        </div>
+                    </div>
+                    {!user &&
+                        <>
+                            <Button onClick={handleShowAuthModal} disabled={disableAuth}>
+                                {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                            </Button>
+                        </>
+                    }
+                </CountdownSection>
+            }
 
                         <h6>Faça parte da Comissão Organizadora do melhor evento acadêmico de Sistemas de Informação!</h6>
 
@@ -290,9 +330,9 @@ const Home = () => {
 			{ (current <= lastEventDay) &&
 				<ScheduleSection>
 					<div className='schedule-container'>
-						<h3 className='title-mobile schedule-section-title'>Programação</h3>
+						<h3 className='title-mobile schedule-section-title'>Próximas atividades</h3>
 						<div className='title-btn-desktop'>
-							<h3 className='schedule-section-title'>Programação</h3>
+							<h3 className='schedule-section-title'>Próximas atividades</h3>
 							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
 						</div>
 						<div className='filter-bar-container filter-bar-mobile'>
@@ -329,7 +369,7 @@ const Home = () => {
                 <div className='supporters-container'>
                     <div className='supporters-title'>
                         <h3>Parcerias</h3>
-                        <h6>Empresas e marcas que estão conosco para tornar este evento um sucesso</h6>
+                        <h6>Organizações e marcas que estão conosco para tornar este evento um sucesso</h6>
                     </div>
                     <div className='supporters-cards'>
                         {Object.entries(supporters).map(([key, supporter]) => {
@@ -349,13 +389,6 @@ export default Home;
 const LandingSection = styled.section`
     padding-inline: 1rem;
 
-    .btn-entrar{
-        padding: 1.5em;
-        font: 700 1rem/1.25rem 'AT Aero Bold';
-        font-weight: 400;
-        max-width: 25rem;
-    }
-
     .landing-container {
         display: flex;
         flex-direction: column;
@@ -363,7 +396,6 @@ const LandingSection = styled.section`
         align-items: center;
         border-right: 1px solid var(--color-neutral-secondary);
         border-left: 1px solid var(--color-neutral-secondary);
-        //margin-top: 3.75rem; /* match navbar height */
 
         .landing-info {
             padding: 1.5rem 1rem;
@@ -371,8 +403,7 @@ const LandingSection = styled.section`
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            gap: 1.5rem;
-            //max-width: 33rem;
+            gap: 1rem;
             
             .landing-text {
                 display: flex;
@@ -385,6 +416,15 @@ const LandingSection = styled.section`
                 p {
                     font-weight: 400;
                 }
+
+                .greetings-text {
+                    font: 700 1rem/1.5rem 'AT Aero Bold';
+
+                    span {
+                        font: inherit;
+                        background-color: var(--color-primary-900);
+                    }
+                }
             }
         }
 
@@ -395,17 +435,17 @@ const LandingSection = styled.section`
             width: 100%;
             padding: 1.5rem 1rem;
             border-top: 1px solid var(--color-neutral-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
-        .dateWrapper{
+        .dateWrapper {
             width: 100%;
             display: flex;
             flex-direction: column;
             padding: inherit;
             background-color: var(--color-primary);
 
-            h1, h2, h6{
+            h1, h2, h6 {
                 text-align: center;
                 line-height: 100%;
             }
@@ -414,45 +454,41 @@ const LandingSection = styled.section`
                 font-size: 5rem;
             }
 
-            h2{
+            h2 {
                 letter-spacing: 0.2em;
                 margin-bottom: 1rem;
             }
         }
     }
 
-    @media (min-width: 800px){
-        .landing-container{
-
-            .dateWrapper{
+    @media (min-width:800px) {
+        .landing-container {
+            .dateWrapper {
                 width: 85%;
             }
         }
-        
     }
 
     @media (min-width:1100px) {
         //height: 44rem;
 
         .landing-container {
+            height: calc(100vh - 8rem);
             flex-direction: row;
             justify-content: space-between;
 
-            .btn-entrar {
-                width: 30%;
-                margin-bottom: 6rem;
+            button {
+                width: fit-content;
             }
 
-            .landing-info{
+            .landing-info {
+                height: 100%;
+                width: 50%;
                 padding: 1.5rem;
                 border-right: 1px solid var(--color-neutral-secondary);
             }
 
-            .landing-text{
-                margin-top: 6rem;
-            }
-
-            .dates{
+            .dates {
                 padding-inline: 3rem;
                 display: flex;
                 border: none;
@@ -462,7 +498,7 @@ const LandingSection = styled.section`
                 width: 50%;
             }
 
-            .dateWrapper{
+            .dateWrapper {
                 flex-direction: row;
                 padding: 3.5rem 2rem;
                 align-items: center;
@@ -471,15 +507,15 @@ const LandingSection = styled.section`
                 align-items: center;
                 justify-content: center;
 
-                h1{
+                h1 {
                     font-size: 9rem;
                 }
 
-                h2{
+                h2 {
                     margin-bottom: 0;
                 }
 
-                h6{
+                h6 {
                     writing-mode: vertical-rl;
                     transform: rotate(180deg);
                     height: 30%;
@@ -490,7 +526,7 @@ const LandingSection = styled.section`
         }
     }
 
-    @media (min-width: 1300px){
+    @media (min-width:1300px) {
         padding-inline: 6.75rem;
     }
 `
@@ -666,102 +702,88 @@ const EventInfoSection = styled.section`
 `
 
 const CountdownSection = styled.section`
-    padding-block: 3.5rem;
-    background-color: var(--color-neutral-900);
-    gap: 3.5rem;
+    padding-block: 4rem 2rem;
+    gap: 1.5rem;
+    border-top: 1px solid var(--color-neutral-secondary);
 
     .countdown-text {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 1.5rem;
+
+        div {
+            background-color: var(--color-primary-600);
+            width: 70%;
+            padding: 1rem 0;
+        }
 
         h3 {
             text-align: center;
+            background-color: var(--color-primary);
+            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
-        h6 span {
+        h6 {
+            text-align: center;
+        }
+
+        span {
             font: inherit;
-            color: var(--color-primary-700);
+            background-color: var(--color-primary-900);
         }
     }
 
     .countdown-clock {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1rem;
 
         .clock-container {
-            padding: 0.75rem;
-            background-color: var(--color-neutral-800);
-            width: 7.25rem;
-            height: 6.25rem;
+            padding: 1.5rem;
+            background-color: var(--color-neutral-50);
+            width: 100%;
+            height: 8rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
             gap: 0.5rem;
 
-            :nth-child(4) {
-                display: none;
-            }
-
-            h3 {
-                color: #FFF;
+            h1 {
+                color: var(--color-primary-600);
             }
 
             p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-                color: #FFF;
-            }
-        }
-    }
-
-    .countdown-btn {
-        width: 100%;
-        max-width: 24.5rem;
-    }
-    
-    @media (min-width:560px) {
-        
-        .countdown-clock {
-            .clock-container {
-                :nth-child(4) {
-                    display: flex;
-                }
+                font: 700 1rem/1.5rem 'AT Aero Bold';
+                color: var(--color-primary-600);
             }
         }
     }
 
     @media (min-width:1100px) {
-        padding: 6.75rem;
+        padding-block: 5rem 4rem;        
 
-        .countdown-text {
-            h3 {
-                font: 700 3.5rem/4.25rem 'AT Aero Bold';
-            }
-        
-            p {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
-            }
-        }
-        
         .countdown-clock {
-            gap: 2.875rem;
+            gap: 1rem;
+            flex-direction: row;
             
             .clock-container {
-                width: 11.25rem;
-                height: 9.25rem;
-                
-                :nth-child(4) {
-                    display: flex;
+                width: 13rem;
+                height: 9.5rem;
+
+                p {
+                    font: 700 1.125rem/1.5rem 'AT Aero Bold';
                 }
             }
+        }
+
+        button {
+            width: fit-content;
         }
     }  
 `
@@ -831,7 +853,7 @@ const ScheduleSection = styled.section`
 			
 			.subtitle {
 				display: flex;
-				gap: 5.5rem;
+				gap: 6.31rem;
 			}
 		}
 
@@ -931,7 +953,6 @@ const SupportersSection = styled.section`
         .supporters-container {
 
             .supporters-cards {
-                gap: 1.5rem;
                 max-width: 1328px;
             }
         }

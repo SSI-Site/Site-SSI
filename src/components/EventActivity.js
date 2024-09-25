@@ -96,7 +96,7 @@ const ActivityWrapper = styled.div`
 
             .activity-content h6 {
                 color:  ${(props) => props.color};
-                transition: 0.3s ease-in-out;
+                transition: 0.15s ease-in-out;
             }
 
             .activity-title {
@@ -107,7 +107,7 @@ const ActivityWrapper = styled.div`
                     width: 0%;
                     height: 4px;
                     background-color: ${(props) => props.color};
-                    transition: all .3s;
+                    transition: all 0.15s;
                     border-radius: 12px;
                 }
             }
@@ -235,7 +235,7 @@ const ActivityWrapper = styled.div`
 
                 .activity-content h6 {
                     color: var(--color-neutral-700);
-                    transition: 0.3s ease-in-out;
+                    transition: 0.15s ease-in-out;
                 }
 
                 .click-container {
@@ -250,7 +250,7 @@ const ActivityWrapper = styled.div`
                         > div {
                             width: 144px;
                             height: 4px;
-                            background-color:  ${(props) => props.color};
+                            background-color: ${(props) => props.color};
                         }
                     }
 
