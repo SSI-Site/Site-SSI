@@ -215,72 +215,75 @@ const Home = () => {
                     <div className = 'title'>
                         <h3>Sobre o evento</h3> 
                     </div>
-                    <p>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos auditórios da EACH. Além disso, elas também serão transmitidas no nosso canal na Twitch.</p>
                 </div>
 
-                <div className='about-cards'>
-                    <CountUp
-                        start={0}
-                        end={40}
-                        delay={0}
-                        decimals={0}
-                        suffix="+"
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='card'>
-                                <div>
-                                    <h5 ref={countUpRef}/>
-                                    <h5>Palestrantes</h5>
-                                </div>
-                                <p>Junte-se ao evento que 
-                                contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
-                            </div>
-                        )}
-                    </CountUp>
+                <div className = 'about-content'>
+                    <p className = 'about-desc'>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos auditórios da EACH. Além disso, elas também serão transmitidas no nosso canal do Youtube.</p>
 
-                    <CountUp
-                        start={0}
-                        end={70}
-                        delay={0}
-                        decimals={0}
-                        suffix="+"
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='card'>
-                                <div>
-                                    <h5 ref={countUpRef} />
-                                    <h5>Sorteios</h5>
+                    <div className='about-cards'>
+                        <CountUp
+                            start={0}
+                            end={40}
+                            delay={0}
+                            decimals={0}
+                            suffix="+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='card'>
+                                    <div>
+                                        <h5 ref={countUpRef}/>
+                                        <h5>Palestrantes</h5>
+                                    </div>
+                                    <p>Junte-se ao evento que 
+                                    contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
                                 </div>
-                                <p>Participe do evento de tecnologia e concorra a mais de 70 sorteios exclusivos, repletos de prêmios 
-                                incríveis!</p>
-                            </div>
-                        )}
-                    </CountUp>
+                            )}
+                        </CountUp>
 
-                    <CountUp
-                        start={0}
-                        end={45}
-                        delay={0}
-                        decimals={0}
-                        suffix="h"
-                        enableScrollSpy 
-                    >
-                        {({ countUpRef }) => (
-                            <div className='card'>
-                                <div>
-                                    <h5 ref={countUpRef} />
-                                    <h5>Atividades</h5>
+                        <CountUp
+                            start={0}
+                            end={70}
+                            delay={0}
+                            decimals={0}
+                            suffix="+"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='card'>
+                                    <div>
+                                        <h5 ref={countUpRef} />
+                                        <h5>Sorteios</h5>
+                                    </div>
+                                    <p>Participe do evento de tecnologia e concorra a mais de 70 sorteios exclusivos, repletos de prêmios 
+                                    incríveis!</p>
                                 </div>
-                                <p>Não perca um evento com 45 horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
-                            </div>
-                        )}
-                    </CountUp>
-                </div>
+                            )}
+                        </CountUp>
 
-                <div className='about-btn'>
-                    <SecondaryButton onClick={() => router.push('/about')}>Saber mais</SecondaryButton>
+                        <CountUp
+                            start={0}
+                            end={45}
+                            delay={0}
+                            decimals={0}
+                            suffix="h"
+                            enableScrollSpy 
+                        >
+                            {({ countUpRef }) => (
+                                <div className='card'>
+                                    <div>
+                                        <h5 ref={countUpRef} />
+                                        <h5>Atividades</h5>
+                                    </div>
+                                    <p>Não perca um evento com 45 horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
+                                </div>
+                            )}
+                        </CountUp>
+                    </div>
+
+                    <div className='about-btn'>
+                        <SecondaryButton onClick={() => router.push('/about')}>Saiba mais</SecondaryButton>
+                    </div>
                 </div>
             </EventInfoSection>
 
@@ -564,6 +567,7 @@ const EventInfoSection = styled.section`
         align-items: center;
         gap: 1.5rem;
 
+
         .title{
             padding: 0.75rem 1.5rem;
             width: fit-content;
@@ -571,29 +575,92 @@ const EventInfoSection = styled.section`
         }        
     }
 
-    .about-cards{
+    .about-content{
         display: flex;
-
-        ::-webkit-scrollbar {
-            display: none;
-        }
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        height: auto;
-        width: 100vw;
-        padding-left: 1rem; // match pattern
-        overflow: auto;  
-        display: flex;
-        scroll-snap-type: x mandatory;
+        flex-direction: column;
         gap: 1.5rem;
 
-        .card{
+        .about-cards{
             display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            width: 75%;
-            flex-shrink: 0;
-            display: block;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            height: auto;
+            width: 100%;
+            overflow: auto;  
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+
+            .card{
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                width: 70%;
+                flex-shrink: 0;
+                display: block;
+            }
+        }
+    }
+    
+
+    @media screen and (min-width: 800px){
+
+        .about-content{
+            align-items: center;
+            
+            .about-desc{
+                text-align: center;
+                max-width: 700px;
+            }
+
+            .about-cards{
+                width: 100%;
+                
+
+                .card{
+                    flex-shrink: 1;
+                    width: 35%;
+                }
+            }
+
+            .about-btn{
+                width: 30%;
+            }
+        }
+        
+    }
+
+    @media screen and (min-width:1100px){
+        padding-block: 0;
+        flex-direction: row;
+        max-width: 1328px; // max for matching lines 
+        margin: 0 auto;
+        border-right: 1px solid var(--color-neutral-secondary);
+
+        .about-title{
+            align-self: flex-start;
+            padding: 2rem 1rem;
+            width: 60%;
+
+            .title{
+                align-self: center;
+            }   
+        }
+        .about-content{
+            padding: 2rem 1.5rem;
+            border-left: 1px solid var(--color-neutral-secondary);
+
+            .about-desc{
+                text-align: left;
+                max-width: unset;
+            }
+
+            .about-btn{
+                align-self: flex-end;
+            }
         }
     }
 `
