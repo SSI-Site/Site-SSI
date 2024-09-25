@@ -79,66 +79,69 @@ const About = () => {
 
             <BaitSection>
                 <div className='bait-container'>
-                    <div className='bait-text'>
-                        <h3>Atividades</h3>
-                        <p>Descubra as <span>palestras</span>, <span>workshops</span>, <span>networking</span> e muito mais que preparamos para você!</p>
-                    </div>
-                    <div className='bait-content'>
-                        <BaitContent>
-                            <div className='bait-sample'>
-                                <div className='bait-image justify-left'>
-                                    <div className='image-container'>
-                                        <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
-                                    </div>
-                                </div>
-                                <div className='bait-sample-description'>
-                                    <h4>Palestras com experts da área</h4>
-                                    <p>
-                                        Venha participar de conversas com as melhores referências de cada assunto. Desde temas relacionados a empreendedorismo na área de TI, até jogos, IoT, segurança da informação e muito mais!
-                                        Não perca a oportunidade de conhecer esses tópicos e fazer perguntas para direcionar a sua carreira.
-                                    </p>
-                                </div>
-
-
-
-                                
-                            </div>
-                        </BaitContent>
-                        <div className='purple-divider'></div>
-                        <BaitContent>
-                            <div className='bait-sample middle-lecture'>
-                                <div className='bait-image justify-right'>
-                                    <div className='image-container'>
-                                        <img src="/images/about/workshops.jpg" alt="Foto Workshops" className="responsive-image" />
-                                    </div>
-                                </div>
-                                <div className='bait-sample-description'>
-                                    <h4>Workshops em laboratórios de informática</h4>
-                                    <p>
-                                        Já pensou em aplicar o que vemos e ouvimos nas palestras?
-                                        As empresas parceiras da Semana de Sistemas de Informação estarão realizando workshops, para que você não saia da palestra apenas conhecendo o assunto, mas também já dominando um pouco na prática!
-                                    </p>
+                    <BaitContent>
+                        <div className='bait-sample'>
+                            <div className='bait-image justify-left'>
+                                <div className='image-container'>
+                                    <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
                                 </div>
                             </div>
-                        </BaitContent>
-                        <div className='purple-divider'></div>
-                        <BaitContent>
-                            <div className='bait-sample'>
-                                <div className='bait-image justify-left'>
-                                    <div className='image-container'>
-                                        <img src="/images/about/networking.jpg" alt="Foto Networking" className="responsive-image" />
+                            <div className='bait-sample-description'>
+                                <div className='bait-sample-title'>
+                                    <h4>Palestras</h4>
+                                    <p>A Semana de Sistemas de Informação 2024 contará com diversas palestras da área da tecnologia.</p>
+                                </div>
+
+                                <div className='bait-sample-subtitles'>
+                                    <div>
+                                        <h5>Diversos <br className='desktop-only'/> temas</h5>
+                                        <p>
+                                            Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h5>Empresas de diferentes áreas</h5>
+                                        <p>
+                                            Os nossos palestrantes fazem parte de empresas que estão presente em diferentes áreas de negócio do mercado de trabalho.
+                                        </p>
                                     </div>
                                 </div>
-                                <div className='bait-sample-description'>
-                                    <h4>Networking com participantes</h4>
-                                    <p>
-                                        Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.
-                                        Dica: conecte-se com os palestrantes no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
-                                    </p>
+                            </div>
+                        </div>
+                    </BaitContent>
+                    <div className='card-divider'></div>
+                    <BaitContent>
+                        <div className='bait-sample'>
+                            <div className='bait-image justify-left'>
+                                <div className='image-container'>
+                                    <img src="/images/about/networking.jpg" alt="Foto Networking" className="responsive-image" />
                                 </div>
                             </div>
-                        </BaitContent>
-                    </div>
+
+                            <div className='bait-sample-description'>
+                                <div className='bait-sample-title'>
+                                    <h4>Networking</h4>
+                                    <p>Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.</p>
+                                </div>
+
+                                <div className='bait-sample-subtitles'>
+                                    <div>
+                                        <h5>Alunos da EACH</h5>
+                                        <p>
+                                            Tenhas contato com uma rede de pessoas interessadas nos diversos temas de TI. Não só os alunos de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h5>Palestrantes experientes</h5>
+                                        <p>
+                                            Conecte-se com os palestrantes que possuem expertise em diversas áreas. Lembre-se de acioná-los no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </BaitContent>
+                    <div className='card-divider'></div>
                 </div>
             </BaitSection>
 
@@ -395,79 +398,33 @@ const ActivitiesSection = styled.section`
 `
 
 const BaitSection = styled.section`
-    background-color: var(--color-neutral-900);
-    padding-block: 3.5rem;
+    background-color: var(--color-neutral);
+    padding-inline: 0;
+    border-top: 1px solid var(--color-neutral-secondary);
 
     .bait-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3.5rem;
 
-        .bait-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            max-width: 63.5rem;
-            h3 {
-                text-align: center;
-            }
-
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-                text-align: center;
-
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
-            }
-        }
-
-        .bait-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2.25rem;
+        .card-divider {
+            border-top: 1px solid var(--color-neutral-secondary);
             width: 100%;
-
-            .purple-divider {
-                height: 4px;
-                width: 16rem;
-                background-color: var(--color-primary-700);
-                border-radius: 2px;
-            }
         }
     }
 
     @media (min-width:1021px) {
-        padding-block: 6.75rem;
-
         .bait-container {
-            .bait-text {
-                h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
-                }
-
-                p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
-                }
-            }
-
-            .bait-content {
-                .purple-divider {
-                    display: none;
-                }
+            .card-divider {
+                width: calc(100vw - 17px);
             }
         }
     }
 `
 
 const BaitContent = styled.div`
+    --border: 1px solid var(--color-neutral-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -476,60 +433,70 @@ const BaitContent = styled.div`
 
     .bait-sample {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        gap: 0.75rem;
+        width: 90%;
+        padding: 3rem 1rem 2rem 1rem;
+        border-left: var(--border);
+        border-right: var(--border);
+        gap: 1.5rem;
+        transition: background-color 0.2s;
 
+        &:active {
+            background-color: var(--color-primary-600);
+        }
+        
         .bait-sample-description {
-            max-width: 37.5rem;
+            max-width: 39.5rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 2rem;  
 
-            h4, p {
-                text-align: center;
+            p {
+                font-size: 1.1rem;
+                font-weight: 400;
+                padding-top: 0.5rem;
+            }
+
+            .bait-sample-subtitles {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+
+                .desktop-only {
+                    display: none;
+                }
             }
         }
     }
+    
 
     .bait-image {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
-        max-width: 31rem;
-        border-radius: 8px;
-        border: 4px solid var(--color-primary-700);
-        /* max-height: 20rem; */
+        max-width: 38rem;
+        border: 2px solid var(--color-neutral-50);
+        max-height: 27.5rem;
+        min-height: 18rem;
         background-color: var(--color-primary-700);
         position: relative;
         overflow: hidden;
 
-        &::after {
-            display: block;
-            content: "";
-            padding-top: 56.25%;
-        }
-
-        .image-container {
+        .responsive-image, .image-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 8px;
         }
-
+            
         .responsive-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             object-fit: cover;
         }
     }
@@ -537,29 +504,38 @@ const BaitContent = styled.div`
 
     @media (min-width:1021px) {
 
-        .bait-image {
-            border: 8px solid var(--color-primary-700);
-        }
-        
         .bait-sample {
-            flex-direction: row;
+            flex-direction: row-reverse;
             justify-content: space-between;
             gap: auto;
+            width: 100%;
+            padding: 6.75rem 1.5rem;
+
+            &:active {
+                background-color: initial; 
+            }
+
+            &:hover {
+                background-color: var(--color-primary-600)
+            }
 
             .bait-sample-description {
                 align-items: flex-start;
-                gap: 1rem;
+                padding: 3rem 0;
 
-                h4, p {
-                    text-align: left;
-                    font-family: 'AT Aero Bold';
-                    font-weight: 700;
+                .bait-sample-subtitles {
+                    flex-direction: row;
+                    align-items: flex-start;
+
+                    .desktop-only {
+                        display: inline;
+                    }
                 }
             }
-        }
 
-        .middle-lecture {
-            flex-flow: row-reverse;
+            .bait-image {
+                height: 27.5rem;
+            }
         }
     }
 `
