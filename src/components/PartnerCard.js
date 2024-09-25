@@ -60,9 +60,5 @@ const PartnerWrapper = styled.div`
     @media (min-width:1000px) {
         width: 27rem;
         height: 20rem;
-        
-        a {
-            padding: 3.6rem 4.3rem;
-        }
     }
 `
