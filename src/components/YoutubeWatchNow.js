@@ -36,6 +36,7 @@ const YoutubeWatchNowWrapper = styled.div`
 	align-items: center;
 	width: 21rem;
 	height: 5rem;
+    z-index: 2;
 
 	a {
 		display: flex;

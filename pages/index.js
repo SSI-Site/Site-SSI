@@ -183,17 +183,32 @@ const Home = () => {
                 </div>
             </LandingSection>
 
-            <TwitchContainer>
+            <YoutubeContainer>
                 <YoutubeWatchNow />
-            </TwitchContainer>
+            </YoutubeContainer>
 
-            {/* Seção de contagem regressiva - só aparece antes do evento */}
-            <SubscriptionSection>
+            {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
+            {/* <SubscriptionSection>
                 <div className='landing-container'>
                     <div className='subscription-container'>
-                        <div className='subscription-title'>
-                            <h3>Inscrições abertas!</h3>
-                        </div>
+                        <h3>Inscrições abertas!</h3>
+
+                        <h6>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</h6>
+
+                        <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
+                            <a target="_blank">
+                                <Button>Inscrever-se</Button>
+                            </a>
+                        </Link>
+                    </div>
+
+                    <div className='coMembers'>
+                        <img src="./images/co_members/co.jpg"/>
+                    </div>
+                </div>
+            </SubscriptionSection> */}
+
+            {/* Seção de contagem regressiva - só aparece antes do evento */}
             {(now < countdownDate) &&
                 <CountdownSection>
                     <div className='countdown-text'>
@@ -235,94 +250,79 @@ const Home = () => {
                 </CountdownSection>
             }
 
-                        <h6>Faça parte da Comissão Organizadora do melhor evento acadêmico de Sistemas de Informação!</h6>
-
-                        <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
-                            <a target="_blank">
-                                <Button className = "subButton">Inscrever-se</Button>
-                            </a>
-                        </Link>
-                    </div>
-
-                    <div className = 'coMembers'>
-                        <img src = "./images/co_members/co.jpg"/>
-                    </div>
-                </div>
-            </SubscriptionSection>
-
             <EventInfoSection>
-                <div className='about-title'>
-                    <div className = 'title'>
-                        <h3>Sobre o evento</h3> 
-                    </div>
-                </div>
-
-                <div className = 'about-content'>
-                    <p className = 'about-desc'>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos auditórios da EACH. Além disso, elas também serão transmitidas no nosso canal do Youtube.</p>
-
-                    <div className='about-cards'>
-                        <CountUp
-                            start={0}
-                            end={40}
-                            delay={0}
-                            decimals={0}
-                            suffix="+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <div>
-                                        <h5 ref={countUpRef}/>
-                                        <h5>Palestrantes</h5>
-                                    </div>
-                                    <p>Junte-se ao evento que 
-                                    contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
-                                </div>
-                            )}
-                        </CountUp>
-
-                        <CountUp
-                            start={0}
-                            end={70}
-                            delay={0}
-                            decimals={0}
-                            suffix="+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <div>
-                                        <h5 ref={countUpRef} />
-                                        <h5>Sorteios</h5>
-                                    </div>
-                                    <p>Participe do evento de tecnologia e concorra a mais de 70 sorteios exclusivos, repletos de prêmios 
-                                    incríveis!</p>
-                                </div>
-                            )}
-                        </CountUp>
-
-                        <CountUp
-                            start={0}
-                            end={45}
-                            delay={0}
-                            decimals={0}
-                            suffix="h"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <div>
-                                        <h5 ref={countUpRef} />
-                                        <h5>Atividades</h5>
-                                    </div>
-                                    <p>Não perca um evento com 45 horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
-                                </div>
-                            )}
-                        </CountUp>
+                <div>
+                    <div className='about-title'>
+                        <div className = 'title'>
+                            <h3>Sobre o evento</h3> 
+                        </div>
                     </div>
 
-                    <div className='about-btn'>
-                        <SecondaryButton onClick={() => router.push('/about')}>Saiba mais</SecondaryButton>
+                    <div className = 'about-content'>
+                        <p className = 'about-desc'>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso canal no YouTube.</p>
+
+                        <div className='about-cards'>
+                            <CountUp
+                                start={0}
+                                end={40}
+                                delay={0}
+                                decimals={0}
+                                suffix="+"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='card'>
+                                        <div>
+                                            <h5 ref={countUpRef}/>
+                                            <h5>palestrantes</h5>
+                                        </div>
+                                        <p>Junte-se ao evento que contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
+                                    </div>
+                                )}
+                            </CountUp>
+
+                            <CountUp
+                                start={0}
+                                end={70}
+                                delay={0}
+                                decimals={0}
+                                suffix="+"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='card'>
+                                        <div>
+                                            <h5 ref={countUpRef} />
+                                            <h5>sorteios</h5>
+                                        </div>
+                                        <p>Participe do evento de tecnologia e concorra a mais de 70 sorteios exclusivos, repletos de prêmios incríveis!</p>
+                                    </div>
+                                )}
+                            </CountUp>
+
+                            <CountUp
+                                start={0}
+                                end={45}
+                                delay={0}
+                                decimals={0}
+                                suffix="h"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='card'>
+                                        <div>
+                                            <h5 ref={countUpRef} />
+                                            <h5>atividades</h5>
+                                        </div>
+                                        <p>Não perca um evento com 45 horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                        </div>
+
+                        <div className='about-btn'>
+                            <SecondaryButton onClick={() => router.push('/about')}>Saiba mais</SecondaryButton>
+                        </div>
                     </div>
                 </div>
             </EventInfoSection>
@@ -388,6 +388,7 @@ export default Home;
 
 const LandingSection = styled.section`
     padding-inline: 1rem;
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .landing-container {
         display: flex;
@@ -525,13 +526,9 @@ const LandingSection = styled.section`
             }
         }
     }
-
-    @media (min-width:1300px) {
-        padding-inline: 6.75rem;
-    }
 `
 
-const TwitchContainer = styled.div`
+const YoutubeContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -543,60 +540,93 @@ const TwitchContainer = styled.div`
 const SubscriptionSection = styled.section`
     padding-inline: 1rem;
     background-color: var(--color-neutral-800);
-    border-block: 1px solid var(--color-neutral-secondary);
+    margin-bottom: -2rem;
 
-    .subscription-container{
+    .subscription-container {
         border-inline: 1px solid var(--color-neutral-secondary);
         border-bottom: 1px solid var(--color-neutral-secondary);
-        padding: 1.5rem 1rem;
+        padding: 4rem 1rem;
         gap: 1rem;
         display: flex;
         flex-direction: column;
 
-        h6{
-            font-weight: 500;
-        }   
-
-        .subscription-title{
-            width: 100%;
+        h3 {
+            width: fit-content;
+            text-align: center;
             padding: 0.75rem 1rem;
             background-color: var(--color-primary);
+            align-self: center;
+        }
 
-            h3 {
-                text-align: center;
+        h6 {
+            span {
+                font: inherit;
+                background-color: var(--color-primary-900);
             }
         }
-
-        .subButton{
-            padding-block: 1.5rem; //deixar o botao gordinho
-        }
     }
 
-    .coMembers{
-        padding: 1.5rem 1rem;
+    .coMembers {
+        padding: 1.5rem 1.25rem 1rem 1rem;
         border-inline: 1px solid var(--color-neutral-secondary);
 
-        img{
+        img {
             width: 100%;
-            box-shadow: 0px 0px 0px 4px #FFF, 4px 4px 0px 4px #9638FF; // copiado do figma
+            height: auto;
+            object-fit: cover;
+            border: 0.25rem solid white;
+            box-shadow: 0.25rem 0.25rem 0 var(--color-primary);
         }
     }
 
-    @media screen and (min-width: 1400px){
+    @media screen and (min-width:801px) {
+        margin-bottom: 0rem;
+
         .landing-container{
             display: flex;
             flex-direction: row;
+
+            .subscription-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                height: 34.75rem;
+                width: 50%;
+                border-right: none;
+                border-bottom: none;
+                gap: 1.5rem;
+                padding-inline: 1.5rem;
+
+                h3 {
+                    align-self: flex-start;
+                }
+
+                button {
+                    width: fit-content;
+                }
+            }
+
+            .coMembers {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
 `
 
 const EventInfoSection = styled.section`
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    padding: 4rem 1rem 2rem;
 
-    .about-title{
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .about-title {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -604,19 +634,28 @@ const EventInfoSection = styled.section`
         gap: 1.5rem;
 
 
-        .title{
+        .title {
             padding: 0.75rem 1.5rem;
             width: fit-content;
             background-color: var(--color-primary);
         }        
     }
 
-    .about-content{
+    .about-content {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
 
-        .about-cards{
+        .about-desc {
+            font: 400 1rem/1.5rem 'AT Aero';
+
+            span {
+                font: inherit;
+                background-color: var(--color-primary-900);
+            }
+        }
+
+        .about-cards {
             display: flex;
 
             &::-webkit-scrollbar {
@@ -628,73 +667,86 @@ const EventInfoSection = styled.section`
             width: 100%;
             overflow: auto;  
             scroll-snap-type: x mandatory;
-            gap: 1.5rem;
+            gap: 2rem;
 
-            .card{
-                display: flex;
-                flex-direction: column;
-                gap: 0.6rem;
+            .card {
                 width: 70%;
+                max-width: 15.125rem;
                 flex-shrink: 0;
                 display: block;
+
+                p {
+                    margin-top: 0.5rem;
+                    font: 400 1rem/1.5rem 'AT Aero';
+                }
             }
         }
     }
-    
 
-    @media screen and (min-width: 800px){
+    @media screen and (min-width:800px) {
+        padding: 4.5rem 1rem;
 
-        .about-content{
+        .about-content {
             align-items: center;
             
-            .about-desc{
+            .about-desc {
                 text-align: center;
                 max-width: 700px;
             }
 
-            .about-cards{
+            .about-cards {
                 width: 100%;
+                gap: 1rem;
                 
-
-                .card{
+                .card {
                     flex-shrink: 1;
                     width: 35%;
+                    max-width: unset;
                 }
             }
 
-            .about-btn{
-                width: 30%;
+            .about-btn {
+                width: fit-content;
             }
         }
         
     }
 
-    @media screen and (min-width:1100px){
+    @media screen and (min-width:1100px) {
         padding-block: 0;
-        flex-direction: row;
-        max-width: 1328px; // max for matching lines 
-        margin: 0 auto;
-        border-right: 1px solid var(--color-neutral-secondary);
 
-        .about-title{
+        > div {
+            flex-direction: row;
+            max-width: 1328px; // max for matching lines 
+            margin: 0 auto;
+        }
+
+        .about-title {
             align-self: flex-start;
-            padding: 2rem 1rem;
-            width: 60%;
+            padding: 4.5rem 0 0 0;
 
-            .title{
-                align-self: center;
+            .title {
+                align-self: flex-start;
             }   
         }
-        .about-content{
-            padding: 2rem 1.5rem;
-            border-left: 1px solid var(--color-neutral-secondary);
 
-            .about-desc{
+        .about-content {
+            padding: 4.5rem 1.5rem;
+            border-inline: 1px solid var(--color-neutral-secondary);
+            max-width: 55rem;
+            gap: 2rem;
+
+            .about-desc {
+                font: 400 1.125rem/1.75rem 'AT Aero';
                 text-align: left;
                 max-width: unset;
             }
 
-            .about-btn{
+            .about-cards .card p {
+                font: 400 1.125rem/1.75rem 'AT Aero';
+            }
+
+            .about-btn {
                 align-self: flex-end;
             }
         }
@@ -704,7 +756,8 @@ const EventInfoSection = styled.section`
 const CountdownSection = styled.section`
     padding-block: 4rem 2rem;
     gap: 1.5rem;
-    border-top: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--color-neutral-secondary);
+    margin-bottom: -2rem;
 
     .countdown-text {
         display: flex;
@@ -766,7 +819,8 @@ const CountdownSection = styled.section`
     }
 
     @media (min-width:1100px) {
-        padding-block: 5rem 4rem;        
+        padding-block: 5rem 4rem; 
+        margin-bottom: 0;
 
         .countdown-clock {
             gap: 1rem;
