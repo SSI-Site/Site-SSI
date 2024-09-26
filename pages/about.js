@@ -279,7 +279,7 @@ const LogoTextSection = styled.section`
 
       @media(min-width: 1000px) {
         text-align: left; 
-        font-size: 2.5rem; 
+        font-size: 2.5rem;
       }
     }
   }
@@ -287,8 +287,8 @@ const LogoTextSection = styled.section`
   .text {
     position: relative;
     max-width: 37.5rem;
-    text-align: center; 
-    padding: 0px var(--Layout-Grid-Margin, 16px); 
+    text-align: center;
+    padding: 0 var(--Layout-Grid-Margin, 1rem); 
 
     h3 {
       margin-bottom: 1rem;
@@ -311,8 +311,8 @@ const LogoTextSection = styled.section`
 
     .arrow-container {
       position: absolute;
-      bottom: -7rem;
-      right: 3rem;
+      bottom: -7rem; 
+      right: 1.5rem; 
 
       @media(min-width: 1000px) {
         width: 100%;
@@ -326,12 +326,12 @@ const LogoTextSection = styled.section`
 
   @media(min-width: 560px) {
     .logo-text {
-      padding: 48px 16px; 
-      gap: 24px;
+      padding: 3rem 1rem; 
+      gap: 1.5rem; 
     }
 
     .text {
-      padding: 0px 32px; 
+      padding: 0 2rem; 
     }
 
     .logo img {
@@ -343,15 +343,15 @@ const LogoTextSection = styled.section`
     }
   }
 
-  @media(min-width: 1000px) {
+  @media(min-width: 1000px) { 
     .logo-text {
       display: flex;
       flex-direction: row-reverse; 
-      width: 1328px;
-      padding: 72px 24px;
+      width: 83rem; 
+      padding: 4.5rem 1.5rem;
       justify-content: center; 
       align-items: center; 
-      gap: 40px;
+      gap: 2.5rem; 
       flex-wrap: wrap;
       border-right: 1px solid var(--color-neutral-secondary);
       border-left: 1px solid var(--color-neutral-secondary);
