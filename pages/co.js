@@ -173,7 +173,7 @@ const COExhibitionSection = styled.section`
                 height: auto;
                 object-fit: cover;
                 border: 0.25rem solid white;
-                box-shadow: 0.5rem 0.5rem 0 var(--color-primary);
+                box-shadow: 0.25rem 0.25rem 0 var(--color-primary);
             }
         }
     }

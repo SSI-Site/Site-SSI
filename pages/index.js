@@ -165,6 +165,7 @@ const Home = () => {
                                 show={showAuthModal}
                             />
                         }
+
                     </div>
                     
                     <div className = "dates">
@@ -173,6 +174,7 @@ const Home = () => {
                                 <h1>07-11</h1>
                                 <h2>Out 2024</h2>
                             </div>
+                            
                             <div>
                                 <h6>Online e Presencial</h6>
                             </div>
@@ -181,9 +183,30 @@ const Home = () => {
                 </div>
             </LandingSection>
 
-            <TwitchContainer>
+            <YoutubeContainer>
                 <YoutubeWatchNow />
-            </TwitchContainer>
+            </YoutubeContainer>
+
+            {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
+            {/* <SubscriptionSection>
+                <div className='landing-container'>
+                    <div className='subscription-container'>
+                        <h3>Inscrições abertas!</h3>
+
+                        <h6>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</h6>
+
+                        <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
+                            <a target="_blank">
+                                <Button>Inscrever-se</Button>
+                            </a>
+                        </Link>
+                    </div>
+
+                    <div className='coMembers'>
+                        <img src="./images/co_members/co.jpg"/>
+                    </div>
+                </div>
+            </SubscriptionSection> */}
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
             {(now < countdownDate) &&
@@ -227,80 +250,79 @@ const Home = () => {
                 </CountdownSection>
             }
 
-            <SubscriptionSection>
-                <div className='subscription-container'>
-                    <div className='subscription-title'>
-                        <h3>Inscrições abertas!</h3>
-                        <p>Faça parte da <span>Comissão Organizadora</span> do <span>melhor evento acadêmico</span> de Sistemas de Informação! </p>
-                    </div>
-
-                    <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
-                        <a target="_blank">
-                            <SecondaryButton>Inscrever-se</SecondaryButton>
-                        </a>
-                    </Link>
-                </div>
-            </SubscriptionSection>
-
             <EventInfoSection>
-                <div className='about-container'>
+                <div>
                     <div className='about-title'>
-                        <h3>Sobre o evento</h3>
-                        <p>As palestras ocorrerão entre os dias <span>21 e 25 de agosto</span>, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso <span>canal na Twitch</span>.</p>
+                        <div className = 'title'>
+                            <h3>Sobre o evento</h3> 
+                        </div>
                     </div>
-                    <div className='about-cards'>
 
-                        <CountUp
-                            start={0}
-                            end={40}
-                            delay={0}
-                            decimals={0}
-                            suffix="+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <h1 ref={countUpRef} />
-                                    <h5>Palestrantes</h5>
-                                </div>
-                            )}
-                        </CountUp>
+                    <div className = 'about-content'>
+                        <p className = 'about-desc'>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso canal no YouTube.</p>
 
-                        <CountUp
-                            start={0}
-                            end={70}
-                            delay={0}
-                            decimals={0}
-                            suffix="+"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <h1 ref={countUpRef} />
-                                    <h5>Sorteios</h5>
-                                </div>
-                            )}
-                        </CountUp>
+                        <div className='about-cards'>
+                            <CountUp
+                                start={0}
+                                end={40}
+                                delay={0}
+                                decimals={0}
+                                suffix="+"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='card'>
+                                        <div>
+                                            <h5 ref={countUpRef}/>
+                                            <h5>palestrantes</h5>
+                                        </div>
+                                        <p>Junte-se ao evento que contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
+                                    </div>
+                                )}
+                            </CountUp>
 
-                        <CountUp
-                            start={0}
-                            end={45}
-                            delay={0}
-                            decimals={0}
-                            suffix="h"
-                            enableScrollSpy 
-                        >
-                            {({ countUpRef }) => (
-                                <div className='card'>
-                                    <h1 ref={countUpRef} />
-                                    <h5>Atividades</h5>
-                                </div>
-                            )}
-                        </CountUp>
+                            <CountUp
+                                start={0}
+                                end={70}
+                                delay={0}
+                                decimals={0}
+                                suffix="+"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='card'>
+                                        <div>
+                                            <h5 ref={countUpRef} />
+                                            <h5>sorteios</h5>
+                                        </div>
+                                        <p>Participe do evento de tecnologia e concorra a mais de 70 sorteios exclusivos, repletos de prêmios incríveis!</p>
+                                    </div>
+                                )}
+                            </CountUp>
 
-                    </div>
-                    <div className='about-btn'>
-                        <Button onClick={() => router.push('/about')}>Saiba mais</Button>
+                            <CountUp
+                                start={0}
+                                end={45}
+                                delay={0}
+                                decimals={0}
+                                suffix="h"
+                                enableScrollSpy 
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='card'>
+                                        <div>
+                                            <h5 ref={countUpRef} />
+                                            <h5>atividades</h5>
+                                        </div>
+                                        <p>Não perca um evento com 45 horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                        </div>
+
+                        <div className='about-btn'>
+                            <SecondaryButton onClick={() => router.push('/about')}>Saiba mais</SecondaryButton>
+                        </div>
                     </div>
                 </div>
             </EventInfoSection>
@@ -364,9 +386,9 @@ const Home = () => {
 
 export default Home;
 
-
 const LandingSection = styled.section`
     padding-inline: 1rem;
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .landing-container {
         display: flex;
@@ -504,13 +526,9 @@ const LandingSection = styled.section`
             }
         }
     }
-
-    @media (min-width:1300px) {
-        padding-inline: 6.75rem;
-    }
 `
 
-const TwitchContainer = styled.div`
+const YoutubeContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -520,147 +538,216 @@ const TwitchContainer = styled.div`
 `
 
 const SubscriptionSection = styled.section`
-    padding-block: 6.625rem 3.5rem;
-    background-color: var(--color-primary);
-    gap: 2rem;
+    padding-inline: 1rem;
+    background-color: var(--color-neutral-800);
+    margin-bottom: -2rem;
 
     .subscription-container {
+        border-inline: 1px solid var(--color-neutral-secondary);
+        border-bottom: 1px solid var(--color-neutral-secondary);
+        padding: 4rem 1rem;
+        gap: 1rem;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
 
-        .subscription-title {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
+        h3 {
+            width: fit-content;
             text-align: center;
-            max-width: 63.5rem;
+            padding: 0.75rem 1rem;
+            background-color: var(--color-primary);
+            align-self: center;
+        }
 
-            h3 {
-                text-align: center;
-            }
-
-            p {
-                font-family: 'AT Aero Bold';
-                font-weight: 700;
-
-                span {
-                    font: inherit;
-                    color: var(--color-primary-500);
-                }
+        h6 {
+            span {
+                font: inherit;
+                background-color: var(--color-primary-900);
             }
         }
     }
 
-    @media (min-width:1000px) {
-        padding-block: 6.75rem;
+    .coMembers {
+        padding: 1.5rem 1.25rem 1rem 1rem;
+        border-inline: 1px solid var(--color-neutral-secondary);
 
-        .subscription-container {
-            gap: 3.5rem;
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 0.25rem solid white;
+            box-shadow: 0.25rem 0.25rem 0 var(--color-primary);
+        }
+    }
 
-            .subscription-title {
+    @media screen and (min-width:801px) {
+        margin-bottom: 0rem;
+
+        .landing-container{
+            display: flex;
+            flex-direction: row;
+
+            .subscription-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                height: 34.75rem;
+                width: 50%;
+                border-right: none;
+                border-bottom: none;
+                gap: 1.5rem;
+                padding-inline: 1.5rem;
+
                 h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
+                    align-self: flex-start;
                 }
 
-                p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                button {
+                    width: fit-content;
                 }
+            }
+
+            .coMembers {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
     }
 `
 
 const EventInfoSection = styled.section`
-    padding-block: 6.625rem 3.5rem;
-    gap: 2rem;
+    padding: 4rem 1rem 2rem;
 
-    .about-container {
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .about-title {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 2rem;
+        gap: 1.5rem;
 
-        .about-title {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            text-align: center;
-            max-width: 63.5rem;
 
-            h3 {
-                text-align: center;
-            }
+        .title {
+            padding: 0.75rem 1.5rem;
+            width: fit-content;
+            background-color: var(--color-primary);
+        }        
+    }
 
-            p {
-                font-family: 'AT Aero Bold';
-                font-weight: 700;
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
 
-                span {
-                    font: inherit;
-                    color: var(--color-primary-700);
-                }
+        .about-desc {
+            font: 400 1rem/1.5rem 'AT Aero';
+
+            span {
+                font: inherit;
+                background-color: var(--color-primary-900);
             }
         }
 
         .about-cards {
-            width: 100%;
             display: flex;
-            flex-direction: column;
-            flex-flow: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            height: auto;
+            width: 100%;
+            overflow: auto;  
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
 
             .card {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-                width: 100%;
-                max-width: 19.5rem;
-                padding: 2rem 4rem;
-                background-color: var(--color-neutral-800);
-                border-radius: 8px;
-            }
-        }
-
-        .about-btn {
-            width: 100%;
-            max-width: 24.5rem;
-        }   
-    }
-
-    @media (min-width:1000px) {
-        padding-block: 6.75rem;
-
-        .about-container {
-            gap: 3.5rem;
-
-            .about-title {
-                h3 {
-                    font: 700 3.5rem/4.25rem 'AT Aero Bold';
-                }
+                width: 70%;
+                max-width: 15.125rem;
+                flex-shrink: 0;
+                display: block;
 
                 p {
-                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                    margin-top: 0.5rem;
+                    font: 400 1rem/1.5rem 'AT Aero';
                 }
+            }
+        }
+    }
+
+    @media screen and (min-width:800px) {
+        padding: 4.5rem 1rem;
+
+        .about-content {
+            align-items: center;
+            
+            .about-desc {
+                text-align: center;
+                max-width: 700px;
             }
 
             .about-cards {
-                gap: 1.5rem;
-
+                width: 100%;
+                gap: 1rem;
+                
                 .card {
-                    height: 19.5rem;
+                    flex-shrink: 1;
+                    width: 35%;
+                    max-width: unset;
                 }
+            }
+
+            .about-btn {
+                width: fit-content;
+            }
+        }
+        
+    }
+
+    @media screen and (min-width:1100px) {
+        padding-block: 0;
+
+        > div {
+            flex-direction: row;
+            max-width: 1328px; // max for matching lines 
+            margin: 0 auto;
+        }
+
+        .about-title {
+            align-self: flex-start;
+            padding: 4.5rem 0 0 0;
+
+            .title {
+                align-self: flex-start;
+            }   
+        }
+
+        .about-content {
+            padding: 4.5rem 1.5rem;
+            border-inline: 1px solid var(--color-neutral-secondary);
+            max-width: 55rem;
+            gap: 2rem;
+
+            .about-desc {
+                font: 400 1.125rem/1.75rem 'AT Aero';
+                text-align: left;
+                max-width: unset;
+            }
+
+            .about-cards .card p {
+                font: 400 1.125rem/1.75rem 'AT Aero';
+            }
+
+            .about-btn {
+                align-self: flex-end;
             }
         }
     }
@@ -669,7 +756,8 @@ const EventInfoSection = styled.section`
 const CountdownSection = styled.section`
     padding-block: 4rem 2rem;
     gap: 1.5rem;
-    border-top: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--color-neutral-secondary);
+    margin-bottom: -2rem;
 
     .countdown-text {
         display: flex;
@@ -731,7 +819,8 @@ const CountdownSection = styled.section`
     }
 
     @media (min-width:1100px) {
-        padding-block: 5rem 4rem;        
+        padding-block: 5rem 4rem; 
+        margin-bottom: 0;
 
         .countdown-clock {
             gap: 1rem;

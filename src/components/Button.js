@@ -9,7 +9,7 @@ const Button = styled.button`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 2.75rem;
+    height: 3rem;
     padding: var(--padding);
     gap: 0.5rem;
     border-radius: 0;
@@ -43,10 +43,6 @@ const Button = styled.button`
     &:focus-visible {
         outline: 2px solid var(--color-primary);
         outline-offset: 2px;
-    }
-
-    @media (min-width:560px) {
-        height: 3rem;
     }
 `
 
