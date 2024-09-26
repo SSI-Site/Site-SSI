@@ -274,7 +274,7 @@ const LogoTextSection = styled.section`
     justify-content: center;
     gap: 0.5rem;
     flex: 1 0 0;
-    border: 1px solid var(--color-neutral-secondary); /* Borda adicionada à logo */
+    border: 1px solid var(--color-neutral-secondary);
 
     img {
       width: 13.3rem; 
