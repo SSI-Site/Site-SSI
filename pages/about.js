@@ -15,6 +15,8 @@ import SecondaryButton from '../src/components/SecondaryButton';
 // assets
 import gifts from '../data/gifts';
 import LogoPrincipal from '../public/images/logos/logo_principal.svg';
+import LogoGif from '../public/images/logos/logo.gif';
+
 
 const About = () => {
 
@@ -28,11 +30,10 @@ const About = () => {
             <LogoTextSection>
                 <div className='logo-text'>
                     <div className='logo'>
-                        <img src={LogoPrincipal} alt="Logo SSI 2024" />
-                        <h3>Semana de Sistemas de Informação 2024</h3>
+                        <img src={LogoGif} alt="Gif SSI 2024" />
                     </div>
                     <div className='text'>
-                        <h3>O que é a SSI?</h3>
+                        <h3>Sobre o Evento</h3>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
                     </div>
                 </div>
@@ -254,93 +255,117 @@ const Loading = styled.figure`
 `
 
 const LogoTextSection = styled.section`
+  border-bottom: 1px solid var(--color-neutral-secondary);
 
-    .logo-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-block: 3.5rem;
-        margin-top: 3.75rem; /* match navbar height */
-        gap: 3rem;
+  .logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    img {
+      width: 13.3rem; 
+
+      @media(min-width: 1000px) {
+        width: 21.42rem; 
+      }
     }
 
-    .logo {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1.5rem;
+    h3 {
+      text-align: center;
+      font: 700 2rem/2.5rem 'AT Aero Bold';
 
-        img {
-            width: 13.3rem;
-        }
-        
-        h3 {
-            text-align: center;
-        }
+      @media(min-width: 1000px) {
+        text-align: left; 
+        font-size: 2.5rem; 
+      }
+    }
+  }
+
+  .text {
+    position: relative;
+    max-width: 37.5rem;
+    text-align: center; 
+    padding: 0px var(--Layout-Grid-Margin, 16px); 
+
+    h3 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+
+      @media(min-width: 1000px) {
+        font-size: 2.5rem; 
+      }
+    }
+
+    p {
+      font-family: 'AT Aero Bold';
+      font-weight: 700;
+      margin-bottom: 2rem;
+
+      @media(min-width: 1000px) {
+        font-size: 1.2rem; 
+      }
+    }
+
+    .arrow-container {
+      position: absolute;
+      bottom: -7rem;
+      right: 3rem;
+
+      @media(min-width: 1000px) {
+        width: 100%;
+        top: 150%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  @media(min-width: 560px) {
+    .logo-text {
+      padding: 48px 16px; 
+      gap: 24px;
     }
 
     .text {
-        position: relative;    
-    
-        h3 {
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-family: 'AT Aero Bold';
-            font-weight: 700;
-        }
-
-        .arrow-container {
-            position: absolute;
-            bottom: -7rem;
-            right: 3rem;
-        }
+      padding: 0px 32px; 
     }
 
-    @media (min-width:560px) {
-
-        .logo {
-            max-width: 33rem;
-        }
-        
-        .text {
-            max-width: 37.5rem;
-        }
+    .logo img {
+      width: 18rem; 
     }
 
-    @media (min-width:1000px) {
-
-        .logo-text {
-            margin-top: 0;
-            padding-block: 7.5rem 6.5rem;
-            flex-direction: row;
-            justify-content: space-around;
-            gap: 8rem;
-        }
-
-        .logo {
-            max-width: 31rem;
-            h3 {
-                font: 700 2rem/2.5rem 'AT Aero Bold';
-            }
-
-            img {
-                width: 21.42rem;
-            }
-        }
-
-        .arrow-container {
-            width: 100%;
-            top: 150%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        } 
+    h3 {
+      font-size: 2.2rem; 
     }
+  }
+
+  @media(min-width: 1000px) {
+    .logo-text {
+      display: flex;
+      flex-direction: row-reverse; 
+      width: 1328px;
+      padding: 72px 24px;
+      justify-content: center; 
+      align-items: center; 
+      gap: 40px;
+      flex-wrap: wrap;
+      border-right: 1px solid var(--color-neutral-secondary);
+      border-left: 1px solid var(--color-neutral-secondary);
+    }
+
+    .logo {
+      max-width: 31rem;
+    }
+
+    .text {
+      max-width: 37.5rem;
+      text-align: left;
+    }
+  }
 `
 
 const ActivitiesSection = styled.section`
