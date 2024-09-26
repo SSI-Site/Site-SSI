@@ -257,109 +257,84 @@ const Loading = styled.figure`
 const LogoTextSection = styled.section`
   border-bottom: 1px solid var(--color-neutral-secondary);
 
+  .logo-text {
+        display: flex;
+        height: 26.9rem;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
   .logo {
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 4.5rem 1rem;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    align-self: stretch;
+    justify-content: center;
+    gap: 0.5rem;
+    flex: 1 0 0;
+    border: 1px solid var(--color-neutral-secondary); /* Borda adicionada à logo */
 
     img {
       width: 13.3rem; 
-
-      @media(min-width: 1000px) {
-        width: 21.42rem; 
-      }
     }
 
     h3 {
       text-align: center;
-      font: 700 2rem/2.5rem 'AT Aero Bold';
-
-      @media(min-width: 1000px) {
-        text-align: left; 
-        font-size: 2.5rem;
-      }
     }
   }
 
   .text {
-    position: relative;
-    max-width: 37.5rem;
-    text-align: center;
-    padding: 0 var(--Layout-Grid-Margin, 1rem); 
+    display: flex;
+    padding: 0 1.5rem; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1 0 0;
 
     h3 {
       margin-bottom: 1rem;
       font-size: 2rem;
-
-      @media(min-width: 1000px) {
-        font-size: 2.5rem; 
-      }
     }
 
     p {
       font-family: 'AT Aero Bold';
       font-weight: 700;
-      margin-bottom: 2rem;
-
-      @media(min-width: 1000px) {
-        font-size: 1.2rem; 
-      }
     }
 
     .arrow-container {
       position: absolute;
       bottom: -7rem; 
-      right: 1.5rem; 
+      right: 3rem; 
 
-      @media(min-width: 1000px) {
-        width: 100%;
-        top: 150%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
+    @media (min-width:560px) {
 
-  @media(min-width: 560px) {
-    .logo-text {
-      padding: 3rem 1rem; 
-      gap: 1.5rem; 
+        .logo {
+            max-width: 33rem;
+        }
+        
+        .text {
+            max-width: 37.5rem;
+        }
     }
 
-    .text {
-      padding: 0 2rem; 
-    }
+    @media (min-width:1000px) {
 
-    .logo img {
-      width: 18rem; 
-    }
+        .logo-text {
+            margin-top: 0;
+            padding-block: 7.5rem 6.5rem;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+            gap: 8rem;
+        }
 
-    h3 {
-      font-size: 2.2rem; 
-    }
-  }
-
-  @media(min-width: 1000px) { 
-    .logo-text {
-      display: flex;
-      flex-direction: row-reverse; 
-      width: 83rem; 
-      padding: 4.5rem 1.5rem;
-      justify-content: center; 
-      align-items: center; 
-      gap: 2.5rem; 
-      flex-wrap: wrap;
-      border-right: 1px solid var(--color-neutral-secondary);
-      border-left: 1px solid var(--color-neutral-secondary);
-    }
-
-    .logo {
-      max-width: 31rem;
-    }
+        .logo {
+            max-width: 31rem;
+            h3 {
+                font: 700 2rem/2.5rem 'AT Aero Bold';
+            }
 
     .text {
       max-width: 37.5rem;
