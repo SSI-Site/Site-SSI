@@ -29,12 +29,12 @@ const About = () => {
 
             <LogoTextSection>
                 <div className='logo-text'>
-                    <div className='logo'>
-                        <img src={LogoGif} alt="Gif SSI 2024" />
-                    </div>
                     <div className='text'>
                         <h3>Sobre o Evento</h3>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
+                    </div>
+                    <div className='logo'>
+                        <img src={LogoGif} alt="Gif SSI 2024" />
                     </div>
                 </div>
             </LogoTextSection>
@@ -258,45 +258,21 @@ const LogoTextSection = styled.section`
   border-bottom: 1px solid var(--color-neutral-secondary);
 
   .logo-text {
-        display: flex;
-        height: 26.9rem;
-        align-items: center;
-        flex-direction: row-reverse;
-    }
-
-  .logo {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 4.5rem 1rem;
-    align-items: center;
-    align-self: stretch;
-    justify-content: center;
-    gap: 0.5rem;
-    flex: 1 0 0;
+    align-items: center; 
+    width: 100%;
+  }
+
+  .text, .logo {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
     border: 1px solid var(--color-neutral-secondary);
-
-    img {
-      width: 13.3rem; 
-    }
-
-    h3 {
-      text-align: center;
-    }
+    align-self: stretch;
   }
 
   .text {
-    display: flex;
-    padding: 0 1.5rem; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-    flex: 1 0 0;
-    align-self: stretch;
-    border: 1px solid var(--color-neutral-secondary);
-
-
     h3 {
       margin-bottom: 1rem;
       font-size: 2rem;
@@ -306,42 +282,49 @@ const LogoTextSection = styled.section`
       font-family: 'AT Aero Bold';
       font-weight: 700;
     }
+  }
 
-    .arrow-container {
-      position: absolute;
-      bottom: -7rem; 
-      right: 3rem; 
-
-    @media (min-width:560px) {
-
-        .logo {
-            max-width: 33rem;
-        }
-        
-        .text {
-            max-width: 37.5rem;
-        }
+  .logo {
+    align-items: center; 
+    justify-content: center;
+    img {
+      width: 18.5rem;
     }
 
-    @media (min-width:1000px) {
+    h3 {
+      text-align: center;
+    }
+  }
 
-        .logo-text {
-            margin-top: 0;
-            padding-block: 7.5rem 6.5rem;
-            flex-direction: column;
-            justify-content: space-around;
-            gap: 8rem;
-        }
+  .arrow-container {
+    position: absolute;
+    bottom: -7rem;
+    right: 3rem;
+  }
 
-        .logo {
-            max-width: 31rem;
-            h3 {
-                font: 700 2rem/2.5rem 'AT Aero Bold';
-            }
+  @media (min-width: 670px) {
+    .logo-text {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo, .text {
+      width: 50%;
+      padding: 4.5rem 1rem;
+    }
+
+    .logo {
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 20.5rem;
+      }
+    }
 
     .text {
-      max-width: 37.5rem;
-      text-align: left;
+      justify-content: center;
+      align-items: flex-start;
     }
   }
 `
