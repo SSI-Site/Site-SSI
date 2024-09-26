@@ -293,6 +293,9 @@ const LogoTextSection = styled.section`
     align-items: flex-start;
     gap: 1rem;
     flex: 1 0 0;
+    align-self: stretch;
+    border: 1px solid var(--color-neutral-secondary);
+
 
     h3 {
       margin-bottom: 1rem;
@@ -325,7 +328,7 @@ const LogoTextSection = styled.section`
         .logo-text {
             margin-top: 0;
             padding-block: 7.5rem 6.5rem;
-            flex-direction: row-reverse;
+            flex-direction: column;
             justify-content: space-around;
             gap: 8rem;
         }
