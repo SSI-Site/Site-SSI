@@ -1,46 +1,46 @@
 // assets
-import Sticker from '../public/images/gifts/sticker.png';
-import Bottom from '../public/images/gifts/bottom.png';
-import Keychain from '../public/images/gifts/keychain.png';
-import Pen from '../public/images/gifts/pen.png';
-import Holder from '../public/images/gifts/holder.png';
+import StickerComum from '../public/images/gifts/sticker-comum.png';
+import StickerMetalizado from '../public/images/gifts/sticker-metalizado.png';
+import ProtetorWebcam from '../public/images/gifts/protetor-webcam.png';
+import Caneta from '../public/images/gifts/caneta.png';
+import BlocoDeNotas from '../public/images/gifts/bloco-de-notas.png';
 import Copo from '../public/images/gifts/copo.png';
 
 const gifts = {
     1: {
         name: 'Sticker',
-        image: Sticker,
-        totalPres: 3,
-        presentialPres: 1
-    },
-    2: {
-        name: 'Bottom',
-        image: Bottom,
+        image: StickerComum,
         totalPres: 5,
         presentialPres: 3
     },
-    3: {
-        name: 'Chaveiro',
-        image: Keychain,
-        totalPres: 11,
+    2: {
+        name: 'Sticker Metalizado',
+        image: StickerMetalizado,
+        totalPres: 10,
         presentialPres: 6
+    },
+    3: {
+        name: 'Protetor de Webcam',
+        image: ProtetorWebcam,
+        totalPres: 15,
+        presentialPres: 9
     },
     4: {
         name: 'Caneta',
-        image: Pen,
-        totalPres: 15,
-        presentialPres: 7
+        image: Caneta,
+        totalPres: 20,
+        presentialPres: 12
     },
     5: {
-        name: 'Porta celular',
-        image: Holder,
-        totalPres: 22,
-        presentialPres: 13
+        name: 'Bloco de Notas',
+        image: BlocoDeNotas,
+        totalPres: 25,
+        presentialPres: 15
     },
     6: {
         name: 'Copo',
         image: Copo,
-        totalPres: 29,
+        totalPres: 30,
         presentialPres: 18
     }
 }
