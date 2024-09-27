@@ -80,8 +80,8 @@ const About = () => {
             <BaitSection>
                 <div className='bait-container'>
                     <BaitContent>
-                        <div className='bait-sample'>
-                            <div className='bait-image justify-left'>
+                        <div className='bait-sample justify-right'>
+                            <div className='bait-image'>
                                 <div className='image-container'>
                                     <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
                                 </div>
@@ -111,8 +111,40 @@ const About = () => {
                     </BaitContent>
                     <div className='card-divider'></div>
                     <BaitContent>
-                        <div className='bait-sample'>
-                            <div className='bait-image justify-left'>
+                        <div className='bait-sample justify-left'>
+                            <div className='bait-image'>
+                                <div className='image-container'>
+                                    <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
+                                </div>
+                            </div>
+                            <div className='bait-sample-description'>
+                                <div className='bait-sample-title'>
+                                    <h4>Workshops</h4>
+                                    <p>Que tal colocar em prática o que você aprende nas palestras?</p>
+                                </div>
+
+                                <div className='bait-sample-subtitles'>
+                                    <div className='bait-sample-subtitles-left'>
+                                        <h5>Parcerias</h5>
+                                        <p>
+                                            Durante a Semana de Sistemas de Informação, empresas parceiras oferecerão workshops interativos.
+                                        </p>
+                                    </div>
+                                    <div className='bait-sample-subtitles-right'>
+                                        <h5>Aprenda na prática</h5>
+                                        <p>
+                                            Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar
+                                            e dominar conceitos na prática!
+                                        </p>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </BaitContent>
+                    <div className='card-divider'></div>
+                    <BaitContent>
+                        <div className='bait-sample justify-right'>
+                            <div className='bait-image'>
                                 <div className='image-container'>
                                     <img src="/images/about/networking.jpg" alt="Foto Networking" className="responsive-image" />
                                 </div>
@@ -141,6 +173,41 @@ const About = () => {
                             </div>
                         </div>
                     </BaitContent>
+                    <div className='card-divider'></div>
+                    <BaitContent>
+                        <div className='bait-sample justify-left'>
+                                <div className='bait-image'>
+                                    <div className='image-container'>
+                                        <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
+                                </div>
+                            </div>
+                            <div className='bait-sample-description'>
+                                <div className='bait-sample-title'>
+                                    <h4>Prêmios</h4>
+                                    <p>Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift
+                                        cards e prêmios por presença.
+                                    </p>
+                                </div>
+
+                                <div className='bait-sample-subtitles'>
+                                    <div className='bait-sample-subtitle-left'>
+                                        <h5>Gift Cards <br className='desktop-only'/></h5>
+                                        <p>
+                                            Participe das palestras e concorra a gift cards de diversas lojas, como iFood, Playstation e outros... 
+                                            Mas se liga que alguns sorteios são apenas no presencial :)
+                                        </p>
+                                    </div>
+                                    <div className='bait-sample-subtitle-right'>
+                                        <h5>Brindes</h5>
+                                        <p>
+                                            Teremos distribuição de brindes exclusivos para os participantes da SSI 2024. Basta registrar as suas 
+                                            presenças e verificar a contagem no seu perfil.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </BaitContent>
                     <div className='card-divider'></div>
                 </div>
             </BaitSection>
@@ -442,10 +509,6 @@ const BaitContent = styled.div`
         border-right: var(--border);
         gap: 1.5rem;
         transition: background-color 0.2s;
-
-        &:active {
-            background-color: var(--color-primary-600);
-        }
         
         .bait-sample-description {
             max-width: 39.5rem;
@@ -473,7 +536,7 @@ const BaitContent = styled.div`
             }
         }
     }
-    
+
 
     .bait-image {
         display: flex;
@@ -511,14 +574,6 @@ const BaitContent = styled.div`
             width: 100%;
             padding: 6.75rem 1.5rem;
 
-            &:active {
-                background-color: initial; 
-            }
-
-            &:hover {
-                background-color: var(--color-primary-600)
-            }
-
             .bait-sample-description {
                 align-items: flex-start;
                 padding: 3rem 0;
@@ -537,6 +592,38 @@ const BaitContent = styled.div`
                 height: 27.5rem;
             }
         }
+
+    }
+
+    .justify-left{
+        @media (min-width:1021px) {
+            flex-direction: row;
+
+        }
+
+            &:active {
+                background-color: initial; 
+                
+            }
+            
+            &:hover,
+            &:focus-visible {
+                background-color: var(--color-neutral-50);
+                color: var(--color-neutral);
+            }
+            
+        }
+
+    .justify-right{
+
+        &:active {
+            background-color: initial; 
+        }
+
+            &:hover {
+            background-color: var(--color-primary-600);
+        }
+
     }
 `
 
