@@ -32,6 +32,13 @@ const About = () => {
                     <div className='text'>
                         <h3>Sobre o Evento</h3>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
+                        <div className='btn-wrapper'>
+                        <Link legacyBehavior href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
+                            <a target="_blank">
+                                <Button>Acessar regulamento</Button>
+                            </a>
+                        </Link>
+                </div>                    
                     </div>
                     <div className='logo'>
                         <img src={LogoGif} alt="Gif SSI 2024" />
@@ -260,7 +267,7 @@ const LogoTextSection = styled.section`
   .logo-text {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     width: 100%;
   }
 
@@ -270,6 +277,8 @@ const LogoTextSection = styled.section`
     padding: 1.5rem 1rem;
     border: 1px solid var(--color-neutral-secondary);
     align-self: stretch;
+    width: 100%; 
+    flex: 1 1 100%;
   }
 
   .text {
@@ -281,6 +290,20 @@ const LogoTextSection = styled.section`
     p {
       font-family: 'AT Aero Bold';
       font-weight: 700;
+    }
+
+    .btn-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      
+      a {
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+      }
     }
   }
 
@@ -312,6 +335,7 @@ const LogoTextSection = styled.section`
     .logo, .text {
       width: 50%;
       padding: 4.5rem 1rem;
+      flex: 1; 
     }
 
     .logo {
@@ -325,6 +349,14 @@ const LogoTextSection = styled.section`
     .text {
       justify-content: center;
       align-items: flex-start;
+
+      .btn-wrapper {
+        width: auto;
+        
+        a, button {
+          width: auto;
+        }
+      }
     }
   }
 `
