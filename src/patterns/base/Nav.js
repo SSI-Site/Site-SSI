@@ -106,10 +106,11 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            {/* <li> */}
-                                {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
-                                {/*  */}
-                            {/* </li> */}
+                            <li>
+                                <a href="https://ctf.intheshell.page/" target='_blank'>
+                                    CTF
+                                </a>
+                            </li>
 
                             {!disableAuth && user ? (
                                 <li className='profile-container'>
@@ -175,11 +176,11 @@ const Nav = () => {
                                 </Link>                                
                             </li>
 
-                            {/* <li onClick={() => setIsOpen(false)}> */}
-                                {/* <Link legacyBehavior href="https://ctfssi.intheshell.page/"> */}
-                                {/*<span target="_blank">CTF</span>{/* </Link> */}
-                                {/* <div></div> */}
-                            {/* </li> */}
+                            <li onClick={() => setIsOpen(false)}>
+                                <a href="https://ctf.intheshell.page/" target='_blank'>
+                                    CTF
+                                </a>
+                            </li>
                         </NavigationList>
                     </div>
 
