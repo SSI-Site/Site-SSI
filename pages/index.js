@@ -21,11 +21,11 @@ import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import schedule from '../data/schedule';
 
 const supporters = [
-    { name: 'Notion', image: '/images/partners/notion.svg', url: 'https://www.notion.so/pt' },
     { name: 'Alura', image: '/images/partners/alura.svg', url: 'https://www.alura.com.br/' },
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
     { name: 'EACH', image: '/images/partners/each.svg', url: 'https://www5.each.usp.br/' },
-    // { name: 'DASI', image: '/images/partners/dasi.svg', url: 'https://dasiusp.com/' },
+    // { name: 'DASI', image: '/images/partners/dasi.svg', url: 'https://instagram.com/dasiusp' },
+    // { name: 'PET-SI', image: '/images/partners/pet.svg', url: 'https://instagram.com/petsi' },
 // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
@@ -195,11 +195,9 @@ const Home = () => {
 
                         <h6>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</h6>
 
-                        <Link legacyBehavior href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform'>
-                            <a target="_blank">
-                                <Button>Inscrever-se</Button>
-                            </a>
-                        </Link>
+                        <a href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform' target="_blank">
+                            <Button>Inscrever-se</Button>
+                        </a>
                     </div>
 
                     <div className='coMembers'>
