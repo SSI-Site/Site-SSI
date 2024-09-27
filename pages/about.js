@@ -32,10 +32,10 @@ const About = () => {
                     <div className='text'>
                         <h3>Sobre o Evento</h3>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
-                        <div className='btn-wrapper'>
-                        <Link legacyBehavior href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
+                        <div className='btn-regulation'>
+                        <Link legacyBehavior href=''>
                             <a target="_blank">
-                                <Button>Acessar regulamento</Button>
+                                <Button>Conferir regulamento</Button>
                             </a>
                         </Link>
                 </div>                    
@@ -275,13 +275,16 @@ const LogoTextSection = styled.section`
     display: flex;
     flex-direction: column;
     padding: 1.5rem 1rem;
-    border: 1px solid var(--color-neutral-secondary);
     align-self: stretch;
     width: 100%; 
     flex: 1 1 100%;
   }
 
   .text {
+    gap: 1rem;
+    border: 1px solid var(--color-neutral-secondary);
+    border-top: none;
+
     h3 {
       margin-bottom: 1rem;
       font-size: 2rem;
@@ -292,10 +295,11 @@ const LogoTextSection = styled.section`
       font-weight: 700;
     }
 
-    .btn-wrapper {
-      width: 100%;
+    .btn-regulation {
       display: flex;
       justify-content: center;
+      height: 3rem;
+      align-items: center;
       
       a {
         width: 100%;
@@ -310,6 +314,9 @@ const LogoTextSection = styled.section`
   .logo {
     align-items: center; 
     justify-content: center;
+    border-left: 1px solid var(--color-neutral-secondary);
+    border-right: 1px solid var(--color-neutral-secondary);
+
     img {
       width: 18.5rem;
     }
@@ -341,6 +348,7 @@ const LogoTextSection = styled.section`
     .logo {
       align-items: center;
       justify-content: center;
+      border-left: none;
       img {
         width: 20.5rem;
       }
@@ -349,8 +357,9 @@ const LogoTextSection = styled.section`
     .text {
       justify-content: center;
       align-items: flex-start;
+      border-bottom: none;
 
-      .btn-wrapper {
+      .btn-regulation {
         width: auto;
         
         a, button {
