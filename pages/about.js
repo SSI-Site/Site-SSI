@@ -601,18 +601,21 @@ const BaitContent = styled.div`
 
         }
 
-            &:active {
-                background-color: initial; 
-                
-            }
-            
-            &:hover,
-            &:focus-visible {
-                background-color: var(--color-neutral-50);
-                color: var(--color-neutral);
-            }
+        &:active {
+            background-color: initial; 
             
         }
+        
+        &:hover {
+            background-color: var(--color-neutral-50);
+            
+        }
+            
+    }
+
+    .justify-left:hover *{
+        color: var(--color-neutral)
+    }
 
     .justify-right{
 
