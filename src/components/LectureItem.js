@@ -17,6 +17,11 @@ const LectureItem = ({ time, event }) => {
         <LectureWrapper>
             <LectureContent>
                 <LectureHeader>
+                    {event.sponsor &&
+                        <a href={event.sponsor.url} alt="" className='sponsor-logo'>
+                            <img src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`} />
+                        </a>
+                    }
                     <h3>{event.title}</h3>
 
                     {event.endTime ?
@@ -141,6 +146,27 @@ const LectureHeader = styled.header`
     display: flex;
     flex-direction: inherit;
     gap: inherit;
+
+    .sponsor-logo {
+        width: 12rem;
+        height: 3.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border: 2px solid transparent;
+        transition: all 0.2s ease-in-out;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &:hover {
+            border: 2px solid var(--color-primary);
+        }
+    }
 
     .badge-wrapper {
         display: flex;

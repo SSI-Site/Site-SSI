@@ -1,6 +1,7 @@
 // assets
 import Lecture00_NomeSobrenome from '../public/images/lecture_imgs/00-Member_Shadow.png'
 
+// speakers
 import Lecture01_WheslleyRimar from '../public/images/lecture_imgs/01-Wheslley_Rimar.png'
 import Lecture02_EvandroFigueiredo from '../public/images/lecture_imgs/02-Evandro_Figueiredo.png'
 // import Lecture03_NomeSobrenome from '../public/images/lecture_imgs/03-Nome_Sobrenome.png'
@@ -43,6 +44,10 @@ import Lecture36_LauraDamaceno from '../public/images/lecture_imgs/36-Laura_Dama
 // import Lecture37_NomeSobrenome from '../public/images/lecture_imgs/37-Nome_Sobrenome.png'
 // import Lecture38_NomeSobrenome from '../public/images/lecture_imgs/38-Nome_Sobrenome.png'
 
+// sponsors / entities logos
+// import HypeLogo from '../public/images/sponsors/hype.svg'
+import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
+
 const schedule = {
     // Modelo de como adicionar uma nova palestra
     // 'aaaa-mm-dd' : {
@@ -51,6 +56,11 @@ const schedule = {
     //         endTime : 'hh:mm',
     //     },
     //     'hh:mm' : {
+    //         sponsor: { // opcional
+    //             'name': 'Nome do patrocinador ou entidade',
+    //             'image': SponsorLogo,
+    //             'url': 'https://www.instagram.com/semanadesi',
+    //         },
     //         title : 'Título da palestra',
     //         description : 'Descrição da palestra',
     //         local : 'presential',// presential ou online
