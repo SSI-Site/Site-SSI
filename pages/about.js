@@ -30,7 +30,7 @@ const About = () => {
             <LogoTextSection>
                 <div className='logo-text'>
                     <div className='text'>
-                        <h3>Sobre o Evento</h3>
+                        <h1>Sobre o Evento</h1>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
                         <div className='btn-regulation'>
                         <Link legacyBehavior href=''>
@@ -291,7 +291,7 @@ const LogoTextSection = styled.section`
     }
 
     p {
-      font-family: 'AT Aero Bold';
+      font-family: 'AT Aero';
       font-weight: 700;
     }
 
