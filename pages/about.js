@@ -331,7 +331,7 @@ const LogoTextSection = styled.section`
             border-left: none;
             
             img {
-                width: 20.5rem;
+                height: 27.5rem;
             }
         }
 
@@ -475,10 +475,10 @@ const BaitContent = styled.div`
                 }
             }
         }
-    }
 
-    .justify-left {
-        flex-direction: row;
+        .justify-left {
+            flex-direction: row;
+        }
     }
 `
 

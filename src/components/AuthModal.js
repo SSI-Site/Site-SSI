@@ -100,7 +100,7 @@ const ModalOverlay = styled.div`
 
 const ModalWrapper = styled.div`
     max-width: 328px;
-    max-height: 404px;
+    height: 404px;
 `
 
 const StyledModal = styled.div`
