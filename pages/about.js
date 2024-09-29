@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import CountUp from 'react-countup';
 import styled from 'styled-components';
@@ -8,13 +7,12 @@ import Meta from '../src/infra/Meta';
 
 // components
 import Button from '../src/components/Button';
-import EventActivity from '../src/components/EventActivity';
 import GiftCard from '../src/components/GiftCard';
 import SecondaryButton from '../src/components/SecondaryButton';
 
 // assets
 import gifts from '../data/gifts';
-import LogoPrincipal from '../public/images/logos/logo_principal.svg';
+import LogoGif from '../public/images/logos/logo.gif';
 
 const About = () => {
 
@@ -27,55 +25,18 @@ const About = () => {
 
             <LogoTextSection>
                 <div className='logo-text'>
-                    <div className='logo'>
-                        <img src={LogoPrincipal} alt="Logo SSI 2024" />
-                        <h3>Semana de Sistemas de Informação 2024</h3>
-                    </div>
                     <div className='text'>
-                        <h3>O que é a SSI?</h3>
+                        <h1>Sobre o Evento</h1>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
+                        <a href='https://docs.google.com/document/d/1uXK5byNMtpUx6scQZpIG74vXD07yBT1b/edit?usp=sharing&ouid=109347348401977738085&rtpof=true&sd=true' target="_blank">
+                            <Button>Conferir regulamento</Button>
+                        </a>
+                    </div>
+                    <div className='logo'>
+                        <img src={LogoGif} alt="Gif SSI 2024" />
                     </div>
                 </div>
             </LogoTextSection>
-
-            <ActivitiesSection>
-                <div>
-                    <h3>O que teremos no evento?</h3>
-                    <div className='activities'>
-                        <EventActivity
-                            color='#4A46C5'
-                            image='./images/about/icon_palestras.svg'
-                            alt='Imagem Palestras'
-                            title='Palestras'
-                            description='Teremos diversas palestras incríveis ao longo da semana. Elas abordarão vários assuntos dentro do universo de tecnologia, empreendedorismo e mercado de trabalho com diversos especialistas da área!'
-                            showFront={true}
-                        />
-                        <EventActivity
-                            color='#FF7F5C'
-                            image='./images/about/icon_workshops.svg'
-                            alt='Imagem Workshops'
-                            title='Workshops'
-                            description='Este ano estamos trabalhando para oferecer a você workshops que ajudarão a conhecer, na prática, ferramentas importantes para iniciar sua carreira na área de tecnologia. Não deixe de participar!'
-                            showFront={false}
-                        />
-                        <EventActivity
-                            color='#8744C2'
-                            image='./images/about/icon_gifts.svg'
-                            alt='Imagem Prêmios'
-                            title='Prêmios'
-                            description='Ao longo de todo o evento haverá sorteios, valendo vouchers e muito mais! Além disso, você também poderá resgatar brindes segundo o número de palestras registradas, então não esqueça de marcar suas presença nas atividades do evento!'
-                            showFront={false}
-                        />
-                    </div>
-                    <div className='btn-wrapper'>
-                        <Link legacyBehavior href='https://docs.google.com/document/u/1/d/e/2PACX-1vRG50MuCxa-qLVhp-ZIzwg3eVIbRWYQLbl6p47v9IojlPSf8_EnAxDIkWpQnbF05A/pub'>
-                            <a target="_blank">
-                                <Button>Acessar regulamento</Button>
-                            </a>
-                        </Link>
-                    </div>
-                </div>
-            </ActivitiesSection>
 
             <BaitSection>
                 <div className='bait-container'>
@@ -241,151 +202,79 @@ const About = () => {
 export default About;
 
 
-const Loading = styled.figure`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 2rem;
-
-    img {
-        width: 25%;
-    }
-`
-
 const LogoTextSection = styled.section`
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .logo-text {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        padding-block: 3.5rem;
-        margin-top: 3.75rem; /* match navbar height */
-        gap: 3rem;
+        width: 100%;
     }
 
-    .logo {
-        width: 100%;
+    .text, .logo {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1.5rem;
-
-        img {
-            width: 13.3rem;
-        }
-        
-        h3 {
-            text-align: center;
-        }
+        padding: 1.5rem 1rem;
+        align-self: stretch;
+        width: 100%; 
+        flex: 1 1 100%;
     }
 
     .text {
-        position: relative;    
-    
-        h3 {
-            margin-bottom: 1rem;
-        }
+        gap: 1rem;
+        border: 1px solid var(--color-neutral-secondary);
+        border-top: none;
 
         p {
-            font-family: 'AT Aero Bold';
-            font-weight: 700;
-        }
-
-        .arrow-container {
-            position: absolute;
-            bottom: -7rem;
-            right: 3rem;
+            font-weight: 400;
         }
     }
 
-    @media (min-width:560px) {
-
-        .logo {
-            max-width: 33rem;
-        }
-        
-        .text {
-            max-width: 37.5rem;
-        }
-    }
-
-    @media (min-width:1000px) {
-
-        .logo-text {
-            margin-top: 0;
-            padding-block: 7.5rem 6.5rem;
-            flex-direction: row;
-            justify-content: space-around;
-            gap: 8rem;
-        }
-
-        .logo {
-            max-width: 31rem;
-            h3 {
-                font: 700 2rem/2.5rem 'AT Aero Bold';
-            }
-
-            img {
-                width: 21.42rem;
-            }
-        }
-
-        .arrow-container {
-            width: 100%;
-            top: 150%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        } 
-    }
-`
-
-const ActivitiesSection = styled.section`
-    padding-block: 3.5rem;
-
-    > div {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    h3 {
-        text-align: center;
-    }
-
-    .activities {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .logo {
+        align-items: center; 
         justify-content: center;
-        gap: 1rem;
-    }
+        border-left: 1px solid var(--color-neutral-secondary);
+        border-right: 1px solid var(--color-neutral-secondary);
 
-    .btn-wrapper {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        img {
+            height: 18.5rem;
+        }
     }
 
     @media (min-width:800px) {
-        padding-block: 6.75rem;
-
-        > div {
-            gap: 3.5rem;
-        }
-
-        h3 {
-            font: 700 3.5rem/4.25rem 'AT Aero Bold';
-        }
-
-        .activities {
+        .logo-text {
             flex-direction: row;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo, .text {
+            width: 50%;
+            padding: 4.5rem 1rem;
+            flex: 1; 
+        }
+
+        .logo {
+            align-items: center;
+            justify-content: center;
+            border-left: none;
+            
+            img {
+                width: 20.5rem;
+            }
+        }
+
+        .text {
+            height: calc(100vh - 8rem);
+            justify-content: center;
+            align-items: flex-start;
+            border-bottom: none;
+            padding: 0 1.5rem;
+
+            p {
+                font: 400 1rem/1.5rem 'AT Aero';
+            }
         }
     }
 `
