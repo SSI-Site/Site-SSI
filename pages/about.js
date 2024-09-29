@@ -88,19 +88,19 @@ const About = () => {
                             </div>
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
-                                    <h4>Palestras</h4>
+                                    <h5>Palestras</h5>
                                     <p>A Semana de Sistemas de Informação 2024 contará com diversas palestras da área da tecnologia.</p>
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
                                     <div>
-                                        <h5>Diversos <br className='desktop-only'/> temas</h5>
+                                        <h6>Diversos <br className='desktop-only'/>temas</h6>
                                         <p>
                                             Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
                                         </p>
                                     </div>
                                     <div>
-                                        <h5>Empresas de diferentes áreas</h5>
+                                        <h6>Empresas de diferentes áreas</h6>
                                         <p>
                                             Os nossos palestrantes fazem parte de empresas que estão presente em diferentes áreas de negócio do mercado de trabalho.
                                         </p>
@@ -109,29 +109,28 @@ const About = () => {
                             </div>
                         </div>
                     </BaitContent>
-                    <div className='card-divider'></div>
                     <BaitContent>
                         <div className='bait-sample justify-left'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
+                                    <img src="/images/about/workshops.jpg" alt="Foto Workshops" className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
-                                    <h4>Workshops</h4>
+                                    <h5>Workshops</h5>
                                     <p>Que tal colocar em prática o que você aprende nas palestras?</p>
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
                                     <div className='bait-sample-subtitles-left'>
-                                        <h5>Parcerias</h5>
+                                        <h6>Parcerias</h6>
                                         <p>
                                             Durante a Semana de Sistemas de Informação, empresas parceiras oferecerão workshops interativos.
                                         </p>
                                     </div>
                                     <div className='bait-sample-subtitles-right'>
-                                        <h5>Aprenda na prática</h5>
+                                        <h6>Aprenda na prática</h6>
                                         <p>
                                             Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar
                                             e dominar conceitos na prática!
@@ -141,7 +140,6 @@ const About = () => {
                             </div>
                         </div>
                     </BaitContent>
-                    <div className='card-divider'></div>
                     <BaitContent>
                         <div className='bait-sample justify-right'>
                             <div className='bait-image'>
@@ -152,19 +150,19 @@ const About = () => {
 
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
-                                    <h4>Networking</h4>
+                                    <h5>Networking</h5>
                                     <p>Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.</p>
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
                                     <div>
-                                        <h5>Alunos da EACH</h5>
+                                        <h6>Estudantes da <br className='desktop-only' />USP</h6>
                                         <p>
-                                            Tenhas contato com uma rede de pessoas interessadas nos diversos temas de TI. Não só os alunos de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
+                                            Tenha contato com uma rede de pessoas interessadas em diversos temas de TI. Não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
                                         </p>
                                     </div>
                                     <div>
-                                        <h5>Palestrantes experientes</h5>
+                                        <h6>Palestrantes experientes</h6>
                                         <p>
                                             Conecte-se com os palestrantes que possuem expertise em diversas áreas. Lembre-se de acioná-los no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
                                         </p>
@@ -173,17 +171,16 @@ const About = () => {
                             </div>
                         </div>
                     </BaitContent>
-                    <div className='card-divider'></div>
                     <BaitContent>
                         <div className='bait-sample justify-left'>
                                 <div className='bait-image'>
                                     <div className='image-container'>
-                                        <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
+                                        <img src="/images/about/premios.jpg" alt="Foto Prêmios" className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
-                                    <h4>Prêmios</h4>
+                                    <h5>Prêmios</h5>
                                     <p>Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift
                                         cards e prêmios por presença.
                                     </p>
@@ -191,14 +188,14 @@ const About = () => {
 
                                 <div className='bait-sample-subtitles'>
                                     <div className='bait-sample-subtitle-left'>
-                                        <h5>Gift Cards <br className='desktop-only'/></h5>
+                                        <h6>Gift Cards</h6>
                                         <p>
                                             Participe das palestras e concorra a gift cards de diversas lojas, como iFood, Playstation e outros... 
-                                            Mas se liga que alguns sorteios são apenas no presencial :)
+                                            Mas se liga que alguns sorteios são apenas para espectadores presenciais :)
                                         </p>
                                     </div>
                                     <div className='bait-sample-subtitle-right'>
-                                        <h5>Brindes</h5>
+                                        <h6>Brindes</h6>
                                         <p>
                                             Teremos distribuição de brindes exclusivos para os participantes da SSI 2024. Basta registrar as suas 
                                             presenças e verificar a contagem no seu perfil.
@@ -207,8 +204,7 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                </BaitContent>
-                    <div className='card-divider'></div>
+                    </BaitContent>
                 </div>
             </BaitSection>
 
@@ -467,26 +463,13 @@ const ActivitiesSection = styled.section`
 const BaitSection = styled.section`
     background-color: var(--color-neutral);
     padding-inline: 0;
-    border-top: 1px solid var(--color-neutral-secondary);
 
     .bait-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        .card-divider {
-            border-top: 1px solid var(--color-neutral-secondary);
-            width: 100%;
-        }
-    }
-
-    @media (min-width:1021px) {
-        .bait-container {
-            .card-divider {
-                width: calc(100vw - 17px);
-            }
-        }
+        max-width: none;
     }
 `
 
@@ -497,30 +480,32 @@ const BaitContent = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding-inline: 1rem;
+    border-bottom: var(--border);
 
     .bait-sample {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        width: 90%;
-        padding: 3rem 1rem 2rem 1rem;
+        width: 100%;
+        max-width: 1328px;
+        padding: 2rem 1rem;
         border-left: var(--border);
         border-right: var(--border);
-        gap: 1.5rem;
-        transition: background-color 0.2s;
+        gap: 2rem;
+        transition: background-color 0.2s ease-in-out;
         
         .bait-sample-description {
             max-width: 39.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 2rem;  
+            gap: 1.5rem;  
 
             p {
-                font-size: 1.1rem;
-                font-weight: 400;
-                padding-top: 0.5rem;
+                font: 400 1rem/1.5rem 'AT Aero';
+                margin-top: 0.5rem;
             }
 
             .bait-sample-subtitles {
@@ -528,7 +513,7 @@ const BaitContent = styled.div`
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 1.5rem;
+                gap: 1rem;
 
                 .desktop-only {
                     display: none;
@@ -537,20 +522,20 @@ const BaitContent = styled.div`
         }
     }
 
-    .justify-left{
+    .justify-left {
 
-        &:active {
-            background-color: var(--color-neutral-50); 
+        &:hover {
+            background-color: white; 
         }
 
-        &:active *{
+        &:hover * {
             color: var(--color-neutral); 
         }
     }
 
-    .justify-right{
-        &:active {
-            background-color: var(--color-primary-600); 
+    .justify-right {
+        &:hover {
+            background-color: var(--color-primary); 
         }
     }
 
@@ -559,13 +544,11 @@ const BaitContent = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
-        max-width: 38rem;
-        border: 2px solid var(--color-neutral-50);
-        max-height: 27.5rem;
-        min-height: 18rem;
-        background-color: var(--color-primary-700);
+        max-width: 39rem;
+        aspect-ratio: 185 / 140;
+        height: auto;
+        border: 2px solid white;
         position: relative;
-        overflow: hidden;
 
         .responsive-image, .image-container {
             position: absolute;
@@ -585,13 +568,13 @@ const BaitContent = styled.div`
         .bait-sample {
             flex-direction: row-reverse;
             justify-content: space-between;
-            gap: auto;
             width: 100%;
-            padding: 6.75rem 1.5rem;
+            padding: 4.5rem 1.5rem;
 
             .bait-sample-description {
                 align-items: flex-start;
                 padding: 3rem 0;
+                max-width: 38rem;
 
                 .bait-sample-subtitles {
                     flex-direction: row;
@@ -602,31 +585,11 @@ const BaitContent = styled.div`
                     }
                 }
             }
-
-            .bait-image {
-                height: 27.5rem;
-            }
         }
+    }
 
-        .justify-left {
-            flex-direction: row;
-
-            &:active {
-                background-color: initial; 
-            }
-
-            &:hover {
-                background-color: var(--color-neutral-50);   
-            }
-        }
-            
-        .justify-left:hover *{
-            color: var(--color-neutral);
-        }
-
-        .justify-right:hover {
-            background-color: var(--color-primary-600);
-        }
+    .justify-left {
+        flex-direction: row;
     }
 `
 
