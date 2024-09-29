@@ -259,10 +259,7 @@ const NavWrapper = styled.div`
     }
 
     @media (min-width:1300px) {
-        padding-block: 1rem;
         justify-content: center;
-        box-shadow: unset;
-        padding-inline: 6.75rem;
     }
 `
 
