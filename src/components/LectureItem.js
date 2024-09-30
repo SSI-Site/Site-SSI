@@ -154,7 +154,7 @@ const LectureHeader = styled.header`
         align-items: center;
         justify-content: center;
         background-color: white;
-        border: 2px solid transparent;
+        outline: 2px solid transparent;
         transition: all 0.2s ease-in-out;
 
         img {
@@ -164,7 +164,7 @@ const LectureHeader = styled.header`
         }
 
         &:hover {
-            border: 2px solid var(--color-primary);
+            outline: 2px solid var(--color-primary);
         }
     }
 

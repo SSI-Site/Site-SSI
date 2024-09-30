@@ -9,7 +9,7 @@ import SecondaryButton from './SecondaryButton';
 
 // assets
 import IconeFechar from '../../public/images/icons/close.svg';
-import LogoGif from '../../public/images/logos/logo.gif';
+import LogoCircular from '../../public/images/logos/logo_circular.png';
 
 const AuthModal = ({ onClose }) => {
 
@@ -54,7 +54,7 @@ const AuthModal = ({ onClose }) => {
                     <ModalBody>
                         <div></div>
                         <figure>
-                            <img className='logo' src={LogoGif} alt="Logo SSI 2024" />
+                            <img className='logo' src={LogoCircular} alt="Logo SSI 2024" />
                         </figure>
 
                         <p>Faça login para conseguir registrar suas presenças e garantir brindes!</p>
