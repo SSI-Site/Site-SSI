@@ -790,15 +790,15 @@ const schedule = {
             endTime : '18:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                {
-                    'name': 'Nome da palestrante',
-                    'pronouns': 'Ela/Dela',
-                    'role': 'Cargo',
-                    'description': 'Descrição do palestrante',
-                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                    // 'image': Lecture29_NomeSobrenome
-                },
+                // {
+                //     'name': 'Nome da palestrante',
+                //     'pronouns': 'Ela/Dela',
+                //     'role': 'Cargo',
+                //     'description': 'Descrição do palestrante',
+                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                //     'image': Lecture29_NomeSobrenome
+                // },
             ],
         },
         '18:00' : {
@@ -986,11 +986,11 @@ const schedule = {
                 {
                     'name': 'Sofia Ferreira Leopoldo',
                     'pronouns': 'Ela/Dela',
-                    'role': 'Cargo',
-                    'description': 'Descrição do palestrante',
-                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    // 'role': 'Notion Campus Leader',
+                    // 'description': 'Descrição do palestrante',
+                    'instagram': 'https://www.instagram.com/notionatusp/',// opcional
                     // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                    // 'image': Lecture37_SofiaFerreira
+                    'image': Lecture00_NomeSobrenome
                 },
             ],
         },
