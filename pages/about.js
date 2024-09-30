@@ -12,7 +12,7 @@ import SecondaryButton from '../src/components/SecondaryButton';
 
 // assets
 import gifts from '../data/gifts';
-import LogoGif from '../public/images/logos/logo.gif';
+import LogoCircular from '../public/images/logos/logo_circular.png';
 
 const About = () => {
 
@@ -33,7 +33,7 @@ const About = () => {
                         </a>
                     </div>
                     <div className='logo'>
-                        <img src={LogoGif} alt="Gif SSI 2024" />
+                        <img src={LogoCircular} alt="Gif SSI 2024" />
                     </div>
                 </div>
             </LogoTextSection>
