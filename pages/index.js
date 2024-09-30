@@ -195,7 +195,7 @@ const Home = () => {
 
                         <h6>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</h6>
 
-                        <a href='https://docs.google.com/forms/d/e/1FAIpQLSeMDHajFb9ETVZ-EogKAJPS7QA30n9BGLZDR1_NQII4FpLWDQ/viewform' target="_blank">
+                        <a href='https://forms.gle/EnTh6tMkMag4zXoj8' target="_blank">
                             <Button>Inscrever-se</Button>
                         </a>
                     </div>
