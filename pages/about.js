@@ -173,7 +173,7 @@ const About = () => {
                 <div className='gifts-container'>
                     <div className='gifts-title'>
                         <h3>Brindes exclusivos</h3>
-                        <h6>Não perca a oportunidade de ganhar brindes incríveis ao participar das nossas atividades e palestras!</h6>
+                        <h6>Não perca a oportunidade de ganhar <span>brindes incríveis</span> ao participar das nossas atividades e palestras!</h6>
                     </div>
                     <div className='gifts-cards'>
                         {Object.entries(gifts).map(([key, gift]) => {
@@ -287,7 +287,7 @@ const LogoTextSection = styled.section`
         flex-direction: column;
         padding: 1.5rem 1rem;
         align-self: stretch;
-        width: 100%; 
+        width: 100%;
         flex: 1 1 100%;
     }
 
@@ -329,6 +329,7 @@ const LogoTextSection = styled.section`
             align-items: center;
             justify-content: center;
             border-left: none;
+            padding: 0 1.5rem;
             
             img {
                 height: 27.5rem;
@@ -465,6 +466,10 @@ const BaitContent = styled.div`
                 padding: 3rem 0;
                 max-width: 38rem;
 
+                p {
+                    font: 400 1.125rem/1.75rem 'AT Aero';
+                }
+
                 .bait-sample-subtitles {
                     flex-direction: row;
                     align-items: flex-start;
@@ -507,6 +512,11 @@ const GiftsSection = styled.section`
 
             h6 {
                 text-align: center;
+            }
+
+            span {
+                font: inherit;
+                background-color: var(--color-primary-900);
             }
         }
 
