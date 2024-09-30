@@ -4,31 +4,32 @@ import Lecture00_NomeSobrenome from '../public/images/lecture_imgs/00-Member_Sha
 // speakers
 import Lecture01_WheslleyRimar from '../public/images/lecture_imgs/01-Wheslley_Rimar.png'
 import Lecture02_EvandroFigueiredo from '../public/images/lecture_imgs/02-Evandro_Figueiredo.png'
-// import Lecture03_NomeSobrenome from '../public/images/lecture_imgs/03-Nome_Sobrenome.png'
+import Lecture03_RodrigoDorneles from '../public/images/lecture_imgs/03-RodrigoDorneles.jpg'
 import Lecture04_VanessaPoskus from '../public/images/lecture_imgs/04-Vanessa_Poskus.png'
-// import Lecture05_NomeSobrenome from '../public/images/lecture_imgs/05-Nome_Sobrenome.png'
+import Lecture05_JulioFerreira from '../public/images/lecture_imgs/05-Julio_Ferreira.jpg'
 // import Lecture06_NomeSobrenome from '../public/images/lecture_imgs/06-Nome_Sobrenome.png'
 // import Lecture07_NomeSobrenome from '../public/images/lecture_imgs/07-Nome_Sobrenome.png'
-// import Lecture08_NomeSobrenome from '../public/images/lecture_imgs/08-Nome_Sobrenome.png'
+import Lecture08_PedroSemcovici from '../public/images/lecture_imgs/08-Pedro_Semcovici.jpg'
+import Lecture08_YagoPrimerano from '../public/images/lecture_imgs/08-Yago_Primerano.jpg'
 // import Lecture09_NomeSobrenome from '../public/images/lecture_imgs/09-Nome_Sobrenome.png'
 import Lecture10_JeffBrandao from '../public/images/lecture_imgs/10-Jeff_Brandao.jpeg'
 import Lecture10_KarolyneViebrantz from '../public/images/lecture_imgs/10-Karolyne_Viebrantz.png'
 import Lecture10_RodrigoMulinario from '../public/images/lecture_imgs/10-Rodrigo_Mulinario.jpeg'
 // import Lecture11_NomeSobrenome from '../public/images/lecture_imgs/11-Nome_Sobrenome.png'
-// import Lecture12_NomeSobrenome from '../public/images/lecture_imgs/12-Nome_Sobrenome.png'
-// import Lecture13_NomeSobrenome from '../public/images/lecture_imgs/13-Nome_Sobrenome.png'
+import Lecture12_AnaSampaio from '../public/images/lecture_imgs/12-Ana_Sampaio.jpeg'
+import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gigante.jpeg'
 // import Lecture14_NomeSobrenome from '../public/images/lecture_imgs/14-Nome_Sobrenome.png'
 import Lecture15_EmilioSimoni from '../public/images/lecture_imgs/15-Emilio_Simoni.png'
 // import Lecture16_NomeSobrenome from '../public/images/lecture_imgs/16-Nome_Sobrenome.png'
 import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptista.png'
 import Lecture18_LiaFuziy from '../public/images/lecture_imgs/18-Lia_Fuziy.jpg'
-// import Lecture19_NomeSobrenome from '../public/images/lecture_imgs/19-Nome_Sobrenome.png'
+import Lecture19_NycholasSzucko from '../public/images/lecture_imgs/19-Nycholas_Szucko.jpeg'
 import Lecture20_MayumiShingaki from '../public/images/lecture_imgs/20-Mayumi_Shingaki.png'
-import Lecture21_KarinaOliveira from '../public/images/lecture_imgs/21-Karina_Oliveira.jpeg'
-// import Lecture22_NomeSobrenome from '../public/images/lecture_imgs/22-Nome_Sobrenome.png'
+import Lecture21_KerllyBarbara from '../public/images/lecture_imgs/21-Kerlly_Barbara.jpg'
+import Lecture22_KarinaOliveira from '../public/images/lecture_imgs/22-Karina_Oliveira.jpeg'
 // import Lecture23_NomeSobrenome from '../public/images/lecture_imgs/23-Nome_Sobrenome.png'
-// import Lecture24_NomeSobrenome from '../public/images/lecture_imgs/24-Nome_Sobrenome.png'
-// import Lecture25_NomeSobrenome from '../public/images/lecture_imgs/25-Nome_Sobrenome.png'
+import Lecture24_BrenoNogueira from '../public/images/lecture_imgs/24-Breno_Nogueira.jpg'
+import Lecture25_JandirDeodato from '../public/images/lecture_imgs/25-Jandir_Deodato.jpg'
 import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovanne_Bertotti.jpeg'
 import Lecture26_FlaviaMartins from '../public/images/lecture_imgs/26-Flavia_Martins.jpeg'
 // import Lecture27_NomeSobrenome from '../public/images/lecture_imgs/27-Nome_Sobrenome.png'
@@ -37,16 +38,19 @@ import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Cr
 // import Lecture30_NomeSobrenome from '../public/images/lecture_imgs/30-Nome_Sobrenome.png'
 import Lecture31_DavidArty from '../public/images/lecture_imgs/31-David_Arty.png'
 import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexandre_Tavares.jpg'
-// import Lecture33_NomeSobrenome from '../public/images/lecture_imgs/33-Nome_Sobrenome.png'
+import Lecture33_Stephanto from '../public/images/lecture_imgs/33-Stephanto.jpg'
+import Lecture33_VitorCavalcante from '../public/images/lecture_imgs/33-Vitor_Cavalcante.jpg'
 import Lecture34_JoseCorreia from '../public/images/lecture_imgs/34-Jose_Correia.jpg'
 // import Lecture35_NomeSobrenome from '../public/images/lecture_imgs/35-Nome_Sobrenome.png'
 import Lecture36_LauraDamaceno from '../public/images/lecture_imgs/36-Laura_Damaceno.jpeg'
-// import Lecture37_NomeSobrenome from '../public/images/lecture_imgs/37-Nome_Sobrenome.png'
+// import Lecture37_SofiaFerreira from '../public/images/lecture_imgs/37-Nome_Sobrenome.png'
 // import Lecture38_NomeSobrenome from '../public/images/lecture_imgs/38-Nome_Sobrenome.png'
 
 // sponsors / entities logos
-// import HypeLogo from '../public/images/sponsors/hype.svg'
 import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
+import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
+import HypeLogo from '../public/images/sponsors/hype.svg'
+import CodeLabLogo from '../public/images/sponsors/code_lab.svg'
 
 const schedule = {
     // Modelo de como adicionar uma nova palestra
@@ -142,23 +146,29 @@ const schedule = {
             endTime : '14:40',
         },
         '14:40' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'Code Lab Leste',
+                'image': CodeLabLogo,
+                'url': 'https://www.instagram.com/uspcodelableste/',
+            },
+            title : 'Automatize suas tarefas na web com Javascript: Adicionando produtos no carrinho da LigaMagic',
+            description : 'Web Scrapping. Criação de crawlers com Javascript usando a biblioteca cheerio',
             local : 'presential',// presential ou online
             endTime : '15:40',
-            activityType : '',// se não for 'Workshop', deixar vazio
+            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture03_NomeSobrenome
-                // },
+                {
+                    'name': 'Rodrigo Dorneles',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Estudante',
+                    'description': 'Como todo clichê de pessoas desenvolvedoras, sou apaixonado por tecnologia! Sempre muito curioso e obcecado em aprender coisas novas, gosto muito de usar a tecnologia e criatividade pra resolver e informatizas tarefas cotidianas, principalmente, quando elas estão relacionadas a hobbies, como boardgames e o TCG Magic: the Gathering. Sou técnico em informática e atualmente estudante de Sistemas de Informação.',
+                    //'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/rodrigo-dorneles-8a42601b5/ ',// opcional
+                    'image': Lecture03_RodrigoDorneles
+                },
             ],
-        },
+        },    
+            
         '15:40' : {
             title : 'Intervalo',
             endTime : '16:00',
@@ -186,21 +196,26 @@ const schedule = {
             endTime : '17:20',
         },
         '17:20' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Empreendedorismo em Tech: como ter boas ideias do que construir',
+            description : 'Ideação, Criatividade, Validação, Empreendedorismo em tecnologia',
             local : 'presential',// presential ou online
             endTime : '18:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture05_NomeSobrenome
-                // },
+                {
+                    'name': 'Júlio Ferreira',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Head de CS',
+                    'description': 'Trabalhando hoje como líder do time de Costumer Success da primeira plataforma de demostrações interativas de software da América Latina, já passou pelo time comercial da SAP Latin América, diretoria de vendas da Sintese Jr e liderança de mercado da FEJESP. Empreendedor desde os 16 anos e fã de How I Met Your Mother',
+                    'instagram': 'https://www.instagram.com/julioferreiraf/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/julioferreiraf/',// opcional
+                    'image': Lecture05_JulioFerreira
+                },
             ],
         },
         '18:00' : {
@@ -250,21 +265,35 @@ const schedule = {
     },
     '2024-10-08' : {
         '09:40' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'Hype',
+                'image': HypeLogo,
+                'url': 'https://www.instagram.com/hype.usp/',
+            },
+            title : 'Como chegamos ao ChatGPT: A evolução do PLN ao longo dos anos',
+            description : 'A proposta da palestra é demonstrar a evolução dos sistemas de Processamento de Língua Natural (PLN) ao longo dos anos, destacando as tecnologias exploradas ao longo da história até a chegada dos sistemas de IA generativa e outros modelos de deep learning amplamente utilizados hoje, tal como o ChatGPT.',
             local : 'presential',// presential ou online
             endTime : '10:40',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture08_NomeSobrenome
-                // },
+                {
+                    'name': 'Pedro Semcovici',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Cientista de Dados e pesquisador na área de PLN',
+                    'description': 'Cientista de dados na IBM, atuando principalmente em projetos relacionados ao desenvolvimento de soluções de IA generativa para aulixar jornalistas. Além disso, é pesquisador na área de Processamento de Língua Natural e Análise de Redes Sociais.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/pedro-semcovici/',// opcional
+                    'image': Lecture08_PedroSemcovici
+                },
+                {
+                    'name': 'Yago Primerano',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Pesquisador no Centro de Inteligência Artificial da USP (C4AI)',
+                    'description': 'Sou pesquisador no Centro de Inteligência Artificial da USP, onde realizei uma pesquisa sobre Análise de Redes Sociais e outra sobre PLN. Sou Diretor Geral do Hype, um grupo da EACH dedicado a criar um ambiente de aprendizado de alta qualidade sobre temas relacionados a Dados e IA, além de promover a disseminação do conhecimento para a sociedade. Tenho grande interesse na área de liderança, o que me levou a ser bolsista no curso de Entrepreneurial Leadership durante um intercâmbio na Freie Universität Berlin, na Alemanha.',
+                    //'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/yago-primerano',// opcional
+                    'image': Lecture08_YagoPrimerano
+                },
             ],
         },
         '10:40' : {
@@ -356,21 +385,21 @@ const schedule = {
             endTime : '16:00',
         },
         '16:00' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Se você faz API você também é Front-End',
+            description : 'Nessa palestra vamos entender melhor o que são as APIs, ou melhor, Interfaces de Programação de Aplicativos, e também definir a diferença de back-end e front-end no contexto de web moderno',
             local : 'presential',// presential ou online
             endTime : '17:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture12_NomeSobrenome
-                // },
+                {
+                    'name': 'Ana Luiza Sampaio',
+                    'pronouns': 'Ela/Dela',
+                    'role': 'Engenheira de Software',
+                    'description': 'Engenheira do Software no Itaú Unibanco, Líder Técnica na Reprograma e Instrutora de Programação. Veio de uma transição de carreira de Obstetrícia para Desenvolvimento Back-End.',
+                    'instagram': 'https://www.instagram.com/analu.io/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/sampaioaanaluiza/',// opcional
+                    'image': Lecture12_AnaSampaio
+                },
             ],
         },
         '17:00' : {
@@ -378,21 +407,26 @@ const schedule = {
             endTime : '17:20',
         },
         '17:20' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Tecnologia para Todos: Acessibilidade Digital como Prioridade',
+            description : 'Será explorada a importância da acessibilidade na tecnologia, discutindo os desafios enfrentados por pessoas com diferentes tipos de deficiência ao utilizarem plataformas digitais. Também serão apresentadas soluções práticas, como design inclusivo e tecnologias assistivas, demonstrando como a acessibilidade melhora a experiência de todos os usuários. O objetivo é sensibilizar o público e promover a acessibilidade como uma prioridade essencial no desenvolvimento de produtos e serviços digitais',
             local : 'presential',// presential ou online
             endTime : '18:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture13_NomeSobrenome
-                // },
+                {
+                    'name': 'Felipe Gigante',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Desenvolvedor Fullstack e Pesquisador na Área de Acessibilidade',
+                    'description': 'Desenvolvedor Fullstack, iniciei minha trajetória no IFSP, onde desenvolvi projetos focados em tecnologias assistivas. Durante o ensino médio, realizei um projeto de extensão com bolsa, unindo tecnologia à alfabetização de pessoas surdas no português brasileiro como segunda língua. Desde então, continuo minhas pesquisas nessa área. No mercado de trabalho, tenho aprofundado minha compreensão das necessidades e desafios em acessibilidade digital.',
+                    'instagram': 'https://www.instagram.com/felipegigante',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/felip_gigant/',// opcional
+                    'image': Lecture13_FelipeGigante
+                },
             ],
         },
         '18:00' : {
@@ -508,21 +542,21 @@ const schedule = {
             endTime : '14:40',
         },
         '14:40' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Cenário atual de cibersegurança, desafios e oportunidades',
+            description : 'A palestra explora as demandas crescentes por profissionais de segurança digital, destacando os principais desafios do setor e as oportunidades de carreira. O foco está nas áreas de maior demanda, nas habilidades essenciais e nas estratégias para aproveitar as crescentes vagas no mercado de cibersegurança.',
             local : 'presential',// presential ou online
             endTime : '15:40',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture19_NomeSobrenome
-                // },
+                {
+                    'name': 'Nycholas Szucko',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Conselheiro',
+                    'description': 'Gerente de Vendas de Território experiente, com um histórico comprovado de atuação na indústria de segurança de redes e computadores. Habilidade em Armazenamento, Gestão de Relacionamento com o Cliente (CRM), Estratégia de Entrada no Mercado, Estratégia de Canais e Gestão de Serviços de TI. Profissional de vendas altamente qualificado, com especialização como Gerente de Canais, focado em Negócios/Comércio Geral pela Channels University.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/nszucko',// opcional
+                    'image': Lecture19_NycholasSzucko
+                },
             ],
         },
         '15:40' : {
@@ -552,10 +586,37 @@ const schedule = {
             endTime : '17:20',
         },
         '17:20' : {
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Análise de Redes Sociais Criminais: o desafio dos crimes digitais',
+            description : 'Análise de Redes Sociais como método de análise criminal para instrumentalizar nova abordagem no campo investigativo visando um combate mais efetivo ao crime organizado',
+            local : 'presential',// presential ou online
+            endTime : '18:00',
+            activityType : '',// se não for 'Workshop', deixar vazio
+            speakers : [
+                {
+                    'name': 'Kerlly Barbara Mariano',
+                    'pronouns': 'Ela/Dela',
+                    'role': 'Funcionária pública',
+                    'description': 'Kerlly Barbara Mariano dos Santos é funcionária pública há 11 anos e professora de cursos voltados à análise de dados. Graduanda em Engenharia da Computação pela UNIVESP, possui especialização em análise de dados e é aluna especial no mestrado em Sistemas de Informação na USP. Possui diversas qualificações em cibersegurança, crimes digitais, e investigação criminal. Eternamente uma curiosa e aprendiz do mundo.',
+                    'instagram': 'https://www.instagram.com/kerbms/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/kerlly-santos/',// opcional
+                    'image': Lecture21_KerllyBarbara
+                },
+            ],
+        },
+        '18:00' : {
+            title : 'Jantar',
+            endTime : '19:00',
+        },
+        '19:00' : {
             title : 'Ambiente de Tech para neurodivergentes e intersseccionalizados',
             description : 'Contar um pouco das minhas experiências de vida como uma mulher autista, superdotada, tdah, parda, lésbica no meio profissional e na construção de carreira em tecnologia. Falar sobre inclusão, práticas diárias, treinos em comunicação, desafios, rede de apoio, lutas e desenvolvimento.',
             local : 'presential',// presential ou online
-            endTime : '18:00',
+            endTime : '20:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
@@ -565,30 +626,8 @@ const schedule = {
                     'description': 'Com mais de uma década de experiência em tecnologia e formada em Engenharia de Computação, ofereço consultoria personalizada para ajudar você a alcançar seus objetivos de carreira.\n\n🌈 Mentoro mulheres na tecnologia, pessoas com deficiência e membros da comunidade LGBTQIA+, promovendo um ambiente de trabalho inclusivo e seguro.',
                     'instagram': 'https://www.instagram.com/karinaoliveira.tea/',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/karina-de-oliveira-0341b557/',// opcional
-                    'image': Lecture21_KarinaOliveira
+                    'image': Lecture22_KarinaOliveira
                 },
-            ],
-        },
-        '18:00' : {
-            title : 'Jantar',
-            endTime : '19:00',
-        },
-        '19:00' : {
-            title : 'Em breve...',
-            description : '',
-            local : 'presential',// presential ou online
-            endTime : '20:00',
-            activityType : '',// se não for 'Workshop', deixar vazio
-            speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture22_NomeSobrenome
-                // },
             ],
         },
         '20:00' : {
@@ -616,21 +655,26 @@ const schedule = {
     },
     '2024-10-10' : {
         '09:40' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'Hype',
+                'image': HypeLogo,
+                'url': 'https://www.instagram.com/hype.usp/',
+            },
+            title : 'O Bicho-Papão da IA - Porque (não) temer',
+            description : 'IA e suas influências culturais e no mercado de trabalho',
             local : 'presential',// presential ou online
             endTime : '10:40',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture24_NomeSobrenome
-                // },
+                {
+                    'name': 'Breno Nogueira',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Desenvolvedor de Automação de Dados e Analytics',
+                    'description': 'Sou técnico de informática pelo IFSP, e hoje sou aluno de Sistemas de Informações na EACH, participante do Hype no setor de conteúdos. Trabalho hoje na IBM Consulting como Desenvolvedor de Automação de Dados e Analytics.',
+                    'instagram': 'https://www.instagram.com/breno.nogs/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/breno-nogueira-90444a187',// opcional
+                    'image': Lecture24_BrenoNogueira
+                },
             ],
         },
         '10:40' : {
@@ -638,21 +682,21 @@ const schedule = {
             endTime : '11:00',
         },
         '11:00' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Dia a dia de um Desenvolvedor',
+            description : 'Como é o dia a dia de um Gerente na TOTVS, vai falar sobre linguagens especificas.',
             local : 'presential',// presential ou online
             endTime : '12:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture25_NomeSobrenome
-                // },
+                {
+                    'name': 'Jandir Deodato',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Gerente',
+                    'description': 'Uma pessoa comunicativa e generalista.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/jandir-deodato-9660b228/',// opcional
+                    'image': Lecture25_JandirDeodato
+                },
             ],
         },
         '12:00' : {
@@ -735,15 +779,20 @@ const schedule = {
             endTime : '17:20',
         },
         '17:20' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Engenharia de IA Aplicada',
+            description : 'A palestra irá abordar o que faz um engenheiro de IA aplicada, como funciona a recém criada carreira, conceitos básicos de IA generativa, quais as diferenças entre o cientista de dados e o engenheiro de IA aplicada e por fim, oportunidades no mercado.',
             local : 'presential',// presential ou online
             endTime : '18:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
+                //     'name': 'Nome da palestrante',
+                //     'pronouns': 'Ela/Dela',
                 //     'role': 'Cargo',
                 //     'description': 'Descrição do palestrante',
                 //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
@@ -821,21 +870,35 @@ const schedule = {
             endTime : '11:00',
         },
         '11:00' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'LangChain: IA para além da generativa',
+            description : 'Iremos tratar sobre o LangChain. Que é uma biblioteca que facilita a construção de aplicações de NLP utilizando LLMs através de workflows que agilizam integrações e simplificando diversos processos. Iremos abordar tanto o LangChain quanto esses termos necessários para o entendimento e mostrar que IA não é só chatgpt',
             local : 'presential',// presential ou online
             endTime : '12:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture33_NomeSobrenome
-                // },
+                {
+                    'name': 'Stephanto',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Arquiteto de Soluções',
+                    'description': 'Apaixonado por tecnologia desde criança, estudante de programação desde 2018, é formado em Técnico em Informática pela ETEC e cursando o 8º semestre de Sistemas de Informação na EACH. Trabalha como arquiteto de soluções em uma Startup de Inteligência artificial e é empreendedor nas horas vagas',
+                    'instagram': 'https://www.instagram.com/v.stephanto/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/vinicius-stephanto',// opcional
+                    'image': Lecture33_Stephanto
+                },
+                {
+                    'name': 'Vitor Cavalcante',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Estagiário em Desenvolvimento de Software',
+                    'description': 'Estudante de tecnologia desde 2018, sempre procurando novos desafios e problemas que possam ser resolvidos com tecnologia, formado em Técnico de informática pela ETEC, atualmente está no último ano da graduação, faz parte da Síntese Jr há 2 anos e meio. Trabalha em uma startup como desenvolvedor de software fullstack.',
+                    'instagram': 'https://www.instagram.com/v.cavalcante9?igsh=MXE0ZmZvMHM1ZWpzNA==',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/vitor-cavalcante-1b309020b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',// opcional
+                    'image': Lecture33_VitorCavalcante
+                },
             ],
         },
         '12:00' : {
@@ -909,21 +972,26 @@ const schedule = {
             endTime : '17:20',
         },
         '17:20' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Notion Sites - fazendo o seu portfolio',
+            description : 'Utilização da ferramenta de sites do Notion para criar um portfolio',
             local : 'presential',// presential ou online
             endTime : '18:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture37_NomeSobrenome
-                // },
+                {
+                    'name': 'Sofia Ferreira Leopoldo',
+                    'pronouns': 'Ela/Dela',
+                    // 'role': 'Notion Campus Leader',
+                    // 'description': 'Descrição do palestrante',
+                    'instagram': 'https://www.instagram.com/notionatusp/',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture00_NomeSobrenome
+                },
             ],
         },
         '18:00' : {
