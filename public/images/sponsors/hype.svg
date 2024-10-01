@@ -1,13 +1,13 @@
 <svg width="192" height="52" viewBox="0 0 192 52" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<mask id="mask0_3212_1628" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="50" y="8" width="92" height="37">
-<path d="M50.2344 8.70117H142V44.0252H50.2344V8.70117Z" fill="white"/>
+<mask id="mask0_3212_1628" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="50" y="8" width="92" height="36">
+<path d="M50.2344 8H142V43.324H50.2344V8Z" fill="white"/>
 </mask>
 <g mask="url(#mask0_3212_1628)">
-<mask id="mask1_3212_1628" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="50" y="8" width="93" height="37">
-<rect x="50.2334" y="8.70117" width="91.7695" height="35.324" fill="url(#pattern0_3212_1628)"/>
+<mask id="mask1_3212_1628" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="50" y="8" width="93" height="36">
+<rect x="50.2334" y="8" width="91.7695" height="35.324" fill="url(#pattern0_3212_1628)"/>
 </mask>
 <g mask="url(#mask1_3212_1628)">
-<rect x="50.2334" y="8.70117" width="91.7695" height="35.324" fill="url(#pattern1_3212_1628)"/>
+<rect x="50.2334" y="8" width="91.7695" height="35.324" fill="url(#pattern1_3212_1628)"/>
 </g>
 </g>
 <defs>
