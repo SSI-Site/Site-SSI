@@ -74,7 +74,7 @@ const members = [
 		phrase: 'Oi, tudo bem?',
 	},
 	{
-		name: 'Daniel Countinho',
+		name: 'Daniel Coutinho',
 		image: '/images/co_members/DanielCoutinho.jpg',
 		departments: ['Diretoria', 'Palestrantes', 'Parcerias'],
 		phrase: 'Eu pensava que nós seguíamos caminhos já feitos, mas parece que não os há. O nosso ir faz o caminho.'
