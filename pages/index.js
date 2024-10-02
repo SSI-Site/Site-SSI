@@ -22,6 +22,7 @@ import schedule from '../data/schedule';
 const supporters = [
     { name: 'Alura', image: '/images/partners/alura.svg', url: 'https://www.alura.com.br/' },
     { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
+    { name: 'Kluber', image: '/images/partners/kluber.png', url: 'https://www.klueber.com/br/pt/' },
     { name: 'EACH', image: '/images/partners/each.svg', url: 'https://www5.each.usp.br/' },
     { name: 'DASI', image: '/images/partners/dasi.png', url: 'https://instagram.com/dasiusp' },
     { name: 'PET-SI', image: '/images/partners/pet.png', url: 'https://instagram.com/petsi' },
