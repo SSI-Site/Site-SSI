@@ -4,20 +4,21 @@ import Lecture00_NomeSobrenome from '../public/images/lecture_imgs/00-Member_Sha
 // speakers
 import Lecture01_WheslleyRimar from '../public/images/lecture_imgs/01-Wheslley_Rimar.png'
 import Lecture02_EvandroFigueiredo from '../public/images/lecture_imgs/02-Evandro_Figueiredo.png'
-import Lecture03_RodrigoDorneles from '../public/images/lecture_imgs/03-RodrigoDorneles.jpg'
+import Lecture03_RodrigoDorneles from '../public/images/lecture_imgs/03-Rodrigo_Dorneles.jpg'
 import Lecture04_VanessaPoskus from '../public/images/lecture_imgs/04-Vanessa_Poskus.png'
 import Lecture05_JulioFerreira from '../public/images/lecture_imgs/05-Julio_Ferreira.jpg'
-// import Lecture06_NomeSobrenome from '../public/images/lecture_imgs/06-Nome_Sobrenome.png'
-// import Lecture07_NomeSobrenome from '../public/images/lecture_imgs/07-Nome_Sobrenome.png'
+import Lecture06_LeonardoSartorello from '../public/images/lecture_imgs/06-Leonardo_Sartorello.jpg'
+import Lecture07_PedroCaraca from '../public/images/lecture_imgs/07-Pedro_Caraca.png'
 import Lecture08_PedroSemcovici from '../public/images/lecture_imgs/08-Pedro_Semcovici.jpg'
 import Lecture08_YagoPrimerano from '../public/images/lecture_imgs/08-Yago_Primerano.jpg'
-// import Lecture09_NomeSobrenome from '../public/images/lecture_imgs/09-Nome_Sobrenome.png'
+// import Lecture09_BrunoColisse from '../public/images/lecture_imgs/09-Nome_Sobrenome.png'
+import Lecture09_MateusBrandao from '../public/images/lecture_imgs/09-Mateus_Brandao.png'
 import Lecture10_JeffBrandao from '../public/images/lecture_imgs/10-Jeff_Brandao.jpeg'
 import Lecture10_KarolyneViebrantz from '../public/images/lecture_imgs/10-Karolyne_Viebrantz.png'
 import Lecture10_RodrigoMulinario from '../public/images/lecture_imgs/10-Rodrigo_Mulinario.jpeg'
-// import Lecture11_NomeSobrenome from '../public/images/lecture_imgs/11-Nome_Sobrenome.png'
-import Lecture12_AnaSampaio from '../public/images/lecture_imgs/12-Ana_Sampaio.jpeg'
-import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gigante.jpeg'
+import Lecture11_LuliRadfahrer from '../public/images/lecture_imgs/11-Luli_Radfahrer.jpg'
+import Lecture12_AnaSampaio from '../public/images/lecture_imgs/12-Ana_Sampaio.png'
+import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gigante.png'
 // import Lecture14_NomeSobrenome from '../public/images/lecture_imgs/14-Nome_Sobrenome.png'
 import Lecture15_EmilioSimoni from '../public/images/lecture_imgs/15-Emilio_Simoni.png'
 // import Lecture16_NomeSobrenome from '../public/images/lecture_imgs/16-Nome_Sobrenome.png'
@@ -28,17 +29,18 @@ import Lecture20_MayumiShingaki from '../public/images/lecture_imgs/20-Mayumi_Sh
 import Lecture21_KerllyBarbara from '../public/images/lecture_imgs/21-Kerlly_Barbara.jpg'
 import Lecture22_KarinaOliveira from '../public/images/lecture_imgs/22-Karina_Oliveira.jpeg'
 // import Lecture23_NomeSobrenome from '../public/images/lecture_imgs/23-Nome_Sobrenome.png'
+import Lecture23_WellingtonSilva from '../public/images/lecture_imgs/23-Wellington_Silva.jpg'
 import Lecture24_BrenoNogueira from '../public/images/lecture_imgs/24-Breno_Nogueira.jpg'
 import Lecture25_JandirDeodato from '../public/images/lecture_imgs/25-Jandir_Deodato.jpg'
-import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovanne_Bertotti.jpeg'
 import Lecture26_FlaviaMartins from '../public/images/lecture_imgs/26-Flavia_Martins.jpeg'
+import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovanne_Bertotti.jpeg'
 // import Lecture27_NomeSobrenome from '../public/images/lecture_imgs/27-Nome_Sobrenome.png'
 import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Craveiro.png'
-// import Lecture29_NomeSobrenome from '../public/images/lecture_imgs/29-Nome_Sobrenome.png'
+import Lecture29_AluisioAmorim from '../public/images/lecture_imgs/29-Aluisio_Amorim.png'
 // import Lecture30_NomeSobrenome from '../public/images/lecture_imgs/30-Nome_Sobrenome.png'
 import Lecture31_DavidArty from '../public/images/lecture_imgs/31-David_Arty.png'
 import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexandre_Tavares.jpg'
-import Lecture33_Stephanto from '../public/images/lecture_imgs/33-Stephanto.jpg'
+import Lecture33_ViniciusStephanto from '../public/images/lecture_imgs/33-Vinicius_Stephanto.jpg'
 import Lecture33_VitorCavalcante from '../public/images/lecture_imgs/33-Vitor_Cavalcante.jpg'
 import Lecture34_JoseCorreia from '../public/images/lecture_imgs/34-Jose_Correia.jpg'
 // import Lecture35_NomeSobrenome from '../public/images/lecture_imgs/35-Nome_Sobrenome.png'
@@ -47,10 +49,12 @@ import Lecture36_LauraDamaceno from '../public/images/lecture_imgs/36-Laura_Dama
 // import Lecture38_NomeSobrenome from '../public/images/lecture_imgs/38-Nome_Sobrenome.png'
 
 // sponsors / entities logos
-import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
-import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
-import HypeLogo from '../public/images/sponsors/hype.svg'
+// import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
+import AluraLogo from '../public/images/sponsors/alura.svg'
 import CodeLabLogo from '../public/images/sponsors/code_lab.svg'
+import HypeLogo from '../public/images/sponsors/hype.svg'
+import KluberLogo from '../public/images/sponsors/kluber.png'
+import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
 
 const schedule = {
     // Modelo de como adicionar uma nova palestra
@@ -223,21 +227,26 @@ const schedule = {
             endTime : '19:00',
         },
         '19:00' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'Alura',
+                'image': AluraLogo,
+                'url': 'https://www.alura.com.br/',
+            },
+            title : 'Usando o Cloud',
+            description : 'O Cloud esta cada vez mais presente no dia a dia, mas quando devemos utiliza-lo e quais as suas principais vantagens e desvantagens.',
             local : 'presential',// presential ou online
             endTime : '20:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture06_NomeSobrenome
-                // },
+                {
+                    'name': 'Leonardo Sartorello',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Instrutor de DevOps',
+                    'description': 'Leonardo é desenvolvedor e instrutor na Alura com foco principal em DevOps e Cloud, com experiência em virtualização, conteinerização, infraestrutura como código e IoT.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/leonardomsartorello/',// opcional
+                    'image': Lecture06_LeonardoSartorello
+                },
             ],
         },
         '20:00' : {
@@ -245,21 +254,21 @@ const schedule = {
             endTime : '20:20',
         },
         '20:20' : {
-            title : 'Em breve...',
-            description : '',
-            local : 'presential',// presential ou online
+            title : 'Do Concept ao 3D',
+            description : 'Demonstração do processo de producao de um personagem/asset para games, reconhecendo o concept, criando a base high poly, retopo e textura.',
+            local : 'online',// presential ou online
             endTime : '21:20',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture07_NomeSobrenome
-                // },
+                {
+                    'name': 'Pedro Caraca',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Modelador 3D e professor',
+                    'description': 'Formado em Design Grafico e Pos graduado em artes para Jogos. De 2004 a 2013 teve uma carreira como Ilustrador e professor de desenho e quadrinhos na escola Folium, Entre 2013 e 2018 foi professor e cordenador de curso na escola SAGA, de 2020 Em diante ja trabalhou em estudio como Void, Afterverse, Abacus e TGS na area de modelagem 3D generalista.',
+                    'instagram': 'https://www.instagram.com/pedro_caraca/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/pedro-caraca/',// opcional
+                    'image': Lecture07_PedroCaraca
+                },
             ],
         },
     },
@@ -301,21 +310,35 @@ const schedule = {
             endTime : '11:00',
         },
         '11:00' : {
+            sponsor: { // opcional
+                'name': 'Kluber Lubrication',
+                'image': KluberLogo,
+                // 'url': 'https://www.instagram.com/semanadesi',
+            },
             title : 'Em breve...',
-            description : '',
+            // description : 'Descrição da palestra',
             local : 'presential',// presential ou online
             endTime : '12:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture09_NomeSobrenome
-                // },
+                {
+                    'name': 'Bruno Colisse',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Especialista em Digitalização',
+                    // 'description': 'Descrição do palestrante',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture00_NomeSobrenome
+                },
+                {
+                    'name': 'Mateus Brandão',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Especialista em Inovação e Novos Negócios',
+                    'description': 'Engenheiro de Materiais com experiência em multinacionais do setor petroquímico na área de Inovação e Comercial, em empresa de grande porte do setor de Logística Marítima especificamente na área de Inovação e em Consultoria Corporativa, com foco no desenvolvimento de projetos de Inovação sob demanda.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/mateus-brand%C3%A3o-lula-912300135/',// opcional
+                    'image': Lecture09_MateusBrandao
+                },
             ],
         },
         '12:00' : {
@@ -363,21 +386,21 @@ const schedule = {
             endTime : '14:40',
         },
         '14:40' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Introdução a UX',
+            description : 'Nesta palestra, abordaremos os conceitos fundamentais de UX (User Experience), explorando como o design centrado no usuário impacta a criação de produtos e serviços digitais. Vamos discutir a importância de entender as necessidades e comportamentos dos usuários, bem como as melhores práticas para criar experiências intuitivas e eficientes. Ideal para quem deseja conhecer os princípios de UX e aplicá-los em seus projetos.',
             local : 'presential',// presential ou online
             endTime : '15:40',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture11_NomeSobrenome
-                // },
+                {
+                    'name': 'Luli Radfahrer',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Professor',
+                    'description': 'Luli Radfahrer é professor associado da ECA USP há 31 anos. Trabalha com internet desde 1994 e já foi diretor de algumas das maiores agências de publicidade do país. Hoje é diretor do laboratório de pesquisa acadêmica IDEIA - Interfaces Digitais, Experiências e Inteligências Artificiais e consultor independente em Inovação e Transformação Digital. Escreve a coluna “Datacracia” para a Rádio USP, em que discute e analisa as principais tendências da tecnologia e suas influências na sociedade.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/radfahrer/',// opcional
+                    'image': Lecture11_LuliRadfahrer
+                },
             ],
         },
         '15:40' : {
@@ -635,21 +658,21 @@ const schedule = {
             endTime : '20:20',
         },
         '20:20' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Digital Experience: como a tecnologia gera melhores jornadas para os clientes',
+            description : 'Nesta palestra, vamos explorar como a tecnologia tem transformado a forma como as empresas criam experiências digitais inovadoras e envolventes para seus clientes. Abordaremos o impacto de ferramentas digitais, dados e automação na jornada do consumidor, destacando estratégias que melhoram a interação, personalizam o atendimento e aumentam a satisfação do cliente no ambiente digital.',
             local : 'presential',// presential ou online
             endTime : '21:20',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture23_NomeSobrenome
-                // },
+                {
+                    'name': 'Wellington Silva',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Diretor de Tecnologia',
+                    'description': 'Wellington José, mestre em empreendedorismo pela FEA-USP, é Diretor de Tecnologia na Riachuelo e Top Voice LinkedIn 2024. Professor de pós-graduação na FIAP, ensina CX, Produtos Digitais e Varejo Omnicanal. Ex-CTO da AMARO, tem vasta experiência em times digitais na Nextel, Mutant e Portugal Telecom. Analista de Sistemas, foca em entregas digitais relevantes e eficiência organizacional. Desenvolve trilhas de bootcamp para capacitar profissionais com tecnologia.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/welljose/',// opcional
+                    'image': Lecture23_WellingtonSilva
+                },
             ],
         },
     },
@@ -739,7 +762,7 @@ const schedule = {
             description : '',
             local : 'presential',// presential ou online
             endTime : '15:40',
-            activityType : '',// se não for 'Workshop', deixar vazio
+            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
                 // {
                 //     'name': 'Nome do palestrante',
@@ -784,21 +807,21 @@ const schedule = {
                 'image': SSITalksLogo,
                 'url': 'https://www.instagram.com/semanadesi',
             },
-            title : 'Engenharia de IA Aplicada',
+            title : 'Engenharia de IA Aplicada: A Profissão do Futuro',
             description : 'A palestra irá abordar o que faz um engenheiro de IA aplicada, como funciona a recém criada carreira, conceitos básicos de IA generativa, quais as diferenças entre o cientista de dados e o engenheiro de IA aplicada e por fim, oportunidades no mercado.',
             local : 'presential',// presential ou online
             endTime : '18:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome da palestrante',
-                //     'pronouns': 'Ela/Dela',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture29_NomeSobrenome
-                // },
+                {
+                    'name': 'Aluísio Amorim',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Engenheiro de IA Aplicada',
+                    'description': 'Aluisio é um engenheiro de software full-stack pleno, que tem se especializado em inteligência artificial generativa aplicada a produto',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/aluisio-amorim-b19a701ba/',// opcional
+                    'image': Lecture29_AluisioAmorim
+                },
             ],
         },
         '18:00' : {
@@ -888,7 +911,7 @@ const schedule = {
                     'description': 'Apaixonado por tecnologia desde criança, estudante de programação desde 2018, é formado em Técnico em Informática pela ETEC e cursando o 8º semestre de Sistemas de Informação na EACH. Trabalha como arquiteto de soluções em uma Startup de Inteligência artificial e é empreendedor nas horas vagas',
                     'instagram': 'https://www.instagram.com/v.stephanto/',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/vinicius-stephanto',// opcional
-                    'image': Lecture33_Stephanto
+                    'image': Lecture33_ViniciusStephanto
                 },
                 {
                     'name': 'Vitor Cavalcante',
@@ -984,7 +1007,7 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Sofia Ferreira Leopoldo',
+                    'name': 'Sofia Ferreira',
                     'pronouns': 'Ela/Dela',
                     // 'role': 'Notion Campus Leader',
                     // 'description': 'Descrição do palestrante',
