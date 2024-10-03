@@ -8,14 +8,15 @@ import Lecture03_RodrigoDorneles from '../public/images/lecture_imgs/03-RodrigoD
 import Lecture04_VanessaPoskus from '../public/images/lecture_imgs/04-Vanessa_Poskus.png'
 import Lecture05_JulioFerreira from '../public/images/lecture_imgs/05-Julio_Ferreira.jpg'
 // import Lecture06_NomeSobrenome from '../public/images/lecture_imgs/06-Nome_Sobrenome.png'
-// import Lecture07_NomeSobrenome from '../public/images/lecture_imgs/07-Nome_Sobrenome.png'
+import Lecture07_PedroCaraca from '../public/images/lecture_imgs/07-Pedro_Caraca.jpg'
 import Lecture08_PedroSemcovici from '../public/images/lecture_imgs/08-Pedro_Semcovici.jpg'
 import Lecture08_YagoPrimerano from '../public/images/lecture_imgs/08-Yago_Primerano.jpg'
-// import Lecture09_NomeSobrenome from '../public/images/lecture_imgs/09-Nome_Sobrenome.png'
+// import Lecture09_BrunoColisse from '../public/images/lecture_imgs/09-Nome_Sobrenome.png'
+import Lecture09_MateusBrandao from '../public/images/lecture_imgs/09-Mateus_Brandao.png'
 import Lecture10_JeffBrandao from '../public/images/lecture_imgs/10-Jeff_Brandao.jpeg'
 import Lecture10_KarolyneViebrantz from '../public/images/lecture_imgs/10-Karolyne_Viebrantz.png'
 import Lecture10_RodrigoMulinario from '../public/images/lecture_imgs/10-Rodrigo_Mulinario.jpeg'
-// import Lecture11_NomeSobrenome from '../public/images/lecture_imgs/11-Nome_Sobrenome.png'
+import Lecture11_LuliRadfahrer from '../public/images/lecture_imgs/11-Luli_Radfahrer.jpg'
 import Lecture12_AnaSampaio from '../public/images/lecture_imgs/12-Ana_Sampaio.jpeg'
 import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gigante.jpeg'
 // import Lecture14_NomeSobrenome from '../public/images/lecture_imgs/14-Nome_Sobrenome.png'
@@ -34,7 +35,7 @@ import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovann
 import Lecture26_FlaviaMartins from '../public/images/lecture_imgs/26-Flavia_Martins.jpeg'
 // import Lecture27_NomeSobrenome from '../public/images/lecture_imgs/27-Nome_Sobrenome.png'
 import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Craveiro.png'
-// import Lecture29_NomeSobrenome from '../public/images/lecture_imgs/29-Nome_Sobrenome.png'
+import Lecture29_AluisioAmorim from '../public/images/lecture_imgs/29-Aluisio_Amorim.jpg'
 // import Lecture30_NomeSobrenome from '../public/images/lecture_imgs/30-Nome_Sobrenome.png'
 import Lecture31_DavidArty from '../public/images/lecture_imgs/31-David_Arty.png'
 import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexandre_Tavares.jpg'
@@ -51,6 +52,7 @@ import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
 import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
 import HypeLogo from '../public/images/sponsors/hype.svg'
 import CodeLabLogo from '../public/images/sponsors/code_lab.svg'
+import KluberLogo from '../public/images/sponsors/kluber.png'
 
 const schedule = {
     // Modelo de como adicionar uma nova palestra
@@ -245,21 +247,21 @@ const schedule = {
             endTime : '20:20',
         },
         '20:20' : {
-            title : 'Em breve...',
-            description : '',
-            local : 'presential',// presential ou online
+            title : 'Do Concept ao 3D',
+            description : 'Demonstração do processo de producao de um personagem/asset para games, reconhecendo o concept, criando a base high poly, retopo e textura.',
+            local : 'online',// presential ou online
             endTime : '21:20',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture07_NomeSobrenome
-                // },
+                {
+                    'name': 'Pedro Caraca',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Modelador 3D e professor',
+                    'description': 'Formado em Design Grafico e Pos graduado em artes para Jogos. De 2004 a 2013 teve uma carreira como Ilustrador e professor de desenho e quadrinhos na escola Folium, Entre 2013 e 2018 foi professor e cordenador de curso na escola SAGA, de 2020 Em diante ja trabalhou em estudio como Void, Afterverse, Abacus e TGS na area de modelagem 3D generalista.',
+                    'instagram': 'https://www.instagram.com/pedro_caraca/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/pedro-caraca/',// opcional
+                    'image': Lecture07_PedroCaraca
+                },
             ],
         },
     },
@@ -301,21 +303,35 @@ const schedule = {
             endTime : '11:00',
         },
         '11:00' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'Kluber Lubrication',
+                'image': KluberLogo,
+                // 'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Título da palestra',
+            description : 'Descrição da palestra',
             local : 'presential',// presential ou online
             endTime : '12:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture09_NomeSobrenome
-                // },
+                {
+                    'name': 'Bruno Colisse',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Especialista em Digitalização',
+                    'description': 'Descrição do palestrante',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture00_NomeSobrenome
+                },
+                {
+                    'name': 'Mateus Brandão',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Especialista em Inovação e Novos Negócios',
+                    'description': 'Engenheiro de Materiais com experiência em multinacionais do setor petroquímico na área de Inovação e Comercial, em empresa de grande porte do setor de Logística Marítima especificamente na área de Inovação e em Consultoria Corporativa, com foco no desenvolvimento de projetos de Inovação sob demanda.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/mateus-brand%C3%A3o-lula-912300135/',// opcional
+                    'image': Lecture09_MateusBrandao
+                },
             ],
         },
         '12:00' : {
@@ -363,21 +379,21 @@ const schedule = {
             endTime : '14:40',
         },
         '14:40' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Introdução a UX',
+            description : 'Nesta palestra, abordaremos os conceitos fundamentais de UX (User Experience), explorando como o design centrado no usuário impacta a criação de produtos e serviços digitais. Vamos discutir a importância de entender as necessidades e comportamentos dos usuários, bem como as melhores práticas para criar experiências intuitivas e eficientes. Ideal para quem deseja conhecer os princípios de UX e aplicá-los em seus projetos.',
             local : 'presential',// presential ou online
             endTime : '15:40',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture11_NomeSobrenome
-                // },
+                {
+                    'name': 'Luli Radfahrer',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Professor',
+                    'description': 'Luli Radfahrer é professor associado da ECA USP há 31 anos. Trabalha com internet desde 1994 e já foi diretor de algumas das maiores agências de publicidade do país. Hoje é diretor do laboratório de pesquisa acadêmica IDEIA - Interfaces Digitais, Experiências e Inteligências Artificiais e consultor independente em Inovação e Transformação Digital. Escreve a coluna “Datacracia” para a Rádio USP, em que discute e analisa as principais tendências da tecnologia e suas influências na sociedade.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/radfahrer/',// opcional
+                    'image': Lecture11_LuliRadfahrer
+                },
             ],
         },
         '15:40' : {
@@ -784,21 +800,21 @@ const schedule = {
                 'image': SSITalksLogo,
                 'url': 'https://www.instagram.com/semanadesi',
             },
-            title : 'Engenharia de IA Aplicada',
+            title : 'Engenharia de IA Aplicada: A Profissão do Futuro',
             description : 'A palestra irá abordar o que faz um engenheiro de IA aplicada, como funciona a recém criada carreira, conceitos básicos de IA generativa, quais as diferenças entre o cientista de dados e o engenheiro de IA aplicada e por fim, oportunidades no mercado.',
             local : 'presential',// presential ou online
             endTime : '18:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome da palestrante',
-                //     'pronouns': 'Ela/Dela',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture29_NomeSobrenome
-                // },
+                {
+                    'name': 'Aluísio Amorim',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Engenheiro de IA Aplicada',
+                    'description': 'Aluisio é um engenheiro de software full-stack pleno, que tem se especializado em inteligência artificial generativa aplicada a produto',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/aluisio-amorim-b19a701ba/',// opcional
+                    'image': Lecture29_AluisioAmorim
+                },
             ],
         },
         '18:00' : {
