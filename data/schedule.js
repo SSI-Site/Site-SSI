@@ -4,11 +4,11 @@ import Lecture00_NomeSobrenome from '../public/images/lecture_imgs/00-Member_Sha
 // speakers
 import Lecture01_WheslleyRimar from '../public/images/lecture_imgs/01-Wheslley_Rimar.png'
 import Lecture02_EvandroFigueiredo from '../public/images/lecture_imgs/02-Evandro_Figueiredo.png'
-import Lecture03_RodrigoDorneles from '../public/images/lecture_imgs/03-RodrigoDorneles.jpg'
+import Lecture03_RodrigoDorneles from '../public/images/lecture_imgs/03-Rodrigo_Dorneles.jpg'
 import Lecture04_VanessaPoskus from '../public/images/lecture_imgs/04-Vanessa_Poskus.png'
 import Lecture05_JulioFerreira from '../public/images/lecture_imgs/05-Julio_Ferreira.jpg'
-// import Lecture06_NomeSobrenome from '../public/images/lecture_imgs/06-Nome_Sobrenome.png'
-import Lecture07_PedroCaraca from '../public/images/lecture_imgs/07-Pedro_Caraca.jpg'
+import Lecture06_LeonardoSartorello from '../public/images/lecture_imgs/06-Leonardo_Sartorello.jpg'
+import Lecture07_PedroCaraca from '../public/images/lecture_imgs/07-Pedro_Caraca.png'
 import Lecture08_PedroSemcovici from '../public/images/lecture_imgs/08-Pedro_Semcovici.jpg'
 import Lecture08_YagoPrimerano from '../public/images/lecture_imgs/08-Yago_Primerano.jpg'
 // import Lecture09_BrunoColisse from '../public/images/lecture_imgs/09-Nome_Sobrenome.png'
@@ -17,8 +17,8 @@ import Lecture10_JeffBrandao from '../public/images/lecture_imgs/10-Jeff_Brandao
 import Lecture10_KarolyneViebrantz from '../public/images/lecture_imgs/10-Karolyne_Viebrantz.png'
 import Lecture10_RodrigoMulinario from '../public/images/lecture_imgs/10-Rodrigo_Mulinario.jpeg'
 import Lecture11_LuliRadfahrer from '../public/images/lecture_imgs/11-Luli_Radfahrer.jpg'
-import Lecture12_AnaSampaio from '../public/images/lecture_imgs/12-Ana_Sampaio.jpeg'
-import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gigante.jpeg'
+import Lecture12_AnaSampaio from '../public/images/lecture_imgs/12-Ana_Sampaio.png'
+import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gigante.png'
 // import Lecture14_NomeSobrenome from '../public/images/lecture_imgs/14-Nome_Sobrenome.png'
 import Lecture15_EmilioSimoni from '../public/images/lecture_imgs/15-Emilio_Simoni.png'
 // import Lecture16_NomeSobrenome from '../public/images/lecture_imgs/16-Nome_Sobrenome.png'
@@ -29,17 +29,18 @@ import Lecture20_MayumiShingaki from '../public/images/lecture_imgs/20-Mayumi_Sh
 import Lecture21_KerllyBarbara from '../public/images/lecture_imgs/21-Kerlly_Barbara.jpg'
 import Lecture22_KarinaOliveira from '../public/images/lecture_imgs/22-Karina_Oliveira.jpeg'
 // import Lecture23_NomeSobrenome from '../public/images/lecture_imgs/23-Nome_Sobrenome.png'
+import Lecture23_WellingtonSilva from '../public/images/lecture_imgs/23-Wellington_Silva.jpg'
 import Lecture24_BrenoNogueira from '../public/images/lecture_imgs/24-Breno_Nogueira.jpg'
 import Lecture25_JandirDeodato from '../public/images/lecture_imgs/25-Jandir_Deodato.jpg'
-import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovanne_Bertotti.jpeg'
 import Lecture26_FlaviaMartins from '../public/images/lecture_imgs/26-Flavia_Martins.jpeg'
+import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovanne_Bertotti.jpeg'
 // import Lecture27_NomeSobrenome from '../public/images/lecture_imgs/27-Nome_Sobrenome.png'
 import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Craveiro.png'
-import Lecture29_AluisioAmorim from '../public/images/lecture_imgs/29-Aluisio_Amorim.jpg'
+import Lecture29_AluisioAmorim from '../public/images/lecture_imgs/29-Aluisio_Amorim.png'
 // import Lecture30_NomeSobrenome from '../public/images/lecture_imgs/30-Nome_Sobrenome.png'
 import Lecture31_DavidArty from '../public/images/lecture_imgs/31-David_Arty.png'
 import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexandre_Tavares.jpg'
-import Lecture33_Stephanto from '../public/images/lecture_imgs/33-Stephanto.jpg'
+import Lecture33_ViniciusStephanto from '../public/images/lecture_imgs/33-Vinicius_Stephanto.jpg'
 import Lecture33_VitorCavalcante from '../public/images/lecture_imgs/33-Vitor_Cavalcante.jpg'
 import Lecture34_JoseCorreia from '../public/images/lecture_imgs/34-Jose_Correia.jpg'
 // import Lecture35_NomeSobrenome from '../public/images/lecture_imgs/35-Nome_Sobrenome.png'
@@ -48,11 +49,12 @@ import Lecture36_LauraDamaceno from '../public/images/lecture_imgs/36-Laura_Dama
 // import Lecture38_NomeSobrenome from '../public/images/lecture_imgs/38-Nome_Sobrenome.png'
 
 // sponsors / entities logos
-import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
-import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
-import HypeLogo from '../public/images/sponsors/hype.svg'
+// import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
+import AluraLogo from '../public/images/sponsors/alura.svg'
 import CodeLabLogo from '../public/images/sponsors/code_lab.svg'
+import HypeLogo from '../public/images/sponsors/hype.svg'
 import KluberLogo from '../public/images/sponsors/kluber.png'
+import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
 
 const schedule = {
     // Modelo de como adicionar uma nova palestra
@@ -225,21 +227,26 @@ const schedule = {
             endTime : '19:00',
         },
         '19:00' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'Alura',
+                'image': AluraLogo,
+                'url': 'https://www.alura.com.br/',
+            },
+            title : 'Usando o Cloud',
+            description : 'O Cloud esta cada vez mais presente no dia a dia, mas quando devemos utiliza-lo e quais as suas principais vantagens e desvantagens.',
             local : 'presential',// presential ou online
             endTime : '20:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture06_NomeSobrenome
-                // },
+                {
+                    'name': 'Leonardo Sartorello',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Instrutor de DevOps',
+                    'description': 'Leonardo é desenvolvedor e instrutor na Alura com foco principal em DevOps e Cloud, com experiência em virtualização, conteinerização, infraestrutura como código e IoT.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/leonardomsartorello/',// opcional
+                    'image': Lecture06_LeonardoSartorello
+                },
             ],
         },
         '20:00' : {
@@ -308,8 +315,8 @@ const schedule = {
                 'image': KluberLogo,
                 // 'url': 'https://www.instagram.com/semanadesi',
             },
-            title : 'Título da palestra',
-            description : 'Descrição da palestra',
+            title : 'Em breve...',
+            // description : 'Descrição da palestra',
             local : 'presential',// presential ou online
             endTime : '12:00',
             activityType : '',// se não for 'Workshop', deixar vazio
@@ -318,7 +325,7 @@ const schedule = {
                     'name': 'Bruno Colisse',
                     'pronouns': 'Ele/Dele',
                     'role': 'Especialista em Digitalização',
-                    'description': 'Descrição do palestrante',
+                    // 'description': 'Descrição do palestrante',
                     // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
                     // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
                     'image': Lecture00_NomeSobrenome
@@ -651,21 +658,21 @@ const schedule = {
             endTime : '20:20',
         },
         '20:20' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Digital Experience: como a tecnologia gera melhores jornadas para os clientes',
+            description : 'Nesta palestra, vamos explorar como a tecnologia tem transformado a forma como as empresas criam experiências digitais inovadoras e envolventes para seus clientes. Abordaremos o impacto de ferramentas digitais, dados e automação na jornada do consumidor, destacando estratégias que melhoram a interação, personalizam o atendimento e aumentam a satisfação do cliente no ambiente digital.',
             local : 'presential',// presential ou online
             endTime : '21:20',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture23_NomeSobrenome
-                // },
+                {
+                    'name': 'Wellington Silva',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Diretor de Tecnologia',
+                    'description': 'Wellington José, mestre em empreendedorismo pela FEA-USP, é Diretor de Tecnologia na Riachuelo e Top Voice LinkedIn 2024. Professor de pós-graduação na FIAP, ensina CX, Produtos Digitais e Varejo Omnicanal. Ex-CTO da AMARO, tem vasta experiência em times digitais na Nextel, Mutant e Portugal Telecom. Analista de Sistemas, foca em entregas digitais relevantes e eficiência organizacional. Desenvolve trilhas de bootcamp para capacitar profissionais com tecnologia.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/welljose/',// opcional
+                    'image': Lecture23_WellingtonSilva
+                },
             ],
         },
     },
@@ -755,7 +762,7 @@ const schedule = {
             description : '',
             local : 'presential',// presential ou online
             endTime : '15:40',
-            activityType : '',// se não for 'Workshop', deixar vazio
+            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
                 // {
                 //     'name': 'Nome do palestrante',
@@ -904,7 +911,7 @@ const schedule = {
                     'description': 'Apaixonado por tecnologia desde criança, estudante de programação desde 2018, é formado em Técnico em Informática pela ETEC e cursando o 8º semestre de Sistemas de Informação na EACH. Trabalha como arquiteto de soluções em uma Startup de Inteligência artificial e é empreendedor nas horas vagas',
                     'instagram': 'https://www.instagram.com/v.stephanto/',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/vinicius-stephanto',// opcional
-                    'image': Lecture33_Stephanto
+                    'image': Lecture33_ViniciusStephanto
                 },
                 {
                     'name': 'Vitor Cavalcante',
@@ -1000,7 +1007,7 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Sofia Ferreira Leopoldo',
+                    'name': 'Sofia Ferreira',
                     'pronouns': 'Ela/Dela',
                     // 'role': 'Notion Campus Leader',
                     // 'description': 'Descrição do palestrante',
