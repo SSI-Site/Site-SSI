@@ -771,15 +771,15 @@ const schedule = {
             endTime : '15:40',
             activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
-                {
-                    'name': 'Nome da palestrante',
-                    'pronouns': 'Ele/Ela',
-                    'role': 'Cargo',
-                    'description': 'Descrição do palestrante',
-                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                    'image': Lecture00_NomeSobrenome
-                },
+                // {
+                //     'name': 'Nome da palestrante',
+                //     'pronouns': 'Ele/Dele',
+                //     'role': 'Cargo',
+                //     'description': 'Descrição do palestrante',
+                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                //     'image': Lecture00_NomeSobrenome
+                // },
             ],
         },
         '15:40' : {
