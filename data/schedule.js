@@ -28,7 +28,6 @@ import Lecture19_NycholasSzucko from '../public/images/lecture_imgs/19-Nycholas_
 import Lecture20_MayumiShingaki from '../public/images/lecture_imgs/20-Mayumi_Shingaki.png'
 import Lecture21_KerllyBarbara from '../public/images/lecture_imgs/21-Kerlly_Barbara.jpg'
 import Lecture22_KarinaOliveira from '../public/images/lecture_imgs/22-Karina_Oliveira.jpeg'
-// import Lecture23_NomeSobrenome from '../public/images/lecture_imgs/23-Nome_Sobrenome.png'
 import Lecture23_WellingtonSilva from '../public/images/lecture_imgs/23-Wellington_Silva.jpg'
 import Lecture24_BrenoNogueira from '../public/images/lecture_imgs/24-Breno_Nogueira.jpg'
 import Lecture25_JandirDeodato from '../public/images/lecture_imgs/25-Jandir_Deodato.jpg'
@@ -43,10 +42,11 @@ import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexand
 import Lecture33_ViniciusStephanto from '../public/images/lecture_imgs/33-Vinicius_Stephanto.jpg'
 import Lecture33_VitorCavalcante from '../public/images/lecture_imgs/33-Vitor_Cavalcante.jpg'
 import Lecture34_JoseCorreia from '../public/images/lecture_imgs/34-Jose_Correia.jpg'
-// import Lecture35_NomeSobrenome from '../public/images/lecture_imgs/35-Nome_Sobrenome.png'
+import Lecture35_RenanNakazawa from '../public/images/lecture_imgs/35-Renan_Nakazawa.jpeg'
 import Lecture36_LauraDamaceno from '../public/images/lecture_imgs/36-Laura_Damaceno.jpeg'
 // import Lecture37_SofiaFerreira from '../public/images/lecture_imgs/37-Nome_Sobrenome.png'
-// import Lecture38_NomeSobrenome from '../public/images/lecture_imgs/38-Nome_Sobrenome.png'
+import Lecture38_TiagoFraga from '../public/images/lecture_imgs/38-Tiago_Fraga.jpg'
+import Lecture39_LeonardoBoeing from '../public/images/lecture_imgs/39-Leonardo_Boeing.jpg'
 
 // sponsors / entities logos
 // import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
@@ -55,6 +55,8 @@ import CodeLabLogo from '../public/images/sponsors/code_lab.svg'
 import HypeLogo from '../public/images/sponsors/hype.svg'
 import KluberLogo from '../public/images/sponsors/kluber.png'
 import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
+// import DASILogo from '../public/images/sponsors/dasi.svg'
+
 
 const schedule = {
     // Modelo de como adicionar uma nova palestra
@@ -758,21 +760,26 @@ const schedule = {
             endTime : '14:40',
         },
         '14:40' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'EiTS - EACH in The Shell_',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/eachintheshell/',
+            },
+            title : 'Análise Forense em Rede: Extraindo Arquivos com o Wireshark',
+            description : 'Será abordado o tema de redes dentro da área de segurança da informação, em conjunto com a aplicação prática de extração de arquivos a partir de uma captura de tráfego de pacotes no Wireshark.',
             local : 'presential',// presential ou online
             endTime : '15:40',
             activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture27_NomeSobrenome
-                // },
+                {
+                    'name': 'Nome da palestrante',
+                    'pronouns': 'Ele/Ela',
+                    'role': 'Cargo',
+                    'description': 'Descrição do palestrante',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture00_NomeSobrenome
+                },
             ],
         },
         '15:40' : {
@@ -951,21 +958,26 @@ const schedule = {
             endTime : '14:40',
         },
         '14:40' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Subindo um banco de dados com containers',
+            description : 'Sistemas gerenciadores de bancos de dados (SGBDs) são ferramentas complexas, feitas para atender bancos de dados gigantescos e complexos. Por conta disso, sua instalação por vezes envolve múltiplas etapas e requer alguns conhecimentos prévios de administração de sistemas operacionais. Podemos deixar essa instalação mais simples utilizando uma das tecnologias mais populares da computação em nuvem: containers',
             local : 'presential',// presential ou online
             endTime : '15:40',
-            activityType : '',// se não for 'Workshop', deixar vazio
+            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture35_NomeSobrenome
-                // },
+                {
+                    'name': 'Renan Nakazawa',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Engenheiro de Confiabilidade de Sites (SRE)',
+                    'description': 'Formado em Sistemas de Informação pela maravilhosa EACH; um eterno aprendiz da vida e da TI; atualmente trabalhando na VTEX como SRE; entusiasta de karaokê, jogos de tabuleiro, RPGs (de mesa e eletrônicos) e jogos de luta',
+                    'instagram': 'https://www.instagram.com/renan.nakazawa',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/nkzren',// opcional
+                    'image': Lecture35_RenanNakazawa
+                },
             ],
         },
         '15:40' : {
@@ -1022,23 +1034,51 @@ const schedule = {
             endTime : '19:00',
         },
         '19:00' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Manual da graduação: como extrair o máximo do curso',
+            description : 'Iremos explorar as oportunidades da graduação além do óbvio, discutindo como tomar decisões baseadas nas expectativas de cada pessoa sobre carreira e aprendizado',
+            local : 'presential',// presential ou online
+            endTime : '19:30',
+            activityType : '',// se não for 'Workshop', deixar vazio
+            speakers : [
+                {
+                    'name': 'Tiago Fraga',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Software Engineer Intern',
+                    'description': 'Tiago Fraga é Software Engineer Intern na Amazon, aluno do terceiro ano da graduação e atual vice-presida acadêmico do DASI. Suas principais contribuições com o ambiente acadêmico na graduação em SI são as oportunidades de conexão entre os alunos e empresas',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/tiago-fraga342/',// opcional
+                    'image': Lecture38_TiagoFraga
+                },
+            ],
+        },
+        '19:30' : {
+            sponsor: { // opcional
+                'name': 'DASI (Diretório Acadêmico de Sistemas de Informação)',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/dasiusp',
+            },
+            title : 'Técnicas Avançadas de Aprendizado e Memorização',
+            description : 'Como podemos absorver mais informações e guardá-las no longo prazo de maneira mais eficiente? Observaremos na palestra diversas formas que podemos aprender novos conhecimentos e quais os melhores para cada situação.',
             local : 'presential',// presential ou online
             endTime : '20:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture38_NomeSobrenome
-                // },
+                {
+                    'name': 'Leonardo Boeing',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Analista de Risco',
+                    'description': 'Natural de Curitiba, apaixonado por aprender novas habilidades e conhecimentos, sempre buscando meios de inserir todo o aprendizado da vida no dia a dia.',
+                    'instagram': 'https://www.instagram.com/leo_boeing/',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture39_LeonardoBoeing
+                },
             ],
-        },
+        },        
         '20:00' : {
             title : 'Intervalo',
             endTime : '20:20',
