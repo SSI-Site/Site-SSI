@@ -1050,9 +1050,9 @@ const schedule = {
                 {
                     'name': 'Sofia Ferreira',
                     'pronouns': 'Ela/Dela',
-                    // 'role': 'Notion Campus Leader',
+                    'role': 'Notion Campus Leader',
                     'description': 'Oi, eu sou a Sofia e sou voluntária no Lab das Minas, bolsista no PET e Campus Leader do Notion aqui na USP!',
-                    // 'instagram': 'https://www.instagram.com/notionatusp/',// opcional
+                    'instagram': 'https://www.instagram.com/notionatusp/',// opcional
                     // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
                     'image': Lecture00_NomeSobrenome
                 },
