@@ -11,7 +11,7 @@ import Lecture06_LeonardoSartorello from '../public/images/lecture_imgs/06-Leona
 import Lecture07_PedroCaraca from '../public/images/lecture_imgs/07-Pedro_Caraca.png'
 import Lecture08_PedroSemcovici from '../public/images/lecture_imgs/08-Pedro_Semcovici.jpg'
 import Lecture08_YagoPrimerano from '../public/images/lecture_imgs/08-Yago_Primerano.jpg'
-// import Lecture09_BrunoColisse from '../public/images/lecture_imgs/09-Nome_Sobrenome.png'
+import Lecture09_BrunoColisse from '../public/images/lecture_imgs/09-Bruno_Colisse.jpeg'
 import Lecture09_MateusBrandao from '../public/images/lecture_imgs/09-Mateus_Brandao.png'
 import Lecture10_JeffBrandao from '../public/images/lecture_imgs/10-Jeff_Brandao.jpeg'
 import Lecture10_KarolyneViebrantz from '../public/images/lecture_imgs/10-Karolyne_Viebrantz.png'
@@ -19,7 +19,8 @@ import Lecture10_RodrigoMulinario from '../public/images/lecture_imgs/10-Rodrigo
 import Lecture11_LuliRadfahrer from '../public/images/lecture_imgs/11-Luli_Radfahrer.jpg'
 import Lecture12_AnaSampaio from '../public/images/lecture_imgs/12-Ana_Sampaio.png'
 import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gigante.png'
-// import Lecture14_NomeSobrenome from '../public/images/lecture_imgs/14-Nome_Sobrenome.png'
+import Lecture14_FelippeOliveira from '../public/images/lecture_imgs/14-Felippe_Oliveira.jpg'
+import Lecture14_AmandaFerreira from '../public/images/lecture_imgs/14-Amanda_Ferreira.jpg'
 import Lecture15_EmilioSimoni from '../public/images/lecture_imgs/15-Emilio_Simoni.png'
 // import Lecture16_NomeSobrenome from '../public/images/lecture_imgs/16-Nome_Sobrenome.png'
 import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptista.png'
@@ -315,10 +316,10 @@ const schedule = {
             sponsor: { // opcional
                 'name': 'Kluber Lubrication',
                 'image': KluberLogo,
-                // 'url': 'https://www.instagram.com/semanadesi',
+                'url': 'https://www.klueber.com/br/pt/',
             },
-            title : 'Em breve...',
-            // description : 'Descrição da palestra',
+            title : 'O que fazer no meu tempo livre após a IA substituir meu trabalho?',
+            description : 'Já pensou que a IA pode melhorar em tudo que ela ainda não faz bem? As profissões vão mudar muito em 5/10 anos, com a IA criando vídeos, músicas e até programando melhor que a gente. O que sobra pra nós? Sermos humanos! Vamos discutir nosso papel na tecnologia, onde o "fazer" é menos importante que o "o que" e "como". Além do que aprendemos na faculdade, o que fazemos fora do trabalho também conta muito!',
             local : 'presential',// presential ou online
             endTime : '12:00',
             activityType : '',// se não for 'Workshop', deixar vazio
@@ -327,10 +328,10 @@ const schedule = {
                     'name': 'Bruno Colisse',
                     'pronouns': 'Ele/Dele',
                     'role': 'Especialista em Digitalização',
-                    // 'description': 'Descrição do palestrante',
+                    'description': 'Programador, músico e pai, graduado em Ciência da Computação e cursando MBA em A.I. Business Leadership. Atua com digitalização, como Tech Business, interface entre as áreas de negócio e área de tecnologia da informação. Otaku sênior.',
                     // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                    'image': Lecture00_NomeSobrenome
+                    'linkedin' : 'https://www.linkedin.com/in/bruno-colisse-00b848b8/',// opcional
+                    'image': Lecture09_BrunoColisse
                 },
                 {
                     'name': 'Mateus Brandão',
@@ -459,21 +460,49 @@ const schedule = {
             endTime : '19:00',
         },
         '19:00' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Notion: Tecnologia e Organização Pessoal',
+            description : 'A palestra "Notion: Tecnologia e Organização Pessoal para Estudantes" explora como o Notion pode otimizar a vida acadêmica. Com foco em metas, tarefas, projetos, hábitos e controle financeiro, será mostrado como estudantes podem usar essa ferramenta para aumentar a produtividade e gerenciar suas rotinas de forma integrada. A palestra também conecta a importância da tecnologia com uma abordagem mais ampla de realidade e autoconhecimento, essencial para o sucesso pessoal e acadêmico.',
+            local : 'presential',// presential ou online
+            endTime : '19:30',
+            activityType : '',// se não for 'Workshop', deixar vazio
+            speakers : [
+                {
+                    'name': 'Felippe Oliveira',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Estagiário',
+                    'description': 'Felippe é um entusiasta do desenvolvimento pessoal e da tecnologia. Ele une suas experiências com estratégias de negócios e automação para criar soluções no campo do bem-estar e produtividade. Trabalha na área de estratégia de clientes da Caixa Vida e Previdência, enquanto desenvolve plataformas digitais e integra inteligência artificial. Também compartilha reflexões sobre estilo de vida, meditação e gestão de tempo, promovendo equilíbrio e crescimento contínuo.',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/felippe-oliveira-8084651bb/',// opcional
+                    'image': Lecture14_FelippeOliveira
+                },
+            ],
+        },
+        '19:30' : {
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Para além da USP: navegando em um mar de possibilidades',
+            description : 'Ao longo da palestra serão abordadas oportunidades que existem dentro e fora da USP e como conciliar o estudo com as atividades extracurriculares',
             local : 'presential',// presential ou online
             endTime : '20:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture14_NomeSobrenome
-                // },
+                {
+                    'name': 'Amanda Ferreira',
+                    'pronouns': 'Ela/Dela',
+                    'role': 'Estagiária e co-fundadora da Owl Studio',
+                    'description': 'Nascida e criada na periferia da zona norte de São Paulo, fui começar a ter contato com a área tech em 2020, quando entrei no curso técnico em informática integrado ao ensino médio no IFSP. Em 2022 consegui meu primeiro estágio, e poucos meses depois entrei no meu 2° estágio na área. Em 2023 fundei, junto com mais 2 amigos, a Owl Studio, com a qual participamos de uma aceleração de 6 meses da prefeitura de São Paulo, o que nos rendeu a oportunidade de ir na Gamescom Alemanha.',
+                    'instagram': 'https://www.instagram.com/amandita_ferre/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/amandamariafs',// opcional
+                    'image': Lecture14_AmandaFerreira
+                },
             ],
         },
         '20:00' : {
@@ -1022,8 +1051,8 @@ const schedule = {
                     'name': 'Sofia Ferreira',
                     'pronouns': 'Ela/Dela',
                     // 'role': 'Notion Campus Leader',
-                    // 'description': 'Descrição do palestrante',
-                    'instagram': 'https://www.instagram.com/notionatusp/',// opcional
+                    'description': 'Oi, eu sou a Sofia e sou voluntária no Lab das Minas, bolsista no PET e Campus Leader do Notion aqui na USP!',
+                    // 'instagram': 'https://www.instagram.com/notionatusp/',// opcional
                     // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
                     'image': Lecture00_NomeSobrenome
                 },
