@@ -159,7 +159,7 @@ const schedule = {
                 'url': 'https://www.instagram.com/uspcodelableste/',
             },
             title : 'Automatize suas tarefas na web com Javascript: Adicionando produtos no carrinho da LigaMagic',
-            description : 'Web Scrapping. Criação de crawlers com Javascript usando a biblioteca cheerio',
+            description : 'Aprenda a fazer raspagem de dados na web e automatização de tarefas utilizando o Javascript (web scrapping e web crawler)! Como exemplo prático, iremos adicionar produtos automaticamente no carrinho da LigaMagic a partir de uma lista de entrada dada pelo usuário.',
             local : 'presential',// presential ou online
             endTime : '15:40',
             activityType : 'Workshop',// se não for 'Workshop', deixar vazio
