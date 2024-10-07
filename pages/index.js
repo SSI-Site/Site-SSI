@@ -89,8 +89,8 @@ const Home = () => {
     }
 
     const currentTimeMinutes = minutesAfterMidNight(currentTime); // horario atual
-    const morningEnd = minutesAfterMidNight("13:00"); // Final do almoco
-    const eveningEnd = minutesAfterMidNight("19:00"); // Final do jantar
+    const morningEnd = minutesAfterMidNight("12:00"); // Início do almoco
+    const eveningEnd = minutesAfterMidNight("18:00"); // Início do jantar
 
     let shift = "Manhã"; // Turno do dia
     if (current >= firstEventDay) {
