@@ -23,7 +23,9 @@ import Lecture14_FelippeOliveira from '../public/images/lecture_imgs/14-Felippe_
 import Lecture14_AmandaFerreira from '../public/images/lecture_imgs/14-Amanda_Ferreira.jpg'
 import Lecture15_EmilioSimoni from '../public/images/lecture_imgs/15-Emilio_Simoni.png'
 import Lecture16_DanielCordeiro from '../public/images/lecture_imgs/16-Daniel_Cordeiro.png'
-// import Lecture16_NomeSobrenome from '../public/images/lecture_imgs/16-NomeSobrenome.png'
+import Lecture16_AndrePalacio from '../public/images/lecture_imgs/16-Andre_Palacio.jpg'
+import Lecture16_OtavioRosa from '../public/images/lecture_imgs/16-Otavio_Rosa.jpg'
+import Lecture16_SofiaFerreira from '../public/images/lecture_imgs/37-Sofia_Ferreira.jpg'
 import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptista.png'
 import Lecture18_LiaFuziy from '../public/images/lecture_imgs/18-Lia_Fuziy.jpg'
 import Lecture19_NycholasSzucko from '../public/images/lecture_imgs/19-Nycholas_Szucko.jpeg'
@@ -59,6 +61,7 @@ import KluberLogo from '../public/images/sponsors/kluber.png'
 import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
 // import DASILogo from '../public/images/sponsors/dasi.svg'
 // import EITSLogo from '../public/images/sponsors/eits.svg'
+import PETLogo from '../public/images/sponsors/pet.svg'
 
 
 const schedule = {
@@ -550,21 +553,44 @@ const schedule = {
             ],
         },
         '10:10' : {
-            title : 'Em breve...',
-            description : '',
+            sponsor: { // opcional
+                'name': 'PET',
+                'image': PETLogo,
+                'url': 'https://www.instagram.com/petsieach',
+            },
+            title : 'Ensinar para aprender',
+            description : 'As vantagens de ensinar para outras pessoas aquilo que você está tentando aprender',
             local : 'presential',// presential ou online
             endTime : '10:40',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': '',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': '',
-                //     'description': '',
-                //     'instagram': '',// opcional
-                //     'linkedin' : '',// opcional
-                //     'image': Lecture16_NomeSobrenome
-                // },
+                {
+                    'name': 'André Palácio',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Software Engineer Intern',
+                    'description': 'Aluno de 3 ano da Graduação em Sistemas de informação, membro do PET-SI a mais de dois anos e entusiasta do mundinho EACH-USP',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/andrepalaciobr/',// opcional
+                    'image': Lecture16_AndrePalacio
+                },
+                {
+                    'name': 'Otávio Rosa',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Membro PET',
+                    'description': 'Olá, sou Otávio e sou membro do PET-SI desde o início deste ano, atualmente atuo nos setores de Patrocínio e Relações Humanas e participo dos projetos Owlficinas, COMPETEC e BXCOMP.',
+                    'instagram': 'https://www.instagram.com/otavio_rosaa',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture16_OtavioRosa
+                },
+                {
+                    'name': 'Sofia Ferreira',
+                    'pronouns': 'Ela/Dela',
+                    'role': 'Notion Campus Leader',
+                    'description': 'Oi, eu sou a Sofia e sou voluntária no Lab das Minas, bolsista no PET e Campus Leader do Notion aqui na USP!',
+                    'instagram': 'https://www.instagram.com/notionatusp',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture16_SofiaFerreira
+                },
             ],
         },
         '10:40' : {
