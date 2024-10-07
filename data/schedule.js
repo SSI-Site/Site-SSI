@@ -22,7 +22,8 @@ import Lecture13_FelipeGigante from '../public/images/lecture_imgs/13-Felipe_Gig
 import Lecture14_FelippeOliveira from '../public/images/lecture_imgs/14-Felippe_Oliveira.jpg'
 import Lecture14_AmandaFerreira from '../public/images/lecture_imgs/14-Amanda_Ferreira.jpg'
 import Lecture15_EmilioSimoni from '../public/images/lecture_imgs/15-Emilio_Simoni.png'
-// import Lecture16_NomeSobrenome from '../public/images/lecture_imgs/16-Nome_Sobrenome.png'
+import Lecture16_DanielCordeiro from '../public/images/lecture_imgs/16-Daniel_Cordeiro.png'
+// import Lecture16_NomeSobrenome from '../public/images/lecture_imgs/16-NomeSobrenome.png'
 import Lecture17_DaviBaptista from '../public/images/lecture_imgs/17-Davi_Baptista.png'
 import Lecture18_LiaFuziy from '../public/images/lecture_imgs/18-Lia_Fuziy.jpg'
 import Lecture19_NycholasSzucko from '../public/images/lecture_imgs/19-Nycholas_Szucko.jpeg'
@@ -38,6 +39,7 @@ import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovann
 import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Craveiro.png'
 import Lecture29_AluisioAmorim from '../public/images/lecture_imgs/29-Aluisio_Amorim.png'
 // import Lecture30_NomeSobrenome from '../public/images/lecture_imgs/30-Nome_Sobrenome.png'
+import Lecture30_FelipeFurquim from '../public/images/lecture_imgs/30-Felipe_Furquim.png'
 import Lecture31_DavidArty from '../public/images/lecture_imgs/31-David_Arty.png'
 import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexandre_Tavares.jpg'
 import Lecture33_ViniciusStephanto from '../public/images/lecture_imgs/33-Vinicius_Stephanto.jpg'
@@ -50,13 +52,13 @@ import Lecture38_TiagoFraga from '../public/images/lecture_imgs/38-Tiago_Fraga.j
 import Lecture39_LeonardoBoeing from '../public/images/lecture_imgs/39-Leonardo_Boeing.jpg'
 
 // sponsors / entities logos
-// import RocketseatLogo from '../public/images/sponsors/rocketseat.svg'
 import AluraLogo from '../public/images/sponsors/alura.svg'
 import CodeLabLogo from '../public/images/sponsors/code_lab.svg'
 import HypeLogo from '../public/images/sponsors/hype.svg'
 import KluberLogo from '../public/images/sponsors/kluber.png'
 import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
 // import DASILogo from '../public/images/sponsors/dasi.svg'
+// import EITSLogo from '../public/images/sponsors/eits.svg'
 
 
 const schedule = {
@@ -530,6 +532,24 @@ const schedule = {
     },
     '2024-10-09' : {
         '09:40' : {
+            title : 'Iniciação Científica (o quê? por quê? como? quando?)',
+            description : 'Essa breve palestra conta um pouco sobre Pesquisa Científica para alunos de graduação e discute como tirar proveito dessa oportunidade que só aparece agora no início da carreira dos alunos.',
+            local : 'presential',// presential ou online
+            endTime : '10:10',
+            activityType : '',// se não for 'Workshop', deixar vazio
+            speakers : [
+                {
+                    'name': 'Daniel Cordeiro',
+                    // 'pronouns': 'Ele/Dele',
+                    'role': 'Professor Doutor',
+                    'description': 'Professor na EACH-USP, Doutor em "Mathématiques et Informatique" pela Université Grenoble Alpes e Mestre e Bacharel em Computação pela USP. É Patrono do CodeLab Leste, que incentiva a criação de ideias inovadoras e o desenvolvimento de inovações tecnológicas. Aprendeu uma coisa ou outra sobre Pesquisa e Inovação ao longo de seus 20 anos de atuação na área. :-)',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/dcordeiro/',// opcional
+                    'image': Lecture16_DanielCordeiro
+                },
+            ],
+        },
+        '10:10' : {
             title : 'Em breve...',
             description : '',
             local : 'presential',// presential ou online
@@ -537,12 +557,12 @@ const schedule = {
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 // {
-                //     'name': 'Nome do palestrante',
+                //     'name': '',
                 //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                //     'role': '',
+                //     'description': '',
+                //     'instagram': '',// opcional
+                //     'linkedin' : '',// opcional
                 //     'image': Lecture16_NomeSobrenome
                 // },
             ],
@@ -868,7 +888,7 @@ const schedule = {
             title : 'Em breve...',
             description : '',
             local : 'presential',// presential ou online
-            endTime : '20:00',
+            endTime : '19:30',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 // {
@@ -880,6 +900,24 @@ const schedule = {
                 //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
                 //     'image': Lecture30_NomeSobrenome
                 // },
+            ],
+        },
+        '19:30' : {
+            title : 'Desmistificando Pós-graduação em SI',
+            description : 'A palestra tem a intenção de simplificar e sanar dúvidas sobre o PPgSI. Irá cobrir como entrar no programa, como as coisas funcionam, oportunidades e dicas sobre a pós em SI na EACH.',
+            local : 'presential',// presential ou online
+            endTime : '20:00',
+            activityType : '',// se não for 'Workshop', deixar vazio
+            speakers : [
+                {
+                    'name': 'Felipe Furquim',
+                    'pronouns': 'Ele/Dele',
+                    'role': 'Engenheiro de Software/Mestrando',
+                    'description': 'Ex-aluno de SI, atualmente fazendo mestrado no programa de Pós Graduação de Sistemas de informação.',
+                    'instagram': 'https://www.instagram.com/fvfurquim/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/felipe-furquim-b26a2b196',// opcional
+                    'image': Lecture30_FelipeFurquim
+                },
             ],
         },
         '20:00' : {
