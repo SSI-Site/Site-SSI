@@ -281,7 +281,7 @@ const Home = () => {
 
                             <CountUp
                                 start={0}
-                                end={70}
+                                end={25}
                                 delay={0}
                                 decimals={0}
                                 suffix="+"
@@ -293,7 +293,7 @@ const Home = () => {
                                             <h5 ref={countUpRef} />
                                             <h5>sorteios</h5>
                                         </div>
-                                        <p>Participe do evento de tecnologia e concorra a mais de 70 sorteios exclusivos, repletos de prêmios incríveis!</p>
+                                        <p>Participe do evento de tecnologia e concorra a mais de 25 sorteios exclusivos, repletos de prêmios incríveis!</p>
                                     </div>
                                 )}
                             </CountUp>
