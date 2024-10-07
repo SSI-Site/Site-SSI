@@ -45,7 +45,7 @@ import Lecture33_VitorCavalcante from '../public/images/lecture_imgs/33-Vitor_Ca
 import Lecture34_JoseCorreia from '../public/images/lecture_imgs/34-Jose_Correia.jpg'
 import Lecture35_RenanNakazawa from '../public/images/lecture_imgs/35-Renan_Nakazawa.jpeg'
 import Lecture36_LauraDamaceno from '../public/images/lecture_imgs/36-Laura_Damaceno.jpeg'
-// import Lecture37_SofiaFerreira from '../public/images/lecture_imgs/37-Nome_Sobrenome.png'
+import Lecture37_SofiaFerreira from '../public/images/lecture_imgs/37-Sofia_Ferreira.jpg'
 import Lecture38_TiagoFraga from '../public/images/lecture_imgs/38-Tiago_Fraga.jpg'
 import Lecture39_LeonardoBoeing from '../public/images/lecture_imgs/39-Leonardo_Boeing.jpg'
 
@@ -1054,7 +1054,7 @@ const schedule = {
                     'description': 'Oi, eu sou a Sofia e sou voluntária no Lab das Minas, bolsista no PET e Campus Leader do Notion aqui na USP!',
                     'instagram': 'https://www.instagram.com/notionatusp/',// opcional
                     // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                    'image': Lecture00_NomeSobrenome
+                    'image': Lecture37_SofiaFerreira
                 },
             ],
         },
