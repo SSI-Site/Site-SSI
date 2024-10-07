@@ -567,7 +567,7 @@ const schedule = {
                 {
                     'name': 'André Palácio',
                     'pronouns': 'Ele/Dele',
-                    'role': 'Software Engineer Internship',
+                    'role': 'Software Engineer Intern',
                     'description': 'Aluno de 3 ano da Graduação em Sistemas de informação, membro do PET-SI a mais de dois anos e entusiasta do mundinho EACH-USP',
                     // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/andrepalaciobr/',// opcional
