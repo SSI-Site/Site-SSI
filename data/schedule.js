@@ -100,7 +100,7 @@ const schedule = {
     //     },
     // },
     '2024-10-07' : {
-        '09:40' : {
+        '10:20' : {
             title : 'Abertura',
             endTime : '10:40',
         },
