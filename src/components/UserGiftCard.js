@@ -33,11 +33,11 @@ const UserGiftCard = ({ gift, index, totalPres, presentialPres }) => {
                         <p className="card-text">Faltam:</p>
                         <div className="statusPres">
                             <div className='display-pres b0 '>
-                                <span>{gift.totalPres - totalPres}</span>
+                                <span>{(gift.totalPres - totalPres < 0) ? "0" : gift.totalPres - totalPres}</span>
                                 <p>Totais</p>
                             </div>
                             <div className='display-pres b1'>
-                                <span>{gift.presentialPres - presentialPres}</span>
+                                <span>{(gift.presentialPres - presentialPres < 0) ? "0" : gift.presentialPres - presentialPres}</span>
                                 <p>Presenciais</p>
                             </div>
                         </div>
