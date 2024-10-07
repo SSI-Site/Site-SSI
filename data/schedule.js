@@ -398,7 +398,7 @@ const schedule = {
             description : 'Nesta palestra, abordaremos os conceitos fundamentais de UX (User Experience), explorando como o design centrado no usuário impacta a criação de produtos e serviços digitais. Vamos discutir a importância de entender as necessidades e comportamentos dos usuários, bem como as melhores práticas para criar experiências intuitivas e eficientes. Ideal para quem deseja conhecer os princípios de UX e aplicá-los em seus projetos.',
             local : 'presential',// presential ou online
             endTime : '15:40',
-            activityType : '',// se não for 'Workshop', deixar vazio
+            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
                     'name': 'Luli Radfahrer',
