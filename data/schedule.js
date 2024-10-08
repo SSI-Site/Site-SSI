@@ -536,6 +536,11 @@ const schedule = {
     },
     '2024-10-09' : {
         '09:40' : {
+            sponsor: { // opcional
+                'name': 'Code Lab Leste',
+                'image': CodeLabLogo,
+                'url': 'https://www.instagram.com/uspcodelableste/',
+            },
             title : 'Iniciação Científica (o quê? por quê? como? quando?)',
             description : 'Essa breve palestra conta um pouco sobre Pesquisa Científica para alunos de graduação e discute como tirar proveito dessa oportunidade que só aparece agora no início da carreira dos alunos.',
             local : 'presential',// presential ou online
