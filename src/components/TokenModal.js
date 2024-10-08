@@ -52,8 +52,8 @@ const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
             })
             .catch((err) => {
                 console.error(err);
-                if (err.response && Array.isArray(err.response.data) && err.response.data.length > 0) {
-                    const errorMessage = err.response.data[0];
+                if (err.response && err.response.data && err.response.data.error) {
+                    const errorMessage = err.response.data.error;
                     if (errorMessage.startsWith("Presença já registrada")) {
                         setHasPresence(true);
                     }
