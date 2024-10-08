@@ -59,9 +59,10 @@ import CodeLabLogo from '../public/images/sponsors/code_lab.svg'
 import HypeLogo from '../public/images/sponsors/hype.svg'
 import KluberLogo from '../public/images/sponsors/kluber.png'
 import SSITalksLogo from '../public/images/sponsors/ssi_talks.svg'
-// import DASILogo from '../public/images/sponsors/dasi.svg'
-// import EITSLogo from '../public/images/sponsors/eits.svg'
+import DASILogo from '../public/images/sponsors/dasi.svg'
+import EITSLogo from '../public/images/sponsors/eits.svg'
 import PETLogo from '../public/images/sponsors/pet.svg'
+import NotionLogo from '../public/images/sponsors/notion.svg'
 
 
 const schedule = {
@@ -837,7 +838,7 @@ const schedule = {
         '14:40' : {
             sponsor: { // opcional
                 'name': 'EiTS - EACH in The Shell_',
-                'image': SSITalksLogo,
+                'image': EITSLogo,
                 'url': 'https://www.instagram.com/eachintheshell/',
             },
             title : 'Análise Forense em Rede: Extraindo Arquivos com o Wireshark',
@@ -1101,9 +1102,9 @@ const schedule = {
         },
         '17:20' : {
             sponsor: { // opcional
-                'name': 'SSI Talks',
-                'image': SSITalksLogo,
-                'url': 'https://www.instagram.com/semanadesi',
+                'name': 'Notion',
+                'image': NotionLogo,
+                'url': 'https://www.notion.so/',
             },
             title : 'Notion Sites - fazendo o seu portfolio',
             description : 'Utilização da ferramenta de sites do Notion para criar um portfolio',
@@ -1152,7 +1153,7 @@ const schedule = {
         '19:30' : {
             sponsor: { // opcional
                 'name': 'DASI (Diretório Acadêmico de Sistemas de Informação)',
-                'image': SSITalksLogo,
+                'image': DASILogo,
                 'url': 'https://www.instagram.com/dasiusp',
             },
             title : 'Técnicas Avançadas de Aprendizado e Memorização',
