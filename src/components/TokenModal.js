@@ -16,11 +16,13 @@ const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
     // Estados: escrevendo, inválido e registrado
     const [isWriting, setIsWriting] = useState(true);
     const [isInvalid, setIsInvalid] = useState(false);
+    const [hasPresence, setHasPresence] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
 
     const handleChangeToken = event => {
         setIsWriting(true);
         setIsInvalid(false);
+        setHasPresence(false);
         setIsRegistered(false);
         const { value } = event.target;
 
@@ -48,8 +50,17 @@ const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
                 if (onSuccess) onSuccess();
                 toggleVisibility();
             })
-            .catch(() => {
-                setIsInvalid(true);
+            .catch((err) => {
+                console.error(err);
+                if (err.response && Array.isArray(err.response.data) && err.response.data.length > 0) {
+                    const errorMessage = err.response.data[0];
+                    if (errorMessage.startsWith("Presença já registrada")) {
+                        setHasPresence(true);
+                    }
+                } 
+                else {
+                    setIsInvalid(true);
+                }
             });
 
         setIsLoading(false);
@@ -74,6 +85,9 @@ const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
                                 placeholder='Token...'
                             />
                             
+                            {hasPresence && !isRegistered &&
+                                <Button type="submit" className='invalid-token'>Já registrada</Button>
+                            }                            
                             {isInvalid && !isRegistered &&
                                 <Button type="submit" className='invalid-token'>Inválido...</Button>
                             }
@@ -102,6 +116,9 @@ const ModalTokenComponent = ({ toggleVisibility, onSuccess }) => {
                                 placeholder='Digite o token...'
                             />
                     
+                            {hasPresence && !isRegistered &&
+                                <Button type="submit" className='invalid-token'>Já registrada...</Button>
+                            }                    
                             {isInvalid && !isRegistered &&
                                 <Button type="submit" className='invalid-token'>Token inválido...</Button>
                             }
