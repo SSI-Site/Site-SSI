@@ -917,28 +917,10 @@ const schedule = {
             endTime : '19:00',
         },
         '19:00' : {
-            title : 'Em breve...',
-            description : '',
-            local : 'presential',// presential ou online
-            endTime : '19:30',
-            activityType : '',// se não for 'Workshop', deixar vazio
-            speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture30_NomeSobrenome
-                // },
-            ],
-        },
-        '19:30' : {
             title : 'Desmistificando Pós-graduação em SI',
             description : 'A palestra tem a intenção de simplificar e sanar dúvidas sobre o PPgSI. Irá cobrir como entrar no programa, como as coisas funcionam, oportunidades e dicas sobre a pós em SI na EACH.',
             local : 'presential',// presential ou online
-            endTime : '20:00',
+            endTime : '19:30',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
@@ -950,6 +932,24 @@ const schedule = {
                     'linkedin' : 'https://www.linkedin.com/in/felipe-furquim-b26a2b196',// opcional
                     'image': Lecture30_FelipeFurquim
                 },
+            ],
+        },
+        '19:30' : {
+            title : 'Em breve...',
+            description : '',
+            local : 'presential',// presential ou online
+            endTime : '20:00',
+            activityType : '',// se não for 'Workshop', deixar vazio
+            speakers : [
+                // {
+                //     'name': 'Nome do palestrante',
+                //     'pronouns': 'Ele/Dele',
+                //     'role': 'Cargo',
+                //     'description': 'Descrição do palestrante',
+                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                //     'image': Lecture30_NomeSobrenome
+                // },
             ],
         },
         '20:00' : {
@@ -1148,7 +1148,7 @@ const schedule = {
                     'name': 'Tiago Fraga',
                     'pronouns': 'Ele/Dele',
                     'role': 'Software Engineer Intern',
-                    'description': 'Tiago Fraga é Software Engineer Intern na Amazon, aluno do terceiro ano da graduação e atual vice-presida acadêmico do DASI. Suas principais contribuições com o ambiente acadêmico na graduação em SI são as oportunidades de conexão entre os alunos e empresas',
+                    'description': 'Tiago Fraga é aluno do terceiro ano da graduação, atual vice-presida acadêmico do DASI e Software Engineer Intern. Sua principal contribuição com o ambiente acadêmico na graduação é desenvolver oportunidades de networking entre alunos e empresas tech',
                     // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/tiago-fraga342/',// opcional
                     'image': Lecture38_TiagoFraga
