@@ -688,33 +688,6 @@ const schedule = {
             ],
         },
         '17:00' : {
-            title : 'Intervalo',
-            endTime : '17:20',
-        },
-        '17:20' : {
-            sponsor: { // opcional
-                'name': 'SSI Talks',
-                'image': SSITalksLogo,
-                'url': 'https://www.instagram.com/semanadesi',
-            },
-            title : 'Análise de Redes Sociais Criminais: o desafio dos crimes digitais',
-            description : 'Análise de Redes Sociais como método de análise criminal para instrumentalizar nova abordagem no campo investigativo visando um combate mais efetivo ao crime organizado',
-            local : 'presential',// presential ou online
-            endTime : '18:00',
-            activityType : '',// se não for 'Workshop', deixar vazio
-            speakers : [
-                {
-                    'name': 'Kerlly Barbara Mariano',
-                    'pronouns': 'Ela/Dela',
-                    'role': 'Funcionária pública',
-                    'description': 'Kerlly Barbara Mariano dos Santos é funcionária pública há 11 anos e professora de cursos voltados à análise de dados. Graduanda em Engenharia da Computação pela UNIVESP, possui especialização em análise de dados e é aluna especial no mestrado em Sistemas de Informação na USP. Possui diversas qualificações em cibersegurança, crimes digitais, e investigação criminal. Eternamente uma curiosa e aprendiz do mundo.',
-                    'instagram': 'https://www.instagram.com/kerbms/',// opcional
-                    'linkedin' : 'https://www.linkedin.com/in/kerlly-santos/',// opcional
-                    'image': Lecture21_KerllyBarbara
-                },
-            ],
-        },
-        '18:00' : {
             title : 'Jantar',
             endTime : '19:00',
         },
@@ -741,20 +714,25 @@ const schedule = {
             endTime : '20:20',
         },
         '20:20' : {
-            title : 'Digital Experience: como a tecnologia gera melhores jornadas para os clientes',
-            description : 'Nesta palestra, vamos explorar como a tecnologia tem transformado a forma como as empresas criam experiências digitais inovadoras e envolventes para seus clientes. Abordaremos o impacto de ferramentas digitais, dados e automação na jornada do consumidor, destacando estratégias que melhoram a interação, personalizam o atendimento e aumentam a satisfação do cliente no ambiente digital.',
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
+            title : 'Análise de Redes Sociais Criminais: o desafio dos crimes digitais',
+            description : 'Análise de Redes Sociais como método de análise criminal para instrumentalizar nova abordagem no campo investigativo visando um combate mais efetivo ao crime organizado',
             local : 'presential',// presential ou online
             endTime : '21:20',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
                 {
-                    'name': 'Wellington Silva',
-                    'pronouns': 'Ele/Dele',
-                    'role': 'Diretor de Tecnologia',
-                    'description': 'Wellington José, mestre em empreendedorismo pela FEA-USP, é Diretor de Tecnologia na Riachuelo e Top Voice LinkedIn 2024. Professor de pós-graduação na FIAP, ensina CX, Produtos Digitais e Varejo Omnicanal. Ex-CTO da AMARO, tem vasta experiência em times digitais na Nextel, Mutant e Portugal Telecom. Analista de Sistemas, foca em entregas digitais relevantes e eficiência organizacional. Desenvolve trilhas de bootcamp para capacitar profissionais com tecnologia.',
-                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                    'linkedin' : 'https://www.linkedin.com/in/welljose/',// opcional
-                    'image': Lecture23_WellingtonSilva
+                    'name': 'Kerlly Barbara Mariano',
+                    'pronouns': 'Ela/Dela',
+                    'role': 'Funcionária pública',
+                    'description': 'Kerlly Barbara Mariano dos Santos é funcionária pública há 11 anos e professora de cursos voltados à análise de dados. Graduanda em Engenharia da Computação pela UNIVESP, possui especialização em análise de dados e é aluna especial no mestrado em Sistemas de Informação na USP. Possui diversas qualificações em cibersegurança, crimes digitais, e investigação criminal. Eternamente uma curiosa e aprendiz do mundo.',
+                    'instagram': 'https://www.instagram.com/kerbms/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/kerlly-santos/',// opcional
+                    'image': Lecture21_KerllyBarbara
                 },
             ],
         },
