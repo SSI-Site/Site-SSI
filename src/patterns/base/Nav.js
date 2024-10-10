@@ -71,9 +71,9 @@ const Nav = () => {
 
                         <div className='hamburguer-wrapper'>
                             <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 18V16H21V18H3ZM3 13V11H21V13H3ZM3 8V6H21V8H3Z" fill="white"/>
+                                </svg>
                             </button>
                         </div>
 
@@ -267,7 +267,8 @@ const NavMobile = styled.nav`
     overflow: hidden;   
 
     .hamburguer-wrapper {
-        padding: .75rem;
+        width: 3rem;
+        height: 3rem;
         background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
@@ -277,8 +278,8 @@ const NavMobile = styled.nav`
     .hamburguer-wrapper:hover {
         background-position: left;
 
-        span {
-            background-color: #161616;
+        svg path {
+            fill: var(--color-neutral);
         }
     }
 
@@ -286,17 +287,11 @@ const NavMobile = styled.nav`
         background-color: unset;
         border: unset;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
         gap: .25rem;
-
-        span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #FFF;
-        }
     }
 
     @media (min-width:995px) {

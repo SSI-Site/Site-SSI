@@ -64,6 +64,7 @@ import DASILogo from '../public/images/sponsors/dasi.svg'
 import EITSLogo from '../public/images/sponsors/eits.svg'
 import PETLogo from '../public/images/sponsors/pet.svg'
 import NotionLogo from '../public/images/sponsors/notion.svg'
+import LabDasMinasLogo from '../public/images/sponsors/lab-das-minas.png'
 
 
 const schedule = {
@@ -838,7 +839,7 @@ const schedule = {
                 //     'description': 'Descrição do palestrante',
                 //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
                 //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture00_NomeSobrenome
+                //     'image': Lecture27_NomeSobrenome
                 // },
             ],
         },
@@ -874,7 +875,7 @@ const schedule = {
                 'image': SSITalksLogo,
                 'url': 'https://www.instagram.com/semanadesi',
             },
-            title : 'Engenharia de IA Aplicada: A Profissão do Futuro',
+            title : 'Engenharia de IA Aplicada: A Profissão do Futuro',
             description : 'A palestra irá abordar o que faz um engenheiro de IA aplicada, como funciona a recém criada carreira, conceitos básicos de IA generativa, quais as diferenças entre o cientista de dados e o engenheiro de IA aplicada e por fim, oportunidades no mercado.',
             local : 'presential',// presential ou online
             endTime : '18:00',
@@ -884,7 +885,7 @@ const schedule = {
                     'name': 'Aluísio Amorim',
                     'pronouns': 'Ele/Dele',
                     'role': 'Engenheiro de IA Aplicada',
-                    'description': 'Aluisio é um engenheiro de software full-stack pleno, que tem se especializado em inteligência artificial generativa aplicada a produto',
+                    'description': 'Aluisio é um engenheiro de software full-stack pleno, que tem se especializado em inteligência artificial generativa aplicada a produto',
                     // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/aluisio-amorim-b19a701ba/',// opcional
                     'image': Lecture29_AluisioAmorim
@@ -896,6 +897,11 @@ const schedule = {
             endTime : '19:00',
         },
         '19:00' : {
+            sponsor: { // opcional
+                'name': 'SSI Talks',
+                'image': SSITalksLogo,
+                'url': 'https://www.instagram.com/semanadesi',
+            },
             title : 'Desmistificando Pós-graduação em SI',
             description : 'A palestra tem a intenção de simplificar e sanar dúvidas sobre o PPgSI. Irá cobrir como entrar no programa, como as coisas funcionam, oportunidades e dicas sobre a pós em SI na EACH.',
             local : 'presential',// presential ou online
@@ -914,6 +920,11 @@ const schedule = {
             ],
         },
         '19:30' : {
+            sponsor: { // opcional
+                'name': 'Lab das Minas',
+                'image': LabDasMinasLogo,
+                'url': 'https://www.instagram.com/labdasminas/',
+            },
             title : 'Lab das Minas: Realidade das Mulheres na Área STEM',
             description : 'Você já parou pra observar quantas mulheres existem na sua sala de aula ou no seu trabalho? Se você é da área de tecnologia ou de alguma ciência exata, deve ter notado que não há tantas mulheres como em outros cursos... Por que isso acontece? Como acolher essas mulheres? Falaremos um pouco sobre nossa iniciativa, o Lab das Minas, um grupo de pesquisa da EACH que busca mudar esse cenário, incentivando desde a educação fundamental, as meninas a se interessarem pelas áreas de ciência e tecnologia.',
             local : 'presential',// presential ou online
