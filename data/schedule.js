@@ -43,6 +43,7 @@ import Lecture30_AliceTeobaldo from '../public/images/lecture_imgs/30-Alice_Teob
 import Lecture30_StephaniHenrique from '../public/images/lecture_imgs/30-Stephani_Henrique.jpeg'
 import Lecture30_BeatrizChen from '../public/images/lecture_imgs/30-Beatriz_Chen.jpeg'
 import Lecture30_FelipeFurquim from '../public/images/lecture_imgs/30-Felipe_Furquim.png'
+import Lecture30_AnaNakasima from '../public/images/lecture_imgs/30-Ana_Nakasima.jpeg'
 import Lecture31_DavidArty from '../public/images/lecture_imgs/31-David_Arty.png'
 import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexandre_Tavares.jpg'
 import Lecture33_ViniciusStephanto from '../public/images/lecture_imgs/33-Vinicius_Stephanto.jpg'
@@ -957,6 +958,15 @@ const schedule = {
                     // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
                     'linkedin' : 'https://www.linkedin.com/in/beatrizchen/',// opcional
                     'image': Lecture30_BeatrizChen
+                },
+                {
+                    'name': 'Ana Nakasima',
+                    // 'pronouns': 'Ela/Dela',
+                    'role': 'Monitora do Lab das Minas',
+                    'description': 'Oi, eu sou a Ana. Estou no primeiro ano de Gestão Ambiental e faço parte do Lab das Minas!',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/beatrizchen/',// opcional
+                    'image': Lecture30_AnaNakasima
                 },
             ],
         },

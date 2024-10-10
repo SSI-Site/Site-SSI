@@ -188,6 +188,7 @@ const SpeakersWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-width: 850px;
 
     @media screen and (min-width:801px) {
         flex-direction: row;
