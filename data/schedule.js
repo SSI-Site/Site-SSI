@@ -36,7 +36,7 @@ import Lecture24_BrenoNogueira from '../public/images/lecture_imgs/24-Breno_Nogu
 import Lecture25_JandirDeodato from '../public/images/lecture_imgs/25-Jandir_Deodato.jpg'
 import Lecture26_FlaviaMartins from '../public/images/lecture_imgs/26-Flavia_Martins.jpeg'
 import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovanne_Bertotti.jpeg'
-// import Lecture27_NomeSobrenome from '../public/images/lecture_imgs/27-Nome_Sobrenome.png'
+import Lecture27_PedroHenrique from '../public/images/lecture_imgs/27-Pedro_Henrique.jpg'
 import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Craveiro.png'
 import Lecture29_AluisioAmorim from '../public/images/lecture_imgs/29-Aluisio_Amorim.png'
 import Lecture30_AliceTeobaldo from '../public/images/lecture_imgs/30-Alice_Teobaldo.jpeg'
@@ -830,17 +830,17 @@ const schedule = {
             description : 'Será abordado o tema de redes dentro da área de segurança da informação, em conjunto com a aplicação prática de extração de arquivos a partir de uma captura de tráfego de pacotes no Wireshark.',
             local : 'presential',// presential ou online
             endTime : '15:40',
-            activityType : 'Workshop',// se não for 'Workshop', deixar vazio
+            activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome da palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture27_NomeSobrenome
-                // },
+                {
+                    'name': 'Pedro Henrique',
+                    'pronouns': 'Ele/Ela',
+                    'role': 'Estudante e pesquisador',
+                    'description': 'Fissurado por criptografia e por qualquer outra coisa que funcione como um quebra-cabeça. É graduando em Sistemas de Informação pela Universidade de São Paulo e pesquisador na área de Inteligência Artificial na equipe da KEML',
+                    'instagram': 'https://www.instagram.com/pedrohhq/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/pedroresnitzky/',// opcional
+                    'image': Lecture27_PedroHenrique
+                },
             ],
         },
         '15:40' : {
