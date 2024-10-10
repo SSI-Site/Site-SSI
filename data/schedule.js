@@ -32,7 +32,6 @@ import Lecture19_NycholasSzucko from '../public/images/lecture_imgs/19-Nycholas_
 import Lecture20_MayumiShingaki from '../public/images/lecture_imgs/20-Mayumi_Shingaki.png'
 import Lecture21_KerllyBarbara from '../public/images/lecture_imgs/21-Kerlly_Barbara.jpg'
 import Lecture22_KarinaOliveira from '../public/images/lecture_imgs/22-Karina_Oliveira.jpeg'
-import Lecture23_WellingtonSilva from '../public/images/lecture_imgs/23-Wellington_Silva.jpg'
 import Lecture24_BrenoNogueira from '../public/images/lecture_imgs/24-Breno_Nogueira.jpg'
 import Lecture25_JandirDeodato from '../public/images/lecture_imgs/25-Jandir_Deodato.jpg'
 import Lecture26_FlaviaMartins from '../public/images/lecture_imgs/26-Flavia_Martins.jpeg'
@@ -40,7 +39,9 @@ import Lecture26_GiovanneBertotti from '../public/images/lecture_imgs/26-Giovann
 // import Lecture27_NomeSobrenome from '../public/images/lecture_imgs/27-Nome_Sobrenome.png'
 import Lecture28_MonicaCraveiro from '../public/images/lecture_imgs/28-Monica_Craveiro.png'
 import Lecture29_AluisioAmorim from '../public/images/lecture_imgs/29-Aluisio_Amorim.png'
-// import Lecture30_NomeSobrenome from '../public/images/lecture_imgs/30-Nome_Sobrenome.png'
+import Lecture30_AliceTeobaldo from '../public/images/lecture_imgs/30-Alice_Teobaldo.jpeg'
+import Lecture30_StephaniHenrique from '../public/images/lecture_imgs/30-Stephani_Henrique.jpeg'
+import Lecture30_BeatrizChen from '../public/images/lecture_imgs/30-Beatriz_Chen.jpeg'
 import Lecture30_FelipeFurquim from '../public/images/lecture_imgs/30-Felipe_Furquim.png'
 import Lecture31_DavidArty from '../public/images/lecture_imgs/31-David_Arty.png'
 import Lecture32_AlexandreTavares from '../public/images/lecture_imgs/32-Alexandre_Tavares.jpg'
@@ -913,21 +914,39 @@ const schedule = {
             ],
         },
         '19:30' : {
-            title : 'Em breve...',
-            description : '',
+            title : 'Lab das Minas: Realidade das Mulheres na Área STEM',
+            description : 'Você já parou pra observar quantas mulheres existem na sua sala de aula ou no seu trabalho? Se você é da área de tecnologia ou de alguma ciência exata, deve ter notado que não há tantas mulheres como em outros cursos... Por que isso acontece? Como acolher essas mulheres? Falaremos um pouco sobre nossa iniciativa, o Lab das Minas, um grupo de pesquisa da EACH que busca mudar esse cenário, incentivando desde a educação fundamental, as meninas a se interessarem pelas áreas de ciência e tecnologia.',
             local : 'presential',// presential ou online
             endTime : '20:00',
             activityType : '',// se não for 'Workshop', deixar vazio
             speakers : [
-                // {
-                //     'name': 'Nome do palestrante',
-                //     'pronouns': 'Ele/Dele',
-                //     'role': 'Cargo',
-                //     'description': 'Descrição do palestrante',
-                //     'instagram': 'https://www.instagram.com/semanadesi',// opcional
-                //     'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
-                //     'image': Lecture30_NomeSobrenome
-                // },
+                {
+                    'name': 'Alice Teobaldo',
+                    'pronouns': 'Ela/Dela',
+                    'role': 'Monitora do Lab das Minas',
+                    'description': 'Sou estudante de Biotecnologia, monitora do Lab das Minas e faço parte do Centro Acadêmico Barbara McClintock (CABaM).',
+                    'instagram': 'https://www.instagram.com/alice.teobaldo/',// opcional
+                    // 'linkedin' : 'https://www.linkedin.com/in/nome-do-palestrante/',// opcional
+                    'image': Lecture30_AliceTeobaldo
+                },
+                {
+                    'name': 'Stephani Henrique',
+                    'pronouns': 'Ela/Dela',
+                    'role': 'Monitora do Lab das Minas',
+                    'description': 'Estou no último ano da graduação em Sistemas de Informação e recentemente me tornei monitora do Lab das Minas! Entusiasta da área de tecnologia e muito animada com a oportunidade de inspirar outras pessoas a se apaixonarem por este campo tão dinâmico e inovador.',
+                    'instagram': 'https://www.instagram.com/steph_henrique/',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/stephani-henrique-947604205/',// opcional
+                    'image': Lecture30_StephaniHenrique
+                },
+                {
+                    'name': 'Beatriz Chen',
+                    // 'pronouns': 'Ela/Dela',
+                    'role': 'Monitora do Lab das Minas',
+                    'description': 'Hello, sou a Bia, aluna do 4º ano de Gestão Ambiental (sim, dinossaura), e me infiltrei em SI sem querer... Faço parte do Lab das Minas e por isso estou aqui :) #soufãdeSI #vocessãoincriveis!',
+                    // 'instagram': 'https://www.instagram.com/semanadesi',// opcional
+                    'linkedin' : 'https://www.linkedin.com/in/beatrizchen/',// opcional
+                    'image': Lecture30_BeatrizChen
+                },
             ],
         },
         '20:00' : {
