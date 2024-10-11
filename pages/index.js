@@ -188,7 +188,7 @@ const Home = () => {
             </YoutubeContainer>
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
-            {/* <SubscriptionSection>
+            <SubscriptionSection>
                 <div className='landing-container'>
                     <div className='subscription-container'>
                         <h3>Inscrições abertas!</h3>
@@ -204,7 +204,7 @@ const Home = () => {
                         <img src="./images/co_members/co.jpg"/>
                     </div>
                 </div>
-            </SubscriptionSection> */}
+            </SubscriptionSection>
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
             {(now < countdownDate) &&
