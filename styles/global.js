@@ -3,10 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
 
     :root {
-        --color-primary: #9638FF;   //Ajustada
+        color-scheme: dark light;
+        --color-primary:light-dark( #9638FF, #6206BF);   //Ajustada
         --color-secondary: #DDA6FF; //Ajustada
         --color-tertiary: #8A45C6;  //excluir posteriormente
-        --color-neutral: #161616;   //Ajustada
+        --color-neutral:#161616;   //Ajustada
         --color-neutral-secondary: #4B4B4B;
         --color-content-neutrals-tertiary: #CACACA;
 
