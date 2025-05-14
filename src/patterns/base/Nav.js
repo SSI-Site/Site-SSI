@@ -107,7 +107,7 @@ const Nav = () => {
                             </li>
 
                             <li>
-                                <a href="https://ctf.intheshell.page/" target='_blank'>
+                                <a href="https://ctf.intheshell.page/" target='_blank' >
                                     CTF
                                 </a>
                             </li>
@@ -125,7 +125,9 @@ const Nav = () => {
                                 </li>
                             ) : (
                                 <li>
-                                    <Button onClick={handleShowAuthModal} disabled={disableAuth}>Login</Button>
+                                    <Button
+                                    onClick={handleShowAuthModal} 
+                                    disabled={disableAuth}>Login</Button>
                                 </li>
                             )
                             }
@@ -213,7 +215,8 @@ const Nav = () => {
                             </NavigationList>
                         </> 
                     :
-                        <Button onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
+                        <Button 
+                        onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
                     }
                     
                 </div>

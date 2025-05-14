@@ -25,7 +25,7 @@ const formatUser = async (user) => ({
 })
 
 export function AuthProvider({ children }) {
-    const disableAuth = false // false para ativar a autenticação
+    const disableAuth = true // false para ativar a autenticação
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
