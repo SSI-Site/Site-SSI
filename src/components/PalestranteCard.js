@@ -119,7 +119,7 @@ const PalestranteCard = ({ palestrante = {
                         {/* Seção de redes sociais */}
                         <PalestranteSocialContainer>
                             <PalestranteSocialHeader>
-                                Rede Sociais
+                                Redes Sociais
                             </PalestranteSocialHeader>
                             <PalestranteSocialMedia>
                                 {
