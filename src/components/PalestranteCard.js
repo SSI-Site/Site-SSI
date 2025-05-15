@@ -14,7 +14,16 @@ const PalestranteCard = ({ palestrante = {
     redesSociais: {
         linkedin: "https://www.linkedin.com/in/username",
         instagram: "https://www.instagram.com/username"
-    }
+    },
+    palestras: [
+        {
+            dataPalestra: "Segunda-Feira, 11 de Agosto, 9:40-10:40h",
+            tituloPalestra: "Título da palestra gigante que pega duas linhas ou mais",
+            metadata: {
+                presencial: true
+            }
+        }
+    ]
 } }) => {
     // Estado para controlar se o card está aberto ou fechado (expandido)
     const [open, setOpen] = useState(false);
@@ -94,19 +103,16 @@ const PalestranteCard = ({ palestrante = {
 
                         {/* Lista de palestras do palestrante */}
                         <PalestrantePalestras>
-                            <Palestra dataPalestra={
-                                "Segunda-Feira, 11 de Agosto, 9:40-10:40h"
+                            {
+                                palestrante.palestras.map((palestra, index) => (
+                                    <Palestra
+                                        key={index}
+                                        dataPalestra={palestra.dataPalestra}
+                                        tituloPalestra={palestra.tituloPalestra}
+                                        metadata={palestra.metadata}
+                                    />
+                                ))
                             }
-                                tituloPalestra={
-                                    "Título da palestra gigante que pega duas linhas ou mais"
-                                }
-                                metadata={
-                                    {
-                                        presencial: true
-                                    }
-                                }
-
-                            />
                         </PalestrantePalestras>
                     </PalestranteMiddleBody>
                     <PalestranteRightBody>
