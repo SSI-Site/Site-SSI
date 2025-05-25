@@ -100,6 +100,12 @@ const Nav = () => {
                                 </Link>
                             </li>
 
+                            <li className = {router.pathname == '/palestrantes' ? 'active': ''}>
+                                <Link legacyBehavior href="/palestrantes" passHref>
+                                    <a>Palestrantes</a>
+                                </Link>
+                            </li>
+
                             <li className = {router.pathname == '/co' ? 'active': ''}>
                                 <Link legacyBehavior href="/co" passHref>
                                     <a>Comissão Organizadora</a>
@@ -170,6 +176,12 @@ const Nav = () => {
                                 <Link legacyBehavior href="/about" passHref>
                                     <a>Evento</a>
                                 </Link>
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/palestrantes' ? 'active': ''}>
+                                <Link legacyBehavior href="/palestrantes" passHref>
+                                    <a>Palestrantes</a>
+                                </Link>                                
                             </li>
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
