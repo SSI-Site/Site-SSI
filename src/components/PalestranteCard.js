@@ -6,7 +6,7 @@ import { InstagramLogo, LinkedInLogo } from "./SocialMediaLogos";
 // Componente principal que exibe o card do palestrante
 const PalestranteCard = ({ palestrante = {
     nomePalestrante: "Nome do Palestrante",
-    fotoPalestrante: "https://via.placeholder.com/128",
+    fotoPalestrante: "https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b",
     pronomePalestrante: "ele/dele",
     cargoPalestrante: "Cargo do Palestrante",
     descricaoPalestrante: "Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis.",
@@ -154,16 +154,10 @@ const PalestranteCard = ({ palestrante = {
     )
 }
 
-const PalestranteArrowUp = styled.img`
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
-`;
-
 // Componente para exibir um ícone de rede social com link
 const PalestranteSocialMediaItem = ({ icon, link, alt }) => {
     return (
-        <a href={link} target="_blank" rel="noopener noreferrer">
+        <a href={link} target="_blank" rel="noopener noreferrer nofollow">
             {icon}
         </a>
     )
@@ -193,6 +187,12 @@ const Palestra = ({ dataPalestra, tituloPalestra, metadata }) => {
         </PalestraContainer>
     )
 }
+
+const PalestranteArrowUp = styled.img`
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+`;
 
 const PalestraTags = styled.div`
     display: flex;
@@ -230,7 +230,7 @@ const PalestraData = styled.p`
 
 const PalestraTitulo = styled.h5`
     font-weight: 500;
-    margin-top: 0px;
+    margin-top: 0;
 `;
 
 const PalestranteContainer = styled.div`
@@ -240,6 +240,10 @@ const PalestranteContainer = styled.div`
     flex: 1;
     border-bottom: 1px solid var(--color-neutral-secondary);
     position: relative;
+
+    &:hover{
+        background-color: #FFFFFF14;
+    }
 `;
 
 const PalestranteInfo = styled.div`
@@ -249,15 +253,18 @@ const PalestranteInfo = styled.div`
     @media (max-width:1000px) {
         & {
             flex-direction: column;
-            padding: 0.9rem 0px;
+            //padding: 0.9rem 0px;
         }
     }
 `;
 
 const PalestranteHeader = styled.div`
     display: flex;
-    padding: 1.5rem 0px;
+    //padding: 1.5rem 0rem;
     gap: 1.5rem;
+    width: 100%;
+    border: 1px solid red;
+    align-items: flex-end;
 
     @media (max-width:1000px) {
         & {
@@ -268,9 +275,11 @@ const PalestranteHeader = styled.div`
 
 const PalestranteRole = styled.span`
     font-weight: 500;
-    margin-top: auto;
+    //margin-top: auto;
     margin-left: auto;
-    width: calc((100% + 8rem + 1.5rem)* 0.3);
+    //border: 1px solid red;
+    width: 30%;
+    border: 1px solid green;
 
     @media (max-width:1000px) {
         & {
@@ -295,11 +304,7 @@ const PalestranteImage = styled.img`
 
 const PalestranteName = styled.h3`
     margin-top: auto;
-    cursor: pointer;
-
-    &:hover {
-        text-decoration: underline;
-    }
+    border: 1px solid yellow;
 
     @media (max-width:1000px) {
         & {
@@ -370,3 +375,5 @@ const PalestranteSocialMedia = styled.div`
     display: flex;
     gap: 1rem;
 `;
+
+export default PalestranteCard
