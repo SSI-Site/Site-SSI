@@ -3,32 +3,45 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
 
     :root {
-        color-scheme: dark light;
-        --color-primary:light-dark( #9638FF, #6206BF);   //Ajustada
-        --color-secondary: #DDA6FF; //Ajustada
-        --color-tertiary: #8A45C6;  //excluir posteriormente
-        --color-neutral:#161616;   //Ajustada
-        --color-neutral-secondary: #4B4B4B;
-        --color-content-neutrals-tertiary: #CACACA;
+        color-scheme: light dark;
+
+        --color-primary: light-dark( #7305E6, #9638FF);
+        --color-secondary: #DDA6FF; // NÃO USADA
+        --color-tertiary: #8A45C6;  //excluir posteriormente NÃO USADA
+
+        // essas 3 estão sendo usadas mas acho que faria mais sentido trocar elas pelas suas perctivas 
+        --color-neutral: light-dark( #E6E6E6, #1A1A1A);
+        --color-neutral-secondary: light-dark( #808080, #808080);
+        --color-content-neutrals-tertiary: light-dark( #CCCCCC, #333333);
+
 
         /* variações da paleta - ainda tenho que dar uma olhada melhor nas cores que são usadas */
-        --color-primary-900: #390078; 
-        --color-primary-800: #6618BB; 
-        --color-primary-700: #7E25E1; 
-        --color-primary-600: #9638FF; 
-        --color-primary-500: #AF52FF; 
-        --color-primary-400: #C66EFF;
-        --color-primary-300: #D98DFF;
-        --color-primary-200: #DDA6FF;
-        --color-neutral-900: #000000; 
-        --color-neutral-800: #252525;
-        --color-neutral-700: #3C3C3C; // Ainda não usou
-        --color-neutral-600: #545454; // Ainda não usou
-        --color-neutral-500: #6C6C6C; // Ainda não usou
-        --color-neutral-400: #858585; // Ainda não usou
-        --color-neutral-300: #A0A0A0; // Ainda não usou
-        --color-neutral-100: #D7D7D7; // Ainda não usou
-        --color-neutral-50: #FFFFFF;  
+
+        // PRIMARY
+        --color-primary-950: light-dark( #2B054D, #E5D3FF); // Ainda não usou
+        --color-primary-900: light-dark( #3E0672, #D0ACFF); 
+        --color-primary-800: light-dark( #510698, #BB86FF); 
+        --color-primary-700: light-dark( #6206BF, #A85FFF); 
+        --color-primary-600: light-dark( #7305E6, #9638FF); 
+        --color-primary-500: light-dark( #8414FD, #8414FD); 
+        --color-primary-400: light-dark( #9638FF, #7305E6);
+        --color-primary-300: light-dark( #A85FFF, #6206BF);
+        --color-primary-200: light-dark( #BB86FF, #510698);
+        --color-primary-100: light-dark( #D0ACFF, #3E0672); // Ainda não usou
+        --color-primary-50:  light-dark( #E5D3FF, #2B054D); // Ainda não usou
+
+        // NEUTRALS
+        --color-neutral-950: light-dark( #000000, #FFFFFF); // Ainda não usou
+        --color-neutral-900: light-dark( #1A1A1A, #E6E6E6); // Ainda não usou
+        --color-neutral-800: light-dark( #333333, #CCCCCC);
+        --color-neutral-700: light-dark( #4D4D4D, #B3B3B3); // Ainda não usou
+        --color-neutral-600: light-dark( #666666, #999999); 
+        --color-neutral-500: light-dark( #808080, #808080); // Ainda não usou
+        --color-neutral-400: light-dark( #999999, #666666); 
+        --color-neutral-300: light-dark( #B3B3B3, #4D4D4D); // Ainda não usou
+        --color-neutral-200: light-dark( #CCCCCC, #333333); // Ainda não usou
+        --color-neutral-100: light-dark( #E6E6E6, #1A1A1A); // Ainda não usou
+        --color-neutral-50:  light-dark( #FFFFFF, #000000);
 
         /* 16 pixels (100% = 16 pixels) */
         font-size: 100%;
