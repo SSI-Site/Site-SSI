@@ -212,9 +212,7 @@ const PalestrantePalestras = styled.div`
     flex-direction: column;
 `;
 
-export {
-    PalestranteCard
-}
+export default PalestranteCard;
 
 const PalestraContainer = styled.div`
     padding: 0.9rem 1rem;
@@ -236,81 +234,68 @@ const PalestraTitulo = styled.h5`
 const PalestranteContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
     flex: 1;
     border-bottom: 1px solid var(--color-neutral-secondary);
     position: relative;
+    padding-block: 1rem;
 
     &:hover{
         background-color: #FFFFFF14;
+    }
+
+    @media (min-width: 1024px){
+        padding: 1.5rem;
     }
 `;
 
 const PalestranteInfo = styled.div`
     display: flex;
     flex: 1;
+    flex-direction: column;
+    gap: 1.5rem;
 
-    @media (max-width:1000px) {
-        & {
-            flex-direction: column;
-            //padding: 0.9rem 0px;
-        }
+    @media (min-width:1024px) {
+        flex-direction: row;
     }
 `;
 
 const PalestranteHeader = styled.div`
     display: flex;
-    //padding: 1.5rem 0rem;
-    gap: 1.5rem;
-    width: 100%;
-    border: 1px solid red;
-    align-items: flex-end;
+    gap: 1rem;
+    //border: 1px solid red;
+    align-items: flex-start;
 
-    @media (max-width:1000px) {
+    @media (min-width:1024px) {
         & {
-            gap: 1rem;
+            gap: 1.5rem;
         }
     }
 `;
 
 const PalestranteRole = styled.span`
     font-weight: 500;
-    //margin-top: auto;
-    margin-left: auto;
-    //border: 1px solid red;
-    width: 30%;
-    border: 1px solid green;
+    width: 100%;
 
-    @media (max-width:1000px) {
+    @media (min-width:1024px) {
         & {
-            margin-left: 0px;
-            width: fit-content;
+            width: 40%;
+            margin-left: auto;
         }
     }
 `;
 
 const PalestranteImage = styled.img`
-    width: 8rem;
-    height: 8rem;
+    width: 100%;
+    max-width: 7rem;
     object-fit: cover;
 
-    @media (max-width:1000px) {
-        & {
-            width: 9rem;
-            height: 9rem;
-        }
+    @media (min-width:1024px) {
+        max-width: 9rem;
     }
 `;
 
 const PalestranteName = styled.h3`
-    margin-top: auto;
-    border: 1px solid yellow;
-
-    @media (max-width:1000px) {
-        & {
-            margin-top: 0px;
-        }
-    }
+    width: 100%;
 `;
 
 const PalestranteWrapper = styled.div`
@@ -321,12 +306,13 @@ const PalestranteWrapper = styled.div`
 const PalestranteBody = styled.div`
     display: flex;
     gap: 1.5rem;
-    padding: 1.5rem 0px;
+    flex-direction: column;
+    padding-block: 1.5rem;
     flex: 1;
 
-    @media (max-width:1000px) {
+    @media (min-width:1024px) {
         & {
-            flex-direction: column;
+            flex-direction: row;
         }
     }
 `;
@@ -375,5 +361,3 @@ const PalestranteSocialMedia = styled.div`
     display: flex;
     gap: 1rem;
 `;
-
-export default PalestranteCard
