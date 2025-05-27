@@ -1,3 +1,6 @@
+import styled from "styled-components";
+import BadgeCO from './BadgeCO'
+
 const LectureCard = ({ dataPalestra, tituloPalestra, metadata }) => {
     return (
         <PalestraContainer>
@@ -12,9 +15,7 @@ const LectureCard = ({ dataPalestra, tituloPalestra, metadata }) => {
             <PalestraTags>
                 {
                     metadata.presencial && (
-                        <PalestraTag>
-                            Presencial
-                        </PalestraTag>
+                        <BadgeCO text={"Presencial"} themeIndex={6}/>
                     )
                 }
             </PalestraTags>
@@ -30,6 +31,11 @@ const PalestraContainer = styled.div`
     flex-direction: column;
     gap: 1.5rem;
     border: 1px solid var(--outline-neutrals-primary, #808080);
+    transition: all 0.2 ease-in-out;
+
+&:hover{
+    background-color: var(--color-primary)
+}
 `;
 
 const PalestraData = styled.p`
@@ -45,12 +51,4 @@ const PalestraTags = styled.div`
     display: flex;
     gap: 0.8rem;
     flex-wrap: wrap;
-`;
-
-const PalestraTag = styled.span`
-    font-weight: 400;
-    color: var(--color-neutral-50);
-    background: var(--background-badge-brand-purple-500, #9638FF);
-    padding: 0.25rem 0.5rem;
-    // ALREADY EXISTS
 `;
