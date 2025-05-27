@@ -241,7 +241,7 @@ const PalestranteInfo = styled.div`
 const PalestranteHeader = styled.div`
     display: flex;
     gap: 1rem;
-    align-items: flex-end;
+    align-items: flex-start;
     padding-block: 1rem;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -253,7 +253,7 @@ const PalestranteHeader = styled.div`
     @media (min-width:1024px) {
         padding: 1.5rem;
         gap: 1.5rem;
-
+        align-items: flex-end;
     }
 `;
 
@@ -269,8 +269,14 @@ const PalestranteRole = styled.span`
 
 const PalestranteImageWrapper = styled.div`
     width: 100%;
+    max-width: 5rem;
     display: flex;
-    max-width: 8rem;
+
+    @media (min-width: 1024px){
+        width: 100%;
+        max-width: 8rem;
+    }
+    
 `
 
 const PalestranteImage = styled.img`
@@ -317,7 +323,6 @@ const PalestranteMiddleBody = styled.div`
 `;
 
 const PalestranteRightBody = styled.div`
-    margin-left: auto;
     width: 30%;
 `;
 
