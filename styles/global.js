@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
 
     :root {
-        color-scheme: light dark;
+        color-scheme: dark light;
 
         --color-primary: light-dark( #7305E6, #9638FF);
         --color-secondary: #DDA6FF; // NÃO USADA
