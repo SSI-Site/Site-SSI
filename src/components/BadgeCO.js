@@ -2,43 +2,43 @@ import styled from "styled-components";
 
 const colorSchemes = [
     {
-        'badgeColor' : 'var(--color-neutral)',
-        'textColor'  : 'var(--color-neutral-50)'
+        'badgeColor' : 'var(--background-neutrals-primary)',
+        'textColor'  : 'var(--background-neutrals-primary-50)'
     },
     {
-        'badgeColor' : 'var(--color-neutral-50)',
-        'textColor'  : 'var(--color-neutral)'
+        'badgeColor' : 'var(--background-neutrals-primary-50)',
+        'textColor'  : 'var(--background-neutrals-primary)'
     },
     {
-        'badgeColor' : 'var(--color-primary-200)',
-        'textColor'  : 'var(--color-primary-900)'
+        'badgeColor' : 'var(--brand-purple-200)',
+        'textColor'  : 'var(--brand-purple-900)'
     },
     {
-        'badgeColor' : 'var(--color-primary-300)',
-        'textColor'  : 'var(--color-primary-900)'
+        'badgeColor' : 'var(--brand-purple-300)',
+        'textColor'  : 'var(--brand-purple-900)'
     },
     {
-        'badgeColor' : 'var(--color-primary-400)',
-        'textColor'  : 'var(--color-primary-900)'
+        'badgeColor' : 'var(--brand-purple-400)',
+        'textColor'  : 'var(--brand-purple-900)'
     },
     {
-        'badgeColor' : 'var(--color-primary-500)',
+        'badgeColor' : 'var(--brand-purple-500)',
         'textColor'  : 'var(color-neutral-50)'
     },
     {
-        'badgeColor' : 'var(--color-primary-600)',
+        'badgeColor' : 'var(--brand-purple-600)',
         'textColor'  : 'var(color-neutral-50)'
     },
     {
-        'badgeColor' : 'var(--color-primary-700)',
-        'textColor'  : 'var(color-neutral-50)'
-    },    
-    {
-        'badgeColor' : 'var(--color-primary-800)',
+        'badgeColor' : 'var(--brand-purple-700)',
         'textColor'  : 'var(color-neutral-50)'
     },    
     {
-        'badgeColor' : 'var(--color-primary-900)',
+        'badgeColor' : 'var(--brand-purple-800)',
+        'textColor'  : 'var(color-neutral-50)'
+    },    
+    {
+        'badgeColor' : 'var(--brand-purple-900)',
         'textColor'  : 'var(color-neutral-50)'
     },
 ]
