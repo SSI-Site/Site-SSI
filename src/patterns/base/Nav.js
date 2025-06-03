@@ -326,7 +326,7 @@ const NavigationList = styled.ul`
         display: block;
         padding: 0.125rem 0.5rem;
         background-color: transparent;
-        background-image: linear-gradient(to right, var(--background-neutrals-primary) 50%, var(--brand-primary) 50%);
+        background-image: linear-gradient(to right, var(--background-neutrals-primary) 50%, var(--background-neutrals-inverse) 50%);
         background-size: 200%;
         background-position-x: 200%;
         transition: all 0.15s ease-out;
@@ -336,7 +336,7 @@ const NavigationList = styled.ul`
         font-weight: 400;
 
         &:hover, &:focus-visible {
-            color: var(--content-neutrals-fixed-white);
+            color: var(--content-neutrals-inverse);
             background-position-x: 100%;
         }
 
@@ -348,7 +348,7 @@ const NavigationList = styled.ul`
     }
 
     .active {            
-        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, var(--brand-primary) 50%);
+        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--brand-primary) 50%);
         background-size: 250% 100%;
         background-position: right;
         
@@ -357,7 +357,7 @@ const NavigationList = styled.ul`
         }
 
         &:hover a, a:focus-visible {
-            color: var(--content-neutrals-fixed-white);
+            color: var(--content-neutrals-inverse);
         }
     }
 `
