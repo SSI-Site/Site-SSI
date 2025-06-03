@@ -181,7 +181,7 @@ const Footer = () => {
 export default Footer
 
 const FooterWrapper = styled.footer`
-    border-top: 1px solid var(--color-neutral-secondary);
+    border-top: 1px solid var(--background-neutrals-secondary);
     width: 100%;
     display: flex;
     align-items: center;
@@ -213,9 +213,9 @@ const FooterWrapper = styled.footer`
         padding: 0.125rem 0.5rem;
         background-color: transparent;
         white-space: nowrap;
-        background-image: linear-gradient(
-            var(--color-neutral-50),
-            var(--color-neutral-50)
+        background-image: linear-gradient(to right,
+            var(--background-neutrals-inverse),
+            var(--background-neutrals-inverse)
         ); /* Coloca um background branco em cima do botão */
         background-size: 200%; /* faz o background-position com porcentagem funcionar */
         background-position-x: 200%; /* Tira o background branco do lugar */
@@ -228,24 +228,24 @@ const FooterWrapper = styled.footer`
     ul a:hover,
     ul a:focus-visible {
         background-position-x: 100%;
-        color: var(--color-neutral);
+        color: var(--content-neutrals-inverse);
     }
 
     ul a:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--content-neutrals-inverse);
         outline-offset: 2px;
     }
     // Fim da animação
 
     // Rota ativada
     .active {
-        background-color: var(--color-primary);
+        background-color: var(--brand-primary);
         transition: 0.15s all ease-out;
         font-family: 'AT Aero Bold';
 
         &:hover,
         &:focus-visible {
-            color: var(--color-primary);
+            color: var(--content-neutrals-inverse);
         }
     }
 
@@ -269,8 +269,8 @@ const MobileBackToTop = styled.div`
     padding: 0.5rem 1.5rem;
     background: linear-gradient(
         to bottom,
-        var(--color-primary) 50%,
-        var(--color-neutral-50) 50%
+        var(--brand-primary) 50%,
+        var(--background-neutrals-inverse) 50%
     );
     background-size: 100% 200%;
     background-position: top;
@@ -285,17 +285,17 @@ const MobileBackToTop = styled.div`
     &:hover,
     &:focus-visible {
         background-position: bottom;
-        color: var(--color-primary);
+        color: var(--brand-primary);
 
         path {
             transition: all 0.15s ease-out;
-            fill: var(--color-primary);
+            fill: var(--brand-primary);
             transform: translateY(0);
         }
     }
 
     &:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
 
@@ -312,8 +312,8 @@ const DesktopBackToTop = styled.div`
         padding: 1rem;
         background: linear-gradient(
             to bottom,
-            var(--color-primary) 50%,
-            var(--color-neutral-50) 50%
+            var(--brand-primary) 50%,
+            var(--background-neutrals-inverse) 50%
         );
         background-size: 100% 200%;
         background-position: top;
@@ -330,13 +330,13 @@ const DesktopBackToTop = styled.div`
 
             path {
                 transition: all 0.15s ease-out;
-                fill: var(--color-primary);
+                fill: var(--content-neutrals-inverse);
                 transform: translateY(0);
             }
         }
 
         &:focus-visible {
-            outline: 2px solid var(--color-primary);
+            outline: 2px solid var(--brand-primary);
             outline-offset: 2px;
         }
     }
@@ -441,7 +441,7 @@ const FooterLogos = styled.div`
     }
 
     a:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
 
