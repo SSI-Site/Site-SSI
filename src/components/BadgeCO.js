@@ -3,10 +3,10 @@ import styled from "styled-components";
 const colorSchemes = [
     {
         'badgeColor' : 'var(--background-neutrals-primary)',
-        'textColor'  : 'var(--background-neutrals-primary-50)'
+        'textColor'  : 'var(--background-neutrals-secondary)'
     },
     {
-        'badgeColor' : 'var(--background-neutrals-primary-50)',
+        'badgeColor' : 'var(--background-neutrals-secondary)',
         'textColor'  : 'var(--background-neutrals-primary)'
     },
     {
