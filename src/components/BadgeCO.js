@@ -2,44 +2,44 @@ import styled from "styled-components";
 
 const colorSchemes = [
     {
-        'badgeColor' : 'var(--background-neutrals-primary)',
-        'textColor'  : 'var(--background-neutrals-secondary)'
+        'badgeColor' : 'var(--background-neutrals-inverse)',
+        'textColor'  : 'var(--content-neutrals-inverse)'
     },
     {
-        'badgeColor' : 'var(--background-neutrals-secondary)',
-        'textColor'  : 'var(--background-neutrals-primary)'
+        'badgeColor' : 'var(--background-neutrals-primary)',
+        'textColor'  : 'var(--content-neutrals-primary)'
     },
     {
         'badgeColor' : 'var(--brand-purple-200)',
-        'textColor'  : 'var(--brand-purple-900)'
+        'textColor'  : 'var(--brand-primary-dark)'
     },
     {
         'badgeColor' : 'var(--brand-purple-300)',
-        'textColor'  : 'var(--brand-purple-900)'
+        'textColor'  : 'var(--brand-primary-dark)'
     },
     {
         'badgeColor' : 'var(--brand-purple-400)',
-        'textColor'  : 'var(--brand-purple-900)'
+        'textColor'  : 'var(--brand-primary-dark)'
     },
     {
         'badgeColor' : 'var(--brand-purple-500)',
-        'textColor'  : 'var(color-neutral-50)'
+        'textColor'  : 'var(--content-neutrals-fixed-white)'
     },
     {
         'badgeColor' : 'var(--brand-purple-600)',
-        'textColor'  : 'var(color-neutral-50)'
+        'textColor'  : 'var(--content-neutrals-fixed-white)'
     },
     {
         'badgeColor' : 'var(--brand-purple-700)',
-        'textColor'  : 'var(color-neutral-50)'
+        'textColor'  : 'var(--content-neutrals-fixed-white)'
     },    
     {
         'badgeColor' : 'var(--brand-purple-800)',
-        'textColor'  : 'var(color-neutral-50)'
+        'textColor'  : 'var(--content-neutrals-fixed-white)'
     },    
     {
         'badgeColor' : 'var(--brand-purple-900)',
-        'textColor'  : 'var(color-neutral-50)'
+        'textColor'  : 'var(--content-neutrals-fixed-white)'
     },
 ]
 
