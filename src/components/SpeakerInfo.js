@@ -90,6 +90,7 @@ const SpeakerContainer = styled.div`
         z-index: 15;
         top: 0;
         right: 0;
+        background-color: var(--background-neutrals-secondary);
         transition: transform 300ms ease-in-out;
         transform: translateX(100%);
     }
@@ -107,7 +108,7 @@ const SpeakerContainer = styled.div`
         height: 5rem;
         overflow: hidden;
         flex-shrink: 0;
-        background-color: #363636;
+        background-color: var(--background-neutrals-secondary);
 
         img {
             width: 100%;
@@ -129,7 +130,7 @@ const SpeakerContainer = styled.div`
             width: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
-            background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+            background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
             background-position: right;
             background-size: 202% 100%;
             transition: 0.15s all ease-out;
@@ -148,17 +149,17 @@ const SpeakerContainer = styled.div`
                 background-position: left;
 
                 p {
-                    color: var(--color-neutral);
+                    color: var(--content-neutrals-inverse);
                 }
 
                 svg path {
-                    fill: var(--color-neutral);
+                    fill: var(--background-neutrals-primary);
                     transition: fill 0.15s ease;
                 }
             }
 
             &:focus-visible {
-                outline: 2px solid var(--color-primary);
+                outline: 2px solid var(--brand-primary);
                 outline-offset: 2px;
             }
         }

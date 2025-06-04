@@ -250,8 +250,8 @@ const NavWrapper = styled.div`
     margin: auto;
     z-index: 11;
     padding: 1.5rem 1rem; 
-    background-color: var(--color-neutral);
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    background-color: var(--background-neutrals-primary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
 
     > div {
         display: flex;
@@ -267,7 +267,7 @@ const NavWrapper = styled.div`
             justify-content: center;
 
             &:focus-visible {
-                outline: 2px solid var(--color-primary);
+                outline: 2px solid var(--brand-primary);
                 outline-offset: 2px;
             }
         }
@@ -284,7 +284,7 @@ const NavMobile = styled.nav`
     .hamburguer-wrapper {
         width: 3rem;
         height: 3rem;
-        background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
@@ -294,7 +294,7 @@ const NavMobile = styled.nav`
         background-position: left;
 
         svg path {
-            fill: var(--color-neutral);
+            fill: var(--background-neutrals-primary);
         }
     }
 
@@ -326,7 +326,7 @@ const NavigationList = styled.ul`
         display: block;
         padding: 0.125rem 0.5rem;
         background-color: transparent;
-        background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
+        background-image: linear-gradient(to right, var(--background-neutrals-primary) 50%, var(--background-neutrals-inverse) 50%);
         background-size: 200%;
         background-position-x: 200%;
         transition: all 0.15s ease-out;
@@ -336,19 +336,19 @@ const NavigationList = styled.ul`
         font-weight: 400;
 
         &:hover, &:focus-visible {
-            color: var(--color-neutral);
+            color: var(--content-neutrals-inverse);
             background-position-x: 100%;
         }
 
         &:focus-visible {
-            outline: 2px solid var(--color-primary);
+            outline: 2px solid var(--content-neutrals-fixed-white);
             outline-offset: 2px;
         }
             
     }
 
     .active {            
-        background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
+        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--brand-primary) 50%);
         background-size: 250% 100%;
         background-position: right;
         
@@ -357,7 +357,7 @@ const NavigationList = styled.ul`
         }
 
         &:hover a, a:focus-visible {
-            color: var(--color-primary);
+            color: var(--content-neutrals-inverse);
         }
     }
 `
@@ -414,7 +414,7 @@ const Sidepanel = styled.div`
         z-index: 17;
         top: 0;
         right: 0;
-        background-color: var(--color-neutral-800);
+        background-color: var(--background-neutrals-secondary);
         transition: all ease-out 0.15s;
         padding: 1.5rem 1rem;
         gap: 1.5rem;
@@ -442,20 +442,20 @@ const Sidepanel = styled.div`
                 padding: 0 0.25rem;
             
                 &:hover, &:focus-visible {
-                    color: var(--color-neutral);
+                    color: var(--background-neutrals-primary);
                     background-position-x: 100%;
 
                     p {
-                        color: var(--color-neutral);
+                        color: var(--background-neutrals-primary);
                     }
 
                     svg path {
-                        fill: var(--color-primary);
+                        fill: var(--brand-primary);
                     }
                 }
                 
                 &:focus-visible {
-                    outline: 2px solid var(--color-primary);
+                    outline: 2px solid var(--brand-primary);
                     outline-offset: 2px;
                 }
             }
@@ -471,7 +471,7 @@ const Sidepanel = styled.div`
             }
     
             .user-pic-container {
-                background: var(--color-primary);
+                background: var(--brand-primary);
                 width: 36px;
                 height: 36px;
                 padding: 0;
@@ -539,7 +539,7 @@ const NavDesktop = styled.nav`
         }
         
         .profile-container {
-            background-color: var(--color-neutral-800);
+            background-color: var(--background-neutrals-secondary);
 
             .profile-content {
                 gap: 0.5rem;
@@ -549,7 +549,7 @@ const NavDesktop = styled.nav`
 
                 &:hover, &:focus-visible {
                     p {
-                        color: var(--color-neutral);
+                        color: var(--background-neutrals-inverse);
                     }
                 }
             }
@@ -571,7 +571,7 @@ const NavDesktop = styled.nav`
             }
 
             &:hover, &:focus-visible {
-                background: var(--color-neutral-800);
+                background: var(--background-neutrals-inverse);
             }
         }        
     }

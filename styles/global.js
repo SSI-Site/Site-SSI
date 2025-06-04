@@ -10,7 +10,63 @@ export default createGlobalStyle`
         --color-neutral:#161616;   //Ajustada
         --color-neutral-secondary: #4B4B4B;
         --color-content-neutrals-tertiary: #CACACA;
+        
 
+        //  CONTENT NEUTRALS
+            --content-neutrals-primary: #FFFFFF;
+            --content-neutrals-secondary: #E6E6E6;
+            --content-neutrals-tertiary: #CCCCCC;
+            --content-neutrals-inverse: #1A1A1A;
+            --content-neutrals-fixed-white: #FFFFFF;
+            --content-neutrals-fixed-black: #000000;
+
+        //  CONTENT ACCENT
+            --content-accent-green: #046502;
+            --content-accent-red: #DB0B14;
+
+        //  BRAND PURPLE
+            --brand-purple-200: #D0ACFF;
+            --brand-purple-300: #BB86FF;
+            --brand-purple-400: #A85FFF;
+            --brand-purple-500: #9638FF;
+            --brand-purple-600: #8414FD;
+            --brand-purple-700: #7305E6;
+            --brand-purple-800: #6206BF;
+            --brand-purple-900: #510698;
+
+        //  BRAND
+            --primary-light: #D0ACFF;
+            --primary: #9638FF;
+            --primary-dark: #3E0672;
+
+
+        //  BACKGROUND  NEUTRALS
+            --background-neutrals-primary: #1A1A1A;
+            --background-neutrals-primary: #333333;
+            --background-neutrals-tertiary: #666666;
+            --background-neutrals-inverse: #FFFFFF;
+
+        // BACKGROUND   GREEN
+            --background-accent-green: #B0E5A6;
+            --background-accent-red: #FFEEEB;
+
+        //OUTLINE   NEUTRALS
+            --outline-neutrals-primary: #808080;
+            --outline-neutrals-secondary: #999999;
+        
+        
+        // STATE LAYERS BRAND
+            --state-layers-brand-008: #9638FF14;
+            --state-layers-brand-012: #9638FF1F;
+
+        // STATE LAYERS NEUTRALS PRIMARY
+            --state-layers-neutrals-primary-008: #FFFFFF14;
+            --state-layers-neutrals-primary-012: #FFFFFF1F;
+        
+        // STATE LAYERS NEUTRALS TERTIARY
+            --state-layers-neutrals-tertiary-008: #4B4B4B14;
+            --state-layers-neutrals-tertiary-012: #4B4B4B1F;
+ 
         /* variações da paleta - ainda tenho que dar uma olhada melhor nas cores que são usadas */
         --color-primary-900: #390078; 
         --color-primary-800: #6618BB; 

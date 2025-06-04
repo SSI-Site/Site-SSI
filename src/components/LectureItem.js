@@ -75,7 +75,7 @@ const LectureItem = ({ time, event }) => {
 export default LectureItem;
 
 const LectureWrapper = styled.article`
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-secondary);
     display: flex;   
     flex-direction: column;
     gap: 1em;
@@ -153,7 +153,7 @@ const LectureHeader = styled.header`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: white;
+        background-color: var(--content-neutrals-primary);
         outline: 2px solid transparent;
         transition: all 0.2s ease-in-out;
 
@@ -164,7 +164,7 @@ const LectureHeader = styled.header`
         }
 
         &:hover {
-            outline: 2px solid var(--color-primary);
+            outline: 2px solid var(--brand-primary);
         }
     }
 
