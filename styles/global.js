@@ -3,14 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
 
     :root {
-        color-scheme: dark light;
-        --color-primary:light-dark( #9638FF, #6206BF);   //Ajustada
-        --color-secondary: #DDA6FF; //Ajustada
-        --color-tertiary: #8A45C6;  //excluir posteriormente
-        --color-neutral:#161616;   //Ajustada
-        --color-neutral-secondary: #4B4B4B;
-        --color-content-neutrals-tertiary: #CACACA;
-        
+        color-scheme: dark light;   //Ajustada
 
         //  CONTENT NEUTRALS
             --content-neutrals-primary: #FFFFFF;
@@ -35,14 +28,13 @@ export default createGlobalStyle`
             --brand-purple-900: #510698;
 
         //  BRAND
-            --primary-light: #D0ACFF;
-            --primary: #9638FF;
-            --primary-dark: #3E0672;
-
+            --brand-primary-light: #D0ACFF;
+            --brand-primary: #9638FF;
+            --brand-primary-dark: #3E0672;
 
         //  BACKGROUND  NEUTRALS
             --background-neutrals-primary: #1A1A1A;
-            --background-neutrals-primary: #333333;
+            --background-neutrals-secondary: #333333;
             --background-neutrals-tertiary: #666666;
             --background-neutrals-inverse: #FFFFFF;
 
@@ -66,32 +58,13 @@ export default createGlobalStyle`
         // STATE LAYERS NEUTRALS TERTIARY
             --state-layers-neutrals-tertiary-008: #4B4B4B14;
             --state-layers-neutrals-tertiary-012: #4B4B4B1F;
- 
-        /* variações da paleta - ainda tenho que dar uma olhada melhor nas cores que são usadas */
-        --color-primary-900: #390078; 
-        --color-primary-800: #6618BB; 
-        --color-primary-700: #7E25E1; 
-        --color-primary-600: #9638FF; 
-        --color-primary-500: #AF52FF; 
-        --color-primary-400: #C66EFF;
-        --color-primary-300: #D98DFF;
-        --color-primary-200: #DDA6FF;
-        --color-neutral-900: #000000; 
-        --color-neutral-800: #252525;
-        --color-neutral-700: #3C3C3C; // Ainda não usou
-        --color-neutral-600: #545454; // Ainda não usou
-        --color-neutral-500: #6C6C6C; // Ainda não usou
-        --color-neutral-400: #858585; // Ainda não usou
-        --color-neutral-300: #A0A0A0; // Ainda não usou
-        --color-neutral-100: #D7D7D7; // Ainda não usou
-        --color-neutral-50: #FFFFFF;  
 
         /* 16 pixels (100% = 16 pixels) */
         font-size: 100%;
     }
 
     #nprogress .bar {
-        background: var(--color-primary-700);
+        background: var(--brand-purple-700);
         filter: brightness(110%)
     }
 
@@ -107,7 +80,7 @@ export default createGlobalStyle`
     }
 
     body {
-        background: var(--color-neutral);
+        background: var(--background-neutrals-primary);
         -webkit-tap-highlight-color:  transparent; // evita highlight ao toque para mobile
     }
 
@@ -170,7 +143,7 @@ export default createGlobalStyle`
         text-decoration: none;
         
         &:focus-visible {
-            outline: 2px solid var(--color-primary);
+            outline: 2px solid var(--brand-primary);
             outline-offset: 2px;
         }
     }
@@ -181,13 +154,13 @@ export default createGlobalStyle`
     
     input[type=text], select, option {
         font: 700 1rem/1.25rem 'AT Aero';
-        color: var(--color-neutral-400);
-        background-color: var(--color-neutral-50);
+        color: var(--background-neutrals-primary-400);
+        background-color: var(--background-neutrals-primary-50);
         border: 0;
     }
 
     button, h1, h2, h3, h4, h5, h6, body, p, span, a, label {
-        color: var(--color-neutral-50);
+        color: var(--background-neutrals-primary-50);
         text-align: left;
     }
 
@@ -210,7 +183,7 @@ export default createGlobalStyle`
     ::placeholder { /* Recent browsers */
         text-transform: none;
         font: 700 1rem/1.25rem 'AT Aero';
-        color: var(--color-neutral-400);
+        color: var(--background-neutrals-primary-400);
     }
 
     @media (min-width:480px) {
