@@ -64,7 +64,7 @@ const GiftContainer = styled.div`
 		position: absolute;
         left: 0;
         right: 0;
-		background-color: var(--color-neutral-800);
+		background-color: var(--background-neutrals-primary-800);
 		border: 0.0625rem solid #7f7f7f;
 
         figure {
@@ -95,7 +95,7 @@ const GiftContainer = styled.div`
 		gap: 0.5rem;
 		align-items: center;
 		justify-content: center;
-		background-color: var(--color-neutral-50);
+		background-color: var(--background-neutrals-primary-50);
 		border: 0.0625rem solid #7f7f7f;
 
 		.icon-image {
@@ -106,12 +106,12 @@ const GiftContainer = styled.div`
 
 		.card-back-text {
 			text-align: center;
-			color: var(--color-neutral);
+			color: var(--background-neutrals-primary);
 			font: 700 1.125rem/1.5rem 'AT Aero Bold';
 
 			span {
 				font: 700 1.125rem/1.5rem 'AT Aero Bold';
-				color: var(--color-primary);
+				color: var(--brand-primary);
 			}
 		}
 		
@@ -125,8 +125,8 @@ const GiftContainer = styled.div`
         height: 3rem;
         background: linear-gradient(
             to bottom,
-            var(--color-neutral-50) 50%,
-            var(--color-primary) 50%
+            var(--background-neutrals-primary-50) 50%,
+            var(--brand-primary) 50%
         );
         background-size: 100% 200%;
         background-position: top;
@@ -155,16 +155,16 @@ const GiftContainer = styled.div`
                 fill: white;
             }
         }
-        background-color: var(--color-primary);
+        background-color: var(--brand-primary);
     }
 
     button:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
 
     button:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
 
@@ -190,7 +190,7 @@ const GiftContainer = styled.div`
 		}
 
         &:focus-visible {
-            outline: 2px solid var(--color-primary);
+            outline: 2px solid var(--brand-primary);
             outline-offset: 2px;
         }
 

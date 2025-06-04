@@ -56,7 +56,7 @@ const WatchedLectureContainer = styled.div`
 	align-items: flex-start;
 	justify-content: center;
     position: relative;
-    background-color: var(--color-neutral-secondary);
+    background-color: var(--background-neutrals-secondary);
 
     .lecture-title-container {
         position: relative;
@@ -94,7 +94,7 @@ const WatchedLectureContainer = styled.div`
     }
 
     .online {
-        background-color: var(--color-primary);
+        background-color: var(--brand-primary);
         
         span {
             color: white;
@@ -105,7 +105,7 @@ const WatchedLectureContainer = styled.div`
         background-color: white;
         
         span {
-            color: var(--color-primary);
+            color: var(--brand-primary);
         }
     }
 
@@ -114,7 +114,7 @@ const WatchedLectureContainer = styled.div`
         background-color: white;
         text-align: center;
         padding: 0.5rem 0.75rem;
-        color: var(--color-neutral);
+        color: var(--background-neutrals-primary);
         font: 400 1rem/1.5rem 'AT Aero';
         width: 100%;
         max-width: clamp(10rem, 90vw, 20rem);
@@ -148,7 +148,7 @@ const WatchedLectureContainer = styled.div`
     }
 
     .lecture-title-container:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
 `

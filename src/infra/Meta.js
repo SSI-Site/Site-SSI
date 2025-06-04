@@ -4,9 +4,9 @@ import Head from 'next/head';
 import img_src from '../../public/images/logos/preview_logo.jpg';
 
 const Meta = ({
-    title = 'SSI 2024',
+    title = 'SSI 2025',
     keywords = 'Semana, semana, Sistemas, sistemas, Informação, Informacao, informação, informacao, USP, usp, EACH, each, SI, si, SSI, ssi, Evento, evento, palestras, tecnologia, Universidade, universidade, universitário, universitario',
-    description = 'A Semana de Sistemas de Informação 2024 ocorrerá ao longo dos dias 07 a 11 de Outubro! Acesse para saber mais sobre o evento e sua programação!'
+    description = 'A Semana de Sistemas de Informação 2025 ocorrerá ao longo dos dias 07 a 11 de Outubro! Acesse para saber mais sobre o evento e sua programação!'
 }) => {
     
     return (
@@ -32,7 +32,8 @@ const Meta = ({
             <meta name="twitter:image" content={img_src}></meta>
 
             <meta charSet='utf-8' />
-            <link rel='icon' href='/favicon_logo.png' />
+            <link rel='icon' href='/favicon.ico' />
+
             <title>{title}</title>
         </Head>
     )

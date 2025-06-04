@@ -23,7 +23,7 @@ const DepartmentWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-primary);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.15s;
