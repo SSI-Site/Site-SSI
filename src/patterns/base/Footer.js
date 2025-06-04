@@ -181,7 +181,7 @@ const Footer = () => {
 export default Footer
 
 const FooterWrapper = styled.footer`
-    border-top: 1px solid var(--background-neutrals-secondary);
+    border-top: 1px solid var(--outline-neutrals-secondary);
     width: 100%;
     display: flex;
     align-items: center;

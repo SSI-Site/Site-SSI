@@ -388,16 +388,15 @@ export default Home;
 
 const LandingSection = styled.section`
     padding-inline: 1rem;
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary, #999);
 
     .landing-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-right: 1px solid var(--color-neutral-secondary);
-        border-left: 1px solid var(--color-neutral-secondary);
-
+        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
+    
         .landing-info {
             padding: 1.5rem 1rem;
             display: flex;
@@ -423,7 +422,7 @@ const LandingSection = styled.section`
 
                     span {
                         font: inherit;
-                        background-color: var(--color-primary-900);
+                        background-color: var(--outline-neutrals-secondary);
                     }
                 }
             }
@@ -435,7 +434,7 @@ const LandingSection = styled.section`
             justify-content: center;
             width: 100%;
             padding: 1.5rem 1rem;
-            border-top: 1px solid var(--color-neutral-secondary);
+            border-top: 1px solid var(--outline-neutrals-secondary);
             margin-bottom: 2.5rem;
         }
 
@@ -444,7 +443,7 @@ const LandingSection = styled.section`
             display: flex;
             flex-direction: column;
             padding: inherit;
-            background-color: var(--color-primary);
+            background-color: var(--brand-primary);
 
             h1, h2, h6 {
                 text-align: center;
@@ -486,7 +485,7 @@ const LandingSection = styled.section`
                 height: 100%;
                 width: 50%;
                 padding: 1.5rem;
-                border-right: 1px solid var(--color-neutral-secondary);
+                border-right: 1px solid var(--outline-neutrals-secondary);
             }
 
             .dates {
@@ -539,12 +538,12 @@ const YoutubeContainer = styled.div`
 
 const SubscriptionSection = styled.section`
     padding-inline: 1rem;
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-secondary);
     margin-bottom: -2rem;
 
     .subscription-container {
-        border-inline: 1px solid var(--color-neutral-secondary);
-        border-bottom: 1px solid var(--color-neutral-secondary);
+        border-inline: 1px solid var(--outline-neutrals-secondary);
+        border-bottom: 1px solid var(--outline-neutrals-secondary);
         padding: 4rem 1rem;
         gap: 1rem;
         display: flex;
@@ -554,28 +553,28 @@ const SubscriptionSection = styled.section`
             width: fit-content;
             text-align: center;
             padding: 0.75rem 1rem;
-            background-color: var(--color-primary);
+            background-color: var(--brand-primary);
             align-self: center;
         }
 
         h6 {
             span {
                 font: inherit;
-                background-color: var(--color-primary-900);
+                background-color: var(--brand-purple-900);
             }
         }
     }
 
     .coMembers {
         padding: 1.5rem 1.25rem 1rem 1rem;
-        border-inline: 1px solid var(--color-neutral-secondary);
+        border-inline: 1px solid var(--outline-neutrals-secondary);
 
         img {
             width: 100%;
             height: auto;
             object-fit: cover;
             border: 0.25rem solid white;
-            box-shadow: 0.25rem 0.25rem 0 var(--color-primary);
+            box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
         }
     }
 
@@ -619,6 +618,7 @@ const SubscriptionSection = styled.section`
 
 const EventInfoSection = styled.section`
     padding: 4rem 1rem 2rem;
+    border-top: 1px solid var(--outline-neutrals-secondary);
 
     > div {
         display: flex;
@@ -637,7 +637,7 @@ const EventInfoSection = styled.section`
         .title {
             padding: 0.75rem 1.5rem;
             width: fit-content;
-            background-color: var(--color-primary);
+            background-color: var(--brand-primary);
         }        
     }
 
@@ -651,7 +651,7 @@ const EventInfoSection = styled.section`
 
             span {
                 font: inherit;
-                background-color: var(--color-primary-900);
+                background-color: var(--brand-purple-900);
             }
         }
 
@@ -732,7 +732,7 @@ const EventInfoSection = styled.section`
 
         .about-content {
             padding: 4.5rem 1.5rem;
-            border-inline: 1px solid var(--color-neutral-secondary);
+            border-inline: 1px solid var(--outline-neutrals-secondary);
             max-width: 55rem;
             gap: 2rem;
 
@@ -756,7 +756,7 @@ const EventInfoSection = styled.section`
 const CountdownSection = styled.section`
     padding-block: 4rem 2rem;
     gap: 1.5rem;
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
     margin-bottom: -2rem;
 
     .countdown-text {
@@ -767,14 +767,14 @@ const CountdownSection = styled.section`
         gap: 1.5rem;
 
         div {
-            background-color: var(--color-primary-600);
+            background-color: var(--brand-purple-600);
             width: 70%;
             padding: 1rem 0;
         }
 
         h3 {
             text-align: center;
-            background-color: var(--color-primary);
+            background-color: var(--brand-primary);
             padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
@@ -784,7 +784,7 @@ const CountdownSection = styled.section`
 
         span {
             font: inherit;
-            background-color: var(--color-primary-900);
+            background-color: var(--brand-purple-900);
         }
     }
 
@@ -798,7 +798,7 @@ const CountdownSection = styled.section`
 
         .clock-container {
             padding: 1.5rem;
-            background-color: var(--color-neutral-50);
+            background-color: var(--background-neutrals-primary-50);
             width: 100%;
             height: 8rem;
             display: flex;
@@ -808,12 +808,12 @@ const CountdownSection = styled.section`
             gap: 0.5rem;
 
             h1 {
-                color: var(--color-primary-600);
+                color: var(--brand-purple-600);
             }
 
             p {
                 font: 700 1rem/1.5rem 'AT Aero Bold';
-                color: var(--color-primary-600);
+                color: var(--brand-purple-600);
             }
         }
     }
@@ -844,7 +844,7 @@ const CountdownSection = styled.section`
 
 const ScheduleSection = styled.section`
     padding-block: 2rem;
-    border-top: 1px solid var(--color-neutral-secondary);
+    border-top: 1px solid var(--outline-neutrals-secondary);
     
     .schedule-container {
         display: flex;
@@ -854,14 +854,14 @@ const ScheduleSection = styled.section`
         gap: 1rem;
 
         .schedule-section-title {
-            background-color: var(--color-primary);
+            background-color: var(--brand-primary);
             padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
         .title-mobile {
             display: flex;
             flex-direction: row;
-			background-color: var(--color-primary);
+			background-color: var(--brand-primary);
 			padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
@@ -877,8 +877,8 @@ const ScheduleSection = styled.section`
 			justify-content: center;
 			align-items: center;
 
-			box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
-			border-bottom: 0.0625rem solid var(--color-neutral-secondary);
+			box-shadow: 0 -0.0625rem 0 0 var(--background-neutrals-secondary);
+			border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
 
 			p {
 				font: 700 1rem/1.25rem 'AT Aero Bold';
@@ -913,7 +913,7 @@ const ScheduleSection = styled.section`
 
         .date-stamp {
             > div {
-                background-color: var(--color-primary);
+                background-color: var(--brand-primary);
             }
         }
 
@@ -954,7 +954,7 @@ const ScheduleSection = styled.section`
 
 const SupportersSection = styled.section`
     padding: 2rem 1rem;
-    border-top: 1px solid var(--color-neutral-secondary);
+    border-top: 1px solid var(--outline-neutrals-secondary);
 
     .supporters-container {
         display: flex;
@@ -973,7 +973,7 @@ const SupportersSection = styled.section`
 
             h3 {
                 text-align: center;
-				background-color: var(--color-primary);
+				background-color: var(--brand-primary);
 				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 

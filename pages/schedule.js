@@ -245,28 +245,28 @@ const ButtonFilter = styled.button`
 
 	svg {
 		path {
-			fill: var(--content-neutrals-inverse);
+			fill: var(--content-neutrals-fixed-white);
 		}
 	}
 
 	&:hover, &:focus-visible {
 		svg {
 			path {
-				fill: var(--background-neutrals-inverse);
+				fill: var(--content-neutrals-inverse);
 			}
 		}
 	}
 
     &:focus-visible {
-        outline: 2px solid var(--brand-primary);
-        outline-offset: 2px;
+        outline: 2px solid var(--background-neutrals-primary);
+        outline-offset: -2px;
     }
 
 	&.right {
 		background-image: linear-gradient(
 			to right,
-			var(--brand-primary) 50%,
-			var(--background-neutrals-tertiary) 50%
+			var(--background-neutrals-inverse) 50%,
+			var(--brand-primary) 50%
 			);
 		background-position: right;
 
@@ -282,8 +282,8 @@ const ButtonFilter = styled.button`
 	&.left {
 		background-image: linear-gradient(
 			to left,
-			var(--brand-primary) 50%,
-			var(--background-neutrals-tertiary) 50%
+			var(--background-neutrals-inverse) 50%,
+			var(--brand-primary) 50%
 			);
 		background-position: left;
 
