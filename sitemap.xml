@@ -1,0 +1,28 @@
+<?xml version="1.0" enconding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://ssi-atual.netlify.app/</loc>
+        <lastmod>2025-06-04T19:59:45+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://ssi-atual.netlify.app/schedule</loc>
+        <lastmod>2025-06-04T19:59:45+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://ssi-atual.netlify.app/about</loc>
+        <lastmod>2025-06-04T19:59:45+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://ssi-atual.netlify.app/palestrantes</loc>
+        <lastmod>2025-06-04T19:59:45+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://ssi-atual.netlify.app/co</loc>
+        <lastmod>2025-06-04T19:59:45+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+</urlset>
