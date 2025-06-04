@@ -273,7 +273,7 @@ export default About;
 
 
 const LogoTextSection = styled.section`
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--background-neutrals-secondary);
 
     .logo-text {
         display: flex;
@@ -293,7 +293,7 @@ const LogoTextSection = styled.section`
 
     .text {
         gap: 1rem;
-        border: 1px solid var(--color-neutral-secondary);
+        border: 1px solid var(--background-neutrals-secondary);
         border-top: none;
 
         p {
@@ -304,8 +304,8 @@ const LogoTextSection = styled.section`
     .logo {
         align-items: center; 
         justify-content: center;
-        border-left: 1px solid var(--color-neutral-secondary);
-        border-right: 1px solid var(--color-neutral-secondary);
+        border-left: 1px solid var(--background-neutrals-secondary);
+        border-right: 1px solid var(--background-neutrals-secondary);
 
         img {
             height: 18.5rem;
@@ -351,7 +351,7 @@ const LogoTextSection = styled.section`
 `
 
 const BaitSection = styled.section`
-    background-color: var(--color-neutral);
+    background-color: var(--background-neutrals-primary);
     padding-inline: 0;
 
     .bait-container {
@@ -364,7 +364,7 @@ const BaitSection = styled.section`
 `
 
 const BaitContent = styled.div`
-    --border: 1px solid var(--color-neutral-secondary);
+    --border: 1px solid var(--background-neutrals-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -419,13 +419,13 @@ const BaitContent = styled.div`
         }
 
         &:hover * {
-            color: var(--color-neutral); 
+            color: var(--background-neutrals-primary); 
         }
     }
 
     .justify-right {
         &:hover {
-            background-color: var(--color-primary); 
+            background-color: var(--brand-primary); 
         }
     }
 
@@ -506,7 +506,7 @@ const GiftsSection = styled.section`
 
             h3 {
                 text-align: center;
-				background-color: var(--color-primary);
+				background-color: var(--brand-primary);
 				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
@@ -516,7 +516,7 @@ const GiftsSection = styled.section`
 
             span {
                 font: inherit;
-                background-color: var(--color-primary-900);
+                background-color: var(--brand-purple-900);
             }
         }
 
@@ -551,7 +551,7 @@ const GiftsSection = styled.section`
 `
 
 const LastYearSection = styled.section`
-    --border: 1px solid var(--color-neutral-secondary);
+    --border: 1px solid var(--background-neutrals-secondary);
     border-top: var(--border);
 
     .lastyear-container {
@@ -573,7 +573,7 @@ const LastYearSection = styled.section`
             border-right: var(--border);
             
             .lastyear-title {
-                background-color: var(--color-primary);
+                background-color: var(--brand-primary);
                 width: fit-content;
                 padding: 0.75rem 1.5rem;
 
@@ -674,10 +674,10 @@ const EventNumbersBanner = styled.div`
         width: 100%;
         padding: 1.5rem;
         background-color: white;
-        color: var(--color-primary);
+        color: var(--brand-primary);
 
         h5 {
-            color: var(--color-primary);
+            color: var(--brand-primary);
         }
     }
 

@@ -32,6 +32,7 @@ const ExamplePage = () => {
                 </p>
                 <Working />
                 <Example />
+                
             </ExampleSection>
         </>
     )

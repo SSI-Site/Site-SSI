@@ -135,13 +135,13 @@ const FilterItem = styled.div`
 
     ${props => props.$active == false && css`
         > div {
-            background-image: linear-gradient(var(--color-primary), var(--color-primary));
+            background-image: linear-gradient(var(--brand-primary), var(--brand-primary));
         }
     `}
 
     ${props => props.$active == true && css`
         > div {
-            background-color: var(--color-primary); 
+            background-color: var(--brand-primary); 
             background-image: linear-gradient(to right, white 50%, white 50%);
         }
     `}
@@ -155,7 +155,7 @@ const FilterItem = styled.div`
         
         ${props => props.$active == true && css`
             > div:hover, > div:focus-visible {
-                color: var(--color-primary);
+                color: var(--brand-primary);
             }
         `}
     }
@@ -168,7 +168,7 @@ const DayStamp = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-primary-800);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.15s;
