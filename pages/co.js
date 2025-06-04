@@ -55,7 +55,7 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='SSI 2024 | CO' />
+            <Meta title='SSI 2025 | CO' />
 
             <COExhibitionSection>
                 <div className='exhibition-container'>
@@ -311,7 +311,8 @@ const NavItem = styled.div`
 
     ${props => props.$active == false && css`
         > div {
-            background-image: linear-gradient(var(--brand-primary), var(--brand-primary));
+            background-color: var(--background-neutrals-secondary);
+            background-image: linear-gradient(to right, var(--brand-primary), var(--brand-primary));
         }
     `}
 
