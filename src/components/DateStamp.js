@@ -46,7 +46,7 @@ const DateWrapper = styled.div`
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.15s all ease;
-   background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--brand-primary) 50%, var(--background-neutrals-inverse) 50%)' : 'linear-gradient(to right, var(--background-neutrals-secondary) 50%, var(--background-neutrals-inverse) 50%)'};
+    background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--brand-primary) 50%, var(--background-neutrals-inverse) 50%)' : 'linear-gradient(to right, var(--background-neutrals-secondary) 50%, var(--background-neutrals-inverse) 50%)'};
     background-size: 200%;
     background-position-x: 200%;
 
@@ -55,11 +55,11 @@ const DateWrapper = styled.div`
         background-color: var(--background-neutrals-inverse);
 
         h5, p {
-            color: var(--brand-primary);
+            color: var(--content-neutrals-inverse);
         }
 
         svg path {
-            fill: var(--brand-primary);
+            fill: var(--content-neutrals-inverse);
         }
         
     }
