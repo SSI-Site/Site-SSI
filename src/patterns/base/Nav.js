@@ -539,7 +539,7 @@ const NavDesktop = styled.nav`
         }
         
         .profile-container {
-            background-color: var(--background-neutrals-primary-800);
+            background-color: var(--background-neutrals-secondary);
 
             .profile-content {
                 gap: 0.5rem;
@@ -549,7 +549,7 @@ const NavDesktop = styled.nav`
 
                 &:hover, &:focus-visible {
                     p {
-                        color: var(--background-neutrals-primary);
+                        color: var(--background-neutrals-inverse);
                     }
                 }
             }
@@ -571,7 +571,7 @@ const NavDesktop = styled.nav`
             }
 
             &:hover, &:focus-visible {
-                background: var(--background-neutrals-primary-800);
+                background: var(--background-neutrals-inverse);
             }
         }        
     }
