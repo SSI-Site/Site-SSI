@@ -104,7 +104,7 @@ const ModalWrapper = styled.div`
 `
 
 const StyledModal = styled.div`
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-secondary);
     height: 100%;
     width: 100%;
     padding: 1rem 1.5rem 1.5rem 1.5rem;
@@ -124,7 +124,7 @@ const ModalHeader = styled.header`
         cursor: pointer;
         border: none;
         background-color: transparent;
-        background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
+        background-image: linear-gradient(to right, var(--background-neutrals-inverse), var(--background-neutrals-inverse));
         background-size: 200%;
         background-position-x: 200%;
         transition: all 0.15s ease-out;
@@ -145,7 +145,7 @@ const ModalHeader = styled.header`
         }
 
         &:focus-visible {
-            outline: 2px solid var(--color-primary-700);
+            outline: 2px solid var(--brand-purple-700);
             outline-offset: 2px;
         }
     }
@@ -161,7 +161,7 @@ const ModalBody = styled.div`
     div {
         width: 100%;
         height: 1px;
-        background-color: var(--color-neutral-secondary);
+        background-color: var(--background-neutrals-secondary);
         margin: 0.7rem 2rem;
     }
 

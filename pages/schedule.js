@@ -176,16 +176,15 @@ const MobileBarFilterContainer = styled.div`
 	position: sticky;
 	top: 0;
 	z-index: 12;
-	background-color: var(--color-neutral);
+	background-color: var(--background-neutrals-primary);
 
 	.filter-container {
 		height: 5rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
-        box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
-		border-bottom: 0.0625rem solid var(--color-neutral-secondary);
+        box-shadow: 0 -0.0625rem 0 0 var(--outline-neutrals-secondary);
+		border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
 	}
 
 	.filter-day-info {
@@ -212,10 +211,9 @@ const DesktopBarFilterContainer = styled.div`
 		z-index: 12;
 		justify-content: space-between;
 		align-items: center;
-		background-color: var(--color-neutral);
-
-		box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
-		border-bottom: 0.0625rem solid var(--color-neutral-secondary);
+        background-color: var(--background-neutrals-primary);
+		box-shadow: 0 -0.0625rem 0 0 var(--outline-neutrals-secondary);
+		border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
 
 		div {
 			display: flex;
@@ -247,28 +245,28 @@ const ButtonFilter = styled.button`
 
 	svg {
 		path {
-			fill: var(--color-neutral-50);
+			fill: var(--content-neutrals-fixed-white);
 		}
 	}
 
 	&:hover, &:focus-visible {
 		svg {
 			path {
-				fill: var(--color-primary);
+				fill: var(--content-neutrals-inverse);
 			}
 		}
 	}
 
     &:focus-visible {
-        outline: 2px solid var(--color-primary);
-        outline-offset: 2px;
+        outline: 2px solid var(--background-neutrals-primary);
+        outline-offset: -2px;
     }
 
 	&.right {
 		background-image: linear-gradient(
 			to right,
-			var(--color-neutral-50) 50%,
-			var(--color-primary) 50%
+			var(--background-neutrals-inverse) 50%,
+			var(--brand-primary) 50%
 			);
 		background-position: right;
 
@@ -284,8 +282,8 @@ const ButtonFilter = styled.button`
 	&.left {
 		background-image: linear-gradient(
 			to left,
-			var(--color-neutral-50) 50%,
-			var(--color-primary) 50%
+			var(--background-neutrals-inverse) 50%,
+			var(--brand-primary) 50%
 			);
 		background-position: left;
 
@@ -300,12 +298,12 @@ const ButtonFilter = styled.button`
 
 	&:disabled {
 		background-image: none;
-		background-color: var(--color-neutral-secondary);
+		background-color: var(--background-neutrals-secondary);
         cursor: not-allowed;
 
 		svg {
 			path {
-				fill: var(--color-neutral);
+				fill: var(--background-neutrals-primary);
 			}
 		}
 	}
@@ -336,8 +334,8 @@ const MobileScheduleFilterContainer = styled.div`
             position: relative;
             width: 100%;
             min-height: 2.75rem; 
-            color: white;
-            background-color: var(--color-neutral-800);
+            color: var(--content-brand-inverse);
+            background-color: var(--background-neutrals-primary);
             appearance: none;
             font-size: 0.875rem;
             text-align: center;
@@ -356,7 +354,7 @@ const MobileScheduleFilterContainer = styled.div`
     }
 
     .selected select {
-        background-color: var(--color-primary);
+        background-color: var(--brand-primary);
     }
 
     option {
