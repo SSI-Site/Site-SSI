@@ -44,7 +44,7 @@ export default createGlobalStyle`
 
         //OUTLINE   NEUTRALS
             --outline-neutrals-primary: light-dark( #808080, #808080);
-            --outline-neutrals-secondary: light-dark( #666666), #999999;
+            --outline-neutrals-secondary: light-dark( #666666, #999999);
         
         // STATE LAYERS BRAND
             --state-layers-brand-008: #9638FF14;
