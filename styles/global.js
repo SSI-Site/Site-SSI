@@ -3,6 +3,61 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
 
     :root {
+        color-scheme: dark light;   //Ajustada
+
+        //  CONTENT NEUTRALS
+            --content-neutrals-primary: light-dark( #000000, #FFFFFF );
+            --content-neutrals-secondary: light-dark( #1A1A1A, #E6E6E6 );
+            --content-neutrals-tertiary: light-dark( #333333, #CCCCCC );
+            --content-neutrals-inverse: light-dark( #E6E6E6, #1A1A1A );
+            --content-neutrals-fixed-white:  #FFFFFF;
+            --content-neutrals-fixed-black:  #000000;
+
+        //  CONTENT ACCENT
+            --content-accent-green: light-dark(  #B0E5A6, #046502);
+            --content-accent-red: light-dark(  #FFEEEB, #DB0B14);
+
+        //  BRAND PURPLE
+            --brand-purple-200: light-dark( #3E0672, #D0ACFF);
+            --brand-purple-300: light-dark( #510698, #BB86FF);
+            --brand-purple-400: light-dark( #6206BF, #A85FFF);
+            --brand-purple-500: light-dark( #7305E6, #9638FF);
+            --brand-purple-600: light-dark( #8414FD, #8414FD);
+            --brand-purple-700: light-dark( #9638FF, #7305E6);
+            --brand-purple-800: light-dark( #A85FFF, #6206BF);
+            --brand-purple-900: light-dark( #BB86FF, #510698);
+
+        //  BRAND
+            --brand-primary-light: light-dark( #BB86FF, #D0ACFF);
+            --brand-primary: light-dark(  #6206BF, #9638FF);
+            --brand-primary-dark: light-dark(  #2B054D, #3E0672);
+
+        //  BACKGROUND  NEUTRALS
+            --background-neutrals-primary: light-dark( #E6E6E6, #1A1A1A);
+            --background-neutrals-secondary: light-dark( #CCCCCC, #333333);
+            --background-neutrals-tertiary: light-dark( #999999, #666666);
+            --background-neutrals-inverse: light-dark( #000000, #FFFFFF);
+
+        // BACKGROUND   GREEN
+            --background-accent-green: light-dark( #046502, #B0E5A6);
+            --background-accent-red: light-dark( #DB0B14, #FFEEEB);
+
+        //OUTLINE   NEUTRALS
+            --outline-neutrals-primary: light-dark( #808080, #808080);
+            --outline-neutrals-secondary: light-dark( #666666), #999999;
+        
+        // STATE LAYERS BRAND
+            --state-layers-brand-008: #9638FF14;
+            --state-layers-brand-012: #9638FF1F;
+
+        // STATE LAYERS NEUTRALS PRIMARY
+            --state-layers-neutrals-primary-008: light-dark( rgba(0, 0, 0, 0.08), #FFFFFF14);
+            --state-layers-neutrals-primary-012: light-dark( rgba(0, 0, 0, 0.12), #FFFFFF1F);
+        
+        // STATE LAYERS NEUTRALS TERTIARY
+            --state-layers-neutrals-tertiary-008: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B14,);
+            --state-layers-neutrals-tertiary-012: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B1F,);
+
         /* 16 pixels (100% = 16 pixels) */
         font-size: 100%;
     }
