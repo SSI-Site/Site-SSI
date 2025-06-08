@@ -190,6 +190,7 @@ const Home = () => {
             </YoutubeContainer>
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
+            {/*essa seção não está no figma */}
             <SubscriptionSection>
                 <div className='landing-container'>
                     <div className='subscription-container'>
@@ -209,6 +210,7 @@ const Home = () => {
             </SubscriptionSection>
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
+            {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
             {(now < countdownDate) &&
                 <CountdownSection>
                     <div className='countdown-text'>
@@ -388,14 +390,17 @@ export default Home;
 
 const LandingSection = styled.section`
     padding-inline: 1rem;
-    border-bottom: 1px solid var(--outline-neutrals-secondary, #999);
+    border-bottom: 1px solid var
+    (--outline-neutrals-secondary);
+    background-color: var(--background-neutrals-primary);
+    color: var(--content-neutrals-primary);
 
     .landing-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
+        border-inline: 1px solid var(--outline-neutrals-secondary);
     
         .landing-info {
             padding: 1.5rem 1rem;
@@ -619,11 +624,12 @@ const SubscriptionSection = styled.section`
 const EventInfoSection = styled.section`
     padding: 4rem 1rem 2rem;
     border-top: 1px solid var(--outline-neutrals-secondary);
+    background-color: var(--background-neutrals-primary);
 
     > div {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.5rem;;
     }
 
     .about-title {
@@ -638,6 +644,7 @@ const EventInfoSection = styled.section`
             padding: 0.75rem 1.5rem;
             width: fit-content;
             background-color: var(--brand-primary);
+            color: var(--content-neutrals-fixed-white);
         }        
     }
 
@@ -645,10 +652,12 @@ const EventInfoSection = styled.section`
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        color: var(--content-neutrals-fixed-white);
+
 
         .about-desc {
             font: 400 1rem/1.5rem 'AT Aero';
-
+            
             span {
                 font: inherit;
                 background-color: var(--brand-purple-900);
@@ -758,6 +767,7 @@ const CountdownSection = styled.section`
     gap: 1.5rem;
     border-bottom: 1px solid var(--outline-neutrals-secondary);
     margin-bottom: -2rem;
+    backgorund-color: var(--background-neutrals-primary)
 
     .countdown-text {
         display: flex;
@@ -765,6 +775,7 @@ const CountdownSection = styled.section`
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
+        color: var(--background-brand-primary);
 
         div {
             background-color: var(--brand-purple-600);
@@ -774,7 +785,6 @@ const CountdownSection = styled.section`
 
         h3 {
             text-align: center;
-            background-color: var(--brand-primary);
             padding: 0.75rem 1.5rem 0.75rem 1.5rem;
         }
 
@@ -955,6 +965,8 @@ const ScheduleSection = styled.section`
 const SupportersSection = styled.section`
     padding: 2rem 1rem;
     border-top: 1px solid var(--outline-neutrals-secondary);
+    background-color: var(--background-neutrals-primary);
+    color: var(--content-neutrals-fixed-white);
 
     .supporters-container {
         display: flex;
