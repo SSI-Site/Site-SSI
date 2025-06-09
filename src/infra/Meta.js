@@ -32,7 +32,7 @@ const Meta = ({
             <meta name="twitter:image" content={img_src}></meta>
 
             <meta charSet='utf-8' />
-            <link rel='icon' href='/favicon.ico' />
+            <link rel='icon' type = 'image/x-icon' href='/favicon.ico' />
 
             <title>{title}</title>
         </Head>
