@@ -21,7 +21,7 @@ const About = () => {
 
     return (
         <>
-            <Meta title='SSI 2024 | Sobre' />
+            <Meta title='Sobre | Semana de Sistemas de Informação' />
 
             <LogoTextSection>
                 <div className='logo-text'>

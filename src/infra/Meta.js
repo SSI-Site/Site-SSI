@@ -4,8 +4,8 @@ import Head from 'next/head';
 import img_src from '../../public/images/logos/preview_logo.jpg';
 
 const Meta = ({
-    title = 'SSI 2025',
-    keywords = 'Semana, semana, Sistemas, sistemas, Informação, Informacao, informação, informacao, USP, usp, EACH, each, SI, si, SSI, ssi, Evento, evento, palestras, tecnologia, Universidade, universidade, universitário, universitario',
+    title = 'Semana de Sistemas de Informação',
+    keywords = '',
     description = 'A Semana de Sistemas de Informação 2025 ocorrerá ao longo dos dias 07 a 11 de Outubro! Acesse para saber mais sobre o evento e sua programação!'
 }) => {
     
@@ -17,7 +17,7 @@ const Meta = ({
             <meta name='keywords' content={keywords} />
             <meta name='description' content={description} />
 
-            <meta property="og:url" content="https://www.semanadesi.com/" />
+            <meta property="og:url" content="https://semanadesi.com/" />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
@@ -26,7 +26,7 @@ const Meta = ({
 
             <meta name="twitter:card" content="summary_large_image" />
             <meta property="twitter:domain" content="semanadesi.com" />
-            <meta property="twitter:url" content="https://www.semanadesi.com/" />
+            <meta property="twitter:url" content="https://semanadesi.com/" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={img_src}></meta>

@@ -3,7 +3,7 @@ import Meta from '../src/infra/Meta';
 const Palestrantes = () => {
     return (
         <>
-          <Meta title='SSI 2025 | Palestrantes' />
+          <Meta title='Palestrantes | Semana de Sistemas de Informação' />
             <h1>Palestrantes</h1>
         </>
     )
