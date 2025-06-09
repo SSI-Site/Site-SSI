@@ -136,7 +136,7 @@ const Home = () => {
 
     return (
         <>
-            <Meta title='SSI 2024 | Início' />
+            <Meta title='SSI 2025 | Início' />
 
             <LandingSection>
                 <div className='landing-container'>
@@ -144,7 +144,7 @@ const Home = () => {
                         {disableAuth || !user ?
                             <>
                                 <div className='landing-text'>
-                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <h1>Semana de Sistemas de Informação 2025</h1>
                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
                                 <Button onClick={handleShowAuthModal} disabled={disableAuth}>
@@ -196,7 +196,7 @@ const Home = () => {
                     <div className='subscription-container'>
                         <h3>Inscrições abertas!</h3>
 
-                        <h6>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</h6>
+                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
 
                         <a href='https://forms.gle/EnTh6tMkMag4zXoj8' target="_blank">
                             <Button>Inscrever-se</Button>
@@ -390,8 +390,7 @@ export default Home;
 
 const LandingSection = styled.section`
     padding-inline: 1rem;
-    border-bottom: 1px solid var
-    (--outline-neutrals-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
     color: var(--content-neutrals-primary);
 
@@ -449,6 +448,7 @@ const LandingSection = styled.section`
             flex-direction: column;
             padding: inherit;
             background-color: var(--brand-primary);
+            color: var(--content-neutrals-fixed-white);
 
             h1, h2, h6 {
                 text-align: center;
@@ -558,11 +558,12 @@ const SubscriptionSection = styled.section`
             width: fit-content;
             text-align: center;
             padding: 0.75rem 1rem;
+            color: var(--content-neutrals-fixed-white);
             background-color: var(--brand-primary);
             align-self: center;
         }
 
-        h6 {
+        p {
             span {
                 font: inherit;
                 background-color: var(--brand-purple-900);
@@ -578,7 +579,7 @@ const SubscriptionSection = styled.section`
             width: 100%;
             height: auto;
             object-fit: cover;
-            border: 0.25rem solid white;
+            border: 0.25rem solid var(--content-neutrals-fixed-white);
             box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
         }
     }
@@ -639,13 +640,11 @@ const EventInfoSection = styled.section`
         align-items: center;
         gap: 1.5rem;
 
-
         .title {
             color: var(--content-neutrals-fixed-white);
             padding: 0.75rem 1.5rem;
             width: fit-content;
             background-color: var(--brand-primary);
-            color: var(--content-neutrals-fixed-white);
         }        
     }
 
@@ -653,7 +652,7 @@ const EventInfoSection = styled.section`
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        color: var(--content-neutrals-fixed-white);
+        color: var(--content-neutrals-primary);
 
 
         .about-desc {
@@ -967,7 +966,7 @@ const SupportersSection = styled.section`
     padding: 2rem 1rem;
     border-top: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
-    color: var(--content-neutrals-fixed-white);
+    color: var(--content-neutrals-primary);
 
     .supporters-container {
         display: flex;
@@ -988,6 +987,7 @@ const SupportersSection = styled.section`
                 text-align: center;
 				background-color: var(--brand-primary);
 				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+                color: var(--content-neutrals-fixed-white);
             }
 
             h6 {
