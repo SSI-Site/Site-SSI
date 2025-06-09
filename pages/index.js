@@ -635,6 +635,7 @@ const EventInfoSection = styled.section`
 
 
         .title {
+            color: var(--content-neutrals-fixed-white);
             padding: 0.75rem 1.5rem;
             width: fit-content;
             background-color: var(--brand-primary);
