@@ -10,6 +10,7 @@ import '../utils/slugify';
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
+import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
@@ -35,10 +36,14 @@ const Home = () => {
     const { user, disableAuth } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
+    const [showMapModal, setShowMapModal] = useState(false);
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
     }
+    const handleShowMapModal = () => {
+        setShowMapModal(true);
+    }  
 
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
@@ -133,6 +138,20 @@ const Home = () => {
             document.body.style.paddingRight = 'unset';
         }
     }, [showAuthModal]);
+
+    useEffect(() => {
+        if (showMapModal) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [showMapModal]);
 
     return (
         <>
@@ -368,6 +387,39 @@ const Home = () => {
 					</div>
 				</ScheduleSection>
 			}
+
+            <DirectionsSection>
+                <div className='directions-container'>
+                    <div className='directions-info'>
+                        <div className='directions-title'>
+                            <div className = 'title'>
+                                <h3>Como chegar?</h3> 
+                            </div>
+                        </div>
+
+                        <div className='directions-text'>
+                            <p><b>De trem:</b> Estação USP Leste [pegar o trem na Estação Brás ou Tatuapé – sentido Calmon Viana – linha 12 da CPTM].</p>
+                            <p><b>De carro:</b> A EACH esta localizada na Rua Arlindo Béttio, Nº 1.000, no bairro Ermelino Matarazzo, ao lado do Parque Ecológico do Tietê. Há também uma entrada de veículos a partir da Rodovia Ayrton Senna, no Km 17 (portaria P1).</p>
+                            <p>O evento ocorre nos auditórios da EACH, localizados no prédio I5, destacado em rosa no mapa abaixo: </p>
+                        </div>
+
+                        <div className='map-btn'>
+                            <SecondaryButton onClick={handleShowMapModal}>Saiba mais</SecondaryButton>
+                        </div>
+
+                        {showMapModal && 
+                            <MapModal
+                                onClose={() => setShowMapModal(false)}
+                                show={showMapModal}
+                            />
+                        }
+                    </div>
+
+                    <div className='map'>
+                        <img src="/images/background_imgs/mapa.png"/>
+                    </div>
+                </div>
+            </DirectionsSection>
 
             <SupportersSection>
                 <div className='supporters-container'>
@@ -966,6 +1018,119 @@ const ScheduleSection = styled.section`
                 display: none;
             }
         }
+    }
+`
+
+const DirectionsSection = styled.section`
+    padding-inline: 1rem;
+    border-top: 1px solid var(--outline-neutrals-secondary, #999);
+
+    .directions-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
+            
+        .directions-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 4.5rem 1.5rem;
+            width: 100%;
+            gap: 2rem;
+            
+            
+            .directions-title {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: left;
+                gap: 1.5rem;
+
+
+                .title {
+                    padding: 0.75rem 1.5rem;
+                    width: fit-content;
+                    background-color: var(--brand-primary);
+                }        
+            }
+            
+            .directions-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                max-width: 40rem;
+                gap: 1rem;
+
+                p {
+                    font-weight: 400;
+                }
+            }
+        }
+        
+        .map {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 4.5rem 2.5rem;
+
+            img {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        
+    }
+
+    
+     @media (min-width:1100px) {
+        //height: 18.5rem;
+
+        .directions-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .directions-info {
+                height: 100%;
+                width: 50%;
+                padding: 1.5rem;
+            }
+
+            .map {
+            width: 50%;
+            padding: 4.5rem 2.5rem;
+            border-left: 1px solid var(--outline-neutrals-secondary);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    @media (max-width:1100px) {
+        .map {
+            width: 50%;
+            padding: 4.5rem 1.5rem;
+            border-top: 1px solid var(--outline-neutrals-secondary);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
     }
 `
 
