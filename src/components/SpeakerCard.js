@@ -226,6 +226,7 @@ const SpeakerInfo = styled.div`
         gap: 4em;
         background-color: var(--brand-primary);
         padding: 0em;
+        color: var(--content-neutrals-fixed-white);
 
         .imgDiv {
             max-width: 25%;

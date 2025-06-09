@@ -153,7 +153,7 @@ const LectureHeader = styled.header`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--content-neutrals-primary);
+        background-color: var(--content-neutrals-fixed-white);
         outline: 2px solid transparent;
         transition: all 0.2s ease-in-out;
 
