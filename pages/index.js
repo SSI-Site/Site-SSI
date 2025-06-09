@@ -768,7 +768,7 @@ const CountdownSection = styled.section`
     gap: 1.5rem;
     border-bottom: 1px solid var(--outline-neutrals-secondary);
     margin-bottom: -2rem;
-    backgorund-color: var(--background-neutrals-primary)
+    background-color: var(--background-neutrals-primary);
 
     .countdown-text {
         display: flex;
@@ -776,7 +776,7 @@ const CountdownSection = styled.section`
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        color: var(--background-brand-primary);
+        color: var(--brand-primary);
 
         div {
             background-color: var(--brand-purple-600);
@@ -809,7 +809,7 @@ const CountdownSection = styled.section`
 
         .clock-container {
             padding: 1.5rem;
-            background-color: var(--background-neutrals-primary-50);
+            background-color: var(--background-neutrals-primary);
             width: 100%;
             height: 8rem;
             display: flex;
