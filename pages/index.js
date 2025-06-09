@@ -191,6 +191,7 @@ const Home = () => {
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
             {/*essa seção não está no figma */}
+            {/*essa seção não está no figma */}
             <SubscriptionSection>
                 <div className='landing-container'>
                     <div className='subscription-container'>
@@ -210,6 +211,7 @@ const Home = () => {
             </SubscriptionSection>
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
+            {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
             {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
             {(now < countdownDate) &&
                 <CountdownSection>
@@ -399,6 +401,7 @@ const LandingSection = styled.section`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-inline: 1px solid var(--outline-neutrals-secondary);
         border-inline: 1px solid var(--outline-neutrals-secondary);
     
         .landing-info {
@@ -626,10 +629,12 @@ const EventInfoSection = styled.section`
     padding: 4rem 1rem 2rem;
     border-top: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
+    background-color: var(--background-neutrals-primary);
 
     > div {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;;
         gap: 1.5rem;;
     }
 
@@ -645,6 +650,7 @@ const EventInfoSection = styled.section`
             padding: 0.75rem 1.5rem;
             width: fit-content;
             background-color: var(--brand-primary);
+            color: var(--content-neutrals-fixed-white);
         }        
     }
 
@@ -657,6 +663,7 @@ const EventInfoSection = styled.section`
 
         .about-desc {
             font: 400 1rem/1.5rem 'AT Aero';
+            
             
             span {
                 font: inherit;
