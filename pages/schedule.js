@@ -164,7 +164,9 @@ export default Schedule;
 
 const ScheduleSection = styled.section`
     padding-block: 1.5rem;
-
+    background-color: var(--background-neutrals-primary);
+    border-color: var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
     @media (min-width:600px) {
         padding-block: 7.5rem 2rem;
 
@@ -180,7 +182,8 @@ const MobileBarFilterContainer = styled.div`
 	top: 0;
 	z-index: 12;
 	background-color: var(--background-neutrals-primary);
-
+    border-color: var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
 	.filter-container {
 		height: 5rem;
 		display: flex;
@@ -204,7 +207,9 @@ const MobileBarFilterContainer = styled.div`
 `
 const DesktopBarFilterContainer = styled.div`
 	display: none;
-
+    background-color: var(--background-neutrals-primary);
+    border-color: var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
 
 	@media(min-width:1024px) {
 		height: 5rem;
@@ -237,6 +242,9 @@ const DesktopBarFilterContainer = styled.div`
 `
 
 const ButtonFilter = styled.button`
+    background-color: var(--brand-primary);
+    border-color: var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
 	border: 0;
 	display: flex;
 	width: 3rem;
@@ -313,6 +321,9 @@ const ButtonFilter = styled.button`
 `
 
 const MobileScheduleFilterContainer = styled.div`
+    background-color: var(--background-neutrals-primary);
+    border-color: var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -332,13 +343,16 @@ const MobileScheduleFilterContainer = styled.div`
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        background-color: var(--brand-primary);
+        border-color: var(--outline-neutrals-secondary);
+        color: var(--content-neutrals-primary);
 
         select {
             position: relative;
             width: 100%;
             min-height: 2.75rem; 
             color: var(--content-brand-inverse);
-            background-color: var(--background-neutrals-primary);
+            background-color: var(--brand-primary);
             appearance: none;
             font-size: 0.875rem;
             text-align: center;
@@ -371,7 +385,9 @@ const MobileScheduleFilterContainer = styled.div`
 
 const DesktopSelectionContainer = styled.div`
     display: none;
-
+    background-color: var(--background-neutrals-primary);
+    border-color: var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
     @media (min-width:600px) {
         display: flex;
         flex-direction: column;
@@ -392,6 +408,9 @@ const DesktopSelectionContainer = styled.div`
 `
 
 const DayScheduleWrapper = styled.div`
+    background-color: var(--background-neutrals-primary);
+    border-color: var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
     display: flex;
     flex-direction: column;
     align-items: center;
