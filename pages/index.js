@@ -11,6 +11,7 @@ import '../utils/slugify';
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
 import MapModal from '../src/components/MapModal';
+import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
@@ -37,9 +38,14 @@ const Home = () => {
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showMapModal, setShowMapModal] = useState(false);
+    const [showMapModal, setShowMapModal] = useState(false);
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
+    }
+    const handleShowMapModal = () => {
+        setShowMapModal(true);
+    }  
     }
     const handleShowMapModal = () => {
         setShowMapModal(true);
@@ -138,6 +144,20 @@ const Home = () => {
             document.body.style.paddingRight = 'unset';
         }
     }, [showAuthModal]);
+
+    useEffect(() => {
+        if (showMapModal) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [showMapModal]);
 
     useEffect(() => {
         if (showMapModal) {
@@ -400,7 +420,7 @@ const Home = () => {
                         <div className='directions-text'>
                             <p><b>De trem:</b> Estação USP Leste [pegar o trem na Estação Brás ou Tatuapé – sentido Calmon Viana – linha 12 da CPTM].</p>
                             <p><b>De carro:</b> A EACH esta localizada na Rua Arlindo Béttio, Nº 1.000, no bairro Ermelino Matarazzo, ao lado do Parque Ecológico do Tietê. Há também uma entrada de veículos a partir da Rodovia Ayrton Senna, no Km 17 (portaria P1).</p>
-                            <p>O evento ocorre nos auditórios da EACH, localizados no prédio I5, destacado em rosa no mapa abaixo:</p>
+                            <p>O evento ocorre nos auditórios da EACH, localizados no prédio I5, destacado em rosa no mapa abaixo: </p>
                         </div>
 
                         <div className='map-btn'>
@@ -1023,7 +1043,7 @@ const ScheduleSection = styled.section`
 
 const DirectionsSection = styled.section`
     padding-inline: 1rem;
-    border-top: 1px solid var(--outline-neutrals-secondary);
+    border-top: 1px solid var(--outline-neutrals-secondary, #999);
 
     .directions-container {
         display: flex;
@@ -1032,7 +1052,8 @@ const DirectionsSection = styled.section`
         align-items: center;
         width: 100%;
         height: 100%;
-        border-inline: 1px solid var(--outline-neutrals-secondary);
+
+        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
             
         .directions-info {
             display: flex;
@@ -1043,11 +1064,14 @@ const DirectionsSection = styled.section`
             width: 100%;
             gap: 2rem;
             
+            
             .directions-title {
                 display: flex;
                 width: 100%;
                 flex-direction: column;
                 align-items: left;
+                gap: 1.5rem;
+
 
                 .title {
                     padding: 0.75rem 1.5rem;
@@ -1062,14 +1086,10 @@ const DirectionsSection = styled.section`
                 justify-content: center;
                 align-items: flex-start;
                 max-width: 40rem;
-                gap: 2rem;
+                gap: 1rem;
 
                 p {
-                    font: 700 1.1rem/1.75rem 'AT Aero';
-                }
-                
-                b {
-                    font: 700 1.1rem/1.75rem 'AT Aero Bold';
+                    font-weight: 400;
                 }
             }
         }
@@ -1089,24 +1109,26 @@ const DirectionsSection = styled.section`
         }
         
     }
+
     
-    @media (min-width:1100px) {
+     @media (min-width:1100px) {
+        //height: 18.5rem;
+
         .directions-container {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
 
             .directions-info {
                 height: 100%;
                 width: 50%;
-                padding: 4.5rem 1.5rem;
-                gap: 2rem;
+                padding: 1.5rem;
             }
 
             .map {
-                height: 100%;
-                width: 50%;
-                padding: 4.5rem 2.5rem;
-                border-left: 1px solid var(--outline-neutrals-secondary);
+            width: 50%;
+            padding: 4.5rem 2.5rem;
+            border-left: 1px solid var(--outline-neutrals-secondary);
 
                 img {
                     height: 100%;
@@ -1119,16 +1141,16 @@ const DirectionsSection = styled.section`
 
     @media (max-width:1100px) {
         .map {
-            width: 100%;
+            width: 50%;
             padding: 4.5rem 1.5rem;
             border-top: 1px solid var(--outline-neutrals-secondary);
 
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
             }
-        }
     }
 `
 
