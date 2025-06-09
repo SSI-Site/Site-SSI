@@ -136,7 +136,7 @@ const Home = () => {
 
     return (
         <>
-            <Meta title='SSI 2025 | Início' />
+            <Meta title='Home | Semana de Sistemas de Informação'/>
 
             <LandingSection>
                 <div className='landing-container'>
