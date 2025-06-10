@@ -55,7 +55,7 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='SSI 2025 | CO' />
+            <Meta title='Comissão Organizadora | Semana de Sistemas de Informação' />
 
             <COExhibitionSection>
                 <div className='exhibition-container'>
