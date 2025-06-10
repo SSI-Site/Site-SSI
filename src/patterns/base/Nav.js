@@ -252,6 +252,7 @@ const NavWrapper = styled.div`
     padding: 1.5rem 1rem; 
     background-color: var(--background-neutrals-primary);
     border-bottom: 1px solid var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
 
     > div {
         display: flex;
@@ -284,7 +285,7 @@ const NavMobile = styled.nav`
     .hamburguer-wrapper {
         width: 3rem;
         height: 3rem;
-        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
@@ -418,13 +419,10 @@ const Sidepanel = styled.div`
         transition: all ease-out 0.15s;
         padding: 1.5rem 1rem;
         gap: 1.5rem;
+        color: var(--content-neutrals-primary);
 
         @media (min-width:648px) {
             width: 50%;
-        }
-
-        h6 {
-            color: #FFF;
         }
 
         .profile-side-bar {
