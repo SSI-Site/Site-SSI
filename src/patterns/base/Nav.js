@@ -150,12 +150,9 @@ const Nav = () => {
                         <div className = 'header-nav'>
                             <h6>Navegação rápida</h6>
                             <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                <img 
-                                    src={CloseBtn}
-                                    width={18}
-                                    height={18}
-                                    alt='Fechar'
-                                />
+                                <svg width="18" height="18" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="white"/>
+                                </svg>
                             </div>
                         </div>
 
@@ -252,6 +249,7 @@ const NavWrapper = styled.div`
     padding: 1.5rem 1rem; 
     background-color: var(--background-neutrals-primary);
     border-bottom: 1px solid var(--outline-neutrals-secondary);
+    color: var(--content-neutrals-primary);
 
     > div {
         display: flex;
@@ -284,7 +282,7 @@ const NavMobile = styled.nav`
     .hamburguer-wrapper {
         width: 3rem;
         height: 3rem;
-        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
@@ -351,6 +349,7 @@ const NavigationList = styled.ul`
         background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--brand-primary) 50%);
         background-size: 250% 100%;
         background-position: right;
+        color: var(--content-neutrals-fixed-white);
         
         a {
             font-family: 'At Aero Bold';
@@ -384,7 +383,11 @@ const Sidepanel = styled.div`
     
     .close {
         padding: 1rem;
-        cursor: pointer;       
+        cursor: pointer;   
+
+        svg path{
+            fill: var(--content-neutrals-primary)
+        }
     }
 
     .click-out {
@@ -418,13 +421,10 @@ const Sidepanel = styled.div`
         transition: all ease-out 0.15s;
         padding: 1.5rem 1rem;
         gap: 1.5rem;
+        color: var(--content-neutrals-primary);
 
         @media (min-width:648px) {
             width: 50%;
-        }
-
-        h6 {
-            color: #FFF;
         }
 
         .profile-side-bar {
