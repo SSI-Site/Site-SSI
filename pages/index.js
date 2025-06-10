@@ -1032,7 +1032,6 @@ const DirectionsSection = styled.section`
         align-items: center;
         width: 100%;
         height: 100%;
-
         border-inline: 1px solid var(--outline-neutrals-secondary);
             
         .directions-info {
@@ -1044,13 +1043,11 @@ const DirectionsSection = styled.section`
             width: 100%;
             gap: 2rem;
             
-            
             .directions-title {
                 display: flex;
                 width: 100%;
                 flex-direction: column;
                 align-items: left;
-
 
                 .title {
                     padding: 0.75rem 1.5rem;
@@ -1068,11 +1065,11 @@ const DirectionsSection = styled.section`
                 gap: 2rem;
 
                 p {
-                    font: 700 1.125rem/1.75rem 'AT Aero';
+                    font: 700 1.1rem/1.75rem 'AT Aero';
                 }
                 
                 b {
-                    font: 700 1.125rem/1.75rem 'AT Aero Bold';
+                    font: 700 1.1rem/1.75rem 'AT Aero Bold';
                 }
             }
         }
@@ -1092,15 +1089,11 @@ const DirectionsSection = styled.section`
         }
         
     }
-
     
     @media (min-width:1100px) {
-        //height: 18.5rem;
-
         .directions-container {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
 
             .directions-info {
                 height: 100%;
@@ -1110,9 +1103,10 @@ const DirectionsSection = styled.section`
             }
 
             .map {
-            width: 50%;
-            padding: 4.5rem 2.5rem;
-            border-left: 1px solid var(--outline-neutrals-secondary);
+                height: 100%;
+                width: 50%;
+                padding: 4.5rem 2.5rem;
+                border-left: 1px solid var(--outline-neutrals-secondary);
 
                 img {
                     height: 100%;
@@ -1125,16 +1119,16 @@ const DirectionsSection = styled.section`
 
     @media (max-width:1100px) {
         .map {
-            width: 50%;
+            width: 100%;
             padding: 4.5rem 1.5rem;
             border-top: 1px solid var(--outline-neutrals-secondary);
 
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                }
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
             }
+        }
     }
 `
 
