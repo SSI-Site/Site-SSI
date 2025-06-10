@@ -5,27 +5,27 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>https://ssi-atual.netlify.app/</loc>
+  <loc>https://semanadesi.com/</loc>
   <lastmod>2025-06-04T20:19:43+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://ssi-atual.netlify.app/schedule</loc>
+  <loc>https://semanadesi.com/schedule</loc>
   <lastmod>2025-06-04T20:19:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ssi-atual.netlify.app/about</loc>
+  <loc>https://semanadesi.com/about</loc>
   <lastmod>2025-06-04T20:19:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ssi-atual.netlify.app/palestrantes</loc>
+  <loc>https://semanadesi.com/palestrantes</loc>
   <lastmod>2025-06-04T20:19:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ssi-atual.netlify.app/co</loc>
+  <loc>https://semanadesi.com/co</loc>
   <lastmod>2025-06-04T20:19:43+00:00</lastmod>
   <priority>0.80</priority>
 </url>
