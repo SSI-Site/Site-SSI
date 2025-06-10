@@ -1050,7 +1050,6 @@ const DirectionsSection = styled.section`
                 width: 100%;
                 flex-direction: column;
                 align-items: left;
-                gap: 1.5rem;
 
 
                 .title {
@@ -1066,14 +1065,14 @@ const DirectionsSection = styled.section`
                 justify-content: center;
                 align-items: flex-start;
                 max-width: 40rem;
-                gap: 1rem;
+                gap: 2rem;
 
                 p {
-                    font-weight: 700;
+                    font: 700 1.125rem/1.75rem 'AT Aero';
                 }
                 
                 b {
-                    font: 700 1rem/1.5rem 'AT Aero Bold';
+                    font: 700 1.125rem/1.75rem 'AT Aero Bold';
                 }
             }
         }
@@ -1106,7 +1105,8 @@ const DirectionsSection = styled.section`
             .directions-info {
                 height: 100%;
                 width: 50%;
-                padding: 1.5rem;
+                padding: 4.5rem 1.5rem;
+                gap: 2rem;
             }
 
             .map {
