@@ -400,7 +400,7 @@ const Home = () => {
                         <div className='directions-text'>
                             <p><b>De trem:</b> Estação USP Leste [pegar o trem na Estação Brás ou Tatuapé – sentido Calmon Viana – linha 12 da CPTM].</p>
                             <p><b>De carro:</b> A EACH esta localizada na Rua Arlindo Béttio, Nº 1.000, no bairro Ermelino Matarazzo, ao lado do Parque Ecológico do Tietê. Há também uma entrada de veículos a partir da Rodovia Ayrton Senna, no Km 17 (portaria P1).</p>
-                            <p>O evento ocorre nos auditórios da EACH, localizados no prédio I5, destacado em rosa no mapa abaixo: </p>
+                            <p>O evento ocorre nos auditórios da EACH, localizados no prédio I5, destacado em rosa no mapa abaixo:</p>
                         </div>
 
                         <div className='map-btn'>
@@ -1023,7 +1023,7 @@ const ScheduleSection = styled.section`
 
 const DirectionsSection = styled.section`
     padding-inline: 1rem;
-    border-top: 1px solid var(--outline-neutrals-secondary, #999);
+    border-top: 1px solid var(--outline-neutrals-secondary);
 
     .directions-container {
         display: flex;
@@ -1033,7 +1033,7 @@ const DirectionsSection = styled.section`
         width: 100%;
         height: 100%;
 
-        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
+        border-inline: 1px solid var(--outline-neutrals-secondary);
             
         .directions-info {
             display: flex;
@@ -1069,7 +1069,11 @@ const DirectionsSection = styled.section`
                 gap: 1rem;
 
                 p {
-                    font-weight: 400;
+                    font-weight: 700;
+                }
+                
+                b {
+                    font: 700 1rem/1.5rem 'AT Aero Bold';
                 }
             }
         }
@@ -1091,7 +1095,7 @@ const DirectionsSection = styled.section`
     }
 
     
-     @media (min-width:1100px) {
+    @media (min-width:1100px) {
         //height: 18.5rem;
 
         .directions-container {
