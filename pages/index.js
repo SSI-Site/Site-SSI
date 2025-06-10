@@ -11,7 +11,6 @@ import '../utils/slugify';
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
 import MapModal from '../src/components/MapModal';
-import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
@@ -38,15 +37,11 @@ const Home = () => {
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showMapModal, setShowMapModal] = useState(false);
-    const [showMapModal, setShowMapModal] = useState(false);
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
     }
-    const handleShowMapModal = () => {
-        setShowMapModal(true);
-    }  
-    }
+    
     const handleShowMapModal = () => {
         setShowMapModal(true);
     }  
@@ -159,19 +154,6 @@ const Home = () => {
         }
     }, [showMapModal]);
 
-    useEffect(() => {
-        if (showMapModal) {
-            // Calcula a largura da barra de rolagem
-            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-            
-            // Adiciona o padding-right para compensar a largura da barra de rolagem
-            document.body.style.overflow = 'hidden';
-            document.body.style.paddingRight = `${scrollBarWidth}px`;
-        } else {
-            document.body.style.overflow = 'unset';
-            document.body.style.paddingRight = 'unset';
-        }
-    }, [showMapModal]);
 
     return (
         <>
@@ -1086,11 +1068,7 @@ const DirectionsSection = styled.section`
                 gap: 1rem;
 
                 p {
-                    font: 700 1.1rem/1.75rem 'AT Aero';
-                }
-                
-                b {
-                    font: 700 1.1rem/1.75rem 'AT Aero Bold';
+                    font-weight: 400;
                 }
             }
         }
