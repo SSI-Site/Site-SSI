@@ -10,6 +10,7 @@ import '../utils/slugify';
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
+import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
@@ -35,10 +36,15 @@ const Home = () => {
     const { user, disableAuth } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
+    const [showMapModal, setShowMapModal] = useState(false);
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
     }
+    
+    const handleShowMapModal = () => {
+        setShowMapModal(true);
+    }  
 
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
@@ -134,6 +140,21 @@ const Home = () => {
         }
     }, [showAuthModal]);
 
+    useEffect(() => {
+        if (showMapModal) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [showMapModal]);
+
+
     return (
         <>
             <Meta title='Home | Semana de Sistemas de Informação'/>
@@ -154,7 +175,7 @@ const Home = () => {
                         :
                             <>  
                                 <div className='landing-text'>
-                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <h1>Semana de Sistemas de Informação 2025</h1>
                                     <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
                                 </div>
                                 <TokenModal/>
@@ -173,8 +194,8 @@ const Home = () => {
                     <div className = "dates">
                         <div className = "dateWrapper">
                             <div>
-                                <h1>07-11</h1>
-                                <h2>Out 2024</h2>
+                                <h1>18-22</h1>
+                                <h2>Ago 2025</h2>
                             </div>
                             
                             <div>
@@ -191,13 +212,12 @@ const Home = () => {
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
             {/*essa seção não está no figma */}
-            {/*essa seção não está no figma */}
             <SubscriptionSection>
                 <div className='landing-container'>
                     <div className='subscription-container'>
                         <h3>Inscrições abertas!</h3>
 
-                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
+                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2026 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
 
                         <a href='https://forms.gle/EnTh6tMkMag4zXoj8' target="_blank">
                             <Button>Inscrever-se</Button>
@@ -368,6 +388,39 @@ const Home = () => {
 					</div>
 				</ScheduleSection>
 			}
+
+            <DirectionsSection>
+                <div className='directions-container'>
+                    <div className='directions-info'>
+                        <div className='directions-title'>
+                            <div className = 'title'>
+                                <h3>Como chegar?</h3> 
+                            </div>
+                        </div>
+
+                        <div className='directions-text'>
+                            <p><b>De trem:</b> Estação USP Leste [pegar o trem na Estação Brás ou Tatuapé – sentido Calmon Viana – linha 12 da CPTM].</p>
+                            <p><b>De carro:</b> A EACH esta localizada na Rua Arlindo Béttio, Nº 1.000, no bairro Ermelino Matarazzo, ao lado do Parque Ecológico do Tietê. Há também uma entrada de veículos a partir da Rodovia Ayrton Senna, no Km 17 (portaria P1).</p>
+                            <p>O evento ocorre nos auditórios da EACH, localizados no prédio I5, destacado em rosa no mapa abaixo: </p>
+                        </div>
+
+                        <div className='map-btn'>
+                            <SecondaryButton onClick={handleShowMapModal}>Saiba mais</SecondaryButton>
+                        </div>
+
+                        {showMapModal && 
+                            <MapModal
+                                onClose={() => setShowMapModal(false)}
+                                show={showMapModal}
+                            />
+                        }
+                    </div>
+
+                    <div className='map'>
+                        <img src="/images/background_imgs/mapa.png"/>
+                    </div>
+                </div>
+            </DirectionsSection>
 
             <SupportersSection>
                 <div className='supporters-container'>
@@ -547,7 +600,6 @@ const YoutubeContainer = styled.div`
 const SubscriptionSection = styled.section`
     padding-inline: 1rem;
     background-color: var(--background-neutrals-secondary);
-    margin-bottom: -2rem;
 
     .subscription-container {
         border-inline: 1px solid var(--outline-neutrals-secondary);
@@ -966,6 +1018,128 @@ const ScheduleSection = styled.section`
                 display: none;
             }
         }
+    }
+`
+
+const DirectionsSection = styled.section`
+    padding-inline: 1rem;
+    border-top: 1px solid var(--outline-neutrals-secondary, #999);
+
+    .directions-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
+            
+        .directions-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 4.5rem 1.5rem;
+            width: 100%;
+            gap: 2rem;
+            
+            
+            .directions-title {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: left;
+                color: var(--content-neutrals-fixed-white);
+
+                .title {
+                    padding: 0.75rem 1.5rem;
+                    width: fit-content;
+                    background-color: var(--brand-primary);
+                }        
+            }
+            
+            .directions-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                max-width: 40rem;
+                gap: 1rem;
+
+                p {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .map-btn{
+            width: 100%;
+
+            @media screen and (min-width: 800px) {
+                width: fit-content;
+            }
+        }
+
+       
+        
+        .map {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 4.5rem 2.5rem;
+
+            img {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        
+    }
+
+    
+     @media (min-width:1100px) {
+        //height: 18.5rem;
+
+        .directions-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .directions-info {
+                height: 100%;
+                width: 50%;
+                padding: 1.5rem;
+            }
+
+            .map {
+            width: 50%;
+            padding: 4.5rem 2.5rem;
+            border-left: 1px solid var(--outline-neutrals-secondary);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    @media (max-width:1100px) {
+        .map {
+            width: 50%;
+            padding: 4.5rem 1.5rem;
+            border-top: 1px solid var(--outline-neutrals-secondary);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
     }
 `
 
