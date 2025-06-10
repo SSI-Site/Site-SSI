@@ -193,7 +193,7 @@ const Home = () => {
                         :
                             <>  
                                 <div className='landing-text'>
-                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <h1>Semana de Sistemas de Informação 2025</h1>
                                     <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
                                 </div>
                                 <TokenModal/>
@@ -212,8 +212,8 @@ const Home = () => {
                     <div className = "dates">
                         <div className = "dateWrapper">
                             <div>
-                                <h1>07-11</h1>
-                                <h2>Out 2024</h2>
+                                <h1>18-22</h1>
+                                <h2>Ago 2025</h2>
                             </div>
                             
                             <div>
@@ -230,13 +230,12 @@ const Home = () => {
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
             {/*essa seção não está no figma */}
-            {/*essa seção não está no figma */}
             <SubscriptionSection>
                 <div className='landing-container'>
                     <div className='subscription-container'>
                         <h3>Inscrições abertas!</h3>
 
-                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
+                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2026 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
 
                         <a href='https://forms.gle/EnTh6tMkMag4zXoj8' target="_blank">
                             <Button>Inscrever-se</Button>
@@ -619,7 +618,6 @@ const YoutubeContainer = styled.div`
 const SubscriptionSection = styled.section`
     padding-inline: 1rem;
     background-color: var(--background-neutrals-secondary);
-    margin-bottom: -2rem;
 
     .subscription-container {
         border-inline: 1px solid var(--outline-neutrals-secondary);
@@ -1070,8 +1068,7 @@ const DirectionsSection = styled.section`
                 width: 100%;
                 flex-direction: column;
                 align-items: left;
-                gap: 1.5rem;
-
+                color: var(--content-neutrals-fixed-white);
 
                 .title {
                     padding: 0.75rem 1.5rem;
@@ -1089,10 +1086,25 @@ const DirectionsSection = styled.section`
                 gap: 1rem;
 
                 p {
-                    font-weight: 400;
+                    font: 700 1.1rem/1.75rem 'AT Aero';
+                }
+                
+                b {
+                    font: 700 1.1rem/1.75rem 'AT Aero Bold';
                 }
             }
         }
+
+        .map-btn{
+            width: 100%;
+            border: 1px solid red;
+
+            @media screen and (min-width: 800px) {
+                width: fit-content;
+            }
+        }
+
+       
         
         .map {
         display: flex;
