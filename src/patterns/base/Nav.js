@@ -352,6 +352,7 @@ const NavigationList = styled.ul`
         background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--brand-primary) 50%);
         background-size: 250% 100%;
         background-position: right;
+        color: var(--content-neutrals-fixed-white);
         
         a {
             font-family: 'At Aero Bold';
