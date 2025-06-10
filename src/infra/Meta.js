@@ -5,8 +5,8 @@ import img_src from '../../public/images/logos/preview_logo.jpg';
 
 const Meta = ({
     title = 'Semana de Sistemas de Informação',
-    keywords = '',
-    description = 'A Semana de Sistemas de Informação 2025 ocorrerá ao longo dos dias 07 a 11 de Outubro! Acesse para saber mais sobre o evento e sua programação!'
+    keywords = 'semana de sistemas de informação, SSI 2025, evento tecnologia, conferência TI, evento acadêmico tecnologia, inovação, tecnologia da informação, estudantes de TI, palestras tecnologia, evento universitário',
+    description = 'Participe da Semana de Sistemas de Informação 2025 na USP! Confira a programação completa de palestras com especialistas em tecnologia, organizada pela comissão da SSI. Acesse o site oficial para detalhes sobre o evento, palestrantes e muito mais!'
 }) => {
     
     return (

@@ -55,7 +55,10 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='Comissão Organizadora | Semana de Sistemas de Informação' />
+            <Meta title='Comissão Organizadora | Semana de Sistemas de Informação' 
+            description='Conheça a comissão organizadora da SSI 2025. Estudantes dedicados à realização de um dos maiores eventos acadêmicos de tecnologia do país.'
+            keywords='comissão SSI, organização do evento, estudantes organizadores, quem organiza a SSI, equipe SSI 2025, comissão sistemas de informação, organização semana tecnologia'
+            />
 
             <COExhibitionSection>
                 <div className='exhibition-container'>

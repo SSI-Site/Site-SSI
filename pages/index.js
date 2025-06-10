@@ -155,7 +155,7 @@ const Home = () => {
 
     return (
         <>
-            <Meta title='Home | Semana de Sistemas de Informação' />
+            <Meta title='Home | Semana de Sistemas de Informação'/>
 
             <LandingSection>
                 <div className='landing-container'>
