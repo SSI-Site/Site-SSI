@@ -1097,7 +1097,6 @@ const DirectionsSection = styled.section`
 
         .map-btn{
             width: 100%;
-            border: 1px solid red;
 
             @media screen and (min-width: 800px) {
                 width: fit-content;
