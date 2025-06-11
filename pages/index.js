@@ -13,6 +13,7 @@ import Image from 'next/image'
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
+import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
@@ -38,10 +39,15 @@ const Home = () => {
     const { user, disableAuth } = useAuth();
 
     const [showAuthModal, setShowAuthModal] = useState(false);
+    const [showMapModal, setShowMapModal] = useState(false);
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
     }
+    
+    const handleShowMapModal = () => {
+        setShowMapModal(true);
+    }  
 
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
@@ -137,9 +143,24 @@ const Home = () => {
         }
     }, [showAuthModal]);
 
+    useEffect(() => {
+        if (showMapModal) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [showMapModal]);
+
+
     return (
         <>
-            <Meta title='SSI 2024 | Início' />
+            <Meta title='Home | Semana de Sistemas de Informação'/>
 
             <LandingSection>
                 <div className='landing-container'>
@@ -147,7 +168,7 @@ const Home = () => {
                         {disableAuth || !user ?
                             <>
                                 <div className='landing-text'>
-                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <h1>Semana de Sistemas de Informação 2025</h1>
                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
                                 <Button onClick={handleShowAuthModal} disabled={disableAuth}>
@@ -157,7 +178,7 @@ const Home = () => {
                         :
                             <>  
                                 <div className='landing-text'>
-                                    <h1>Semana de Sistemas de Informação 2024</h1>
+                                    <h1>Semana de Sistemas de Informação 2025</h1>
                                     <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
                                 </div>
                                 <TokenModal/>
@@ -176,8 +197,8 @@ const Home = () => {
                     <div className = "dates">
                         <div className = "dateWrapper">
                             <div>
-                                <h1>07-11</h1>
-                                <h2>Out 2024</h2>
+                                <h1>18-22</h1>
+                                <h2>Ago 2025</h2>
                             </div>
                             
                             <div>
@@ -199,7 +220,7 @@ const Home = () => {
                     <div className='subscription-container'>
                         <h3>Inscrições abertas!</h3>
 
-                        <h6>Junte-se à <span>Comissão Organizadora</span> da SSI 2025 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</h6>
+                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2026 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
 
                         <a href='https://forms.gle/EnTh6tMkMag4zXoj8' target="_blank">
                             <Button>Inscrever-se</Button>
@@ -218,6 +239,7 @@ const Home = () => {
             </SubscriptionSection>
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
+            {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
             {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
             {(now < countdownDate) &&
                 <CountdownSection>
@@ -375,6 +397,39 @@ const Home = () => {
 				</ScheduleSection>
 			}
 
+            <DirectionsSection>
+                <div className='directions-container'>
+                    <div className='directions-info'>
+                        <div className='directions-title'>
+                            <div className = 'title'>
+                                <h3>Como chegar?</h3> 
+                            </div>
+                        </div>
+
+                        <div className='directions-text'>
+                            <p><b>De trem:</b> Estação USP Leste [pegar o trem na Estação Brás ou Tatuapé – sentido Calmon Viana – linha 12 da CPTM].</p>
+                            <p><b>De carro:</b> A EACH esta localizada na Rua Arlindo Béttio, Nº 1.000, no bairro Ermelino Matarazzo, ao lado do Parque Ecológico do Tietê. Há também uma entrada de veículos a partir da Rodovia Ayrton Senna, no Km 17 (portaria P1).</p>
+                            <p>O evento ocorre nos auditórios da EACH, localizados no prédio I5, destacado em rosa no mapa abaixo: </p>
+                        </div>
+
+                        <div className='map-btn'>
+                            <SecondaryButton onClick={handleShowMapModal}>Saiba mais</SecondaryButton>
+                        </div>
+
+                        {showMapModal && 
+                            <MapModal
+                                onClose={() => setShowMapModal(false)}
+                                show={showMapModal}
+                            />
+                        }
+                    </div>
+
+                    <div className='map'>
+                        <img src="/images/background_imgs/mapa.png"/>
+                    </div>
+                </div>
+            </DirectionsSection>
+
             <SupportersSection>
                 <div className='supporters-container'>
                     <div className='supporters-title'>
@@ -398,8 +453,7 @@ export default Home;
 
 const LandingSection = styled.section`
     padding-inline: 1rem;
-    border-bottom: 1px solid var
-    (--outline-neutrals-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
     color: var(--content-neutrals-primary);
 
@@ -408,6 +462,7 @@ const LandingSection = styled.section`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border-inline: 1px solid var(--outline-neutrals-secondary);
         border-inline: 1px solid var(--outline-neutrals-secondary);
     
         .landing-info {
@@ -457,6 +512,7 @@ const LandingSection = styled.section`
             flex-direction: column;
             padding: inherit;
             background-color: var(--brand-primary);
+            color: var(--content-neutrals-fixed-white);
 
             h1, h2, h6 {
                 text-align: center;
@@ -552,7 +608,6 @@ const YoutubeContainer = styled.div`
 const SubscriptionSection = styled.section`
     padding-inline: 1rem;
     background-color: var(--background-neutrals-secondary);
-    margin-bottom: -2rem;
 
     .subscription-container {
         border-inline: 1px solid var(--outline-neutrals-secondary);
@@ -566,11 +621,12 @@ const SubscriptionSection = styled.section`
             width: fit-content;
             text-align: center;
             padding: 0.75rem 1rem;
+            color: var(--content-neutrals-fixed-white);
             background-color: var(--brand-primary);
             align-self: center;
         }
 
-        h6 {
+        p {
             span {
                 font: inherit;
                 background-color: var(--brand-purple-900);
@@ -586,7 +642,7 @@ const SubscriptionSection = styled.section`
             width: 100%;
             height: auto;
             object-fit: cover;
-            border: 0.25rem solid white;
+            border: 0.25rem solid var(--content-neutrals-fixed-white);
             box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
         }
     }
@@ -633,10 +689,12 @@ const EventInfoSection = styled.section`
     padding: 4rem 1rem 2rem;
     border-top: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
+    background-color: var(--background-neutrals-primary);
 
     > div {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;;
         gap: 1.5rem;;
     }
 
@@ -647,8 +705,8 @@ const EventInfoSection = styled.section`
         align-items: center;
         gap: 1.5rem;
 
-
         .title {
+            color: var(--content-neutrals-fixed-white);
             padding: 0.75rem 1.5rem;
             width: fit-content;
             background-color: var(--brand-primary);
@@ -660,11 +718,12 @@ const EventInfoSection = styled.section`
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        color: var(--content-neutrals-fixed-white);
+        color: var(--content-neutrals-primary);
 
 
         .about-desc {
             font: 400 1rem/1.5rem 'AT Aero';
+            
             
             span {
                 font: inherit;
@@ -775,7 +834,7 @@ const CountdownSection = styled.section`
     gap: 1.5rem;
     border-bottom: 1px solid var(--outline-neutrals-secondary);
     margin-bottom: -2rem;
-    backgorund-color: var(--background-neutrals-primary)
+    background-color: var(--background-neutrals-primary);
 
     .countdown-text {
         display: flex;
@@ -783,7 +842,7 @@ const CountdownSection = styled.section`
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        color: var(--background-brand-primary);
+        color: var(--brand-primary);
 
         div {
             background-color: var(--brand-purple-600);
@@ -816,7 +875,7 @@ const CountdownSection = styled.section`
 
         .clock-container {
             padding: 1.5rem;
-            background-color: var(--background-neutrals-primary-50);
+            background-color: var(--background-neutrals-primary);
             width: 100%;
             height: 8rem;
             display: flex;
@@ -970,11 +1029,133 @@ const ScheduleSection = styled.section`
     }
 `
 
+const DirectionsSection = styled.section`
+    padding-inline: 1rem;
+    border-top: 1px solid var(--outline-neutrals-secondary, #999);
+
+    .directions-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
+            
+        .directions-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 4.5rem 1.5rem;
+            width: 100%;
+            gap: 2rem;
+            
+            
+            .directions-title {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: left;
+                color: var(--content-neutrals-fixed-white);
+
+                .title {
+                    padding: 0.75rem 1.5rem;
+                    width: fit-content;
+                    background-color: var(--brand-primary);
+                }        
+            }
+            
+            .directions-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                max-width: 40rem;
+                gap: 1rem;
+
+                p {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .map-btn{
+            width: 100%;
+
+            @media screen and (min-width: 800px) {
+                width: fit-content;
+            }
+        }
+
+       
+        
+        .map {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 4.5rem 2.5rem;
+
+            img {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        
+    }
+
+    
+     @media (min-width:1100px) {
+        //height: 18.5rem;
+
+        .directions-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .directions-info {
+                height: 100%;
+                width: 50%;
+                padding: 1.5rem;
+            }
+
+            .map {
+            width: 50%;
+            padding: 4.5rem 2.5rem;
+            border-left: 1px solid var(--outline-neutrals-secondary);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    @media (max-width:1100px) {
+        .map {
+            width: 50%;
+            padding: 4.5rem 1.5rem;
+            border-top: 1px solid var(--outline-neutrals-secondary);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+    }
+`
+
 const SupportersSection = styled.section`
     padding: 2rem 1rem;
     border-top: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
-    color: var(--content-neutrals-fixed-white);
+    color: var(--content-neutrals-primary);
 
     .supporters-container {
         display: flex;
@@ -995,6 +1176,7 @@ const SupportersSection = styled.section`
                 text-align: center;
 				background-color: var(--brand-primary);
 				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+                color: var(--content-neutrals-fixed-white);
             }
 
             h6 {

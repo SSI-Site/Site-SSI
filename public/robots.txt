@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Disallow: /user
+Disallow: /example
+Sitemap: https://semanadesi.com/sitemap.xml

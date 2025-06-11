@@ -24,7 +24,10 @@ const About = () => {
 
     return (
         <>
-            <Meta title='SSI 2024 | Sobre' />
+            <Meta title='Sobre | Semana de Sistemas de Informação' 
+            description ='Saiba mais sobre a Semana de Sistemas de Informação: objetivos, história, impacto e como o evento conecta estudantes e profissionais de TI.'
+            keywords='o que é a SSI, história do evento, sobre a SSI, semana acadêmica tecnologia, evento de sistemas de informação, missão SSI, objetivos semana de tecnologia, contexto SSI'
+            />
 
             <LogoTextSection>
                 <div className='logo-text'>

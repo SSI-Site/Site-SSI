@@ -143,6 +143,10 @@ const SpeakerContainer = styled.div`
     
             svg {
                 flex-shrink: 0;
+
+                path {
+                    fill: var(--content-neutrals-primary);
+                }
             }
     
             &:hover, &:focus-visible {

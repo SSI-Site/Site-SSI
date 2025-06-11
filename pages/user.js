@@ -153,7 +153,7 @@ const User = () => {
                 }}
             />
 
-            <Meta title='SSI 2024 | Meu Perfil' />
+            <Meta title='Meu Perfil | Semana de Sistemas de Informação' />
 
             {isLoading &&
                 <Loading>
