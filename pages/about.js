@@ -10,6 +10,9 @@ import Button from '../src/components/Button';
 import GiftCard from '../src/components/GiftCard';
 import SecondaryButton from '../src/components/SecondaryButton';
 
+//Importe Imagem do Next
+import Image from 'next/image';
+
 // assets
 import gifts from '../data/gifts';
 import LogoCircular from '../public/images/logos/logo_circular.png';
@@ -33,7 +36,12 @@ const About = () => {
                         </a>
                     </div>
                     <div className='logo'>
-                        <img src={LogoCircular} alt="Gif SSI 2024" />
+                        <Image 
+                        src='/images/logos/logo_circular.png'
+                        alt="Gif SSI 2024" 
+                        width={295}
+                        height={295}
+                        />
                     </div>
                 </div>
             </LogoTextSection>
@@ -44,7 +52,12 @@ const About = () => {
                         <div className='bait-sample justify-right'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
+                                    <Image 
+                                        src="/images/about/palestras.jpg" alt="Foto Palestras"
+                                        width={500}
+                                        height={500}
+                                        className="responsive-image"
+                                    />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -74,7 +87,11 @@ const About = () => {
                         <div className='bait-sample justify-left'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <img src="/images/about/workshops.jpg" alt="Foto Workshops" className="responsive-image" />
+                                    <Image 
+                                        src="/images/about/workshops.jpg" alt="Foto Workshops"
+                                        width={500}
+                                        height={500}
+                                        className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -105,7 +122,11 @@ const About = () => {
                         <div className='bait-sample justify-right'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <img src="/images/about/networking.jpg" alt="Foto Networking" className="responsive-image" />
+                                    <Image 
+                                        src="/images/about/networking.jpg" alt="Foto Networking"
+                                        width={500}
+                                        height={500} 
+                                        className="responsive-image" />
                                 </div>
                             </div>
 
@@ -136,7 +157,12 @@ const About = () => {
                         <div className='bait-sample justify-left'>
                                 <div className='bait-image'>
                                     <div className='image-container'>
-                                        <img src="/images/about/premios.jpg" alt="Foto Prêmios" className="responsive-image" />
+                                        <Image
+                                            src="/images/about/premios.jpg" 
+                                            alt="Foto Prêmios"
+                                            width={500}
+                                            height={500} 
+                                            className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -306,10 +332,6 @@ const LogoTextSection = styled.section`
         justify-content: center;
         border-left: 1px solid var(--background-neutrals-secondary);
         border-right: 1px solid var(--background-neutrals-secondary);
-
-        img {
-            height: 18.5rem;
-        }
     }
 
     @media (min-width:800px) {
@@ -330,10 +352,6 @@ const LogoTextSection = styled.section`
             justify-content: center;
             border-left: none;
             padding: 0 1.5rem;
-            
-            img {
-                height: 27.5rem;
-            }
         }
 
         .text {

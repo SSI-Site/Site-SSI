@@ -7,6 +7,9 @@ import Meta from '../src/infra/Meta';
 import DepartmentStamp from '../src/components/DepartmentStamp';
 import MemberCard from '../src/components/MemberCard';
 
+//Importe Image do Next
+import Image from 'next/image'
+
 // assets
 import members from '../data/members';
 import BoardIcon from '../public/images/co_icons/board.svg';
@@ -64,7 +67,11 @@ const CO = () => {
                         <h6>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação: o time que trabalha para fazer esse evento acontecer.</h6>
                     </div>
                     <div className='image-container'>
-                        <img src='./images/co_members/co.jpg' alt='Foto Palestra' />
+                        <Image 
+                            src='/images/co_members/co.jpg' 
+                            alt='Foto Palestra'
+                            width={500}
+                            height={500} />
                     </div>
                 </div>
             </COExhibitionSection>
