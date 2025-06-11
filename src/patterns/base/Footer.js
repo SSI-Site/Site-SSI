@@ -223,6 +223,7 @@ const FooterWrapper = styled.footer`
         transition: 0.15s all ease-out;
         font-weight: 400;
         line-height: 1.5rem;
+        color: var(--content-neutrals-primary);
     }
 
     ul a:hover,
@@ -242,6 +243,7 @@ const FooterWrapper = styled.footer`
         background-color: var(--brand-primary);
         transition: 0.15s all ease-out;
         font-family: 'AT Aero Bold';
+        color: var(--content-neutrals-fixed-white);
 
         &:hover,
         &:focus-visible {
