@@ -141,6 +141,7 @@ export default CO;
 
 const COExhibitionSection = styled.section`
     border-bottom: 1px solid var(--background-neutrals-secondary);
+    background: var(--background-neutrals-primary, #1A1A1A);
 
     .exhibition-container {
         border-inline: 1px solid var(--background-neutrals-secondary);
@@ -150,6 +151,7 @@ const COExhibitionSection = styled.section`
         align-items: center;
 
         .title-text {
+            color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
             align-items: start;
@@ -184,8 +186,10 @@ const COExhibitionSection = styled.section`
     @media (min-width:1021px) {
         .exhibition-container {
             flex-direction: row;
+            background: var(--background-neutrals-primary, #1A1A1A);
             
             .title-text {
+                color: var(--content-neutrals-primary, #FFF);
                 height: calc(100vh - 8rem);
                 width: 50%;
                 border-bottom: 0;
@@ -209,6 +213,7 @@ const COExhibitionSection = styled.section`
 `
 
 const COMembersSection = styled.section`
+    background: var(--background-neutrals-primary, #1A1A1A);
 
     h3 {
         text-align: center;
