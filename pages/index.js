@@ -7,6 +7,9 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 
+// importe Image do next
+import Image from 'next/image'
+
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
@@ -225,7 +228,12 @@ const Home = () => {
                     </div>
 
                     <div className='coMembers'>
-                        <img src="./images/co_members/co.jpg"/>
+                        <Image 
+                            src="/images/co_members/co.jpg"       
+                            alt="Membros da Comissão Organizadora"
+                            width={500}
+                            height={500}
+                        />
                     </div>
                 </div>
             </SubscriptionSection>
