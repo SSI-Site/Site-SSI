@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
+import Image from 'next/image';
+
 const DepartmentStamp = ({ name, icon }) => {
 
     return (
         <DepartmentWrapper>
             <p>{name}</p>
             {icon &&
-                <img src={icon}></img>
+                <Image src={icon}
+                alt={name}
+                width={500}
+                height={500}/>
             }
         </DepartmentWrapper>
     )
