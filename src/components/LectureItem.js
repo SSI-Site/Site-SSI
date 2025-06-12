@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { formatTime } from '../../utils/format-time';
+import Image from 'next/image';
 
 // components
 import BadgeCO from './BadgeCO';
 import SpeakerInfo from './SpeakerInfo';
 
+import Image from 'next/image';
 // assets
 import LectureRight from '../../public/images/background_imgs/desktopDetail.png';
 import LectureBottom from '../../public/images/background_imgs/detail.png';
@@ -19,7 +21,8 @@ const LectureItem = ({ time, event }) => {
                 <LectureHeader>
                     {event.sponsor &&
                         <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                            <img src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`} />
+                            <Image src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`}
+                            width={500} height={500} />
                         </a>
                     }
                     <h3>{event.title}</h3>
@@ -64,7 +67,8 @@ const LectureItem = ({ time, event }) => {
                 <picture>
                     <source media="(max-width: 800px)" srcSet={LectureBottom}/>
                     <source media="(min-width: 801px)" srcSet={LectureRight}/>
-                    <img src={LectureBottom} alt="Imagem de Detalhe"/>
+                    <Image src={LectureBottom} alt="Imagem de Detalhe"
+                    width={500} height={500}/>
                 </picture>
                 
             </ImgDetail>
