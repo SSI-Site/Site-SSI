@@ -152,6 +152,7 @@ const COExhibitionSection = styled.section`
 
         .title-text {
             color: var(--content-neutrals-primary, #FFF);
+            color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
             align-items: start;
@@ -187,8 +188,10 @@ const COExhibitionSection = styled.section`
         .exhibition-container {
             flex-direction: row;
             background: var(--background-neutrals-primary, #1A1A1A);
+            background: var(--background-neutrals-primary, #1A1A1A);
             
             .title-text {
+                color: var(--content-neutrals-primary, #FFF);
                 color: var(--content-neutrals-primary, #FFF);
                 height: calc(100vh - 8rem);
                 width: 50%;
@@ -213,6 +216,7 @@ const COExhibitionSection = styled.section`
 `
 
 const COMembersSection = styled.section`
+    background: var(--background-neutrals-primary, #1A1A1A);
     background: var(--background-neutrals-primary, #1A1A1A);
 
     h3 {
