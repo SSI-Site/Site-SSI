@@ -140,11 +140,11 @@ export default CO;
 
 
 const COExhibitionSection = styled.section`
-    border-bottom: 1px solid var(--background-neutrals-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
     background: var(--background-neutrals-primary, #1A1A1A);
 
     .exhibition-container {
-        border-inline: 1px solid var(--background-neutrals-secondary);
+        border-inline: 1px solid var(--outline-neutrals-secondary);
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -158,7 +158,7 @@ const COExhibitionSection = styled.section`
             justify-content: center;
             gap: 1.5rem;
             padding: 1.5rem;
-            border-bottom: 1px solid var(--background-neutrals-secondary);
+            border-bottom: 1px solid var(--outline-neutrals-secondary);
 
             h6 span {
                 font: inherit;
@@ -193,7 +193,7 @@ const COExhibitionSection = styled.section`
                 height: calc(100vh - 8rem);
                 width: 50%;
                 border-bottom: 0;
-                border-right: 1px solid var(--background-neutrals-secondary);
+                border-right: 1px solid var(--outline-neutrals-secondary);
                 padding-block: 0;
             }
 
@@ -258,7 +258,6 @@ const MobileCOFilterContainer = styled.div`
             position: relative;
             width: 100%;
             min-height: 3rem; 
-            color: white;
             background-color: var(--background-neutrals-primary);
             appearance: none;
             font-size: 0.875rem;
@@ -321,6 +320,7 @@ const NavItem = styled.div`
         > div {
             background-color: var(--background-neutrals-secondary);
             background-image: linear-gradient(to right, var(--brand-primary), var(--brand-primary));
+            color: var(--content-neutrals-primary);
         }
     `}
 
@@ -328,6 +328,7 @@ const NavItem = styled.div`
         > div {
             background-color: var(--brand-primary); 
             background-image: linear-gradient(to right, white 50%, white 50%);
+            color: var(--content-neutrals-fixed-white);
         }
     `}
 
