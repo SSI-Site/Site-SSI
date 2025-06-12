@@ -1,43 +1,39 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const DepartmentStamp = ({ name, icon }) => {
+const DepartmentStamp = ( { name, itemColor, $active } ) => {
 
     return (
-        <DepartmentWrapper>
+        <DepartmentWrapper itemColor={itemColor} $active={$active}>
             <p>{name}</p>
-            {icon &&
-                <img src={icon}></img>
-            }
         </DepartmentWrapper>
-    )
-}
+    );
+};
 
 export default DepartmentStamp;
 
-
 const DepartmentWrapper = styled.div`
-    width: 14rem;
-    width: fit-content;
-    height: fit-content;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--background-neutrals-primary);
-    padding: 0.75rem 1.5rem;
-    gap: 0.5rem;
+    padding: 1rem;
     transition: 0.15s;
 
-    background-size: 200%;
-    background-position-x: 200%;
-    background-repeat: no-repeat;
+    ${props => props.$active === false && css`
+        p {
+            color: var(--background-neutrals-primary);
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: ${props.itemColor};
+            font: 400 8rem/7rem 'AT Aero Bold';
+        }
+    `}
 
-    p {
-        font: 700 1rem/1.25rem 'AT Aero Bold';
-        text-align: left;
-    }
-
-    img {
-        width: 1.5rem;
-    }
-`
+    ${props => props.$active === true && css`
+        p {
+            color: ${props.itemColor};
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: ${props.itemColor};
+            font: 400 8rem/7rem 'AT Aero Bold';
+        }
+    `}
+`;
