@@ -32,14 +32,6 @@ const ExamplePage = () => {
                 </p>
                 <Working />
                 <Example />
-                <iframe
-                    width="600"
-                    height="450"
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCL7qTxrGVIZNLd8ggivIvD6eco1ruf27E&q=EACH+USP">
-                </iframe>
             </ExampleSection>
         </>
     )
