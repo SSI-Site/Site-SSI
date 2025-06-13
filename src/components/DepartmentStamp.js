@@ -23,23 +23,30 @@ const DepartmentWrapper = styled.div`
         p {
             text-align: center;
             color: var(--background-neutrals-primary);
-            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: ${props.itemColor};
-            font: 300 8rem/7rem 'AT Aero Bold';
+            font: 300 4rem/3.5rem 'AT Aero Bold';
         }
 
         p:hover {
             color: ${props.itemColor};
-        }   
+        }
     `}
 
     ${props => (props.$active || props.$hover) === true && css`
         p {
             text-align: center;
             color: ${props.itemColor};
-            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: ${props.itemColor};
-            font: 300 8rem/7rem 'AT Aero Bold';
+            font: 300 4rem/3.5rem 'AT Aero Bold';
         }
     `}
+
+    @media (min-width:801px) {
+        p {
+            -webkit-text-stroke-width: 2px;
+            font: 300 8rem/7rem 'AT Aero Bold';
+        }
+    }
 `;
