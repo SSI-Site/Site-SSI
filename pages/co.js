@@ -13,12 +13,6 @@ import members from '../data/members';
 const CO = () => {
 
     const [activeItem, setActiveItem] = useState('Todos')
-    const [isSelected, setIsSelected] = useState(false)
-
-    const handleMobileSelectChange = (e) => {
-        setActiveItem(e.target.value)
-        setIsSelected(true)
-    }
 
     function renderActiveItem() {
         if (activeItem === 'Todos') {
@@ -68,7 +62,7 @@ const CO = () => {
             <COMembersSection>
                 <DesktopCOFilterContainer>
                     <div className='members-container'>
-                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')} >
+                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
                             <DepartmentStamp name='Todos' itemColor="var(--brand-primary)" $active={activeItem === 'Todos'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
@@ -224,40 +218,11 @@ const DesktopCOFilterContainer = styled.div `
 
 const NavItem = styled.div`
     cursor: pointer;
-    flex-shrink: 0;
+    flex-shrink: 1;
     scroll-snap-align: center;
     itemColor: ${props => props.itemColor};
 
-    ${props => props.$active == false && css`
-        > div {
-            
-        }
-    `}
-
-    ${props => props.$active == true && css`
-        > div {
-            -webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: color;
-            font-color: var(--background-neutrals-primary);
-            font: 400 8rem/4.37rem 'AT Aero Bold';
-        }
-    `}
-
-    @media (min-width:840px) {
-        > div:hover, > div:focus-visible {
-            background-position-x: 100%;    
-        }
-        
-        ${props => props.$active == true && css`
-            > div:hover, > div:focus-visible {
-                p {
-                    color: color;
-                    -webkit-text-stroke-width: 2px;
-                    -webkit-text-stroke-color: color;
-                }
-            }
-        `}
-    } 
+    
 `
 
 const MemberCardsWrapper = styled.div`
