@@ -51,7 +51,7 @@ const CO = () => {
                 <div className='exhibition-container'>
                     <div className='title-text'>
                         <h1>Comissão Organizadora</h1>
-                        <h6>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação: o time que trabalha para fazer esse evento acontecer.</h6>
+                        <p>Conheça a Comissão Organizadora da Semana de Sistemas de Informação, o time que trabalha para fazer esse evento acontecer.</p>
                     </div>
                     <div className='image-container'>
                         <img src='./images/co_members/co.jpg' alt='Foto Membros' />
@@ -119,11 +119,6 @@ const COExhibitionSection = styled.section`
             gap: 1.5rem;
             padding: 1.5rem;
             border-bottom: 1px solid var(--background-neutrals-secondary);
-
-            h6 span {
-                font: inherit;
-                background: var(--brand-purple-900);
-            }
         }
 
         .image-container {
