@@ -5,7 +5,7 @@ import img_src from '../../public/images/logos/preview_logo.jpg';
 
 const Meta = ({
     title = 'Semana de Sistemas de Informação',
-    keywords = 'semana de sistemas de informação, SSI 2025, evento tecnologia, conferência TI, evento acadêmico tecnologia, inovação, tecnologia da informação, estudantes de TI, palestras tecnologia, evento universitário',
+    keywords = 'semana de sistemas de informação, SSI 2025, evento tecnologia, evento acadêmico tecnologia, inovação, tecnologia da informação, estudantes de TI, palestras tecnologia, evento universitário, semana de si, EACH USP',
     description = 'Participe da Semana de Sistemas de Informação 2025 na USP! Confira a programação completa de palestras com especialistas em tecnologia, organizada pela comissão da SSI. Acesse o site oficial para detalhes sobre o evento, palestrantes e muito mais!'
 }) => {
     
