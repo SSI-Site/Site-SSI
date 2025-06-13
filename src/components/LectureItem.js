@@ -8,7 +8,6 @@ import Image from 'next/image';
 import BadgeCO from './BadgeCO';
 import SpeakerInfo from './SpeakerInfo';
 
-import Image from 'next/image';
 // assets
 import LectureRight from '../../public/images/background_imgs/desktopDetail.png';
 import LectureBottom from '../../public/images/background_imgs/detail.png';
