@@ -1,6 +1,9 @@
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Disallow: /user
-Disallow: /example
+Disallow: /
+Allow: /index
+Allow: /co
+Allow: /schedule
+Allow: /palestrantes
+Allow: /about
+
 Sitemap: https://semanadesi.com/sitemap.xml
