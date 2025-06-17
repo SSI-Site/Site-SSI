@@ -66,14 +66,14 @@ const ScheduleWrapper = styled.div`
             width: 100%;
             list-style-type: none;
             padding-block: 1rem;
-            border-bottom: 1px solid var(--outline-neutrals-secondary);
+            border-bottom: 1px solid var(--color-neutral-secondary);
 
             &:last-child {
                 border-bottom: none;
             }
 
             h5 {
-                color: var(--content-neutrals-primary);
+                color: white;
                 opacity: 0.2;
             }
         }
@@ -85,7 +85,7 @@ const ScheduleWrapper = styled.div`
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        background: var(--background-neutrals-tertiary);
+        background: var(--color-neutral-secondary);
         padding: 0.75rem 1.5rem;
 
         p {
@@ -94,10 +94,10 @@ const ScheduleWrapper = styled.div`
     }
 
     div.special-event {
-        background: var(--background-neutrals-inverse);
+        background: white;
 
         h6, p {
-            color: var(--content-neutrals-inverse);
+            color: var(--color-neutral);
         }
     }
 

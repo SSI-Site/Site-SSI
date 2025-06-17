@@ -12,7 +12,8 @@ const UserGiftCard = ({ gift, index, totalPres, presentialPres }) => {
     return (
         <GiftContainer tabIndex={0}>
             <div className={"gift-card-front " + (locked ? "locked-front" : "")} >
-                <figure>
+                <figure aria-label={`Brinde ${gift.name}`}>
+                    
                     <img className="gift-img" src={gift.image} alt={`Brinde ${gift.name} SSI`} />
                 </figure>
                 <h6>{gift.name}</h6>
@@ -97,7 +98,7 @@ const GiftContainer = styled.div`
 		position: absolute;
         left: 0;
         right: 0;
-		background-color: var(--brand-purple-900);
+		background-color: var(--color-primary-900);
 
         figure {
             height: 12rem;
@@ -115,7 +116,7 @@ const GiftContainer = styled.div`
 	}
 	
 	.locked-front {
-		background-color: var(--background-neutrals-primary-800);
+		background-color: var(--color-neutral-800);
 		filter: blur(3px);
 	}
 
@@ -126,7 +127,7 @@ const GiftContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--background-neutrals-secondary);
+        background-color: var(--color-neutral-secondary);
 	}
 
 	.gift-card-back {
@@ -142,7 +143,7 @@ const GiftContainer = styled.div`
 		gap: 0.5rem;
 		align-items: center;
 		justify-content: center;
-		background-color: var(--background-neutrals-primary-50);
+		background-color: var(--color-neutral-50);
 
 		.emoji-image {
 			width: 5rem;
@@ -152,7 +153,7 @@ const GiftContainer = styled.div`
 
 		p {
 			text-align: center;
-			color: var(--background-neutrals-primary);
+			color: var(--color-neutral);
 		}
 		
 		.card-text {
@@ -164,14 +165,14 @@ const GiftContainer = styled.div`
 	.locked-back {
 		gap: 0.75rem;
         justify-content: flex-start;
-		background-color: var(--background-neutrals-secondary);
+		background-color: var(--color-neutral-secondary);
 
         .emoji-image {
             margin-bottom: 0;
         }
 
 		p {
-			color: var(--background-neutrals-primary-50);
+			color: var(--color-neutral-50);
 		}
 
 		.statusPres {
@@ -195,18 +196,18 @@ const GiftContainer = styled.div`
 			}
 
 			.b0 {
-				background-color: var(--brand-primary);
+				background-color: var(--color-primary);
 				
 				p, span {
-					color: var(--background-neutrals-primary-50);
+					color: var(--color-neutral-50);
 				}
 			}
 
 			.b1 {
-				background-color: var(--background-neutrals-primary-50);
+				background-color: var(--color-neutral-50);
 
 				p, span {
-					color: var(--brand-primary);
+					color: var(--color-primary);
 				}
 			}
 		}
@@ -220,8 +221,8 @@ const GiftContainer = styled.div`
         height: 3rem;
         background: linear-gradient(
             to bottom,
-            var(--background-neutrals-primary-50) 50%,
-            var(--brand-primary) 50%
+            var(--color-neutral-50) 50%,
+            var(--color-primary) 50%
         );
         background-size: 100% 200%;
         background-position: top;
@@ -252,7 +253,7 @@ const GiftContainer = styled.div`
     }
 
     button:focus-visible {
-        outline: 2px solid var(--brand-primary);
+        outline: 2px solid var(--color-primary);
         outline-offset: 2px;
     }
 
@@ -278,7 +279,7 @@ const GiftContainer = styled.div`
 		}
 
         &:focus-visible {
-            outline: 2px solid var(--brand-primary);
+            outline: 2px solid var(--color-primary);
             outline-offset: 2px;
         }
 

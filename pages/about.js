@@ -10,9 +10,6 @@ import Button from '../src/components/Button';
 import GiftCard from '../src/components/GiftCard';
 import SecondaryButton from '../src/components/SecondaryButton';
 
-//Importe Imagem do Next
-import Image from 'next/image';
-
 // assets
 import gifts from '../data/gifts';
 import LogoCircular from '../public/images/logos/logo_circular.png';
@@ -24,27 +21,19 @@ const About = () => {
 
     return (
         <>
-            <Meta title='Sobre | Semana de Sistemas de Informação' 
-            description ='Saiba mais sobre a Semana de Sistemas de Informação: objetivos, história, impacto e como o evento conecta estudantes e profissionais de TI.'
-            keywords='o que é a SSI, história do evento, sobre a SSI, semana acadêmica tecnologia, evento de sistemas de informação, missão SSI, objetivos semana de tecnologia, contexto SSI'
-            />
+            <Meta title='SSI 2024 | Sobre' />
 
             <LogoTextSection>
-                <div className='logo-text'>
+                <div className='logo-text' >
                     <div className='text'>
-                        <h1>Sobre o Evento</h1>
-                        <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
+                        <h1 aria-label = {"Sobre o Evento"}>Sobre o Evento</h1>
+                        <p aria-label={""}>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
                         <a href='https://docs.google.com/document/d/1uXK5byNMtpUx6scQZpIG74vXD07yBT1b/edit?usp=sharing&ouid=109347348401977738085&rtpof=true&sd=true' target="_blank">
                             <Button>Conferir regulamento</Button>
                         </a>
                     </div>
                     <div className='logo'>
-                        <Image 
-                        src='/images/logos/logo_circular.png'
-                        alt="Gif SSI 2024" 
-                        width={295}
-                        height={295}
-                        />
+                        <img src={LogoCircular} alt="Gif SSI 2024" />
                     </div>
                 </div>
             </LogoTextSection>
@@ -52,15 +41,10 @@ const About = () => {
             <BaitSection>
                 <div className='bait-container'>
                     <BaitContent>
-                        <div className='bait-sample justify-right'>
+                        <div className='bait-sample justify-right'tabIndex={0}>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <Image 
-                                        src="/images/about/palestras.jpg" alt="Foto Palestras"
-                                        width={500}
-                                        height={500}
-                                        className="responsive-image"
-                                    />
+                                    <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -87,14 +71,10 @@ const About = () => {
                         </div>
                     </BaitContent>
                     <BaitContent>
-                        <div className='bait-sample justify-left'>
+                        <div className='bait-sample justify-left'tabIndex={0}>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <Image 
-                                        src="/images/about/workshops.jpg" alt="Foto Workshops"
-                                        width={500}
-                                        height={500}
-                                        className="responsive-image" />
+                                    <img src="/images/about/workshops.jpg" alt="Foto Workshops" className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -122,14 +102,10 @@ const About = () => {
                         </div>
                     </BaitContent>
                     <BaitContent>
-                        <div className='bait-sample justify-right'>
+                        <div className='bait-sample justify-right' tabIndex={0}>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <Image 
-                                        src="/images/about/networking.jpg" alt="Foto Networking"
-                                        width={500}
-                                        height={500} 
-                                        className="responsive-image" />
+                                    <img src="/images/about/networking.jpg" alt="Foto Networking" className="responsive-image" />
                                 </div>
                             </div>
 
@@ -157,15 +133,10 @@ const About = () => {
                         </div>
                     </BaitContent>
                     <BaitContent>
-                        <div className='bait-sample justify-left'>
+                        <div className='bait-sample justify-left' tabIndex={0}>
                                 <div className='bait-image'>
                                     <div className='image-container'>
-                                        <Image
-                                            src="/images/about/premios.jpg" 
-                                            alt="Foto Prêmios"
-                                            width={500}
-                                            height={500} 
-                                            className="responsive-image" />
+                                        <img src="/images/about/premios.jpg" alt="Foto Prêmios" className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -228,7 +199,8 @@ const About = () => {
                         <a href='https://www.youtube.com/@semanadesi' target='_blank'>
                             <SecondaryButton $noSvgColorChange>
                                 Acesse nosso canal
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none" aroa>
+                                    <desc>Ícone do YouTube</desc>
                                     <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000"/>
                                     <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white"/>
                                 </svg>
@@ -302,7 +274,7 @@ export default About;
 
 
 const LogoTextSection = styled.section`
-    border-bottom: 1px solid var(--background-neutrals-secondary);
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .logo-text {
         display: flex;
@@ -322,7 +294,7 @@ const LogoTextSection = styled.section`
 
     .text {
         gap: 1rem;
-        border: 1px solid var(--background-neutrals-secondary);
+        border: 1px solid var(--color-neutral-secondary);
         border-top: none;
 
         p {
@@ -333,8 +305,12 @@ const LogoTextSection = styled.section`
     .logo {
         align-items: center; 
         justify-content: center;
-        border-left: 1px solid var(--background-neutrals-secondary);
-        border-right: 1px solid var(--background-neutrals-secondary);
+        border-left: 1px solid var(--color-neutral-secondary);
+        border-right: 1px solid var(--color-neutral-secondary);
+
+        img {
+            height: 18.5rem;
+        }
     }
 
     @media (min-width:800px) {
@@ -355,6 +331,10 @@ const LogoTextSection = styled.section`
             justify-content: center;
             border-left: none;
             padding: 0 1.5rem;
+            
+            img {
+                height: 27.5rem;
+            }
         }
 
         .text {
@@ -372,7 +352,7 @@ const LogoTextSection = styled.section`
 `
 
 const BaitSection = styled.section`
-    background-color: var(--background-neutrals-primary);
+    background-color: var(--color-neutral);
     padding-inline: 0;
 
     .bait-container {
@@ -385,7 +365,7 @@ const BaitSection = styled.section`
 `
 
 const BaitContent = styled.div`
-    --border: 1px solid var(--background-neutrals-secondary);
+    --border: 1px solid var(--color-neutral-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -435,18 +415,18 @@ const BaitContent = styled.div`
 
     .justify-left {
 
-        &:hover {
+        &:hover, &:focus-visible {
             background-color: white; 
         }
 
-        &:hover * {
-            color: var(--background-neutrals-primary); 
+        &:hover, &:focus-visible * {
+            color: var(--color-neutral); 
         }
     }
 
     .justify-right {
-        &:hover {
-            background-color: var(--brand-primary); 
+        &:hover, &:focus-visible {
+            background-color: var(--color-primary); 
         }
     }
 
@@ -527,7 +507,7 @@ const GiftsSection = styled.section`
 
             h3 {
                 text-align: center;
-				background-color: var(--brand-primary);
+				background-color: var(--color-primary);
 				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
@@ -537,7 +517,7 @@ const GiftsSection = styled.section`
 
             span {
                 font: inherit;
-                background-color: var(--brand-purple-900);
+                background-color: var(--color-primary-900);
             }
         }
 
@@ -572,7 +552,7 @@ const GiftsSection = styled.section`
 `
 
 const LastYearSection = styled.section`
-    --border: 1px solid var(--background-neutrals-secondary);
+    --border: 1px solid var(--color-neutral-secondary);
     border-top: var(--border);
 
     .lastyear-container {
@@ -594,7 +574,7 @@ const LastYearSection = styled.section`
             border-right: var(--border);
             
             .lastyear-title {
-                background-color: var(--brand-primary);
+                background-color: var(--color-primary);
                 width: fit-content;
                 padding: 0.75rem 1.5rem;
 
@@ -695,10 +675,10 @@ const EventNumbersBanner = styled.div`
         width: 100%;
         padding: 1.5rem;
         background-color: white;
-        color: var(--brand-primary);
+        color: var(--color-primary);
 
         h5 {
-            color: var(--brand-primary);
+            color: var(--color-primary);
         }
     }
 

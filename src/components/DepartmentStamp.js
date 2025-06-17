@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
-import Image from 'next/image';
-
 const DepartmentStamp = ({ name, icon }) => {
 
     return (
         <DepartmentWrapper>
             <p>{name}</p>
             {icon &&
-                <Image src={icon}
-                alt={name}
-                width={500}
-                height={500}/>
+                <img src={icon} alt= {'Ícone do setor de ' + name} ></img>
             }
         </DepartmentWrapper>
     )
@@ -28,7 +23,7 @@ const DepartmentWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--background-neutrals-primary);
+    background-color: var(--color-neutral-800);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.15s;

@@ -7,9 +7,6 @@ import Meta from '../src/infra/Meta';
 import DepartmentStamp from '../src/components/DepartmentStamp';
 import MemberCard from '../src/components/MemberCard';
 
-//Importe Image do Next
-import Image from 'next/image'
-
 // assets
 import members from '../data/members';
 import BoardIcon from '../public/images/co_icons/board.svg';
@@ -36,7 +33,7 @@ const CO = () => {
                 members.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={key} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={(key)} />
                         </div>
                     );
                 })
@@ -58,10 +55,7 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='Comissão Organizadora | Semana de Sistemas de Informação' 
-            description='Conheça a comissão organizadora da SSI 2025. Estudantes dedicados à realização de um dos maiores eventos acadêmicos de tecnologia do país.'
-            keywords='comissão SSI, organização do evento, estudantes organizadores, quem organiza a SSI, equipe SSI 2025, comissão sistemas de informação, organização semana tecnologia'
-            />
+            <Meta title='SSI 2024 | CO' />
 
             <COExhibitionSection>
                 <div className='exhibition-container'>
@@ -70,11 +64,7 @@ const CO = () => {
                         <h6>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação: o time que trabalha para fazer esse evento acontecer.</h6>
                     </div>
                     <div className='image-container'>
-                        <Image 
-                            src='/images/co_members/co.jpg' 
-                            alt='Foto Palestra'
-                            width={500}
-                            height={500} />
+                        <img src='./images/co_members/co.jpg' alt='Foto Palestra' />
                     </div>
                 </div>
             </COExhibitionSection>
@@ -107,28 +97,28 @@ const CO = () => {
                 {/* Para telas desktop */}
                 <DesktopCOFilterContainer>
                     <div className='members-container'>
-                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
+                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Todos')} tabIndex={0}>
                             <DepartmentStamp name='Todos' />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
+                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Comercial e Financeiro')} tabIndex={0}>
                             <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
+                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Criação e Comunicação')} tabIndex={0}>
                             <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
+                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')} tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Diretoria')}>
                             <DepartmentStamp name='Diretoria' icon={BoardIcon} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
+                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Infraestrutura')} tabIndex={0}>
                             <DepartmentStamp name='Infraestrutura' icon={InfraIcon} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
+                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Palestrantes')} tabIndex={0}>
                             <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
+                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Parcerias')} tabIndex={0}>
                             <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
+                        <NavItem $active={activeItem === 'Site'} onClick={() => setActiveItem('Site')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Site')} tabIndex={0}>
                             <DepartmentStamp name='Site' icon={SiteIcon} />
                         </NavItem>
                     </div>
@@ -147,30 +137,27 @@ export default CO;
 
 
 const COExhibitionSection = styled.section`
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
-    background: var(--background-neutrals-primary, #1A1A1A);
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .exhibition-container {
-        border-inline: 1px solid var(--outline-neutrals-secondary);
+        border-inline: 1px solid var(--color-neutral-secondary);
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         .title-text {
-            color: var(--content-neutrals-primary, #FFF);
-            color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
             align-items: start;
             justify-content: center;
             gap: 1.5rem;
             padding: 1.5rem;
-            border-bottom: 1px solid var(--outline-neutrals-secondary);
+            border-bottom: 1px solid var(--color-neutral-secondary);
 
             h6 span {
                 font: inherit;
-                background: var(--brand-purple-900);
+                background: var(--color-primary-900);
             }
         }
 
@@ -186,7 +173,7 @@ const COExhibitionSection = styled.section`
                 height: auto;
                 object-fit: cover;
                 border: 0.25rem solid white;
-                box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
+                box-shadow: 0.25rem 0.25rem 0 var(--color-primary);
             }
         }
     }
@@ -194,16 +181,12 @@ const COExhibitionSection = styled.section`
     @media (min-width:1021px) {
         .exhibition-container {
             flex-direction: row;
-            background: var(--background-neutrals-primary, #1A1A1A);
-            background: var(--background-neutrals-primary, #1A1A1A);
             
             .title-text {
-                color: var(--content-neutrals-primary, #FFF);
-                color: var(--content-neutrals-primary, #FFF);
                 height: calc(100vh - 8rem);
                 width: 50%;
                 border-bottom: 0;
-                border-right: 1px solid var(--outline-neutrals-secondary);
+                border-right: 1px solid var(--color-neutral-secondary);
                 padding-block: 0;
             }
 
@@ -215,7 +198,7 @@ const COExhibitionSection = styled.section`
                 img {
                     max-width: 45rem;
                     border: 0.5rem solid white;
-                    box-shadow: 0.5rem 0.5rem 0 var(--brand-primary);
+                    box-shadow: 0.5rem 0.5rem 0 var(--color-primary);
                 }
             }
         }
@@ -223,8 +206,6 @@ const COExhibitionSection = styled.section`
 `
 
 const COMembersSection = styled.section`
-    background: var(--background-neutrals-primary, #1A1A1A);
-    background: var(--background-neutrals-primary, #1A1A1A);
 
     h3 {
         text-align: center;
@@ -269,7 +250,8 @@ const MobileCOFilterContainer = styled.div`
             position: relative;
             width: 100%;
             min-height: 3rem; 
-            background-color: var(--background-neutrals-primary);
+            color: white;
+            background-color: var(--color-neutral-800);
             appearance: none;
             font-size: 0.875rem;
             text-align: center;
@@ -288,7 +270,7 @@ const MobileCOFilterContainer = styled.div`
     }
 
     .selected select {
-        background-color: var(--brand-primary);
+        background-color: var(--color-primary);
     }
 
     option {
@@ -328,30 +310,27 @@ const NavItem = styled.div`
     scroll-snap-align: center;
 
     ${props => props.$active == false && css`
-        > div {
-            background-color: var(--background-neutrals-secondary);
-            background-image: linear-gradient(to right, var(--brand-primary), var(--brand-primary));
-            color: var(--content-neutrals-primary);
+        & > div {
+            background-image: linear-gradient(var(--color-primary), var(--color-primary));
         }
     `}
 
     ${props => props.$active == true && css`
-        > div {
-            background-color: var(--brand-primary); 
+        & > div {
+            background-color: var(--color-primary); 
             background-image: linear-gradient(to right, white 50%, white 50%);
-            color: var(--content-neutrals-fixed-white);
         }
     `}
 
     @media (min-width:840px) {
-        > div:hover, > div:focus-visible {
+        &:hover > div, &:focus-visible > div{
             background-position-x: 100%;    
         }
         
         ${props => props.$active == true && css`
-            > div:hover, > div:focus-visible {
+            &:hover > div, &:focus-visible > div {
                 p {
-                    color: var(--brand-primary);
+                    color: var(--color-primary);
                 }
 
                 img {

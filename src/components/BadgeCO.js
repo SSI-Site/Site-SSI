@@ -2,44 +2,44 @@ import styled from "styled-components";
 
 const colorSchemes = [
     {
-        'badgeColor' : 'var(--background-neutrals-inverse)',
-        'textColor'  : 'var(--content-neutrals-inverse)'
+        'badgeColor' : 'var(--color-neutral)',
+        'textColor'  : 'var(--color-neutral-50)'
     },
     {
-        'badgeColor' : 'var(--background-neutrals-primary)',
-        'textColor'  : 'var(--content-neutrals-primary)'
+        'badgeColor' : 'var(--color-neutral-50)',
+        'textColor'  : 'var(--color-neutral)'
     },
     {
-        'badgeColor' : 'var(--brand-purple-200)',
-        'textColor'  : 'var(--brand-primary-dark)'
+        'badgeColor' : 'var(--color-primary-200)',
+        'textColor'  : 'var(--color-primary-900)'
     },
     {
-        'badgeColor' : 'var(--brand-purple-300)',
-        'textColor'  : 'var(--brand-primary-dark)'
+        'badgeColor' : 'var(--color-primary-300)',
+        'textColor'  : 'var(--color-primary-900)'
     },
     {
-        'badgeColor' : 'var(--brand-purple-400)',
-        'textColor'  : 'var(--brand-primary-dark)'
+        'badgeColor' : 'var(--color-primary-400)',
+        'textColor'  : 'var(--color-primary-900)'
     },
     {
-        'badgeColor' : 'var(--brand-purple-500)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
+        'badgeColor' : 'var(--color-primary-500)',
+        'textColor'  : 'var(color-neutral-50)'
     },
     {
-        'badgeColor' : 'var(--brand-purple-600)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
+        'badgeColor' : 'var(--color-primary-600)',
+        'textColor'  : 'var(color-neutral-50)'
     },
     {
-        'badgeColor' : 'var(--brand-purple-700)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
+        'badgeColor' : 'var(--color-primary-700)',
+        'textColor'  : 'var(color-neutral-50)'
     },    
     {
-        'badgeColor' : 'var(--brand-purple-800)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
+        'badgeColor' : 'var(--color-primary-800)',
+        'textColor'  : 'var(color-neutral-50)'
     },    
     {
-        'badgeColor' : 'var(--brand-purple-900)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
+        'badgeColor' : 'var(--color-primary-900)',
+        'textColor'  : 'var(color-neutral-50)'
     },
 ]
 

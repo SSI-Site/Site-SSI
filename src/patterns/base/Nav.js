@@ -69,7 +69,7 @@ const Nav = () => {
                     {/* Navbar para Mobile */}
                     <NavMobile $isOpen={isOpen}>
 
-                        <div className='hamburguer-wrapper'>
+                        <div className='hamburguer-wrapper' tabIndex={0}>
                             <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M3 18V16H21V18H3ZM3 13V11H21V13H3ZM3 8V6H21V8H3Z" fill="white"/>
@@ -97,12 +97,6 @@ const Nav = () => {
                             <li className = {router.pathname == '/about' ? 'active': ''}>
                                 <Link legacyBehavior href="/about" passHref>
                                     <a>Evento</a>
-                                </Link>
-                            </li>
-
-                            <li className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link legacyBehavior href="/palestrantes" passHref>
-                                    <a>Palestrantes</a>
                                 </Link>
                             </li>
 
@@ -150,9 +144,12 @@ const Nav = () => {
                         <div className = 'header-nav'>
                             <h6>Navegação rápida</h6>
                             <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
-                                <svg width="18" height="18" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="white"/>
-                                </svg>
+                                <img 
+                                    src={CloseBtn}
+                                    width={18}
+                                    height={18}
+                                    alt='Fechar'
+                                />
                             </div>
                         </div>
 
@@ -173,12 +170,6 @@ const Nav = () => {
                                 <Link legacyBehavior href="/about" passHref>
                                     <a>Evento</a>
                                 </Link>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link legacyBehavior href="/palestrantes" passHref>
-                                    <a>Palestrantes</a>
-                                </Link>                                
                             </li>
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
@@ -247,9 +238,8 @@ const NavWrapper = styled.div`
     margin: auto;
     z-index: 11;
     padding: 1.5rem 1rem; 
-    background-color: var(--background-neutrals-primary);
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
+    background-color: var(--color-neutral);
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     > div {
         display: flex;
@@ -265,7 +255,7 @@ const NavWrapper = styled.div`
             justify-content: center;
 
             &:focus-visible {
-                outline: 2px solid var(--brand-primary);
+                outline: 2px solid var(--color-primary);
                 outline-offset: 2px;
             }
         }
@@ -279,22 +269,24 @@ const NavWrapper = styled.div`
 const NavMobile = styled.nav`
     overflow: hidden;   
 
-    .hamburguer-wrapper {
-        width: 3rem;
+    .hamburguer-menu {
+        width: 10rem;
         height: 3rem;
-        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
     }
 
-    .hamburguer-wrapper:hover {
+    .hamburguer-menu:hover,
+    .hamburguer-menu:focus-visible{
         background-position: left;
 
         svg path {
-            fill: var(--background-neutrals-primary);
+            fill: var(--color-neutral);
         }
     }
+        
 
     .hamburguer-menu {
         background-color: unset;
@@ -324,7 +316,7 @@ const NavigationList = styled.ul`
         display: block;
         padding: 0.125rem 0.5rem;
         background-color: transparent;
-        background-image: linear-gradient(to right, var(--background-neutrals-primary) 50%, var(--background-neutrals-inverse) 50%);
+        background-image: linear-gradient(to right, var(--color-neutral-50), var(--color-neutral-50));
         background-size: 200%;
         background-position-x: 200%;
         transition: all 0.15s ease-out;
@@ -334,29 +326,28 @@ const NavigationList = styled.ul`
         font-weight: 400;
 
         &:hover, &:focus-visible {
-            color: var(--content-neutrals-inverse);
+            color: var(--color-neutral);
             background-position-x: 100%;
         }
 
         &:focus-visible {
-            outline: 2px solid var(--content-neutrals-fixed-white);
+            outline: 2px solid var(--color-primary);
             outline-offset: 2px;
         }
             
     }
 
     .active {            
-        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--brand-primary) 50%);
+        background: linear-gradient(to right, var(--color-neutral-50) 50%, var(--color-primary) 50%);
         background-size: 250% 100%;
         background-position: right;
-        color: var(--content-neutrals-fixed-white);
         
         a {
             font-family: 'At Aero Bold';
         }
 
         &:hover a, a:focus-visible {
-            color: var(--content-neutrals-inverse);
+            color: var(--color-primary);
         }
     }
 `
@@ -383,11 +374,7 @@ const Sidepanel = styled.div`
     
     .close {
         padding: 1rem;
-        cursor: pointer;   
-
-        svg path{
-            fill: var(--content-neutrals-primary)
-        }
+        cursor: pointer;       
     }
 
     .click-out {
@@ -417,14 +404,17 @@ const Sidepanel = styled.div`
         z-index: 17;
         top: 0;
         right: 0;
-        background-color: var(--background-neutrals-secondary);
+        background-color: var(--color-neutral-800);
         transition: all ease-out 0.15s;
         padding: 1.5rem 1rem;
         gap: 1.5rem;
-        color: var(--content-neutrals-primary);
 
         @media (min-width:648px) {
             width: 50%;
+        }
+
+        h6 {
+            color: #FFF;
         }
 
         .profile-side-bar {
@@ -442,20 +432,20 @@ const Sidepanel = styled.div`
                 padding: 0 0.25rem;
             
                 &:hover, &:focus-visible {
-                    color: var(--background-neutrals-primary);
+                    color: var(--color-neutral);
                     background-position-x: 100%;
 
                     p {
-                        color: var(--background-neutrals-primary);
+                        color: var(--color-neutral);
                     }
 
                     svg path {
-                        fill: var(--brand-primary);
+                        fill: var(--color-primary);
                     }
                 }
                 
                 &:focus-visible {
-                    outline: 2px solid var(--brand-primary);
+                    outline: 2px solid var(--color-primary);
                     outline-offset: 2px;
                 }
             }
@@ -471,7 +461,7 @@ const Sidepanel = styled.div`
             }
     
             .user-pic-container {
-                background: var(--brand-primary);
+                background: var(--color-primary);
                 width: 36px;
                 height: 36px;
                 padding: 0;
@@ -539,7 +529,7 @@ const NavDesktop = styled.nav`
         }
         
         .profile-container {
-            background-color: var(--background-neutrals-secondary);
+            background-color: var(--color-neutral-800);
 
             .profile-content {
                 gap: 0.5rem;
@@ -549,7 +539,7 @@ const NavDesktop = styled.nav`
 
                 &:hover, &:focus-visible {
                     p {
-                        color: var(--background-neutrals-inverse);
+                        color: var(--color-neutral);
                     }
                 }
             }
@@ -571,7 +561,7 @@ const NavDesktop = styled.nav`
             }
 
             &:hover, &:focus-visible {
-                background: var(--background-neutrals-inverse);
+                background: var(--color-neutral-800);
             }
         }        
     }
