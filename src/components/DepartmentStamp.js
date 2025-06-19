@@ -12,12 +12,11 @@ const DepartmentStamp = ( { name, itemColor, $active } ) => {
 export default DepartmentStamp;
 
 const DepartmentWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    max-width: 30rem;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    transition: 0.15s;
+    transition: 0.15s;    
 
     ${props => props.$active === false && css`
         p {
@@ -25,7 +24,8 @@ const DepartmentWrapper = styled.div`
             color: var(--background-neutrals-primary);
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: ${props.itemColor};
-            font: 300 4rem/3.5rem 'AT Aero Bold';
+            -webkit-line-clamp: 2;
+            font: 300 4rem/4rem 'AT Aero Bold';
         }
 
         p:hover {
@@ -39,14 +39,18 @@ const DepartmentWrapper = styled.div`
             color: ${props.itemColor};
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: ${props.itemColor};
-            font: 300 4rem/3.5rem 'AT Aero Bold';
+            -webkit-line-clamp: 2;
+            font: 300 4rem/4rem 'AT Aero Bold';
         }
     `}
 
     @media (min-width:801px) {
+    max-width: 98rem;
+
         p {
             -webkit-text-stroke-width: 2px;
-            font: 300 8rem/7rem 'AT Aero Bold';
+            -webkit-line-clamp: 1;
+            font: 300 8rem/8rem 'AT Aero Bold';
         }
     }
 `;
