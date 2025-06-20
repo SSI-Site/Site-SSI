@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 import Meta from '../src/infra/Meta';
@@ -39,6 +40,13 @@ const CO = () => {
             )
         }
     }
+
+    useEffect(() => {
+        const container = document.querySelector('.members-container');
+        if (container) {
+            container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+        }
+    }, [activeItem]);
 
     return (
         <>
