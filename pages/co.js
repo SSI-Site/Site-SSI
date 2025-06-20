@@ -60,16 +60,16 @@ const CO = () => {
             </COExhibitionSection>
 
             <COMembersSection>
-                <DesktopCOFilterContainer>
+                <COFilterContainer>
                     <div className='members-container'>
                         <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
                             <DepartmentStamp name='Todos' itemColor="var(--brand-primary)" $active={activeItem === 'Todos'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
-                            <DepartmentStamp name='Comercial & Financeiro' itemColor="var(--brand-primary-light)" $active={activeItem === 'Comercial e Financeiro'} />
+                            <DepartmentStamp name='Comercial e Financeiro' itemColor="var(--brand-primary-light)" $active={activeItem === 'Comercial e Financeiro'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
-                            <DepartmentStamp name='Criação & Comunicação' itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Criação e Comunicação'} />
+                            <DepartmentStamp name='Criação e Comunicação' itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Criação e Comunicação'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
                             <DepartmentStamp name='Diretoria' itemColor="var(--brand-primary)" $active={activeItem === 'Diretoria'} />
@@ -83,11 +83,11 @@ const CO = () => {
                         <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
                             <DepartmentStamp name='Parcerias' itemColor="var(--brand-primary)" $active={activeItem === 'Parcerias'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Site'} onClick={() => setActiveItem('Site')}>
-                            <DepartmentStamp name='Site' itemColor="var(--brand-primary-light)" $active={activeItem === 'Site'} />
+                        <NavItem $active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
+                            <DepartmentStamp name='Sites' itemColor="var(--brand-primary-light)" $active={activeItem === 'Sites'} />
                         </NavItem>
                     </div>
-                </DesktopCOFilterContainer> 
+                </COFilterContainer> 
 
                 <MemberCardsWrapper id="members">
                     {renderActiveItem()}
@@ -166,58 +166,35 @@ const COExhibitionSection = styled.section`
 `
 
 const COMembersSection = styled.section`
+    overflow-x: hidden;
+
     @media (min-width:1021px) {
         padding-block: 0 8rem;
     }
 `
 
-const DesktopCOFilterContainer = styled.div `
-    display: none;
-    
+const COFilterContainer = styled.div `
+    justify-content: center;
+    padding-block: 5rem;
+    margin-left: -38%;  // magic number
 
-    @media (min-width:600px) {
+    .members-container {
         display: flex;
-        flex-direction: column;
+        gap: 2rem;
         align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding-block: 4rem 2rem;
-
-        .members-container {
-            gap: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-    }
-
-    @media (min-width:1012px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding-block: 4rem 2rem;
-
-        .members-container {
-            gap: 1rem;
-            display: flex;
-            flex-direction: column;
-            flex-flow: wrap;
-            align-items: center;
-            justify-content: center;
-        }
+        padding-inline: 80%;    // magic number
+        overflow-x: visible;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-align: center;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;  // hidden
     }
 `
 
 const NavItem = styled.div`
     cursor: pointer;
-    flex-shrink: 1;
-    scroll-snap-align: center;
-    itemColor: ${props => props.itemColor};
-
-    
+    flex-shrink: 0;
 `
 
 const MemberCardsWrapper = styled.div`
