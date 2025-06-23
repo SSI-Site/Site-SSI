@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const DepartmentStamp = ( { name, itemColor, $active } ) => {
 
     return (
-        <DepartmentWrapper itemColor={itemColor} $active={$active}>
+        <DepartmentWrapper name={name} itemColor={itemColor} $active={$active}>
             <p>{name}</p>
         </DepartmentWrapper>
     );
