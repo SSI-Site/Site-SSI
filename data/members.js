@@ -2,7 +2,7 @@ const members = [
 	{
 		name: 'Alexandre Kira',
 		image: '/images/co_members/AlexandreKira.jpg',
-		departments: ['Diretoria', 'Site'],
+		departments: ['Diretoria', 'Sites'],
 		linkedin: 'https://www.linkedin.com/in/alexandre-kira/',
 		phrase: 'Nada é impossível, exceto descobrir por que não compila',
 	},
@@ -43,21 +43,21 @@ const members = [
 	{
 		name: 'Caio Bernardo',
 		image: '/images/co_members/CaioBernardo.jpg',
-		departments: ['Comercial e Financeiro', 'Site'],
+		departments: ['Comercial e Financeiro', 'Sites'],
 		linkedin: 'https://www.linkedin.com/in/caio-bernardo-387300313/',
 		phrase: 'Estudos indicam que quem participa da Semana de SI tem 1000% mais chances de arrumar o emprego do sonhos. Fonte: Arial',
 	},
 	{
 		name: 'Caio Silva',
 		image: '/images/co_members/CaioSilva.jpg',
-		departments: ['Infraestrutura', 'Site'],
+		departments: ['Infraestrutura', 'Sites'],
 		linkedin: 'https://www.linkedin.com/in/caioviniciusmelodasilva',
 		phrase: 'Essa é a melhor SSI, até o ano que vem',
 	},
 	{
 		name: 'Catarina Macedo',
 		image: '/images/co_members/CatarinaMacedo.jpg',
-		departments: ['Palestrantes', 'Parcerias', 'Site'],
+		departments: ['Palestrantes', 'Parcerias', 'Sites'],
 		linkedin: 'https://www.linkedin.com/in/catarina-de-macedo-scabelli-242876274',
 		phrase: 'Escolhasss e consequênciasss',
 	},
@@ -89,7 +89,7 @@ const members = [
 	{
 		name: 'Eduardo Araujo',
 		image: '/images/co_members/EduardoAraujo.jpg',
-		departments: ['Site'],
+		departments: ['Sites'],
 		linkedin: 'https://www.linkedin.com/in/finhawk/',
 		phrase: 'Toda luta é um empate - 3º Lei de Newton',
 	},
@@ -144,7 +144,7 @@ const members = [
 	{
 		name: 'Gustavo Sá',
 		image: '/images/co_members/GustavoSa.jpg',
-		departments: ['Criação e Comunicação', 'Diretoria', 'Site'],
+		departments: ['Criação e Comunicação', 'Diretoria', 'Sites'],
 		linkedin: 'https://linkedin.com/in/gustavohls',
 		phrase: 'Mas é claro que IHC é melhor disciplina do curso',
 	},
@@ -158,7 +158,7 @@ const members = [
 	{
 		name: 'Karina Yang',
 		image: '/images/co_members/KarinaYang.jpeg',
-		departments: ['Comercial e Financeiro', 'Site'],
+		departments: ['Comercial e Financeiro', 'Sites'],
 		linkedin: 'http://linkedin.com/in/kayangch',
 		phrase: 'Jogue para cima o que te aprisiona',
 	},
@@ -186,7 +186,7 @@ const members = [
 	{
 		name: 'Marcio Lopes',
 		image: '/images/co_members/MarcioLopes.jpg',
-		departments: ['Palestrantes', 'Parcerias', 'Site'],
+		departments: ['Palestrantes', 'Parcerias', 'Sites'],
 		linkedin: 'https://www.linkedin.com/in/marcio-lopes-ol',
 		phrase: 'Funciona no meu computador!',
 	},
@@ -200,7 +200,7 @@ const members = [
 	{
 		name: 'Miguel Silva',
 		image: '/images/co_members/MiguelSilva.jpg',
-		departments: ['Site'],
+		departments: ['Sites'],
 		linkedin: 'https://www.linkedin.com/in/miguel-silva-6a550a217/',
 		phrase: 'Código limpo, mente afiada, futuro brilhante.',
 	},
