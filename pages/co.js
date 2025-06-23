@@ -43,8 +43,9 @@ const CO = () => {
 
     useEffect(() => {
         const container = document.querySelector('.members-container');
-        if (container) {
-            container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+        const active = container.querySelector(`[name="${activeItem}"]`);
+        if (container && active) {
+            container.scrollLeft = active.offsetLeft + active.offsetWidth / 2 - window.innerWidth / 2;      // active centralized
         }
     });
 
