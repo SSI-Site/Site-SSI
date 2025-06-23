@@ -41,13 +41,26 @@ const CO = () => {
         }
     }
 
+    // centralize activeItem
     useEffect(() => {
         const container = document.querySelector('.members-container');
         const active = container.querySelector(`[name="${activeItem}"]`);
         if (container && active) {
-            container.scrollLeft = active.offsetLeft + active.offsetWidth / 2 - window.innerWidth / 2;      // active centralized
+            container.scrollLeft = active.offsetLeft + active.offsetWidth / 2 - window.innerWidth / 2;      // active center position
         }
     });
+
+    // wrap resize on mobile
+    useEffect(() => {
+        const stamps = document.querySelectorAll('.members-container > * > *');
+        stamps.forEach(stamp => {
+            const stampText = stamp.querySelector('p');
+            if (stampText.offsetHeight > 48 && window.innerWidth < 801) {    // 48px = 3rem (one text line)
+                stamp.style.maxWidth = '14rem';
+                stampText.style.font = '400 2rem/2rem "AT Aero Bold"';
+            }
+        }); 
+    }, []);
 
     return (
         <>
