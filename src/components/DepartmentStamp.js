@@ -12,7 +12,7 @@ const DepartmentStamp = ( { name, itemColor, $active } ) => {
 export default DepartmentStamp;
 
 const DepartmentWrapper = styled.div`
-    max-width: 22rem;   // "Infraestrutura"
+    max-width: 21.3rem;   // "Infraestrutura"
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
