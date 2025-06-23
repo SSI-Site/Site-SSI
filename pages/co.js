@@ -46,7 +46,7 @@ const CO = () => {
         if (container) {
             container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
         }
-    }, [activeItem]);
+    });
 
     return (
         <>
@@ -127,6 +127,10 @@ const COExhibitionSection = styled.section`
             gap: 1.5rem;
             padding: 1.5rem;
             border-bottom: 1px solid var(--background-neutrals-secondary);
+
+            p {
+                font: 400 1rem/1.5rem 'AT Aero';   
+            }
         }
 
         .image-container {
@@ -152,6 +156,7 @@ const COExhibitionSection = styled.section`
             
             .title-text {
                 height: calc(100vh - 8rem);
+                max-height: 41.875rem;
                 width: 50%;
                 border-bottom: 0;
                 border-right: 1px solid var(--background-neutrals-secondary);
@@ -159,12 +164,14 @@ const COExhibitionSection = styled.section`
             }
 
             .image-container {
+                display: flex;
+                justify-content: center;
                 max-width: 50rem;
                 width: 50%;
                 padding: 0 1.5rem 0rem 1rem;
 
                 img {
-                    max-width: 45rem;
+                    max-width: 38rem;
                     border: 0.5rem solid white;
                     box-shadow: 0.5rem 0.5rem 0 var(--brand-primary);
                 }
