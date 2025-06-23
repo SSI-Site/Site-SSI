@@ -15,7 +15,7 @@ const DepartmentWrapper = styled.div`
     max-width: 30rem;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 0;
     transition: 0.15s;    
 
     ${props => props.$active === false && css`
@@ -25,7 +25,7 @@ const DepartmentWrapper = styled.div`
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: ${props.itemColor};
             -webkit-line-clamp: 2;
-            font: 300 4rem/4rem 'AT Aero Bold';
+            font: 400 3rem/3rem 'AT Aero Bold';
         }
 
         p:hover {
@@ -40,7 +40,7 @@ const DepartmentWrapper = styled.div`
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: ${props.itemColor};
             -webkit-line-clamp: 2;
-            font: 300 4rem/4rem 'AT Aero Bold';
+            font: 400 3rem/3rem 'AT Aero Bold';
         }
     `}
 
@@ -50,7 +50,7 @@ const DepartmentWrapper = styled.div`
         p {
             -webkit-text-stroke-width: 2px;
             -webkit-line-clamp: 1;
-            font: 300 8rem/8rem 'AT Aero Bold';
+            font: 400 6rem/6rem 'AT Aero Bold';
         }
     }
 `;
