@@ -50,16 +50,18 @@ const CO = () => {
         }
     });
 
-    // wrap resize on mobile
+    // text wrap resize on mobile
     useEffect(() => {
         const stamps = document.querySelectorAll('.members-container > * > *');
-        stamps.forEach(stamp => {
-            const stampText = stamp.querySelector('p');
-            if (stampText.offsetHeight > 48 && window.innerWidth < 801) {    // 48px = 3rem (one text line)
-                stamp.style.maxWidth = '14rem';
-                stampText.style.font = '400 2rem/2rem "AT Aero Bold"';
-            }
-        }); 
+        if (stamps) {
+            stamps.forEach(stamp => {
+                const stampText = stamp.querySelector('p');
+                if (stampText.offsetHeight > 48 && window.innerWidth < 1021) {    // 48px = 3rem (one text line)
+                    stamp.style.maxWidth = '14rem';
+                    stampText.style.font = '400 2rem/2rem "AT Aero Bold"';
+                }
+            });
+        }
     }, []);
 
     return (
@@ -196,16 +198,12 @@ const COExhibitionSection = styled.section`
 
 const COMembersSection = styled.section`
     overflow-x: hidden;
-
-    @media (min-width:1021px) {
-        padding-block: 0 8rem;
-    }
+    align-items: center;
 `
 
 const COFilterContainer = styled.div `
     justify-content: center;
-    padding-block: 5rem;
-    margin-left: -38%;  // magic number
+    padding-block: 0 1rem;
 
     .members-container {
         display: flex;
@@ -218,6 +216,14 @@ const COFilterContainer = styled.div `
         scroll-snap-align: center;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;  // hidden
+    }
+
+    @media (min-width:1021px) {
+        overflow-x: hidden;
+        max-width: 100%;
+        padding-block: 4rem;
+        margin-left: -50vw;
+        margin-right: -50vw;
     }
 `
 
@@ -233,9 +239,9 @@ const MemberCardsWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
-    @media (min-width:800px) {
+    @media (min-width:1021px) {
         margin-top: 2rem;
     }
 `

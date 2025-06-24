@@ -44,7 +44,7 @@ const DepartmentWrapper = styled.div`
         }
     `}
 
-    @media (min-width:801px) {
+    @media (min-width:1021px) {
     max-width: fit-content;
 
         p {
