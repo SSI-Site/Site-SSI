@@ -202,6 +202,8 @@ const COMembersSection = styled.section`
 `
 
 const COFilterContainer = styled.div `
+    max-width: 100%;
+    overflow-x: hidden; 
     justify-content: center;
     padding-block: 0 1rem;
 
@@ -209,7 +211,7 @@ const COFilterContainer = styled.div `
         display: flex;
         gap: 2rem;
         align-items: center;
-        padding-inline: 80%;    // magic number
+        padding-inline: 30%;    // magic number
         overflow-x: visible;
         overflow-y: hidden;
         scroll-behavior: smooth;
@@ -219,11 +221,9 @@ const COFilterContainer = styled.div `
     }
 
     @media (min-width:1021px) {
-        overflow-x: hidden;
-        max-width: 100%;
         padding-block: 4rem;
-        margin-left: -50vw;
-        margin-right: -50vw;
+        margin-left: -50%;
+        margin-right: -50%;
     }
 `
 
