@@ -203,17 +203,18 @@ const COMembersSection = styled.section`
 
 const COFilterContainer = styled.div `
     max-width: 100%;
-    overflow-x: hidden; 
     justify-content: center;
     padding-block: 0 1rem;
+    border: 1px solid blue;
 
     .members-container {
         display: flex;
+        border: 1px solid red;
+        overflow-x: hidden;
+        overflow-y: hidden;
         gap: 2rem;
         align-items: center;
         padding-inline: 30%;    // magic number
-        overflow-x: visible;
-        overflow-y: hidden;
         scroll-behavior: smooth;
         scroll-snap-align: center;
         scroll-snap-type: x mandatory;
@@ -230,6 +231,7 @@ const COFilterContainer = styled.div `
 const NavItem = styled.div`
     cursor: pointer;
     flex-shrink: 0;
+    user-select: none;
 `
 
 const MemberCardsWrapper = styled.div`
