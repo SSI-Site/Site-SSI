@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /
+Allow: /index
+Allow: /co
+Allow: /schedule
+Allow: /palestrantes
+Allow: /about
+
+Sitemap: https://semanadesi.com/sitemap.xml

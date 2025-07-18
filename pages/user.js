@@ -153,7 +153,7 @@ const User = () => {
                 }}
             />
 
-            <Meta title='SSI 2024 | Meu Perfil' />
+            <Meta title='Meu Perfil | Semana de Sistemas de Informação' />
 
             {isLoading &&
                 <Loading>
@@ -303,7 +303,7 @@ const Loading = styled.figure`
 
 const UserInfoSection = styled.section`
     padding-block: 1.5rem;
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--background-neutrals-secondary);
 
     > div {
         display: flex;
@@ -323,7 +323,7 @@ const UserInfoWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     align-self: center;
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-primary-800);
     padding: 1rem;
     gap: 1rem;
 
@@ -374,7 +374,7 @@ const UserInfoWrapper = styled.div`
         align-items: center;
         justify-content: center;
         padding: 0.5rem 0.25rem;
-        background-color: var(--color-primary);
+        background-color: var(--brand-primary);
     }
     
     .number-usp {
@@ -428,7 +428,7 @@ const InputBox = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
-        background-color: var(--color-neutral-50);
+        background-color: var(--background-neutrals-primary-50);
         padding: 0.5rem;
         margin-left: -4px;
 
@@ -438,7 +438,7 @@ const InputBox = styled.div`
         color: white;
 
         &:has(input[type=number]:focus):not(:has(.error-border)) {
-            border-color: var(--color-primary);
+            border-color: var(--brand-primary);
         }
 
         &:has(.error-border) {
@@ -527,7 +527,7 @@ const InfoUser = styled.div`
 
 const UserWatchedLecturesListSection = styled.section`
     padding-block: 2rem;
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--background-neutrals-secondary);
 
     .lectures-info-wrapper {
         display: flex;
@@ -560,7 +560,7 @@ const UserWatchedLecturesListSection = styled.section`
 			}
 
 			.b0 {
-				background-color: var(--color-primary);
+				background-color: var(--brand-primary);
 				
 				p, h4 {
 					color: white;
@@ -571,7 +571,7 @@ const UserWatchedLecturesListSection = styled.section`
 				background-color: white;
 
 				p, h4 {
-					color: var(--color-primary);
+					color: var(--brand-primary);
 				}
 			}
 

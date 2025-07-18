@@ -3,35 +3,36 @@ import styled from 'styled-components';
 
 // components
 import BadgeCO from './BadgeCO';
+import Image from 'next/image';
 
 const colorSchemes = [
     {
-        'background' : 'var(--color-neutral-50)',
-        'textColor' : 'var(--color-neutral)',
-        'directorBadge' : 0,
-        'badgeSequence' : [3, 9, 6, 8, 5, 4]
-    },
-    {
-        'background' : 'var(--color-neutral-800)',
-        'textColor' : 'var(--color-neutral-50)',
+        'background' : 'var(--background-neutrals-inverse)',
+        'textColor' : 'var(--content-neutrals-inverse)',
         'directorBadge' : 1,
         'badgeSequence' : [3, 9, 6, 8, 5, 4]
     },
     {
-        'background' : 'var(--color-primary)',
-        'textColor' : 'var(--color-neutral-50)',
+        'background' : 'var(--background-neutrals-secondary)',
+        'textColor' : 'var(--content-neutrals-secondary)',
+        'directorBadge' : 1,
+        'badgeSequence' : [3, 9, 6, 8, 5, 4]
+    },
+    {
+        'background' : 'var(--brand-primary)',
+        'textColor' : 'var(--content-neutrals-fixed-white)',
         'directorBadge' : 1,
         'badgeSequence' : [3, 9, 8, 4]
     },
     {
-        'background' : 'var(--color-primary-900)',
-        'textColor' : 'var(--color-neutral-50)',
+        'background' : 'var(--brand-primary-light)',
+        'textColor' : 'var(--content-fixed-black)',
         'directorBadge' : 1,
-        'badgeSequence' : [2, 6, 7, 4]
+        'badgeSequence' : [5, 6, 7, 4]
     },   
     {
-        'background' : 'var(--color-primary-300)',
-        'textColor' : 'var(--color-neutral)',
+        'background' : 'var(--brand-primary-dark)',
+        'textColor' : 'var(--content-neutrals-fixed-white)',
         'directorBadge' : 1,
         'badgeSequence' : [9, 5, 4]
     },
@@ -68,7 +69,8 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
         <MemberWrapper onFocus={handleFocus} ref={cardRef}>
             <div className="image-container">
                 <figure className='member-image'>
-                    <img src={image} alt={`Foto de ${name}`} className="responsive-image" />
+                    <Image src={image} alt={`Foto de ${name}`} className="responsive-image"
+                    width={500} height={500}/>
                 </figure>
             </div>
             <div className={'card-back b' + (colorScheme%5)} id={'back b' + (colorScheme)}>
@@ -159,7 +161,7 @@ const MemberWrapper = styled.div`
     gap: 1rem;
     overflow-y: hidden;
     display: flex;
-    background-color: var(--color-neutral);
+    background-color: var(--background-neutrals-primary);
 
     .info-button {
         position: absolute;
@@ -191,7 +193,7 @@ const MemberWrapper = styled.div`
     .i0 {
         background: linear-gradient(
             to bottom,
-            var(--color-primary) 50%,
+            var(--brand-primary) 50%,
             ${colorSchemes[0].textColor} 50%
         );
         background-size: 100% 200%;
@@ -211,7 +213,7 @@ const MemberWrapper = styled.div`
     .i1 {
         background: linear-gradient(
             to bottom,
-            var(--color-primary) 50%,
+            var(--brand-primary) 50%,
             ${colorSchemes[1].textColor} 50%
         );
         background-size: 100% 200%;
@@ -231,7 +233,7 @@ const MemberWrapper = styled.div`
     .i2 {
         background: linear-gradient(
             to bottom,
-            var(--color-primary) 50%,
+            var(--brand-primary) 50%,
             ${colorSchemes[2].textColor} 50%
         );
         background-size: 100% 200%;
@@ -251,7 +253,7 @@ const MemberWrapper = styled.div`
     .i3 {
         background: linear-gradient(
             to bottom,
-            var(--color-primary) 50%,
+            var(--brand-primary) 50%,
             ${colorSchemes[3].textColor} 50%
         );
         background-size: 100% 200%;
@@ -271,7 +273,7 @@ const MemberWrapper = styled.div`
     .i4 {
         background: linear-gradient(
             to bottom,
-            var(--color-primary) 50%,
+            var(--brand-primary) 50%,
             ${colorSchemes[4].textColor} 50%
         );
         background-size: 100% 200%;
@@ -624,7 +626,7 @@ const MemberWrapper = styled.div`
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: var(--color-neutral-800);
+            background-color: var(--background-neutrals-primary-800);
             display: flex;
 
             .responsive-image {

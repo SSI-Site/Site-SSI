@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { formatTime } from '../../utils/format-time';
+import Image from 'next/image';
 
 // components
 import BadgeCO from './BadgeCO';
@@ -19,7 +20,8 @@ const LectureItem = ({ time, event }) => {
                 <LectureHeader>
                     {event.sponsor &&
                         <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                            <img src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`} />
+                            <Image src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`}
+                            width={500} height={500} />
                         </a>
                     }
                     <h3>{event.title}</h3>
@@ -64,7 +66,8 @@ const LectureItem = ({ time, event }) => {
                 <picture>
                     <source media="(max-width: 800px)" srcSet={LectureBottom}/>
                     <source media="(min-width: 801px)" srcSet={LectureRight}/>
-                    <img src={LectureBottom} alt="Imagem de Detalhe"/>
+                    <Image src={LectureBottom} alt="Imagem de Detalhe"
+                    width={500} height={500}/>
                 </picture>
                 
             </ImgDetail>
@@ -75,7 +78,7 @@ const LectureItem = ({ time, event }) => {
 export default LectureItem;
 
 const LectureWrapper = styled.article`
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-secondary);
     display: flex;   
     flex-direction: column;
     gap: 1em;
@@ -153,7 +156,7 @@ const LectureHeader = styled.header`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: white;
+        background-color: var(--content-neutrals-fixed-white);
         outline: 2px solid transparent;
         transition: all 0.2s ease-in-out;
 
@@ -164,7 +167,7 @@ const LectureHeader = styled.header`
         }
 
         &:hover {
-            outline: 2px solid var(--color-primary);
+            outline: 2px solid var(--brand-primary);
         }
     }
 

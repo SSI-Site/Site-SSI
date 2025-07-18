@@ -48,14 +48,14 @@ const YoutubeWatchNowWrapper = styled.div`
                 background-position-x: 90%;
 
                 h6, p {
-                    color: white;
+                    color: var(--content-neutrals-fixed-white);
                 }
             }
 
             .rightarrow > div {
                 left: 6px;
-                border-top: 3px solid white;
-                border-right: 3px solid white;
+                border-top: 3px solid var(--content-neutrals-fixed-white);
+                border-right: 3px solid var(--content-neutrals-fixed-white);
             }
         }
 	}
@@ -69,7 +69,7 @@ const YoutubeWatchNowWrapper = styled.div`
 		justify-content: space-between;
 
         h6, p {
-            color: var(--color-primary);
+            color: var(--content-neutrals-inverse);
 
             transition: 0.15s ease-in-out;
         }
@@ -89,9 +89,9 @@ const YoutubeWatchNowWrapper = styled.div`
 		padding: 0.75rem 1.5rem 0.75rem 1rem;
 		transition: 0.15s all ease-in-out;
         border: 0;
-        background-color: white;
+        background-color: var(--background-neutrals-inverse);
 
-        background-image: linear-gradient(var(--color-primary), var(--color-primary));
+        background-image: linear-gradient(var(--brand-primary), var(--brand-primary));
         background-size: 200%;
         background-position-x: 210%;
         background-repeat: no-repeat;
@@ -121,8 +121,8 @@ const YoutubeWatchNowWrapper = styled.div`
 			left: 0;
 			height: 100%;
 			width: 100%;
-			border-top: 3px solid var(--color-primary);
-			border-right: 3px solid var(--color-primary);
+			border-top: 3px solid var(--content-neutrals-inverse);
+			border-right: 3px solid var(--content-neutrals-inverse);
 			transform: rotateY(0deg) rotate(45deg);
 
 			transition: 0.15s ease-in-out;

@@ -10,6 +10,9 @@ import Button from '../src/components/Button';
 import GiftCard from '../src/components/GiftCard';
 import SecondaryButton from '../src/components/SecondaryButton';
 
+//Importe Imagem do Next
+import Image from 'next/image';
+
 // assets
 import gifts from '../data/gifts';
 import LogoCircular from '../public/images/logos/logo_circular.png';
@@ -21,7 +24,10 @@ const About = () => {
 
     return (
         <>
-            <Meta title='SSI 2024 | Sobre' />
+            <Meta title='Sobre | Semana de Sistemas de Informação' 
+            description ='Saiba mais sobre a Semana de Sistemas de Informação: objetivos, história, impacto e como o evento conecta estudantes e profissionais de TI.'
+            keywords='o que é a SSI, história do evento, sobre a SSI, semana acadêmica tecnologia, evento de sistemas de informação, missão SSI, objetivos semana de tecnologia, contexto SSI'
+            />
 
             <LogoTextSection>
                 <div className='logo-text'>
@@ -33,7 +39,12 @@ const About = () => {
                         </a>
                     </div>
                     <div className='logo'>
-                        <img src={LogoCircular} alt="Gif SSI 2024" />
+                        <Image 
+                        src='/images/logos/logo_circular.png'
+                        alt="Gif SSI 2024" 
+                        width={295}
+                        height={295}
+                        />
                     </div>
                 </div>
             </LogoTextSection>
@@ -44,7 +55,12 @@ const About = () => {
                         <div className='bait-sample justify-right'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <img src="/images/about/palestras.jpg" alt="Foto Palestras" className="responsive-image" />
+                                    <Image 
+                                        src="/images/about/palestras.jpg" alt="Foto Palestras"
+                                        width={500}
+                                        height={500}
+                                        className="responsive-image"
+                                    />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -74,7 +90,11 @@ const About = () => {
                         <div className='bait-sample justify-left'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <img src="/images/about/workshops.jpg" alt="Foto Workshops" className="responsive-image" />
+                                    <Image 
+                                        src="/images/about/workshops.jpg" alt="Foto Workshops"
+                                        width={500}
+                                        height={500}
+                                        className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -105,7 +125,11 @@ const About = () => {
                         <div className='bait-sample justify-right'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <img src="/images/about/networking.jpg" alt="Foto Networking" className="responsive-image" />
+                                    <Image 
+                                        src="/images/about/networking.jpg" alt="Foto Networking"
+                                        width={500}
+                                        height={500} 
+                                        className="responsive-image" />
                                 </div>
                             </div>
 
@@ -136,7 +160,12 @@ const About = () => {
                         <div className='bait-sample justify-left'>
                                 <div className='bait-image'>
                                     <div className='image-container'>
-                                        <img src="/images/about/premios.jpg" alt="Foto Prêmios" className="responsive-image" />
+                                        <Image
+                                            src="/images/about/premios.jpg" 
+                                            alt="Foto Prêmios"
+                                            width={500}
+                                            height={500} 
+                                            className="responsive-image" />
                                 </div>
                             </div>
                             <div className='bait-sample-description'>
@@ -273,7 +302,7 @@ export default About;
 
 
 const LogoTextSection = styled.section`
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--background-neutrals-secondary);
 
     .logo-text {
         display: flex;
@@ -293,7 +322,7 @@ const LogoTextSection = styled.section`
 
     .text {
         gap: 1rem;
-        border: 1px solid var(--color-neutral-secondary);
+        border: 1px solid var(--background-neutrals-secondary);
         border-top: none;
 
         p {
@@ -304,12 +333,8 @@ const LogoTextSection = styled.section`
     .logo {
         align-items: center; 
         justify-content: center;
-        border-left: 1px solid var(--color-neutral-secondary);
-        border-right: 1px solid var(--color-neutral-secondary);
-
-        img {
-            height: 18.5rem;
-        }
+        border-left: 1px solid var(--background-neutrals-secondary);
+        border-right: 1px solid var(--background-neutrals-secondary);
     }
 
     @media (min-width:800px) {
@@ -330,10 +355,6 @@ const LogoTextSection = styled.section`
             justify-content: center;
             border-left: none;
             padding: 0 1.5rem;
-            
-            img {
-                height: 27.5rem;
-            }
         }
 
         .text {
@@ -351,7 +372,7 @@ const LogoTextSection = styled.section`
 `
 
 const BaitSection = styled.section`
-    background-color: var(--color-neutral);
+    background-color: var(--background-neutrals-primary);
     padding-inline: 0;
 
     .bait-container {
@@ -364,7 +385,7 @@ const BaitSection = styled.section`
 `
 
 const BaitContent = styled.div`
-    --border: 1px solid var(--color-neutral-secondary);
+    --border: 1px solid var(--background-neutrals-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -419,13 +440,13 @@ const BaitContent = styled.div`
         }
 
         &:hover * {
-            color: var(--color-neutral); 
+            color: var(--background-neutrals-primary); 
         }
     }
 
     .justify-right {
         &:hover {
-            background-color: var(--color-primary); 
+            background-color: var(--brand-primary); 
         }
     }
 
@@ -506,7 +527,7 @@ const GiftsSection = styled.section`
 
             h3 {
                 text-align: center;
-				background-color: var(--color-primary);
+				background-color: var(--brand-primary);
 				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
             }
 
@@ -516,7 +537,7 @@ const GiftsSection = styled.section`
 
             span {
                 font: inherit;
-                background-color: var(--color-primary-900);
+                background-color: var(--brand-purple-900);
             }
         }
 
@@ -551,7 +572,7 @@ const GiftsSection = styled.section`
 `
 
 const LastYearSection = styled.section`
-    --border: 1px solid var(--color-neutral-secondary);
+    --border: 1px solid var(--background-neutrals-secondary);
     border-top: var(--border);
 
     .lastyear-container {
@@ -573,7 +594,7 @@ const LastYearSection = styled.section`
             border-right: var(--border);
             
             .lastyear-title {
-                background-color: var(--color-primary);
+                background-color: var(--brand-primary);
                 width: fit-content;
                 padding: 0.75rem 1.5rem;
 
@@ -674,10 +695,10 @@ const EventNumbersBanner = styled.div`
         width: 100%;
         padding: 1.5rem;
         background-color: white;
-        color: var(--color-primary);
+        color: var(--brand-primary);
 
         h5 {
-            color: var(--color-primary);
+            color: var(--brand-primary);
         }
     }
 

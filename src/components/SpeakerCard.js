@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // assets
 import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png';
+import Image from "next/image";
 
 const SpeakerCard = ({ speaker, setIsOpen }) => {
 
@@ -20,7 +21,8 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
 
                 <SpeakerInfo>
                     <div className='imgDiv'>
-                        <img src={speaker['image']} alt={`Foto de ${speaker['image']}`}/>
+                        <Image src={speaker['image']} alt={`Foto de ${speaker['image']}`}
+                        width={500} height={500}/>
                     </div>
 
                     <div className='headTextWrapper'>
@@ -100,7 +102,7 @@ export default SpeakerCard
 const SpeakerWrapper = styled.div`
     width: 100%;
     height: 100%;
-    background-color: var(--color-neutral-800);
+    background-color: var(--background-neutrals-secondary);
     z-index: 20;
     position: fixed;
     top: 0;
@@ -154,7 +156,7 @@ const SpeakerHead = styled.div`
 
     div {
         padding: .5em .75em;
-        background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
@@ -165,7 +167,7 @@ const SpeakerHead = styled.div`
         background-position: left;
 
         svg path {
-            fill: var(--color-neutral);
+            fill: var(--background-neutrals-primary);
         }
     }
     
@@ -224,8 +226,9 @@ const SpeakerInfo = styled.div`
     @media screen and (min-width:1024px) {
         justify-content: flex-start;
         gap: 4em;
-        background-color: var(--color-primary-900);
+        background-color: var(--brand-primary);
         padding: 0em;
+        color: var(--content-neutrals-fixed-white);
 
         .imgDiv {
             max-width: 25%;
@@ -311,7 +314,7 @@ const SocialMedia = styled.div`
     }
 
     a:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
     

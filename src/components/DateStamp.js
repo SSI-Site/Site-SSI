@@ -29,7 +29,7 @@ const DateStamp = ({ day, isActive }) => {
                     </svg>
                 }
             </div>
-            <p className='week-day'>{day} out - {semana[day-6]}</p>
+            <p className='week-day'>{day} ago - {semana[day-6]}</p>
         </DateWrapper>
     )
 }
@@ -43,32 +43,36 @@ const DateWrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    background-color: var(--color-neutral-800);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.15s all ease;
-    background-color: ${props => props.$isActive ? 'var(--color-primary)' : 'var(--color-neutral-800)'};
-    background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--color-primary) 50%, white 50%)' : 'linear-gradient(to right, var(--color-neutral-800) 50%, var(--color-primary) 50%)'};
+    background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--brand-primary) 50%, var(--content-neutrals-fixed-white) 50%)' : 'linear-gradient(to right, var(--background-neutrals-secondary) 50%, var(--content-neutrals-fixed-white) 50%)'};
     background-size: 200%;
     background-position-x: 200%;
 
+    svg path {
+            fill: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--content-neutrals-primary)'};
+    }
+
+    h5, p {
+        color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--background-neutrals-inverse)'};
+    }
+
     &:hover, &:focus-visible {
         background-position-x: 100%;
-        background-color: ${props => props.$isActive ? 'white' : 'var(--color-primary)'};
 
         h5, p {
-            color: ${props => props.$isActive && 'var(--color-primary)'};
+            color: var(--brand-primary);
         }
 
-        ${props => props.$isActive && css`
-            svg path {
-                fill: var(--color-primary);
-            }
-        `}
+        svg path {
+            fill: var(--brand-primary);
+        }
+        
     }
 
     &:focus-visible {
-        outline: 2px solid var(--color-primary);
+        outline: 2px solid var(--brand-primary);
         outline-offset: 4px;
     }
 
@@ -82,10 +86,6 @@ const DateWrapper = styled.div`
         img {
             height: 1.5rem;
         }
-    }
-
-    h5, p {
-        color: white;
     }
 
     p {
