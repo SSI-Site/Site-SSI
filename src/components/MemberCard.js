@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // components
 import BadgeCO from './BadgeCO';
+import Image from 'next/image';
 
 const colorSchemes = [
     {
@@ -68,7 +69,8 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
         <MemberWrapper onFocus={handleFocus} ref={cardRef}>
             <div className="image-container">
                 <figure className='member-image'>
-                    <img src={image} alt={`Foto de ${name}`} className="responsive-image" />
+                    <Image src={image} alt={`Foto de ${name}`} className="responsive-image"
+                    width={500} height={500}/>
                 </figure>
             </div>
             <div className={'card-back b' + (colorScheme%5)} id={'back b' + (colorScheme)}>

@@ -8,6 +8,9 @@ import Meta from '../src/infra/Meta';
 import DepartmentStamp from '../src/components/DepartmentStamp';
 import MemberCard from '../src/components/MemberCard';
 
+//Importe Image do Next
+import Image from 'next/image'
+
 // assets
 import members from '../data/members';
 
@@ -78,6 +81,11 @@ const CO = () => {
                         <p>Conheça a Comissão Organizadora da Semana de Sistemas de Informação, o time que trabalha para fazer esse evento acontecer.</p>
                     </div>
                     <div className='image-container'>
+                        <Image 
+                            src='/images/co_members/co.jpg' 
+                            alt='Foto Palestra'
+                            width={500}
+                            height={500} />
                         <img src='./images/co_members/co.jpg' alt='Foto Membros' />
                     </div>
                 </div>
@@ -126,23 +134,26 @@ export default CO;
 
 
 const COExhibitionSection = styled.section`
-    border-bottom: 1px solid var(--background-neutrals-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
+    background: var(--background-neutrals-primary, #1A1A1A);
 
     .exhibition-container {
-        border-inline: 1px solid var(--background-neutrals-secondary);
+        border-inline: 1px solid var(--outline-neutrals-secondary);
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         .title-text {
+            color: var(--content-neutrals-primary, #FFF);
+            color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
             align-items: start;
             justify-content: center;
             gap: 1.5rem;
             padding: 1.5rem;
-            border-bottom: 1px solid var(--background-neutrals-secondary);
+            border-bottom: 1px solid var(--outline-neutrals-secondary);
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';   
@@ -169,13 +180,17 @@ const COExhibitionSection = styled.section`
     @media (min-width:1021px) {
         .exhibition-container {
             flex-direction: row;
+            background: var(--background-neutrals-primary, #1A1A1A);
+            background: var(--background-neutrals-primary, #1A1A1A);
             
             .title-text {
+                color: var(--content-neutrals-primary, #FFF);
+                color: var(--content-neutrals-primary, #FFF);
                 height: calc(100vh - 8rem);
                 max-height: 41.875rem;
                 width: 50%;
                 border-bottom: 0;
-                border-right: 1px solid var(--background-neutrals-secondary);
+                border-right: 1px solid var(--outline-neutrals-secondary);
                 padding-block: 0;
             }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SpeakerCard from './SpeakerCard';
+import Image from 'next/image';
 
 const SpeakerInfo = ({ speaker }) => {
 
@@ -29,7 +30,11 @@ const SpeakerInfo = ({ speaker }) => {
             </div>
             <figure className='speaker-image-container'>
                 {speaker['image'] &&
-                    <img src={speaker['image']} alt={`Foto do palestrante ${speaker['name']}`} />
+                    <Image
+                     src={speaker['image']} 
+                     width={500}
+                     height={500}
+                     alt={`Foto do palestrante ${speaker['name']}`} />
                 }
             </figure>
 

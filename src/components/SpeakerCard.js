@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // assets
 import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png';
+import Image from "next/image";
 
 const SpeakerCard = ({ speaker, setIsOpen }) => {
 
@@ -20,7 +21,8 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
 
                 <SpeakerInfo>
                     <div className='imgDiv'>
-                        <img src={speaker['image']} alt={`Foto de ${speaker['image']}`}/>
+                        <Image src={speaker['image']} alt={`Foto de ${speaker['image']}`}
+                        width={500} height={500}/>
                     </div>
 
                     <div className='headTextWrapper'>

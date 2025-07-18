@@ -34,12 +34,12 @@ const SecondaryButton = styled.button`
 
     &:hover, &:focus-visible {
         background-position-x: 90%;
-        color: var(--brand-primary);
+        color: var(--content-neutrals-inverse);
 
         ${(props) =>
           !props.$noSvgColorChange && css`
                 svg path {
-                    fill: var(--brand-primary);
+                    fill: var(--content-neutrals-inverse);
                 }
         `}
     }
