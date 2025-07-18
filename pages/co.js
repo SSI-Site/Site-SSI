@@ -205,12 +205,10 @@ const COFilterContainer = styled.div `
     max-width: 100%;
     justify-content: center;
     padding-block: 0 1rem;
-    border: 1px solid blue;
 
     .members-container {
         display: flex;
-        border: 1px solid red;
-        overflow-x: hidden;
+        overflow-x: visible;
         overflow-y: hidden;
         gap: 2rem;
         align-items: center;
@@ -218,7 +216,7 @@ const COFilterContainer = styled.div `
         scroll-behavior: smooth;
         scroll-snap-align: center;
         scroll-snap-type: x mandatory;
-        scrollbar-width: none;  // hidden
+        scrollbar-width: hidden;  // hidden
     }
 
     @media (min-width:1021px) {
