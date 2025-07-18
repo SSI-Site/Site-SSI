@@ -216,7 +216,7 @@ const COFilterContainer = styled.div `
         scroll-behavior: smooth;
         scroll-snap-align: center;
         scroll-snap-type: x mandatory;
-        scrollbar-width: noneq;  // hidden
+        scrollbar-width: none;  // hidden
     }
 
     @media (min-width:1021px) {
