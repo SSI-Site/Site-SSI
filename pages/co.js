@@ -86,7 +86,6 @@ const CO = () => {
                             alt='Foto Palestra'
                             width={500}
                             height={500} />
-                        <img src='./images/co_members/co.jpg' alt='Foto Membros' />
                     </div>
                 </div>
             </COExhibitionSection>
