@@ -17,7 +17,6 @@ const DepartmentWrapper = styled.div`
     justify-content: space-between;
     padding: 1rem 0;
     transition: 0.15s;  
-    border: 1px solid green;
 
     ${props => props.$active === false && css`
         p {
