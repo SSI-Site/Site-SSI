@@ -14,6 +14,8 @@ const Palestrantes = () => {
 
             <PalestranteCard/>
             <PalestranteCard/>
+            <PalestranteCard/>
+            <PalestranteCard/>
 
           </PalestrantesWrapper>
         </PalestrantesContainer>
@@ -31,6 +33,7 @@ const PalestrantesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 1328px; // MATCH WEBSITE PATTERN
+    gap: 1.5rem;
 
 `
 

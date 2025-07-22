@@ -71,7 +71,7 @@ const PalestranteCard = ({ palestrante = {
                 <PalestranteInfo>
                     <PalestranteName>
                         {palestrante.nomePalestrante}
-                        <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" className="arrow" active = {open}/>   
+                        <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" className="arrow" $active = {open}/>   
                     </PalestranteName>
                     <PalestranteRole>{palestrante.cargoPalestrante}</PalestranteRole>
                 </PalestranteInfo>
@@ -156,7 +156,7 @@ const PalestranteArrowUp = styled.img`
     transform: rotate(180deg);
     display: none;
 
-    ${props => props.active && ({
+    ${props => props.$active && ({
         display: "initial",
         transform: "rotate(360deg)"
     })}
@@ -174,7 +174,7 @@ const PalestranteContainer = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    border-bottom: 1px solid var(--color-neutral-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
     position: relative;
 `;
 
@@ -184,7 +184,7 @@ const PalestranteInfo = styled.div`
     flex-direction: column;
     gap: 1.5rem;
 
-    @media (min-width:1024px) {
+    @media (min-width:801px) {
         flex-direction: row;
         padding: 1.5rem;
     }
@@ -207,7 +207,7 @@ const PalestranteHeader = styled.div`
         }
     }
 
-    @media (min-width:1024px) {
+    @media (min-width:801px) {
         padding: 1.5rem;
         gap: 1.5rem;
         align-items: flex-end;
