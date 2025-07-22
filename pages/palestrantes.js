@@ -12,11 +12,6 @@ const Palestrantes = () => {
           <PalestrantesWrapper>
             <h1>Palestrantes</h1>
 
-            <PalestranteCard/>
-            <PalestranteCard/>
-            <PalestranteCard/>
-            <PalestranteCard/>
-
           </PalestrantesWrapper>
         </PalestrantesContainer>
     )
