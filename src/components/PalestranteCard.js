@@ -5,7 +5,7 @@ import { InstagramLogo, LinkedInLogo } from "./SocialMediaLogos";
 
 // Componente principal que exibe o card do palestrante
 const PalestranteCard = ({ palestrante = {
-    nomePalestrante: "Nome do Palestrante",
+    nomePalestrante: "Eduardo Araujo",
     fotoPalestrante: "https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b",
     pronomePalestrante: "ele/dele",
     cargoPalestrante: "Cargo do Palestrante",
@@ -149,8 +149,8 @@ const PalestranteSocialMediaItem = ({ icon, link, alt }) => {
 export default PalestranteCard;
 
 const PalestranteArrowUp = styled.img`
-    width: 3rem;
-    height: 3rem;
+    width: 100%;
+    max-width: 2rem;
     cursor: pointer;
     transition: all 300ms ease-in-out;
     transform: rotate(180deg);
@@ -163,6 +163,10 @@ const PalestranteArrowUp = styled.img`
 
     @media screen and (max-width:1024px){
         display: initial;
+    }
+
+    @media screen and (min-width: 801px){
+        max-width: fit-content
     }
 `;
 
@@ -182,6 +186,7 @@ const PalestranteInfo = styled.div`
 
     @media (min-width:1024px) {
         flex-direction: row;
+        padding: 1.5rem;
     }
 `;
 
@@ -192,7 +197,7 @@ const PalestranteHeader = styled.div`
     padding-block: 1rem;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
-    will-change: height;
+    flex-wrap: nowrap;
 
     &:hover{
         background-color: var(--background-neutrals-secondary);
@@ -239,11 +244,14 @@ const PalestranteImage = styled.img`
 
 const PalestranteName = styled.h3`
     width: 100%;
+    display: flex;
+    align-items: flex-end;
 `;
 
 const PalestranteWrapper = styled.div`
     overflow: hidden;
     transition: all 0.3s ease-in-out;
+    will-change: height;
 `;
 
 const PalestranteBody = styled.div`
