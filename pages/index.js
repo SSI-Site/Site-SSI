@@ -30,7 +30,7 @@ const supporters = [
     { name: 'EACH', image: '/images/partners/each.svg', url: 'https://www5.each.usp.br/' },
     { name: 'DASI', image: '/images/partners/dasi.png', url: 'https://instagram.com/dasiusp' },
     { name: 'PET-SI', image: '/images/partners/pet.png', url: 'https://instagram.com/petsi' },
-// ].sort((a, b) => a.name > b.name ? 1 : -1);
+    // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
 const Home = () => {
@@ -44,10 +44,10 @@ const Home = () => {
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
     }
-    
+
     const handleShowMapModal = () => {
         setShowMapModal(true);
-    }  
+    }
 
     const [countdownDays, setCountdownDays] = useState();
     const [countdownHours, setCountdownHours] = useState();
@@ -85,10 +85,10 @@ const Home = () => {
 
     // Dia correto para o DateComponent
     const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '07');
-    
+
     // Dia no formato yyyy-mm-dd para o ScheduleShift
-    const todayDate = current.toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
-    const formattedScheduleDate =  current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
+    const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
+    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
 
     const filterEventDays = ["07 Out - Segunda-feira", "08 Out - Terça-feira", "09 Out - Quarta-feira", "10 Out - Quinta-feira", "11 Out - Sexta-feira"];
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();
@@ -128,12 +128,12 @@ const Home = () => {
 
     // Cria um object com base no array intermediario
     const filteredSchedule = Object.fromEntries(filteredArray);
-  
+
     useEffect(() => {
         if (showAuthModal) {
             // Calcula a largura da barra de rolagem
             const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-            
+
             // Adiciona o padding-right para compensar a largura da barra de rolagem
             document.body.style.overflow = 'hidden';
             document.body.style.paddingRight = `${scrollBarWidth}px`;
@@ -147,7 +147,7 @@ const Home = () => {
         if (showMapModal) {
             // Calcula a largura da barra de rolagem
             const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-            
+
             // Adiciona o padding-right para compensar a largura da barra de rolagem
             document.body.style.overflow = 'hidden';
             document.body.style.paddingRight = `${scrollBarWidth}px`;
@@ -160,7 +160,7 @@ const Home = () => {
 
     return (
         <>
-            <Meta title='Home | Semana de Sistemas de Informação'/>
+            <Meta title='Home | Semana de Sistemas de Informação' />
 
             <LandingSection>
                 <div className='landing-container'>
@@ -175,16 +175,16 @@ const Home = () => {
                                     {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
                                 </Button>
                             </>
-                        :
-                            <>  
+                            :
+                            <>
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2025</h1>
                                     <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
                                 </div>
-                                <TokenModal/>
+                                <TokenModal />
                             </>
                         }
-                
+
                         {showAuthModal &&
                             <AuthModal
                                 onClose={() => setShowAuthModal(false)}
@@ -193,14 +193,14 @@ const Home = () => {
                         }
 
                     </div>
-                    
-                    <div className = "dates">
-                        <div className = "dateWrapper">
+
+                    <div className="dates">
+                        <div className="dateWrapper">
                             <div>
                                 <h1>18-22</h1>
                                 <h2>Ago 2025</h2>
                             </div>
-                            
+
                             <div>
                                 <h6>Online e Presencial</h6>
                             </div>
@@ -228,8 +228,8 @@ const Home = () => {
                     </div>
 
                     <div className='coMembers'>
-                        <Image 
-                            src="/images/co_members/co.jpg"       
+                        <Image
+                            src="/images/co_members/co.jpg"
                             alt="Membros da Comissão Organizadora"
                             width={500}
                             height={500}
@@ -245,9 +245,9 @@ const Home = () => {
                 <CountdownSection>
                     <div className='countdown-text'>
                         <h3>Contagem regressiva</h3>
-                        <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000  ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
+                        <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000 ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
                     </div>
-                    
+
                     <div className='countdown-clock'>
                         {(now < countdownDate - 24 * 60 * 60 * 1000) &&
                             <div className='clock-container'>
@@ -285,13 +285,13 @@ const Home = () => {
             <EventInfoSection>
                 <div>
                     <div className='about-title'>
-                        <div className = 'title'>
-                            <h3>Sobre o evento</h3> 
+                        <div className='title'>
+                            <h3>Sobre o evento</h3>
                         </div>
                     </div>
 
-                    <div className = 'about-content'>
-                        <p className = 'about-desc'>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso canal no YouTube.</p>
+                    <div className='about-content'>
+                        <p className='about-desc'>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso canal no YouTube.</p>
 
                         <div className='about-cards'>
                             <CountUp
@@ -300,12 +300,12 @@ const Home = () => {
                                 delay={0}
                                 decimals={0}
                                 suffix="+"
-                                enableScrollSpy 
+                                enableScrollSpy
                             >
                                 {({ countUpRef }) => (
                                     <div className='card'>
                                         <div>
-                                            <h5 ref={countUpRef}/>
+                                            <h5 ref={countUpRef} />
                                             <h5>palestrantes</h5>
                                         </div>
                                         <p>Junte-se ao evento que contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
@@ -319,7 +319,7 @@ const Home = () => {
                                 delay={0}
                                 decimals={0}
                                 suffix="+"
-                                enableScrollSpy 
+                                enableScrollSpy
                             >
                                 {({ countUpRef }) => (
                                     <div className='card'>
@@ -338,7 +338,7 @@ const Home = () => {
                                 delay={0}
                                 decimals={0}
                                 suffix="h"
-                                enableScrollSpy 
+                                enableScrollSpy
                             >
                                 {({ countUpRef }) => (
                                     <div className='card'>
@@ -359,50 +359,50 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
-			{ (current <= lastEventDay) &&
-				<ScheduleSection>
-					<div className='schedule-container'>
-						<h3 className='title-mobile schedule-section-title'>Próximas atividades</h3>
-						<div className='title-btn-desktop'>
-							<h3 className='schedule-section-title'>Próximas atividades</h3>
-							<Button type = "button" aria-label = "Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-						</div>
-						<div className='filter-bar-container filter-bar-mobile'>
-							<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
+            {(current <= lastEventDay) &&
+                <ScheduleSection>
+                    <div className='schedule-container'>
+                        <h3 className='title-mobile schedule-section-title'>Próximas atividades</h3>
+                        <div className='title-btn-desktop'>
+                            <h3 className='schedule-section-title'>Próximas atividades</h3>
+                            <Button type="button" aria-label="Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+                        </div>
+                        <div className='filter-bar-container filter-bar-mobile'>
+                            <p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
                             <p>{shift}</p>
-						</div>
+                        </div>
 
-						<div className='filter-bar-container filter-bar-desktop'>
-							<div className='subtitle'>
-								<p>Horário</p>
-								<p>Atividade</p>
-							</div>
+                        <div className='filter-bar-container filter-bar-desktop'>
+                            <div className='subtitle'>
+                                <p>Horário</p>
+                                <p>Atividade</p>
+                            </div>
 
-							<div>
-								<p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
-							</div>
+                            <div>
+                                <p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
+                            </div>
 
-							<div>
-								<p>{shift}</p>
-							</div>
-						</div>
+                            <div>
+                                <p>{shift}</p>
+                            </div>
+                        </div>
 
-						<ScheduleShift
-							schedule={filteredSchedule}
-						/>
-						<div className='btn-mobile'>
-							<Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-						</div>
-					</div>
-				</ScheduleSection>
-			}
+                        <ScheduleShift
+                            schedule={filteredSchedule}
+                        />
+                        <div className='btn-mobile'>
+                            <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+                        </div>
+                    </div>
+                </ScheduleSection>
+            }
 
             <DirectionsSection>
                 <div className='directions-container'>
                     <div className='directions-info'>
                         <div className='directions-title'>
-                            <div className = 'title'>
-                                <h3>Como chegar?</h3> 
+                            <div className='title'>
+                                <h3>Como chegar?</h3>
                             </div>
                         </div>
 
@@ -416,7 +416,7 @@ const Home = () => {
                             <SecondaryButton onClick={handleShowMapModal}>Saiba mais</SecondaryButton>
                         </div>
 
-                        {showMapModal && 
+                        {showMapModal &&
                             <MapModal
                                 onClose={() => setShowMapModal(false)}
                                 show={showMapModal}
@@ -425,7 +425,12 @@ const Home = () => {
                     </div>
 
                     <div className='map'>
-                        <img src="/images/background_imgs/mapa.png"/>
+                        <iframe
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCL7qTxrGVIZNLd8ggivIvD6eco1ruf27E&q=EACH+USP">
+                        </iframe>
                     </div>
                 </div>
             </DirectionsSection>
@@ -1048,7 +1053,7 @@ const DirectionsSection = styled.section`
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            padding: 4.5rem 1.5rem;
+            padding: 2rem 1.5rem;
             width: 100%;
             gap: 2rem;
             
@@ -1096,12 +1101,12 @@ const DirectionsSection = styled.section`
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 4.5rem 2.5rem;
+        padding: 2rem 1.5rem;
 
-            img {
-                height: auto;
+            iframe {
+                border: none;
                 width: 100%;
-                object-fit: cover;
+                height: 16rem;
             }
         }
         
@@ -1119,35 +1124,33 @@ const DirectionsSection = styled.section`
             .directions-info {
                 height: 100%;
                 width: 50%;
-                padding: 1.5rem;
+                padding: 4.5rem 1.5rem;
             }
 
             .map {
             width: 50%;
-            padding: 4.5rem 2.5rem;
+            padding: 4.5rem 1.5rem;
             border-left: 1px solid var(--outline-neutrals-secondary);
 
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
+                iframe {
+                    height: 32rem;
                 }
             }
         }
     }
 
-    @media (max-width:1100px) {
-        .map {
-            width: 50%;
-            padding: 4.5rem 1.5rem;
-            border-top: 1px solid var(--outline-neutrals-secondary);
+    @media (min-width:1100px) {
+        .directions-container {
+            .map {
+                width: 50%;
+                padding: 4.5rem 1.5rem;
+                border-top: 1px solid var(--outline-neutrals-secondary);
 
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
+                iframe {
+                    height: 32rem;
                 }
             }
+        }
     }
 `
 
