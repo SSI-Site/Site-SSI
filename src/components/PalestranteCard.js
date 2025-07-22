@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import ArrowUpIcon from "../../public/images/icons/arrow-up.svg";
 import { InstagramLogo, LinkedInLogo } from "./SocialMediaLogos";
 
@@ -71,11 +71,7 @@ const PalestranteCard = ({ palestrante = {
                 <PalestranteInfo>
                     <PalestranteName>
                         {palestrante.nomePalestrante}
-                        {
-                            open && (
-                                <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" />
-                            )
-                        }
+                        <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" className="arrow" active = {open}/>   
                     </PalestranteName>
                     <PalestranteRole>{palestrante.cargoPalestrante}</PalestranteRole>
                 </PalestranteInfo>
@@ -156,6 +152,18 @@ const PalestranteArrowUp = styled.img`
     width: 3rem;
     height: 3rem;
     cursor: pointer;
+    transition: all 300ms ease-in-out;
+    transform: rotate(180deg);
+    display: none;
+
+    ${props => props.active && ({
+        display: "initial",
+        transform: "rotate(360deg)"
+    })}
+
+    @media screen and (max-width:1024px){
+        display: initial;
+    }
 `;
 
 const PalestranteContainer = styled.div`
@@ -184,9 +192,14 @@ const PalestranteHeader = styled.div`
     padding-block: 1rem;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    will-change: height;
 
     &:hover{
-        background-color: #FFFFFF14;
+        background-color: var(--background-neutrals-secondary);
+
+        .arrow {
+            display: initial;
+        }
     }
 
     @media (min-width:1024px) {
@@ -267,7 +280,7 @@ const PalestranteRightBody = styled.div`
 
 const PalestrantePronome = styled.span`
     font-weight: 400;
-    border: 1px solid var(--color-neutral-50);
+    border: 1px solid var(--outline-neutrals-primary);
     width: fit-content;
     padding: 0.25rem 0.5rem;
     line-height: 1.5rem;

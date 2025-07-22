@@ -1,4 +1,5 @@
 import Meta from '../src/infra/Meta';
+import PalestranteCard from '../src/components/PalestranteCard';
 
 const Palestrantes = () => {
     return (
@@ -8,6 +9,8 @@ const Palestrantes = () => {
           keywords='palestrantes SSI, especialistas em TI, convidados SSI 2025, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI'
           />
             <h1>Palestrantes</h1>
+
+            <PalestranteCard/>
         </>
     )
     
