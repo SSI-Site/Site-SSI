@@ -72,7 +72,7 @@ const About = () => {
 
                                 <div className='bait-sample-subtitles'>
                                     <div>
-                                        <h6>Diversos <br className='desktop-only'/>temas</h6>
+                                        <h6>Diversos temas</h6>
                                         <p>
                                             Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
                                         </p>
@@ -144,7 +144,7 @@ const About = () => {
 
                                 <div className='bait-sample-subtitles'>
                                     <div>
-                                        <h6>Estudantes da <br className='desktop-only' />USP</h6>
+                                        <h6>Estudantes da USP</h6>
                                         <p>
                                             Tenha contato com uma rede de pessoas interessadas em diversos temas de TI. Não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
                                         </p>
@@ -438,10 +438,6 @@ const BaitContent = styled.div`
                     padding-bottom: 1rem;
                     border-bottom: 1px solid var(--outline-neutrals-secondary);
                 }
-
-                .desktop-only {
-                    display: none;
-                }
             }
         }
     }
@@ -507,10 +503,6 @@ const BaitContent = styled.div`
                 .bait-sample-subtitles {
                     // flex-direction: row;
                     // align-items: flex-start;
-
-                    .desktop-only {
-                        // display: inline;
-                    }
                 }
             }
         }
