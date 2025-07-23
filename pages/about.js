@@ -66,8 +66,7 @@ const About = () => {
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
                                     <h5>Palestras</h5>
-                                    <p>A Semana de Sistemas de Informação 2024 contará com diversas palestras da área da tecnologia.</p>
-                                    {/* <hr className='bait-divider' /> */}
+                                    <p>A Semana de Sistemas de Informação 2025 contará com diversas palestras da área da tecnologia.</p>
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
@@ -76,14 +75,12 @@ const About = () => {
                                         <p>
                                             Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
                                         </p>
-                                        {/* <hr className='bait-divider' /> */}
                                     </div>
                                     <div>
                                         <h6>Empresas de diferentes áreas</h6>
                                         <p>
                                             Os nossos palestrantes fazem parte de empresas que estão presente em diferentes áreas de negócio do mercado de trabalho.
                                         </p>
-                                        {/* <hr className='bait-divider' /> */}
                                     </div>
                                 </div>
                             </div>
@@ -110,14 +107,13 @@ const About = () => {
                                     <div className='bait-sample-subtitles-left'>
                                         <h6>Parcerias</h6>
                                         <p>
-                                            Durante a Semana de Sistemas de Informação, empresas parceiras oferecerão workshops interativos.
+                                            Teremos apresentações sobre diversos temas, como Inteligência Artificial, Ciência de Dados e Diversidade em TI. Durante a Semana de Sistemas de Informação, empresas parceiras também oferecerão workshops interativos e e muito mais!
                                         </p>
                                     </div>
                                     <div className='bait-sample-subtitles-right'>
                                         <h6>Aprenda na prática</h6>
                                         <p>
-                                            Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar
-                                            e dominar conceitos na prática!
+                                            Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar e dominar conceitos na prática!
                                         </p>    
                                     </div>
                                 </div>
@@ -144,7 +140,7 @@ const About = () => {
 
                                 <div className='bait-sample-subtitles'>
                                     <div>
-                                        <h6>Estudantes da USP</h6>
+                                        <h6>Alunos da EACH</h6>
                                         <p>
                                             Tenha contato com uma rede de pessoas interessadas em diversos temas de TI. Não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
                                         </p>
@@ -174,24 +170,23 @@ const About = () => {
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
                                     <h5>Prêmios</h5>
-                                    <p>Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift
-                                        cards e prêmios por presença.
+                                    <p>
+                                        Não perca a oportunidade de ganhar prêmios incríveis ao participar das nossas atividades e palestras!
                                     </p>
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
+                                    <div className='bait-sample-subtitle-right'>
+                                        <h6>Brindes Exclusivos</h6>
+                                        <p>
+                                            Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift cards e prêmios por presença.
+                                        </p>
+                                    </div>
                                     <div className='bait-sample-subtitle-left'>
                                         <h6>Gift Cards</h6>
                                         <p>
                                             Participe das palestras e concorra a gift cards de diversas lojas, como iFood, Playstation e outros... 
                                             Mas se liga que alguns sorteios são apenas para espectadores presenciais :)
-                                        </p>
-                                    </div>
-                                    <div className='bait-sample-subtitle-right'>
-                                        <h6>Brindes</h6>
-                                        <p>
-                                            Teremos distribuição de brindes exclusivos para os participantes da SSI 2024. Basta registrar as suas 
-                                            presenças e verificar a contagem no seu perfil.
                                         </p>
                                     </div>
                                 </div>
@@ -204,7 +199,7 @@ const About = () => {
             <GiftsSection>
                 <div className='gifts-container'>
                     <div className='gifts-title'>
-                        <h3>Brindes exclusivos</h3>
+                        <h3>Prêmios</h3>
                         <h6>Não perca a oportunidade de ganhar <span>brindes incríveis</span> ao participar das nossas atividades e palestras!</h6>
                     </div>
                     <div className='gifts-cards'>
@@ -225,9 +220,11 @@ const About = () => {
                 <div className='lastyear-container'>
                     <div className='lastyear-text'>
                         <div className='lastyear-title'>
-                            <h3>Veja como foi em 2023</h3>
+                            <h3>Veja como foi em 2024</h3>
                         </div>
-                        <p>Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!</p>
+                        <p>
+                            Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!
+                        </p>
                         <a href='https://www.youtube.com/@semanadesi' target='_blank'>
                             <SecondaryButton $noSvgColorChange>
                                 Acesse nosso canal
@@ -242,7 +239,7 @@ const About = () => {
                     <div className='lastyear-rightside'>
                         <div className='lastyear-video'>
                             <iframe 
-                                src="https://www.youtube-nocookie.com/embed/gQ9ka_8D1Bo?si=p55JZ0U2CYeNv--E" 
+                                src="https://www.youtube.com/embed/tHkBBqcpb3I?si=ISLt0jiKNzuyd5g2"
                                 title="YouTube video player" 
                                 allow="fullscreen">
                             </iframe>
