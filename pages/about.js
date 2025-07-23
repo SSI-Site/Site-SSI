@@ -67,6 +67,7 @@ const About = () => {
                                 <div className='bait-sample-title'>
                                     <h5>Palestras</h5>
                                     <p>A Semana de Sistemas de Informação 2024 contará com diversas palestras da área da tecnologia.</p>
+                                    {/* <hr className='bait-divider' /> */}
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
@@ -75,12 +76,14 @@ const About = () => {
                                         <p>
                                             Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
                                         </p>
+                                        {/* <hr className='bait-divider' /> */}
                                     </div>
                                     <div>
                                         <h6>Empresas de diferentes áreas</h6>
                                         <p>
                                             Os nossos palestrantes fazem parte de empresas que estão presente em diferentes áreas de negócio do mercado de trabalho.
                                         </p>
+                                        {/* <hr className='bait-divider' /> */}
                                     </div>
                                 </div>
                             </div>
@@ -412,7 +415,12 @@ const BaitContent = styled.div`
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 1.5rem;  
+            gap: 1rem;  
+
+            .bait-sample-title { 
+                padding-bottom: 1.5rem;
+                border-bottom: 1px solid var(--outline-neutrals-secondary);
+            }
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';
@@ -425,6 +433,11 @@ const BaitContent = styled.div`
                 align-items: center;
                 justify-content: center;
                 gap: 1rem;
+
+                div {
+                    padding-bottom: 1rem;
+                    border-bottom: 1px solid var(--outline-neutrals-secondary);
+                }
 
                 .desktop-only {
                     display: none;
@@ -492,11 +505,11 @@ const BaitContent = styled.div`
                 }
 
                 .bait-sample-subtitles {
-                    flex-direction: row;
-                    align-items: flex-start;
+                    // flex-direction: row;
+                    // align-items: flex-start;
 
                     .desktop-only {
-                        display: inline;
+                        // display: inline;
                     }
                 }
             }
