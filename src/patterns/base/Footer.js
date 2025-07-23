@@ -65,6 +65,13 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
+                            <Link legacyBehavior href="/palestrantes" passHref>
+                                <a className={router.pathname == '/palestrantes' ? 'active' : ''}>
+                                    Palestrantes
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
                             <Link legacyBehavior href="/co" passHref>
                                 <a className={router.pathname == '/co' ? 'active' : ''}>
                                     Comissão Organizadora
