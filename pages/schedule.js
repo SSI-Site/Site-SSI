@@ -11,8 +11,8 @@ import '../utils/slugify';
 import DateStamp from '../src/components/DateStamp';
 import ScheduleItems from '../src/components/ScheduleItems';
 
-const dayOfSSI = ["07 Out", "08 Out", "09 Out", "10 Out", "11 Out"]
-const dayFull = ["2024-10-07", "2024-10-08", "2024-10-09", "2024-10-10", "2024-10-11"]
+const dayOfSSI = ["18 Ago", "19 Ago", "20 Ago", "21 Ago", "22 Ago"]
+const dayFull = ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"]
 const weekDays = semana.filter(dia => dia !== 'Domingo' && dia !== 'Sábado')
 
 const Schedule = () => {
@@ -36,7 +36,7 @@ const Schedule = () => {
 
     function renderActiveItem() {
         if (!isDuringEvent(activeItem)) {
-            const firstDay = '2024-10-07'
+            const firstDay = '2025-08-18'
             setActiveItem(firstDay)
             setDayNumber(dayFull.indexOf(firstDay))
         }
@@ -73,11 +73,11 @@ const Schedule = () => {
                             value={dayFull[dayNumber]}
                             onChange={handleMobileSelectChange}
                         >
-                            <option value="2024-10-07">Dia 1</option>
-                            <option value="2024-10-08">Dia 2</option>
-                            <option value="2024-10-09">Dia 3</option>
-                            <option value="2024-10-10">Dia 4</option>
-                            <option value="2024-10-11">Dia 5</option>
+                            <option value="2025-08-18">Dia 1</option>
+                            <option value="2025-08-19">Dia 2</option>
+                            <option value="2025-08-20">Dia 3</option>
+                            <option value="2025-08-21">Dia 4</option>
+                            <option value="2025-08-22">Dia 5</option>
                         </select>
                         <svg className='icon' xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                             <path d="M18.3188 7L12.5 12.8187L6.68125 7L4.5 9.18125L12.5 17.1813L20.5 9.18125L18.3188 7Z" fill="white"/>
