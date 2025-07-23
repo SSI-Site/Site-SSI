@@ -108,7 +108,7 @@ const schedule = {
     //         ],
     //     },
     // },
-    '2024-10-07' : {
+    '2025-08-18' : {
         '10:20' : {
             title : 'Abertura',
             endTime : '10:40',
@@ -284,7 +284,7 @@ const schedule = {
             ],
         },
     },
-    '2024-10-08' : {
+    '2025-08-19' : {
         '09:40' : {
             sponsor: { // opcional
                 'name': 'Hype',
@@ -537,7 +537,7 @@ const schedule = {
             ],
         },
     },
-    '2024-10-09' : {
+    '2025-08-20' : {
         '09:40' : {
             sponsor: { // opcional
                 'name': 'Code Lab Leste',
@@ -740,7 +740,7 @@ const schedule = {
             ],
         },
     },
-    '2024-10-10' : {
+    '2025-08-21' : {
         '09:40' : {
             sponsor: { // opcional
                 'name': 'Hype',
@@ -993,7 +993,7 @@ const schedule = {
             ],
         },
     },
-    '2024-10-11' : {
+    '2025-08-22' : {
         '09:40' : {
             title : 'Plataforma de Dados: A base para a tomada de decisões',
             description : 'Nesta palestra, exploraremos a importância e o impacto de uma plataforma de dados robusta e eficaz no ambiente empresarial moderno. A capacidade de coletar, armazenar, processar e analisar grandes volumes de dados se tornou uma vantagem competitiva crucial para as organizações. Discutiremos os principais componentes de uma plataforma de dados, desde a ingestão de dados em tempo real até a entrega de insights acionáveis por meio de visualizações e análises avançadas.',
