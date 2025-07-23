@@ -16,15 +16,20 @@ const Footer = () => {
             <div className='footer-container'>
                 <FooterLogo>
                     <MobileBackToTop
-                        tabIndex={0}
                         aria-label="Voltar para o Topo"
                         onClick={() => {
                             window.scrollTo(0, 0)
                         }}
+                        onKeyDown={e => {
+                            if (e.key === 'Enter') {
+                                window.scrollTo(0, 0)
+                            }
+                        }}
+                        tabIndex={0}
                     >
                         Voltar ao topo
                         {/* Ícone seta para cima */}
-                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Icone de Voltar ao topo">
                             <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white" />
                             <rect id="arrow" width="100" height="100%" />
                         </svg>
@@ -101,9 +106,14 @@ const Footer = () => {
                         onClick={() => {
                             window.scrollTo(0, 0)
                         }}
+                        onKeyDown={e => {
+                            if (e.key === 'Enter') {
+                                window.scrollTo(0, 0)
+                            }
+                        }}
                     >
                         {/* Ícone seta para cima */}
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Icone de Voltar ao topo">
                             <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white" />
                             <rect width="100" height="100%" fill="none" />
                         </svg>
@@ -153,7 +163,7 @@ const Footer = () => {
 export default Footer
 
 const FooterWrapper = styled.footer`
-    border-top: 1px solid var(--outline-neutrals-secondary);
+    border-top: 1px solid var(--color-neutral-secondary);
     width: 100%;
     display: flex;
     align-items: center;
@@ -185,9 +195,9 @@ const FooterWrapper = styled.footer`
         padding: 0.125rem 0.5rem;
         background-color: transparent;
         white-space: nowrap;
-        background-image: linear-gradient(to right,
-            var(--background-neutrals-inverse),
-            var(--background-neutrals-inverse)
+        background-image: linear-gradient(
+            var(--color-neutral-50),
+            var(--color-neutral-50)
         ); /* Coloca um background branco em cima do botão */
         background-size: 200%; /* faz o background-position com porcentagem funcionar */
         background-position-x: 200%; /* Tira o background branco do lugar */
@@ -195,31 +205,29 @@ const FooterWrapper = styled.footer`
         transition: 0.15s all ease-out;
         font-weight: 400;
         line-height: 1.5rem;
-        color: var(--content-neutrals-primary);
     }
 
     ul a:hover,
     ul a:focus-visible {
         background-position-x: 100%;
-        color: var(--content-neutrals-inverse);
+        color: var(--color-neutral);
     }
 
     ul a:focus-visible {
-        outline: 2px solid var(--content-neutrals-inverse);
+        outline: 2px solid var(--color-primary);
         outline-offset: 2px;
     }
     // Fim da animação
 
     // Rota ativada
     .active {
-        background-color: var(--brand-primary);
+        background-color: var(--color-primary);
         transition: 0.15s all ease-out;
         font-family: 'AT Aero Bold';
-        color: var(--content-neutrals-fixed-white);
 
         &:hover,
         &:focus-visible {
-            color: var(--content-neutrals-inverse);
+            color: var(--color-primary);
         }
     }
 
@@ -243,8 +251,8 @@ const MobileBackToTop = styled.div`
     padding: 0.5rem 1.5rem;
     background: linear-gradient(
         to bottom,
-        var(--brand-primary) 50%,
-        var(--background-neutrals-inverse) 50%
+        var(--color-primary) 50%,
+        var(--color-neutral-50) 50%
     );
     background-size: 100% 200%;
     background-position: top;
@@ -259,17 +267,17 @@ const MobileBackToTop = styled.div`
     &:hover,
     &:focus-visible {
         background-position: bottom;
-        color: var(--brand-primary);
+        color: var(--color-primary);
 
         path {
             transition: all 0.15s ease-out;
-            fill: var(--brand-primary);
+            fill: var(--color-primary);
             transform: translateY(0);
         }
     }
 
     &:focus-visible {
-        outline: 2px solid var(--brand-primary);
+        outline: 2px solid var(--color-primary);
         outline-offset: 2px;
     }
 
@@ -286,8 +294,8 @@ const DesktopBackToTop = styled.div`
         padding: 1rem;
         background: linear-gradient(
             to bottom,
-            var(--brand-primary) 50%,
-            var(--background-neutrals-inverse) 50%
+            var(--color-primary) 50%,
+            var(--color-neutral-50) 50%
         );
         background-size: 100% 200%;
         background-position: top;
@@ -304,13 +312,13 @@ const DesktopBackToTop = styled.div`
 
             path {
                 transition: all 0.15s ease-out;
-                fill: var(--content-neutrals-inverse);
+                fill: var(--color-primary);
                 transform: translateY(0);
             }
         }
 
         &:focus-visible {
-            outline: 2px solid var(--brand-primary);
+            outline: 2px solid var(--color-primary);
             outline-offset: 2px;
         }
     }
@@ -415,7 +423,7 @@ const FooterLogos = styled.div`
     }
 
     a:focus-visible {
-        outline: 2px solid var(--brand-primary);
+        outline: 2px solid var(--color-primary);
         outline-offset: 2px;
     }
 

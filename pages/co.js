@@ -8,9 +8,6 @@ import Meta from '../src/infra/Meta';
 import DepartmentStamp from '../src/components/DepartmentStamp';
 import MemberCard from '../src/components/MemberCard';
 
-//Importe Image do Next
-import Image from 'next/image'
-
 // assets
 import members from '../data/members';
 
@@ -24,7 +21,7 @@ const CO = () => {
                 members.map(function(member, key) {
                     return (
                         <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={key} />
+                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={(key)} />
                         </div>
                     );
                 })
@@ -69,10 +66,7 @@ const CO = () => {
 
     return (
         <>
-            <Meta title='Comissão Organizadora | Semana de Sistemas de Informação' 
-            description='Conheça a comissão organizadora da SSI 2025. Estudantes dedicados à realização de um dos maiores eventos acadêmicos de tecnologia do país.'
-            keywords='comissão SSI, organização do evento, estudantes organizadores, quem organiza a SSI, equipe SSI 2025, comissão sistemas de informação, organização semana tecnologia'
-            />
+            <Meta title='SSI 2024 | CO' />
 
             <COExhibitionSection>
                 <div className='exhibition-container'>
@@ -133,26 +127,23 @@ export default CO;
 
 
 const COExhibitionSection = styled.section`
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
-    background: var(--background-neutrals-primary, #1A1A1A);
+    border-bottom: 1px solid var(--color-neutral-secondary);
 
     .exhibition-container {
-        border-inline: 1px solid var(--outline-neutrals-secondary);
+        border-inline: 1px solid var(--color-neutral-secondary);
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         .title-text {
-            color: var(--content-neutrals-primary, #FFF);
-            color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
             align-items: start;
             justify-content: center;
             gap: 1.5rem;
             padding: 1.5rem;
-            border-bottom: 1px solid var(--outline-neutrals-secondary);
+            border-bottom: 1px solid var(--color-neutral-secondary);
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';   
@@ -171,7 +162,7 @@ const COExhibitionSection = styled.section`
                 height: auto;
                 object-fit: cover;
                 border: 0.25rem solid white;
-                box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
+                box-shadow: 0.25rem 0.25rem 0 var(--color-primary);
             }
         }
     }
@@ -179,17 +170,13 @@ const COExhibitionSection = styled.section`
     @media (min-width:1021px) {
         .exhibition-container {
             flex-direction: row;
-            background: var(--background-neutrals-primary, #1A1A1A);
-            background: var(--background-neutrals-primary, #1A1A1A);
             
             .title-text {
-                color: var(--content-neutrals-primary, #FFF);
-                color: var(--content-neutrals-primary, #FFF);
                 height: calc(100vh - 8rem);
                 max-height: 41.875rem;
                 width: 50%;
                 border-bottom: 0;
-                border-right: 1px solid var(--outline-neutrals-secondary);
+                border-right: 1px solid var(--color-neutral-secondary);
                 padding-block: 0;
             }
 
@@ -203,7 +190,7 @@ const COExhibitionSection = styled.section`
                 img {
                     max-width: 38rem;
                     border: 0.5rem solid white;
-                    box-shadow: 0.5rem 0.5rem 0 var(--brand-primary);
+                    box-shadow: 0.5rem 0.5rem 0 var(--color-primary);
                 }
             }
         }
@@ -211,6 +198,23 @@ const COExhibitionSection = styled.section`
 `
 
 const COMembersSection = styled.section`
+
+    h3 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    @media (min-width:800px) {
+        
+        h3 {
+            font: 700 3.5rem/4.25rem 'AT Aero Bold';
+            margin-bottom: 4rem;
+        }
+    }
+
+    @media (min-width:1021px) {
+        padding-block: 0 8rem;
+    }
     overflow-x: hidden;
     align-items: center;
 `
@@ -226,6 +230,42 @@ const COFilterContainer = styled.div `
         overflow-y: hidden;
         gap: 2rem;
         align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        select {
+            position: relative;
+            width: 100%;
+            min-height: 3rem; 
+            color: white;
+            background-color: var(--color-neutral-800);
+            appearance: none;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 0.5rem 1rem;
+
+            &::-ms-expand {
+                display: none;
+            }
+        }
+
+        .icon {
+            position: absolute;
+            pointer-events: none;
+            right: 7.5%;
+        }
+    }
+
+    .selected select {
+        background-color: var(--color-primary);
+    }
+
+    option {
+        font-size: 0.875rem;
+    }
+
+    @media (min-width:600px) {
+        display: none;
         padding-inline: 30%;    // magic number
         scroll-behavior: smooth;
         scroll-snap-align: center;

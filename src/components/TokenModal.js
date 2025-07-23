@@ -164,7 +164,7 @@ const ModalTokenWrapper = styled.div`
     --color-invalid: #FF8980;
     --color-valid: #52C84D;
     width: 100%;
-    background-color: var(--background-neutrals-primary-800);
+    background-color: var(--color-neutral-800);
     padding: 0.5rem;
     margin-left: -4px;
 
@@ -176,7 +176,7 @@ const ModalTokenWrapper = styled.div`
     }
 
     &:has(input[type=text]:focus):not(:has(.invalid-token)):not(:has(.token-registered)) {
-        border-color: var(--brand-primary);
+        border-color: var(--color-primary);
     }
 
     &:has(.invalid-token) {
@@ -196,7 +196,7 @@ const ModalTokenWrapper = styled.div`
 
     input[type=text] {
         color: var(--color-content-neutrals-tertiary);
-        background-color: var(--background-neutrals-primary-800);
+        background-color: var(--color-neutral-800);
         text-transform: uppercase;
         margin-left: 1rem;
         width: 9rem;
@@ -222,8 +222,8 @@ const ModalTokenWrapper = styled.div`
         width: fit-content;
 
         button {
-            background-color: var(--background-neutrals-secondary);
-            color: var(--background-neutrals-primary);
+            background-color: var(--color-neutral-secondary);
+            color: var(--color-neutral);
         }
     }
 

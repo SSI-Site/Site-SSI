@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 // assets
 import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png';
-import Image from "next/image";
 
 const SpeakerCard = ({ speaker, setIsOpen }) => {
 
@@ -12,8 +11,8 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
             <SpeakerContent>
                 <SpeakerHead>
                     <h6>Palestrante</h6>    
-                    <div className="close" onClick={() => { setIsOpen(false); }}>
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="close" onClick={() => { setIsOpen(false); }} onKeyDown={(e) => {if(e.key === 'Enter') { setIsOpen(false); }}} tabIndex={0}>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ícone de X">
                             <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="currentColor"/>
                         </svg>
                     </div>
@@ -21,8 +20,7 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
 
                 <SpeakerInfo>
                     <div className='imgDiv'>
-                        <Image src={speaker['image']} alt={`Foto de ${speaker['image']}`}
-                        width={500} height={500}/>
+                        <img src={speaker['image']} alt={`Foto de ${speaker['image']}`}/>
                     </div>
 
                     <div className='headTextWrapper'>
@@ -91,7 +89,7 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
             </SpeakerContent>
 
             <div className='bottomImg'>
-                <img src={SpeakerBottomDesktop} />
+                <img src={SpeakerBottomDesktop} alt={'imagem de estilo da SSI'} />
             </div>
         </SpeakerWrapper>
     )
@@ -102,7 +100,7 @@ export default SpeakerCard
 const SpeakerWrapper = styled.div`
     width: 100%;
     height: 100%;
-    background-color: var(--background-neutrals-secondary);
+    background-color: var(--color-neutral-800);
     z-index: 20;
     position: fixed;
     top: 0;
@@ -156,18 +154,18 @@ const SpeakerHead = styled.div`
 
     div {
         padding: .5em .75em;
-        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--color-neutral-50) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
         cursor: pointer;
     }
 
-    div:hover {
+    div:hover, div:focus {
         background-position: left;
 
         svg path {
-            fill: var(--background-neutrals-primary);
+            fill: var(--color-neutral);
         }
     }
     
@@ -226,9 +224,8 @@ const SpeakerInfo = styled.div`
     @media screen and (min-width:1024px) {
         justify-content: flex-start;
         gap: 4em;
-        background-color: var(--brand-primary);
+        background-color: var(--color-primary-900);
         padding: 0em;
-        color: var(--content-neutrals-fixed-white);
 
         .imgDiv {
             max-width: 25%;
@@ -314,7 +311,7 @@ const SocialMedia = styled.div`
     }
 
     a:focus-visible {
-        outline: 2px solid var(--brand-primary);
+        outline: 2px solid var(--color-primary);
         outline-offset: 2px;
     }
     

@@ -23,15 +23,15 @@ const PartnerWrapper = styled.div`
     justify-content: center;
     width: 20.5rem;
     height: 15.125rem;
-    background-color: var(--background-neutrals-secondary);
+    background-color: var(--color-neutral-800);
 
     cursor: pointer;
-    border: 2px solid var(--outline-neutrals-secondary);
+    border: 2px solid var(--color-neutral-secondary);
     transition: all 0.15s ease-in-out;
     z-index: 2;
 
-    &:hover {
-        border: solid 2px var(--brand-primary);
+    &:hover, &:focus-visible {
+        border: solid 2px var(--color-primary);
     }
 
     a {

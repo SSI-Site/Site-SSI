@@ -56,10 +56,7 @@ const Schedule = () => {
 
     return (
         <>
-            <Meta title = 'Programação | Semana de Sistemas de Informação' 
-            description = 'Confira a programação completa da SSI 2025. Veja os dias e horários das palestras, painéis e atividades com os maiores nomes da tecnologia.'
-            keywords='programação SSI 2025, cronograma palestras, atividades semana tecnologia, horários SSI, eventos TI Brasil, agenda SSI, programação evento acadêmico, palestras e workshops'
-            />
+            <Meta title='SSI 2024 | Programação' />
             
             <ScheduleSection>
                 <h1>Programação</h1>
@@ -72,6 +69,7 @@ const Schedule = () => {
                             aria-label="Filtre por dia"
                             value={dayFull[dayNumber]}
                             onChange={handleMobileSelectChange}
+                            tabIndex={0}
                         >
                             <option value="2025-08-18">Dia 1</option>
                             <option value="2025-08-19">Dia 2</option>
@@ -90,6 +88,7 @@ const Schedule = () => {
                     <div className='schedule-container'>
                         {dayFull.map((date, index) => (
                             <Link
+                                tabIndex={-1}
                                 key={date}
                                 href='#'
                                 onClick={() => {
@@ -136,14 +135,14 @@ const Schedule = () => {
 						<p>{dayOfSSI[dayNumber]} - {weekDays[dayNumber]}</p>
 					</div>
 					<div className='filter-button-container'>
-						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
-							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)} aria-label='Botão para navegar à programação do dia anterior'>
+							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label='Imagem de seta para esquerda'>
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
 						</ButtonFilter>
 
-						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => moveDayNumber(1)}>
-							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => moveDayNumber(1)} aria-label='Botão para navegar à programação do próximo dia'>
+							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label='Imagem de seta para direita'>
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
 						</ButtonFilter>
@@ -164,9 +163,7 @@ export default Schedule;
 
 const ScheduleSection = styled.section`
     padding-block: 1.5rem;
-    background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
+
     @media (min-width:600px) {
         padding-block: 7.5rem 2rem;
 
@@ -181,16 +178,16 @@ const MobileBarFilterContainer = styled.div`
 	position: sticky;
 	top: 0;
 	z-index: 12;
-	background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
+	background-color: var(--color-neutral);
+
 	.filter-container {
 		height: 5rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-        box-shadow: 0 -0.0625rem 0 0 var(--outline-neutrals-secondary);
-		border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
+
+        box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
+		border-bottom: 0.0625rem solid var(--color-neutral-secondary);
 	}
 
 	.filter-day-info {
@@ -207,9 +204,7 @@ const MobileBarFilterContainer = styled.div`
 `
 const DesktopBarFilterContainer = styled.div`
 	display: none;
-    background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
+
 
 	@media(min-width:1024px) {
 		height: 5rem;
@@ -219,9 +214,10 @@ const DesktopBarFilterContainer = styled.div`
 		z-index: 12;
 		justify-content: space-between;
 		align-items: center;
-        background-color: var(--background-neutrals-primary);
-		box-shadow: 0 -0.0625rem 0 0 var(--outline-neutrals-secondary);
-		border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
+		background-color: var(--color-neutral);
+
+		box-shadow: 0 -0.0625rem 0 0 var(--color-neutral-secondary);
+		border-bottom: 0.0625rem solid var(--color-neutral-secondary);
 
 		div {
 			display: flex;
@@ -242,9 +238,6 @@ const DesktopBarFilterContainer = styled.div`
 `
 
 const ButtonFilter = styled.button`
-    background-color: var(--brand-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
 	border: 0;
 	display: flex;
 	width: 3rem;
@@ -256,28 +249,28 @@ const ButtonFilter = styled.button`
 
 	svg {
 		path {
-			fill: var(--content-neutrals-fixed-white);
+			fill: var(--color-neutral-50);
 		}
 	}
 
 	&:hover, &:focus-visible {
 		svg {
 			path {
-				fill: var(--content-neutrals-inverse);
+				fill: var(--color-primary);
 			}
 		}
 	}
 
     &:focus-visible {
-        outline: 2px solid var(--background-neutrals-primary);
-        outline-offset: -2px;
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
     }
 
 	&.right {
 		background-image: linear-gradient(
 			to right,
-			var(--background-neutrals-inverse) 50%,
-			var(--brand-primary) 50%
+			var(--color-neutral-50) 50%,
+			var(--color-primary) 50%
 			);
 		background-position: right;
 
@@ -293,8 +286,8 @@ const ButtonFilter = styled.button`
 	&.left {
 		background-image: linear-gradient(
 			to left,
-			var(--background-neutrals-inverse) 50%,
-			var(--brand-primary) 50%
+			var(--color-neutral-50) 50%,
+			var(--color-primary) 50%
 			);
 		background-position: left;
 
@@ -309,21 +302,18 @@ const ButtonFilter = styled.button`
 
 	&:disabled {
 		background-image: none;
-		background-color: var(--background-neutrals-secondary);
+		background-color: var(--color-neutral-secondary);
         cursor: not-allowed;
 
 		svg {
 			path {
-				fill: var(--background-neutrals-primary);
+				fill: var(--color-neutral);
 			}
 		}
 	}
 `
 
 const MobileScheduleFilterContainer = styled.div`
-    background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -343,16 +333,13 @@ const MobileScheduleFilterContainer = styled.div`
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        background-color: var(--brand-primary);
-        border-color: var(--outline-neutrals-secondary);
-        color: var(--content-neutrals-primary);
 
         select {
             position: relative;
             width: 100%;
             min-height: 2.75rem; 
-            color: var(--content-brand-inverse);
-            background-color: var(--brand-primary);
+            color: white;
+            background-color: var(--color-neutral-800);
             appearance: none;
             font-size: 0.875rem;
             text-align: center;
@@ -371,7 +358,7 @@ const MobileScheduleFilterContainer = styled.div`
     }
 
     .selected select {
-        background-color: var(--brand-primary);
+        background-color: var(--color-primary);
     }
 
     option {
@@ -385,9 +372,7 @@ const MobileScheduleFilterContainer = styled.div`
 
 const DesktopSelectionContainer = styled.div`
     display: none;
-    background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
+
     @media (min-width:600px) {
         display: flex;
         flex-direction: column;
@@ -408,9 +393,6 @@ const DesktopSelectionContainer = styled.div`
 `
 
 const DayScheduleWrapper = styled.div`
-    background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
     display: flex;
     flex-direction: column;
     align-items: center;

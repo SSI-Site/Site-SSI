@@ -13,12 +13,12 @@ const DateStamp = ({ day, isActive }) => {
     const year = current.getFullYear();
 
     return (
-        <DateWrapper $isActive={isActive} >
+        <DateWrapper $isActive={isActive}  tabIndex={0}>
             <div className='day-emoji'>
                 <h5 className='day'>Dia {relativeDay}</h5>
                 {(new Date(`${year}-${month}-${currentDay}`) > new Date(`2024-10-${numericDay}`)) &&
                     // CheckIcon 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-label='Imagem de checkbox'>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M33.3333 5H6.66667H5V6.66667V33.3333V35H6.66667H33.3333H35V33.3333V6.66667V5H33.3333ZM11.2667 19.595L18.3383 26.6667L30.1233 14.8817L27.7667 12.525L18.3383 21.9533L13.6233 17.2383L11.2667 19.595Z" fill="white"/>
                     </svg>
                 }
@@ -43,36 +43,32 @@ const DateWrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    background-color: var(--color-neutral-800);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.15s all ease;
-    background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--brand-primary) 50%, var(--content-neutrals-fixed-white) 50%)' : 'linear-gradient(to right, var(--background-neutrals-secondary) 50%, var(--content-neutrals-fixed-white) 50%)'};
+    background-color: ${props => props.$isActive ? 'var(--color-primary)' : 'var(--color-neutral-800)'};
+    background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--color-primary) 50%, white 50%)' : 'linear-gradient(to right, var(--color-neutral-800) 50%, var(--color-primary) 50%)'};
     background-size: 200%;
     background-position-x: 200%;
 
-    svg path {
-            fill: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--content-neutrals-primary)'};
-    }
-
-    h5, p {
-        color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--background-neutrals-inverse)'};
-    }
-
     &:hover, &:focus-visible {
         background-position-x: 100%;
+        background-color: ${props => props.$isActive ? 'white' : 'var(--color-primary)'};
 
         h5, p {
-            color: var(--brand-primary);
+            color: ${props => props.$isActive && 'var(--color-primary)'};
         }
 
-        svg path {
-            fill: var(--brand-primary);
-        }
-        
+        ${props => props.$isActive && css`
+            svg path {
+                fill: var(--color-primary);
+            }
+        `}
     }
 
     &:focus-visible {
-        outline: 2px solid var(--brand-primary);
+        outline: 2px solid var(--color-primary);
         outline-offset: 4px;
     }
 
@@ -86,6 +82,10 @@ const DateWrapper = styled.div`
         img {
             height: 1.5rem;
         }
+    }
+
+    h5, p {
+        color: white;
     }
 
     p {

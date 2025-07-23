@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { formatTime } from '../../utils/format-time';
-import Image from 'next/image';
 
 // components
 import BadgeCO from './BadgeCO';
@@ -19,9 +18,8 @@ const LectureItem = ({ time, event }) => {
             <LectureContent>
                 <LectureHeader>
                     {event.sponsor &&
-                        <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                            <Image src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`}
-                            width={500} height={500} />
+                        <a href={event.sponsor.url} alt="" className='sponsor-logo' tabIndex={0}>
+                            <img src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`} />
                         </a>
                     }
                     <h3>{event.title}</h3>
@@ -66,8 +64,7 @@ const LectureItem = ({ time, event }) => {
                 <picture>
                     <source media="(max-width: 800px)" srcSet={LectureBottom}/>
                     <source media="(min-width: 801px)" srcSet={LectureRight}/>
-                    <Image src={LectureBottom} alt="Imagem de Detalhe"
-                    width={500} height={500}/>
+                    <img src={LectureBottom} alt="Imagem de Textura SSI"/>
                 </picture>
                 
             </ImgDetail>
@@ -78,7 +75,7 @@ const LectureItem = ({ time, event }) => {
 export default LectureItem;
 
 const LectureWrapper = styled.article`
-    background-color: var(--background-neutrals-secondary);
+    background-color: var(--color-neutral-800);
     display: flex;   
     flex-direction: column;
     gap: 1em;
@@ -156,7 +153,7 @@ const LectureHeader = styled.header`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--content-neutrals-fixed-white);
+        background-color: white;
         outline: 2px solid transparent;
         transition: all 0.2s ease-in-out;
 
@@ -166,8 +163,8 @@ const LectureHeader = styled.header`
             object-fit: cover;
         }
 
-        &:hover {
-            outline: 2px solid var(--brand-primary);
+        &:hover, &:focus-visible {
+            outline: 2px solid var(--color-primary);
         }
     }
 
