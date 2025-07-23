@@ -4,7 +4,7 @@ import semana from '../../utils/semana';
 const DateStamp = ({ day, isActive }) => {
 
     // se day = 7, então relativeDay = 1 e assim por diante (para os dias do evento)
-    const relativeDay = `${day - 6}` 
+    const relativeDay = `${day - 17}` 
     const numericDay = parseInt(day);
 
     const current = new Date();
@@ -22,14 +22,14 @@ const DateStamp = ({ day, isActive }) => {
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M33.3333 5H6.66667H5V6.66667V33.3333V35H6.66667H33.3333H35V33.3333V6.66667V5H33.3333ZM11.2667 19.595L18.3383 26.6667L30.1233 14.8817L27.7667 12.525L18.3383 21.9533L13.6233 17.2383L11.2667 19.595Z" fill="white"/>
                     </svg>
                 }
-                {(currentDay==numericDay && month==10 && year==2024) &&
+                {(currentDay==numericDay && month==8 && year==2025) &&
                     // HourglassIcon
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <path d="M10 3.33337H30V13.3334L23.3333 20L30 26.6667V36.6667H10V26.6667L16.6667 20L10 13.3334V3.33337ZM26.6667 27.5L20 20.8334L13.3333 27.5V33.3334H26.6667V27.5ZM20 19.1667L26.6667 12.5V6.66671H13.3333V12.5L20 19.1667ZM16.6667 10H23.3333V11.25L20 14.5834L16.6667 11.25V10Z" fill="white"/>
                     </svg>
                 }
             </div>
-            <p className='week-day'>{day} out - {semana[day-6]}</p>
+            <p className='week-day'>{day} Ago - {semana[day-17]}</p>
         </DateWrapper>
     )
 }

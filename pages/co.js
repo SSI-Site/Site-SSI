@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 import Meta from '../src/infra/Meta';
@@ -9,23 +10,10 @@ import MemberCard from '../src/components/MemberCard';
 
 // assets
 import members from '../data/members';
-import BoardIcon from '../public/images/co_icons/board.svg';
-import CreationIcon from '../public/images/co_icons/creation.svg';
-import FinancesIcon from '../public/images/co_icons/finances.svg';
-import InfraIcon from '../public/images/co_icons/infra.svg';
-import LectureIcon from '../public/images/co_icons/lecture.svg';
-import PartnershipIcon from '../public/images/co_icons/partnership.svg';
-import SiteIcon from '../public/images/co_icons/web.svg';
 
 const CO = () => {
 
     const [activeItem, setActiveItem] = useState('Todos')
-    const [isSelected, setIsSelected] = useState(false)
-
-    const handleMobileSelectChange = (e) => {
-        setActiveItem(e.target.value)
-        setIsSelected(true)
-    }
 
     function renderActiveItem() {
         if (activeItem === 'Todos') {
@@ -53,6 +41,29 @@ const CO = () => {
         }
     }
 
+    // centralize activeItem
+    useEffect(() => {
+        const container = document.querySelector('.members-container');
+        const active = container.querySelector(`[name="${activeItem}"]`);
+        if (container && active) {
+            container.scrollLeft = active.offsetLeft + active.offsetWidth / 2 - window.innerWidth / 2;      // active center position
+        }
+    });
+
+    // text wrap resize on mobile
+    useEffect(() => {
+        const stamps = document.querySelectorAll('.members-container > * > *');
+        if (stamps) {
+            stamps.forEach(stamp => {
+                const stampText = stamp.querySelector('p');
+                if (stampText.offsetHeight > 48 && window.innerWidth < 1021) {    // 48px = 3rem (one text line)
+                    stamp.style.maxWidth = '14rem';
+                    stampText.style.font = '400 2rem/2rem "AT Aero Bold"';
+                }
+            });
+        }
+    }, []);
+
     return (
         <>
             <Meta title='SSI 2024 | CO' />
@@ -61,68 +72,47 @@ const CO = () => {
                 <div className='exhibition-container'>
                     <div className='title-text'>
                         <h1>Comissão Organizadora</h1>
-                        <h6>Conheça a <span>Comissão Organizadora</span> da Semana de Sistemas de Informação: o time que trabalha para fazer esse evento acontecer.</h6>
+                        <p>Conheça a Comissão Organizadora da Semana de Sistemas de Informação, o time que trabalha para fazer esse evento acontecer.</p>
                     </div>
                     <div className='image-container'>
-                        <img src='./images/co_members/co.jpg' alt='Foto Palestra' />
+                        <Image 
+                            src='/images/about/co.jpg' 
+                            alt='Foto Palestra'
+                            width={500}
+                            height={500} />
                     </div>
                 </div>
             </COExhibitionSection>
 
             <COMembersSection>
-                {/* Para telas mobile */}
-                <MobileCOFilterContainer>
-                    <p>Filtrar por setor:</p>
-                    <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
-                        <select
-                            aria-label="Filtre por setor"
-                            defaultValue="Todos" 
-                            onChange={handleMobileSelectChange}
-                        >
-                            <option value="Todos">Todos</option>
-                            <option value="Comercial e Financeiro">Comercial e Financeiro</option>
-                            <option value="Criação e Comunicação">Criação e Comunicação</option>
-                            <option value="Diretoria">Diretoria</option>
-                            <option value="Infraestrutura">Infraestrutura</option>
-                            <option value="Palestrantes">Palestrantes</option>
-                            <option value="Parcerias">Parcerias</option>
-                            <option value="Site">Site</option>
-                        </select>
-                        <svg className='icon' xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                            <path d="M18.3188 7L12.5 12.8187L6.68125 7L4.5 9.18125L12.5 17.1813L20.5 9.18125L18.3188 7Z" fill="white"/>
-                        </svg>
-                    </div>
-                </MobileCOFilterContainer> 
-                    
-                {/* Para telas desktop */}
-                <DesktopCOFilterContainer>
+                <COFilterContainer>
                     <div className='members-container'>
-                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Todos')} tabIndex={0}>
-                            <DepartmentStamp name='Todos' />
+                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
+                            <DepartmentStamp name='Palestrantes' itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Palestrantes'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Comercial e Financeiro')} tabIndex={0}>
-                            <DepartmentStamp name='Comercial & Financeiro' icon={FinancesIcon} />
+                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
+                            <DepartmentStamp name='Parcerias' itemColor="var(--brand-primary)" $active={activeItem === 'Parcerias'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Criação e Comunicação')} tabIndex={0}>
-                            <DepartmentStamp name='Criação & Comunicação' icon={CreationIcon} />
+                        <NavItem $active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
+                            <DepartmentStamp name='Sites' itemColor="var(--brand-primary-light)" $active={activeItem === 'Sites'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')} tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Diretoria')}>
-                            <DepartmentStamp name='Diretoria' icon={BoardIcon} />
+                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
+                            <DepartmentStamp name='Todos' itemColor="var(--brand-primary)" $active={activeItem === 'Todos'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Infraestrutura')} tabIndex={0}>
-                            <DepartmentStamp name='Infraestrutura' icon={InfraIcon} />
+                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
+                            <DepartmentStamp name='Comercial e Financeiro' itemColor="var(--brand-primary-light)" $active={activeItem === 'Comercial e Financeiro'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Palestrantes')} tabIndex={0}>
-                            <DepartmentStamp name='Palestrantes' icon={LectureIcon} />
+                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
+                            <DepartmentStamp name='Criação e Comunicação' itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Criação e Comunicação'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Parcerias')} tabIndex={0}>
-                            <DepartmentStamp name='Parcerias' icon={PartnershipIcon} />
+                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
+                            <DepartmentStamp name='Diretoria' itemColor="var(--brand-primary)" $active={activeItem === 'Diretoria'} />
                         </NavItem>
-                        <NavItem $active={activeItem === 'Site'} onClick={() => setActiveItem('Site')} onKeyDown={(e) => e.key === 'Enter' && setActiveItem('Site')} tabIndex={0}>
-                            <DepartmentStamp name='Site' icon={SiteIcon} />
+                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
+                            <DepartmentStamp name='Infraestrutura' itemColor="var(--brand-primary-light)" $active={activeItem === 'Infraestrutura'} />
                         </NavItem>
                     </div>
-                </DesktopCOFilterContainer> 
+                </COFilterContainer> 
 
                 <MemberCardsWrapper id="members">
                     {renderActiveItem()}
@@ -155,9 +145,8 @@ const COExhibitionSection = styled.section`
             padding: 1.5rem;
             border-bottom: 1px solid var(--color-neutral-secondary);
 
-            h6 span {
-                font: inherit;
-                background: var(--color-primary-900);
+            p {
+                font: 400 1rem/1.5rem 'AT Aero';   
             }
         }
 
@@ -184,6 +173,7 @@ const COExhibitionSection = styled.section`
             
             .title-text {
                 height: calc(100vh - 8rem);
+                max-height: 41.875rem;
                 width: 50%;
                 border-bottom: 0;
                 border-right: 1px solid var(--color-neutral-secondary);
@@ -191,12 +181,14 @@ const COExhibitionSection = styled.section`
             }
 
             .image-container {
+                display: flex;
+                justify-content: center;
                 max-width: 50rem;
                 width: 50%;
                 padding: 0 1.5rem 0rem 1rem;
 
                 img {
-                    max-width: 45rem;
+                    max-width: 38rem;
                     border: 0.5rem solid white;
                     box-shadow: 0.5rem 0.5rem 0 var(--color-primary);
                 }
@@ -223,25 +215,20 @@ const COMembersSection = styled.section`
     @media (min-width:1021px) {
         padding-block: 0 8rem;
     }
+    overflow-x: hidden;
+    align-items: center;
 `
 
-const MobileCOFilterContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
+const COFilterContainer = styled.div `
+    max-width: 100%;
     justify-content: center;
-    width: 100%;
-    padding-block: 1.5rem;
+    padding-block: 0 1rem;
 
-    p {
-        font: 700 0.875rem/1.5rem 'AT Aero Bold';
-        width: 100%;
-    }
-
-    .select-wrapper {
-        width: 100%;
+    .members-container {
         display: flex;
+        overflow-x: visible;
+        overflow-y: hidden;
+        gap: 2rem;
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -279,66 +266,24 @@ const MobileCOFilterContainer = styled.div`
 
     @media (min-width:600px) {
         display: none;
+        padding-inline: 30%;    // magic number
+        scroll-behavior: smooth;
+        scroll-snap-align: center;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;  // hidden
     }
-`
 
-const DesktopCOFilterContainer = styled.div `
-    display: none;
-
-    @media (min-width:600px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding-block: 4rem 2rem;
-
-        .members-container {
-            gap: 1rem;
-            display: flex;
-            flex-direction: row;
-            flex-flow: wrap;
-            align-items: center;
-            justify-content: center;
-        }
+    @media (min-width:1021px) {
+        padding-block: 4rem;
+        margin-left: -50%;
+        margin-right: -50%;
     }
 `
 
 const NavItem = styled.div`
     cursor: pointer;
     flex-shrink: 0;
-    scroll-snap-align: center;
-
-    ${props => props.$active == false && css`
-        & > div {
-            background-image: linear-gradient(var(--color-primary), var(--color-primary));
-        }
-    `}
-
-    ${props => props.$active == true && css`
-        & > div {
-            background-color: var(--color-primary); 
-            background-image: linear-gradient(to right, white 50%, white 50%);
-        }
-    `}
-
-    @media (min-width:840px) {
-        &:hover > div, &:focus-visible > div{
-            background-position-x: 100%;    
-        }
-        
-        ${props => props.$active == true && css`
-            &:hover > div, &:focus-visible > div {
-                p {
-                    color: var(--color-primary);
-                }
-
-                img {
-                    filter: brightness(0) saturate(100%) invert(33%) sepia(43%) saturate(7450%) hue-rotate(256deg) brightness(98%) contrast(106%);
-                }
-            }
-        `}
-    } 
+    user-select: none;
 `
 
 const MemberCardsWrapper = styled.div`
@@ -348,9 +293,9 @@ const MemberCardsWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
-    @media (min-width:800px) {
+    @media (min-width:1021px) {
         margin-top: 2rem;
     }
 `
