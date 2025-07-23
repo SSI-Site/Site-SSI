@@ -8,9 +8,12 @@ const members = [
 		phrase: "Allons-Y!"
 	}
 	*/
-
 	{
-		
+		name: "Adan Cunha",
+		image: "/images/co_members/AdanCunha.jpg",
+		departments: ["Parcerias"],
+		linkedin: "https://www.linkedin.com/in/alan-moura-silva/",
+		phrase: '"Já vencidos, vencemos." - Plauto'
 	}
 	
 ];
