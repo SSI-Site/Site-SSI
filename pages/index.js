@@ -53,7 +53,7 @@ const Home = () => {
     const [countdownHours, setCountdownHours] = useState();
     const [countdownMinutes, setCountdownMinutes] = useState();
     const [countdownSeconds, setCountdownSeconds] = useState();
-    var countdownDate = new Date("Oct 07, 2024 09:40:00").getTime();
+    var countdownDate = new Date("Aug 18, 2025 09:40:00").getTime();
     var now = new Date().getTime();
 
     useEffect(() => {
@@ -74,8 +74,8 @@ const Home = () => {
         }, 1000);
     }, []);
 
-    const firstEventDay = new Date(2024, 9, 7);
-    const lastEventDay = new Date(2024, 9, 11);
+    const firstEventDay = new Date(2025, 7, 18);
+    const lastEventDay = new Date(2025, 7, 22);
     lastEventDay.setHours(23, 59, 59, 999);  // Define para o final do dia (23:59:59.999)
 
     const current = new Date();
@@ -84,13 +84,13 @@ const Home = () => {
     const day = `${current.getDate()}`;
 
     // Dia correto para o DateComponent
-    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '07');
+    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '18');
 
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
-    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2024-10-07';
+    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2025-08-18';
 
-    const filterEventDays = ["07 Out - Segunda-feira", "08 Out - Terça-feira", "09 Out - Quarta-feira", "10 Out - Quinta-feira", "11 Out - Sexta-feira"];
+    const filterEventDays = ["18 Out - Segunda-feira", "19 Out - Terça-feira", "20 Out - Quarta-feira", "21 Out - Quinta-feira", "22 Out - Sexta-feira"];
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();
 
     // Transforma 00:00 em minutos depois da meia noite para fazer calculos
@@ -214,7 +214,7 @@ const Home = () => {
             </YoutubeContainer>
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
-            {/*essa seção não está no figma */}
+            {/*
             <SubscriptionSection>
                 <div className='landing-container'>
                     <div className='subscription-container'>
@@ -237,9 +237,9 @@ const Home = () => {
                     </div>
                 </div>
             </SubscriptionSection>
+            */}
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
-            {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
             {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
             {(now < countdownDate) &&
                 <CountdownSection>
