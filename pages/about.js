@@ -9,6 +9,7 @@ import Meta from '../src/infra/Meta';
 import Button from '../src/components/Button';
 import GiftCard from '../src/components/GiftCard';
 import SecondaryButton from '../src/components/SecondaryButton';
+import Accordion from '../src/components/Accordion';
 
 //Importe Imagem do Next
 import Image from 'next/image';
@@ -70,18 +71,17 @@ const About = () => {
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
-                                    <div>
-                                        <h6>Diversos temas</h6>
+                                    <Accordion title="Diversos temas">
                                         <p>
                                             Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
                                         </p>
-                                    </div>
-                                    <div>
-                                        <h6>Empresas de diferentes áreas</h6>
+                                    </Accordion>
+                                    <Accordion title="Empresas de diferentes áreas">
                                         <p>
                                             Os nossos palestrantes fazem parte de empresas que estão presente em diferentes áreas de negócio do mercado de trabalho.
                                         </p>
-                                    </div>
+                                    </Accordion>
+
                                 </div>
                             </div>
                         </div>
@@ -104,18 +104,16 @@ const About = () => {
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
-                                    <div className='bait-sample-subtitles-left'>
-                                        <h6>Parcerias</h6>
+                                    <Accordion title="Parcerias">
                                         <p>
                                             Teremos apresentações sobre diversos temas, como Inteligência Artificial, Ciência de Dados e Diversidade em TI. Durante a Semana de Sistemas de Informação, empresas parceiras também oferecerão workshops interativos e e muito mais!
                                         </p>
-                                    </div>
-                                    <div className='bait-sample-subtitles-right'>
-                                        <h6>Aprenda na prática</h6>
+                                    </Accordion>
+                                    <Accordion title="Aprenda na prática">
                                         <p>
                                             Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar e dominar conceitos na prática!
                                         </p>    
-                                    </div>
+                                    </Accordion>
                                 </div>
                             </div>
                         </div>
@@ -139,18 +137,16 @@ const About = () => {
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
-                                    <div>
-                                        <h6>Alunos da EACH</h6>
+                                    <Accordion title="Alunos da EACH">
                                         <p>
                                             Tenha contato com uma rede de pessoas interessadas em diversos temas de TI. Não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
                                         </p>
-                                    </div>
-                                    <div>
-                                        <h6>Palestrantes experientes</h6>
+                                    </Accordion>
+                                    <Accordion title="Palestrantes experientes">
                                         <p>
                                             Conecte-se com os palestrantes que possuem expertise em diversas áreas. Lembre-se de acioná-los no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
                                         </p>
-                                    </div>
+                                    </Accordion>
                                 </div>
                             </div>
                         </div>
@@ -176,19 +172,17 @@ const About = () => {
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
-                                    <div className='bait-sample-subtitle-right'>
-                                        <h6>Brindes Exclusivos</h6>
+                                    <Accordion title="Brindes Exclusivos">
                                         <p>
                                             Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift cards e prêmios por presença.
                                         </p>
-                                    </div>
-                                    <div className='bait-sample-subtitle-left'>
-                                        <h6>Gift Cards</h6>
+                                    </Accordion>
+                                    <Accordion title="Gift Cards">
                                         <p>
                                             Participe das palestras e concorra a gift cards de diversas lojas, como iFood, Playstation e outros... 
                                             Mas se liga que alguns sorteios são apenas para espectadores presenciais :)
                                         </p>
-                                    </div>
+                                    </Accordion>
                                 </div>
                             </div>
                         </div>
@@ -416,8 +410,9 @@ const BaitContent = styled.div`
             gap: 1rem;  
 
             .bait-sample-title { 
+                width: 100%;
                 padding-bottom: 1.5rem;
-                border-bottom: 1px solid var(--outline-neutrals-secondary);
+                border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
             }
 
             p {
@@ -432,9 +427,14 @@ const BaitContent = styled.div`
                 justify-content: center;
                 gap: 1rem;
 
-                div {
+                .accordion-icon {
+                    font: 400 1.5rem 'AT Aero';
+                    margin-right: 0.5rem;
+                }
+
+                .accordion-item {
                     padding-bottom: 1rem;
-                    border-bottom: 1px solid var(--outline-neutrals-secondary);
+                    border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
                 }
             }
         }
@@ -491,16 +491,10 @@ const BaitContent = styled.div`
 
             .bait-sample-description {
                 align-items: flex-start;
-                padding: 3rem 0;
                 max-width: 38rem;
 
                 p {
                     font: 400 1.125rem/1.75rem 'AT Aero';
-                }
-
-                .bait-sample-subtitles {
-                    // flex-direction: row;
-                    // align-items: flex-start;
                 }
             }
         }
