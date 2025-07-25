@@ -427,14 +427,14 @@ const BaitContent = styled.div`
                 justify-content: center;
                 gap: 1rem;
 
-                .accordion-icon {
-                    font: 400 1.5rem 'AT Aero';
-                    margin-right: 0.5rem;
-                }
-
                 .accordion-item {
                     padding-bottom: 1rem;
                     border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
+
+                    .accordion-icon {
+                        font: 400 1.5rem 'AT Aero';
+                        margin-right: 0.5rem;
+                    }
                 }
             }
         }
