@@ -5,7 +5,7 @@ import giftBox from '../../public/images/gifts/gift-box.png';
 
 const GiftCard = ({ index, image, name, totalPres, presentialPres }) => {
 	return (
-		<GiftContainer tabIndex={0}>
+		<GiftContainer tabIndex={0} id={"giftContainer" + index}>
 			<div className='gift-card-front'>
 				<figure>
 					<img className="gift-img" src={image} alt={`Brinde ${name} SSI`} />
@@ -43,7 +43,6 @@ export default GiftCard;
 
 const GiftContainer = styled.div`
 	width: 100%;
-    max-width: 27rem;
 	height: 24.625rem;
 	display: flex;
 	gap: 1rem;
@@ -54,7 +53,6 @@ const GiftContainer = styled.div`
 
 	.gift-card-front {
 		width: 100%;
-        max-width: 27rem;
 		height: 24.625rem;
 		display: flex;
 		gap: 2rem;
@@ -84,7 +82,6 @@ const GiftContainer = styled.div`
 
 	.gift-card-back {
 		width: 100%;
-        max-width: 27rem;
 		height: 24.625rem;
 		transition: 0.15s;
 		translate: 0 101%;
@@ -169,16 +166,12 @@ const GiftContainer = styled.div`
     }
 
 	@media (min-width:1021px) {
-        width: 27rem;
-
         .gift-card-front {
-            width: 27rem;
             height: 24.625rem;
             gap: 1.12rem;
         }
 
         .gift-card-back {
-            width: 27rem;
             height: 24.625rem;
             padding: 2rem;
         }
