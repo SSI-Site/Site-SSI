@@ -62,7 +62,7 @@ const GiftContainer = styled.div`
 		position: absolute;
         left: 0;
         right: 0;
-		background-color: var(--background-neutrals-primary-800);
+		background-color: var(--background-neutrals-secondary);
 		border: 0.0625rem solid #7f7f7f;
 
         figure {
@@ -92,7 +92,7 @@ const GiftContainer = styled.div`
 		gap: 0.5rem;
 		align-items: center;
 		justify-content: center;
-		background-color: var(--background-neutrals-primary-50);
+		background-color: var(--background-neutrals-inverse);
 		border: 0.0625rem solid #7f7f7f;
 
 		.icon-image {
@@ -122,7 +122,7 @@ const GiftContainer = styled.div`
         height: 3rem;
         background: linear-gradient(
             to bottom,
-            var(--background-neutrals-primary-50) 50%,
+            var(--background-neutrals-inverse) 50%,
             var(--brand-primary) 50%
         );
         background-size: 100% 200%;
