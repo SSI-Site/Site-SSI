@@ -36,7 +36,12 @@ const About = () => {
                         <h1>Sobre o Evento</h1>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
                         <a href='https://docs.google.com/document/d/1uXK5byNMtpUx6scQZpIG74vXD07yBT1b/edit?usp=sharing&ouid=109347348401977738085&rtpof=true&sd=true' target="_blank">
-                            <Button>Conferir regulamento</Button>
+                            <Button>
+                                Conferir regulamento
+                                    <svg className="download-icon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 16L7.5 11L8.9 9.55L11.5 12.15V4H13.5V12.15L16.1 9.55L17.5 11L12.5 16ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="white"/>
+                                </svg>
+                            </Button>
                         </a>
                     </div>
                     <div className='logo'>
