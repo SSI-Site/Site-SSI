@@ -111,7 +111,7 @@ const About = () => {
                                 <div className='bait-sample-subtitles'>
                                     <Accordion title="Parcerias">
                                         <p>
-                                            Teremos apresentações sobre diversos temas, como Inteligência Artificial, Ciência de Dados e Diversidade em TI. Durante a Semana de Sistemas de Informação, empresas parceiras também oferecerão workshops interativos e e muito mais!
+                                            Teremos apresentações sobre diversos temas, como Inteligência Artificial, Ciência de Dados e Diversidade em TI. Durante a Semana de Sistemas de Informação, empresas parceiras oferecerão workshops interativos e muito mais!
                                         </p>
                                     </Accordion>
                                     <Accordion title="Aprenda na prática">
@@ -221,9 +221,9 @@ const About = () => {
                         <div className='lastyear-title'>
                             <h3>Veja como foi em 2024</h3>
                         </div>
-                        <p>
+                        <h6>
                             Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!
-                        </p>
+                        </h6>
                     </div>
 
                     <div className='lastyear-content'>
