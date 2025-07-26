@@ -16,7 +16,7 @@ import Image from 'next/image';
 
 // assets
 import gifts from '../data/gifts';
-import LogoCircular from '../public/images/logos/logo_circular.png';
+import LogoCircular from '../public/images/logos/logo_circular.svg';
 
 const About = () => {
 
@@ -38,15 +38,15 @@ const About = () => {
                         <a href='https://docs.google.com/document/d/1uXK5byNMtpUx6scQZpIG74vXD07yBT1b/edit?usp=sharing&ouid=109347348401977738085&rtpof=true&sd=true' target="_blank">
                             <Button>
                                 Conferir regulamento
-                                    <svg className="download-icon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.5 16L7.5 11L8.9 9.55L11.5 12.15V4H13.5V12.15L16.1 9.55L17.5 11L12.5 16ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="white"/>
+                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.5 16L7.5 11L8.9 9.55L11.5 12.15V4H13.5V12.15L16.1 9.55L17.5 11L12.5 16ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="white"/>
                                 </svg>
                             </Button>
                         </a>
                     </div>
                     <div className='logo'>
                         <Image
-                            src='/images/logos/logo_circular.png'
+                            src={LogoCircular}
                             alt="Gif SSI 2024"
                             width={295}
                             height={295}
@@ -445,23 +445,6 @@ const BaitContent = styled.div`
         }
     }
 
-    .justify-left {
-
-        &:hover {
-            background-color: white; 
-        }
-
-        &:hover * {
-            color: var(--background-neutrals-primary); 
-        }
-    }
-
-    .justify-right {
-        &:hover {
-            background-color: var(--brand-primary); 
-        }
-    }
-
     .bait-image {
         display: flex;
         align-items: center;
@@ -470,7 +453,7 @@ const BaitContent = styled.div`
         max-width: 39rem;
         aspect-ratio: 185 / 140;
         height: auto;
-        border: 2px solid white;
+        border: 1px solid var(--outline-neutrals-primary, #FFF);
         position: relative;
 
         .responsive-image, .image-container {
@@ -544,6 +527,7 @@ const GiftsSection = styled.section`
                     text-align: center;
                     background-color: var(--brand-primary);
                     padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+                    color: var(--content-neutrals-fixed-white);
                 }
 
                 h6 {
@@ -607,7 +591,7 @@ const GiftsSection = styled.section`
                 max-width: 39rem;
                 aspect-ratio: 185 / 140;
                 height: auto;
-                border: 2px solid white;
+                border: 1px solid var(--outline-neutrals-primary, #FFF);
                 position: relative;
 
                 .responsive-image, .image-container {
@@ -735,6 +719,7 @@ const LastYearSection = styled.section`
 
                 h3 {
                     text-align: center;
+                    color: var(--content-neutrals-fixed-white);
                 }
             }
 
