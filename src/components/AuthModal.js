@@ -9,7 +9,7 @@ import SecondaryButton from './SecondaryButton';
 
 // assets
 import IconeFechar from '../../public/images/icons/close.svg';
-import LogoCircular from '../../public/images/logos/logo_circular.png';
+import LogoCircular from '../../public/images/logos/logo_circular.svg';
 
 const AuthModal = ({ onClose }) => {
 
