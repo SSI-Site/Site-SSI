@@ -244,7 +244,7 @@ const Home = () => {
             {(now < countdownDate) &&
                 <CountdownSection>
                     <div className='countdown-text'>
-                        <h3>Contagem regressiva</h3>
+                        <div><h3>Contagem regressiva</h3></div>
                         <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000 ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
                     </div>
 
@@ -273,11 +273,9 @@ const Home = () => {
                         </div>
                     </div>
                     {!user &&
-                        <>
-                            <Button onClick={handleShowAuthModal} disabled={disableAuth}>
-                                {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
-                            </Button>
-                        </>
+                        <Button className='signup-button' onClick={handleShowAuthModal} disabled={disableAuth}>
+                            {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                        </Button>
                     }
                 </CountdownSection>
             }
@@ -835,11 +833,17 @@ const EventInfoSection = styled.section`
 `
 
 const CountdownSection = styled.section`
-    padding-block: 4rem 2rem;
+    display: flex;
+    padding: 5rem var(--Layout-Grid-Margin, 1rem) 4rem var(--Layout-Grid-Margin, 1rem);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1.5rem;
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
-    margin-bottom: -2rem;
-    background-color: var(--background-neutrals-primary);
+    align-self: stretch;
+
+    border-top: 1px solid var(--outline-neutrals-secondary, #999);
+    border-bottom: 1px solid var(--outline-neutrals-secondary, #999);
+    background: var(--background-neutrals-primary, #1A1A1A);
 
     .countdown-text {
         display: flex;
@@ -850,23 +854,53 @@ const CountdownSection = styled.section`
         color: var(--brand-primary);
 
         div {
-            background-color: var(--brand-purple-600);
-            width: 70%;
-            padding: 1rem 0;
+            display: flex;
+            padding: 0.75rem 1.5rem;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+
+            background: var(--brand-primary, #9638FF);
         }
 
         h3 {
+            color: var(--content-neutrals-fixed-white, #FFF);
             text-align: center;
-            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+
+            /* Heading/H3 */
+            font-family: 'AT Aero Bold';
+            font-size: var(--Typograph-Heading-H3-size, 1.5rem);
+            font-style: normal;
+            font-weight: 700;
+            line-height: var(--Typograph-Heading-H3-height, 1.75rem); /* 116.667% */
         }
 
         h6 {
+            align-self: stretch;
+
+            color: var(--content-neutrals-primary, #FFF);
             text-align: center;
+
+            /* Heading/H6 */
+            font-family: 'AT Aero Bold';
+            font-size: var(--Typograph-Heading-H6-size, 1rem);
+            font-style: normal;
+            font-weight: 700;
+            line-height: var(--Typograph-Heading-H6-height, 1.5rem); /* 150% */
         }
 
         span {
-            font: inherit;
-            background-color: var(--brand-purple-900);
+            align-self: stretch;
+
+            color: var(--content-neutrals-primary, #FFF);
+            text-align: center;
+
+            /* Heading/H6 */
+            font-family: 'AT Aero Bold';
+            font-size: var(--Typograph-Heading-H6-size, 1rem);
+            font-style: normal;
+            font-weight: 700;
+            line-height: var(--Typograph-Heading-H6-height, 1.5rem); /* 150% */
         }
     }
 
@@ -879,49 +913,89 @@ const CountdownSection = styled.section`
         gap: 1rem;
 
         .clock-container {
-            padding: 1.5rem;
-            background-color: var(--background-neutrals-primary);
-            width: 100%;
-            height: 8rem;
             display: flex;
+            padding: 1.5rem;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             gap: 0.5rem;
+            align-self: stretch;
+
+            background: var(--background-neutrals-inverse, #FFF);
 
             h1 {
-                color: var(--brand-purple-600);
+                align-self: stretch;
+
+                color: var(--content-neutrals-inverse, #1A1A1A);
+                text-align: center;
+
+                /* Heading/H1 */
+                font-family: 'AT Aero Bold';
+                font-size: var(--Typograph-Heading-H1-size, 2.5rem);
+                font-style: normal;
+                font-weight: 700;
+                line-height: var(--Typograph-Heading-H1-height, 3rem); /* 120% */
             }
 
             p {
-                font: 700 1rem/1.5rem 'AT Aero Bold';
-                color: var(--brand-purple-600);
+                align-self: stretch;
+
+                color: var(--content-neutrals-inverse, #1A1A1A);
+                text-align: center;
+
+                /* Label/Large */
+                font-family: 'AT Aero';
+                font-size: var(--Typograph-Label-Large-size, 1rem);
+                font-style: normal;
+                font-weight: 700;
+                line-height: var(--Typograph-Label-Large-height, 1.5rem); /* 150% */
             }
         }
     }
 
     @media (min-width:1100px) {
-        padding-block: 5rem 4rem; 
-        margin-bottom: 0;
+        .countdown-text {
+            h3 {
+                font-size: var(--Typograph-Heading-H3-size, 3rem);
+                line-height: var(--Typograph-Heading-H3-height, 3.5rem); /* 116.667% */
+            }
+
+            h6 {
+                font-size: var(--Typograph-Heading-H6-size, 1.5rem);
+                line-height: var(--Typograph-Heading-H6-height, 2rem); /* 133.333% */
+            }
+
+            span {
+                font: inherit;
+                background-color: var(--brand-purple-900);
+                padding: 0.25rem;
+            }
+        }
 
         .countdown-clock {
-            gap: 1rem;
+            padding: 1.5rem;
             flex-direction: row;
-            
+
             .clock-container {
-                width: 13rem;
-                height: 9.5rem;
+                flex: 1 0 0;
+
+                h1 {
+                    font-size: var(--Typograph-Heading-H1-size, 4rem);
+                    line-height: var(--Typograph-Heading-H1-height, 4.5rem); /* 112.5% */
+                }
 
                 p {
-                    font: 700 1.125rem/1.5rem 'AT Aero Bold';
+                    font-size: var(--Typograph-Label-Large-size, 1.125rem);
+                    line-height: var(--Typograph-Label-Large-height, 1.5rem); /* 133.333% */
                 }
             }
         }
 
-        button {
-            width: fit-content;
+        Button {
+            width: 9.25rem;
+            height: 3rem;
         }
-    }  
+    }
 `
 
 const ScheduleSection = styled.section`
