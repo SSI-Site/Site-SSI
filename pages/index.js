@@ -954,6 +954,7 @@ const ScheduleSection = styled.section`
         .schedule-section-title {
             background-color: var(--brand-primary);
             padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+            color: var(--content-neutrals-fixed-white);
         }
 
         .title-mobile {
