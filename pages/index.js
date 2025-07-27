@@ -456,6 +456,7 @@ export default Home;
 
 const LandingSection = styled.section`
     padding-inline: 1rem;
+    max-height: 1080px;
     border-bottom: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
     color: var(--content-neutrals-primary);
@@ -466,7 +467,7 @@ const LandingSection = styled.section`
         justify-content: center;
         align-items: center;
         border-inline: 1px solid var(--outline-neutrals-secondary);
-        border-inline: 1px solid var(--outline-neutrals-secondary);
+
     
         .landing-info {
             padding: 1.5rem 1rem;
