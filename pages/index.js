@@ -762,8 +762,8 @@ const EventInfoSection = styled.section`
         }
     }
 
-    @media screen and (min-width:800px) {
-        padding: 4.5rem 1rem;
+    @media screen and (min-width:801px) {
+        padding: 4.5rem 1.5rem;
 
         .about-content {
             align-items: center;
