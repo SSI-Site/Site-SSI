@@ -282,17 +282,21 @@ const NavMobile = styled.nav`
     .hamburguer-wrapper {
         width: 3rem;
         height: 3rem;
-        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
+
+        svg path {
+            fill: var(--content-neutrals-primary);
+        }
     }
 
     .hamburguer-wrapper:hover {
         background-position: left;
 
         svg path {
-            fill: var(--background-neutrals-primary);
+            fill: var(--content-neutrals-inverse);
         }
     }
 
@@ -332,6 +336,7 @@ const NavigationList = styled.ul`
         white-space: nowrap;
         line-height: 1.5rem;
         font-weight: 400;
+        color: var(--content-neutrals-primary);
 
         &:hover, &:focus-visible {
             color: var(--content-neutrals-inverse);
@@ -353,6 +358,7 @@ const NavigationList = styled.ul`
         
         a {
             font-family: 'At Aero Bold';
+            color: var(--content-neutrals-fixed-white);
         }
 
         &:hover a, a:focus-visible {
