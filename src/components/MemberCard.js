@@ -26,7 +26,7 @@ const colorSchemes = [
     },
     {
         'background' : 'var(--brand-primary-light)',
-        'textColor' : 'var(--content-fixed-black)',
+        'textColor' : 'var(--content-neutrals-fixed-black)',
         'directorBadge' : 1,
         'badgeSequence' : [5, 6, 7, 4]
     },   
@@ -97,7 +97,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     <div className='member-department'>
                         {sortDepartments(departments).map((department, index) => {
                             let badges = colorSchemes[colorScheme%5].badgeSequence;
-                            if(index === 0 && department === 'Diretoria')
+                            if(department === 'Diretoria')
                                 return <BadgeCO key={index} text={department} themeIndex={colorSchemes[colorScheme%5].directorBadge}/>
                             return <BadgeCO key={index} text={department} themeIndex={badges[index % badges.length]}/>
                         })}
