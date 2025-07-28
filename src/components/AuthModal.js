@@ -9,7 +9,9 @@ import SecondaryButton from './SecondaryButton';
 
 // assets
 import IconeFechar from '../../public/images/icons/close.svg';
-import LogoCircular from '../../public/images/logos/logo_circular.svg';
+import LogoCircular from '../../public/images/logos/logo_circular.svg'
+import LogoCircularLight from '../../public/images/logos/logo_circular_light.svg';
+import Image from 'next/image';
 
 const AuthModal = ({ onClose }) => {
 
@@ -53,9 +55,17 @@ const AuthModal = ({ onClose }) => {
                     </ModalHeader>
                     <ModalBody>
                         <div></div>
-                        <figure>
-                            <img className='logo' src={LogoCircular} alt="Logo SSI 2024" />
-                        </figure>
+                        <picture>
+                            <source srcSet = {LogoCircularLight} 
+                            media="(prefers-color-scheme: light)"/>
+
+                            <Image 
+                            width={300}
+                            height={130}
+                            className='logo' 
+                            src={LogoCircular} 
+                            alt="Logo SSI 2025" />
+                        </picture>
 
                         <p>Faça login para conseguir registrar suas presenças e garantir brindes!</p>
 
@@ -100,7 +110,7 @@ const ModalOverlay = styled.div`
 
 const ModalWrapper = styled.div`
     max-width: 328px;
-    height: 404px;
+    height: fit-content;
 `
 
 const StyledModal = styled.div`
@@ -166,14 +176,14 @@ const ModalBody = styled.div`
     div {
         width: 100%;
         height: 1px;
-        background-color: var(--background-neutrals-secondary);
-        margin: 0.7rem 2rem;
+        background-color: var(--background-neutrals-tertiary);
+        margin-block: 0.75rem;
     }
 
-    figure {
+    picture {
         width: 8rem;
         
-        img {
+        .logo {
             width: 100%;
         }
     }
