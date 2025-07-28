@@ -60,7 +60,7 @@ const members = [
     {
         "name": "Caio Bernardo",
         "image": "/images/co_members/CaioBernardo.jpg",
-        "departments": ["Sites", "Comercial e Financeiro", "Infraestrutura", "Diretoria"],
+        "departments": ["Diretoria", "Comercial e Financeiro", "Sites", "Infraestrutura"],
         "linkedin": "https://www.linkedin.com/in/caioviniciusbernardo",
         "phrase": "Desculpe senhor(a) mas o sistema do caixa caiu"
     },
@@ -102,7 +102,7 @@ const members = [
     {
         "name": "Dérick Arriado",
         "image": "/images/co_members/DerickArriado.jpg",
-        "departments": ["Comercial e Financeiro", "Diretoria"],
+        "departments": ["Diretoria", "Comercial e Financeiro"],
         "linkedin": "https://www.linkedin.com/in/derickarriado",
         "phrase": "Siga o seu coração 🤯\nPois viver a vida inteira sem fazer o que gosta é muito triste 😢"
     },
