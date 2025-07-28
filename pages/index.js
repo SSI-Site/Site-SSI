@@ -935,8 +935,7 @@ const CountdownSection = styled.section`
         }
 
         button {
-            width: 9.25rem;
-            height: 3rem;
+            max-width: 20rem;
         }
     }
 `
