@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 import useAuth from '../../../hooks/useAuth';
 
@@ -12,6 +13,7 @@ import Button from '../../components/Button';
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';
 import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg';
+import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg'
 
 const Nav = () => {
 
@@ -48,12 +50,19 @@ const Nav = () => {
                     {/* Logo que redireciona para a home */}
                     <Link legacyBehavior href="/" passHref>
                         <a>
-                            <img
-                                src={LogoHorizontal}
-                                width={180}
-                                height={45}
-                                alt='Semana de Sistemas de Informação'
-                            />
+                            <picture>
+                                <source srcSet = {LogoHorizontalLight} 
+                                media = "(prefers-color-scheme: light)"/>
+
+                                <Image
+                                    src={LogoHorizontal}
+                                    width={100}
+                                    height={42}
+                                    className='image'
+                                    alt='Semana de Sistemas de Informação 2025'
+                                />
+                            </picture>
+                            
                         </a>
 
                     </Link>
@@ -264,6 +273,10 @@ const NavWrapper = styled.div`
             align-items: center;
             justify-content: center;
 
+            .image{
+                width: 100%;    
+            }
+
             &:focus-visible {
                 outline: 2px solid var(--brand-primary);
                 outline-offset: 2px;
@@ -282,17 +295,21 @@ const NavMobile = styled.nav`
     .hamburguer-wrapper {
         width: 3rem;
         height: 3rem;
-        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
+        background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
         background-position: right;
         background-size: 202% 100%;
         transition: 0.15s all ease-out;
+
+        svg path {
+            fill: var(--content-neutrals-primary);
+        }
     }
 
     .hamburguer-wrapper:hover {
         background-position: left;
 
         svg path {
-            fill: var(--background-neutrals-primary);
+            fill: var(--content-neutrals-inverse);
         }
     }
 
@@ -332,6 +349,7 @@ const NavigationList = styled.ul`
         white-space: nowrap;
         line-height: 1.5rem;
         font-weight: 400;
+        color: var(--content-neutrals-primary);
 
         &:hover, &:focus-visible {
             color: var(--content-neutrals-inverse);
@@ -353,6 +371,7 @@ const NavigationList = styled.ul`
         
         a {
             font-family: 'At Aero Bold';
+            color: var(--content-neutrals-fixed-white);
         }
 
         &:hover a, a:focus-visible {

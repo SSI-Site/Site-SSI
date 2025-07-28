@@ -9,13 +9,15 @@ import Meta from '../src/infra/Meta';
 import Button from '../src/components/Button';
 import GiftCard from '../src/components/GiftCard';
 import SecondaryButton from '../src/components/SecondaryButton';
+import Accordion from '../src/components/Accordion';
 
 //Importe Imagem do Next
 import Image from 'next/image';
 
 // assets
 import gifts from '../data/gifts';
-import LogoCircular from '../public/images/logos/logo_circular.png';
+import LogoCircular from '../public/images/logos/logo_circular.svg';
+import LogoCircularLight from '../public/images/logos/logo_circular_light.svg'
 
 const About = () => {
 
@@ -24,9 +26,9 @@ const About = () => {
 
     return (
         <>
-            <Meta title='Sobre | Semana de Sistemas de Informação' 
-            description ='Saiba mais sobre a Semana de Sistemas de Informação: objetivos, história, impacto e como o evento conecta estudantes e profissionais de TI.'
-            keywords='o que é a SSI, história do evento, sobre a SSI, semana acadêmica tecnologia, evento de sistemas de informação, missão SSI, objetivos semana de tecnologia, contexto SSI'
+            <Meta title='Sobre | Semana de Sistemas de Informação'
+                description='Saiba mais sobre a Semana de Sistemas de Informação: objetivos, história, impacto e como o evento conecta estudantes e profissionais de TI.'
+                keywords='o que é a SSI, história do evento, sobre a SSI, semana acadêmica tecnologia, evento de sistemas de informação, missão SSI, objetivos semana de tecnologia, contexto SSI'
             />
 
             <LogoTextSection>
@@ -35,16 +37,27 @@ const About = () => {
                         <h1>Sobre o Evento</h1>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
                         <a href='https://docs.google.com/document/d/1uXK5byNMtpUx6scQZpIG74vXD07yBT1b/edit?usp=sharing&ouid=109347348401977738085&rtpof=true&sd=true' target="_blank">
-                            <Button>Conferir regulamento</Button>
+                            <Button>
+                                Conferir regulamento
+                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.5 16L7.5 11L8.9 9.55L11.5 12.15V4H13.5V12.15L16.1 9.55L17.5 11L12.5 16ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="white"/>
+                                </svg>
+                            </Button>
                         </a>
                     </div>
                     <div className='logo'>
-                        <Image 
-                        src='/images/logos/logo_circular.png'
-                        alt="Gif SSI 2024" 
-                        width={295}
-                        height={295}
-                        />
+                        <picture>
+                            <source srcSet = {LogoCircularLight} media='(prefers-color-scheme: light)'/>
+                            <Image
+                                src={LogoCircular}
+                                alt="Gif SSI 2025"
+                                width={500}
+                                height={500}
+                                className='image'
+                            />
+
+                        </picture>
+                        
                     </div>
                 </div>
             </LogoTextSection>
@@ -55,7 +68,7 @@ const About = () => {
                         <div className='bait-sample justify-right'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <Image 
+                                    <Image
                                         src="/images/about/palestras.jpg" alt="Foto Palestras"
                                         width={500}
                                         height={500}
@@ -66,22 +79,21 @@ const About = () => {
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
                                     <h5>Palestras</h5>
-                                    <p>A Semana de Sistemas de Informação 2024 contará com diversas palestras da área da tecnologia.</p>
+                                    <p>A Semana de Sistemas de Informação 2025 contará com diversas palestras da área da tecnologia.</p>
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
-                                    <div>
-                                        <h6>Diversos <br className='desktop-only'/>temas</h6>
+                                    <Accordion title="Diversos temas">
                                         <p>
                                             Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
                                         </p>
-                                    </div>
-                                    <div>
-                                        <h6>Empresas de diferentes áreas</h6>
+                                    </Accordion>
+                                    <Accordion title="Empresas de diferentes áreas">
                                         <p>
                                             Os nossos palestrantes fazem parte de empresas que estão presente em diferentes áreas de negócio do mercado de trabalho.
                                         </p>
-                                    </div>
+                                    </Accordion>
+
                                 </div>
                             </div>
                         </div>
@@ -90,7 +102,7 @@ const About = () => {
                         <div className='bait-sample justify-left'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <Image 
+                                    <Image
                                         src="/images/about/workshops.jpg" alt="Foto Workshops"
                                         width={500}
                                         height={500}
@@ -104,19 +116,16 @@ const About = () => {
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
-                                    <div className='bait-sample-subtitles-left'>
-                                        <h6>Parcerias</h6>
+                                    <Accordion title="Parcerias">
                                         <p>
-                                            Durante a Semana de Sistemas de Informação, empresas parceiras oferecerão workshops interativos.
+                                            Teremos apresentações sobre diversos temas, como Inteligência Artificial, Ciência de Dados e Diversidade em TI. Durante a Semana de Sistemas de Informação, empresas parceiras oferecerão workshops interativos e muito mais!
                                         </p>
-                                    </div>
-                                    <div className='bait-sample-subtitles-right'>
-                                        <h6>Aprenda na prática</h6>
+                                    </Accordion>
+                                    <Accordion title="Aprenda na prática">
                                         <p>
-                                            Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar
-                                            e dominar conceitos na prática!
-                                        </p>    
-                                    </div>
+                                            Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar e dominar conceitos na prática!
+                                        </p>
+                                    </Accordion>
                                 </div>
                             </div>
                         </div>
@@ -125,10 +134,10 @@ const About = () => {
                         <div className='bait-sample justify-right'>
                             <div className='bait-image'>
                                 <div className='image-container'>
-                                    <Image 
+                                    <Image
                                         src="/images/about/networking.jpg" alt="Foto Networking"
                                         width={500}
-                                        height={500} 
+                                        height={500}
                                         className="responsive-image" />
                                 </div>
                             </div>
@@ -140,57 +149,16 @@ const About = () => {
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
-                                    <div>
-                                        <h6>Estudantes da <br className='desktop-only' />USP</h6>
+                                    <Accordion title="Alunos da EACH">
                                         <p>
                                             Tenha contato com uma rede de pessoas interessadas em diversos temas de TI. Não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
                                         </p>
-                                    </div>
-                                    <div>
-                                        <h6>Palestrantes experientes</h6>
+                                    </Accordion>
+                                    <Accordion title="Palestrantes experientes">
                                         <p>
                                             Conecte-se com os palestrantes que possuem expertise em diversas áreas. Lembre-se de acioná-los no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
                                         </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </BaitContent>
-                    <BaitContent>
-                        <div className='bait-sample justify-left'>
-                                <div className='bait-image'>
-                                    <div className='image-container'>
-                                        <Image
-                                            src="/images/about/premios.jpg" 
-                                            alt="Foto Prêmios"
-                                            width={500}
-                                            height={500} 
-                                            className="responsive-image" />
-                                </div>
-                            </div>
-                            <div className='bait-sample-description'>
-                                <div className='bait-sample-title'>
-                                    <h5>Prêmios</h5>
-                                    <p>Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift
-                                        cards e prêmios por presença.
-                                    </p>
-                                </div>
-
-                                <div className='bait-sample-subtitles'>
-                                    <div className='bait-sample-subtitle-left'>
-                                        <h6>Gift Cards</h6>
-                                        <p>
-                                            Participe das palestras e concorra a gift cards de diversas lojas, como iFood, Playstation e outros... 
-                                            Mas se liga que alguns sorteios são apenas para espectadores presenciais :)
-                                        </p>
-                                    </div>
-                                    <div className='bait-sample-subtitle-right'>
-                                        <h6>Brindes</h6>
-                                        <p>
-                                            Teremos distribuição de brindes exclusivos para os participantes da SSI 2024. Basta registrar as suas 
-                                            presenças e verificar a contagem no seu perfil.
-                                        </p>
-                                    </div>
+                                    </Accordion>
                                 </div>
                             </div>
                         </div>
@@ -200,10 +168,42 @@ const About = () => {
 
             <GiftsSection>
                 <div className='gifts-container'>
-                    <div className='gifts-title'>
-                        <h3>Brindes exclusivos</h3>
-                        <h6>Não perca a oportunidade de ganhar <span>brindes incríveis</span> ao participar das nossas atividades e palestras!</h6>
+                    <div className='gifts-bait'>
+                        <div className='gifts-title'>
+                            <h3>Prêmios</h3>
+                            <h6>Não perca a oportunidade de ganhar prêmios incríveis ao participar das nossas atividades e palestras!</h6>
+                        </div>
+
+                        <div className='bait-sample justify-left'>
+                            <div className='bait-image'>
+                                <div className='image-container'>
+                                    <Image
+                                        src="/images/about/premios.jpg"
+                                        alt="Foto Prêmios"
+                                        width={500}
+                                        height={500}
+                                        className="responsive-image" />
+                                </div>
+                            </div>
+                            <div className='bait-sample-description'>
+                                <div className='bait-sample-title'>
+                                    <h5>Brindes Exclusivos</h5>
+                                    <p>
+                                        Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift cards e prêmios por presença.
+                                    </p>
+                                </div>
+
+                                <div className='bait-sample-subtitles'>
+                                    <Accordion title="Gift Cards">
+                                        <p>
+                                            Participe das palestras e concorra a gift cards de diversas lojas, como iFood, Playstation e outros...
+                                        </p>
+                                    </Accordion>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div className='gifts-cards'>
                         {Object.entries(gifts).map(([key, gift]) => {
                             return (
@@ -215,6 +215,10 @@ const About = () => {
                     {!disableAuth && user &&
                         <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
                     }
+
+                    <p className='gifts-cards-obs'>
+                        Teremos distribuição de brindes exclusivos para os participantes da SSI 2025. Basta registrar as suas presenças e verificar a contagem no seu perfil.
+                    </p>
                 </div>
             </GiftsSection>
 
@@ -222,25 +226,18 @@ const About = () => {
                 <div className='lastyear-container'>
                     <div className='lastyear-text'>
                         <div className='lastyear-title'>
-                            <h3>Veja como foi em 2023</h3>
+                            <h3>Veja como foi em 2024</h3>
                         </div>
-                        <p>Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!</p>
-                        <a href='https://www.youtube.com/@semanadesi' target='_blank'>
-                            <SecondaryButton $noSvgColorChange>
-                                Acesse nosso canal
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none">
-                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000"/>
-                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white"/>
-                                </svg>
-                            </SecondaryButton>
-                        </a>
+                        <h6>
+                            Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!
+                        </h6>
                     </div>
 
-                    <div className='lastyear-rightside'>
+                    <div className='lastyear-content'>
                         <div className='lastyear-video'>
-                            <iframe 
-                                src="https://www.youtube-nocookie.com/embed/gQ9ka_8D1Bo?si=p55JZ0U2CYeNv--E" 
-                                title="YouTube video player" 
+                            <iframe
+                                src="https://www.youtube.com/embed/tHkBBqcpb3I?si=ISLt0jiKNzuyd5g2"
+                                title="YouTube video player"
                                 allow="fullscreen">
                             </iframe>
                         </div>
@@ -251,7 +248,7 @@ const About = () => {
                                 delay={0}
                                 decimals={1}
                                 suffix="k+"
-                                enableScrollSpy 
+                                enableScrollSpy
                             >
                                 {({ countUpRef }) => (
                                     <div className='event-info-container'>
@@ -266,7 +263,7 @@ const About = () => {
                                 end={600}
                                 delay={0}
                                 suffix="+"
-                                enableScrollSpy 
+                                enableScrollSpy
                             >
                                 {({ countUpRef }) => (
                                     <div className='event-info-container'>
@@ -281,7 +278,7 @@ const About = () => {
                                 end={43}
                                 delay={0}
                                 suffix="h"
-                                enableScrollSpy 
+                                enableScrollSpy
                             >
                                 {({ countUpRef }) => (
                                     <div className='event-info-container'>
@@ -291,6 +288,16 @@ const About = () => {
                                 )}
                             </CountUp>
                         </EventNumbersBanner>
+
+                        <a href='https://www.youtube.com/@semanadesi' target='_blank'>
+                            <SecondaryButton $noSvgColorChange>
+                                Acesse nosso canal
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none">
+                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000" />
+                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white" />
+                                </svg>
+                            </SecondaryButton>
+                        </a>
                     </div>
                 </div>
             </LastYearSection>
@@ -302,7 +309,7 @@ export default About;
 
 
 const LogoTextSection = styled.section`
-    border-bottom: 1px solid var(--background-neutrals-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
 
     .logo-text {
         display: flex;
@@ -322,7 +329,7 @@ const LogoTextSection = styled.section`
 
     .text {
         gap: 1rem;
-        border: 1px solid var(--background-neutrals-secondary);
+        border: 1px solid var(--outline-neutrals-secondary);
         border-top: none;
 
         p {
@@ -333,11 +340,18 @@ const LogoTextSection = styled.section`
     .logo {
         align-items: center; 
         justify-content: center;
-        border-left: 1px solid var(--background-neutrals-secondary);
-        border-right: 1px solid var(--background-neutrals-secondary);
+        border-left: 1px solid var(--outline-neutrals-secondary);
+        border-right: 1px solid var(--outline-neutrals-secondary);
+    
+        .image {
+                width: 100%;
+                height: fit-content;
+                object-fit: contain;
+            }
     }
 
-    @media (min-width:800px) {
+    @media (min-width:801px) {   
+
         .logo-text {
             flex-direction: row;
             align-items: center;
@@ -345,7 +359,7 @@ const LogoTextSection = styled.section`
         }
 
         .logo, .text {
-            width: 50%;
+            width: 40%;
             padding: 4.5rem 1rem;
             flex: 1; 
         }
@@ -354,18 +368,26 @@ const LogoTextSection = styled.section`
             align-items: center;
             justify-content: center;
             border-left: none;
-            padding: 0 1.5rem;
         }
 
         .text {
-            height: calc(100vh - 8rem);
             justify-content: center;
             align-items: flex-start;
             border-bottom: none;
-            padding: 0 1.5rem;
+            padding: 4.5rem 1.5rem;
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        .logo{
+            padding-block: 10rem;
+
+            .image {
+                max-width: 25rem;
             }
         }
     }
@@ -385,7 +407,7 @@ const BaitSection = styled.section`
 `
 
 const BaitContent = styled.div`
-    --border: 1px solid var(--background-neutrals-secondary);
+    --border: 1px solid var(--outline-neutrals-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -401,7 +423,7 @@ const BaitContent = styled.div`
         justify-content: center;
         width: 100%;
         max-width: 1328px;
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
         border-left: var(--border);
         border-right: var(--border);
         gap: 2rem;
@@ -412,7 +434,13 @@ const BaitContent = styled.div`
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 1.5rem;  
+            gap: 1rem;  
+
+            .bait-sample-title { 
+                width: 100%;
+                padding-bottom: 1.5rem;
+                border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
+            }
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';
@@ -426,27 +454,16 @@ const BaitContent = styled.div`
                 justify-content: center;
                 gap: 1rem;
 
-                .desktop-only {
-                    display: none;
+                .accordion-item {
+                    padding-bottom: 1rem;
+                    border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
+
+                    .accordion-icon {
+                        font: 400 1.5rem 'AT Aero';
+                        margin-right: 0.5rem;
+                    }
                 }
             }
-        }
-    }
-
-    .justify-left {
-
-        &:hover {
-            background-color: white; 
-        }
-
-        &:hover * {
-            color: var(--background-neutrals-primary); 
-        }
-    }
-
-    .justify-right {
-        &:hover {
-            background-color: var(--brand-primary); 
         }
     }
 
@@ -458,7 +475,7 @@ const BaitContent = styled.div`
         max-width: 39rem;
         aspect-ratio: 185 / 140;
         height: auto;
-        border: 2px solid white;
+        border: 1px solid var(--outline-neutrals-secondary, #FFF);
         position: relative;
 
         .responsive-image, .image-container {
@@ -474,7 +491,7 @@ const BaitContent = styled.div`
         }
     }
 
-    @media (min-width:1021px) {
+    @media (min-width:1024px) {
 
         .bait-sample {
             flex-direction: row-reverse;
@@ -484,20 +501,10 @@ const BaitContent = styled.div`
 
             .bait-sample-description {
                 align-items: flex-start;
-                padding: 3rem 0;
                 max-width: 38rem;
 
                 p {
                     font: 400 1.125rem/1.75rem 'AT Aero';
-                }
-
-                .bait-sample-subtitles {
-                    flex-direction: row;
-                    align-items: flex-start;
-
-                    .desktop-only {
-                        display: inline;
-                    }
                 }
             }
         }
@@ -509,70 +516,201 @@ const BaitContent = styled.div`
 `
 
 const GiftsSection = styled.section`
-    padding-block: 2rem;
-
+    --border: 1px solid var(--outline-neutrals-secondary);
+    
     .gifts-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
+        
+        padding: 1.5rem 1rem;
 
-        .gifts-title {
+        border-left: var(--border);
+        border-right: var(--border);
+
+        .gifts-bait {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap: 1.5rem;
+            justify-content: center;
+            width: 100%;
+            gap: 2.5rem;
 
-            h3 {
-                text-align: center;
-				background-color: var(--brand-primary);
-				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+            .gifts-title {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                h3 {
+                    text-align: center;
+                    background-color: var(--brand-primary);
+                    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+                    color: var(--content-neutrals-fixed-white);
+                }
+
+                h6 {
+                    text-align: center;
+                }
             }
 
-            h6 {
-                text-align: center;
+            .bait-sample {
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 1328px;
+                gap: 2.5rem;
+                
+                .bait-sample-description {
+                    max-width: 39.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 1rem;  
+
+                    .bait-sample-title { 
+                        width: 100%;
+                        padding-bottom: 1.5rem;
+                        border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
+                    }
+
+                    p {
+                        font: 400 1rem/1.5rem 'AT Aero';
+                        margin-top: 0.5rem;
+                    }
+
+                    .bait-sample-subtitles {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 1rem;
+
+                        .accordion-item {
+                            padding-bottom: 1rem;
+                            border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
+
+                            .accordion-icon {
+                                font: 400 1.5rem 'AT Aero';
+                                margin-right: 0.5rem;
+                            }
+                        }
+                    }
+                }
             }
 
-            span {
-                font: inherit;
-                background-color: var(--brand-purple-900);
+            .bait-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 39rem;
+                aspect-ratio: 185 / 140;
+                height: auto;
+                border: 1px solid var(--outline-neutrals-primary, #FFF);
+                position: relative;
+
+                .responsive-image, .image-container {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                    
+                .responsive-image {
+                    object-fit: cover;
+                }
             }
         }
 
         .gifts-cards {
-            display: flex;
-            flex-direction: row;
-            flex-flow: wrap;
-            justify-content: center;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 1fr));
             gap: 1rem;
+            justify-items: center;
+            align-items: stretch;
             width: 100%;
+            margin: 0 auto;
         }
+
+        
     }
 
     @media (min-width:1000px) {
-        padding-block: 4.5rem;
-
         .gifts-container {
+            padding: 4.5rem 1.5rem;
             gap: 1rem;
 
             .gifts-cards {
                 gap: 1rem;
+                grid-template-areas: 
+                "gift1 gift1 gift2 gift2 gift3 gift3"
+                "gift4 gift4 gift4 gift5 gift5 gift5";
                 max-width: 1328px;
+            }
+
+            #giftContainer1 {
+            grid-area: gift1;
+            }
+
+            #giftContainer2 {
+                grid-area: gift2;
+            }
+
+            #giftContainer3 {
+                grid-area: gift3;
+            }
+
+            #giftContainer4 {
+                grid-area: gift4;
+            }
+
+            #giftContainer5 {
+                grid-area: gift5;
+            }
+
+            .gifts-cards-obs {
+                text-align: center;
             }
 
             button {
                 width: fit-content;
                 margin-top: 0.5rem;
             }
+
+            .gifts-bait {
+                .bait-sample {
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding-bottom: 3rem;
+
+                    .bait-sample-description {
+                        align-items: flex-start;
+                        max-width: 38rem;
+
+                        p {
+                            font: 400 1.125rem/1.75rem 'AT Aero';
+                        }
+                    }
+                }
+
+                .justify-left {
+                    flex-direction: row;
+                }
+            }
         }
     }
 `
 
 const LastYearSection = styled.section`
-    --border: 1px solid var(--background-neutrals-secondary);
+    --border: 1px solid var(--outline-neutrals-secondary);
     border-top: var(--border);
 
     .lastyear-container {
@@ -580,18 +718,21 @@ const LastYearSection = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 1rem;
         width: 100%;
+        padding: 1.5rem 1rem;
+
+        border-left: var(--border);
+        border-right: var(--border);
         
         .lastyear-text {
-            padding: 1.5rem 1rem;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            border-left: var(--border);
-            border-right: var(--border);
+            text-align: center;
             
             .lastyear-title {
                 background-color: var(--brand-primary);
@@ -599,28 +740,20 @@ const LastYearSection = styled.section`
                 padding: 0.75rem 1.5rem;
 
                 h3 {
-                    text-align: center;
+                    color: var(--content-neutrals-fixed-white);
                 }
             }
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';
             }
-
-            a {
-                width: 100%;
-            }
         }
 
-        .lastyear-rightside {
+        .lastyear-content {
             display: flex;
-            padding: 1.5rem 1rem;
             flex-direction: column;
             gap: 1rem;
             width: 100%;
-            border-left: var(--border);
-            border-right: var(--border);
-            border-top: var(--border);
 
             .lastyear-video {
                 position: relative;
@@ -647,29 +780,14 @@ const LastYearSection = styled.section`
 
     @media (min-width:1045px) {
         .lastyear-container {
-            flex-direction: row;
-            justify-content: space-between; 
-            align-items: flex-start;
-            gap: auto;
+            padding: 4.5rem 1.5rem;
+            gap: 2.5rem;
 
-            .lastyear-text {
-                border: none;
-                padding: 4.5rem 1rem 0 0;
-                gap: 1.5rem;
-                max-width: 25.6rem;
-
-                p {
-                    font: 400 1.125rem/1.75rem 'AT Aero';
+            .lastyear-content {
+                a {
+                    width: fit-content;
+                    margin: 0 auto;
                 }
-            }
-
-            .lastyear-rightside {
-                border-top: none;
-                padding: 4.5rem 1.5rem;
-                align-items: center; 
-                gap: 2rem;
-                width: 100%;
-                max-width: 55rem;
             }
 
             .lastyear-video {

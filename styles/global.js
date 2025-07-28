@@ -158,10 +158,6 @@ export default createGlobalStyle`
         border: 0;
     }
 
-    button, h1, h2, h3, h4, h5, h6, body, p, span, a, label {
-        color: var(--background-neutrals-primary-50);
-        text-align: left;
-    }
 
     ::-webkit-input-placeholder { /* WebKit browsers */
         text-transform: none;
@@ -182,7 +178,7 @@ export default createGlobalStyle`
     ::placeholder { /* Recent browsers */
         text-transform: none;
         font: 700 1rem/1.25rem 'AT Aero';
-        color: var(--background-neutrals-primary-400);
+        color: var(--background-neutrals-primary);
     }
 
     @media (min-width:480px) {
