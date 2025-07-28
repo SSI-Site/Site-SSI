@@ -17,6 +17,7 @@ import Image from 'next/image';
 // assets
 import gifts from '../data/gifts';
 import LogoCircular from '../public/images/logos/logo_circular.svg';
+import LogoCircularLight from '../public/images/logos/logo_circular_light.svg'
 
 const About = () => {
 
@@ -45,12 +46,18 @@ const About = () => {
                         </a>
                     </div>
                     <div className='logo'>
-                        <Image
-                            src={LogoCircular}
-                            alt="Gif SSI 2024"
-                            width={295}
-                            height={295}
-                        />
+                        <picture>
+                            <source srcSet = {LogoCircularLight} media='(prefers-color-scheme: light)'/>
+                            <Image
+                                src={LogoCircular}
+                                alt="Gif SSI 2025"
+                                width={500}
+                                height={500}
+                                className='image'
+                            />
+
+                        </picture>
+                        
                     </div>
                 </div>
             </LogoTextSection>
@@ -302,7 +309,7 @@ export default About;
 
 
 const LogoTextSection = styled.section`
-    border-bottom: 1px solid var(--background-neutrals-secondary);
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
 
     .logo-text {
         display: flex;
@@ -322,7 +329,7 @@ const LogoTextSection = styled.section`
 
     .text {
         gap: 1rem;
-        border: 1px solid var(--background-neutrals-secondary);
+        border: 1px solid var(--outline-neutrals-secondary);
         border-top: none;
 
         p {
@@ -333,11 +340,18 @@ const LogoTextSection = styled.section`
     .logo {
         align-items: center; 
         justify-content: center;
-        border-left: 1px solid var(--background-neutrals-secondary);
-        border-right: 1px solid var(--background-neutrals-secondary);
+        border-left: 1px solid var(--outline-neutrals-secondary);
+        border-right: 1px solid var(--outline-neutrals-secondary);
+    
+        .image {
+                width: 100%;
+                height: fit-content;
+                object-fit: contain;
+            }
     }
 
-    @media (min-width:800px) {
+    @media (min-width:801px) {   
+
         .logo-text {
             flex-direction: row;
             align-items: center;
@@ -345,7 +359,7 @@ const LogoTextSection = styled.section`
         }
 
         .logo, .text {
-            width: 50%;
+            width: 40%;
             padding: 4.5rem 1rem;
             flex: 1; 
         }
@@ -354,18 +368,26 @@ const LogoTextSection = styled.section`
             align-items: center;
             justify-content: center;
             border-left: none;
-            padding: 0 1.5rem;
         }
 
         .text {
-            height: calc(100vh - 8rem);
             justify-content: center;
             align-items: flex-start;
             border-bottom: none;
-            padding: 0 1.5rem;
+            padding: 4.5rem 1.5rem;
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        .logo{
+            padding-block: 10rem;
+
+            .image {
+                max-width: 25rem;
             }
         }
     }
@@ -385,7 +407,7 @@ const BaitSection = styled.section`
 `
 
 const BaitContent = styled.div`
-    --border: 1px solid var(--background-neutrals-secondary);
+    --border: 1px solid var(--outline-neutrals-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -453,7 +475,7 @@ const BaitContent = styled.div`
         max-width: 39rem;
         aspect-ratio: 185 / 140;
         height: auto;
-        border: 1px solid var(--outline-neutrals-primary, #FFF);
+        border: 1px solid var(--outline-neutrals-secondary, #FFF);
         position: relative;
 
         .responsive-image, .image-container {
@@ -469,7 +491,7 @@ const BaitContent = styled.div`
         }
     }
 
-    @media (min-width:1021px) {
+    @media (min-width:1024px) {
 
         .bait-sample {
             flex-direction: row-reverse;
@@ -494,7 +516,7 @@ const BaitContent = styled.div`
 `
 
 const GiftsSection = styled.section`
-    --border: 1px solid var(--background-neutrals-secondary);
+    --border: 1px solid var(--outline-neutrals-secondary);
     
     .gifts-container {
         display: flex;
@@ -542,7 +564,6 @@ const GiftsSection = styled.section`
                 justify-content: center;
                 width: 100%;
                 max-width: 1328px;
-
                 gap: 2.5rem;
                 
                 .bait-sample-description {
@@ -689,7 +710,7 @@ const GiftsSection = styled.section`
 `
 
 const LastYearSection = styled.section`
-    --border: 1px solid var(--background-neutrals-secondary);
+    --border: 1px solid var(--outline-neutrals-secondary);
     border-top: var(--border);
 
     .lastyear-container {
@@ -711,6 +732,7 @@ const LastYearSection = styled.section`
             align-items: center;
             justify-content: center;
             gap: 1rem;
+            text-align: center;
             
             .lastyear-title {
                 background-color: var(--brand-primary);
@@ -718,7 +740,6 @@ const LastYearSection = styled.section`
                 padding: 0.75rem 1.5rem;
 
                 h3 {
-                    text-align: center;
                     color: var(--content-neutrals-fixed-white);
                 }
             }

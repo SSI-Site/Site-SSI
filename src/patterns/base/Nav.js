@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 import useAuth from '../../../hooks/useAuth';
 
@@ -12,6 +13,7 @@ import Button from '../../components/Button';
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';
 import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg';
+import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg'
 
 const Nav = () => {
 
@@ -48,12 +50,19 @@ const Nav = () => {
                     {/* Logo que redireciona para a home */}
                     <Link legacyBehavior href="/" passHref>
                         <a>
-                            <img
-                                src={LogoHorizontal}
-                                width={180}
-                                height={45}
-                                alt='Semana de Sistemas de Informação'
-                            />
+                            <picture>
+                                <source srcSet = {LogoHorizontalLight} 
+                                media = "(prefers-color-scheme: light)"/>
+
+                                <Image
+                                    src={LogoHorizontal}
+                                    width={100}
+                                    height={42}
+                                    className='image'
+                                    alt='Semana de Sistemas de Informação 2025'
+                                />
+                            </picture>
+                            
                         </a>
 
                     </Link>
@@ -263,6 +272,10 @@ const NavWrapper = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
+
+            .image{
+                width: 100%;    
+            }
 
             &:focus-visible {
                 outline: 2px solid var(--brand-primary);
