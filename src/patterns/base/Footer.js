@@ -251,7 +251,11 @@ const MobileBackToTop = styled.div`
     transition: all 0.15s ease-out;
     cursor: pointer;
     margin-bottom: 3rem;
-    color: var(--content-neutrals-inverse);
+    color: var(--content-neutrals-fixed-white);
+     
+    path {
+        fill: var(--content-neutrals-fixed-white);
+    }
 
     rect {
         transform: translateY(100%);
@@ -260,10 +264,11 @@ const MobileBackToTop = styled.div`
     &:hover,
     &:focus-visible {
         background-position: bottom;
-
+        color: var(--content-neutrals-inverse);
         path {
             transition: all 0.15s ease-out;
             transform: translateY(0);
+            fill: var(--content-neutrals-inverse);
         }
     }
 
