@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
-const PartnerCard = ({ image, name, link }) => {
+const PartnerCard = ({ imageDark, imageLight, name, link }) => {
 
     return (
         <PartnerWrapper>
             <a href={link} target="_blank" rel="noreferrer">
                 <div className='partner-image'>
-                    <img src={image} alt={`Logo ${name}`} />
+                    <picture>
+                        <source srcSet={imageLight} media="(prefers-color-scheme: light)" />
+                        <img src={imageDark} alt={`Logo ${name}`}/>
+                    </picture>
                 </div>
             </a>
         </PartnerWrapper>

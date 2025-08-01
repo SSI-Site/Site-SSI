@@ -23,13 +23,16 @@ import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 // assets
 import schedule from '../data/schedule';
 
+const partnerships = [
+    { name: 'aton', imageDark: '/images/partners/aton-dark.png', imageLight: '/images/partners/aton-light.png', url: 'https://ambarx.com.br/' },
+];
+
 const supporters = [
-    { name: 'Alura', image: '/images/partners/alura.svg', url: 'https://www.alura.com.br/' },
-    { name: 'Rocketseat', image: '/images/partners/rocketseat.svg', url: 'https://www.rocketseat.com.br/' },
-    { name: 'Kluber', image: '/images/partners/kluber.png', url: 'https://www.klueber.com/br/pt/' },
-    { name: 'EACH', image: '/images/partners/each.svg', url: 'https://www5.each.usp.br/' },
-    { name: 'DASI', image: '/images/partners/dasi.png', url: 'https://instagram.com/dasiusp' },
-    { name: 'PET-SI', image: '/images/partners/pet.png', url: 'https://instagram.com/petsi' },
+    { name: 'EACH', imageDark: '/images/partners/each-dark.svg', imageLight: '/images/partners/each-light.svg', url: 'https://www5.each.usp.br/' },
+    { name: 'Alura', imageDark: '/images/partners/alura-dark.svg', imageLight: '/images/partners/alura-light.png', url: 'https://www.alura.com.br/' },
+    { name: 'TOTVS', imageDark: '/images/partners/totvs-dark.svg', imageLight: '/images/partners/totvs-light.png', url: 'https://www.totvs.com/' },
+    { name: 'PET-SI', imageDark: '/images/partners/pet-dark.png', imageLight: '/images/partners/pet-light.png', url: 'https://www.instagram.com/petsieach/' },
+    { name: 'R2ventures', imageDark: '/images/partners/r2-ventures-dark.png', imageLight: '/images/partners/r2-ventures-light.png', url: 'https://r2ventures.com.br/' },
     // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
@@ -437,12 +440,28 @@ const Home = () => {
                 <div className='supporters-container'>
                     <div className='supporters-title'>
                         <h3>Parcerias</h3>
-                        <h6>Organizações e marcas que estão conosco para tornar este evento um sucesso</h6>
+                        <h6>Marcas e organizações que estão conosco para tornar este evento um sucesso!</h6>
+                    </div>
+                    <div className='supporters-cards'>
+                        {Object.entries(partnerships).map(([key, supporter]) => {
+                            return (
+                                <PartnerCard key={key} name={supporter.name} imageDark={supporter.imageDark} imageLight={supporter.imageLight} link={supporter.url} />
+                            )
+                        })}
+                    </div>
+                </div>
+            </SupportersSection>
+
+            <SupportersSection>
+                <div className='supporters-container'>
+                    <div className='supporters-title'>
+                        <h3>Apoiadores</h3>
+                        <h6>Marcas e organizações que acreditam no evento e tornam sua realização possível!</h6>
                     </div>
                     <div className='supporters-cards'>
                         {Object.entries(supporters).map(([key, supporter]) => {
                             return (
-                                <PartnerCard key={key} name={supporter.name} image={supporter.image} link={supporter.url} />
+                                <PartnerCard key={key} name={supporter.name} imageDark={supporter.imageDark} imageLight={supporter.imageLight} link={supporter.url} />
                             )
                         })}
                     </div>
