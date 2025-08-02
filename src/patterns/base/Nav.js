@@ -268,6 +268,11 @@ const NavWrapper = styled.div`
         max-width: 1328px; // 1920px - (344px * 2)
         height: 100%;
 
+        // isso aqui foi para conseguir colocar a imagem da logo no canto esquerdo no safari
+        > a{ 
+            width: 10.956rem; 
+        }
+
         a {
             display: flex;
             align-items: center;
@@ -290,7 +295,8 @@ const NavWrapper = styled.div`
 `
 
 const NavMobile = styled.nav`
-    overflow: hidden;   
+    width: 3rem;
+    height: 3rem;
 
     .hamburguer-wrapper {
         width: 3rem;
