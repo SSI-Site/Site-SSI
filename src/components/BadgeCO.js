@@ -15,11 +15,11 @@ const colorSchemes = [
     },
     {
         'badgeColor' : 'var(--brand-purple-300)',
-        'textColor'  : 'var(--brand-primary-dark)'
+        'textColor'  : 'var(--content-neutrals-fixed-white)'
     },
     {
         'badgeColor' : 'var(--brand-purple-400)',
-        'textColor'  : 'var(--brand-primary-dark)'
+        'textColor'  : 'var(--content-neutrals-fixed-white)'
     },
     {
         'badgeColor' : 'var(--brand-purple-500)',
