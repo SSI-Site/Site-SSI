@@ -12,7 +12,7 @@ const members = [
         "name": "Adan Cunha",
         "image": "/images/co_members/AdanCunha.jpg",
         "departments": ["Parcerias"],
-        "linkedin": "linkedin.com/in/adan-cunha",
+        "linkedin": "https://www.linkedin.com/in/adan-cunha",
         "phrase": "\"Já vencidos, vencemos.\" - Plauto"
     },
     {
@@ -40,7 +40,7 @@ const members = [
         "name": "Andrew Luigi",
         "image": "/images/co_members/AndrewLuigi.jpg",
         "departments": ["Criação e Comunicação", "Sites"],
-        "linkedin": "www.linkedin.com/in/andrewluigiflima",
+        "linkedin": "https://www.linkedin.com/in/andrewluigiflima",
         "phrase": "\"Não esquece o ponto e vírgula!\""
     },
     {
@@ -68,7 +68,7 @@ const members = [
         "name": "Carol Soares",
         "image": "/images/co_members/CarolSoares.jpg",
         "departments": ["Criação e Comunicação", "Infraestrutura"],
-        "linkedin": "www.linkedin.com/in/maria-carolina-s",
+        "linkedin": "https://www.linkedin.com/in/maria-carolina-s",
         "phrase": "\"Every journey begins with a choice\" - Pokemon"
     },
     {
@@ -89,7 +89,7 @@ const members = [
         "name": "Daniel Coutinho",
         "image": "/images/co_members/DanielCoutinho.jpg",
         "departments": ["Diretoria"],
-        "linkedin": "www.linkedin.com/in/daniel-coutinho-ribeiro",
+        "linkedin": "https://www.linkedin.com/in/daniel-coutinho-ribeiro",
         "phrase": "Frase de efeito? Prefiro ação de efeito! Ações falam mais que palavras."
     },
     {
@@ -117,14 +117,14 @@ const members = [
         "name": "Douglas Macedo",
         "image": "/images/co_members/DouglasMacedo.jpg",
         "departments": ["Sites", "Palestrantes", "Infraestrutura"],
-        "linkedin": "www.linkedin.com/in/douglas1412",
+        "linkedin": "https://www.linkedin.com/in/douglas1412",
         "phrase": "Tengo, lengo, tengo, lengo\nTengo, lengo, tengo\nTengo, lengo, tengo, lengo\nTengo, lengo, tengo\n— GONZAGA, Luiz."
     },
     {
         "name": "Eduardo Almeida",
         "image": "/images/co_members/EduardoAlmeida.jpg",
         "departments": ["Criação e Comunicação", "Sites"],
-        "linkedin": "www.linkedin.com/in/eduardo-almeida-577520273",
+        "linkedin": "https://www.linkedin.com/in/eduardo-almeida-577520273",
         "phrase": "Aerofolio para o meu palio"
     },
     {
@@ -208,7 +208,7 @@ const members = [
         "name": "Guilherme Fernandes",
         "image": "/images/co_members/GuilhermeCosta.jpeg",
         "departments": ["Parcerias"],
-        "linkedin": "linkedin.com/in/guifends",
+        "linkedin": "https://www.linkedin.com/in/guifends",
         "phrase": "Devagar e sempre."
     },
     {
@@ -243,7 +243,7 @@ const members = [
         "name": "Jeffrey Zhang",
         "image": "/images/co_members/JeffreyZhang.jpg",
         "departments": ["Parcerias"],
-        "linkedin": "www.linkedin.com/in/jeffrey-zhang-655b43365",
+        "linkedin": "https://www.linkedin.com/in/jeffrey-zhang-655b43365",
         "phrase": "\"O verdadeiro herói é aquele que faz o que pode.\" - Romain Rolland"
     },
     {
@@ -285,7 +285,7 @@ const members = [
         "name": "Lion Chen",
         "image": "/images/co_members/LionChen.jpg",
         "departments": ["Infraestrutura", "Diretoria"],
-        "linkedin": "www.linkedin.com/in/lion-chen",
+        "linkedin": "https://www.linkedin.com/in/lion-chen",
         "phrase": "SSI S2"
     },
     {
@@ -327,7 +327,7 @@ const members = [
         "name": "Pedro Altafini",
         "image": "/images/co_members/PedroAltafini.jpg",
         "departments": ["Comercial e Financeiro"],
-        "linkedin": "www.linkedin.com/in/pedropauloaltafini",
+        "linkedin": "https://www.linkedin.com/in/pedropauloaltafini",
         "phrase": "No pressure, no diamonds."
     },
     {
@@ -348,7 +348,7 @@ const members = [
         "name": "Rafael Nunes",
         "image": "/images/co_members/RafaelNunes.jpeg",
         "departments": ["Infraestrutura"],
-        "linkedin": "www.linkedin.com/in/rafael-nunes-2760a723",
+        "linkedin": "https://www.linkedin.com/in/rafael-nunes-2760a723",
         "phrase": "Nanos gigantum humeris insidentes"
     },
     {
@@ -369,21 +369,21 @@ const members = [
         "name": "Renan Uema",
         "image": "/images/co_members/RenanUema.jpg",
         "departments": ["Palestrantes"],
-        "linkedin": "www.linkedin.com/in/renan-uema-75379a227",
+        "linkedin": "https://www.linkedin.com/in/renan-uema-75379a227",
         "phrase": "Daqui pra frente é só pra trás... A meta é o underflow"
     },
     {
         "name": "Robert Gom",
         "image": "/images/co_members/RobertGom.jpg",
         "departments": ["Sites"],
-        "linkedin": "www.linkedin.com/in/robert-gom",
+        "linkedin": "https://www.linkedin.com/in/robert-gom",
         "phrase": "Preso em um while(true) chamado \"Semestre\""
     },
     {
         "name": "Rodrigo Cardoso",
         "image": "/images/co_members/RodrigoCardoso.jpg",
         "departments": ["Palestrantes"],
-        "linkedin": "www.linkedin.com/in/rodrigo-g-cardoso",
+        "linkedin": "https://www.linkedin.com/in/rodrigo-g-cardoso",
         "phrase": "42"
     }	
 ];
