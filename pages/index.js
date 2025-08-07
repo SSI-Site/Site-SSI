@@ -360,6 +360,8 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
+{/*
+
             {(current <= lastEventDay) &&
                 <ScheduleSection>
                     <div className='schedule-container'>
@@ -397,6 +399,7 @@ const Home = () => {
                     </div>
                 </ScheduleSection>
             }
+*/}
 
             <DirectionsSection>
                 <div className='directions-container'>
