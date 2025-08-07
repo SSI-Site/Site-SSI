@@ -97,7 +97,7 @@ const Nav = () => {
                                 </Link>           
                             </li>
 
-                            <li className = {router.pathname == '/schedule' ? 'active': ''}>
+                            <li className = {router.pathname == '/schedule' ? 'active': 'disabled'}>
                                 <Link legacyBehavior href="/schedule" passHref>
                                     <a>Programação</a>
                                 </Link>
@@ -109,7 +109,7 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            <li className = {router.pathname == '/palestrantes' ? 'active': ''}>
+                            <li className = {router.pathname == '/palestrantes' ? 'active': 'disabled'}>
                                 <Link legacyBehavior href="/palestrantes" passHref>
                                     <a>Palestrantes</a>
                                 </Link>
@@ -271,10 +271,11 @@ const NavWrapper = styled.div`
         a {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            width: 100%;
 
             .image{
-                width: 100%;    
+                width: 100%;
             }
 
             &:focus-visible {
@@ -376,6 +377,13 @@ const NavigationList = styled.ul`
 
         &:hover a, a:focus-visible {
             color: var(--content-neutrals-inverse);
+        }
+    }
+
+    .disabled{
+        pointer-events: none;
+        a{
+            opacity: 0.5;
         }
     }
 `
