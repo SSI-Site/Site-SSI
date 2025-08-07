@@ -53,7 +53,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link legacyBehavior href="/schedule" passHref>
-                                <a className={router.pathname == '/schedule' ? 'active' : ''}>
+                                <a className={router.pathname == '/schedule' ? 'active' : 'disabled'}>
                                     Programação
                                 </a>
                             </Link>
@@ -67,7 +67,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link legacyBehavior href="/palestrantes" passHref>
-                                <a className={router.pathname == '/palestrantes' ? 'active' : ''}>
+                                <a className={router.pathname == '/palestrantes' ? 'active' : 'disabled'}>
                                     Palestrantes
                                 </a>
                             </Link>
@@ -362,6 +362,11 @@ const FooterLinks = styled.div`
 
     div {
         display: none;
+    }
+
+    .disabled{
+        pointer-events: none;
+        opacity: 0.5;
     }
 
     // Desktop
