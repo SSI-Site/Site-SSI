@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 // assets
-import img_src from '../../public/images/logos/preview_logo.jpg';
+import img_src from '../../public/images/logos/banner_meta_tag.png';
 
 const Meta = ({
     title = 'Semana de Sistemas de Informação',
