@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
+import gifts from '../data/gifts';
 
 // components
 import Button from '../src/components/Button';
@@ -15,7 +16,6 @@ import Accordion from '../src/components/Accordion';
 import Image from 'next/image';
 
 // assets
-import gifts from '../data/gifts';
 import LogoCircular from '../public/images/logos/logo_circular.svg';
 import LogoCircularLight from '../public/images/logos/logo_circular_light.svg'
 
@@ -206,9 +206,9 @@ const About = () => {
 
                     <div className='gifts-cards'>
                         {Object.entries(gifts).map(([key, gift]) => {
-                            return (
-                                <GiftCard key={key} index={key} name={gift.name} image={gift.image} totalPres={gift.totalPres} presentialPres={gift.presentialPres} />
-                            )
+                                return (
+                                    <GiftCard key={key} index={key} name={gift.name} image={gift.image} minPresence={gift.minPresence} />
+                                )
                         })}
                     </div>
 

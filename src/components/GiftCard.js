@@ -3,24 +3,32 @@ import styled from 'styled-components';
 // assets
 import giftBox from '../../public/images/gifts/gift-box.png';
 
-const GiftCard = ({ index, image, name, totalPres, presentialPres }) => {
+const GiftCard = ({ index, name, image, minPresence }) => {
 	return (
 		<GiftContainer tabIndex={0} id={"giftContainer" + index}>
 			<div className='gift-card-front'>
 				<figure>
-					<img className="gift-img" src={image} alt={`Brinde ${name} SSI`} />
+					<img className="gift-img" 
+						src={image} 
+						alt={`Brinde ${name} SSI`} />
 				</figure>
-				<h6>{name}</h6>
+				<h6>{name}</h6>,
 			</div>
 
 			<div className='gift-card-back' id={"gift" + index}>
 				<img className="icon-image" src={giftBox} alt="gift box" />
 
-				<p className='card-back-text'>
-                    Para resgatar esse brinde você deve participar de um total de <span>{totalPres}</span> atividades,
-					sendo <span>{presentialPres}</span> delas presencialmente.
-                </p>
+				<div className = "card-back-wrapper">
+					<p className='card-back-text'>
+					Para resgatar esse brinde você deve participar de um total de:
+					</p>
+					<div className='card-back-text highlight'>
+						<p>{minPresence}</p>
+					</div>
+					
+					<p className='card-back-text'>Palestras ou Workshops</p>
 				
+				</div>
 			</div>
 			<button id={"btn" + index} className='info-button' onClick={() => flip(index)} tabIndex={0}>
 				<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,9 +103,33 @@ const GiftContainer = styled.div`
 		background-color: var(--background-neutrals-inverse);
 		border: 0.0625rem solid #7f7f7f;
 
+		.card-back-wrapper{
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.highlight{
+			background-color: var(--brand-primary);
+			padding: .25rem 1rem;
+			width: fit-content;
+			margin: auto;
+
+
+			p{
+				font: 700 2.5rem/3.5rem 'At Aero Bold';
+				color: var(--content-neutrals-fixed-white);
+			}
+		}
+
 		.icon-image {
-			width: 5rem;
-			height: 5rem;
+			width: 4rem;
+			height: 4rem;
+
+			@media screen and (min-width: 1024px){
+				width: 5rem;
+				height: 5rem;
+			}
             margin-bottom: 0.5rem;
         }
 
