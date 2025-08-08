@@ -1,12 +1,21 @@
 import axios from 'axios';
-const base_url = 'http://bored.api.lewagon.com/api/activity'; // para o exemplo -> COMENTAR
+const BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL;
+import cookie from 'js-cookie';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL;
+axios.defaults.withCredentials = true;
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.baseURL = BASE_URL
 
-const ACCESS_TOKEN = 'access_token'
-const REFRESH_TOKEN = 'refresh_token'
-const STUDENT_ID = 'student_id'
-
+axios.interceptors.request.use((config) => {
+    const csrfToken = cookie.get('csrftoken');
+    if (csrfToken) {
+        config.headers['X-CSRFToken'] = csrfToken;
+    }
+    return config;
+}, (error) => {
+    return Promise.reject(error);
+});
 const saphira = {
     // Para o exemplo -> COMENTAR
     getActivity: async () => {
@@ -115,6 +124,14 @@ const saphira = {
             }
         });
     },
+
+    getGifts: async() => {
+        const requestUrl = '/gifts/'
+        return await axios.get('/gifts/',
+            requestUrl
+        )
+    },
+
 };
 
 export default saphira;
