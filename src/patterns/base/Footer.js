@@ -66,7 +66,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link legacyBehavior href="/palestrantes" passHref>
-                                <a className={router.pathname == '/palestrantes' ? 'active' : 'disabled'}>
+                                <a className={router.pathname == '/palestrantes' ? 'active' : ''}>
                                     Palestrantes
                                 </a>
                             </Link>
