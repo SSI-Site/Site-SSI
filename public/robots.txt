@@ -5,5 +5,7 @@ Allow: /co
 Allow: /schedule
 Allow: /palestrantes
 Allow: /about
+Allow: /index
+Allow: /sitemap
 
 Sitemap: https://semanadesi.com/sitemap.xml
