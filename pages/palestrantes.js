@@ -42,7 +42,7 @@ const Palestrantes = () => {
             <h1>Palestrantes</h1>
 
           {
-            !isLoading && speakers.map((speaker) => {
+            !isLoading && speakers.sort((a, b) => a.name.localeCompare(b.name)).map((speaker) => {
               return(
                 <PalestranteCard key = {speaker.id} palestrante={speaker}/>
               )
