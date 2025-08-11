@@ -17,7 +17,6 @@ const Footer = () => {
                 <FooterLogo>
                     <MobileBackToTop
                         tabIndex={0}
-                        aria-label="Voltar para o Topo"
                         onClick={() => {
                             window.scrollTo(0, 0)
                         }}

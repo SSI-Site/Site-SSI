@@ -430,6 +430,7 @@ const Home = () => {
 
                     <div className='map'>
                         <iframe
+                            title = "Localização do evento"
                             loading="lazy"
                             allowfullscreen
                             referrerpolicy="no-referrer-when-downgrade"
