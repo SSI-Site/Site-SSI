@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatTime } from '../../utils/format-time'
-
+import filterTalks from '../../utils/filterTalks'
 // components
 import LectureItem from './LectureItem'
+
 
 const ScheduleItems = ({ schedule }) => {
 
@@ -12,26 +13,27 @@ const ScheduleItems = ({ schedule }) => {
             <ScheduleWrapper>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
-                    {Object.entries(schedule).map(([time, event], key) => {
-                        if (!event.speakers) {
+                    {schedule.map((talk) => {
+                        
+                        if (!talk.speakers) {
                             return (
-                                <li key={key}>
-                                    <h5>{formatTime(time)}</h5>
-                                    <div className={`event ${event.title == 'Abertura' || event.title == 'Encerramento' ? 'special-event' : ''}`}>
-                                        <h6>{event.title}</h6>
-                                        {event.endTime ?
-                                            <p>{formatTime(time)} - {formatTime(event.endTime)}</p>
+                                <li key={talk.id}>
+                                    <h5>{formatTime(talk.start_time)}</h5>
+                                    <div className={`event ${talk.title == 'Abertura' || talk.title == 'Encerramento' ? 'special-event' : ''}`}>
+                                        <h6>{talk.title}</h6>
+                                        {talk.end_time ?
+                                            <p>{formatTime(talk.start_time)} - {formatTime(talk.endTime)}</p>
                                             :
-                                            <p>{formatTime(time)}</p>
+                                            <p>{formatTime(talk.start_time)}</p>
                                         }
                                     </div>
                                 </li>
                             )
                         } else {
                             return (
-                                <li key={key}>
-                                    <h5 className='vertical-time'>{formatTime(time)}</h5>
-                                    <LectureItem time={time} event={event} />
+                                <li key={talk.id}>
+                                    <h5 className='vertical-time'>{formatTime(talk.start_time)}</h5>
+                                    <LectureItem time={talk.start_time} event={talk} />
                                 </li>
                             )
                         }

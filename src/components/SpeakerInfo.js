@@ -3,9 +3,28 @@ import styled from 'styled-components';
 import SpeakerCard from './SpeakerCard';
 import Image from 'next/image';
 
-const SpeakerInfo = ({ speaker }) => {
+// saphira
+import saphira from '../../services/saphira';
+import speakersImages from '../../data/speakers';
+
+const SpeakerInfo = ({ speakerId }) => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [speaker, setSpeaker] = useState({})
+
+    const getSpeaker = async(id) => {
+        try{
+            const { data } = await saphira.getSpeaker(speakerId)
+            if (data) setSpeaker(data)
+        }
+        catch(err){
+            console.log("Houve um erro na requisição do palestrante", err)
+        }
+    }
+    useEffect(() => {
+        getSpeaker()
+    }, [])
+
 
     useEffect(() => {
         if (isOpen) {
@@ -17,7 +36,7 @@ const SpeakerInfo = ({ speaker }) => {
             document.body.style.paddingRight = `${scrollBarWidth}px`;
         } else {
             document.body.style.overflow = 'unset';
-            document.body.style.paddingRight = 'unset';
+            document.body.style.paddingRight = 'urnset';
         }
     }, [isOpen]);
 
@@ -26,16 +45,15 @@ const SpeakerInfo = ({ speaker }) => {
             <div className={isOpen ? 'click-outside' : "click-outside click-outside-hidden"} onClick={() => setIsOpen(false)}>
             </div>
             <div className={isOpen ? 'side-card side-card-open' : 'side-card'}>
-                <SpeakerCard setIsOpen={setIsOpen} speaker={speaker}/>
+                <SpeakerCard setIsOpen={setIsOpen} speaker={speaker} speakerImage={speakersImages[speakerId.slice(0,3).toUpperCase()]}/>
             </div>
             <figure className='speaker-image-container'>
-                {speaker['image'] &&
-                    <Image
-                     src={speaker['image']} 
-                     width={500}
-                     height={500}
-                     alt={`Foto do palestrante ${speaker['name']}`} />
-                }
+                <Image
+                    src={speakersImages[speakerId.slice(0,3).toUpperCase()]} 
+                    width={500}
+                    height={500}
+                    alt={`Foto do palestrante ${speaker['name']}`} 
+                />
             </figure>
 
             <figcaption className='speaker-info-container'>

@@ -26,22 +26,22 @@ const LectureItem = ({ time, event }) => {
                     }
                     <h3>{event.title}</h3>
 
-                    {event.endTime ?
-                        <label>{formatTime(time)} - {formatTime(event.endTime)}</label>
+                    {event.end_time?
+                        <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
                     :
                         <label>{formatTime(time)}</label>
                     }
 
                     <div className='badge-wrapper'>
                         <BadgeCO
-                            text={event.local === 'presential'? 'Presencial': 'Online'}
-                            themeIndex={event.local === 'presential' ? 5 : 9}
+                            text={event.mode === 'IP'? 'Presencial': 'Online'}
+                            themeIndex={event.mode === 'IP' ? 5 : 9}
                         />
 
-                        {event.activityType &&
+                        {event.activity_type &&
                             <BadgeCO
-                                text={event.activityType}
-                                themeIndex={event.activityType === 'Workshop'? 1 : 2}
+                                text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
+                                themeIndex={event.activity_type === 'PR'? 1 : 2}
                             />
                         }
                     </div>
@@ -53,9 +53,9 @@ const LectureItem = ({ time, event }) => {
                 </div>
 
                 <SpeakersWrapper>
-                    {Object.entries(event.speakers).map(([key, speaker], index) => {
+                    {event.speakers.map(id => {
                         return (
-                            <SpeakerInfo key={index} speaker={speaker}/>
+                            <SpeakerInfo key={id} speakerId={id}/>
                         )
                     })}
                 </SpeakersWrapper>

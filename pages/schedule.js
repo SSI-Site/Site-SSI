@@ -1,15 +1,17 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import schedule from '../data/schedule';
 import Meta from '../src/infra/Meta';
 import semana from '../utils/semana';
 import '../utils/slugify';
+import filterTalks from '../utils/filterTalks';
 
 // components
 import DateStamp from '../src/components/DateStamp';
 import ScheduleItems from '../src/components/ScheduleItems';
+import saphira from '../services/saphira';
 
 const dayOfSSI = ["18 Ago", "19 Ago", "20 Ago", "21 Ago", "22 Ago"]
 const dayFull = ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"]
@@ -18,10 +20,12 @@ const weekDays = semana.filter(dia => dia !== 'Domingo' && dia !== 'Sábado')
 const Schedule = () => {
 
     const currentDate = `${new Date().getFullYear()}-${(new Date().getMonth()+1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')}`;
-
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false);
     const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
+    
+    const [talks, setTalks] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleMobileSelectChange = (e) => {
         const selectedDate = e.target.value
@@ -42,7 +46,7 @@ const Schedule = () => {
         }
 
         return (
-            <ScheduleItems schedule={schedule[activeItem]} />
+            <ScheduleItems schedule={filterTalks(talks, activeItem)} />
         )
     }
 
@@ -53,6 +57,24 @@ const Schedule = () => {
             setActiveItem(dayFull[newDayNumber])
         }
     }
+
+    const getTalks = async(date) => {
+        setIsLoading(true)
+        try{
+            const { data } = await saphira.getTalks()
+            if (data) setTalks(data)
+        }
+        catch(err){
+            console.log("Houve um erro na requsição das palestras", err)
+        }
+        finally{
+            setIsLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        getTalks()
+    }, [])
 
     return (
         <>

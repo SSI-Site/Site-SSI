@@ -5,7 +5,7 @@ import styled from "styled-components";
 import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png';
 import Image from "next/image";
 
-const SpeakerCard = ({ speaker, setIsOpen }) => {
+const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
     return (
         <SpeakerWrapper>
@@ -21,7 +21,7 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
 
                 <SpeakerInfo>
                     <div className='imgDiv'>
-                        <Image src={speaker['image']} alt={`Foto de ${speaker['image']}`}
+                        <Image src={speakerImage} alt={`Foto de ${speaker['image']}`}
                         width={500} height={500}/>
                     </div>
 
@@ -48,8 +48,8 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
                 </SpeakerDesc>
 
                 <SocialMedia>
-                    {speaker['linkedin'] && speaker['linkedin'] !== '' && 
-                        <a href={speaker['linkedin']} target="_blank" aria-label={`Linkedin de ${speaker['name']}`}>
+                    {speaker['linkedin_link'] && speaker['linkedin_link'] !== '' && 
+                        <a href={speaker['linkedin_link']} target="_blank" aria-label={`Linkedin de ${speaker['name']}`}>
                             {/*Linkedin Logo*/}
                             <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn da Semana de Sistemas de Informação">
                                 <mask id="mask0_2776_492" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
@@ -67,8 +67,8 @@ const SpeakerCard = ({ speaker, setIsOpen }) => {
                         </a>
                     }
 
-                    {speaker['instagram'] && speaker['instagram'] !== '' &&
-                        <a href={speaker['instagram']} target="_blank" aria-label={`Instagram de ${speaker['name']}`}>
+                    {speaker['instagram_link'] && speaker['instagram_link'] !== '' &&
+                        <a href={speaker['instagram_link']} target="_blank" aria-label={`Instagram de ${speaker['name']}`}>
                             {/*Instagram Logo*/}
                             <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="Instagram da Semana de Sistemas de Informação">
                                 <mask id="mask0_2776_488" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
