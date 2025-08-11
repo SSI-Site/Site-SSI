@@ -3,25 +3,11 @@ import styled, { css } from "styled-components";
 import ArrowUpIcon from "../../public/images/icons/arrow-up.svg";
 import { InstagramLogo, LinkedInLogo } from "./SocialMediaLogos";
 
+//IMAGES
+import speakersImages from "../../data/speakers";
+
 // Componente principal que exibe o card do palestrante
-const PalestranteCard = ({ palestrante = {
-    name: "Eduardo Araujo",
-    fotoPalestrante: "https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b",
-    pronouns: "ele/dele",
-    role: "Cargo do Palestrante",
-    description: "Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis.",
-    linkedin_link: "",
-    instagram_link: "",
-    palestras: [
-        {
-            dataPalestra: "Segunda-Feira, 11 de Agosto, 9:40-10:40h",
-            tituloPalestra: "Título da palestra gigante que pega duas linhas ou mais",
-            metadata: {
-                presencial: true
-            }
-        }
-    ]
-} }) => {
+const PalestranteCard = ({palestrante}) => {
     // Estado para controlar se o card está aberto ou fechado (expandido)
     const [open, setOpen] = useState(false);
     // Estado para armazenar a altura do corpo do card (usado para animação)
@@ -58,13 +44,13 @@ const PalestranteCard = ({ palestrante = {
             handleBodyHeight(bodyRef.current);
         }
     }, [bodyRef]);
-
+    
     return (
         <PalestranteContainer>
             {/* Cabeçalho do card, ao clicar alterna entre aberto e fechado */}
             <PalestranteHeader onClick={() => setOpen(!open)}>
                 <PalestranteImageWrapper>
-                    <PalestranteImage src={palestrante.fotoPalestrante} alt={palestrante.name} />
+                    <PalestranteImage src={speakersImages[palestrante.id.slice(0,3).toUpperCase()]} alt={palestrante.name} />
                 </PalestranteImageWrapper>
                 <PalestranteInfo>
                     <PalestranteName>
@@ -224,12 +210,14 @@ const PalestranteRole = styled.span`
 
 const PalestranteImageWrapper = styled.div`
     width: 100%;
-    max-width: 5rem;
+    width: 5rem;
+    height: 5rem;
     display: flex;
 
     @media (min-width: 1024px){
         width: 100%;
-        max-width: 8rem;
+        width: 8rem;
+        height: 8rem;
     }
     
 `
