@@ -5,15 +5,13 @@ import { InstagramLogo, LinkedInLogo } from "./SocialMediaLogos";
 
 // Componente principal que exibe o card do palestrante
 const PalestranteCard = ({ palestrante = {
-    nomePalestrante: "Eduardo Araujo",
+    name: "Eduardo Araujo",
     fotoPalestrante: "https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b",
-    pronomePalestrante: "ele/dele",
-    cargoPalestrante: "Cargo do Palestrante",
-    descricaoPalestrante: "Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis.",
-    redesSociais: {
-        linkedin: "https://www.linkedin.com/in/username",
-        instagram: "https://www.instagram.com/username"
-    },
+    pronouns: "ele/dele",
+    role: "Cargo do Palestrante",
+    description: "Lorem ipsum dolor sit amet consectetur. Viverra consequat pharetra mauris diam integer purus morbi nibh. Nec odio sodales gravida at vitae. Lacus eleifend amet purus scelerisque felis. Lorem sodales commodo enim et id. Tincidunt tempor viverra consectetur netus feugiat cras volutpat ipsum. Eget morbi egestas semper diam adipiscing ac amet ut. Ut sagittis aliquet pharetra ut bibendum quisque rhoncus mattis. Lectus sed gravida duis purus integer quis. Vulputate vestibulum ut non vitae mi quis.",
+    linkedin_link: "",
+    instagram_link: "",
     palestras: [
         {
             dataPalestra: "Segunda-Feira, 11 de Agosto, 9:40-10:40h",
@@ -66,14 +64,14 @@ const PalestranteCard = ({ palestrante = {
             {/* Cabeçalho do card, ao clicar alterna entre aberto e fechado */}
             <PalestranteHeader onClick={() => setOpen(!open)}>
                 <PalestranteImageWrapper>
-                    <PalestranteImage src={palestrante.fotoPalestrante} alt={palestrante.nomePalestrante} />
+                    <PalestranteImage src={palestrante.fotoPalestrante} alt={palestrante.name} />
                 </PalestranteImageWrapper>
                 <PalestranteInfo>
                     <PalestranteName>
-                        {palestrante.nomePalestrante}
+                        {palestrante.name}
                         <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" className="arrow" $active = {open}/>   
                     </PalestranteName>
-                    <PalestranteRole>{palestrante.cargoPalestrante}</PalestranteRole>
+                    <PalestranteRole>{palestrante.role}</PalestranteRole>
                 </PalestranteInfo>
             </PalestranteHeader>
             {/* Wrapper do corpo do card, controla a altura para animação de abrir/fechar */}
@@ -85,14 +83,14 @@ const PalestranteCard = ({ palestrante = {
                     <PalestranteLeftBody>
                         <PalestrantePronome>
                             {
-                                palestrante.pronomePalestrante
+                                palestrante.pronouns
                             }
                         </PalestrantePronome>
                     </PalestranteLeftBody>
                     <PalestranteMiddleBody>
                         <PalestranteDescription>
                             {
-                                palestrante.descricaoPalestrante
+                                palestrante.description
                             }
                         </PalestranteDescription>
                     </PalestranteMiddleBody>
@@ -104,24 +102,24 @@ const PalestranteCard = ({ palestrante = {
                             </PalestranteSocialHeader>
                             <PalestranteSocialMedia>
                                 {
-                                    palestrante.redesSociais.linkedin && (
+                                    palestrante.linkedin_link && (
                                         <PalestranteSocialMediaItem
                                             icon={
                                                 <LinkedInLogo />
                                             }
-                                            link={palestrante.redesSociais.linkedin}
+                                            link={palestrante.linkedin_link}
                                             alt="LinkedIn"
                                         />
                                     )
                                 }
 
                                 {
-                                    palestrante.redesSociais.instagram && (
+                                    palestrante.instagram_link && (
                                         <PalestranteSocialMediaItem
                                             icon={
                                                 <InstagramLogo />
                                             }
-                                            link={palestrante.redesSociais.instagram}
+                                            link={palestrante.instagram_link}
                                             alt="Instagram"
                                         />
                                     )

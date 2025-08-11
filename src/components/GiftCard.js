@@ -12,7 +12,7 @@ const GiftCard = ({ index, name, image, minPresence }) => {
 						src={image} 
 						alt={`Brinde ${name} SSI`} />
 				</figure>
-				<h6>{name}</h6>,
+				<h6>{name}</h6>
 			</div>
 
 			<div className='gift-card-back' id={"gift" + index}>
