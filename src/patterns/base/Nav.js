@@ -109,7 +109,7 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            <li className = {router.pathname == '/palestrantes' ? 'active': 'disabled'}>
+                            <li className = {router.pathname == '/palestrantes' ? 'active': ''}>
                                 <Link legacyBehavior href="/palestrantes" passHref>
                                     <a>Palestrantes</a>
                                 </Link>

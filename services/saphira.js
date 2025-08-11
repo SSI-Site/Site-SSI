@@ -132,6 +132,11 @@ const saphira = {
         )
     },
 
+    getSpeakers: async() => {
+        const requestUrl = '/speakers/'
+        return await axios.get(requestUrl)
+    },
+
 };
 
 export default saphira;
