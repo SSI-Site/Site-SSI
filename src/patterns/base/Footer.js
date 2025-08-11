@@ -52,7 +52,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link legacyBehavior href="/schedule" passHref>
-                                <a className={router.pathname == '/schedule' ? 'active' : 'disabled'}>
+                                <a className={router.pathname == '/schedule' ? 'active' : ''}>
                                     Programação
                                 </a>
                             </Link>

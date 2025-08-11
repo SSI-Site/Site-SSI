@@ -137,6 +137,18 @@ const saphira = {
         return await axios.get(requestUrl)
     },
 
+    getTalks: async() => {
+        const requestUrl = '/talks/' 
+        return await axios.get(
+            requestUrl
+        )
+    },
+
+    getSpeaker: async(id) => {
+        const requestUrl = `/admin/speakers/${id}`
+        return await axios.get(requestUrl)
+    }
+
 };
 
 export default saphira;
