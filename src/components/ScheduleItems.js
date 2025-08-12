@@ -86,7 +86,7 @@ const ScheduleWrapper = styled.div`
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        background: var(--background-neutrals-secondary);
+        background: var(--background-neutrals-tertiary);
         padding: 0.75rem 1.5rem;
 
         p {
