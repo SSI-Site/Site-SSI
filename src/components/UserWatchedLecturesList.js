@@ -45,7 +45,6 @@ const LecturesList = ({ lectures }) => {
     return (
         <LecturesListWrapper>
             <div className='filter-container'>
-                <p>Filtre por dia:</p>
                 <div>
                     {daysOfWeek.map((day) => (
                         <FilterItem
@@ -86,8 +85,9 @@ export default LecturesList;
 const LecturesListWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    width: 100%;
 
     .filter-container {
         margin-bottom: 2rem;

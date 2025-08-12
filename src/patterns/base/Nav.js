@@ -483,7 +483,7 @@ const Sidepanel = styled.div`
                     }
 
                     svg path {
-                        fill: var(--brand-primary);
+                        fill: var(--content-neutrals-inverse);
                     }
                 }
                 
@@ -582,7 +582,7 @@ const NavDesktop = styled.nav`
 
                 &:hover, &:focus-visible {
                     p {
-                        color: var(--background-neutrals-inverse);
+                        color: var(--content-neutrals-inverse);
                     }
                 }
             }
@@ -601,10 +601,6 @@ const NavDesktop = styled.nav`
                     height: 100%;
                     object-fit: cover;
                 }
-            }
-
-            &:hover, &:focus-visible {
-                background: var(--background-neutrals-inverse);
             }
         }        
     }

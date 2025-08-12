@@ -2,6 +2,7 @@ import Router, { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import styled from 'styled-components';
+import Image from 'next/image';
 
 import useAuth from '../hooks/useAuth';
 import saphira from '../services/saphira';
@@ -25,22 +26,23 @@ const User = () => {
     const [studentInfo, setStudentInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [addOrEditNUSP, setAddOrEditNUSP] = useState(false);
 
-    const getStudentInfo = () => {
+    const getStudentInfo = async() => {
         if (!user) return;
 
         setIsLoading(true);
 
-        saphira.getStudent()
-            .then((res) => {
-                setStudentInfo({ ...saphiraUserDataToFormFormat(res.data) });
-                setIsLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setIsLoading(false);
-            });
+        try{
+            const { data } = await saphira.getStudent()
+            if (data) setStudentInfo({ ...saphiraUserDataToFormFormat(data) });
+            
+        }
+        catch(err){
+            console.log("Houve um erro GRAVE no usuário", err)
+        }
+        finally{
+            setIsLoading(false)
+        }
     }
 
     const saphiraUserDataToFormFormat = (userData) => {
@@ -89,26 +91,6 @@ const User = () => {
         return count;
     }
 
-    const onSubmit = data => {
-        if (data.usp_number === studentInfo.usp_number) {
-            setAddOrEditNUSP(false);
-            return;
-        }
-
-        setIsLoading(true);
-
-        saphira.updateStudent(data.usp_number)
-            .then((res) => {
-                setStudentInfo({ ...studentInfo, usp_number: res.data.usp_number });
-                setAddOrEditNUSP(false);
-                setIsLoading(false);
-            }).catch((err) => {
-                console.error(err);
-                setAddOrEditNUSP(false);
-                setIsLoading(false);
-            });
-    };
-
     useEffect(() => {
         if (disableAuth || !user) {
             Router.push('/');
@@ -140,9 +122,10 @@ const User = () => {
             });
         }, 1000);
     };
-
+    
     return (
         <>
+        {
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -152,12 +135,17 @@ const User = () => {
                 `
                 }}
             />
+        }
 
-            <Meta title='Meu Perfil | Semana de Sistemas de Informação' />
+            <Meta title='Meu Perfil | Semana de Sistemas de Informação 2025' />
 
             {isLoading &&
                 <Loading>
-                    <img src='./loading.svg' alt='SSI 2024 - Loading' />
+                    <Image 
+                    src='./loading.svg' 
+                    width = {500}
+                    height = {500}
+                    alt='SSI 2025 - Loading' />
                 </Loading>
             }
 
@@ -169,7 +157,11 @@ const User = () => {
 
                             <UserInfoWrapper>
                                 <PhotoTextWrapper>
-                                    <img className='user-pic' src={user.photoUrl} alt="user picture" />
+                                    <Image 
+                                    className='user-pic' 
+                                    width = {500}
+                                    height = {500}
+                                    src={user.photoUrl} alt="user picture" />
                                 </PhotoTextWrapper>
 
                                 <InfoUser>
@@ -193,49 +185,6 @@ const User = () => {
                                     <div className='unique-code'>
                                         <h6>{studentInfo.code}</h6>
                                     </div>
-
-                                    <p>Número USP:</p>
-                                    {addOrEditNUSP ?
-                                        <>
-                                            <div className='number-usp'>
-                                                <form onSubmit={handleSubmit(onSubmit)}>
-                                                    <InputBox>
-                                                        <div className='form-input'>
-                                                            <input 
-                                                                id='usp_number'
-                                                                type='number'
-                                                                placeholder='Digite aqui...'
-                                                                className={`${errors.usp_number && 'error-border'}`}
-                                                                {...register("usp_number", {required: true, minLength: 5, maxLength: 10 })} 
-                                                            />
-                                                        </div>
-                                                        {errors.usp_number && <ErrorMessage>Número USP inválido</ErrorMessage>}
-                                                    </InputBox>
-                                                    <Button className='contained-width-btn'>Salvar</Button>
-                                                </form>
-                                            </div>
-                                        </>
-                                    :
-                                        <>
-                                            {studentInfo.usp_number ?
-                                                <Button className='contained-width-btn defined-nusp' onClick={() => { setAddOrEditNUSP(true) }}>
-                                                    {studentInfo.usp_number}
-                                                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M0 18.9998V14.7498L14.625 0.174805L18.8 4.4498L4.25 18.9998H0ZM14.6 5.7998L16 4.39981L14.6 2.9998L13.2 4.39981L14.6 5.7998Z" fill="white"/>
-                                                    </svg>
-                                                </Button>
-                                            :
-                                                <div className='number-usp'>
-                                                    <SecondaryButton onClick={() => { setAddOrEditNUSP(true) }}>
-                                                        Adicionar Número USP
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                                            <path d="M19.5 12.998H13.5V18.998H11.5V12.998H5.5V10.998H11.5V4.99805H13.5V10.998H19.5V12.998Z" fill="white"/>
-                                                        </svg>
-                                                    </SecondaryButton>
-                                                </div>
-                                            }
-                                        </>
-                                    }
                                 </div>
                             </UserInfoWrapper>
                         </div>
@@ -244,25 +193,31 @@ const User = () => {
                     <UserWatchedLecturesListSection>
                         <div className='lectures-info-wrapper'>
                             <h5>Palestras assistidas</h5>
+                            <p>Filtre por dia:</p>
+                            <div className='info-content'>
+                                <UserWatchedLecturesList lectures={lectures} />
 
-                            <div className="statusPres">
-                                <div className='display-pres b0 '>
-                                    <p>Total de registros</p>
-                                    <h4>{lectures.length}</h4>
-                                </div>
-                                <div className='display-pres b1'>
-                                    <p>Registros presenciais</p>
-                                    <h4>{presentialLecturesCount()}</h4>
+                                <div className="statusPres">
+                                    <div className='display-pres b0 '>
+                                        <p>Total de registros</p>
+                                        <h4>{lectures.length}</h4>
+                                    </div>
+                                    <div className='display-pres b1'>
+                                        <p>Brindes completados:</p>
+                                        <h4>{presentialLecturesCount()}</h4>
+                                    </div>
+
+                                    <div className='display-pres b1'>
+                                        <p>Brindes resgatodos:</p>
+                                        <h4>{presentialLecturesCount()}</h4>
+                                    </div>
                                 </div>
                             </div>
-                            
-                            <TokenModal  onSuccess={getPresences} />
 
-                            <UserWatchedLecturesList lectures={lectures} />
                         </div>
                     </UserWatchedLecturesListSection>
 
-
+                    {/*
                     <GiftsProgressSection id='meus-brindes'>
                         <h5>Progresso dos brindes</h5>
 
@@ -280,6 +235,7 @@ const User = () => {
                             })}
                         </div>
                     </GiftsProgressSection>
+                    */}
                 </>
             }
         </>
@@ -302,8 +258,10 @@ const Loading = styled.figure`
 `
 
 const UserInfoSection = styled.section`
-    padding-block: 1.5rem;
-    border-bottom: 1px solid var(--background-neutrals-secondary);
+    padding: 1.5rem;
+    max-width: 1328px;
+    width: 100%;
+    margin: 0 auto;
 
     > div {
         display: flex;
@@ -311,9 +269,10 @@ const UserInfoSection = styled.section`
         gap: 1.5rem;
     }
 
-    @media (min-width:1021px) {
-        padding-block: 6.75rem 2rem;
+    @media (min-width:1024px) {
+        padding: 2rem 1.5rem;
         gap: 3.5rem;
+        border-inline: 1px solid var(--outline-neutrals-secondary);
     }
 `
 
@@ -323,9 +282,9 @@ const UserInfoWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     align-self: center;
-    background-color: var(--background-neutrals-primary-800);
+    background-color: var(--background-neutrals-secondary);
     padding: 1rem;
-    gap: 1rem;
+    gap: 1.25rem;
 
     @media (min-width:1021px) {
         width: 100%;
@@ -339,8 +298,8 @@ const UserInfoWrapper = styled.div`
         width: 100%;
         min-width: 16rem;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         justify-content: center;
         gap: 0.5rem;
 
@@ -411,78 +370,6 @@ const ErrorMessage = styled.span`
     bottom: -1.1rem;
 `
 
-const InputBox = styled.div`
-    --color-invalid: #F24822;
-    --color-valid: #14AE5C;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-
-    .form-input {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        background-color: var(--background-neutrals-primary-50);
-        padding: 0.5rem;
-        margin-left: -4px;
-
-        border: 2px solid white;
-        background: transparent;
-        background-clip: padding-box;
-        color: white;
-
-        &:has(input[type=number]:focus):not(:has(.error-border)) {
-            border-color: var(--brand-primary);
-        }
-
-        &:has(.error-border) {
-            border-color: var(--color-invalid);
-        }
-
-        input[type=number] {
-            width: 95%;
-            border: none;
-            height: fit-content;
-            background-color: transparent;
-            color: white;
-            font: 400 1rem/1.5rem 'AT Aero';
-        }
-
-        ::placeholder {
-            color: white;
-            font: 400 1rem/1.5rem 'AT Aero';
-        }
-
-        ::-ms-input-placeholder {
-            color: white;
-            font: 400 1rem/1.5rem 'AT Aero';
-        }
-    }
-
-    /* Remove setas do input number em navegadores */
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    /* Remove setas do input number no Firefox */
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
-
-    span {
-        font: 400 0.875rem/1rem 'AT Aero Bold';
-        color: var(--color-invalid);
-    }
-`
-
 const PhotoTextWrapper = styled.div`
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -500,7 +387,7 @@ const PhotoTextWrapper = styled.div`
         max-width: 9.375rem;
     }
 
-    @media (min-width:1021px) {
+    @media (min-width:801px) {
         gap: 2rem;
         flex-direction: row;
     }
@@ -515,7 +402,7 @@ const InfoUser = styled.div`
 
     .user-info {
         font-size: 1rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     @media (min-width:1021px) {
@@ -526,21 +413,26 @@ const InfoUser = styled.div`
 `
 
 const UserWatchedLecturesListSection = styled.section`
-    padding-block: 2rem;
-    border-bottom: 1px solid var(--background-neutrals-secondary);
+    //border-block: 1px solid var(--outline-neutrals-secondary);
+    border-top: 1px solid var(--outline-neutrals-secondary);
 
     .lectures-info-wrapper {
+        padding-block:1.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
+        width: 100%;
 
 		.statusPres {
 			width: 100%;
 			display: flex;
             flex-direction: column;
 			gap: 1rem;
+            background-color: var(--background-neutrals-secondary);
+            margin-block: 1.5rem;
+            padding: 1.25rem;
 
 			.display-pres {
 				width: 100%;
@@ -563,15 +455,15 @@ const UserWatchedLecturesListSection = styled.section`
 				background-color: var(--brand-primary);
 				
 				p, h4 {
-					color: white;
+					color: var(--content-neutrals-primary);
 				}
 			}
 
 			.b1 {
-				background-color: white;
+				background-color: var(--background-neutrals-inverse);
 
 				p, h4 {
-					color: var(--brand-primary);
+					color: var(--content-neutrals-inverse);
 				}
 			}
 
@@ -584,10 +476,9 @@ const UserWatchedLecturesListSection = styled.section`
 
     @media (min-width:520px) {
 
-        .lectures-info-wrapper .statusPres {
-            flex-direction: row;
+        .lectures-info-wrapper {
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
 
             .b0, .b1 {
                 max-width: 18.5rem;
@@ -595,13 +486,31 @@ const UserWatchedLecturesListSection = styled.section`
         }
     }
 
-    @media (min-width:1021px) {
+    @media (min-width:801px) {
+       
         .lectures-info-wrapper {
             gap: 2rem;
+            max-width: 1328px;
+            padding: 2rem 1.5rem;
+            border-inline: 1px solid var(--outline-neutrals-secondary);
+            width: 100%;
 
-            h4 {
+            h4, p {
                 width: 100%;
                 text-align: left;
+            }
+
+            .info-content{
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                
+            }
+
+            .statusPres{
+                width: fit-content;
+                margin-block: unset;
             }
         }
     }
