@@ -37,7 +37,6 @@ export default class MyDocument extends Document {
                     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
                     <link rel="preload" href="/fonts/at_aero-regular.ttf" as="font" crossOrigin="" />
                     <link rel="preload" href="/fonts/at_aero-bold.ttf" as="font" crossOrigin="" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 </Head>
                 <body id="modal-root">
                     <Main />

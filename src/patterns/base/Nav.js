@@ -483,7 +483,7 @@ const Sidepanel = styled.div`
                     }
 
                     svg path {
-                        fill: var(--brand-primary);
+                        fill: var(--content-neutrals-inverse);
                     }
                 }
                 

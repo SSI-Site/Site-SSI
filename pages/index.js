@@ -198,7 +198,8 @@ const Home = () => {
                             <>
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2025</h1>
-                                    <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>!</p>
+                                    <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
+                                    <p className='greetings-text'>Olá, <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>!</p>
                                 </div>
                             </>
                         }
@@ -531,7 +532,7 @@ const LandingSection = styled.section`
 
                     span {
                         font: inherit;
-                        background-color: var(--outline-neutrals-secondary);
+                        background-color: var(--brand-primary);
                     }
                 }
             }
