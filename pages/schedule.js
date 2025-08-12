@@ -44,7 +44,7 @@ const Schedule = () => {
             setActiveItem(firstDay)
             setDayNumber(dayFull.indexOf(firstDay))
         }
-
+    
         return (
             <ScheduleItems schedule={filterTalks(talks, activeItem)} />
         )
@@ -62,7 +62,7 @@ const Schedule = () => {
         setIsLoading(true)
         try{
             const { data } = await saphira.getTalks()
-            if (data) setTalks(data)
+            if (data) setTalks(data);
         }
         catch(err){
             console.log("Houve um erro na requsição das palestras", err)

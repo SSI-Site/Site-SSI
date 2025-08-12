@@ -30,12 +30,12 @@ const saphira = {
     // Função auxiliar - obtém o token de acesso
     getAccessToken: async () => {
 
-        let accessToken = localStorage.getItem(ACCESS_TOKEN);
+        let accessToken = localStorage.getItem("access_token");
         // console.log('accessToken', accessToken);
 
         // Se o token de acesso não existe ou está expirado, renova o token
         if (!accessToken || saphira.isTokenExpired(accessToken)) {
-            const refreshToken = localStorage.getItem(REFRESH_TOKEN);
+            const refreshToken = localStorage.getItem("refresh_token");
             // console.log('o refreshToken é', refreshToken);
 
             if (!refreshToken) {
@@ -44,11 +44,11 @@ const saphira = {
             }
 
             try {
-                const response = await axios.post(`${API_BASE_URL}/api/token/refresh`, {
+                const response = await axios.post(`/api/token/refresh`, {
                     refresh: refreshToken,
                 });
                 accessToken = response.data.access;
-                localStorage.setItem(ACCESS_TOKEN, accessToken);
+                localStorage.setItem("access_token", accessToken);
                 return accessToken;
             } catch (error) {
                 console.error('Erro ao renovar token:', error);
@@ -85,10 +85,11 @@ const saphira = {
     // Requisição autenticada: Obter dados do estudante
     getStudent: async () => {
         const accessToken = await saphira.getAccessToken();
-        const studentId = localStorage.getItem(STUDENT_ID);
-        const requestUrl = `${API_BASE_URL}/student/${studentId}`;
+        const studentId = localStorage.getItem("student_id");
+        const requestUrl = `/student/${studentId}`;
 
-        return axios.get(requestUrl, {
+        return axios.get(
+            requestUrl, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
