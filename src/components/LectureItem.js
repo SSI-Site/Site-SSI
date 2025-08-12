@@ -7,6 +7,7 @@ import Image from 'next/image';
 // components
 import BadgeCO from './BadgeCO';
 import SpeakerInfo from './SpeakerInfo';
+import sponsorImages from '../../data/sponsors';
 
 // assets
 import LectureRight from '../../public/images/background_imgs/desktopDetail.png';
@@ -20,7 +21,7 @@ const LectureItem = ({ time, event }) => {
                 <LectureHeader>
                     {event.sponsor &&
                         <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                            <Image src={event.sponsor} alt={`Logo ${event.sponsor.name}`}
+                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
                             width={500} height={500} />
                         </a>
                     }
