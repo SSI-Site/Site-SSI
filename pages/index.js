@@ -198,9 +198,8 @@ const Home = () => {
                             <>
                                 <div className='landing-text'>
                                     <h1>Semana de Sistemas de Informação 2025</h1>
-                                    <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>! Registre a sua presença online aqui:</p>
+                                    <p className='greetings-text'>Olá <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>!</p>
                                 </div>
-                                <TokenModal />
                             </>
                         }
 
