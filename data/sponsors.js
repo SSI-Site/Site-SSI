@@ -5,6 +5,7 @@ import RVentures from '../public/images/partners/badges/logo-badge-r2-ventures.p
 import SSITalks from '../public/images/partners/badges/logo-badge-parceria.png'
 import PetSI from '../public/images/partners/badges/logo-badge-pet.svg'
 import Hype from '../public/images/partners/badges/logo-badge-hype.png'
+import idwall from '../public/images/partners/badges/logo-badge-idwall.png'
 
 const sponsorImages  = {
     'totvs': TOTVS,
@@ -13,7 +14,8 @@ const sponsorImages  = {
     'r2 ventures': RVentures,
     'hype': Hype,
     'ssi talks': SSITalks,
-    'pet si':PetSI
+    'pet si':PetSI,
+    'idwall': idwall
 }
 
 export default sponsorImages
