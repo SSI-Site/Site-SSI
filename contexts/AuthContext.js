@@ -12,6 +12,7 @@ import {
 import { auth } from '../lib/firebase'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_SAPHIRA_URL
+axios.defaults.baseURL = API_BASE_URL
 
 const AuthContext = createContext()
 
@@ -25,7 +26,7 @@ const formatUser = async (user) => ({
 })
 
 export function AuthProvider({ children }) {
-    const disableAuth = true; // false para ativar a autenticação
+    const disableAuth = false; // false para ativar a autenticação
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -46,6 +47,7 @@ export function AuthProvider({ children }) {
         if (session) {
             cookie.set('ssi-student-auth', session, {
                 expires: 1,
+                sameSite: 'Strict'
             })
         } else {
             cookie.remove('ssi-student-auth')
@@ -62,7 +64,7 @@ export function AuthProvider({ children }) {
 
             try {
                 const loginAPIResponse = await axios.post(
-                    `${API_BASE_URL}/student/login`,
+                    "/student/login",
                     {
                         name: response.user.displayName,
                         email: response.user.email,
