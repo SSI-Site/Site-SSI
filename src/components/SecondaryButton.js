@@ -6,6 +6,7 @@ const SecondaryButton = styled.button`
     --background: var(--brand-primary);
 
     display: flex;
+    color: var(--content-neutrals-primary);
     align-items: center;
     justify-content: center;
     width: 100%;
