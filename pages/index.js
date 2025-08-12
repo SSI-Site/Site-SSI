@@ -532,7 +532,9 @@ const LandingSection = styled.section`
 
                     span {
                         font: inherit;
+                        padding: .15rem;
                         background-color: var(--brand-primary);
+                        color: var(--content-neutrals-fixed-white);
                     }
                 }
             }

@@ -11,7 +11,7 @@ const colorSchemes = [
     },
     {
         'badgeColor' : 'var(--brand-purple-200)',
-        'textColor'  : 'var(--brand-primary-dark)'
+        'textColor'  : 'var(--content-neutrals-inverse)'
     },
     {
         'badgeColor' : 'var(--brand-purple-300)',
