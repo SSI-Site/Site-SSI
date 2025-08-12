@@ -8,11 +8,11 @@ const LecturesList = ({ lectures }) => {
     const [selectedDay, setSelectedDay] = useState(null);
 
     const daysOfWeek = [
-        { label: 'Segunda-feira', value: '2024-10-07' },
-        { label: 'Terça-feira', value: '2024-10-08' },
-        { label: 'Quarta-feira', value: '2024-10-09' },
-        { label: 'Quinta-feira', value: '2024-10-10' },
-        { label: 'Sexta-feira', value: '2024-10-11' }
+        { label: 'Segunda-feira', value: '2025-08-18' },
+        { label: 'Terça-feira', value: '2025-08-19' },
+        { label: 'Quarta-feira', value: '2025-08-20' },
+        { label: 'Quinta-feira', value: '2025-08-21' },
+        { label: 'Sexta-feira', value: '2025-08-22' }
     ];
 
     useEffect(() => {
@@ -132,6 +132,17 @@ const FilterItem = styled.div`
     flex-shrink: 0;
     scroll-snap-align: center;
     width: 9.75rem;
+    font: 700 .85rem/1.5rem 'At Aero Bold';
+
+    > div:hover, > div:focus-visible {
+        background-position-x: 100%;    
+    }
+
+    ${props => props.$active == true && css`
+        > div:hover, > div:focus-visible {
+            color: var(--content-neutrals-inverse);
+        }
+    `}
 
     ${props => props.$active == false && css`
         > div {
@@ -142,22 +153,13 @@ const FilterItem = styled.div`
     ${props => props.$active == true && css`
         > div {
             background-color: var(--brand-primary); 
-            background-image: linear-gradient(to right, white 50%, white 50%);
+            background-image: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--background-neutrals-inverse) 50%);
         }
     `}
 
     @media (min-width:840px) {
         width: 12rem;
-
-        > div:hover, > div:focus-visible {
-            background-position-x: 100%;    
-        }
-        
-        ${props => props.$active == true && css`
-            > div:hover, > div:focus-visible {
-                color: var(--brand-primary);
-            }
-        `}
+        font: 700 1rem/1.5rem 'At Aero Bold';
     }
 `
 
@@ -168,7 +170,7 @@ const DayStamp = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: var(--background-neutrals-primary-800);
+    background-color: var(--background-neutrals-secondary);
     padding: 0.75rem 1.5rem;
     gap: 0.5rem;
     transition: 0.15s;

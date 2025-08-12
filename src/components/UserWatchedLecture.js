@@ -102,7 +102,7 @@ const WatchedLectureContainer = styled.div`
     }
 
     .presential {
-        background-color: white;
+        background-color: var(--background-neutrals-inverse);
         
         span {
             color: var(--brand-primary);
@@ -111,10 +111,10 @@ const WatchedLectureContainer = styled.div`
 
     .tooltiptext {
         visibility: hidden;
-        background-color: white;
+        background-color: var(--background-neutrals-inverse);
         text-align: center;
         padding: 0.5rem 0.75rem;
-        color: var(--background-neutrals-primary);
+        color: var(--content-neutrals-inverse);
         font: 400 1rem/1.5rem 'AT Aero';
         width: 100%;
         max-width: clamp(10rem, 90vw, 20rem);

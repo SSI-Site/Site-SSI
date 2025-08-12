@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
+import filterTalks from '../utils/filterTalks';
 
 // importe Image do next
 import Image from 'next/image'
@@ -19,9 +20,8 @@ import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
+import saphira from '../services/saphira';
 
-// assets
-import schedule from '../data/schedule';
 
 const partnerships = [
     { name: 'aton', imageDark: '/images/partners/aton-dark.png', imageLight: '/images/partners/aton-light.png', url: 'https://ambarx.com.br/' },
@@ -43,6 +43,7 @@ const Home = () => {
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showMapModal, setShowMapModal] = useState(false);
+    const [schedule, setSchedule] = useState([])
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
@@ -58,6 +59,18 @@ const Home = () => {
     const [countdownSeconds, setCountdownSeconds] = useState();
     var countdownDate = new Date("Aug 18, 2025 09:40:00").getTime();
     var now = new Date().getTime();
+
+    const getSchedule = async() => {
+        try{
+            const { data } = await saphira.getTalks()
+            if (data) {
+                setSchedule(data)
+            }
+        }
+        catch(err){
+            console.log('Houve um erro na hora de obter os dados', err)
+        }
+    }
 
     useEffect(() => {
         setInterval(() => {
@@ -76,6 +89,10 @@ const Home = () => {
             setCountdownSeconds(String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0'));
         }, 1000);
     }, []);
+
+    useEffect(() => {
+        getSchedule()
+    }, [])
 
     const firstEventDay = new Date(2025, 7, 18);
     const lastEventDay = new Date(2025, 7, 22);
@@ -116,9 +133,8 @@ const Home = () => {
     }
 
     // Array intermediario com de horario e atividades
-    const filteredArray = Object.entries(schedule[formattedScheduleDate]).filter(([key, _]) => {
-        const scheduleStartTimeMinutes = minutesAfterMidNight(key); // Horário de cada atividade
-
+    const filteredArray = schedule.filter((array) => {
+        const scheduleStartTimeMinutes = minutesAfterMidNight(array.start_time.split("T")[1]); // Horário de cada atividade
         switch (shift) {
             case "Manhã":
                 return scheduleStartTimeMinutes < morningEnd;
@@ -130,8 +146,8 @@ const Home = () => {
     })
 
     // Cria um object com base no array intermediario
-    const filteredSchedule = Object.fromEntries(filteredArray);
-
+    const filteredSchedule = filterTalks(filteredArray, formattedScheduleDate)
+   
     useEffect(() => {
         if (showAuthModal) {
             // Calcula a largura da barra de rolagem
@@ -292,7 +308,7 @@ const Home = () => {
                     </div>
 
                     <div className='about-content'>
-                        <p className='about-desc'>As palestras ocorrerão entre os dias 07 e 11 de outubro, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso canal no YouTube.</p>
+                        <p className='about-desc'>As palestras ocorrerão entre os dias 18 e 22 de Agosto, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso canal no YouTube.</p>
 
                         <div className='about-cards'>
                             <CountUp
@@ -360,7 +376,7 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
-{/*
+
 
             {(current <= lastEventDay) &&
                 <ScheduleSection>
@@ -399,7 +415,6 @@ const Home = () => {
                     </div>
                 </ScheduleSection>
             }
-*/}
 
             <DirectionsSection>
                 <div className='directions-container'>
@@ -432,8 +447,8 @@ const Home = () => {
                         <iframe
                             title = "Localização do evento"
                             loading="lazy"
-                            allowfullscreen
-                            referrerpolicy="no-referrer-when-downgrade"
+                            allowFullScreen
+                            referrerPolicy="no-referrer-when-downgrade"
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCL7qTxrGVIZNLd8ggivIvD6eco1ruf27E&q=EACH+USP">
                         </iframe>
                     </div>

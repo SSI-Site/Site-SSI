@@ -20,7 +20,7 @@ const LectureItem = ({ time, event }) => {
                 <LectureHeader>
                     {event.sponsor &&
                         <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                            <Image src={event.sponsor.image} alt={`Logo ${event.sponsor.name}`}
+                            <Image src={event.sponsor} alt={`Logo ${event.sponsor.name}`}
                             width={500} height={500} />
                         </a>
                     }

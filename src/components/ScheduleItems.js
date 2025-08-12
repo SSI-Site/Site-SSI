@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatTime } from '../../utils/format-time'
-import filterTalks from '../../utils/filterTalks'
 // components
 import LectureItem from './LectureItem'
 
 
 const ScheduleItems = ({ schedule }) => {
-
     return (
         <>
             <ScheduleWrapper>
@@ -15,14 +13,15 @@ const ScheduleItems = ({ schedule }) => {
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
                     {schedule.map((talk) => {
                         
-                        if (!talk.speakers) {
+                        if (talk.title == "Abertura" || talk.title == "Encerramento" || talk.title == "Intervalo" || !talk.speakers) {
+                            
                             return (
                                 <li key={talk.id}>
                                     <h5>{formatTime(talk.start_time)}</h5>
                                     <div className={`event ${talk.title == 'Abertura' || talk.title == 'Encerramento' ? 'special-event' : ''}`}>
                                         <h6>{talk.title}</h6>
                                         {talk.end_time ?
-                                            <p>{formatTime(talk.start_time)} - {formatTime(talk.endTime)}</p>
+                                            <p>{formatTime(talk.start_time)} - {formatTime(talk.end_time)}</p>
                                             :
                                             <p>{formatTime(talk.start_time)}</p>
                                         }
