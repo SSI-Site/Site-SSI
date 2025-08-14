@@ -110,7 +110,7 @@ const Home = () => {
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
     const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2025-08-18';
 
-    const filterEventDays = ["18 Out - Segunda-feira", "19 Out - Terça-feira", "20 Out - Quarta-feira", "21 Out - Quinta-feira", "22 Out - Sexta-feira"];
+    const filterEventDays = ["18 Ago - Segunda-feira", "19 Ago - Terça-feira", "20 Ago - Quarta-feira", "21 Ago - Quinta-feira", "22 Ago - Sexta-feira"];
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();
 
     // Transforma 00:00 em minutos depois da meia noite para fazer calculos
