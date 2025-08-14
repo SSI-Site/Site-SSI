@@ -40,7 +40,7 @@ import MuriloSopi from '../public/images/speakers/368.jpg'
 import JoaoFantini from '../public/images/speakers/F7A.png'
 import DiogoLeonel from '../public/images/speakers/685.jpeg'
 import GabrielSoares from '../public/images/speakers/A17.jpg'
-import palestranteQuarta from '../public/images/speakers/867.jpeg'
+import EduardoRangel from '../public/images/speakers/877.jpeg'
 
 const speakersImages = {
     '0EE': JoaoGabrielBruni,
@@ -85,7 +85,7 @@ const speakersImages = {
     '685': DiogoLeonel,
     'F7A': JoaoFantini,
     'A17': GabrielSoares,
-    '877': palestranteQuarta
+    '877': EduardoRangel
 }
 
 export default speakersImages
