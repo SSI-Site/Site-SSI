@@ -40,7 +40,7 @@ import MuriloSopi from '../public/images/speakers/368.jpg'
 import JoaoFantini from '../public/images/speakers/F7A.png'
 import DiogoLeonel from '../public/images/speakers/685.jpeg'
 import GabrielSoares from '../public/images/speakers/A17.jpg'
-import EduardoRangel from '../public/images/speakers/877.jpeg'
+import EduardoRangel from '../public/images/speakers/877.jpg'
 
 const speakersImages = {
     '0EE': JoaoGabrielBruni,
