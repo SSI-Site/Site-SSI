@@ -5,8 +5,11 @@ import styled from 'styled-components'
 // assets
 import Code from '../../../public/images/icons/code.svg'
 import Coffee from '../../../public/images/icons/coffee.svg'
-import LogoPrincipal from '../../../public/images/logos/logo_principal.svg'
+import LogoPrincipalLight from '../../../public/images/logos/logo_principal-light.svg'
+import LogoPrincipalDark from '../../../public/images/logos/logo_principal-dark.svg'
 import { InstagramLogo, LinkedInLogo, YouTubeLogo } from '../../components/SocialMediaLogos'
+
+import Image from 'next/image';
 
 const Footer = () => {
     const router = useRouter()
@@ -28,19 +31,20 @@ const Footer = () => {
                             <rect id="arrow" width="100" height="100%" />
                         </svg>
                     </MobileBackToTop>
-                    <div className="logo-container">
-                        <img
-                            src={LogoPrincipal}
-                            alt="Logo da Semana de Sistemas de Informação"
+                    
+                    <picture>
+                        <source srcSet = {LogoPrincipalLight} 
+                        media = "(prefers-color-scheme: light)"/>
+
+                        <Image
+                            src={LogoPrincipalDark}
+                            width={176}
+                            height={136}
+                            alt='Semana de Sistemas de Informação 2025'
                             className="logo-image"
                         />
-                    </div>
 
-                    <p>
-                        Semana de
-                        <br />
-                        Sistemas de Informação
-                    </p>
+                    </picture>
                 </FooterLogo>
 
                 <FooterLinks>
@@ -327,17 +331,6 @@ const FooterLogo = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    .logo-container {
-        width: 100%;
-        max-width: 5rem;
-    }
-
-    .logo-image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
 
     p {
         text-align: center;
