@@ -16,7 +16,7 @@ const sponsorImages  = {
     'r2 ventures': RVentures,
     'hype': Hype,
     'ssi talks': SSITalks,
-    'pet-si':PetSI,
+    'petsi':PetSI,
     'idwall': idwall,
     'ssi talks': SSITalks,
     'nelogica':nelogica,
