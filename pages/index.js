@@ -18,10 +18,8 @@ import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
 import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
-import TokenModal from '../src/components/TokenModal';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import saphira from '../services/saphira';
-
 
 const partnerships = [
     { name: 'aton', imageDark: '/images/partners/aton-dark.png', imageLight: '/images/partners/aton-light.png', url: 'https://ambarx.com.br/' },
@@ -35,6 +33,11 @@ const supporters = [
     { name: 'R2ventures', imageDark: '/images/partners/r2-ventures-dark.png', imageLight: '/images/partners/r2-ventures-light.png', url: 'https://r2ventures.com.br/' },
     // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
+
+export async function getServerSideProps({query}) {
+    if (Object.keys(query).some((key) => key)) return {notFound: true}
+    else return {props: {}}
+}
 
 const Home = () => {
 
