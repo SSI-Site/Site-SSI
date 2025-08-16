@@ -23,9 +23,8 @@ import saphira from '../services/saphira';
 
 const partnerships = [
     { name: 'aton', imageDark: '/images/partners/aton-dark.png', imageLight: '/images/partners/aton-light.png', url: 'https://ambarx.com.br/' },
-    { name: 'idwall', imageDark: '/images/partners/idwall-dark.png', imageLight: '/images/partners/idwall-light.png', url: 'https://idwall.co/pt-BR/'},
-    { name: 'Neologica', imageDark: '/images/partners/neologica-dark.png', imageLight: '/images/partners/neologica-light.png', url: 'https://www.nelogica.com.br/'},
-
+    { name: 'idwall', imageDark: '/images/partners/idwall-light.png', imageLight: '/images/partners/idwall-dark.png',  url: 'https://idwall.co/pt-BR/'},
+    { name: 'Neologica', imageDark: '/images/partners/neologica-light.png', imageLight: '/images/partners/neologica-dark.png', url: 'https://www.nelogica.com.br/'},
 ];
 
 const supporters = [
@@ -34,15 +33,11 @@ const supporters = [
     { name: 'TOTVS', imageDark: '/images/partners/totvs-dark.svg', imageLight: '/images/partners/totvs-light.png', url: 'https://www.totvs.com/' },
     { name: 'PET-SI', imageDark: '/images/partners/pet-dark.png', imageLight: '/images/partners/pet-light.png', url: 'https://www.instagram.com/petsieach/' },
     { name: 'R2ventures', imageDark: '/images/partners/r2-ventures-dark.png', imageLight: '/images/partners/r2-ventures-light.png', url: 'https://r2ventures.com.br/' },
-    {name: 'Rocketseat', imageDark: '/images/partners/rocketseat-dark.png', imageLight: '/images/partners/rocketseat-light.png', url: 'https://www.rocketseat.com.br/'},
-    {name: 'Bravium', imageDark: '/images/partners/bravium-dark.png', imageLight: '/images/partners/bravium-light.png', url: 'https://www.bravium.com.br/'},
+    {name: 'Rocketseat', imageDark: '/images/partners/rocketseat-light.png',  imageLight: '/images/partners/rocketseat-dark.png', url: 'https://www.rocketseat.com.br/'},
+    {name: 'Bravium', imageDark: '/images/partners/bravium-light.png', imageLight: '/images/partners/bravium-dark.png',  url: 'https://www.bravium.com.br/'},
     // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
-export async function getServerSideProps({query}) {
-    if (Object.keys(query).some((key) => key)) return {notFound: true}
-    else return {props: {}}
-}
 
 const Home = () => {
 
