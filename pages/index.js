@@ -34,10 +34,6 @@ const supporters = [
     // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
-export async function getServerSideProps({query}) {
-    if (Object.keys(query).some((key) => key)) return {notFound: true}
-    else return {props: {}}
-}
 
 const Home = () => {
 
