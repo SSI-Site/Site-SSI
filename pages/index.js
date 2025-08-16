@@ -23,6 +23,9 @@ import saphira from '../services/saphira';
 
 const partnerships = [
     { name: 'aton', imageDark: '/images/partners/aton-dark.png', imageLight: '/images/partners/aton-light.png', url: 'https://ambarx.com.br/' },
+    { name: 'idwall', imageDark: '/images/partners/idwall-dark.png', imageLight: '/images/partners/idwall-light.png', url: 'https://idwall.co/pt-BR/'},
+    { name: 'Neologica', imageDark: '/images/partners/neologica-dark.png', imageLight: '/images/partners/neologica-light.png', url: 'https://www.nelogica.com.br/'},
+
 ];
 
 const supporters = [
@@ -31,6 +34,8 @@ const supporters = [
     { name: 'TOTVS', imageDark: '/images/partners/totvs-dark.svg', imageLight: '/images/partners/totvs-light.png', url: 'https://www.totvs.com/' },
     { name: 'PET-SI', imageDark: '/images/partners/pet-dark.png', imageLight: '/images/partners/pet-light.png', url: 'https://www.instagram.com/petsieach/' },
     { name: 'R2ventures', imageDark: '/images/partners/r2-ventures-dark.png', imageLight: '/images/partners/r2-ventures-light.png', url: 'https://r2ventures.com.br/' },
+    {name: 'Rocketseat', imageDark: '/images/partners/rocketseat-dark.png', imageLight: '/images/partners/rocketseat-light.png', url: 'https://www.rocketseat.com.br/'},
+    {name: 'Bravium', imageDark: '/images/partners/bravium-dark.png', imageLight: '/images/partners/bravium-light.png', url: 'https://www.bravium.com.br/'},
     // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
@@ -1245,22 +1250,20 @@ const SupportersSection = styled.section`
 
         .supporters-cards {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: row;
             gap: 1rem;
-            width: 100%;
+            justify-content: center;
+
+            > div {
+                flex-grow: 0;
+
+                @media (min-width: 800px) {
+                    flex-basis: calc(33.333% - 1rem);
+                }
+            }
         }
     }
-
-	@media (min-width: 800px) {
-		.supporters-container {
-			.supporters-cards {
-				flex-direction: row;
-				flex-flow: wrap;
-			}
-		}
-	}
 
     @media (min-width:1000px) {
         padding-block: 4.5rem;
