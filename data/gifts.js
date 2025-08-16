@@ -17,19 +17,19 @@ const gifts = {
         minPresence: 8
     },
     3: {
+        name: 'Chaveiro',
+        image: Chaveiro,
+        minPresence: 12
+    },
+    4: {
         name: 'Copo',
         image: Copo,
         minPresence:20
     },
-    4: {
+    5: {
         name: 'Balde de Pipoca',
         image: BaldeDePipoca,
         minPresence: 28
-    },
-    5: {
-        name: 'Chaveiro',
-        image: Chaveiro,
-        minPresence: 12
     }
 }
 
