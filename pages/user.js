@@ -26,6 +26,7 @@ const User = () => {
     const [studentInfo, setStudentInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [userGifts, setUsersGifts] = useState([])
   
     const getStudentInfo = async() => {
         if (!user) return;
@@ -76,14 +77,16 @@ const User = () => {
     const getStudentGifts = async() => {
         try{
             const { data } = await saphira.getStudentGifts()
-            if (data) console.log(data)
+            if (data) setUsersGifts(data)
         }
         catch(err){
             console.log(err)
         }
     }
 
-    console.log(studentInfo)
+    const getAvailableGiftCount = () => {
+        return Object.values(gifts).filter(gift => lectures.length >= gift.minPresence).length
+    }
 
     const getPresences = () => {
         saphira.listStudentPresences()
@@ -218,12 +221,12 @@ const User = () => {
                                     </div>
                                     <div className='display-pres b1'>
                                         <p>Brindes completados:</p>
-                                        <h4>{presentialLecturesCount()}</h4>
+                                        <h4>{getAvailableGiftCount()}</h4>
                                     </div>
 
                                     <div className='display-pres b1'>
-                                        <p>Brindes resgatodos:</p>
-                                        <h4>{presentialLecturesCount()}</h4>
+                                        <p>Brindes resgatados:</p>
+                                        <h4>{userGifts.length}</h4>
                                     </div>
                                 </div>
                             </div>
