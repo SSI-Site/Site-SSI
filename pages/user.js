@@ -212,6 +212,7 @@ const User = () => {
                             <h5>Palestras assistidas</h5>
                             <p>Filtre por dia:</p>
                             <div className='info-content'>
+                                
                                 <UserWatchedLecturesList lectures={lectures} />
 
                                 <div className="statusPres">
@@ -221,12 +222,12 @@ const User = () => {
                                     </div>
                                     <div className='display-pres b1'>
                                         <p>Brindes completados:</p>
-                                        <h4>{getAvailableGiftCount()}</h4>
+                                        <h4>{userGifts.length}</h4>
                                     </div>
 
                                     <div className='display-pres b1'>
                                         <p>Brindes resgatados:</p>
-                                        <h4>{userGifts.length}</h4>
+                                        <h4>{userGifts.filter(item => item.receveid == true).length}</h4>
                                     </div>
                                 </div>
                             </div>
