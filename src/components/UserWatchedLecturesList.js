@@ -6,7 +6,6 @@ import UserWatchedLecture from './UserWatchedLecture';
 
 const LecturesList = ({ lectures }) => {
     const [selectedDay, setSelectedDay] = useState(null);
-
     const daysOfWeek = [
         { label: 'Segunda-feira', value: '2025-08-18' },
         { label: 'Terça-feira', value: '2025-08-19' },
@@ -33,11 +32,11 @@ const LecturesList = ({ lectures }) => {
     };
 
     const sortLecturesByTime = (lecturesList) => {
-        return lecturesList.sort((a, b) => new Date(a.date_time) - new Date(b.date_time));
+        return lecturesList.sort((a, b) => new Date(a.start_time) - new Date(b.end_time));
     };
 
     const filteredLectures = selectedDay
-        ? lectures.filter(lecture => getDayFromDateTime(lecture.date_time) === selectedDay)
+        ? lectures.filter(lecture => getDayFromDateTime(lecture.start_time) === selectedDay)
         : [];
 
     const sortedLectures = sortLecturesByTime(filteredLectures);
@@ -70,8 +69,8 @@ const LecturesList = ({ lectures }) => {
                         <UserWatchedLecture
                             key={key}
                             title={lecture.talk_title}
-                            begin={lecture.date_time}
-                            watchMode={lecture.online ? 'online' : 'presential'}
+                            start_time={lecture.start_time}
+                            end_time = {lecture.end_time}
                         />
                     ))}
             </div>
@@ -88,6 +87,7 @@ const LecturesListWrapper = styled.div`
     align-items: flex-start;
     justify-content: center;
     width: 100%;
+    gap: 0.45rem;
 
     .filter-container {
         margin-bottom: 2rem;
@@ -96,6 +96,10 @@ const LecturesListWrapper = styled.div`
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+
+        @media screen and (min-width: 801px) {
+            max-width: 1320px;
+        }
 
         p {
             font: 700 1rem/1.5rem 'AT Aero Bold';
@@ -119,10 +123,7 @@ const LecturesListWrapper = styled.div`
         justify-content: center;
         flex-flow: wrap; 
         gap: 1rem;
-
-        @media (min-width:840px) {
-            gap: 2rem;
-        }
+  
     }
 `;
 
