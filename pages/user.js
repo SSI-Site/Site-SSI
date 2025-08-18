@@ -26,7 +26,7 @@ const User = () => {
     const [studentInfo, setStudentInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
+  
     const getStudentInfo = async() => {
         if (!user) return;
 
@@ -73,6 +73,18 @@ const User = () => {
         }
     }
 
+    const getStudentGifts = async() => {
+        try{
+            const { data } = await saphira.getStudentGifts()
+            if (data) console.log(data)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    console.log(studentInfo)
+
     const getPresences = () => {
         saphira.listStudentPresences()
             .then((res) => {
@@ -97,6 +109,7 @@ const User = () => {
         } else {
             getStudentInfo();
             getPresences();
+            getStudentGifts();
         }
     }, [user]);
 
@@ -122,6 +135,7 @@ const User = () => {
             });
         }, 1000);
     };
+
     
     return (
         <>

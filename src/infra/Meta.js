@@ -12,7 +12,7 @@ const Meta = ({
     return (
         <Head>
             <meta name="google-site-verification" content="bLHZPxjVMwDGRMJCNaurph4fsBskPoBeqd7CG7WJyZU" />
-            <meta name='viewport' content='width=device-width, initial-scale=1' />
+            <meta name='viewport' content='width=wdevice-width, initial-scale=1' />
             <meta name="theme-color" content="#151023" />
             <meta name='keywords' content={keywords} />
             <meta name='description' content={description} />

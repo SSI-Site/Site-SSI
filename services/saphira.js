@@ -116,8 +116,8 @@ const saphira = {
     // Requisição autenticada: Listar presenças do estudante
     listStudentPresences: async () => {
         const accessToken = await saphira.getAccessToken();
-        const studentId = localStorage.getItem(STUDENT_ID);
-        const requestUrl = `${API_BASE_URL}/student/${studentId}/presences`;
+        const studentId = localStorage.getItem("student_id");
+        const requestUrl = `/student/${studentId}/presences`;
 
         return axios.get(requestUrl, {
             headers: {
@@ -148,6 +148,21 @@ const saphira = {
     getSpeaker: async(id) => {
         const requestUrl = `/admin/speakers/${id}`
         return await axios.get(requestUrl)
+    },
+
+    getStudentGifts: async() => {
+        const studentId = localStorage.getItem("student_id")
+        const requestUrl = `/student/${studentId}/gifts`
+        const accessToken = await saphira.getAccessToken()
+
+        return await axios.get(
+            requestUrl,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            }
+        )
     }
 
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-const UserWatchedLecture = ({ title, begin, watchMode }) => {
+const UserWatchedLecture = ({ title, start_time, end_time }) => {
     
     const titleRef = useRef(null);
     const [isTruncated, setIsTruncated] = useState(false);
@@ -36,10 +36,10 @@ const UserWatchedLecture = ({ title, begin, watchMode }) => {
                 </p>
                 {isTruncated && <span className='tooltiptext'>{title}</span>}
             </div>
-            <p className='lecture-time'>{formatTime(begin)}</p>
-            <div className={`lecture-mode ${watchMode}`}>
-                <span>{ watchMode === 'online' ? 'Online' : 'Presencial' }</span>
+            <div className = "timesWrapper">
+                <p className='lecture-time'>{formatTime(start_time)} - {formatTime(end_time)}</p>
             </div>
+        
         </WatchedLectureContainer>
     )
 }
@@ -49,14 +49,19 @@ export default UserWatchedLecture;
 
 const WatchedLectureContainer = styled.div`
 	width: 100%;
-    max-width: 20rem;
     padding: 0.75rem 1.5rem;
 	display: flex;
     flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
     position: relative;
-    background-color: var(--background-neutrals-secondary);
+    background-color: var(--background-neutrals-tertiary);
+
+    @media screen and (min-width: 801px){
+        margin-right: 3rem;
+        width: 100%;
+        max-width: 1320px;
+    }   
 
     .lecture-title-container {
         position: relative;
@@ -66,12 +71,18 @@ const WatchedLectureContainer = styled.div`
 
     .lecture-title {
         font: 700 1.125rem/1.5rem 'AT Aero Bold';
-        max-width: 100%;
+        max-width: 15rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         position: relative;
         display: inline-block;
+
+        @media screen and (min-width: 801px){
+            max-width: unset;
+        }
+
+        
     }
 
     .change-cursor {
