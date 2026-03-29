@@ -84,10 +84,6 @@ const User = () => {
         }
     }
 
-    const getAvailableGiftCount = () => {
-        return Object.values(gifts).filter(gift => lectures.length >= gift.minPresence).length
-    }
-
     const getPresences = () => {
         saphira.listStudentPresences()
             .then((res) => {
