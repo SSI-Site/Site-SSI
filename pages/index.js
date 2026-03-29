@@ -21,7 +21,7 @@ import SecondaryButton from '../src/components/SecondaryButton';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import saphira from '../services/saphira';
 
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
 const partnerships = [
     { name: 'aton', imageDark: '/images/partners/aton-dark.png', imageLight: '/images/partners/aton-light.png', url: 'https://ambarx.com.br/' },
