@@ -31,10 +31,10 @@ const Footer = () => {
                             <rect id="arrow" width="100" height="100%" />
                         </svg>
                     </MobileBackToTop>
-                    
+
                     <picture>
-                        <source srcSet = {LogoPrincipalLight} 
-                        media = "(prefers-color-scheme: light)"/>
+                        <source srcSet={LogoPrincipalLight}
+                            media="(prefers-color-scheme: light)" />
 
                         <Image
                             src={LogoPrincipalDark}
@@ -79,6 +79,13 @@ const Footer = () => {
                             <Link legacyBehavior href="/co" passHref>
                                 <a className={router.pathname == '/co' ? 'active' : ''}>
                                     Comissão Organizadora
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link legacyBehavior href="/companies" passHref>
+                                <a className={router.pathname == '/companies' ? 'active' : ''}>
+                                    Para Empresas
                                 </a>
                             </Link>
                         </li>
@@ -251,6 +258,8 @@ const MobileBackToTop = styled.div`
     );
     background-size: 100% 200%;
     background-position: top;
+    border-radius: 12.5rem;
+    background: var(--background-brand-primary, #9638FF);
     transition: all 0.15s ease-out;
     cursor: pointer;
     margin-bottom: 3rem;
@@ -298,6 +307,7 @@ const DesktopBackToTop = styled.div`
         );
         background-size: 100% 200%;
         background-position: top;
+        border-radius: 104.0625rem;
         transition: all 0.15s ease-out;
         cursor: pointer;
 
