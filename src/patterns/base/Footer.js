@@ -83,6 +83,13 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
+                            <Link legacyBehavior href="/companies" passHref>
+                                <a className={router.pathname == '/companies' ? 'active' : ''}>
+                                    Para Empresas
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
                             <a href='https://ctf.intheshell.page/' target='_blank'>
                                 CTF
                             </a>
