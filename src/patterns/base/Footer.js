@@ -251,6 +251,8 @@ const MobileBackToTop = styled.div`
     );
     background-size: 100% 200%;
     background-position: top;
+    border-radius: 12.5rem;
+    background: var(--background-brand-primary, #9638FF);
     transition: all 0.15s ease-out;
     cursor: pointer;
     margin-bottom: 3rem;
@@ -289,7 +291,7 @@ const DesktopBackToTop = styled.div`
     display: none;
 
     @media (min-width:850px) {
-        display: block;
+        display: flex;
         padding: 1rem;
         background: linear-gradient(
             to bottom,
@@ -298,6 +300,7 @@ const DesktopBackToTop = styled.div`
         );
         background-size: 100% 200%;
         background-position: top;
+        border-radius: 104.0625rem;
         transition: all 0.15s ease-out;
         cursor: pointer;
 
