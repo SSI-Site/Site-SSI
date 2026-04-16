@@ -273,20 +273,33 @@ const MobileBackToTop = styled.div`
         transform: translateY(100%);
     }
 
-    &:hover,
-    &:focus-visible {
-        background-position: bottom;
-        color: var(--content-neutrals-inverse);
-        path {
-            transition: all 0.15s ease-out;
-            transform: translateY(0);
-            fill: var(--content-neutrals-inverse);
-        }
-    }
-
     &:focus-visible {
         outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            background-position: bottom;
+            color: var(--content-neutrals-inverse);
+            path {
+                transition: all 0.15s ease-out;
+                transform: translateY(0);
+                fill: var(--content-neutrals-inverse);
+            }
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            background-position: bottom;
+            color: var(--content-neutrals-inverse);
+            path {
+                transition: all 0.15s ease-out;
+                transform: translateY(0);
+                fill: var(--content-neutrals-inverse);
+            }
+        }
     }
 
     @media (min-width:850px) {
