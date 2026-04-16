@@ -83,6 +83,13 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
+                            <Link legacyBehavior href="/companies" passHref>
+                                <a className={router.pathname == '/companies' ? 'active' : ''}>
+                                    Para Empresas
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
                             <a href='https://ctf.intheshell.page/' target='_blank'>
                                 CTF
                             </a>
@@ -251,6 +258,8 @@ const MobileBackToTop = styled.div`
     );
     background-size: 100% 200%;
     background-position: top;
+    border-radius: 12.5rem;
+    background: var(--background-brand-primary, #9638FF);
     transition: all 0.15s ease-out;
     cursor: pointer;
     margin-bottom: 3rem;
@@ -264,20 +273,33 @@ const MobileBackToTop = styled.div`
         transform: translateY(100%);
     }
 
-    &:hover,
-    &:focus-visible {
-        background-position: bottom;
-        color: var(--content-neutrals-inverse);
-        path {
-            transition: all 0.15s ease-out;
-            transform: translateY(0);
-            fill: var(--content-neutrals-inverse);
-        }
-    }
-
     &:focus-visible {
         outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            background-position: bottom;
+            color: var(--content-neutrals-inverse);
+            path {
+                transition: all 0.15s ease-out;
+                transform: translateY(0);
+                fill: var(--content-neutrals-inverse);
+            }
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            background-position: bottom;
+            color: var(--content-neutrals-inverse);
+            path {
+                transition: all 0.15s ease-out;
+                transform: translateY(0);
+                fill: var(--content-neutrals-inverse);
+            }
+        }
     }
 
     @media (min-width:850px) {
@@ -289,7 +311,7 @@ const DesktopBackToTop = styled.div`
     display: none;
 
     @media (min-width:850px) {
-        display: block;
+        display: flex;
         padding: 1rem;
         background: linear-gradient(
             to bottom,
@@ -298,6 +320,7 @@ const DesktopBackToTop = styled.div`
         );
         background-size: 100% 200%;
         background-position: top;
+        border-radius: 104.0625rem;
         transition: all 0.15s ease-out;
         cursor: pointer;
 
