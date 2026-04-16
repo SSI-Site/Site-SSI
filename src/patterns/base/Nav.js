@@ -117,7 +117,13 @@ const Nav = () => {
 
                             <li className = {router.pathname == '/co' ? 'active': ''}>
                                 <Link legacyBehavior href="/co" passHref>
-                                    <a>Comissão Organizadora</a>
+                                    <a>Organização</a>
+                                </Link>
+                            </li>
+
+                            <li className = {router.pathname == '/empresas' ? 'active': ''}>
+                                <Link legacyBehavior href="/empresas" passHref>
+                                    <a>Para Empresas</a>
                                 </Link>
                             </li>
 
@@ -192,7 +198,13 @@ const Nav = () => {
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
                                 <Link legacyBehavior href="/co" passHref>
-                                    <a>Comissão Organizadora</a>
+                                    <a>Organização</a>
+                                </Link>                                
+                            </li>
+
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
+                                <Link legacyBehavior href="/co" passHref>
+                                    <a>Para Empresas</a>
                                 </Link>                                
                             </li>
 
@@ -247,29 +259,34 @@ export default Nav;
 
 const NavWrapper = styled.div`
     position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /*max-width: 1576px;*/
-    max-height: 5rem;
-    margin: auto;
+    top: 0.5rem; 
     z-index: 11;
-    padding: 1.5rem 1rem; 
-    background-color: var(--background-neutrals-primary);
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
+    margin: auto;
+    
+    /* MOBILE FIRST */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 2rem); 
+    max-width: 1328px;
+    padding: 0.5rem 1rem; /* era 8px 16px */
+    border-radius: 1.5rem; /* era 24px */
+    
+    /* aqui a gente faz as cores e o efeito glassmorphism da navbar */
+    background: rgba(43, 43, 43, 0.75);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
+    backdrop-filter: blur(6px);
+
 
     > div {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        max-width: 1328px; // 1920px - (344px * 2)
+        max-width: 1328px;
         height: 100%;
 
-        // isso aqui foi para conseguir colocar a imagem da logo no canto esquerdo no safari
-        > a{ 
+        > a { 
             width: 10.956rem; 
         }
 
@@ -290,7 +307,9 @@ const NavWrapper = styled.div`
         }
     }
 
-    @media (min-width:1300px) {
+    /* DESKTOP */
+    @media (min-width: 995px) {
+        padding: 1rem 1.5rem; /* era 16px 24px */
         justify-content: center;
     }
 `
