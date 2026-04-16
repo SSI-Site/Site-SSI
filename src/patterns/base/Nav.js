@@ -267,7 +267,8 @@ const NavWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Faz o papel do align-self: stretch */
+    width: calc(100% - 2rem); 
+    max-width: 1328px;
     padding: 0.5rem 1rem; /* era 8px 16px */
     border-radius: 1.5rem; /* era 24px */
     
