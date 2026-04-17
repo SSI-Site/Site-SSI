@@ -121,12 +121,6 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            <li>
-                                <a href="https://ctf.intheshell.page/" target='_blank' >
-                                    CTF
-                                </a>
-                            </li>
-
                             {!disableAuth && user ? (
                                 <li className='profile-container'>
                                     <Link legacyBehavior href= "/user">
@@ -194,12 +188,6 @@ const Nav = () => {
                                 <Link legacyBehavior href="/co" passHref>
                                     <a>Comissão Organizadora</a>
                                 </Link>                                
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <a href="https://ctf.intheshell.page/" target='_blank'>
-                                    CTF
-                                </a>
                             </li>
                         </NavigationList>
                     </div>
