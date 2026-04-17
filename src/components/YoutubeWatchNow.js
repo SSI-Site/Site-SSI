@@ -34,7 +34,6 @@ const YoutubeWatchNowWrapper = styled.div`
 	display: flex;
     flex-direction: row;
 	align-items: center;
-	/* MOBILE FIRST */
 	width: 21.5rem;
 	height: 5rem;
     z-index: 2;
@@ -133,7 +132,6 @@ const YoutubeWatchNowWrapper = styled.div`
 		}
 	}
 
-	/* DESKTOP */
     @media (min-width:560px) {
 		width: 24.75rem;
 		height: 5rem;
