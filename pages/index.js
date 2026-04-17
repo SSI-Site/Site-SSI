@@ -20,6 +20,7 @@ import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import saphira from '../services/saphira';
+import CountdownSection from '../src/components/CountdownSection';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
@@ -58,13 +59,6 @@ const Home = () => {
         setShowMapModal(true);
     }
 
-    const [countdownDays, setCountdownDays] = useState();
-    const [countdownHours, setCountdownHours] = useState();
-    const [countdownMinutes, setCountdownMinutes] = useState();
-    const [countdownSeconds, setCountdownSeconds] = useState();
-    var countdownDate = new Date("Aug 18, 2025 09:40:00").getTime();
-    var now = new Date().getTime();
-
     const getSchedule = async() => {
         try{
             const { data } = await saphira.getTalks()
@@ -76,24 +70,6 @@ const Home = () => {
             console.log('Houve um erro na hora de obter os dados', err)
         }
     }
-
-    useEffect(() => {
-        setInterval(() => {
-            // Horário e data de hoje
-            now = new Date().getTime();
-            if (now > countdownDate) { return };
-
-            // Distância entre a data do evento e hoje
-            var distance = countdownDate - now;
-
-            // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
-            // (O padStart serve para adicionar '0' se o número for menor que 10)
-            setCountdownDays(String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0'));
-            setCountdownHours(String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'));
-            setCountdownMinutes(String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'));
-            setCountdownSeconds(String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0'));
-        }, 1000);
-    }, []);
 
     useEffect(() => {
         getSchedule()
@@ -229,6 +205,7 @@ const Home = () => {
                                 <h6>Online e Presencial</h6>
                             </div>
                         </div>
+                        <CountdownSection  targetDate={"Aug 18, 2026 09:40:00"}/>   
                     </div>
                 </div>
             </LandingSection>
@@ -265,44 +242,6 @@ const Home = () => {
 
             {/* Seção de contagem regressiva - só aparece antes do evento */}
             {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
-            {(now < countdownDate) &&
-                <CountdownSection>
-                    <div className='countdown-text'>
-                        <div><h3>Contagem regressiva</h3></div>
-                        <h6>Faltam poucos {now > countdownDate - 24 * 60 * 60 * 1000 ? 'instantes' : 'dias'} para você participar dessa <span>experiência única!</span></h6>
-                    </div>
-
-                    <div className='countdown-clock'>
-                        {(now < countdownDate - 24 * 60 * 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h1>{countdownDays}</h1>
-                                <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
-                            </div>
-                        }
-                        {(now < countdownDate - 60 * 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h1>{countdownHours}</h1>
-                                <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
-                            </div>
-                        }
-                        {(now < countdownDate - 60 * 1000) &&
-                            <div className='clock-container'>
-                                <h1>{countdownMinutes}</h1>
-                                <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
-                            </div>
-                        }
-                        <div className='clock-container'>
-                            <h1>{countdownSeconds}</h1>
-                            <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
-                        </div>
-                    </div>
-                    {!user &&
-                        <Button className='signup-button' onClick={handleShowAuthModal} disabled={disableAuth}>
-                            {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
-                        </Button>
-                    }
-                </CountdownSection>
-            }
 
             <EventInfoSection>
                 <div>
@@ -547,6 +486,8 @@ const LandingSection = styled.section`
 
         .dates {
             display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
             align-items: center;
             justify-content: center;
             width: 100%;
@@ -609,6 +550,8 @@ const LandingSection = styled.section`
             .dates {
                 padding-inline: 3rem;
                 display: flex;
+                flex-direction: column;
+                grap: 0.5rem;
                 border: none;
                 margin:0;
                 align-items: center;
@@ -873,224 +816,6 @@ const EventInfoSection = styled.section`
 
             .about-btn {
                 align-self: flex-end;
-            }
-        }
-    }
-`
-
-const CountdownSection = styled.section`
-    display: flex;
-    padding: 4rem 2rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    align-self: stretch;
-    background: var(--background-neutrals-primary, #1A1A1A);
-
-    .countdown-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        color: var(--brand-primary);
-
-        div {
-            display: flex;
-            padding: 0.75rem 1.5rem;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-
-            background: var(--brand-primary, #9638FF);
-        }
-
-        h3 {
-            text-align: center;
-            color: var(--content-neutrals-fixed-white, #FFF);
-        }
-
-        h6 {
-            color: var(--content-neutrals-primary, #FFF);
-            text-align: center;
-        }
-
-        span {
-            font: inherit;
-        }
-    }
-
-    .countdown-clock {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-
-        .clock-container {
-            display: flex;
-            padding: 1.5rem;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            width: 100%;
-            color: var(--content-neutrals-inverse, #1A1A1A);
-            background-color: var(--background-neutrals-inverse, #FFF);
-        }
-    }
-
-    @media (min-width:801px) {
-        .countdown-text {
-            h3 {
-                font-size: 3rem;
-                line-height: 3.5rem;
-            }
-
-            h6 {
-                font-size: 1.5rem;
-                line-height: 2rem;
-            }
-
-            span {
-                background-color: var(--brand-purple-900);
-                padding: 0.25rem;
-            }
-        }
-
-        .countdown-clock {
-            padding: 1.5rem;
-            flex-direction: row;
-
-            .clock-container {
-                max-width: 13rem;
-
-                h1 {
-                    font-size: var(--Typograph-Heading-H1-size, 4rem);
-                    line-height: var(--Typograph-Heading-H1-height, 4.5rem); /* 112.5% */
-                }
-
-                p {
-                    font-size: var(--Typograph-Label-Large-size, 1.125rem);
-                    line-height: var(--Typograph-Label-Large-height, 1.5rem); /* 133.333% */
-                }
-            }
-        }
-
-        button {
-            max-width: 20rem;
-        }
-    }
-`
-
-const ScheduleSection = styled.section`
-    padding-block: 2rem;
-    border-top: 1px solid var(--outline-neutrals-secondary);
-    
-    .schedule-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-
-        .schedule-section-title {
-            background-color: var(--brand-primary);
-            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
-            color: var(--content-neutrals-fixed-white);
-        }
-
-        .title-mobile {
-            display: flex;
-            flex-direction: row;
-			background-color: var(--brand-primary);
-			padding: 0.75rem 1.5rem 0.75rem 1.5rem;
-        }
-
-        .title-btn-desktop {
-            display: none;
-        }
-
-		.filter-bar-container {
-			height: fit-content;
-            padding-block: 1rem;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			box-shadow: 0 -0.0625rem 0 0 var(--background-neutrals-secondary);
-			border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
-
-			p {
-				font: 700 1rem/1.25rem 'AT Aero Bold';
-			}
-		}
-
-		.filter-bar-mobile {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: -1rem;
-
-			@media (min-width: 1024px) {
-				display: none;
-			}
-		}
-
-		.filter-bar-desktop {
-            margin-bottom: -2rem;
-
-			@media (max-width: 1023px) {
-				display: none;
-			}
-
-			justify-content: space-between;
-			
-			.subtitle {
-				display: flex;
-				gap: 6.31rem;
-			}
-		}
-
-        .date-stamp {
-            > div {
-                background-color: var(--brand-primary);
-            }
-        }
-
-        .btn-mobile {
-            width: 100%;
-        }
-    }
-
-    @media (min-width:1021px) {
-        padding-block: 4.5rem 2rem;
-
-        .schedule-container {
-            gap: 1.5rem;
-            align-items: flex-start;
-
-            .title-mobile {
-                display: none;
-            }
-
-            .title-btn-desktop {
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-
-                button {
-                    width: fit-content;
-                }
-            }
-
-            .btn-mobile {
-                display: none;
             }
         }
     }
