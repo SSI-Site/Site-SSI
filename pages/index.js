@@ -244,15 +244,8 @@ const Home = () => {
             {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
 
             <EventInfoSection>
-                <div>
-                    <div className='about-title'>
-                        <div className='title'>
-                            <h3>Sobre o evento</h3>
-                        </div>
-                    </div>
-
+                <div className='info'>
                     <div className='about-content'>
-                        <p className='about-desc'>As palestras ocorrerão entre os dias 18 e 22 de Agosto, nos <span>auditórios da EACH</span>. Além disso, elas também serão transmitidas no nosso canal no YouTube.</p>
 
                         <div className='about-cards'>
                             <CountUp
@@ -265,15 +258,17 @@ const Home = () => {
                             >
                                 {({ countUpRef }) => (
                                     <div className='card'>
-                                        <div>
-                                            <h5 ref={countUpRef} />
+                                        <div className='contador'>
+                                            <h5 ref={countUpRef}/>
                                             <h5>palestrantes</h5>
                                         </div>
                                         <p>Junte-se ao evento que contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
                                     </div>
                                 )}
                             </CountUp>
+                        </div>    
 
+                        <div className='about-cards'>
                             <CountUp
                                 start={0}
                                 end={25}
@@ -284,7 +279,7 @@ const Home = () => {
                             >
                                 {({ countUpRef }) => (
                                     <div className='card'>
-                                        <div>
+                                        <div className='contador'>
                                             <h5 ref={countUpRef} />
                                             <h5>sorteios</h5>
                                         </div>
@@ -292,7 +287,9 @@ const Home = () => {
                                     </div>
                                 )}
                             </CountUp>
+                        </div>
 
+                        <div className='about-cards'>
                             <CountUp
                                 start={0}
                                 end={45}
@@ -303,7 +300,7 @@ const Home = () => {
                             >
                                 {({ countUpRef }) => (
                                     <div className='card'>
-                                        <div>
+                                        <div className='contador'>
                                             <h5 ref={countUpRef} />
                                             <h5>atividades</h5>
                                         </div>
@@ -312,10 +309,10 @@ const Home = () => {
                                 )}
                             </CountUp>
                         </div>
-
-                        <div className='about-btn'>
-                            <SecondaryButton onClick={() => router.push('/about')}>Saiba mais</SecondaryButton>
-                        </div>
+                        
+                    </div>
+                    <div className='about-btn'>
+                        <SecondaryButton onClick={() => router.push('/about')}>Saiba mais</SecondaryButton>
                     </div>
                 </div>
             </EventInfoSection>
@@ -678,144 +675,98 @@ const SubscriptionSection = styled.section`
 `
 
 const EventInfoSection = styled.section`
-    padding: 4rem 1rem 2rem;
-    border-top: 1px solid var(--outline-neutrals-secondary);
+    padding: 3.75rem 1rem 0.75rem 1rem;
     background-color: var(--background-neutrals-primary);
     background-color: var(--background-neutrals-primary);
 
-    > div {
+    background-image: url('/images/background_imgs/bg-sobre-mobile.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .info {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;;
-        gap: 1.5rem;;
-    }
+        justify-content: center;
+        gap: 2rem;
+        padding: 1.5rem;
 
-    .about-title {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            color: var(--content-neutrals-primary);
+            margin-bottom: 2rem;
 
-        .title {
-            color: var(--content-neutrals-fixed-white);
-            padding: 0.75rem 1.5rem;
-            width: fit-content;
-            background-color: var(--brand-primary);
-            color: var(--content-neutrals-fixed-white);
-        }        
-    }
+            .about-cards {
+                display: flex;
+                justify-content: center;
+                overflow: auto;  
+                scroll-snap-type: x mandatory;
+        
+                .card {
+                    width: 90%;
+                    flex-shrink: 0;
+                    display: block;
 
-    .about-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        color: var(--content-neutrals-primary);
-
-
-        .about-desc {
-            font: 400 1rem/1.5rem 'AT Aero';
-            
-            
-            span {
-                font: inherit;
-                background-color: var(--brand-purple-900);
+                    .contador {
+                        display: flex;
+                        gap: 0.4rem;
+                        flex-direction: row;
+                    }
+        
+                    p {
+                        width: 90%;
+                        margin-top: 0.5rem;
+                        font: 400 1rem/1.5rem 'AT Aero';
+                    }
+                }
             }
         }
 
-        .about-cards {
-            display: flex;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-            height: auto;
-            width: 100%;
-            overflow: auto;  
-            scroll-snap-type: x mandatory;
-            gap: 2rem;
-
-            .card {
-                width: 70%;
-                max-width: 15.125rem;
-                flex-shrink: 0;
-                display: block;
-
-                p {
-                    margin-top: 0.5rem;
-                    font: 400 1rem/1.5rem 'AT Aero';
-                }
-            }
+        .about-btn {
+            align-self: flex-end;
+            width: fit-content
         }
     }
 
     @media screen and (min-width:801px) {
-        padding: 4.5rem 1.5rem;
+        padding: 4rem 18.5rem 1.5rem 18.5rem;
+        background-image: url('/images/background_imgs/bg-sobre-desktop.png');
+        background-size: cover;
+        background-position: center;
 
-        .about-content {
-            align-items: center;
-            
-            .about-desc {
-                text-align: center;
-                max-width: 700px;
-            }
+        .info {
+            width: 55rem;
 
-            .about-cards {
-                width: 100%;
-                gap: 1rem;
+            .about-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
                 
-                .card {
-                    flex-shrink: 1;
-                    width: 35%;
-                    max-width: unset;
+                .about-desc {
+                    text-align: left;
+                    max-width: 30%;
                 }
-            }
+    
+                .about-cards {
+                    width: 32%;
+                    overflow: visible;
+                    gap: 1rem;
+                    
+                    .card {
+                        width: 100%;
 
-            .about-btn {
-                width: fit-content;
-            }
-        }
-        
-    }
+                        p {
+                            width: 100%;
+                        }
+                    }
 
-    @media screen and (min-width:1100px) {
-        padding-block: 0;
-
-        > div {
-            flex-direction: row;
-            max-width: 1328px; // max for matching lines 
-            margin: 0 auto;
-        }
-
-        .about-title {
-            align-self: flex-start;
-            padding: 4.5rem 0 0 0;
-
-            .title {
-                align-self: flex-start;
-            }   
-        }
-
-        .about-content {
-            padding: 4.5rem 1.5rem;
-            border-inline: 1px solid var(--outline-neutrals-secondary);
-            max-width: 55rem;
-            gap: 2rem;
-
-            .about-desc {
-                font: 400 1.125rem/1.75rem 'AT Aero';
-                text-align: left;
-                max-width: unset;
-            }
-
-            .about-cards .card p {
-                font: 400 1.125rem/1.75rem 'AT Aero';
-            }
-
-            .about-btn {
-                align-self: flex-end;
+                }
+            
+                .about-btn {
+                    align-self: flex-end;
+                }
             }
         }
     }
