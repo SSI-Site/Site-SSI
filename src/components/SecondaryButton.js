@@ -9,11 +9,11 @@ const SecondaryButton = styled.button`
     color: var(--content-neutrals-primary);
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 3rem;
+    width: auto; 
+    height: 2.75rem;
     padding: var(--padding);
     gap: 0.5rem;
-    border-radius: 0;
+    border-radius: 0.75rem;
     border: 2px solid var(--background-neutrals-inverse);
     background-color: transparent;
     transition: var(--transition-duration);
@@ -49,6 +49,10 @@ const SecondaryButton = styled.button`
         outline: 2px solid var(--background-neutrals-inverse);
         outline-offset: 2px;
     }
+
+    @media (min-width: 560px) {
+        height: 3rem;
+        }
 `
 
 export default SecondaryButton;

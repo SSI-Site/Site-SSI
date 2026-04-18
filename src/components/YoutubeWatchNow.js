@@ -34,7 +34,7 @@ const YoutubeWatchNowWrapper = styled.div`
 	display: flex;
     flex-direction: row;
 	align-items: center;
-	width: 21rem;
+	width: 21.5rem;
 	height: 5rem;
     z-index: 2;
 
@@ -86,7 +86,10 @@ const YoutubeWatchNowWrapper = styled.div`
     	flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.75rem 1.5rem 0.75rem 1rem;
+		padding: 0.75rem 1rem;
+		border-radius: 0.75rem;
+		gap: 1rem;
+		overflow: hidden; // para que a animacao de hover n vaze da borda arrendondada
 		transition: 0.15s all ease-in-out;
         border: 0;
         background-color: var(--background-neutrals-inverse);
@@ -130,7 +133,7 @@ const YoutubeWatchNowWrapper = styled.div`
 	}
 
     @media (min-width:560px) {
-		width: 24rem;
+		width: 24.75rem;
 		height: 5rem;
 
 		.text {

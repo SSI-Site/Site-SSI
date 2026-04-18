@@ -8,11 +8,12 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 3rem;
+    width: auto;
+    height: 2.75rem;
     padding: var(--padding);
     gap: 0.5rem;
-    border-radius: 0;
+    border-radius: 0.75rem;
+    overflow: hidden; // para que a animacao de hover n vaze da borda arrendondada
     border: var(--brand-primary);
     background-color: var(--background);
     transition: var(--transition-duration);
@@ -45,6 +46,10 @@ const Button = styled.button`
         outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
+
+    @media (min-width: 560px) {
+    height: 3rem;
+} 
 `
 
 export default Button;

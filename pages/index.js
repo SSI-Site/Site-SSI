@@ -41,6 +41,14 @@ const supporters = [
     // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
+const LocationButton = styled(SecondaryButton)`
+    /* estilo especifico apenas para o segundo "Saiba Mais" na Home */
+    width: 100%;
+
+    @media (min-width: 560px) {
+        width: auto;
+    }
+`;
 
 const Home = () => {
 
@@ -172,7 +180,7 @@ const Home = () => {
                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
                                 <Button onClick={handleShowAuthModal} disabled={disableAuth}>
-                                    {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                                    {disableAuth ? 'Cadastros em breve...' : 'Cadastre-se'}
                                 </Button>
                             </>
                             :
@@ -376,7 +384,7 @@ const Home = () => {
                         </div>
 
                         <div className='map-btn'>
-                            <SecondaryButton onClick={handleShowMapModal}>Saiba mais</SecondaryButton>
+                            <LocationButton onClick={handleShowMapModal}>Saiba mais</LocationButton>
                         </div>
 
                         {showMapModal &&
