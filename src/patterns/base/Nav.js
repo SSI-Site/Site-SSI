@@ -26,7 +26,7 @@ const Nav = () => {
 
     const handleShowAuthModal = () => {
         setIsOpen(false);
-        setShowAuthModal(true);
+        setShowAuthModal(false);
     }
 
     useEffect(() => {
@@ -68,12 +68,12 @@ const Nav = () => {
                     </Link>
 
                     {/* Caixa de autenticação/login */}
-                    {showAuthModal &&
+                    {/* {showAuthModal &&
                         <AuthModal
                             onClose={() => setShowAuthModal(false)}
                             show={showAuthModal}
                         />
-                    }
+                    } */}
 
                     {/* Navbar para Mobile */}
                     <NavMobile $isOpen={isOpen}>
@@ -121,13 +121,7 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            <li>
-                                <a href="https://ctf.intheshell.page/" target='_blank' >
-                                    CTF
-                                </a>
-                            </li>
-
-                            {!disableAuth && user ? (
+                            {/* {!disableAuth && user ? (
                                 <li className='profile-container'>
                                     <Link legacyBehavior href= "/user">
                                         <a className='profile-content'>
@@ -145,7 +139,7 @@ const Nav = () => {
                                     disabled={disableAuth}>Login</Button>
                                 </li>
                             )
-                            }
+                            } */}
                         </NavigationList>
                     </NavDesktop>
 
@@ -195,17 +189,11 @@ const Nav = () => {
                                     <a>Comissão Organizadora</a>
                                 </Link>                                
                             </li>
-
-                            <li onClick={() => setIsOpen(false)}>
-                                <a href="https://ctf.intheshell.page/" target='_blank'>
-                                    CTF
-                                </a>
-                            </li>
                         </NavigationList>
                     </div>
 
                     {/* Editar esta div para o usuário logado*/}
-                    {!disableAuth && user ?
+                    {/* {!disableAuth && user ?
                         <>
                             <NavigationList>
                                 <li onClick={() => setIsOpen(false)} className="profile-side-bar">
@@ -235,7 +223,7 @@ const Nav = () => {
                     :
                         <Button 
                         onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
-                    }
+                    } */}
                     
                 </div>
             </Sidepanel>

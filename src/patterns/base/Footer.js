@@ -82,11 +82,6 @@ const Footer = () => {
                                 </a>
                             </Link>
                         </li>
-                        <li>
-                            <a href='https://ctf.intheshell.page/' target='_blank'>
-                                CTF
-                            </a>
-                        </li>
                     </ul>
 
                     <FooterEnding>

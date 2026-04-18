@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { AuthProvider } from '../contexts/AuthContext';
 import Layout from '../src/patterns/base/Layout';
 import Head from 'next/head';
@@ -13,6 +14,16 @@ Router.events.on('routeChangeComplete', () => { NProgress.done() });
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
+
+    useEffect(() => {
+        if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+            import('../src/mocks/browser').then(({ worker }) => {
+                worker.start({
+                    onUnhandledRequest: 'bypass', // Ignora requisições não mockadas (como imagens)
+                });
+            });
+        }
+    }, []);
 
     return (
         <AuthProvider>

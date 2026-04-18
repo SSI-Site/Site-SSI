@@ -51,7 +51,7 @@ const Home = () => {
     const [schedule, setSchedule] = useState([])
 
     const handleShowAuthModal = () => {
-        setShowAuthModal(true);
+        setShowAuthModal(false);
     }
 
     const handleShowMapModal = () => {
@@ -196,7 +196,7 @@ const Home = () => {
                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
                                 <Button onClick={handleShowAuthModal} disabled={disableAuth}>
-                                    {disableAuth ? 'Cadastros em breve...' : 'Cadastrar-se'}
+                                    {disableAuth ? 'Cadastros em breve...' : 'Inscrições fechadas'}
                                 </Button>
                             </>
                             :
