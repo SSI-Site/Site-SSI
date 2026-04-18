@@ -9,7 +9,7 @@ const SecondaryButton = styled.button`
     color: var(--content-neutrals-primary);
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: auto; 
     height: 2.75rem;
     padding: var(--padding);
     gap: 0.5rem;

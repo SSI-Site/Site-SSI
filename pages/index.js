@@ -40,6 +40,14 @@ const supporters = [
     // ].sort((a, b) => a.name > b.name ? 1 : -1);
 ];
 
+const LocationButton = styled(SecondaryButton)`
+    /* estilo especifico apenas para o segundo "Saiba Mais" na Home */
+    width: 100%;
+
+    @media (min-width: 560px) {
+        width: auto;
+    }
+`;
 
 const Home = () => {
 
@@ -437,7 +445,7 @@ const Home = () => {
                         </div>
 
                         <div className='map-btn'>
-                            <SecondaryButton onClick={handleShowMapModal}>Saiba mais</SecondaryButton>
+                            <LocationButton onClick={handleShowMapModal}>Saiba mais</LocationButton>
                         </div>
 
                         {showMapModal &&
