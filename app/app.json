@@ -4,7 +4,7 @@
     "slug": "ssi-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/ssi-logo.png",
+    "icon": "./assets/images/ssi-logo-padding.png",
     "scheme": "mobile",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -24,14 +24,14 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/icon.png"
+      "favicon": "./assets/images/ssi-logo-padding.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/icon.png",
+          "image": "./assets/images/ssi-logo-padding.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
