@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "58c337d0-ebb5-43d8-bccb-7c86345fa0fb"
+      }
+    },
+    "android": {
+      "package": "br.com.semanadesi.app"
+    }
+  }
+}
