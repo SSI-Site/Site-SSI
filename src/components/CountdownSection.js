@@ -1,73 +1,69 @@
 import styled from "styled-components";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-const CountdownSection = ({targetDate}) => {
+const CountdownSection = ({ targetDate }) => {
+  const [countdown, setCountdown] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
 
-    const [countdownDays, setCountdownDays] = useState();
-    const [countdownHours, setCountdownHours] = useState();
-    const [countdownMinutes, setCountdownMinutes] = useState();
-    const [countdownSeconds, setCountdownSeconds] = useState();
-    var countdownDate = new Date(targetDate).getTime();
-    var now = new Date().getTime();
+  useEffect(() => {
+    const countdownDate = new Date(targetDate).getTime();
 
-    useEffect(() => {
-        setInterval(() => {
-            // Horário e data de hoje
-            now = new Date().getTime();
-            if (now > countdownDate) { return };
+    const updateCountdown = () => {
+      const now = Date.now();
+      const distance = countdownDate - now;
 
-            // Distância entre a data do evento e hoje
-            var distance = countdownDate - now;
+      if (distance <= 0) {
+        setCountdown({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        return;
+      }
 
-            // Cálculo e atualização do tempo restante em dias, horas, minutos e segundos
-            // (O padStart serve para adicionar '0' se o número for menor que 10)
-            setCountdownDays(String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0'));
-            setCountdownHours(String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'));
-            setCountdownMinutes(String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'));
-            setCountdownSeconds(String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0'));
-        }, 1000);
-    }, []);
+      setCountdown({
+        days: String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0"),
+        hours: String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0"),
+        minutes: String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0"),
+        seconds: String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, "0"),
+      });
+    };
 
-    if(now > countdownDate) return null;
+    updateCountdown(); // evita render inicial quebrado
+    const intervalId = setInterval(updateCountdown, 1000);
 
-    return (
-        <SectionCountdown>
-            <div className='countdown-clock'>
-                <div className='clock-container'>
-                    <h1>{countdownDays}</h1>
-                    <p>{countdownDays != 1 ? 'dias' : 'dia'}</p>
-                </div>
+    return () => clearInterval(intervalId); // evita vazamento de intervalos
+  }, [targetDate]);
 
-                <div className="separator">
-                    <h1>:</h1>
-                </div>
+  return (
+    <SectionCountdown>
+      <div className='countdown-clock'>
+        <div className='clock-container'>
+          <h1>{countdown.days}</h1>
+          <p>{countdown.days !== "01" ? "dias" : "dia"}</p>
+        </div>
+        <div className='separator'><h1>:</h1></div>
 
-                <div className='clock-container'>
-                    <h1>{countdownHours}</h1>
-                    <p>{countdownHours != 1 ? 'horas' : 'hora'}</p>
-                </div>
-                
-                <div className="separator">
-                    <h1>:</h1>
-                </div>
+        <div className='clock-container'>
+          <h1>{countdown.hours}</h1>
+          <p>{countdown.hours !== "01" ? "horas" : "hora"}</p>
+        </div>
+        <div className='separator'><h1>:</h1></div>
 
-                <div className='clock-container'>
-                    <h1>{countdownMinutes}</h1>
-                    <p>{countdownMinutes != 1 ? 'minutos' : 'minuto'}</p>
-                </div>
+        <div className='clock-container'>
+          <h1>{countdown.minutes}</h1>
+          <p>{countdown.minutes !== "01" ? "minutos" : "minuto"}</p>
+        </div>
+        <div className='separator'><h1>:</h1></div>
 
-                <div className="separator">
-                    <h1>:</h1>
-                </div>
-
-                <div className='clock-container'>
-                    <h1>{countdownSeconds}</h1>
-                    <p>{countdownSeconds != 1 ? 'segundos' : 'segundo'}</p>
-                </div>
-            </div>
-        </SectionCountdown>
-    )
-}
+        <div className='clock-container'>
+          <h1>{countdown.seconds}</h1>
+          <p>{countdown.seconds !== "01" ? "segundos" : "segundo"}</p>
+        </div>
+      </div>
+    </SectionCountdown>
+  );
+};
 
 export default CountdownSection;
 
