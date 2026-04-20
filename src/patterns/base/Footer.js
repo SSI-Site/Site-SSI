@@ -50,43 +50,39 @@ const Footer = () => {
                 <FooterLinks>
                     <ul>
                         <li>
-                            <Link legacyBehavior href="/" passHref>
-                                <a className={router.pathname == '/' ? 'active' : ''}>Home</a>
+                            <Link href="/" className={router.pathname == '/' ? 'active' : ''}>
+                                Home
                             </Link>
                         </li>
                         <li>
-                            <Link legacyBehavior href="/schedule" passHref>
-                                <a className={router.pathname == '/schedule' ? 'active' : ''}>
-                                    Programação
-                                </a>
+                            <Link
+                                href="/schedule"
+                                className={router.pathname == '/schedule' ? 'active' : ''}>                                
+                                    Programação                               
                             </Link>
                         </li>
                         <li>
-                            <Link legacyBehavior href="/about" passHref>
-                                <a className={router.pathname == '/about' ? 'active' : ''}>
-                                    Evento
-                                </a>
+                            <Link href="/about" className={router.pathname == '/about' ? 'active' : ''}>                                
+                                    Evento                                
                             </Link>
                         </li>
                         <li>
-                            <Link legacyBehavior href="/palestrantes" passHref>
-                                <a className={router.pathname == '/palestrantes' ? 'active' : ''}>
-                                    Palestrantes
-                                </a>
+                            <Link
+                                href="/palestrantes"
+                                className={router.pathname == '/palestrantes' ? 'active' : ''}>                                
+                                    Palestrantes                                
                             </Link>
                         </li>
                         <li>
-                            <Link legacyBehavior href="/co" passHref>
-                                <a className={router.pathname == '/co' ? 'active' : ''}>
-                                    Comissão Organizadora
-                                </a>
+                            <Link href="/co" className={router.pathname == '/co' ? 'active' : ''}>                                
+                                    Comissão Organizadora                                
                             </Link>
                         </li>
                         <li>
-                            <Link legacyBehavior href="/companies" passHref>
-                                <a className={router.pathname == '/companies' ? 'active' : ''}>
-                                    Para Empresas
-                                </a>
+                            <Link
+                                href="/companies"
+                                className={router.pathname == '/companies' ? 'active' : ''}>                                
+                                    Para Empresas                                
                             </Link>
                         </li>
                         <li>
@@ -157,7 +153,7 @@ const Footer = () => {
                 </FooterEnding>
             </div>
         </FooterWrapper>
-    )
+    );
 }
 
 export default Footer

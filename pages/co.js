@@ -85,7 +85,9 @@ const CO = () => {
                             src='/images/about/co.jpg' 
                             alt='Foto Palestra'
                             width={500}
-                            height={500} />
+                            height={500} 
+                            priority
+                        />
                     </div>
                 </div>
             </COExhibitionSection>
@@ -94,28 +96,28 @@ const CO = () => {
                 <COFilterContainer>
                     <div className='members-container'>
                         <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
-                            <DepartmentStamp name='Palestrantes' itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Palestrantes'} />
+                            <DepartmentStamp name='Palestrantes' $itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Palestrantes'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
-                            <DepartmentStamp name='Parcerias' itemColor="var(--brand-primary)" $active={activeItem === 'Parcerias'} />
+                            <DepartmentStamp name='Parcerias' $itemColor="var(--brand-primary)" $active={activeItem === 'Parcerias'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
-                            <DepartmentStamp name='Sites' itemColor="var(--brand-primary-light)" $active={activeItem === 'Sites'} />
+                            <DepartmentStamp name='Sites' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Sites'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
-                            <DepartmentStamp name='Todos' itemColor="var(--brand-primary)" $active={activeItem === 'Todos'} />
+                            <DepartmentStamp name='Todos' $itemColor="var(--brand-primary)" $active={activeItem === 'Todos'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
-                            <DepartmentStamp name='Comercial e Financeiro' itemColor="var(--brand-primary-light)" $active={activeItem === 'Comercial e Financeiro'} />
+                            <DepartmentStamp name='Comercial e Financeiro' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Comercial e Financeiro'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
-                            <DepartmentStamp name='Criação e Comunicação' itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Criação e Comunicação'} />
+                            <DepartmentStamp name='Criação e Comunicação' $itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Criação e Comunicação'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
-                            <DepartmentStamp name='Diretoria' itemColor="var(--brand-primary)" $active={activeItem === 'Diretoria'} />
+                            <DepartmentStamp name='Diretoria' $itemColor="var(--brand-primary)" $active={activeItem === 'Diretoria'} />
                         </NavItem>
                         <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
-                            <DepartmentStamp name='Infraestrutura' itemColor="var(--brand-primary-light)" $active={activeItem === 'Infraestrutura'} />
+                            <DepartmentStamp name='Infraestrutura' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Infraestrutura'} />
                         </NavItem>
                     </div>
                 </COFilterContainer> 

@@ -213,7 +213,7 @@ const Home = () => {
                                 <h6>Online e Presencial</h6>
                             </div>
                         </div>
-                        <CountdownSection  targetDate={"Aug 18, 2026 09:40:00"}/>   
+                        <CountdownSection  targetDate={"Aug 24, 2026 09:40:00"}/>   
                     </div>
                 </div>
             </LandingSection>
@@ -556,7 +556,7 @@ const LandingSection = styled.section`
                 padding-inline: 3rem;
                 display: flex;
                 flex-direction: column;
-                grap: 0.5rem;
+                gap: 0.5rem;
                 border: none;
                 margin:0;
                 align-items: center;

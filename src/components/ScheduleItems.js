@@ -11,12 +11,14 @@ const ScheduleItems = ({ schedule }) => {
             <ScheduleWrapper>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
-                    {schedule.map((talk) => {
+                    {schedule.map((talk, index) => {
                         
+                        const finalKey = talk.id ? `id-${talk.id}` : `fallback-${index}`;
+
                         if (talk.title == "Abertura" || talk.title == "Encerramento" || talk.title == "Intervalo" || !talk.speakers) {
                             
                             return (
-                                <li key={talk.id}>
+                                <li key={finalKey}>
                                     <h5>{formatTime(talk.start_time)}</h5>
                                     <div className={`event ${talk.title == 'Abertura' || talk.title == 'Encerramento' ? 'special-event' : ''}`}>
                                         <h6>{talk.title}</h6>
@@ -30,7 +32,7 @@ const ScheduleItems = ({ schedule }) => {
                             )
                         } else {
                             return (
-                                <li key={talk.id}>
+                                <li key={finalKey}>
                                     <h5 className='vertical-time'>{formatTime(talk.start_time)}</h5>
                                     <LectureItem time={talk.start_time} event={talk} />
                                 </li>
