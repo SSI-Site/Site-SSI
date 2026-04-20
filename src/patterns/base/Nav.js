@@ -48,22 +48,20 @@ const Nav = () => {
             <NavWrapper>
                 <div>
                     {/* Logo que redireciona para a home */}
-                    <Link legacyBehavior href="/" passHref>
-                        <a>
-                            <picture>
-                                <source srcSet = {LogoHorizontalLight} 
-                                media = "(prefers-color-scheme: light)"/>
+                    <Link href="/">
 
-                                <Image
-                                    src={LogoHorizontal}
-                                    width={100}
-                                    height={42}
-                                    className='image'
-                                    alt='Semana de Sistemas de Informação 2025'
-                                />
-                            </picture>
-                            
-                        </a>
+                        <picture>
+                            <source srcSet = {LogoHorizontalLight} 
+                            media = "(prefers-color-scheme: light)"/>
+
+                            <Image
+                                src={LogoHorizontal}
+                                width={100}
+                                height={42}
+                                className='image'
+                                alt='Semana de Sistemas de Informação 2025'
+                            />
+                        </picture>
 
                     </Link>
 
@@ -92,38 +90,38 @@ const Nav = () => {
                     <NavDesktop>
                         <NavigationList>
                             <li className = {router.pathname == '/' ? 'active': ''}>
-                                <Link legacyBehavior href="/" passHref>
-                                    <a>Home</a>
+                                <Link href="/">
+                                    Home
                                 </Link>           
                             </li>
 
                             <li className = {router.pathname == '/schedule' ? 'active': ''}>
-                                <Link legacyBehavior href="/schedule" passHref>
-                                    <a>Programação</a>
+                                <Link href="/schedule">
+                                    Programação
                                 </Link>
                             </li>
 
                             <li className = {router.pathname == '/about' ? 'active': ''}>
-                                <Link legacyBehavior href="/about" passHref>
-                                    <a>Evento</a>
+                                <Link href="/about">
+                                    Evento
                                 </Link>
                             </li>
 
                             <li className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link legacyBehavior href="/palestrantes" passHref>
-                                    <a>Palestrantes</a>
+                                <Link href="/palestrantes">
+                                    Palestrantes
                                 </Link>
                             </li>
 
                             <li className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link legacyBehavior href="/co" passHref>
-                                    <a>Organização</a>
+                                <Link href="/co">
+                                    Organização
                                 </Link>
                             </li>
 
                             <li className = {router.pathname == '/empresas' ? 'active': ''}>
-                                <Link legacyBehavior href="/empresas" passHref>
-                                    <a>Para Empresas</a>
+                                <Link href="/empresas">
+                                    Para Empresas
                                 </Link>
                             </li>
 
@@ -135,13 +133,13 @@ const Nav = () => {
 
                             {!disableAuth && user ? (
                                 <li className='profile-container'>
-                                    <Link legacyBehavior href= "/user">
-                                        <a className='profile-content'>
-                                            <div className='user-pic-container'>
-                                                <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                            </div>
-                                            <p>{user.name.split(" ")[0]}</p>
-                                        </a>
+                                    <Link href= "/user" className='profile-content'>
+
+                                        <div className='user-pic-container'>
+                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                        </div>
+                                        <p>{user.name.split(" ")[0]}</p>
+
                                     </Link>
                                 </li>
                             ) : (
@@ -173,38 +171,38 @@ const Nav = () => {
 
                         <NavigationList>
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                <Link legacyBehavior href="/" passHref>
-                                    <a>Home</a>
+                                <Link href="/">
+                                    Home
                                 </Link>
                             </li>
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                <Link legacyBehavior href="/schedule" passHref>
-                                    <a>Programação</a>
+                                <Link href="/schedule">
+                                    Programação
                                 </Link>                                
                             </li>
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                <Link legacyBehavior href="/about" passHref>
-                                    <a>Evento</a>
+                                <Link href="/about">
+                                    Evento
                                 </Link>
                             </li>
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link legacyBehavior href="/palestrantes" passHref>
-                                    <a>Palestrantes</a>
+                                <Link href="/palestrantes">
+                                    Palestrantes
                                 </Link>                                
                             </li>
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link legacyBehavior href="/co" passHref>
-                                    <a>Organização</a>
+                                <Link href="/co">
+                                    Organização
                                 </Link>                                
                             </li>
 
                             <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link legacyBehavior href="/co" passHref>
-                                    <a>Para Empresas</a>
+                                <Link href="/co">
+                                    Para Empresas
                                 </Link>                                
                             </li>
 
@@ -221,25 +219,24 @@ const Nav = () => {
                         <>
                             <NavigationList>
                                 <li onClick={() => setIsOpen(false)} className="profile-side-bar">
-                                    <Link legacyBehavior href="/user">
-                                        <a>
-                                            <div className='profile-content'>
-                                                <div className='user-pic-container'>
-                                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                                </div>
-                                                <p>{user.name.split(" ")[0]}</p>
-                                            </div>
+                                    <Link href="/user">
 
-                                            <div className='see-profile'>
-                                                <p>Ver Perfil</p>
-                                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
-
-                                                    <rect id = "arrow" width = "100" height = "100%"/>
-                                                            
-                                                </svg>
+                                        <div className='profile-content'>
+                                            <div className='user-pic-container'>
+                                                <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
                                             </div>
-                                        </a>
+                                            <p>{user.name.split(" ")[0]}</p>
+                                        </div>
+                                        <div className='see-profile'>
+                                            <p>Ver Perfil</p>
+                                            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+
+                                                <rect id = "arrow" width = "100" height = "100%"/>
+                                                        
+                                            </svg>
+                                        </div>
+
                                     </Link>
                                 </li>
                             </NavigationList>
@@ -252,7 +249,7 @@ const Nav = () => {
                 </div>
             </Sidepanel>
         </>
-    )
+    );
 }
 
 export default Nav;
