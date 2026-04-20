@@ -294,7 +294,8 @@ const NavWrapper = styled.div`
             width: 100%;
 
             .image{
-                width: 100%;
+                width: auto;
+                height: auto;
             }
 
             &:focus-visible {

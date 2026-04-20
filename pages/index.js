@@ -556,7 +556,7 @@ const LandingSection = styled.section`
                 padding-inline: 3rem;
                 display: flex;
                 flex-direction: column;
-                grap: 0.5rem;
+                gap: 0.5rem;
                 border: none;
                 margin:0;
                 align-items: center;
