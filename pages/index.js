@@ -213,7 +213,7 @@ const Home = () => {
                                 <h6>Online e Presencial</h6>
                             </div>
                         </div>
-                        <CountdownSection  targetDate={"Aug 18, 2026 09:40:00"}/>   
+                        <CountdownSection  targetDate={"Aug 24, 2026 09:40:00"}/>   
                     </div>
                 </div>
             </LandingSection>

@@ -185,6 +185,7 @@ const ModalBody = styled.div`
         
         .logo {
             width: 100%;
+            height: auto;
         }
     }
 
