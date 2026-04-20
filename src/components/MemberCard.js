@@ -70,7 +70,8 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
             <div className="image-container">
                 <figure className='member-image'>
                     <Image src={image} alt={`Foto de ${name}`} className="responsive-image"
-                    width={500} height={500}/>
+                    fill
+                    sizes="(min-width: 1024px) 18.4rem, 20.5rem"/>
                 </figure>
             </div>
             <div className={'card-back b' + (colorScheme%5)} id={'back b' + (colorScheme)}>
@@ -628,10 +629,11 @@ const MemberWrapper = styled.div`
             height: 100%;
             background-color: var(--background-neutrals-primary-800);
             display: flex;
+            overflow: hidden;
 
             .responsive-image {
-                width: 100%;
                 object-fit: cover;
+                object-position: center;
             }
         }
     }

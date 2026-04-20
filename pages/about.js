@@ -345,7 +345,7 @@ const LogoTextSection = styled.section`
     
         .image {
                 width: 100%;
-                height: fit-content;
+                height: auto;
                 object-fit: contain;
             }
     }

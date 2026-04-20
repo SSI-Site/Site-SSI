@@ -267,6 +267,7 @@ const Loading = styled.figure`
 
     img {
         width: 50%;
+        height: auto;
         max-width: 250px;
     }
 `
