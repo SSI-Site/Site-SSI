@@ -11,7 +11,6 @@ const DateStamp = ({ day, isActive }) => {
     const currentDay = current.getDate();
     const month = current.getMonth() + 1;
     const year = current.getFullYear();
-    console.log(numericDay)
 
     return (
         <DateWrapper $isActive={isActive} >
