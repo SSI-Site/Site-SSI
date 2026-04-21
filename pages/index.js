@@ -205,12 +205,13 @@ const Home = () => {
                     <div className="dates">
                         <div className="dateWrapper">
                             <div>
-                                <h1>18-22</h1>
-                                <h2>Ago 2025</h2>
+                                <h1>24-28</h1>
+                                <h2>Ago 2026</h2>
                             </div>
 
                             <div>
-                                <h6>Online e Presencial</h6>
+                                <img src="/images/logos/USP.svg" alt="Logo USP" width={33} height={33} />
+                                <h6>Online e <br/> Presencial</h6>
                             </div>
                         </div>
                         <CountdownSection  targetDate={"Aug 24, 2026 09:40:00"}/>   
@@ -404,6 +405,8 @@ const Home = () => {
                 </div>
             </DirectionsSection>
 
+{/* OCULTADO POR ENQUANTO
+
             <SupportersSection>
                 <div className='supporters-container'>
                     <div className='supporters-title'>
@@ -435,6 +438,7 @@ const Home = () => {
                     </div>
                 </div>
             </SupportersSection>
+            */}
         </>
     )
 }
@@ -444,7 +448,6 @@ export default Home;
 const LandingSection = styled.section`
     padding-inline: 1rem;
     max-height: 1080px;
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
     color: var(--content-neutrals-primary);
 
@@ -453,7 +456,6 @@ const LandingSection = styled.section`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-inline: 1px solid var(--outline-neutrals-secondary);
 
     
         .landing-info {
@@ -497,30 +499,68 @@ const LandingSection = styled.section`
             justify-content: center;
             width: 100%;
             padding: 1.5rem 1rem;
-            border-top: 1px solid var(--outline-neutrals-secondary);
             margin-bottom: 2.5rem;
         }
 
         .dateWrapper {
             width: 100%;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center; 
+            gap: 2rem;
             padding: inherit;
-            background-color: var(--brand-primary);
             color: var(--content-neutrals-fixed-white);
+            
+            > div:first-child {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(180deg, #FFFFFF 0%, #B988FF 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
+                
+            }
+
+            > div:last-child {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                
+            }
 
             h1, h2, h6 {
                 text-align: center;
                 line-height: 100%;
+                margin: 0;
+
             }
             
             h1 {
                 font-size: 5rem;
+                white-space: nowrap;
             }
 
             h2 {
                 letter-spacing: 0.2em;
-                margin-bottom: 1rem;
+                line-height: 1.2
+            }
+
+            h6 {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                text-align: left;
+                font-size: 0.75rem;
+                background: linear-gradient(0deg, #FFFFFF 0%, #B988FF 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
             }
         }
     }
@@ -529,6 +569,14 @@ const LandingSection = styled.section`
         .landing-container {
             .dateWrapper {
                 width: 85%;
+                div:last-child img, 
+                div:last-child svg {
+                    width: 57px; 
+                    height: 57px;
+                }
+                    h6{
+                    font-size: 1rem;
+                    }
             }
         }
     }
@@ -549,7 +597,6 @@ const LandingSection = styled.section`
                 height: 100%;
                 width: 50%;
                 padding: 1.5rem;
-                border-right: 1px solid var(--outline-neutrals-secondary);
             }
 
             .dates {
@@ -567,14 +614,36 @@ const LandingSection = styled.section`
             .dateWrapper {
                 flex-direction: row;
                 padding: 3.5rem 2rem;
-                align-items: center;
-                gap: 1rem;
+                align-items: stretch;
+                gap: 2rem;
                 width: 100%;
-                align-items: center;
                 justify-content: center;
+
+                > div:first-child {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-shrink: 0;
+                }
+
+                > div:last-child {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-shrink: 0;
+                }
+
+                div:last-child img, 
+                div:last-child svg {
+                    width: 65px; 
+                    height: 80px;
+                }
 
                 h1 {
                     font-size: 9rem;
+                    line-height: 100%;
                 }
 
                 h2 {
@@ -582,11 +651,9 @@ const LandingSection = styled.section`
                 }
 
                 h6 {
-                    writing-mode: vertical-rl;
-                    transform: rotate(180deg);
-                    height: 30%;
-                    max-height: 10rem;
-                    text-align: left;
+                    height: auto;
+                    max-height: none;
+                    font-size: 1.5rem;
                 }
             }
         }
@@ -782,7 +849,6 @@ const EventInfoSection = styled.section`
 
 const DirectionsSection = styled.section`
     padding-inline: 1rem;
-    border-top: 1px solid var(--outline-neutrals-secondary, #999);
 
     .directions-container {
         display: flex;
@@ -792,7 +858,6 @@ const DirectionsSection = styled.section`
         width: 100%;
         height: 100%;
 
-        border-inline: 1px solid var(--outline-neutrals-secondary, #999);
             
         .directions-info {
             display: flex;
@@ -814,7 +879,7 @@ const DirectionsSection = styled.section`
                 .title {
                     padding: 0.75rem 1.5rem;
                     width: fit-content;
-                    background-color: var(--brand-primary);
+                    background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
                 }        
             }
             
@@ -876,7 +941,6 @@ const DirectionsSection = styled.section`
             .map {
             width: 50%;
             padding: 4.5rem 1.5rem;
-            border-left: 1px solid var(--outline-neutrals-secondary);
 
                 iframe {
                     height: 32rem;
@@ -890,8 +954,6 @@ const DirectionsSection = styled.section`
             .map {
                 width: 50%;
                 padding: 4.5rem 1.5rem;
-                border-top: 1px solid var(--outline-neutrals-secondary);
-
                 iframe {
                     height: 32rem;
                 }
@@ -902,7 +964,6 @@ const DirectionsSection = styled.section`
 
 const SupportersSection = styled.section`
     padding: 2rem 1rem;
-    border-top: 1px solid var(--outline-neutrals-secondary);
     background-color: var(--background-neutrals-primary);
     color: var(--content-neutrals-primary);
 
