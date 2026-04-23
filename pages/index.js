@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { React, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
 import styled from 'styled-components';
 
@@ -507,8 +507,8 @@ const LandingSection = styled.section`
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: center; 
-            gap: 2rem;
+            align-items: stretch; 
+            gap: 1rem;
             padding: inherit;
             color: var(--content-neutrals-fixed-white);
             
@@ -528,7 +528,7 @@ const LandingSection = styled.section`
             > div:last-child {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
                 gap: 0.5rem;
                 
@@ -537,8 +537,6 @@ const LandingSection = styled.section`
             h1, h2, h6 {
                 text-align: center;
                 line-height: 100%;
-                margin: 0;
-
             }
             
             h1 {
@@ -568,54 +566,9 @@ const LandingSection = styled.section`
     @media (min-width:800px) {
         .landing-container {
             .dateWrapper {
-                width: 85%;
-                div:last-child img, 
-                div:last-child svg {
-                    width: 57px; 
-                    height: 57px;
-                }
-                    h6{
-                    font-size: 1rem;
-                    }
-            }
-        }
-    }
-
-    @media (min-width:1100px) {
-        //height: 44rem;
-
-        .landing-container {
-            height: calc(100vh - 8rem);
-            flex-direction: row;
-            justify-content: space-between;
-
-            button {
-                width: fit-content;
-            }
-
-            .landing-info {
-                height: 100%;
-                width: 50%;
-                padding: 1.5rem;
-            }
-
-            .dates {
-                padding-inline: 3rem;
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                border: none;
-                margin:0;
-                align-items: center;
-                justify-content: center;
-                width: 50%;
-            }
-
-            .dateWrapper {
                 flex-direction: row;
-                padding: 3.5rem 2rem;
-                align-items: stretch;
-                gap: 2rem;
+                padding: 3rem 3rem;
+                gap: 1rem;
                 width: 100%;
                 justify-content: center;
 
@@ -646,15 +599,43 @@ const LandingSection = styled.section`
                     line-height: 100%;
                 }
 
-                h2 {
-                    margin-bottom: 0;
-                }
-
                 h6 {
                     height: auto;
                     max-height: none;
                     font-size: 1.5rem;
                 }
+            }
+        }
+    }
+
+    @media (min-width:1100px) {
+        //height: 44rem;
+
+        .landing-container {
+            height: calc(100vh - 14rem);
+            flex-direction: row;
+            justify-content: space-between;
+
+            button {
+                width: fit-content;
+            }
+
+            .landing-info {
+                height: 100%;
+                width: 50%;
+                padding: 1.5rem;
+            }
+
+            .dates {
+                padding-inline: 3rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                border: none;
+                margin:0;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
             }
         }
     }

@@ -119,17 +119,17 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            <li className = {router.pathname == '/empresas' ? 'active': ''}>
-                                <Link href="/empresas">
+                            <li className = {router.pathname == '/forCompanies' ? 'active': ''}>
+                                <Link href="/forCompanies">
                                     Para Empresas
-                                </Link>
+                                </Link>                                
                             </li>
 
-                            <li>
+                            {/* <li>
                                 <a href="https://ctf.intheshell.page/" target='_blank' >
                                     CTF
                                 </a>
-                            </li>
+                            </li> */}
 
                             {!disableAuth && user ? (
                                 <li className='profile-container'>
@@ -200,17 +200,17 @@ const Nav = () => {
                                 </Link>                                
                             </li>
 
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link href="/co">
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/forCompanies' ? 'active': ''}>
+                                <Link href="/forCompanies">
                                     Para Empresas
                                 </Link>                                
                             </li>
 
-                            <li onClick={() => setIsOpen(false)}>
+                            {/* <li onClick={() => setIsOpen(false)}>
                                 <a href="https://ctf.intheshell.page/" target='_blank'>
                                     CTF
                                 </a>
-                            </li>
+                            </li> */}
                         </NavigationList>
                     </div>
 
@@ -294,7 +294,7 @@ const NavWrapper = styled.div`
             width: 100%;
 
             .image{
-                width: auto;
+                width: 100%;
                 height: auto;
             }
 

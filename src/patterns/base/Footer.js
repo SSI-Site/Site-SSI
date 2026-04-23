@@ -80,16 +80,16 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link
-                                href="/companies"
-                                className={router.pathname == '/companies' ? 'active' : ''}>                                
+                                href="/forCompanies"
+                                className={router.pathname == '/forCompanies' ? 'active' : ''}>                                
                                     Para Empresas                                
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href='https://ctf.intheshell.page/' target='_blank'>
                                 CTF
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
 
                     <FooterEnding>
