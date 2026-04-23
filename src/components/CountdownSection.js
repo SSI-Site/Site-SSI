@@ -70,7 +70,6 @@ export default CountdownSection;
 const SectionCountdown = styled.section`
     display: flex;
     width: 100%;
-    padding: 4rem 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -90,20 +89,21 @@ const SectionCountdown = styled.section`
             justify-content: center;
             align-items: center;
             gap: 0.5rem;
-            color: var(--content-neutrals-fixed-white, #FFF);
+            color: var(--content-neutrals-fixed-white);
         }
 
         h1 {
             font-size: 2rem;
             font-weight: 700;
             line-height: 2.25rem;
-            margin: 0;
+            font-variant-numeric: tabular-nums;
         }
 
         p {
-            font-size: 0.563rem;
+            font-size: 0.65rem;
             font-weight: 700;
             line-height: 0.75rem;
+            font-variant-numeric: tabular-nums;
         }
     }
     
@@ -115,7 +115,7 @@ const SectionCountdown = styled.section`
 
 
         h1 {
-            color: var(--content-neutrals-fixed-white, #FFF);
+            color: var(--content-neutrals-fixed-white);
             font-size: 2rem;
             line-height: 2.25rem;
             font-family: Inter;
@@ -131,20 +131,20 @@ const SectionCountdown = styled.section`
                 max-width: 13rem;
 
                 h1 {
-                    font-size: var(--Typograph-Heading-H1-size, 4rem);
-                    line-height: var(--Typograph-Heading-H1-height, 4.5rem); /* 112.5% */
+                    font-size: 4rem;
+                    line-height: 4.5rem; /* 112.5% */
                 }
 
                 p {
-                    font-size: var(--Typograph-Label-Large-size, 1.125rem);
-                    line-height: var(--Typograph-Label-Large-height, 1.5rem); /* 133.333% */
+                    font-size: 1.125rem;
+                    line-height: 1.5rem; /* 133.333% */
                 }
             }
 
             .separator {
                 h1 {
-                    font-size: var(--Typograph-Heading-H1-size, 4rem);
-                    line-height: var(--Typograph-Heading-H1-height, 4.5rem);
+                    font-size: 4rem;
+                    line-height: 4.5rem;
                 }
             }
         }
