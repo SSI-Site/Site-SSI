@@ -80,8 +80,8 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link
-                                href="/forCompanies"
-                                className={router.pathname == '/forCompanies' ? 'active' : ''}>                                
+                                href="/partnerships"
+                                className={router.pathname == '/partnerships' ? 'active' : ''}>                                
                                     Para Empresas                                
                             </Link>
                         </li>
