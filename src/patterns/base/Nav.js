@@ -119,8 +119,8 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            <li className = {router.pathname == '/forCompanies' ? 'active': ''}>
-                                <Link href="/forCompanies">
+                            <li className = {router.pathname == '/partnerships' ? 'active': ''}>
+                                <Link href="/partnerships">
                                     Para Empresas
                                 </Link>                                
                             </li>
@@ -200,8 +200,8 @@ const Nav = () => {
                                 </Link>                                
                             </li>
 
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/forCompanies' ? 'active': ''}>
-                                <Link href="/forCompanies">
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/partnerships' ? 'active': ''}>
+                                <Link href="/partnerships">
                                     Para Empresas
                                 </Link>                                
                             </li>

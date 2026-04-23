@@ -8,7 +8,7 @@ import Meta from '../src/infra/Meta';
 // components
 
 
-const forCompanies = () => {
+const partnerships = () => {
     <Meta title='Para Empresas | Semana de Sistemas de Informação' 
         description=''
         keywords=''
@@ -49,7 +49,7 @@ const forCompanies = () => {
     )
 }
 
-export default forCompanies;
+export default partnerships;
 
 const LandingSection = styled.section`
 
