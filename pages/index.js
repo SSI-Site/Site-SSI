@@ -637,8 +637,6 @@ const LandingSection = styled.section`
                 justify-content: center;
                 width: 50%;
             }
-
-            
         }
     }
 `

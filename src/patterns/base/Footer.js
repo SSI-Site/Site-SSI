@@ -85,11 +85,11 @@ const Footer = () => {
                                     Para Empresas                                
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href='https://ctf.intheshell.page/' target='_blank'>
                                 CTF
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
 
                     <FooterEnding>
