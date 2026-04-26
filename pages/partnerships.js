@@ -33,9 +33,11 @@ const partnerships = () => {
                             Impacte quem está pronto para transformar o mercado e <b>conquiste hoje os talentos de amanhã</b>
                         </p>
                     </div>
-                    <Button>
-                        <b>Quero marcar presença no evento</b>
-                    </Button> 
+                    <a href="/404">
+                        <Button>
+                            <b>Quero marcar presença no evento</b>
+                        </Button>
+                    </a>
                 </div>
             </LandingSection>
 
