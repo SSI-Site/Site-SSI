@@ -108,7 +108,7 @@ const LandingSection = styled.section`
         margin-top: -6rem;
         padding: 12rem 18.5rem;
         
-        .ladingSection {
+        .landingSection {
             gap: 4rem; 
 
             h1 {
