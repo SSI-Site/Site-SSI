@@ -59,50 +59,54 @@ const partnerships = () => {
                                 className='image'
                             />
                         </picture>
-                        <CountUp
-                            start={0}
-                            end={289}
-                            delay={0}
-                            decimals={0}
-                            suffix=" mil+"
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>visualizações</p>
-                                </div>
-                            )}
-                        </CountUp>
-                        <CountUp
-                            start={0}
-                            end={1.5}
-                            delay={0}
-                            decimals={1}
-                            suffix=" mil+"
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>seguidores</p>
-                                </div>
-                            )}
-                        </CountUp>
-                        <CountUp
-                            start={0}
-                            end={37491}
-                            delay={0}
-                            decimals={0}
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>contas alcançadas</p>
-                                </div>
-                            )}
-                        </CountUp>
+                        <div className="icon-counters">
+                            <CountUp
+                                start={0}
+                                end={289}
+                                delay={0}
+                                decimals={0}
+                                suffix=" mil+"
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>visualizações</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                            <CountUp
+                                start={0}
+                                end={1.5}
+                                delay={0}
+                                decimals={1}
+                                decimal=','
+                                suffix=" mil+"
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>seguidores</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                            <CountUp
+                                start={0}
+                                end={37491}
+                                separator='.'
+                                delay={0}
+                                decimals={0}
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>contas alcançadas</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                        </div>
                         <p>Apresentamos engajamento crescente e conteúdo impulsionado</p>
                     </div>
 
@@ -117,51 +121,55 @@ const partnerships = () => {
                                 className='image'
                             />
                         </picture>
-                        <CountUp
-                            start={0}
-                            end={44.6}
-                            delay={0}
-                            decimals={1}
-                            suffix=" mil+"
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>impressões</p>
-                                </div>
-                            )}
-                        </CountUp>
-                        <CountUp
-                            start={0}
-                            end={1000}
-                            delay={0}
-                            decimals={0}
-                            suffix="%+"
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>de visitas à página</p>
-                                </div>
-                            )}
-                        </CountUp>
-                        <CountUp
-                            start={0}
-                            end={40}
-                            delay={0}
-                            decimals={0}
-                            suffix="%"
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>crescimento de seguidores</p>
-                                </div>
-                            )}
-                        </CountUp>
+                        <div className="icon-counters">
+                            <CountUp
+                                start={0}
+                                end={44.6}
+                                delay={0}
+                                decimals={1}
+                                decimal=','
+                                suffix=" mil+"
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>impressões</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                            <CountUp
+                                start={0}
+                                end={1000}
+                                delay={0}
+                                separator=''
+                                decimals={0}
+                                suffix="%+"
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>de visitas à página</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                            <CountUp
+                                start={0}
+                                end={40}
+                                delay={0}
+                                decimals={0}
+                                suffix="%"
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>crescimento de seguidores</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                        </div>
                         <p>Página frequente em resultados de pesquisa e visitas recorrentes</p>
                     </div>
 
@@ -176,50 +184,52 @@ const partnerships = () => {
                                 className='image'
                             />
                         </picture>
-                        <CountUp
-                            start={0}
-                            end={40}
-                            delay={0}
-                            decimals={0}
-                            suffix="+"
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>palestrantes</p>
-                                </div>
-                            )}
-                        </CountUp>
-                        <CountUp
-                            start={0}
-                            end={45}
-                            delay={0}
-                            decimals={0}
-                            suffix="h"
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>de atividade no evento</p>
-                                </div>
-                            )}
-                        </CountUp>
-                        <CountUp
-                            start={0}
-                            end={684}
-                            delay={0}
-                            decimals={0}
-                            enableScrollSpy
-                        >
-                            {({ countUpRef }) => (
-                                <div className='our-numbers-contador'>
-                                    <h5 ref={countUpRef} />
-                                    <p>incrições no site</p>
-                                </div>
-                            )}
-                        </CountUp>
+                        <div className="icon-counters">
+                            <CountUp
+                                start={0}
+                                end={40}
+                                delay={0}
+                                decimals={0}
+                                suffix="+"
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>palestrantes</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                            <CountUp
+                                start={0}
+                                end={45}
+                                delay={0}
+                                decimals={0}
+                                suffix="h"
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>de atividade no evento</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                            <CountUp
+                                start={0}
+                                end={684}
+                                delay={0}
+                                decimals={0}
+                                enableScrollSpy
+                            >
+                                {({ countUpRef }) => (
+                                    <div className='our-numbers-contador'>
+                                        <h5 ref={countUpRef} />
+                                        <p>incrições no site</p>
+                                    </div>
+                                )}
+                            </CountUp>
+                        </div>
                         <p>Público interessado e participativo, interações frequentes</p>
                     </div>
                 </div>
@@ -280,10 +290,19 @@ const OurNumbersSection = styled.section`
         gap: 1.5rem;
     }
 
+    .icon-counters{
+       display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
+    }
+    
     .icon-group {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 1.5rem;
 
         p {
             color: var(--content-neutrals-primary, #FFF);
@@ -297,9 +316,6 @@ const OurNumbersSection = styled.section`
             font-size: 1.25rem;
         }
 
-        picture {
-          padding-top: 1.5rem;
-        }
     }
 
     .our-numbers-contador {
@@ -309,25 +325,40 @@ const OurNumbersSection = styled.section`
     }
 
     @media (min-width: 1100px) {
+        padding: 4.5rem 3rem;
+
         .our-numbers-icons {
             flex-direction: row;
             align-items: center;
             justify-content: center;
             padding: 1rem 0 3rem 0;
-            gap: 3rem;
+            gap: 2.5rem;
         }
-
+        
         .icon-group {
             align-items: center; 
             text-align: center;
+            padding: 0 1rem 0 1rem;
+        }
+
+        .icon-group p {
+            max-width: 20rem;
+        }
+
+        .icon-counters{
+            gap: .5rem;
+            padding-top: 2.1rem;
+            padding-bottom: 1rem;
         }
 
         h5 {
             font-size: 1.5rem;
+            line-height: 1;
         }
         
         p {
-            text-align: center;
+            font-size: 1.25rem;
+            line-height: 1;
         }
     }
 `
