@@ -181,7 +181,7 @@ const partnerships = () => {
                             end={40}
                             delay={0}
                             decimals={0}
-                            suffix=" +"
+                            suffix="+"
                             enableScrollSpy
                         >
                             {({ countUpRef }) => (
@@ -255,7 +255,6 @@ const PlansSection = styled.section`
 const OurNumbersSection = styled.section`
     background: var(--background-neutrals-secondary, #333);
     display: flex;
-    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -287,45 +286,52 @@ const OurNumbersSection = styled.section`
         align-items: center;
 
         p {
-            text-align: center;
             color: var(--content-neutrals-primary, #FFF);
             font-style: normal;
             font-weight: 400;
             font-size: 1rem;
+            text-align: center;
+        }
+
+        h5 {
+            font-size: 1.25rem;
         }
 
         picture {
           padding-top: 1.5rem;
-      }
+        }
     }
 
     .our-numbers-contador {
         display: flex;
         gap: .3rem;
-        align-items: center; 
-     }
+        align-items: baseline;
+    }
 
     @media (min-width: 1100px) {
         .our-numbers-icons {
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                gap: 3rem;
-            }
-                
-            .icon-group {
-                align-items: center; 
-                text-align: center;
-                padding: 3rem 0 3rem 0
-            }
-            
-            p {
-                text-align: center; 
-            }
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 0 3rem 0;
+            gap: 3rem;
+        }
+
+        .icon-group {
+            align-items: center; 
+            text-align: center;
+        }
+
+        h5 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            text-align: center;
         }
     }
 `
 
 const ExperienceSection = styled.section`
-    
+
 `
