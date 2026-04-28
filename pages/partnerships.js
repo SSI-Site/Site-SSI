@@ -5,12 +5,16 @@ import Meta from '../src/infra/Meta';
 import Image from 'next/image';
 
 // images
+import bgMobile from '../public/images/partnerships/photos/bg_mobile.png'
+import bgDesktop from '../public/images/partnerships/photos/bg_desktop.png'
 import logoInstagram from '../public/images/partnerships/icons/logo_instagram.svg';
 import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin.svg';
 import logoInPerson from '../public/images/partnerships/icons/logo_inPerson.svg';
 import CountUp from 'react-countup';
 
 // components
+import Button from '../src/components/Button';
+
 
 
 const partnerships = () => {
@@ -23,7 +27,24 @@ const partnerships = () => {
         <>
             {/* Seção incial da pagina onde tem uma frase de impacto e um botão para entrar em contato */}
             <LandingSection>
-                <h1>Pagina em desenvolvimento</h1>
+                <div className='landingSection'>
+                    <div>
+                        <h1>CONECTE SUA MARCA AO FUTURO</h1>
+                    </div>
+                    <div className='landingSectionText'>
+                        <p>
+                            Esteja diante de um <strong>público altamente qualificado</strong>, fortaleça sua marca no ambiente universitário e compartilhe oportunidades. 
+                        </p>
+                        <p>
+                            Impacte quem está pronto para transformar o mercado e <strong>conquiste hoje os talentos de amanhã</strong>
+                        </p>
+                    </div>
+                    <a href="/404">
+                        <Button>
+                            <b>Quero marcar presença no evento</b>
+                        </Button>
+                    </a>
+                </div>
             </LandingSection>
 
             {/* Seção que explica o porquê ser um parceiro da SSI */}
@@ -247,7 +268,64 @@ const partnerships = () => {
 export default partnerships;
 
 const LandingSection = styled.section`
+    background-image: url(${bgMobile});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
+    min-height: 75vh;
+
+    margin-top: -5rem;
+    padding: 10rem 1rem 5rem 1rem;
+    
+    .landingSection { 
+        display: flex;
+        gap: 2.25rem;
+        flex-direction: column;
+        align-items: center;
+
+
+        h1 {
+            font-size: 2rem; 
+            line-height: 2.5rem;
+            text-align: center;
+            
+        }
+
+        .landingSectionText {
+            max-width: 20rem;
+        }
+
+        p {
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+    }
+
+    @media (min-width: 800px) {
+        background-image: url(${bgDesktop});
+        margin-top: -6rem;
+        padding: 16rem 18.5rem 11rem 18.5rem;
+        
+        .landingSection {
+            gap: 4rem; 
+
+            h1 {
+                font-size: 4rem;
+                line-height: 4.5rem;
+            }
+
+            .landingSectionText {
+                max-width: none;
+            }
+            
+            p {
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+            }
+        }
+    }
 `
 
 const MotivationSection = styled.section`
