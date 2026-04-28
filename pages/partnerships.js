@@ -7,7 +7,6 @@ import Meta from '../src/infra/Meta';
 import bgMobile from '../public/images/partnerships/photos/bg_mobile.png'
 import bgDesktop from '../public/images/partnerships/photos/bg_desktop.png'
 // components
-import Nav from '../src/patterns/base/Nav'; 
 import Button from '../src/components/Button';
 
 
@@ -26,11 +25,12 @@ const partnerships = () => {
                     <div>
                         <h1>CONECTE SUA MARCA AO FUTURO</h1>
                     </div>
-                    <div>
+                    <div className='landingSectionText'>
                         <p>
-                            Esteja diante de um <b>público altamente qualificado</b>, fortaleça sua marca no ambiente universitário e compartilhe oportunidades. 
-                            <br></br>
-                            Impacte quem está pronto para transformar o mercado e <b>conquiste hoje os talentos de amanhã</b>
+                            Esteja diante de um <strong>público altamente qualificado</strong>, fortaleça sua marca no ambiente universitário e compartilhe oportunidades. 
+                        </p>
+                        <p>
+                            Impacte quem está pronto para transformar o mercado e <strong>conquiste hoje os talentos de amanhã</strong>
                         </p>
                     </div>
                     <a href="/404">
@@ -77,7 +77,7 @@ const LandingSection = styled.section`
     background-position: center;
     background-repeat: no-repeat;
 
-    min-height: 100vh;
+    min-height: 75vh;
 
     margin-top: -5rem;
     padding: 10rem 1rem 5rem 1rem;
@@ -91,24 +91,26 @@ const LandingSection = styled.section`
 
         h1 {
             font-size: 2rem; 
-            text-weight: 700;
             line-height: 2.5rem;
             text-align: center;
             
+        }
+
+        .landingSectionText {
+            max-width: 20rem;
         }
 
         p {
             text-align: center;
             font-size: 0.875rem;
             font-weight: 400;
-            line-height: 1.5rem;
         }
     }
 
     @media (min-width: 800px) {
         background-image: url(${bgDesktop});
         margin-top: -6rem;
-        padding: 12rem 18.5rem;
+        padding: 16rem 18.5rem 11rem 18.5rem;
         
         .landingSection {
             gap: 4rem; 
@@ -117,13 +119,16 @@ const LandingSection = styled.section`
                 font-size: 4rem;
                 line-height: 4.5rem;
             }
+
+            .landingSectionText {
+                max-width: none;
+            }
             
             p {
                 font-size: 1.125rem;
                 line-height: 1.75rem;
             }
         }
-
     }
 `
 
