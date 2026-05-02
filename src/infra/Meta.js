@@ -5,8 +5,8 @@ import img_src from '../../public/images/logos/banner_meta_tag.png';
 
 const Meta = ({
     title = 'Semana de Sistemas de Informação',
-    keywords = 'semana de sistemas de informação, SSI 2025, evento tecnologia, evento acadêmico tecnologia, inovação, tecnologia da informação, estudantes de TI, palestras tecnologia, evento universitário, semana de si, EACH USP',
-    description = 'Participe da Semana de Sistemas de Informação 2025 na USP! Confira a programação completa de palestras com especialistas em tecnologia, organizada pela comissão da SSI. Acesse o site oficial para detalhes sobre o evento, palestrantes e muito mais!'
+    keywords = 'semana de sistemas de informação, SSI 2026, evento tecnologia, evento acadêmico tecnologia, inovação, tecnologia da informação, estudantes de TI, palestras tecnologia, evento universitário, semana de si, EACH USP',
+    description = 'Participe da Semana de Sistemas de Informação 2026 na USP! Confira a programação completa de palestras com especialistas em tecnologia, organizada pela comissão da SSI. Acesse o site oficial para detalhes sobre o evento, palestrantes e muito mais!'
 }) => {
     
     return (

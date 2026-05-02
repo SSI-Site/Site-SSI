@@ -40,7 +40,7 @@ const Footer = () => {
                             src={LogoPrincipalDark}
                             width={168}
                             height={136}
-                            alt='Semana de Sistemas de Informação 2025'
+                            alt='Semana de Sistemas de Informação 2026'
                         />
 
                     </picture>

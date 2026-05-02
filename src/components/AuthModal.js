@@ -64,7 +64,7 @@ const AuthModal = ({ onClose }) => {
                             height={130}
                             className='logo' 
                             src={LogoCircularDark} 
-                            alt="Logo SSI 2025" />
+                            alt="Logo SSI 2026" />
                         </picture>
 
                         <p>Faça login para conseguir registrar suas presenças e garantir brindes!</p>
