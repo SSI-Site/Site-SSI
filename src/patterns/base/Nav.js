@@ -56,9 +56,8 @@ const Nav = () => {
 
                             <Image
                                 src={LogoHorizontalDark}
-                                width={100}
-                                height={42}
-                                className='image'
+                                width={180}
+                                height={48}
                                 alt='Semana de Sistemas de Informação 2025'
                             />
                         </picture>
@@ -292,11 +291,6 @@ const NavWrapper = styled.div`
             align-items: center;
             justify-content: flex-start;
             width: 100%;
-
-            .image{
-                width: 100%;
-                height: auto;
-            }
 
             &:focus-visible {
                 outline: 2px solid var(--brand-primary);

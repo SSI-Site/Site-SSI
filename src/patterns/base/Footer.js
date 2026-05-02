@@ -38,10 +38,9 @@ const Footer = () => {
 
                         <Image
                             src={LogoPrincipalDark}
-                            width={176}
+                            width={168}
                             height={136}
                             alt='Semana de Sistemas de Informação 2025'
-                            className="logo-image"
                         />
 
                     </picture>
