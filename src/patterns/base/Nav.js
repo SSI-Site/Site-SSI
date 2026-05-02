@@ -12,7 +12,7 @@ import Button from '../../components/Button';
 
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';
-import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg';
+import LogoHorizontalDark from '../../../public/images/logos/logo_horizontal_dark.svg';
 import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg'
 
 const Nav = () => {
@@ -55,7 +55,7 @@ const Nav = () => {
                             media = "(prefers-color-scheme: light)"/>
 
                             <Image
-                                src={LogoHorizontal}
+                                src={LogoHorizontalDark}
                                 width={100}
                                 height={42}
                                 className='image'

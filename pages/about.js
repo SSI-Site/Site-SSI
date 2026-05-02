@@ -16,7 +16,7 @@ import Accordion from '../src/components/Accordion';
 import Image from 'next/image';
 
 // assets
-import LogoCircular from '../public/images/logos/logo_circular.svg';
+import LogoCircularDark from '../public/images/logos/logo_circular_dark.svg';
 import LogoCircularLight from '../public/images/logos/logo_circular_light.svg'
 
 const About = () => {
@@ -49,7 +49,7 @@ const About = () => {
                         <picture>
                             <source srcSet = {LogoCircularLight} media='(prefers-color-scheme: light)'/>
                             <Image
-                                src={LogoCircular}
+                                src={LogoCircularDark}
                                 alt="Gif SSI 2025"
                                 width={500}
                                 height={500}

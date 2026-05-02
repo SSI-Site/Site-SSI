@@ -9,7 +9,7 @@ import SecondaryButton from './SecondaryButton';
 
 // assets
 import IconeFechar from '../../public/images/icons/close.svg';
-import LogoCircular from '../../public/images/logos/logo_circular.svg'
+import LogoCircularDark from '../../public/images/logos/logo_circular_dark.svg'
 import LogoCircularLight from '../../public/images/logos/logo_circular_light.svg';
 import Image from 'next/image';
 
@@ -63,7 +63,7 @@ const AuthModal = ({ onClose }) => {
                             width={300}
                             height={130}
                             className='logo' 
-                            src={LogoCircular} 
+                            src={LogoCircularDark} 
                             alt="Logo SSI 2025" />
                         </picture>
 
