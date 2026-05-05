@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 import styled from 'styled-components';
 import Meta from '../src/infra/Meta';
@@ -73,8 +74,8 @@ const partnerships = () => {
                         <Image
                             src={detailUpMobile}
                             alt='detalhes'
-                            width={196.65}
-                            height={55.74}
+                            width={197}
+                            height={56}
                         />
                     </div>
                     <div className='imgDesktop'> 
@@ -92,8 +93,8 @@ const partnerships = () => {
                             <Image
                                 src={logoPartner}
                                 alt='logo'
-                                width={19.21}
-                                height={21.33}
+                                width={19}
+                                height={21}
                                 className='logoParceiro'
                             />
                         </div>
@@ -117,11 +118,11 @@ const partnerships = () => {
                             </p>
                         </div>
                         
-                        <a href="/404">
+                        <Link href="/404" passHref legacyBehavior>
                             <Button>
                                 <b>Confira os planos</b>
                             </Button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -130,8 +131,8 @@ const partnerships = () => {
                         <Image
                             src={detailBottonMobile}
                             alt='detalhes'
-                            width={156.39}
-                            height={55.74}
+                            width={157}
+                            height={56}
                         />
                     </div>
                     <div className='imgDesktopApoiador'>
@@ -147,8 +148,8 @@ const partnerships = () => {
                             <Image
                                 src={logoSupporter}
                                 alt='logo'
-                                width={19.21}
-                                height={21.33}
+                                width={19}
+                                height={21}
                                 className = 'logoApoiador'
                             />
                             <h4>Apoiador</h4>
@@ -165,11 +166,11 @@ const partnerships = () => {
                                 Garantimos o alcance e fortalecimento da marca.   
                             </p>
                         </div>
-                        <a href="/404">
+                        <Link href="/404" passHref legacyBehavior>
                             <Button>
                                 <b>Agende uma conversa</b>
                             </Button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </PlansSection>
@@ -452,8 +453,8 @@ const PlansSection = styled.section`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding: 2.5rem 1rem;
-    align-item: center;
+    padding: 2.25rem 1rem;
+    align-items: center;
     align-self: stretch;
     justify-content: center;
 
@@ -540,7 +541,7 @@ const PlansSection = styled.section`
             .info-text {
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.5rem;
 
                 p {
                     color: var(--content-neutrals-primary, #FFF);
@@ -556,7 +557,7 @@ const PlansSection = styled.section`
     }
 
     @media(min-width: 1100px) {
-        padding: 4.5rem 18.5rem;
+        padding: 4.5rem 0;
         gap: 1rem;
 
         .parceiro{
@@ -572,20 +573,22 @@ const PlansSection = styled.section`
                 display: block;
             }
 
-            .title{
-                .logoParceiro{
-                    width: 2.43569rem;
-                    height: 2.75rem;
-                }
-            }
-
             .cardParceiro{
                 padding: 2.25rem;
                 width: 49.25rem;
                 border-radius: 3rem;
                 gap: 1rem;
 
+                .title{
+                    gap: 1.5rem;
+                    .logoParceiro{
+                        width: 2.5rem;
+                        height: 2.75rem;
+                    }
+                }
+
                 .info-text {
+                    gap: 1rem;
                     p, ul {
                         font-size: 1rem;
                     }
@@ -607,6 +610,7 @@ const PlansSection = styled.section`
                 gap: 1rem;
 
                 .title {
+                    gap: 1.5rem;
                     .logoApoiador{
                         width: 2.43569rem;
                         height: 2.75rem;
@@ -614,6 +618,7 @@ const PlansSection = styled.section`
                 }
 
                 .info-text {
+                    gap: 1rem;
                     p, ul {
                         font-size: 1rem;
                     }
