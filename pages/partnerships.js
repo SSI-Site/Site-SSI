@@ -12,6 +12,7 @@ import logoInstagram from '../public/images/partnerships/icons/logo_instagram.sv
 import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin.svg';
 import logoInPerson from '../public/images/partnerships/icons/logo_inPerson.svg';
 import CountUp from 'react-countup';
+import imgMotivation from '../public/images/partnerships/photos/motivation.png';
 
 import logoPartner from '../public/images/partnerships/icons/partner_icon.svg';
 import logoSupporter from '../public/images/partnerships/icons/supporter_icon.svg';
@@ -59,6 +60,29 @@ const partnerships = () => {
 
             {/* Seção que explica o porquê ser um parceiro da SSI */}
             <MotivationSection>
+
+                <div className='motivationSection'>
+                    <div className='motivationSectionImages'>
+                        <Image
+                            src={imgMotivation}
+                            alt="Imagem de pessoas em um evento"
+                            width={304}
+                            height={252}
+                        />
+                    </div>
+
+                    <div className='motivationSectionText'>
+
+                        <h2>Por que <strong>ser um parceiro</strong> do evento?</h2>
+                        <p>Colaborar com a Semana de SI te garante <strong>contato direto</strong> com centenas de estudantes da <strong>Universidade de São Paulo</strong> e de outras faculdades, compondo um público engajado e altamente qualificado.</p>
+                
+                        <h3>Perfil qualificado</h3>
+                        <p>O público possui forte base em <strong>tecnologia, negócios e gestão.</strong> Além disso, há forte estímulo ao desenvolvimento de <strong>projetos práticos</strong> pela própria graduação e por meio de atividades de extensão. Se inserir no ecossistema universitário te garante como protagonista na formação dos novos profissionais.</p>
+
+                        <h3>Interesses</h3>
+                        <p>No curso de Sistemas de Informação, <strong>89,7% dos estudantes</strong> demonstram interesse em <strong>iniciar um estágio em 2026.</strong> De um total de 804 graduandos, essa parcela possui interesse em variadas áreas do mercado de tecnologia.</p>
+                    </div>
+                </div>
 
             </MotivationSection>
 
@@ -442,6 +466,101 @@ const LandingSection = styled.section`
 `
 
 const MotivationSection = styled.section`
+
+    .motivationSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .motivationSectionImages {
+        padding: 2.25em 1.15em; 
+    }
+
+    .motivationSectionText {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        margin-bottom: 1.25em;
+        h2 {
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            font-style: normal;
+            font-weight: 400;
+            font-family: 'AT Aero';
+            strong{
+                background: linear-gradient(90deg, #4A148C 0%, #310C61 100%);
+                padding: 1px 4px; 
+            }
+        }
+        h3 {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-weight: 400;
+        }
+
+        p{
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            font-weight: 400;
+        }
+    }
+
+    @media (min-width: 800px) {
+        .motivationSection {
+           
+            gap: 0.75em;
+
+            .motivationSectionImages {
+                img{
+                    width: 450px;
+                    height: 300px;
+                }
+            }
+
+            .motivationSectionText {
+
+                h2{
+                    font-size: 2.5rem;
+                    line-height: 3.3rem;
+                }
+                h3{
+                    font-size: 1.5rem;
+                }
+                p{
+                    font-size: 1.125rem;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .motivationSection {
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+
+            .motivationSectionImages {
+                img{
+                    width: 609px;
+                    height: 504px;
+                }
+            }
+
+            .motivationSectionText {
+                h2{
+                    font-size: 2.5rem;
+                    line-height: 3.3rem;
+                }
+                h3{
+                    font-size: 1.5rem;
+                }
+                p{
+                    font-size: 1.125rem;
+                }
+            }
+        }
+    }
     
 `
 
