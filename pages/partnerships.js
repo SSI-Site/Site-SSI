@@ -12,6 +12,7 @@ import logoInstagram from '../public/images/partnerships/icons/logo_instagram.sv
 import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin.svg';
 import logoInPerson from '../public/images/partnerships/icons/logo_inPerson.svg';
 import CountUp from 'react-countup';
+import imgMotivation from '../public/images/partnerships/photos/motivation.png';
 
 import logoPartner from '../public/images/partnerships/icons/partner_icon.svg';
 import logoSupporter from '../public/images/partnerships/icons/supporter_icon.svg';
@@ -59,7 +60,30 @@ const partnerships = () => {
 
             {/* Seção que explica o porquê ser um parceiro da SSI */}
             <MotivationSection>
-
+                <div className='motivationSection'>
+                    <div className='motivationSectionImages'>
+                        <Image
+                            src={imgMotivation}
+                            alt="Imagem de pessoas em um evento"
+                            width={304}
+                            height={252}
+                        />
+                    </div>
+                    <div className='motivationSectionText'>
+                        <div>
+                            <h4>Por que <strong>ser um parceiro</strong> <br/> do evento?</h4>
+                            <p>Colaborar com a Semana de SI te garante <strong>contato direto</strong> com centenas de estudantes da <strong>Universidade de São Paulo</strong> e de outras faculdades, compondo um público engajado e altamente qualificado.</p>
+                        </div>
+                        <div>
+                            <h6>Perfil qualificado</h6>
+                            <p>O público possui forte base em <strong>tecnologia, negócios e gestão.</strong> Além disso, há forte estímulo ao desenvolvimento de <strong>projetos práticos</strong> pela própria graduação e por meio de atividades de extensão. Se inserir no ecossistema universitário te garante como protagonista na formação dos novos profissionais.</p>
+                        </div>
+                        <div>
+                            <h6>Interesses</h6>
+                            <p>No curso de Sistemas de Informação, <strong>89,7% dos estudantes</strong> demonstram interesse em <strong>iniciar um estágio em 2026.</strong> De um total de 804 graduandos, essa parcela possui interesse em variadas áreas do mercado de tecnologia.</p>
+                        </div>
+                    </div>
+                </div>
             </MotivationSection>
 
             {/* Seção onde a logo de todos os parcerios rodam em um carrossel */}
@@ -442,7 +466,93 @@ const LandingSection = styled.section`
 `
 
 const MotivationSection = styled.section`
-    
+    padding: 2.25rem 1rem;
+
+    .motivationSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.25rem;
+    }
+
+    .motivationSectionImages {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 100%;
+            max-width: 610px;
+            height: auto;
+        }
+    }
+
+    .motivationSectionText {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem
+        }
+        
+        h4 {
+            font-weight: 400;
+            strong{
+                background: linear-gradient(90deg, #4A148C 0%, #310C61 100%);
+                padding: 1px 4px; 
+            }
+        }
+        
+        h6 {
+            font-weight: 400;
+        }
+
+        p{
+            font-weight: 400;
+        }
+    }
+
+    @media (min-width: 800px) { 
+        gap: 0.75rem;
+
+        .motivationSectionText {
+            padding: 0;
+            gap: 1.5rem;    
+
+            div {
+                gap: 1rem;
+            }
+
+            h4{
+                font-size: 2.5rem;
+                line-height: 3.3rem;
+            }
+            h6{
+                font-size: 1.5rem;
+            }
+            p{
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    @media (min-width: 1180px) {
+        padding: 4.5rem 1rem;
+
+        .motivationSection {
+            flex-direction: row;
+            gap: 3rem;
+
+            img{
+                width: 610px;
+                max-width: auto;
+            }
+        }
+    }
 `
 
 const SponsorsSection = styled.section`

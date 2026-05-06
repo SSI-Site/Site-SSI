@@ -25,6 +25,8 @@
     "webpack": "^5.93.0"
   },
   "devDependencies": {
-    "eslint-config-next": "^15.4.6"
+    "@types/react": "19.2.14",
+    "eslint-config-next": "^15.4.6",
+    "typescript": "6.0.3"
   }
 }
