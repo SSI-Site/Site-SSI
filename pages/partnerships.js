@@ -399,21 +399,19 @@ const partnerships = () => {
             {/* Seção que descreve como acontece a SSI, dias, periodos, temas abordados, etc */}
             <ExperienceSection>
                 <div className='experienceSection'>
-                    <div className='experienceTitlePhotosSection'>
+                    <div className='experiencePanel experienceTitlePhotosPanel'>
                         <div className='experienceTitle'>
                             <h3>Experiência SSI</h3>
                         </div>
-                        <div className='experiencePhotos'>
-                            <Image
-                                src={imgPhotosExperience}
-                                alt='Coleção de três imagens do evento'
-                                width={560}
-                                height={728}
-                                sizes='(min-width: 1100px) 30rem, (min-width: 768px) 32rem, 100vw'
-                            />
-                        </div>
+                        <Image
+                            src={imgPhotosExperience}
+                            alt='Coleção de três imagens do evento'
+                            width={248}
+                            height={323}
+                            className='experiencePhotos'
+                        />
                     </div>
-                    <div className='experienceDescriptionSection'>
+                    <div className='experiencePanel experienceDescriptionPanel'>
                         <div className='experienceDescriptionTexts'>
                             <p>São <strong>5 dias</strong> de programação intensa, com atividades distribuídas pela manhã, tarde e noite, de segunda a sexta-feira.</p>
                             <p>A grade aborda temas atuais de tecnologia e mercado, como <strong>IA, Dados, Cybersegurança, Criptoativos, Computação Quântica, Empreendedorismo, Processos Seletivos, Game Dev</strong>, entre outros assuntos relevantes para a formação dos alunos. O evento conta com palestras, workshops práticos, painéis de carreira e momentos de interação com empresas, criando um ambiente dinâmico de aprendizado e networking.</p>
@@ -421,18 +419,17 @@ const partnerships = () => {
                         </div>
                         <Image
                             src={imgGroupExperience}
-                            alt='Fotografia em grupo de uma palestra do evento'
-                            width={560}
-                            height={314}
-                            sizes='(min-width: 1100px) 35rem, (min-width: 768px) 32rem, 100vw'
+                            alt='Fotografia em grupo ao final de uma palestra'
+                            width={280}
+                            height={157.5}
                             className='experienceGroupPhoto'
                         />
-                        <p className='experienceDate'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto.</strong></p>
-                        <Link href="/404" passHref legacyBehavior>
+                        <p className='experienceInfo'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto.</strong></p>
+                        <a href="/404" target="_blank" rel="noopener noreferrer">
                             <Button>
                                 <b>Quero marcar presença no evento</b>
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </ExperienceSection>
@@ -887,30 +884,22 @@ const OurNumbersSection = styled.section`
 `
 
 const ExperienceSection = styled.section`
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: left;
+    }
+
     .experienceSection {
-        display: flex;
         width: 100%;
-        max-width: 76rem;
-        margin: 0 auto;
-        padding: 2.25rem 1rem;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
     }
 
-    .experienceTitlePhotosSection {
+    .experiencePanel {
         display: flex;
-        width: 100%;
-        padding: 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .experienceDescriptionSection {
-        display: flex;
-        width: 100%;
-        padding: 0;
+        padding: 2.25rem 0;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
@@ -918,37 +907,26 @@ const ExperienceSection = styled.section`
 
     .experienceTitle {
         display: flex;
-        width: fit-content;
         padding: 0.75rem 1.5rem;
         justify-content: center;
         align-items: center;
-        gap: 0.5rem;
         background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
-    }
-
-    .experiencePhotos {
-        width: 100%;
-        max-width: 34rem;
-
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 1.5rem;
-        }
     }
 
     .experienceDescriptionTexts {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        width: 100%;
+        gap: 1.5rem;
     }
 
-    p {
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1.5rem;
-        text-align: left;
+    .experienceInfo {
+        text-align: center;
+    }
+
+    .experiencePhotos {
+        width: 100%;
+        max-width: 25rem;
+        height: auto;
     }
 
     .experienceGroupPhoto {
@@ -958,33 +936,30 @@ const ExperienceSection = styled.section`
         border-radius: 1.5rem;
     }
 
-    .experienceDate {
-        text-align: center;
+    @media (min-width: 800px) {
+        .experiencePhotos {
+            max-width: 31rem;
+        }
     }
 
     @media (min-width: 1100px) {
         .experienceSection {
-            padding: 4.5rem 1.5rem;
             flex-direction: row;
             align-items: flex-start;
             gap: 3rem;
         }
 
-        .experienceTitlePhotosSection,
-        .experienceDescriptionSection {
-            flex: 1;
+        .experiencePanel {
+            padding: 4.5rem 0;
+            gap: 3rem;
         }
 
-        .experienceTitlePhotosSection {
+        .experienceTitlePhotosPanel {
             align-items: flex-start;
-        }
-
-        .experienceDescriptionTexts {
-            gap: 1.5rem;
-        }
-
-        p {
-            font-size: 1rem;
+            width: fit-content;
+            max-width: fit-content;
+            flex: 0 0 auto;
+            align-self: flex-start;
         }
     }
 `
