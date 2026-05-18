@@ -13,6 +13,8 @@ import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin.svg'
 import logoInPerson from '../public/images/partnerships/icons/logo_inPerson.svg';
 import CountUp from 'react-countup';
 import imgMotivation from '../public/images/partnerships/photos/motivation.png';
+import imgPhotosExperience from '../public/images/partnerships/photos/experience.png';
+import imgGroupExperience from '../public/images/partnerships/photos/experience2.png';
 
 import logoPartner from '../public/images/partnerships/icons/partner_icon.svg';
 import logoSupporter from '../public/images/partnerships/icons/supporter_icon.svg';
@@ -396,7 +398,40 @@ const partnerships = () => {
 
             {/* Seção que descreve como acontece a SSI, dias, periodos, temas abordados, etc */}
             <ExperienceSection>
-
+                <div className='experienceSection'>
+                    <div className='experiencePanel experienceTitlePhotosPanel'>
+                        <div className='experienceTitle'>
+                            <h3>Experiência SSI</h3>
+                        </div>
+                        <Image
+                            src={imgPhotosExperience}
+                            alt='Coleção de três imagens do evento'
+                            width={248}
+                            height={323}
+                            className='experiencePhotos'
+                        />
+                    </div>
+                    <div className='experiencePanel experienceDescriptionPanel'>
+                        <div className='experienceDescriptionTexts'>
+                            <p>São <strong>5 dias</strong> de programação intensa, com atividades distribuídas pela manhã, tarde e noite, de segunda a sexta-feira.</p>
+                            <p>A grade aborda temas atuais de tecnologia e mercado, como <strong>IA, Dados, Cybersegurança, Criptoativos, Computação Quântica, Empreendedorismo, Processos Seletivos, Game Dev</strong>, entre outros assuntos relevantes para a formação dos alunos. O evento conta com palestras, workshops práticos, painéis de carreira e momentos de interação com empresas, criando um ambiente dinâmico de aprendizado e networking.</p>
+                            <p>Durante a semana da SSI, as aulas da graduação em Sistemas de Informação são suspensas, direcionando <strong>integralmente a atenção dos estudantes para o evento!</strong></p>
+                        </div>
+                        <Image
+                            src={imgGroupExperience}
+                            alt='Fotografia em grupo ao final de uma palestra'
+                            width={280}
+                            height={157.5}
+                            className='experienceGroupPhoto'
+                        />
+                        <p className='experienceInfo'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto.</strong></p>
+                        <a href="/404" target="_blank" rel="noopener noreferrer">
+                            <Button>
+                                <b>Quero marcar presença no evento</b>
+                            </Button>
+                        </a>
+                    </div>
+                </div>
             </ExperienceSection>
         </>
     )
@@ -849,5 +884,82 @@ const OurNumbersSection = styled.section`
 `
 
 const ExperienceSection = styled.section`
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: left;
+    }
 
+    .experienceSection {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .experiencePanel {
+        display: flex;
+        padding: 2.25rem 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .experienceTitle {
+        display: flex;
+        padding: 0.75rem 1.5rem;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
+    }
+
+    .experienceDescriptionTexts {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .experienceInfo {
+        text-align: center;
+    }
+
+    .experiencePhotos {
+        width: 100%;
+        max-width: 25rem;
+        height: auto;
+    }
+
+    .experienceGroupPhoto {
+        width: 100%;
+        max-width: 35rem;
+        height: auto;
+        border-radius: 1.5rem;
+    }
+
+    @media (min-width: 800px) {
+        .experiencePhotos {
+            max-width: 31rem;
+        }
+    }
+
+    @media (min-width: 1100px) {
+        .experienceSection {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 3rem;
+        }
+
+        .experiencePanel {
+            padding: 4.5rem 0;
+            gap: 3rem;
+        }
+
+        .experienceTitlePhotosPanel {
+            align-items: flex-start;
+            width: fit-content;
+            max-width: fit-content;
+            flex: 0 0 auto;
+            align-self: flex-start;
+        }
+    }
 `
