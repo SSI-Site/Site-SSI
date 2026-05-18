@@ -12,7 +12,7 @@ import Button from '../../components/Button';
 
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';
-import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg';
+import LogoHorizontalDark from '../../../public/images/logos/logo_horizontal_dark.svg';
 import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg'
 
 const Nav = () => {
@@ -55,11 +55,10 @@ const Nav = () => {
                             media = "(prefers-color-scheme: light)"/>
 
                             <Image
-                                src={LogoHorizontal}
-                                width={100}
-                                height={42}
-                                className='image'
-                                alt='Semana de Sistemas de Informação 2025'
+                                src={LogoHorizontalDark}
+                                width={180}
+                                height={48}
+                                alt='Semana de Sistemas de Informação 2026'
                             />
                         </picture>
 
@@ -292,11 +291,6 @@ const NavWrapper = styled.div`
             align-items: center;
             justify-content: flex-start;
             width: 100%;
-
-            .image{
-                width: 100%;
-                height: auto;
-            }
 
             &:focus-visible {
                 outline: 2px solid var(--brand-primary);

@@ -9,7 +9,7 @@ import SecondaryButton from './SecondaryButton';
 
 // assets
 import IconeFechar from '../../public/images/icons/close.svg';
-import LogoCircular from '../../public/images/logos/logo_circular.svg'
+import LogoCircularDark from '../../public/images/logos/logo_circular_dark.svg'
 import LogoCircularLight from '../../public/images/logos/logo_circular_light.svg';
 import Image from 'next/image';
 
@@ -63,8 +63,8 @@ const AuthModal = ({ onClose }) => {
                             width={300}
                             height={130}
                             className='logo' 
-                            src={LogoCircular} 
-                            alt="Logo SSI 2025" />
+                            src={LogoCircularDark} 
+                            alt="Logo SSI 2026" />
                         </picture>
 
                         <p>Faça login para conseguir registrar suas presenças e garantir brindes!</p>
