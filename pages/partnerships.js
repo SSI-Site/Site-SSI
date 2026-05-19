@@ -53,9 +53,9 @@ const partnerships = () => {
                             Impacte quem está pronto para transformar o mercado e <strong>conquiste hoje os talentos de amanhã</strong>
                         </p>
                     </div>
-                    <a href="/404">
+                    <a href="/404" target="_blank" rel="noopener noreferrer">
                         <Button>
-                            <b>Quero marcar presença no evento</b>
+                            <strong>Quero marcar presença no evento</strong>
                         </Button>
                     </a>
                 </div>
@@ -145,11 +145,11 @@ const partnerships = () => {
                             </p>
                         </div>
                         
-                        <Link href="/404" passHref legacyBehavior>
+                        <a href="/404" target="_blank" rel="noopener noreferrer">
                             <Button>
-                                <b>Confira os planos</b>
+                                <strong>Confira os planos</strong>
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
 
@@ -193,11 +193,11 @@ const partnerships = () => {
                                 Garantimos o alcance e fortalecimento da marca.   
                             </p>
                         </div>
-                        <Link href="/404" passHref legacyBehavior>
+                        <a href="/404" target="_blank" rel="noopener noreferrer">
                             <Button>
-                                <b>Agende uma conversa</b>
+                                <strong>Agende uma conversa</strong>
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </PlansSection>
@@ -425,10 +425,10 @@ const partnerships = () => {
                             height={157.5}
                             className='experienceGroupPhoto'
                         />
-                        <p className='experienceInfo'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto.</strong></p>
+                        <p className='experienceInfo'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto</strong>!!!</p>
                         <a href="/404" target="_blank" rel="noopener noreferrer">
                             <Button>
-                                <b>Quero marcar presença no evento</b>
+                                <strong>Quero marcar presença no evento</strong>
                             </Button>
                         </a>
                     </div>
