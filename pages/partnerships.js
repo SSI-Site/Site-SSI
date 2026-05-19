@@ -4,26 +4,27 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Meta from '../src/infra/Meta';
 import Image from 'next/image';
+import CountUp from 'react-countup';
 
 // images
 import bgMobile from '../public/images/partnerships/photos/bg_mobile.png';
 import bgDesktop from '../public/images/partnerships/photos/bg_desktop.png';
-import logoInstagram from '../public/images/partnerships/icons/logo_instagram.svg';
-import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin.svg';
-import logoInPerson from '../public/images/partnerships/icons/logo_inPerson.svg';
-import CountUp from 'react-countup';
+import logoInstagram from '../public/images/partnerships/icons/logo_instagram_dark.svg';
+import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin_dark.svg';
+import logoInPerson from '../public/images/partnerships/icons/logo_inPerson_dark.svg';
+
 import imgMotivation from '../public/images/partnerships/photos/motivation.png';
 import imgPhotosExperience from '../public/images/partnerships/photos/experience.png';
 import imgGroupExperience from '../public/images/partnerships/photos/experience2.png';
 
-import logoPartner from '../public/images/partnerships/icons/partner_icon.svg';
-import logoSupporter from '../public/images/partnerships/icons/supporter_icon.svg';
+import logoPartner from '../public/images/partnerships/icons/partner_icon_dark.svg';
+import logoSupporter from '../public/images/partnerships/icons/supporter_icon_dark.svg';
 
-import detailBottonMobile from '../public/images/partnerships/details/detail_botton_mobile.svg';
-import detailUpMobile from '../public/images/partnerships/details/detail_up_mobile.svg';
+import detailBottonMobile from '../public/images/partnerships/details/detail_botton_mobile_dark.svg';
+import detailUpMobile from '../public/images/partnerships/details/detail_up_mobile_dark.svg';
 
-import detailBottonDesktop from '../public/images/partnerships/details/detail_botton_desktop.svg';
-import detailUpDesktop from '../public/images/partnerships/details/detail_up_desktop.svg';
+import detailBottonDesktop from '../public/images/partnerships/details/detail_botton_desktop_dark.svg';
+import detailUpDesktop from '../public/images/partnerships/details/detail_up_desktop_dark.svg';
 
 // components
 import Button from '../src/components/Button';
