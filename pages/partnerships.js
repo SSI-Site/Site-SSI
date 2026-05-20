@@ -4,26 +4,27 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Meta from '../src/infra/Meta';
 import Image from 'next/image';
+import CountUp from 'react-countup';
 
 // images
 import bgMobile from '../public/images/partnerships/photos/bg_mobile.png';
 import bgDesktop from '../public/images/partnerships/photos/bg_desktop.png';
-import logoInstagram from '../public/images/partnerships/icons/logo_instagram.svg';
-import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin.svg';
-import logoInPerson from '../public/images/partnerships/icons/logo_inPerson.svg';
-import CountUp from 'react-countup';
+import logoInstagram from '../public/images/partnerships/icons/logo_instagram_dark.svg';
+import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin_dark.svg';
+import logoInPerson from '../public/images/partnerships/icons/logo_inPerson_dark.svg';
+
 import imgMotivation from '../public/images/partnerships/photos/motivation.png';
 import imgPhotosExperience from '../public/images/partnerships/photos/experience.png';
 import imgGroupExperience from '../public/images/partnerships/photos/experience2.png';
 
-import logoPartner from '../public/images/partnerships/icons/partner_icon.svg';
-import logoSupporter from '../public/images/partnerships/icons/supporter_icon.svg';
+import logoPartner from '../public/images/partnerships/icons/partner_icon_dark.svg';
+import logoSupporter from '../public/images/partnerships/icons/supporter_icon_dark.svg';
 
-import detailBottonMobile from '../public/images/partnerships/details/detail_botton_mobile.svg';
-import detailUpMobile from '../public/images/partnerships/details/detail_up_mobile.svg';
+import detailBottonMobile from '../public/images/partnerships/details/detail_botton_mobile_dark.svg';
+import detailUpMobile from '../public/images/partnerships/details/detail_up_mobile_dark.svg';
 
-import detailBottonDesktop from '../public/images/partnerships/details/detail_botton_desktop.svg';
-import detailUpDesktop from '../public/images/partnerships/details/detail_up_desktop.svg';
+import detailBottonDesktop from '../public/images/partnerships/details/detail_botton_desktop_dark.svg';
+import detailUpDesktop from '../public/images/partnerships/details/detail_up_desktop_dark.svg';
 
 // components
 import Button from '../src/components/Button';
@@ -52,9 +53,9 @@ const partnerships = () => {
                             Impacte quem está pronto para transformar o mercado e <strong>conquiste hoje os talentos de amanhã</strong>
                         </p>
                     </div>
-                    <a href="/404">
+                    <a href="/404" target="_blank" rel="noopener noreferrer">
                         <Button>
-                            <b>Quero marcar presença no evento</b>
+                            <strong>Quero marcar presença no evento</strong>
                         </Button>
                     </a>
                 </div>
@@ -144,11 +145,11 @@ const partnerships = () => {
                             </p>
                         </div>
                         
-                        <Link href="/404" passHref legacyBehavior>
+                        <a href="/404" target="_blank" rel="noopener noreferrer">
                             <Button>
-                                <b>Confira os planos</b>
+                                <strong>Confira os planos</strong>
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
 
@@ -192,11 +193,11 @@ const partnerships = () => {
                                 Garantimos o alcance e fortalecimento da marca.   
                             </p>
                         </div>
-                        <Link href="/404" passHref legacyBehavior>
+                        <a href="/404" target="_blank" rel="noopener noreferrer">
                             <Button>
-                                <b>Agende uma conversa</b>
+                                <strong>Agende uma conversa</strong>
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </PlansSection>
@@ -424,10 +425,10 @@ const partnerships = () => {
                             height={157.5}
                             className='experienceGroupPhoto'
                         />
-                        <p className='experienceInfo'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto.</strong></p>
+                        <p className='experienceInfo'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto</strong>!!!</p>
                         <a href="/404" target="_blank" rel="noopener noreferrer">
                             <Button>
-                                <b>Quero marcar presença no evento</b>
+                                <strong>Quero marcar presença no evento</strong>
                             </Button>
                         </a>
                     </div>
