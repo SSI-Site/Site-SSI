@@ -269,7 +269,7 @@ const NavWrapper = styled.div`
     border-radius: 1.5rem; /* era 24px */
     
     /* aqui a gente faz as cores e o efeito glassmorphism da navbar */
-    background: rgba(43, 43, 43, 0.75);
+    background: var(--background-neutrals-nav);
     box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
     backdrop-filter: blur(6px);
 

@@ -37,10 +37,27 @@ export default createGlobalStyle`
             --background-neutrals-secondary: light-dark( #CCCCCC, #333333);
             --background-neutrals-tertiary: light-dark( #999999, #666666);
             --background-neutrals-inverse: light-dark( #000000, #FFFFFF);
+            --background-neutrals-nav: light-dark( #CACACA, #2B2B2B);
 
         // BACKGROUND   GREEN
             --background-accent-green: light-dark( #046502, #B0E5A6);
             --background-accent-red: light-dark( #DB0B14, #FFEEEB);
+
+
+        /* BACKUP*/
+            @property --gradient-start {
+                syntax: "<color>";
+                inherits: true;
+                initial-value: #6618BB;
+            }
+
+            @property --gradient-end {
+                syntax: "<color>";
+                inherits: true;
+                initial-value: #000000;
+            }
+            --gradient-start: light-dark(#6618BB, #BB86FF);
+            --gradient-end:   light-dark(#000000, #FFFFFF);
 
         //OUTLINE   NEUTRALS
             --outline-neutrals-primary: light-dark( #808080, #808080);
