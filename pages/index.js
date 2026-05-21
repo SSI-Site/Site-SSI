@@ -211,8 +211,8 @@ const Home = () => {
 
                             <div>
                                 <picture>
-                                    <source srcset="/images/logos/USP.svg" media="(prefers-color-scheme: dark)" />
-                                    <img src="/images/logos/dark-usp.svg" alt="Logo USP" width={33} height={33} />
+                                    <source srcset="/images/logos/usp-dark.svg" media="(prefers-color-scheme: dark)" />
+                                    <img src="/images/logos/usp-light.svg" alt="Logo USP" width={33} height={33} />
                                 </picture>
                                 <h6>Online e <br /> Presencial</h6>
                             </div>
