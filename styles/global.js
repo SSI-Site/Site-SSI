@@ -56,8 +56,8 @@ export default createGlobalStyle`
                 inherits: true;
                 initial-value: #000000;
             }
-            --gradient-start: light-dark(#6618BB, #BB86FF);
-            --gradient-end:   light-dark(#000000, #FFFFFF);
+            --gradient-start: light-dark(#6618BB, #FFFFFF);
+            --gradient-end:   light-dark(#000000, #BB86FF);
 
         //OUTLINE   NEUTRALS
             --outline-neutrals-primary: light-dark( #808080, #808080);
