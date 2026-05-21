@@ -210,11 +210,14 @@ const Home = () => {
                             </div>
 
                             <div>
-                                <img src="/images/logos/USP.svg" alt="Logo USP" width={33} height={33} />
-                                <h6>Online e <br/> Presencial</h6>
+                                <picture>
+                                    <source srcset="/images/logos/usp-dark.svg" media="(prefers-color-scheme: dark)" />
+                                    <img src="/images/logos/usp-light.svg" alt="Logo USP" width={33} height={33} />
+                                </picture>
+                                <h6>Online e <br /> Presencial</h6>
                             </div>
                         </div>
-                        <CountdownSection  targetDate={"Aug 24, 2026 09:40:00"}/>   
+                        <CountdownSection targetDate={"Aug 24, 2026 09:40:00"}/>   
                     </div>
                 </div>
             </LandingSection>
@@ -517,7 +520,7 @@ const LandingSection = styled.section`
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                background: linear-gradient(180deg, #FFFFFF 0%, #B988FF 100%);
+                background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
                 -webkit-background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -554,7 +557,7 @@ const LandingSection = styled.section`
                 transform: rotate(180deg);
                 text-align: left;
                 font-size: 0.75rem;
-                background: linear-gradient(0deg, #FFFFFF 0%, #B988FF 100%);
+                background: linear-gradient(0deg, var(--gradient-start), var(--gradient-end));
                 -webkit-background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -736,10 +739,14 @@ const EventInfoSection = styled.section`
     background-color: var(--background-neutrals-primary);
     background-color: var(--background-neutrals-primary);
 
-    background-image: url('/images/background_imgs/bg-sobre-mobile.png');
+    background-image: url('/images/background_imgs/bg-sobre-mobile-dark.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @media (prefers-color-scheme: light) {
+        background-image: url('/images/background_imgs/bg-sobre-mobile-light.png');
+    }
 
     .info {
         display: flex;
@@ -789,9 +796,14 @@ const EventInfoSection = styled.section`
 
     @media screen and (min-width:801px) {
         padding: 4rem 18.5rem 1.5rem 18.5rem;
-        background-image: url('/images/background_imgs/bg-sobre-desktop.png');
+        background-image: url('/images/background_imgs/bg-sobre-desktop-dark.png');
         background-size: cover;
         background-position: center;
+
+        @media (prefers-color-scheme: light) {
+        background-image: url('/images/background_imgs/bg-sobre-desktop-light.png');
+        }
+
 
         .info {
             width: 55rem;

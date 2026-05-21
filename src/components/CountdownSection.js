@@ -89,7 +89,7 @@ const SectionCountdown = styled.section`
             justify-content: center;
             align-items: center;
             gap: 0.5rem;
-            color: var(--content-neutrals-fixed-white);
+            color: var(--content-neutrals-primary);
         }
 
         h1 {
@@ -115,7 +115,7 @@ const SectionCountdown = styled.section`
 
 
         h1 {
-            color: var(--content-neutrals-fixed-white);
+            color: var(--content-neutrals-primary);
             font-size: 2rem;
             line-height: 2.25rem;
             font-family: Inter;
