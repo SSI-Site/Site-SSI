@@ -7,6 +7,7 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
+import { EVENT_DETAILS } from '../data/eventDetails';
 
 // importe Image do next
 import Image from 'next/image'
@@ -251,9 +252,6 @@ const Home = () => {
                 </div>
             </SubscriptionSection>
             */}
-
-            {/* Seção de contagem regressiva - só aparece antes do evento */}
-            {/* essa seção nao aparece so site então eu fiz apenas me baseando no figma */}
 
             <EventInfoSection>
                 <div className='info'>
