@@ -8,6 +8,7 @@ import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
 import { EVENT_DETAILS } from '../data/eventDetails';
+import { eventDetails } from '../data/eventDetails';
 
 // importe Image do next
 import Image from 'next/image'
@@ -22,6 +23,7 @@ import SecondaryButton from '../src/components/SecondaryButton';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import saphira from '../services/saphira';
 import CountdownSection from '../src/components/CountdownSection';
+
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
@@ -84,8 +86,8 @@ const Home = () => {
         getSchedule()
     }, [])
 
-    const firstEventDay = new Date(2025, 7, 18);
-    const lastEventDay = new Date(2025, 7, 22);
+    const firstEventDay = eventDetails.logic.startJS;
+    const lastEventDay = eventDetails.logic.endJS;
     lastEventDay.setHours(23, 59, 59, 999);  // Define para o final do dia (23:59:59.999)
 
     const current = new Date();
@@ -98,7 +100,7 @@ const Home = () => {
 
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
-    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2025-08-18';
+    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
 
     const filterEventDays = ["18 Ago - Segunda-feira", "19 Ago - Terça-feira", "20 Ago - Quarta-feira", "21 Ago - Quinta-feira", "22 Ago - Sexta-feira"];
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();

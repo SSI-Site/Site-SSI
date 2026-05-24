@@ -18,7 +18,13 @@ export const eventDetails = {
     startJS: new Date(2026, 7, 24), 
     endJS: new Date(2026, 7, 28),
     fallbackString: "2026-08-24",
-    filterEventDays: ["24", "25", "26", "27", "28"]
+    filterEventDays: [
+      "24 Ago - Segunda-feira", 
+      "25 Ago - Terça-feira", 
+      "26 Ago - Quarta-feira", 
+      "27 Ago - Quinta-feira", 
+      "28 Ago - Sexta-feira"
+    ]
   },
 
   stats: {
