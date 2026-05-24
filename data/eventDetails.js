@@ -1,6 +1,4 @@
 export const eventDetails = {
-  name: "SSI",
-  fullName: "Semana de Sistemas de Informação",
   year: "2026",
   dateText: "24 a 28 de agosto", 
   startDate: "2026-08-24T00:09:30-03:00",
@@ -33,7 +31,7 @@ export const eventDetails = {
     hours: 45      // qnt de horas de atividade
   },
 
-  /* links: {
-    coRegistration: "https://forms.gle/cole-o-link-aqui" 
-  } */ 
+   links: {
+    coRegistration: "https://forms.gle/cole-o-link-aqui-meu-fan-de-jojo" 
+  } 
 }; 
