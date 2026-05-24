@@ -7,7 +7,6 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
-import { EVENT_DETAILS } from '../data/eventDetails';
 import { eventDetails } from '../data/eventDetails';
 
 // importe Image do next
