@@ -13,8 +13,8 @@ export const eventDetails = {
 
   logic: {
     // so nao esquecer que no Date do JS o mes começa em 0, logo 7 = agosto
-    startJS: new Date(2026, 7, 24), 
-    endJS: new Date(2026, 7, 28),
+    startJS: (2026, 7, 24), 
+    endJS: (2026, 7, 28),
     fallbackString: "2026-08-24",
     filterEventDays: [
       "24 Ago - Segunda-feira", 

@@ -86,8 +86,13 @@ const Home = () => {
         getSchedule()
     }, [])
 
-    const firstEventDay = eventDetails.logic.startJS;
-    const lastEventDay = eventDetails.logic.endJS;
+    
+    //const firstEventDay = eventDetails.logic.startJS;
+    //const lastEventDay = eventDetails.logic.endJS;
+    const firstEventDay = new Date(eventDetails.logic.startJS);
+    const lastEventDay = new Date(eventDetails.logic.endJS);
+    //const firstEventDay = new Date(2025, 7, 18);
+    //const lastEventDay = new Date(2025, 7, 22);
     lastEventDay.setHours(23, 59, 59, 999);  // Define para o final do dia (23:59:59.999)
 
     const current = new Date();
