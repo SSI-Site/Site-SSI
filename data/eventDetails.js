@@ -9,7 +9,7 @@ export const eventDetails = {
     monthYear: "Ago 2026"
   },
 
-  countdownDate: "2026-08-24T00:00:00",
+  countdownDate: "2026-08-24T09:40:00-03:00",
 
   logic: {
     // so nao esquecer que no Date do JS o mes começa em 0, logo 7 = agosto
