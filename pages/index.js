@@ -86,13 +86,12 @@ const Home = () => {
         getSchedule()
     }, [])
 
-    
+    const firstEventDay = new Date(2025, 7, 18);
+    const lastEventDay = new Date(2025, 7, 22);
+    //const firstEventDay = new Date(2026, 7, 24);
+    //const lastEventDay = new Date(2026, 7, 28);
     //const firstEventDay = eventDetails.logic.startJS;
     //const lastEventDay = eventDetails.logic.endJS;
-    const firstEventDay = new Date(eventDetails.logic.startJS);
-    const lastEventDay = new Date(eventDetails.logic.endJS);
-    //const firstEventDay = new Date(2025, 7, 18);
-    //const lastEventDay = new Date(2025, 7, 22);
     lastEventDay.setHours(23, 59, 59, 999);  // Define para o final do dia (23:59:59.999)
 
     const current = new Date();
@@ -106,6 +105,8 @@ const Home = () => {
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
     const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
+    //const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2025-08-18';
+
 
     const filterEventDays = eventDetails.logic.filterEventDays;
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();
@@ -217,8 +218,8 @@ const Home = () => {
                     <div className="dates">
                         <div className="dateWrapper">
                             <div>
-                                <h1>24-28</h1>
-                                <h2>Ago 2026</h2>
+                                <h1>{eventDetails.hero.shortDate}</h1>
+                                <h2>{eventDetails.hero.monthYear}</h2>
                             </div>
 
                             <div>
