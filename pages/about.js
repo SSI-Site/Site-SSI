@@ -39,7 +39,7 @@ const About = () => {
                     <div className='text'>
                         <h1>Sobre o Evento</h1>
                         <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
-                        <a href='https://docs.google.com/document/d/1ROLkjMU-hxvPW5BlVpEm1wnzZN1z32YsQc5u69u1pSk/edit?usp=sharing' target="_blank">
+                        <a href={eventDetails.regulationLink} target="_blank">
                             <Button>
                                 Conferir regulamento
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@ const About = () => {
                             <source srcSet = {LogoCircularLight} media='(prefers-color-scheme: light)'/>
                             <Image
                                 src={LogoCircularDark}
-                                alt="Gif SSI 2025"
+                                alt={`Gif SSI ${eventDetails.year}`} 
                                 width={500}
                                 height={500}
                                 className='image'
@@ -82,7 +82,7 @@ const About = () => {
                             <div className='bait-sample-description'>
                                 <div className='bait-sample-title'>
                                     <h5>Palestras</h5>
-                                    <p>A Semana de Sistemas de Informação 2025 contará com diversas palestras da área da tecnologia.</p>
+                                    <p>A Semana de Sistemas de Informação {eventDetails.year} contará com diversas palestras da área da tecnologia.</p>
                                 </div>
 
                                 <div className='bait-sample-subtitles'>
@@ -220,7 +220,7 @@ const About = () => {
                     }
 
                     <p className='gifts-cards-obs'>
-                        Teremos distribuição de brindes exclusivos para os participantes da SSI 2025. Basta registrar as suas presenças e verificar a contagem no seu perfil.
+                        Teremos distribuição de brindes exclusivos para os participantes da SSI {eventDetails.year}. Basta registrar as suas presenças e verificar a contagem no seu perfil.
                     </p>
                 </div>
             </GiftsSection>
@@ -229,7 +229,7 @@ const About = () => {
                 <div className='lastyear-container'>
                     <div className='lastyear-text'>
                         <div className='lastyear-title'>
-                            <h3>Veja como foi em 2024</h3>
+                            <h3>Veja como foi em {eventDetails.lastYear}</h3>
                         </div>
                         <h6>
                             Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!
@@ -239,7 +239,7 @@ const About = () => {
                     <div className='lastyear-content'>
                         <div className='lastyear-video'>
                             <iframe
-                                src="https://www.youtube.com/embed/tHkBBqcpb3I?si=ISLt0jiKNzuyd5g2"
+                                src={socials.aftermovieEmbed}
                                 title="YouTube video player"
                                 allow="fullscreen">
                             </iframe>
@@ -247,7 +247,7 @@ const About = () => {
                         <EventNumbersBanner>
                             <CountUp
                                 start={0}
-                                end={2}
+                                end={lastYearStats.viewers}
                                 delay={0}
                                 decimals={1}
                                 suffix="k+"
@@ -263,7 +263,7 @@ const About = () => {
 
                             <CountUp
                                 start={0}
-                                end={600}
+                                end={lastYearStats.subscribers}
                                 delay={0}
                                 suffix="+"
                                 enableScrollSpy
@@ -278,7 +278,7 @@ const About = () => {
 
                             <CountUp
                                 start={0}
-                                end={43}
+                                end={lastYearStats.contentHours}
                                 delay={0}
                                 suffix="h"
                                 enableScrollSpy
@@ -292,7 +292,7 @@ const About = () => {
                             </CountUp>
                         </EventNumbersBanner>
 
-                        <a href='https://www.youtube.com/@semanadesi' target='_blank'>
+                        <a href={socials.youtube} target='_blank'>
                             <SecondaryButton $noSvgColorChange>
                                 Acesse nosso canal
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none">
