@@ -173,6 +173,8 @@ const Home = () => {
         }
     }, [showMapModal]); 
 
+    // Verifica se a data atual é anterior ao início do evento para exibir a contagem regressiva na LandingSection
+    const isCronologicallyBeforeEvent = current < eventDetails.logic.startJS;
 
     return (
         <>
@@ -229,7 +231,7 @@ const Home = () => {
                                 <h6>Online e <br /> Presencial</h6>
                             </div>
                         </div>
-                        <CountdownSection targetDate={eventDetails.countdownDate}/>   
+                        {isCronologicallyBeforeEvent && <CountdownSection targetDate={eventDetails.startDate} />}
                     </div>
                 </div>
             </LandingSection>
