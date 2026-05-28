@@ -247,7 +247,7 @@ const About = () => {
                         <EventNumbersBanner>
                             <CountUp
                                 start={0}
-                                end={lastYearStats.viewers}
+                                end={eventDetails.lastYearStats.viewers}
                                 delay={0}
                                 decimals={1}
                                 suffix="k+"
@@ -263,7 +263,7 @@ const About = () => {
 
                             <CountUp
                                 start={0}
-                                end={lastYearStats.subscribers}
+                                end={eventDetails.lastYearStats.subscribers}
                                 delay={0}
                                 suffix="+"
                                 enableScrollSpy
@@ -278,7 +278,7 @@ const About = () => {
 
                             <CountUp
                                 start={0}
-                                end={lastYearStats.contentHours}
+                                end={eventDetails.lastYearStats.contentHours}
                                 delay={0}
                                 suffix="h"
                                 enableScrollSpy
