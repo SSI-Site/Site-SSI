@@ -4,6 +4,8 @@ import styled, { css } from 'styled-components';
 
 import Meta from '../src/infra/Meta';
 
+import { eventDetails } from '../data/eventDetails';
+
 // components
 import DepartmentStamp from '../src/components/DepartmentStamp';
 import MemberCard from '../src/components/MemberCard';
@@ -70,8 +72,8 @@ const CO = () => {
     return (
         <>
             <Meta title='Comissão Organizadora | Semana de Sistemas de Informação' 
-            description='Conheça a comissão organizadora da SSI 2025. Estudantes dedicados à realização de um dos maiores eventos acadêmicos de tecnologia do país.'
-            keywords='comissão SSI, organização do evento, estudantes organizadores, quem organiza a SSI, equipe SSI 2025, comissão sistemas de informação, organização semana tecnologia'
+            description={`Conheça a comissão organizadora da SSI ${eventDetails.year}. Estudantes dedicados à realização de um dos maiores eventos acadêmicos de tecnologia do país.`}
+            keywords={`comissão SSI, organização do evento, estudantes organizadores, quem organiza a SSI, equipe SSI ${eventDetails.year}, comissão sistemas de informação, organização semana tecnologia`}
             />
 
             <COExhibitionSection>
