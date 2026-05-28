@@ -5,12 +5,17 @@ export const eventDetails = {
   dateText: "24 a 28 de agosto", 
   startDate: "2026-08-24T09:40:00-03:00",
   endDate: "2026-08-28T23:59:59-03:00", 
-  
   regulationLink: "https://docs.google.com/document/d/1ROLkjMU-hxvPW5BlVpEm1wnzZN1z32YsQc5u69u1pSk/edit?usp=sharing",
   
   hero: {
     shortDate: "24-28",
     monthYear: "Ago 2026"
+  },
+
+  lastYearStats: {
+    viewers: 2,       
+    subscribers: 600,
+    contentHours: 43  
   },
 
   logic: {
