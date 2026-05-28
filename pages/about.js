@@ -6,6 +6,9 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import gifts from '../data/gifts';
 
+import { eventDetails } from '../data/eventDetails';
+import { socials } from '../data/socials';
+
 // components
 import Button from '../src/components/Button';
 import GiftCard from '../src/components/GiftCard';
