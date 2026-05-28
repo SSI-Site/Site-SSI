@@ -7,7 +7,7 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
-import { EVENT_DETAILS } from '../data/eventDetails';
+import { eventDetails } from '../data/eventDetails';
 
 // importe Image do next
 import Image from 'next/image'
@@ -22,6 +22,7 @@ import SecondaryButton from '../src/components/SecondaryButton';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import saphira from '../services/saphira';
 import CountdownSection from '../src/components/CountdownSection';
+
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
@@ -86,6 +87,10 @@ const Home = () => {
 
     const firstEventDay = new Date(2025, 7, 18);
     const lastEventDay = new Date(2025, 7, 22);
+    // const firstEventDay = new Date(2026, 7, 24);
+    // const lastEventDay = new Date(2026, 7, 28);
+    //const firstEventDay = eventDetails.logic.startJS;
+    //const lastEventDay = eventDetails.logic.endJS;
     lastEventDay.setHours(23, 59, 59, 999);  // Define para o final do dia (23:59:59.999)
 
     const current = new Date();
@@ -98,9 +103,11 @@ const Home = () => {
 
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
-    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2025-08-18';
 
-    const filterEventDays = ["18 Ago - Segunda-feira", "19 Ago - Terça-feira", "20 Ago - Quarta-feira", "21 Ago - Quinta-feira", "22 Ago - Sexta-feira"];
+    // Se a data atual estiver entre o primeiro e o último dia do evento, use a data atual; caso contrário, use a data do primeiro dia do evento (fallback)
+    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
+
+    const filterEventDays = eventDetails.logic.filterEventDays;
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();
 
     // Transforma 00:00 em minutos depois da meia noite para fazer calculos
@@ -164,8 +171,10 @@ const Home = () => {
             document.body.style.overflow = 'unset';
             document.body.style.paddingRight = 'unset';
         }
-    }, [showMapModal]);
+    }, [showMapModal]); 
 
+    // Verifica se a data atual é anterior ao início do evento para exibir a contagem regressiva na LandingSection
+    const isCronologicallyBeforeEvent = current < eventDetails.logic.startJS;
 
     return (
         <>
@@ -177,8 +186,10 @@ const Home = () => {
                         {disableAuth || !user ?
                             <>
                                 <div className='landing-text'>
-                                    <h1>Semana de Sistemas de Informação 2026</h1>
-                                    <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
+                                    <h1>Semana de Sistemas de Informação {eventDetails.year}</h1>
+                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, 
+                                        Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. 
+                                        Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                 </div>
                                 <Button onClick={handleShowAuthModal} disabled={disableAuth}>
                                     {disableAuth ? 'Cadastros em breve...' : 'Cadastre-se'}
@@ -187,8 +198,10 @@ const Home = () => {
                             :
                             <>
                                 <div className='landing-text'>
-                                    <h1>Semana de Sistemas de Informação 2026</h1>
-                                    <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
+                                    <h1>Semana de Sistemas de Informação {eventDetails.year}</h1>
+                                     <p>Participe da Semana de Sistemas de Informação! Mais de 40 palestrantes, temas como Inteligência Artificial, 
+                                        Ciência de Dados, Diversidade em TI e Desenvolvimento de Jogos, com especialistas de diversas empresas. 
+                                        Não perca essa chance de se conectar, aprender e inovar com as mentes que estão moldando o futuro da tecnologia!</p>
                                     <p className='greetings-text'>Olá, <span>{user.name ? `${user.name.split(' ')[0]}` : ''}</span>!</p>
                                 </div>
                             </>
@@ -206,19 +219,19 @@ const Home = () => {
                     <div className="dates">
                         <div className="dateWrapper">
                             <div>
-                                <h1>24-28</h1>
-                                <h2>Ago 2026</h2>
+                                <h1>{eventDetails.hero.shortDate}</h1>
+                                <h2>{eventDetails.hero.monthYear}</h2>
                             </div>
 
                             <div>
                                 <picture>
-                                    <source srcset="/images/logos/usp-dark.svg" media="(prefers-color-scheme: dark)" />
+                                    <source srcSet="/images/logos/usp-dark.svg" media="(prefers-color-scheme: dark)" />
                                     <img src="/images/logos/usp-light.svg" alt="Logo USP" width={33} height={33} />
                                 </picture>
                                 <h6>Online e <br /> Presencial</h6>
                             </div>
                         </div>
-                        <CountdownSection targetDate={"Aug 24, 2026 09:40:00"}/>   
+                        {isCronologicallyBeforeEvent && <CountdownSection targetDate={eventDetails.startDate} />}
                     </div>
                 </div>
             </LandingSection>
@@ -236,7 +249,7 @@ const Home = () => {
 
                         <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2026 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
 
-                        <a href='https://forms.gle/EnTh6tMkMag4zXoj8' target="_blank">
+                        <a href={eventDetails.links.coRegistration} target="_blank">
                             <Button>Inscrever-se</Button>
                         </a>
                     </div>
@@ -260,7 +273,7 @@ const Home = () => {
                         <div className='about-cards'>
                             <CountUp
                                 start={0}
-                                end={40}
+                                end={eventDetails.stats.speakers}
                                 delay={0}
                                 decimals={0}
                                 suffix="+"
@@ -272,7 +285,7 @@ const Home = () => {
                                             <h5 ref={countUpRef}/>
                                             <h5>palestrantes</h5>
                                         </div>
-                                        <p>Junte-se ao evento que contará com mais de 40 palestrantes, trazendo as últimas tendências e insights do mercado!</p>
+                                        <p>Junte-se ao evento que contará com mais de {eventDetails.stats.speakers} palestrantes, trazendo as últimas tendências e insights do mercado!</p>
                                     </div>
                                 )}
                             </CountUp>
@@ -281,7 +294,7 @@ const Home = () => {
                         <div className='about-cards'>
                             <CountUp
                                 start={0}
-                                end={25}
+                                end={eventDetails.stats.draws}
                                 delay={0}
                                 decimals={0}
                                 suffix="+"
@@ -293,7 +306,7 @@ const Home = () => {
                                             <h5 ref={countUpRef} />
                                             <h5>sorteios</h5>
                                         </div>
-                                        <p>Participe do evento de tecnologia e concorra a mais de 25 sorteios exclusivos, repletos de prêmios incríveis!</p>
+                                        <p>Participe do evento de tecnologia e concorra a mais de {eventDetails.stats.draws} sorteios exclusivos, repletos de prêmios incríveis!</p>
                                     </div>
                                 )}
                             </CountUp>
@@ -302,7 +315,7 @@ const Home = () => {
                         <div className='about-cards'>
                             <CountUp
                                 start={0}
-                                end={45}
+                                end={eventDetails.stats.hours}
                                 delay={0}
                                 decimals={0}
                                 suffix="h"
@@ -314,7 +327,7 @@ const Home = () => {
                                             <h5 ref={countUpRef} />
                                             <h5>atividades</h5>
                                         </div>
-                                        <p>Não perca um evento com 45 horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
+                                        <p>Não perca um evento com {eventDetails.stats.hours} horas de atividades repletas de conteúdo e inovação para você se atualizar!</p>
                                     </div>
                                 )}
                             </CountUp>
