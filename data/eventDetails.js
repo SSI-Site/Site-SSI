@@ -2,15 +2,14 @@ export const eventDetails = {
   year: "2026",
   edition: "17",
   dateText: "24 a 28 de agosto", 
-  startDate: "2026-08-24T00:09:30-03:00",
+  // startDate: "2026-08-24T09:40:00-03:00",
+  startDate: "2026-08-24T09:40:00-03:00",
   endDate: "2026-08-28T23:59:59-03:00", 
   
   hero: {
     shortDate: "24-28",
     monthYear: "Ago 2026"
   },
-
-  countdownDate: "2026-08-24T09:40:00-03:00",
 
   logic: {
     // so nao esquecer que no Date do JS o mes começa em 0, logo 7 = agosto
@@ -29,9 +28,9 @@ export const eventDetails = {
   },
 
   stats: {
-    draws: 25,     // qnt de sorteios
-    speakers: 40,  // qnt de palestrantes
-    hours: 45      // qnt de horas de atividade
+    draws: 25,     // quatidade de sorteios
+    speakers: 40,  // quatidade de palestrantes
+    hours: 45      // quatidade de horas de atividade
   },
 
    links: {

@@ -7,7 +7,6 @@ import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
-import { EVENT_DETAILS } from '../data/eventDetails';
 import { eventDetails } from '../data/eventDetails';
 
 // importe Image do next
@@ -88,8 +87,8 @@ const Home = () => {
 
     const firstEventDay = new Date(2025, 7, 18);
     const lastEventDay = new Date(2025, 7, 22);
-    //const firstEventDay = new Date(2026, 7, 24);
-    //const lastEventDay = new Date(2026, 7, 28);
+    // const firstEventDay = new Date(2026, 7, 24);
+    // const lastEventDay = new Date(2026, 7, 28);
     //const firstEventDay = eventDetails.logic.startJS;
     //const lastEventDay = eventDetails.logic.endJS;
     lastEventDay.setHours(23, 59, 59, 999);  // Define para o final do dia (23:59:59.999)
@@ -104,9 +103,9 @@ const Home = () => {
 
     // Dia no formato yyyy-mm-dd para o ScheduleShift
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
-    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
-    //const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : '2025-08-18';
 
+    // Se a data atual estiver entre o primeiro e o último dia do evento, use a data atual; caso contrário, use a data do primeiro dia do evento (fallback)
+    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
 
     const filterEventDays = eventDetails.logic.filterEventDays;
     const filterEventDaysId = scheduleDay - firstEventDay.getDate();
@@ -172,7 +171,7 @@ const Home = () => {
             document.body.style.overflow = 'unset';
             document.body.style.paddingRight = 'unset';
         }
-    }, [showMapModal]);
+    }, [showMapModal]); 
 
 
     return (
@@ -224,7 +223,7 @@ const Home = () => {
 
                             <div>
                                 <picture>
-                                    <source srcset="/images/logos/usp-dark.svg" media="(prefers-color-scheme: dark)" />
+                                    <source srcSet="/images/logos/usp-dark.svg" media="(prefers-color-scheme: dark)" />
                                     <img src="/images/logos/usp-light.svg" alt="Logo USP" width={33} height={33} />
                                 </picture>
                                 <h6>Online e <br /> Presencial</h6>
