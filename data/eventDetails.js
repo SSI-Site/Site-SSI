@@ -12,7 +12,7 @@ export const eventDetails = {
     monthYear: "Ago 2026"
   },
 
-  lastYearStats: {
+  lastYearStats: { // estatísticas da transmissão no youtube do evento do ano anterior
     viewers: 2,       
     subscribers: 600,
     contentHours: 43  
