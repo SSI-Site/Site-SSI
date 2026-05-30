@@ -1,14 +1,21 @@
 export const eventDetails = {
   year: "2026",
+  lastYear: String(2026 - 1),
   edition: "17",
   dateText: "24 a 28 de agosto", 
-  // startDate: "2026-08-24T09:40:00-03:00",
   startDate: "2026-08-24T09:40:00-03:00",
   endDate: "2026-08-28T23:59:59-03:00", 
+  regulationLink: "https://docs.google.com/document/d/1ROLkjMU-hxvPW5BlVpEm1wnzZN1z32YsQc5u69u1pSk/edit?usp=sharing",
   
   hero: {
     shortDate: "24-28",
     monthYear: "Ago 2026"
+  },
+
+  lastYearStats: { // estatísticas da transmissão no youtube do evento do ano anterior
+    viewers: 2,       
+    subscribers: 600,
+    contentHours: 43  
   },
 
   logic: {
