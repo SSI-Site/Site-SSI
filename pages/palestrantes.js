@@ -10,6 +10,8 @@ import LoadingSvg from '../public/loading.svg'
 import saphira from '../services/saphira';
 import Image from 'next/image';
 
+import { eventDetails } from '..data/eventDetails'; 
+
 const Palestrantes = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [speakers, setSpeakers] = useState([])
@@ -35,8 +37,8 @@ const Palestrantes = () => {
     return (
         <PalestrantesContainer>
           <Meta title='Palestrantes | Semana de Sistemas de Informação' 
-          description = 'Conheça os palestrantes da SSI 2025! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.'
-          keywords='palestrantes SSI, especialistas em TI, convidados SSI 2025, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI'
+          description = 'Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.'
+          keywords='palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI'
           />
           <PalestrantesWrapper>
             <h1>Palestrantes</h1>
