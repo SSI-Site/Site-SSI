@@ -31,7 +31,11 @@ export const eventDetails = {
       "26 Ago - Quarta-feira", 
       "27 Ago - Quinta-feira", 
       "28 Ago - Sexta-feira"
-    ]
+    ],
+    // variaveis centralizadas para a pagina de programacao de 2026:
+    dayOfSSI: ["24 Ago", "25 Ago", "26 Ago", "27 Ago", "28 Ago"],
+    dayFull: ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
+    weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
   },
 
   stats: {
