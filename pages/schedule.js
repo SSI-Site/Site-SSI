@@ -19,6 +19,8 @@ const Schedule = () => {
     
     const { dayFull, dayOfSSI, weekDays } = eventDetails.logic;
     const currentDate = `${new Date().getFullYear()}-${(new Date().getMonth()+1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')}`;
+    const initialDayIndex = dayFull.indexOf(currentDate);
+    const defaultDayIndex = initialDayIndex !== -1 ? initialDayIndex : 0;   
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false);
     const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
@@ -38,12 +40,6 @@ const Schedule = () => {
     }
 
     function renderActiveItem() {
-        if (!isDuringEvent(activeItem)) {
-            const firstDay = dayFull[0]
-            setActiveItem(firstDay)
-            setDayNumber(dayFull.indexOf(firstDay))
-        }
-    
         return (
             <ScheduleItems schedule={filterTalks(talks, activeItem)} />
         )
