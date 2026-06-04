@@ -117,7 +117,9 @@ const Schedule = () => {
                                 }}
                             >
                                 <DateStamp
-                                    day={date.split('-')[2]}
+                                    dayIndex={index + 1}             
+                                    weekDay={weekDays[index]}             
+                                    dateStr={dayOfSSI[index]}             
                                     isActive={activeItem === date}
                                 />
                             </Link>
