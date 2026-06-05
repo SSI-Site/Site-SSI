@@ -22,6 +22,7 @@ import SecondaryButton from '../src/components/SecondaryButton';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import saphira from '../services/saphira';
 import CountdownSection from '../src/components/CountdownSection';
+import ScheduleSection from '../src/components/ScheduleSection';
 
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
