@@ -33,7 +33,7 @@ const ScheduleSection = () => {
     lastEventDay.setHours(23, 59, 59, 999);  // define para o final do dia (23:59:59.999)
 
     // MOCK DE DATA PARA TESTES LOCAIS:
-    // const current = new Date(2025, 7, 19); 
+    //const current = new Date(2025, 7, 21); 
     const current = new Date(); 
 
     const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
@@ -121,13 +121,13 @@ const ScheduleSection = () => {
                     <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
                 </div>
             </div>
-        </SectionWrapper>
+            </SectionWrapper>
     );
 };
 
 export default ScheduleSection;
 
-const ScheduleSection = styled.section`
+const SectionWrapper = styled.section`
     padding-block: 2rem;
     border-top: 1px solid var(--outline-neutrals-secondary);
     
