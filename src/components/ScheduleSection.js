@@ -28,8 +28,12 @@ const ScheduleSection = () => {
         getSchedule()
     }, [])
 
-    const firstEventDay = new Date(2025, 7, 18);
-    const lastEventDay = new Date(2025, 7, 22);
+    const firstEventDay = eventDetails.logic.startJS; // 24 de agosto de 2026
+
+    // criei uma copia do endJS (new Date) para que o setHours 
+    // nao altere a variável original lá do eventDetails globalmente
+    const lastEventDay = new Date(eventDetails.logic.endJS); // 28 de agosto de 2026
+
     lastEventDay.setHours(23, 59, 59, 999);  // define para o final do dia (23:59:59.999)
 
     // MOCK DE DATA PARA TESTES LOCAIS:
@@ -40,7 +44,8 @@ const ScheduleSection = () => {
 
     const day = `${current.getDate()}`;
 
-    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '18');
+    const fallbackDay = firstEventDay.getDate().toString();
+    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : fallbackDay);
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
     // se a data atual estiver entre o primeiro e o ultimo dia do evento, use a data atual, caso contrario, use a data do primeiro dia do evento (fallback)
     const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
