@@ -27,6 +27,7 @@ const Schedule = () => {
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    
 
     const handleMobileSelectChange = (e) => {
         const selectedDate = e.target.value
@@ -70,6 +71,15 @@ const Schedule = () => {
     useEffect(() => {
         getTalks()
     }, [])
+
+    useEffect(() => {
+    // Se tivermos palestras carregadas E o item ativo não estiver no evento
+    if (talks.length > 0 && !isDuringEvent(activeItem)) {
+        const firstDay = dayFull[0]; // Pega dinâmico no lugar do '2025-08-18' fixo
+        setActiveItem(firstDay);
+        setDayNumber(0); // Força a barra roxa de baixo a ir para o Dia 1 junto
+    }
+}, [talks, activeItem]);
 
     return (
         <>
