@@ -27,6 +27,7 @@ const Schedule = () => {
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    
 
     const handleMobileSelectChange = (e) => {
         const selectedDate = e.target.value
@@ -70,6 +71,14 @@ const Schedule = () => {
     useEffect(() => {
         getTalks()
     }, [])
+
+    useEffect(() => {
+    if (talks.length > 0 && !isDuringEvent(activeItem)) {
+        const firstDay = dayFull[0]; 
+        setActiveItem(firstDay);
+        setDayNumber(0); 
+    }
+}, [talks, activeItem]);
 
     return (
         <>
