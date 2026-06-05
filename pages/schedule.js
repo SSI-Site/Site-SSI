@@ -27,7 +27,6 @@ const Schedule = () => {
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-    
 
     const handleMobileSelectChange = (e) => {
         const selectedDate = e.target.value
