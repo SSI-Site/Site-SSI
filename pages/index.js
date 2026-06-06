@@ -12,6 +12,9 @@ import { eventDetails } from '../data/eventDetails';
 // importe Image do next
 import Image from 'next/image'
 
+// images
+import imgCo from '../public/images/about/co.jpg';
+
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
@@ -241,30 +244,31 @@ const Home = () => {
             </YoutubeContainer>
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
-            {/*
-            <SubscriptionSection>
-                <div className='landing-container'>
-                    <div className='subscription-container'>
-                        <h3>Inscrições abertas!</h3>
+            
+            {eventDetails.isSubscriptionOpen && (
+              <SubscriptionSection>
+                  <div className='landing-container'>
+                      <div className='subscription-container'>
+                          <h3>Inscrições abertas!</h3>
 
-                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2026 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
+                          <p>Junte-se à <span>Comissão Organizadora</span> da SSI {eventDetails.year} e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
 
-                        <a href={eventDetails.links.coRegistration} target="_blank">
-                            <Button>Inscrever-se</Button>
-                        </a>
-                    </div>
+                          <a href={eventDetails.links.coRegistration} target="_blank">
+                              <Button>Inscrever-se</Button>
+                          </a>
+                      </div>
 
-                    <div className='coMembers'>
-                        <Image
-                            src="/images/co_members/co.jpg"
-                            alt="Membros da Comissão Organizadora"
-                            width={500}
-                            height={500}
-                        />
-                    </div>
-                </div>
-            </SubscriptionSection>
-            */}
+                      <div className='coMembers'>
+                          <Image
+                              src={imgCo}
+                              alt="Membros da Comissão Organizadora"
+                              width={640}
+                              height={438}
+                          />
+                      </div>
+                  </div>
+              </SubscriptionSection>
+            )}
 
             <EventInfoSection>
                 <div className='info'>
