@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import useAuth from '../hooks/useAuth';
 import Meta from '../src/infra/Meta';
 import '../utils/slugify';
-import filterTalks from '../utils/filterTalks';
 import { eventDetails } from '../data/eventDetails';
 
 // importe Image do next
@@ -17,12 +16,10 @@ import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
 import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
-import ScheduleShift from '../src/components/ScheduleItems';
 import SecondaryButton from '../src/components/SecondaryButton';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
-import saphira from '../services/saphira';
 import CountdownSection from '../src/components/CountdownSection';
-
+import ScheduleSection from '../src/components/ScheduleSection';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
@@ -59,7 +56,6 @@ const Home = () => {
 
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showMapModal, setShowMapModal] = useState(false);
-    const [schedule, setSchedule] = useState([])
 
     const handleShowAuthModal = () => {
         setShowAuthModal(true);
@@ -68,82 +64,6 @@ const Home = () => {
     const handleShowMapModal = () => {
         setShowMapModal(true);
     }
-
-    const getSchedule = async() => {
-        try{
-            const { data } = await saphira.getTalks()
-            if (data) {
-                setSchedule(data)
-            }
-        }
-        catch(err){
-            console.log('Houve um erro na hora de obter os dados', err)
-        }
-    }
-
-    useEffect(() => {
-        getSchedule()
-    }, [])
-
-    const firstEventDay = new Date(2025, 7, 18);
-    const lastEventDay = new Date(2025, 7, 22);
-    // const firstEventDay = new Date(2026, 7, 24);
-    // const lastEventDay = new Date(2026, 7, 28);
-    //const firstEventDay = eventDetails.logic.startJS;
-    //const lastEventDay = eventDetails.logic.endJS;
-    lastEventDay.setHours(23, 59, 59, 999);  // Define para o final do dia (23:59:59.999)
-
-    const current = new Date();
-    const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
-
-    const day = `${current.getDate()}`;
-
-    // Dia correto para o DateComponent
-    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : '18');
-
-    // Dia no formato yyyy-mm-dd para o ScheduleShift
-    const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
-
-    // Se a data atual estiver entre o primeiro e o último dia do evento, use a data atual; caso contrário, use a data do primeiro dia do evento (fallback)
-    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
-
-    const filterEventDays = eventDetails.logic.filterEventDays;
-    const filterEventDaysId = scheduleDay - firstEventDay.getDate();
-
-    // Transforma 00:00 em minutos depois da meia noite para fazer calculos
-    const minutesAfterMidNight = (time) => {
-        const [hours, minutes] = time.split(":").map(Number);
-        return hours * 60 + minutes;
-    }
-
-    const currentTimeMinutes = minutesAfterMidNight(currentTime); // horario atual
-    const morningEnd = minutesAfterMidNight("12:00"); // Início do almoco
-    const eveningEnd = minutesAfterMidNight("18:00"); // Início do jantar
-
-    let shift = "Manhã"; // Turno do dia
-    if (current >= firstEventDay) {
-        if (currentTimeMinutes >= morningEnd && currentTimeMinutes < eveningEnd) {
-            shift = "Tarde";
-        } else if (currentTimeMinutes >= eveningEnd) {
-            shift = "Noite";
-        }
-    }
-
-    // Array intermediario com de horario e atividades
-    const filteredArray = schedule.filter((array) => {
-        const scheduleStartTimeMinutes = minutesAfterMidNight(array.start_time.split("T")[1]); // Horário de cada atividade
-        switch (shift) {
-            case "Manhã":
-                return scheduleStartTimeMinutes < morningEnd;
-            case "Tarde":
-                return scheduleStartTimeMinutes > morningEnd && scheduleStartTimeMinutes < eveningEnd;
-            case "Noite":
-                return scheduleStartTimeMinutes > eveningEnd;
-        }
-    })
-
-    // Cria um object com base no array intermediario
-    const filteredSchedule = filterTalks(filteredArray, formattedScheduleDate)
    
     useEffect(() => {
         if (showAuthModal) {
@@ -172,6 +92,8 @@ const Home = () => {
             document.body.style.paddingRight = 'unset';
         }
     }, [showMapModal]); 
+
+    const current = new Date();
 
     // Verifica se a data atual é anterior ao início do evento para exibir a contagem regressiva na LandingSection
     const isCronologicallyBeforeEvent = current < eventDetails.logic.startJS;
@@ -340,45 +262,10 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
-
-
-            {(current <= lastEventDay) &&
-                <ScheduleSection>
-                    <div className='schedule-container'>
-                        <h3 className='title-mobile schedule-section-title'>Próximas atividades</h3>
-                        <div className='title-btn-desktop'>
-                            <h3 className='schedule-section-title'>Próximas atividades</h3>
-                            <Button type="button" aria-label="Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                        </div>
-                        <div className='filter-bar-container filter-bar-mobile'>
-                            <p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
-                            <p>{shift}</p>
-                        </div>
-
-                        <div className='filter-bar-container filter-bar-desktop'>
-                            <div className='subtitle'>
-                                <p>Horário</p>
-                                <p>Atividade</p>
-                            </div>
-
-                            <div>
-                                <p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
-                            </div>
-
-                            <div>
-                                <p>{shift}</p>
-                            </div>
-                        </div>
-
-                        <ScheduleShift
-                            schedule={filteredSchedule}
-                        />
-                        <div className='btn-mobile'>
-                            <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                        </div>
-                    </div>
-                </ScheduleSection>
+            {(current >= eventDetails.logic.startJS && current <= eventDetails.logic.endJS) &&
+                <ScheduleSection />
             }
+         
 
             <DirectionsSection>
                 <div className='directions-container'>
