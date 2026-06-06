@@ -11,6 +11,9 @@ import { eventDetails } from '../data/eventDetails';
 // importe Image do next
 import Image from 'next/image'
 
+// images
+import imgCo from '../public/images/about/co.jpg';
+
 // components
 import AuthModal from '../src/components/AuthModal';
 import Button from '../src/components/Button';
@@ -163,30 +166,31 @@ const Home = () => {
             </YoutubeContainer>
 
             {/* Seção de inscrição na CO do ano seguinte - só aparece quando mandarem */}
-            {/*
-            <SubscriptionSection>
-                <div className='landing-container'>
-                    <div className='subscription-container'>
-                        <h3>Inscrições abertas!</h3>
+            
+            {eventDetails.isSubscriptionOpen && (
+              <SubscriptionSection>
+                  <div className='landing-container'>
+                      <div className='subscription-container'>
+                          <h3>Inscrições abertas!</h3>
 
-                        <p>Junte-se à <span>Comissão Organizadora</span> da SSI 2026 e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
+                          <p>Junte-se à <span>Comissão Organizadora</span> da SSI {eventDetails.year} e ajude a criar o melhor evento acadêmico de Sistemas de Informação!</p>
 
-                        <a href={eventDetails.links.coRegistration} target="_blank">
-                            <Button>Inscrever-se</Button>
-                        </a>
-                    </div>
+                          <a href={eventDetails.links.coRegistration} target="_blank">
+                              <Button>Inscrever-se</Button>
+                          </a>
+                      </div>
 
-                    <div className='coMembers'>
-                        <Image
-                            src="/images/co_members/co.jpg"
-                            alt="Membros da Comissão Organizadora"
-                            width={500}
-                            height={500}
-                        />
-                    </div>
-                </div>
-            </SubscriptionSection>
-            */}
+                      <div className='coMembers'>
+                          <Image
+                              src={imgCo}
+                              alt="Membros da Comissão Organizadora"
+                              width={640}
+                              height={438}
+                          />
+                      </div>
+                  </div>
+              </SubscriptionSection>
+            )}
 
             <EventInfoSection>
                 <div className='info'>
@@ -554,26 +558,29 @@ const YoutubeContainer = styled.div`
 
 const SubscriptionSection = styled.section`
     padding-inline: 1rem;
-    background-color: var(--background-neutrals-secondary);
+    background-color: var(--background-neutrals-secondary, #333);
 
     .subscription-container {
-        border-inline: 1px solid var(--outline-neutrals-secondary);
-        border-bottom: 1px solid var(--outline-neutrals-secondary);
-        padding: 4rem 1rem;
+        padding: 4rem 1rem 2rem 1rem;
         gap: 1rem;
         display: flex;
         flex-direction: column;
+        align-items: center;
+
+        a {
+            width: fit-content;
+            display: inline-flex;
+        }
 
         h3 {
             width: fit-content;
-            text-align: center;
             padding: 0.75rem 1rem;
             color: var(--content-neutrals-fixed-white);
-            background-color: var(--brand-primary);
-            align-self: center;
+            background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
         }
 
         p {
+            text-align: center;
             span {
                 font: inherit;
                 background-color: var(--brand-purple-900);
@@ -582,21 +589,21 @@ const SubscriptionSection = styled.section`
     }
 
     .coMembers {
-        padding: 1.5rem 1.25rem 1rem 1rem;
-        border-inline: 1px solid var(--outline-neutrals-secondary);
+        padding: 1.5rem 1rem 1rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
             width: 100%;
             height: auto;
             object-fit: cover;
-            border: 0.25rem solid var(--content-neutrals-fixed-white);
-            box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
+            border-radius: 1.5rem;
+            max-width: 35rem;
         }
     }
 
     @media screen and (min-width:801px) {
-        margin-bottom: 0rem;
-
         .landing-container{
             display: flex;
             flex-direction: row;
@@ -606,27 +613,27 @@ const SubscriptionSection = styled.section`
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                height: 34.75rem;
+                // height: 34.75rem;
                 width: 50%;
-                border-right: none;
-                border-bottom: none;
-                gap: 1.5rem;
-                padding-inline: 1.5rem;
+                gap: 2rem;
+                padding: 4rem 1.5rem 2rem 1.5rem;
 
-                h3 {
+                h3, a {
                     align-self: flex-start;
                 }
 
                 button {
                     width: fit-content;
                 }
+
+                p {
+                    text-align: left;
+                }
             }
 
             .coMembers {
                 width: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                padding: 4rem 1rem 2rem 1rem;
             }
         }
     }
