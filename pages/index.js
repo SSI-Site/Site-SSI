@@ -676,21 +676,26 @@ const SubscriptionSection = styled.section`
     .subscription-container {
         border-inline: 1px solid var(--outline-neutrals-secondary);
         border-bottom: 1px solid var(--outline-neutrals-secondary);
-        padding: 4rem 1rem;
+        padding: 4rem 1rem 2rem 1rem;
         gap: 1rem;
         display: flex;
         flex-direction: column;
+        align-items: center;
+
+        a {
+            width: fit-content;
+            display: inline-flex;
+        }
 
         h3 {
             width: fit-content;
-            text-align: center;
             padding: 0.75rem 1rem;
             color: var(--content-neutrals-fixed-white);
             background-color: var(--brand-primary);
-            align-self: center;
         }
 
         p {
+            text-align: center;
             span {
                 font: inherit;
                 background-color: var(--brand-purple-900);
@@ -712,8 +717,6 @@ const SubscriptionSection = styled.section`
     }
 
     @media screen and (min-width:801px) {
-        margin-bottom: 0rem;
-
         .landing-container{
             display: flex;
             flex-direction: row;
@@ -723,19 +726,23 @@ const SubscriptionSection = styled.section`
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                height: 34.75rem;
+                // height: 34.75rem;
                 width: 50%;
                 border-right: none;
                 border-bottom: none;
                 gap: 1.5rem;
-                padding-inline: 1.5rem;
+                padding: 4rem 1.5rem 2rem 1.5rem;
 
-                h3 {
+                h3, a {
                     align-self: flex-start;
                 }
 
                 button {
                     width: fit-content;
+                }
+
+                p {
+                    text-align: left;
                 }
             }
 
@@ -744,6 +751,7 @@ const SubscriptionSection = styled.section`
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 4rem 1.25rem 2rem 1rem;
             }
         }
     }
