@@ -671,11 +671,9 @@ const YoutubeContainer = styled.div`
 
 const SubscriptionSection = styled.section`
     padding-inline: 1rem;
-    background-color: var(--background-neutrals-secondary);
+    background-color: var(--background-neutrals-secondary, #333);
 
     .subscription-container {
-        border-inline: 1px solid var(--outline-neutrals-secondary);
-        border-bottom: 1px solid var(--outline-neutrals-secondary);
         padding: 4rem 1rem 2rem 1rem;
         gap: 1rem;
         display: flex;
@@ -691,7 +689,7 @@ const SubscriptionSection = styled.section`
             width: fit-content;
             padding: 0.75rem 1rem;
             color: var(--content-neutrals-fixed-white);
-            background-color: var(--brand-primary);
+            background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
         }
 
         p {
@@ -704,15 +702,17 @@ const SubscriptionSection = styled.section`
     }
 
     .coMembers {
-        padding: 1.5rem 1.25rem 1rem 1rem;
-        border-inline: 1px solid var(--outline-neutrals-secondary);
+        padding: 1.5rem 1rem 1rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
             width: 100%;
             height: auto;
             object-fit: cover;
-            border: 0.25rem solid var(--content-neutrals-fixed-white);
-            box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
+            border-radius: 1.5rem;
+            max-width: 35rem;
         }
     }
 
@@ -728,9 +728,7 @@ const SubscriptionSection = styled.section`
                 align-items: flex-start;
                 // height: 34.75rem;
                 width: 50%;
-                border-right: none;
-                border-bottom: none;
-                gap: 1.5rem;
+                gap: 2rem;
                 padding: 4rem 1.5rem 2rem 1.5rem;
 
                 h3, a {
@@ -748,10 +746,7 @@ const SubscriptionSection = styled.section`
 
             .coMembers {
                 width: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 4rem 1.25rem 2rem 1rem;
+                padding: 4rem 1rem 2rem 1rem;
             }
         }
     }
