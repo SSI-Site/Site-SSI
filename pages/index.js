@@ -262,8 +262,11 @@ const Home = () => {
                 </div>
             </EventInfoSection>
 
-            <ScheduleSection/>
-            
+            {(current >= eventDetails.logic.startJS && current <= eventDetails.logic.endJS) &&
+                <ScheduleSection />
+            }
+         
+
             <DirectionsSection>
                 <div className='directions-container'>
                     <div className='directions-info'>
