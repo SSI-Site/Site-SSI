@@ -24,12 +24,15 @@ const PartnerWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 20.5rem;
-    height: 15.125rem;
+    width: 6.75rem;
+    min-width: 6.75rem;
+    height: 5rem;
     background-color: var(--background-neutrals-secondary);
 
     cursor: pointer;
-    border: 2px solid var(--outline-neutrals-secondary);
+    
+    border: 0.5px solid var(--outline-neutrals-secondary);
+    border-radius: 0.5rem;
     transition: all 0.15s ease-in-out;
     z-index: 2;
 
@@ -40,7 +43,7 @@ const PartnerWrapper = styled.div`
     a {
         width: 100%;
         height: 100%;
-        padding: 1.5rem 2rem;
+        padding: 0.375rem 0.5rem;
     }
 
     .partner-image {
@@ -61,7 +64,15 @@ const PartnerWrapper = styled.div`
     }
 
     @media (min-width:1000px) {
-        width: 27rem;
-        height: 20rem;
+        width: 13.5 rem;
+        min-width: 13.5rem;
+        height: 10rem;
+
+        border-radius: 1rem;
+        border: 1px solid var(--outline-neutrals-secondary);
+
+        a {
+            padding: 0.5rem 1rem;
+        }
     }
 `
