@@ -107,5 +107,4 @@ const CarouselTrack = styled.div`
             }
         }
     }
-}
 `;

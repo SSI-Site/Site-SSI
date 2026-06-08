@@ -92,7 +92,6 @@ const partnerships = () => {
 
             {/* Seção onde a logo de todos os parcerios rodam em um carrossel */}
             <SponsorsSection> 
-                {/* TODO: Criar um componente de carrossel com as logos dos patrocinadores */}
                 <section className='partnerCarousel'>
                     {/* Uso do componente PartnerCarousel */}
                     <PartnerCarousel />
