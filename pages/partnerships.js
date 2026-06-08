@@ -28,6 +28,7 @@ import detailUpDesktop from '../public/images/partnerships/details/detail_up_des
 
 // components
 import Button from '../src/components/Button';
+import PartnerCarousel from '../src/components/PartnerCarousel';
 
 
 
@@ -90,8 +91,11 @@ const partnerships = () => {
             </MotivationSection>
 
             {/* Seção onde a logo de todos os parcerios rodam em um carrossel */}
-            <SponsorsSection>
-                {/* TODO: Criar um componente de carrossel com as logos dos patrocinadores */}
+            <SponsorsSection> 
+                <section className='partnerCarousel'>
+                    {/* Uso do componente PartnerCarousel */}
+                    <PartnerCarousel />
+                </section>
             </SponsorsSection>
 
             {/* Seção onde tem os planos de patrocínio e o que cada um oferece, com um botões para entrar em contato */}
@@ -592,6 +596,23 @@ const MotivationSection = styled.section`
 `
 
 const SponsorsSection = styled.section`
+    display: flex;
+    padding: 1.5rem 0rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+
+    border-top: 1px solid var(--outline-neutrals-secondary, #999);
+    border-bottom: 1px solid var(--outline-neutrals-secondary, #999);
+
+    .partnerCarousel {
+        padding: 0;
+    }
+    
+    @media(min-width: 1000px) {
+        padding: 3rem 0rem;
+    }
     
 `
 
