@@ -30,6 +30,9 @@ import detailUpDesktop from '../public/images/partnerships/details/detail_up_des
 import Button from '../src/components/Button';
 import PartnerCarousel from '../src/components/PartnerCarousel';
 
+// Data
+import { socials } from '../data/socials';
+
 
 
 const partnerships = () => {
@@ -54,7 +57,7 @@ const partnerships = () => {
                             Impacte quem está pronto para transformar o mercado e <strong>conquiste hoje os talentos de amanhã</strong>
                         </p>
                     </div>
-                    <a href="/404" target="_blank" rel="noopener noreferrer">
+                    <a href={socials.parcerias.landing} target="_blank" rel="noopener noreferrer">
                         <Button>
                             <strong>Quero marcar presença no evento</strong>
                         </Button>
@@ -149,7 +152,7 @@ const partnerships = () => {
                             </p>
                         </div>
                         
-                        <a href="/404" target="_blank" rel="noopener noreferrer">
+                        <a href={socials.parcerias.planos} target="_blank" rel="noopener noreferrer">
                             <Button>
                                 <strong>Confira os planos</strong>
                             </Button>
@@ -197,7 +200,7 @@ const partnerships = () => {
                                 Garantimos o alcance e fortalecimento da marca.   
                             </p>
                         </div>
-                        <a href="/404" target="_blank" rel="noopener noreferrer">
+                        <a href={socials.parcerias.apoio} target="_blank" rel="noopener noreferrer">
                             <Button>
                                 <strong>Agende uma conversa</strong>
                             </Button>
@@ -430,7 +433,7 @@ const partnerships = () => {
                             className='experienceGroupPhoto'
                         />
                         <p className='experienceInfo'>A Semana de Sistemas de Informação 2026 ocorrerá <strong>entre os dias 24 e 28 de agosto</strong>!!!</p>
-                        <a href="/404" target="_blank" rel="noopener noreferrer">
+                        <a href={socials.parcerias.experiencia} target="_blank" rel="noopener noreferrer">
                             <Button>
                                 <strong>Quero marcar presença no evento</strong>
                             </Button>
