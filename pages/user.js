@@ -17,6 +17,7 @@ import UserWatchedLecturesList from '../src/components/UserWatchedLecturesList';
 
 // assets
 import gifts from '../data/gifts';
+import eventDetails from '../data/eventDetails';
 
 const User = () => {
 
@@ -150,7 +151,7 @@ const User = () => {
             />
         }
 
-            <Meta title='Meu Perfil | Semana de Sistemas de Informação 2025' />
+            <Meta title='Meu Perfil | Semana de Sistemas de Informação ${eventDetails.year}' />
 
             {isLoading &&
                 <Loading>
@@ -158,7 +159,7 @@ const User = () => {
                     src='./loading.svg' 
                     width = {500}
                     height = {500}
-                    alt='SSI 2025 - Loading' />
+                    alt={`SSI ${eventDetails.year} - Loading`} />
                 </Loading>
             }
 
