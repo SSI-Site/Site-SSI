@@ -33,15 +33,15 @@ export const eventDetails = {
       "28 Ago - Sexta-feira"
     ],
     // variaveis centralizadas para a pagina de programacao de 2026:
-    // // DATAS DA EDICAO ATUAL (2026)
-    dayOfSSI: ["24 Ago", "25 Ago", "26 Ago", "27 Ago", "28 Ago"],
-    dayFull: ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
-    weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
+    // DATAS DA EDICAO ATUAL (2026)
+    // dayOfSSI: ["24 Ago", "25 Ago", "26 Ago", "27 Ago", "28 Ago"],
+    // dayFull: ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
+    // weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
     
     // DESCOMENTE AQUI E COMENTE ACIMA APENAS PARA TESTES LOCAIS (DADOS DO MOCK/API EM 2025)
-    //dayOfSSI: ["18 Ago", "19 Ago", "20 Ago", "21 Ago", "22 Ago"],
-    //dayFull: ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"],
-    //weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
+    dayOfSSI: ["18 Ago", "19 Ago", "20 Ago", "21 Ago", "22 Ago"],
+    dayFull: ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"],
+    weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
   },
 
   stats: {
