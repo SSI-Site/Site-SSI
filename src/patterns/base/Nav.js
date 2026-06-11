@@ -12,7 +12,7 @@ import Button from '../../components/Button';
 
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';
-import LogoHorizontal from '../../../public/images/logos/logo_horizontal.svg';
+import LogoHorizontalDark from '../../../public/images/logos/logo_horizontal_dark.svg';
 import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg'
 
 const Nav = () => {
@@ -55,11 +55,10 @@ const Nav = () => {
                             media = "(prefers-color-scheme: light)"/>
 
                             <Image
-                                src={LogoHorizontal}
-                                width={100}
-                                height={42}
-                                className='image'
-                                alt='Semana de Sistemas de Informação 2025'
+                                src={LogoHorizontalDark}
+                                width={180}
+                                height={48}
+                                alt='Semana de Sistemas de Informação 2026'
                             />
                         </picture>
 
@@ -119,8 +118,8 @@ const Nav = () => {
                                 </Link>
                             </li>
 
-                            <li className = {router.pathname == '/forCompanies' ? 'active': ''}>
-                                <Link href="/forCompanies">
+                            <li className = {router.pathname == '/partnerships' ? 'active': ''}>
+                                <Link href="/partnerships">
                                     Para Empresas
                                 </Link>                                
                             </li>
@@ -200,8 +199,8 @@ const Nav = () => {
                                 </Link>                                
                             </li>
 
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/forCompanies' ? 'active': ''}>
-                                <Link href="/forCompanies">
+                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/partnerships' ? 'active': ''}>
+                                <Link href="/partnerships">
                                     Para Empresas
                                 </Link>                                
                             </li>
@@ -270,7 +269,7 @@ const NavWrapper = styled.div`
     border-radius: 1.5rem; /* era 24px */
     
     /* aqui a gente faz as cores e o efeito glassmorphism da navbar */
-    background: rgba(43, 43, 43, 0.75);
+    background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
     box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
     backdrop-filter: blur(6px);
 
@@ -292,11 +291,6 @@ const NavWrapper = styled.div`
             align-items: center;
             justify-content: flex-start;
             width: 100%;
-
-            .image{
-                width: 100%;
-                height: auto;
-            }
 
             &:focus-visible {
                 outline: 2px solid var(--brand-primary);

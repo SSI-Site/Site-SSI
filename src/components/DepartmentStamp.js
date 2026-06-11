@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
-const DepartmentStamp = ( { name, itemColor, $active } ) => {
+const DepartmentStamp = ( { name, $itemColor, $active } ) => {
 
     return (
-        <DepartmentWrapper name={name} itemColor={itemColor} $active={$active}>
+        <DepartmentWrapper name={name} $itemColor={$itemColor} $active={$active}>
             <p>{name}</p>
         </DepartmentWrapper>
     );
@@ -21,24 +21,24 @@ const DepartmentWrapper = styled.div`
     ${props => props.$active === false && css`
         p {
             text-align: center;
-            color: var(--background-neutrals-primary);
+            color: transparent;
             -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: ${props.itemColor};
+            -webkit-text-stroke-color: ${props.$itemColor};
             -webkit-line-clamp: 2;
             font: 400 3rem/3rem 'AT Aero Bold';
         }
 
         p:hover {
-            color: ${props.itemColor};
+            color: ${props.$itemColor};
         }
     `}
 
     ${props => (props.$active || props.$hover) === true && css`
         p {
             text-align: center;
-            color: ${props.itemColor};
+            color: ${props.$itemColor};
             -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: ${props.itemColor};
+            -webkit-text-stroke-color: ${props.$itemColor};
             -webkit-line-clamp: 2;
             font: 400 3rem/3rem 'AT Aero Bold';
         }

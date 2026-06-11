@@ -38,10 +38,9 @@ const Footer = () => {
 
                         <Image
                             src={LogoPrincipalDark}
-                            width={176}
+                            width={168}
                             height={136}
-                            alt='Semana de Sistemas de Informação 2025'
-                            className="logo-image"
+                            alt='Semana de Sistemas de Informação 2026'
                         />
 
                     </picture>
@@ -80,8 +79,8 @@ const Footer = () => {
                         </li>
                         <li>
                             <Link
-                                href="/forCompanies"
-                                className={router.pathname == '/forCompanies' ? 'active' : ''}>                                
+                                href="/partnerships"
+                                className={router.pathname == '/partnerships' ? 'active' : ''}>                                
                                     Para Empresas                                
                             </Link>
                         </li>

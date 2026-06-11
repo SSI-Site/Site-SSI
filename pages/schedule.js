@@ -13,13 +13,14 @@ import DateStamp from '../src/components/DateStamp';
 import ScheduleItems from '../src/components/ScheduleItems';
 import saphira from '../services/saphira';
 
-const dayOfSSI = ["18 Ago", "19 Ago", "20 Ago", "21 Ago", "22 Ago"]
-const dayFull = ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"]
-const weekDays = semana.filter(dia => dia !== 'Domingo' && dia !== 'Sábado')
+import { eventDetails } from '../data/eventDetails';
 
 const Schedule = () => {
-
+    
+    const { dayFull, dayOfSSI, weekDays } = eventDetails.logic;
     const currentDate = `${new Date().getFullYear()}-${(new Date().getMonth()+1).toString().padStart(2, '0')}-${new Date().getDate().toString().padStart(2, '0')}`;
+    const initialDayIndex = dayFull.indexOf(currentDate);
+    const defaultDayIndex = initialDayIndex !== -1 ? initialDayIndex : 0;   
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false);
     const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
@@ -39,12 +40,6 @@ const Schedule = () => {
     }
 
     function renderActiveItem() {
-        if (!isDuringEvent(activeItem)) {
-            const firstDay = '2025-08-18'
-            setActiveItem(firstDay)
-            setDayNumber(dayFull.indexOf(firstDay))
-        }
-    
         return (
             <ScheduleItems schedule={filterTalks(talks, activeItem)} />
         )
@@ -76,11 +71,19 @@ const Schedule = () => {
         getTalks()
     }, [])
 
+    useEffect(() => {
+    if (talks.length > 0 && !isDuringEvent(activeItem)) {
+        const firstDay = dayFull[0]; 
+        setActiveItem(firstDay);
+        setDayNumber(0); 
+    }
+}, [talks, activeItem]);
+
     return (
         <>
             <Meta title = 'Programação | Semana de Sistemas de Informação' 
-            description = 'Confira a programação completa da SSI 2025. Veja os dias e horários das palestras, painéis e atividades com os maiores nomes da tecnologia.'
-            keywords='programação SSI 2025, cronograma palestras, atividades semana tecnologia, horários SSI, eventos TI Brasil, agenda SSI, programação evento acadêmico, palestras e workshops'
+            description = 'Confira a programação completa da SSI ${eventDetails.year}. Veja os dias e horários das palestras, painéis e atividades com os maiores nomes da tecnologia.'
+            keywords='programação SSI ${eventDetails.year}, cronograma palestras, atividades semana tecnologia, horários SSI, eventos TI Brasil, agenda SSI, programação evento acadêmico, palestras e workshops'
             />
             
             <ScheduleSection>
@@ -95,11 +98,9 @@ const Schedule = () => {
                             value={dayFull[dayNumber]}
                             onChange={handleMobileSelectChange}
                         >
-                            <option value="2025-08-18">Dia 1</option>
-                            <option value="2025-08-19">Dia 2</option>
-                            <option value="2025-08-20">Dia 3</option>
-                            <option value="2025-08-21">Dia 4</option>
-                            <option value="2025-08-22">Dia 5</option>
+                            {dayFull.map((date, index) => (
+                                <option key={date} value={date}>Dia {index + 1}</option>
+                            ))}
                         </select>
                         <svg className='icon' xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                             <path d="M18.3188 7L12.5 12.8187L6.68125 7L4.5 9.18125L12.5 17.1813L20.5 9.18125L18.3188 7Z" fill="white"/>
@@ -120,7 +121,9 @@ const Schedule = () => {
                                 }}
                             >
                                 <DateStamp
-                                    day={date.split('-')[2]}
+                                    dayIndex={index + 1}             
+                                    weekDay={weekDays[index]}             
+                                    dateStr={dayOfSSI[index]}             
                                     isActive={activeItem === date}
                                 />
                             </Link>
@@ -137,10 +140,10 @@ const Schedule = () => {
 							</svg>
 						</ButtonFilter>
 						<div className='filter-day-info'>
-							<p>{dayOfSSI[dayNumber]}</p>
-							<p>{weekDays[dayNumber]}</p>
+							<p>{dayOfSSI[dayNumber] || dayOfSSI[0]}</p>
+							<p>{weekDays[dayNumber] || weekDays[0]}</p>
 						</div>
-						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => moveDayNumber(1)}>
+						<ButtonFilter disabled={dayNumber == dayFull.length - 1} className='right' onClick={() => moveDayNumber(1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
@@ -155,7 +158,7 @@ const Schedule = () => {
 						<p>Atividade</p>
 					</div>
 					<div className='filter-day-info'>
-						<p>{dayOfSSI[dayNumber]} - {weekDays[dayNumber]}</p>
+						<p>{dayOfSSI[dayNumber] || dayOfSSI[0]} - {weekDays[dayNumber] || weekDays[0]}</p>
 					</div>
 					<div className='filter-button-container'>
 						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
@@ -164,7 +167,7 @@ const Schedule = () => {
 							</svg>
 						</ButtonFilter>
 
-						<ButtonFilter disabled={dayNumber == 4} className='right' onClick={() => moveDayNumber(1)}>
+						<ButtonFilter disabled={dayNumber == dayFull.length - 1} className='right' onClick={() => moveDayNumber(1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
