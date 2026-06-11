@@ -10,7 +10,7 @@ import LoadingSvg from '../public/loading.svg'
 import saphira from '../services/saphira';
 import Image from 'next/image';
 
-import { eventDetails } from '..data/eventDetails'; 
+import { eventDetails } from '../data/eventDetails'; 
 
 const Palestrantes = () => {
     const [isLoading, setIsLoading] = useState(false)
