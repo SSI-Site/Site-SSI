@@ -151,7 +151,7 @@ const User = () => {
             />
         }
 
-            <Meta title='Meu Perfil | Semana de Sistemas de Informação ${eventDetails.year}' />
+            <Meta title={`Meu Perfil | Semana de Sistemas de Informação ${eventDetails.year}`} />
 
             {isLoading &&
                 <Loading>

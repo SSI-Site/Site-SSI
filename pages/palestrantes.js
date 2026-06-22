@@ -37,8 +37,8 @@ const Palestrantes = () => {
     return (
         <PalestrantesContainer>
           <Meta title='Palestrantes | Semana de Sistemas de Informação' 
-          description = 'Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.'
-          keywords='palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI'
+          description = {`Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.`}
+          keywords={`palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI`}
           />
           <PalestrantesWrapper>
             <h1>Palestrantes</h1>
