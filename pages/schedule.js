@@ -82,8 +82,8 @@ const Schedule = () => {
     return (
         <>
             <Meta title = 'Programação | Semana de Sistemas de Informação' 
-            description = 'Confira a programação completa da SSI ${eventDetails.year}. Veja os dias e horários das palestras, painéis e atividades com os maiores nomes da tecnologia.'
-            keywords='programação SSI ${eventDetails.year}, cronograma palestras, atividades semana tecnologia, horários SSI, eventos TI Brasil, agenda SSI, programação evento acadêmico, palestras e workshops'
+            description = {`Confira a programação completa da SSI ${eventDetails.year}. Veja os dias e horários das palestras, painéis e atividades com os maiores nomes da tecnologia.`}
+            keywords={`programação SSI ${eventDetails.year}, cronograma palestras, atividades semana tecnologia, horários SSI, eventos TI Brasil, agenda SSI, programação evento acadêmico, palestras e workshops`}
             />
             
             <ScheduleSection>
