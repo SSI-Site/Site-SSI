@@ -56,14 +56,14 @@ export default BadgeCO;
 
 const BadgeWrapper = styled.div`
     width: fit-content;
-    padding: 0.125rem 0.25rem;
+    padding: 0rem 0.25rem;
     //max-width: 170px;
     background-color: ${props => colorSchemes[props.$themeIndex].badgeColor};
     display: inline-block;
     border-radius: ${props => props.$rounded ? '0.375rem' : '0'};
 
     p {
-        font-size: ${props => props.$rounded ? '0.8rem' : '0.875rem'};
+        font-size: ${props => props.$rounded ? '0.75rem' : '0.875rem'};
         font-weight: 400;
         color: ${props => colorSchemes[props.$themeIndex].textColor};
     }
