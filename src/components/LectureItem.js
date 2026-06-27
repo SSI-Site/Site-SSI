@@ -19,34 +19,39 @@ const LectureItem = ({ time, event }) => {
         <LectureWrapper>
             <LectureContent>
                 <LectureHeader>
-                    {event.sponsor &&
-                        <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
-                            width={500} height={500} />
-                        </a>
-                    }
-                    <h3>{event.title}</h3>
+                    <div className='lecture-header-info'>
+                        <h3>{event.title}</h3>
 
-                    {event.end_time?
-                        <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
-                    :
-                        <label>{formatTime(time)}</label>
-                    }
+                        {event.end_time?
+                            <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
+                        :
+                            <label>{formatTime(time)}</label>
+                        }
 
-                    <div className='badge-wrapper'>
-                        <BadgeCO
-                            text={event.mode === 'IP'? 'Presencial': 'Online'}
-                            themeIndex={event.mode === 'IP' ? 5 : 9}
-                        />
-
-                        {event.activity_type &&
+                        <div className='badge-wrapper'>
                             <BadgeCO
-                                text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
-                                themeIndex={event.activity_type === 'PR'? 1 : 2}
+                                text={event.mode === 'IP'? 'Presencial': 'Online'}
+                                themeIndex={event.mode === 'IP' ? 5 : 9}
+                                rounded={true}
                             />
+
+                            {event.activity_type &&
+                                <BadgeCO
+                                    text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
+                                    themeIndex={event.activity_type === 'PR'? 1 : 2}
+                                    rounded={true}
+                                />
+                            }
+                        </div>
+                    </div>
+                    <div className='lecture-header-sponsor'>
+                        {event.sponsor &&
+                            <a href={event.sponsor.url} alt="" className='sponsor-logo'>
+                                <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
+                                width={64} height={52}/>
+                            </a>
                         }
                     </div>
-                    
                 </LectureHeader>
 
                 <div className = "lecture-description">
@@ -63,7 +68,7 @@ const LectureItem = ({ time, event }) => {
 
             </LectureContent>
 
-            <ImgDetail>
+            {/* <ImgDetail>
                 <picture>
                     <source media="(max-width: 800px)" srcSet={LectureBottom}/>
                     <source media="(min-width: 801px)" srcSet={LectureRight}/>
@@ -71,21 +76,24 @@ const LectureItem = ({ time, event }) => {
                     width={500} height={500}/>
                 </picture>
                 
-            </ImgDetail>
+            </ImgDetail> */}
         </LectureWrapper>
-     )
+    )
 }
- 
+
 export default LectureItem;
 
 const LectureWrapper = styled.article`
-    background-color: var(--background-neutrals-secondary);
+    background: var(--background-neutrals-primary, #1A1A1A);
     display: flex;   
     flex-direction: column;
-    gap: 1em;
+    gap: 1rem;
+    padding: 1rem;
     width: 100%;
     max-width: 1224px;
     margin: auto;
+    border-radius: 1.5rem;
+    border: 1px solid var(--outline-neutrals-secondary, #999);
 
     @media screen and (min-width:801px) {
         flex-direction: row;
@@ -110,7 +118,7 @@ const LectureWrapper = styled.article`
 
 const ImgDetail = styled.div`
     width: inherit;
-    height: 6em;
+    height: 6rem;
     user-select: none;
     overflow: hidden;
     position: relative;
@@ -135,40 +143,38 @@ const ImgDetail = styled.div`
 
 const LectureContent = styled.div`
     width: 100%;
-    padding: 2em 1.5em;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1rem;
     box-sizing: border-box;
 
     @media screen and (min-width:1024px) {
-        padding: 3.5em;
+        padding: 3.5rem;
     }
 `
 
 const LectureHeader = styled.header`
     display: flex;
-    flex-direction: inherit;
-    gap: inherit;
+    flex-direction: row;
+    gap: 0.625rem;
+    justify-content: space-between;
 
-    .sponsor-logo {
-        width: 12rem;
-        height: 3.25rem;
+    .lecture-header-info {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--content-neutrals-fixed-white);
-        outline: 2px solid transparent;
-        transition: all 0.2s ease-in-out;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    h3 {
+        font-size: 1.125rem;
+    }
 
-        &:hover {
-            outline: 2px solid var(--brand-primary);
+    label {
+        font-family: 'At Aero Bold';
+        font-size: 0.875rem;
+
+        @media screen and (min-width:801px) {
+            font: 700 1.125rem / 1.5rem 'At Aero Bold';
         }
     }
 
@@ -178,20 +184,33 @@ const LectureHeader = styled.header`
         gap: 1em;
     }
 
-    label { 
-        // LARGE VARIANT
-        font-family: 'At Aero Bold';
+    .sponsor-logo {
+        width: 4.25rem;
+        height: 3.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: 2px solid transparent;
+        transition: all 0.2s ease-in-out;
+        border-radius: 0.375rem 1rem;
+        border: 1px solid var(--outline-neutrals-secondary, #999);
 
-        @media screen and (min-width:801px) {
-            font: 700 1.125rem / 1.5rem 'At Aero Bold';
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        &:hover {
+            outline: 2px solid var(--brand-primary);
         }
     }
 `
 
-const SpeakersWrapper = styled.div`
+const SpeakersWrapper = styled.footer`
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.625rem;
     max-width: 850px;
 
     @media screen and (min-width:801px) {
