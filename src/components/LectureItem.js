@@ -168,7 +168,7 @@ const LectureHeader = styled.header`
     .lecture-header-info {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.625rem;
     }
 
 
@@ -188,12 +188,12 @@ const LectureHeader = styled.header`
     .badge-wrapper {
         display: flex;
         width: fit-content;
-        gap: 1em;
+        gap: 1rem;
     }
 
     .sponsor-logo {
-        width: 4.25rem;
-        height: 3.25rem;
+        width: 4.55rem;
+        height: 3.375rem;
         display: flex;
         align-items: center;
         justify-content: center;

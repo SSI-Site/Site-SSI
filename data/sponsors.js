@@ -2,14 +2,12 @@ import TOTVS from '../public/images/partners/totvs-dark.svg'
 import Alura from '../public/images/partners/alura-dark.svg'
 import Bravium from '../public/images/partners/bravium-dark.png'
 import RVentures from '../public/images/partners/r2-ventures-dark.png'
-import SSITalks from '../public/images/partners/each-dark.svg'
+import SSITalks from '../public/images/partners/ssi-talks-dark.png'
 import PetSI from '../public/images/partners/pet-dark.png'
-import Hype from '../public/images/partners/each-dark.svg'
+import Hype from '../public/images/partners/hype-dark.png'
 import idwall from '../public/images/partners/idwall-dark.png'
 import nelogica from '../public/images/partners/neologica-dark.png'
-import SinteseJR from '../public/images/partners/each-dark.svg'
-
-// TODO: Incluir imagens faltantes (SSI Talks, Hype, Sintese Jr) e adicionar espaçamento na borda das imagens
+import SinteseJR from '../public/images/partners/sintese-dark.png'
 
 const sponsorImages  = {
     'totvs': TOTVS,
