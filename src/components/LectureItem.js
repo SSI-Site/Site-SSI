@@ -19,38 +19,39 @@ const LectureItem = ({ time, event }) => {
         <LectureWrapper>
             <LectureContent>
                 <LectureHeader>
-                    <div className='lecture-header-info'>
-                        <h3>{event.title}</h3>
+                    <h3>{event.title}</h3>
+                    <div className='lecture-header-wrapper'>
+                        <div className='lecture-header-info'>
+                            {event.end_time?
+                                <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
+                            :
+                                <label>{formatTime(time)}</label>
+                            }
 
-                        {event.end_time?
-                            <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
-                        :
-                            <label>{formatTime(time)}</label>
-                        }
-
-                        <div className='badge-wrapper'>
-                            <BadgeCO
-                                text={event.mode === 'IP'? 'Presencial': 'Online'}
-                                themeIndex={event.mode === 'IP' ? 5 : 9}
-                                rounded={true}
-                            />
-
-                            {event.activity_type &&
+                            <div className='badge-wrapper'>
                                 <BadgeCO
-                                    text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
-                                    themeIndex={event.activity_type === 'PR'? 1 : 2}
+                                    text={event.mode === 'IP'? 'Presencial': 'Online'}
+                                    themeIndex={event.mode === 'IP' ? 5 : 9}
                                     rounded={true}
                                 />
+
+                                {event.activity_type &&
+                                    <BadgeCO
+                                        text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
+                                        themeIndex={event.activity_type === 'PR'? 1 : 2}
+                                        rounded={true}
+                                    />
+                                }
+                            </div>
+                        </div>
+                        <div className='lecture-header-sponsor'>
+                            {event.sponsor &&
+                                <a href={event.sponsor.url} alt="" className='sponsor-logo'>
+                                    <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
+                                    width={64} height={52}/>
+                                </a>
                             }
                         </div>
-                    </div>
-                    <div className='lecture-header-sponsor'>
-                        {event.sponsor &&
-                            <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                                <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
-                                width={64} height={52}/>
-                            </a>
-                        }
                     </div>
                 </LectureHeader>
 
@@ -155,15 +156,21 @@ const LectureContent = styled.div`
 
 const LectureHeader = styled.header`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.625rem;
-    justify-content: space-between;
+
+    .lecture-header-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     .lecture-header-info {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.5rem;
     }
+
 
     h3 {
         font-size: 1.125rem;
