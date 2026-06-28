@@ -87,6 +87,7 @@ const ScheduleWrapper = styled.div`
                 display: flex;
                 padding: 0 0.5rem;
                 align-items: center;
+                justify-content: flex-start;
                 gap: 0.625rem;
                 align-self: stretch;
 
@@ -99,7 +100,8 @@ const ScheduleWrapper = styled.div`
                     width: 100%;
                     height: 100%;
                     max-height: 1.75rem;
-                    object-fit: cover;
+                    object-fit: contain;
+                    object-position: left center;
                 }
             }
 
@@ -116,11 +118,17 @@ const ScheduleWrapper = styled.div`
     div.event {
         width: 100%;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        background: var(--background-neutrals-tertiary);
-        padding: 0.75rem 1.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        padding: 0.5rem 1.25rem;
+        border-radius: 1.5rem;
+        border: 1px solid var(--outline-neutrals-secondary, #999);
+
+        h6 {
+            font: 700 1rem/1.5rem 'AT Aero Bold';
+        }
 
         p {
             font: 400 0.875rem/1.5rem 'AT Aero Bold';
