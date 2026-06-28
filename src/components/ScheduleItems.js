@@ -8,6 +8,8 @@ import LectureItem from './LectureItem'
 import DotsDarkImage from '../../public/images/schedule/details/bolinhas (mobile dark).svg'
 
 const ScheduleItems = ({ schedule }) => {
+    let reverseTimeItem = true;
+
     return (
         <>
             <ScheduleWrapper>
@@ -16,16 +18,19 @@ const ScheduleItems = ({ schedule }) => {
                     {schedule.map((talk, index) => {
                         
                         const finalKey = talk.id ? `id-${talk.id}` : `fallback-${index}`;
+                        const breakEvent = talk.title == "Abertura" || talk.title == "Encerramento" || talk.title == "Intervalo" || talk.title == "Almoço" || talk.title == "Jantar" || !talk.speakers;
+                        const openingClosingEvent = talk.title == "Abertura" || talk.title == "Encerramento";
 
-                        if (talk.title == "Abertura" || talk.title == "Encerramento" || talk.title == "Intervalo" || !talk.speakers) {
-                            
-                            return (
-                                <li key={finalKey}>
-                                    <div className={`lecture-time-container ${talk.title == "Intervalo" || !talk.speakers ? 'reverse' : ''}`}>
-                                        <h5>{formatTime(talk.start_time)}</h5>
-                                        <Image src={DotsDarkImage} alt="Bolinhas Detalhe" width={215} height={28}/>
-                                    </div>
-                                    <div className={`event ${talk.title == 'Abertura' || talk.title == 'Encerramento' ? 'special-event' : ''}`}>
+                        reverseTimeItem = !reverseTimeItem;
+
+                        return (
+                            <li key={finalKey}>
+                                <div className={`lecture-time-container ${reverseTimeItem ? 'reverse' : ''}`}>
+                                    <h5>{formatTime(talk.start_time)}</h5>
+                                    <Image src={DotsDarkImage} alt="Bolinhas Detalhe" width={215} height={28}/>
+                                </div>
+                                {breakEvent ?
+                                    <div className={`event ${openingClosingEvent ? 'special-event' : ''}`}>
                                         <h6>{talk.title}</h6>
                                         {talk.end_time ?
                                             <p>{formatTime(talk.start_time)} - {formatTime(talk.end_time)}</p>
@@ -33,19 +38,11 @@ const ScheduleItems = ({ schedule }) => {
                                             <p>{formatTime(talk.start_time)}</p>
                                         }
                                     </div>
-                                </li>
-                            )
-                        } else {
-                            return (
-                                <li key={finalKey}>
-                                    <div className='lecture-time-container'>
-                                        <h5>{formatTime(talk.start_time)}</h5>
-                                        <Image src={DotsDarkImage} alt="Bolinhas Detalhe" width={215} height={28}/>
-                                    </div>
+                                :
                                     <LectureItem time={talk.start_time} event={talk} />
-                                </li>
-                            )
-                        }
+                                }
+                            </li>
+                        )
                     })}
                 </ul>
             </ScheduleWrapper>
@@ -78,10 +75,6 @@ const ScheduleWrapper = styled.div`
             gap: 1.5rem;
             width: 100%;
             list-style-type: none;
-
-            &:last-child {
-                border-bottom: none;
-            }
             
             .lecture-time-container {
                 display: flex;
@@ -115,7 +108,7 @@ const ScheduleWrapper = styled.div`
         }
     }
 
-    div.event {
+    .event {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -135,7 +128,7 @@ const ScheduleWrapper = styled.div`
         }
     }
 
-    div.special-event {
+    .special-event {
         background: var(--background-neutrals-inverse);
 
         h6, p {
@@ -146,7 +139,7 @@ const ScheduleWrapper = styled.div`
     @media (min-width:560px) {
         gap: 3rem;
 
-        div.event {
+        .event {
             justify-content: flex-start;
 
             p {
@@ -176,7 +169,7 @@ const ScheduleWrapper = styled.div`
             }
         }
 
-        div.event {
+        .event {
             padding: 0.75rem 3.5rem;
         }
     }
