@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import Image from 'next/image'
 import { formatTime } from '../../utils/format-time'
 // components
 import LectureItem from './LectureItem'
 
+import DotsDarkImage from '../../public/images/schedule/details/bolinhas (mobile dark).svg'
 
 const ScheduleItems = ({ schedule }) => {
     return (
@@ -19,7 +21,10 @@ const ScheduleItems = ({ schedule }) => {
                             
                             return (
                                 <li key={finalKey}>
-                                    <h5>{formatTime(talk.start_time)}</h5>
+                                    <div className={`lecture-time-container ${talk.title == "Intervalo" || !talk.speakers ? 'reverse' : ''}`}>
+                                        <h5>{formatTime(talk.start_time)}</h5>
+                                        <Image src={DotsDarkImage} alt="Bolinhas Detalhe" width={215} height={28}/>
+                                    </div>
                                     <div className={`event ${talk.title == 'Abertura' || talk.title == 'Encerramento' ? 'special-event' : ''}`}>
                                         <h6>{talk.title}</h6>
                                         {talk.end_time ?
@@ -33,7 +38,10 @@ const ScheduleItems = ({ schedule }) => {
                         } else {
                             return (
                                 <li key={finalKey}>
-                                    <h5 className='vertical-time'>{formatTime(talk.start_time)}</h5>
+                                    <div className='lecture-time-container'>
+                                        <h5>{formatTime(talk.start_time)}</h5>
+                                        <Image src={DotsDarkImage} alt="Bolinhas Detalhe" width={215} height={28}/>
+                                    </div>
                                     <LectureItem time={talk.start_time} event={talk} />
                                 </li>
                             )
@@ -61,23 +69,46 @@ const ScheduleWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
 
         li {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 1.5rem;
             width: 100%;
             list-style-type: none;
-            padding-block: 1rem;
-            border-bottom: 1px solid var(--outline-neutrals-secondary);
 
             &:last-child {
                 border-bottom: none;
             }
+            
+            .lecture-time-container {
+                display: flex;
+                padding: 0 0.5rem;
+                align-items: center;
+                gap: 0.625rem;
+                align-self: stretch;
 
-            h5 {
-                color: var(--content-neutrals-primary);
-                opacity: 0.2;
+                h5 {
+                    color: var(--content-badge-brand-purple-700, #9638FF);
+                    font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    max-height: 1.75rem;
+                    object-fit: cover;
+                }
+            }
+
+            .reverse {
+                flex-direction: row-reverse;
+
+                img {
+                    transform: rotate(180deg);
+                }
             }
         }
     }
