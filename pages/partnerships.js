@@ -747,6 +747,8 @@ const PlansSection = styled.section`
         }    
     }
 
+    
+
     .apoiador {
         display: flex;
         flex-direction: column;
@@ -844,6 +846,81 @@ const PlansSection = styled.section`
     }
 
 `
+
+/* Esse wrapper serve para selecionar as Image que aparecerá para o usuário, dependendo do tema*/
+const AdaptiveImageWrapper = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .show-light {
+        display: block; /* Padrão: Modo Claro exibe Light */
+    }
+    .show-dark {
+        display: none;  /* Padrão: Modo Claro esconde Dark */
+    }
+
+
+    /* Media responsável pela escolha de cores */
+    @media (prefers-color-scheme: dark) {
+        .show-light {
+            display: none;  /* Modo Escuro esconde Light */
+        }
+        .show-dark {
+            display: block; /* Modo Escuro exibe Dark */
+        }
+    }
+
+    /* Esse wrapper serve para selecionar as Image que aparecerá para o usuário*/
+    
+    .imgMobile {
+        display: block;
+    }
+    
+    .imgDesktop {
+        display: none;
+        
+    }
+    
+    .imgDesktopApoiador{
+        display: none;
+    }
+    
+    .imgMobileApoiador {
+        display: block;
+    }
+
+    /* Media responsavel por alterar as imagens visíveis*/ 
+    @media (min-width: 1100px) {
+        .imgMobile {
+            display: none;
+        }
+            
+        .imgDesktop {
+            display: block;
+        }
+
+        .imgDesktopApoiador{
+            display: block;
+        }
+
+        .imgMobileApoiador {
+            display: none;
+        }
+
+        /* Ajuste de tamanho das logos para telas maiores */
+        
+        .logoApoiador{
+            width: 2.43569rem;
+            height: 2.75rem;
+        }
+            
+        .logoParceiro{
+            width: 2.5rem;
+            height: 2.75rem;
+        }
+    }
+`;
 
 const OurNumbersSection = styled.section`
     background: var(--background-neutrals-secondary, #333);
@@ -1028,77 +1105,3 @@ const ExperienceSection = styled.section`
         }
     }
 `
-
-/* Esse wrapper serve para selecionar as Image que aparecerá para o usuário, dependendo do tema*/
-const AdaptiveImageWrapper = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    .show-light {
-        display: block; /* Padrão: Modo Claro exibe Light */
-    }
-    .show-dark {
-        display: none;  /* Padrão: Modo Claro esconde Dark */
-    }
-
-
-    /* Media responsável pela escolha de cores */
-    @media (prefers-color-scheme: dark) {
-        .show-light {
-            display: none;  /* Modo Escuro esconde Light */
-        }
-        .show-dark {
-            display: block; /* Modo Escuro exibe Dark */
-        }
-    }
-
-    /* Esse wrapper serve para selecionar as Image que aparecerá para o usuário*/
-    
-    .imgMobile {
-        display: block;
-    }
-    
-    .imgDesktop {
-        display: none;
-    }
-    
-    .imgDesktopApoiador{
-        display: none;
-    }
-    
-    .imgMobileApoiador {
-        display: block;
-    }
-
-    /* Media responsavel por alterar as imagens visíveis*/ 
-    @media (min-width: 1100px) {
-        .imgMobile {
-            display: none;
-        }
-            
-        .imgDesktop {
-            display: block;
-        }
-
-        .imgDesktopApoiador{
-            display: block;
-        }
-
-        .imgMobileApoiador {
-            display: none;
-        }
-
-        /* Ajuste de tamanho das logos para telas maiores */
-        
-        .logoApoiador{
-            width: 2.43569rem;
-            height: 2.75rem;
-        }
-            
-        .logoParceiro{
-            width: 2.5rem;
-            height: 2.75rem;
-        }
-    }
-`;
