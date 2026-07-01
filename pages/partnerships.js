@@ -9,22 +9,35 @@ import CountUp from 'react-countup';
 // images
 import bgMobile from '../public/images/partnerships/photos/bg_mobile.png';
 import bgDesktop from '../public/images/partnerships/photos/bg_desktop.png';
-import logoInstagram from '../public/images/partnerships/icons/logo_instagram_dark.svg';
-import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin_dark.svg';
-import logoInPerson from '../public/images/partnerships/icons/logo_inPerson_dark.svg';
-
 import imgMotivation from '../public/images/partnerships/photos/motivation.png';
 import imgPhotosExperience from '../public/images/partnerships/photos/experience.png';
 import imgGroupExperience from '../public/images/partnerships/photos/experience2.png';
 
+// dark mode: icons
+import logoInstagram from '../public/images/partnerships/icons/logo_instagram_dark.svg';
+import logoLinkedin from '../public/images/partnerships/icons/logo_linkedin_dark.svg';
+import logoInPerson from '../public/images/partnerships/icons/logo_inPerson_dark.svg';
 import logoPartner from '../public/images/partnerships/icons/partner_icon_dark.svg';
 import logoSupporter from '../public/images/partnerships/icons/supporter_icon_dark.svg';
 
+// dark mode: details
 import detailBottonMobile from '../public/images/partnerships/details/detail_botton_mobile_dark.svg';
 import detailUpMobile from '../public/images/partnerships/details/detail_up_mobile_dark.svg';
-
 import detailBottonDesktop from '../public/images/partnerships/details/detail_botton_desktop_dark.svg';
 import detailUpDesktop from '../public/images/partnerships/details/detail_up_desktop_dark.svg';
+
+// light mode: icons
+import logoInstagramLight from '../public/images/partnerships/icons/logo_instagram_light.svg';
+import logoLinkedinLight from '../public/images/partnerships/icons/logo_linkedin_light.svg';
+import logoInPersonLight from '../public/images/partnerships/icons/logo_inPerson_light.svg';
+import logoPartnerLight from '../public/images/partnerships/icons/partner_icon_light.svg';
+import logoSupporterLight from '../public/images/partnerships/icons/supporter_icon_light.svg';
+
+//light mode: details
+import detailBottonMobileLight from '../public/images/partnerships/details/detail_botton_mobile_light.svg';
+import detailUpMobileLight from '../public/images/partnerships/details/detail_up_mobile_light.svg';
+import detailBottonDesktopLight from '../public/images/partnerships/details/detail_botton_desktop_light.svg';
+import detailUpDesktopLight from '../public/images/partnerships/details/detail_up_desktop_light.svg';
 
 // components
 import Button from '../src/components/Button';
@@ -104,33 +117,62 @@ const partnerships = () => {
             {/* Seção onde tem os planos de patrocínio e o que cada um oferece, com um botões para entrar em contato */}
             <PlansSection>
                 <div className='parceiro'>
-                    <div className='imgMobile'> 
-                        <Image
-                            src={detailUpMobile}
-                            alt='detalhes'
-                            width={197}
-                            height={56}
-                        />
-                    </div>
-                    <div className='imgDesktop'> 
-                        <Image
-                            src={detailUpDesktop}
-                            alt='detalhes'
-                            width={248}
-                            height={352}
-                        />
-                    </div>
+                
+                    <AdaptiveImageWrapper>
+                        <div className='imgMobile'>
+                            <Image
+                                src={detailUpMobile}
+                                alt='detalhes'
+                                className='show-dark'
+                                width={197}
+                                height={56}
+                            />
+                            <Image
+                                src={detailUpMobileLight}
+                                alt='detalhes'
+                                className='show-light'
+                                width={197}
+                                height={56}
+                            />
+                        </div>
+
+                        <div className='imgDesktop'> 
+                            <Image
+                                src={detailUpDesktop}
+                                alt='detalhes'
+                                className='show-dark'
+                                width={248}
+                                height={352}
+                            />
+                            <Image
+                                src={detailUpDesktopLight}
+                                alt='detalhes'
+                                className='show-light'
+                                width={248}
+                                height={352}
+                            />
+                        </div>
+                    </AdaptiveImageWrapper>
 
                     <div className='cardParceiro'>
                         <div className ='title'>
                             <h4>Parceiro</h4>
-                            <Image
-                                src={logoPartner}
-                                alt='logo'
-                                width={19}
-                                height={21}
-                                className='logoParceiro'
-                            />
+                            <AdaptiveImageWrapper>
+                                <Image
+                                    src={logoPartner}
+                                    alt='logo'
+                                    width={19}
+                                    height={21}
+                                    className='logoParceiro show-dark'
+                                />
+                                <Image
+                                    src={logoPartnerLight}
+                                    alt='logo'
+                                    width={19}
+                                    height={21}
+                                    className='logoParceiro show-light'
+                                />
+                            </AdaptiveImageWrapper>
                         </div>
                         <div className='info-text'>
                             <p>
@@ -161,31 +203,59 @@ const partnerships = () => {
                 </div>
 
                 <div className='apoiador'>
-                    <div className='imgMobileApoiador'>
-                        <Image
-                            src={detailBottonMobile}
-                            alt='detalhes'
-                            width={157}
-                            height={56}
-                        />
-                    </div>
-                    <div className='imgDesktopApoiador'>
-                        <Image
-                            src={detailBottonDesktop}
-                            alt='detalhes'
-                            width={248}
-                            height={248}
-                        />
-                    </div>
+                    <AdaptiveImageWrapper>
+                        <div className='imgMobileApoiador'>
+                            <Image
+                                src={detailBottonMobile}
+                                alt='detalhes'
+                                className='show-dark'
+                                width={157}
+                                height={56}
+                            />
+                            <Image
+                                src={detailBottonMobileLight}
+                                alt='detalhes'
+                                className='show-light'
+                                width={157}
+                                height={56}
+                            />
+                        </div>
+                        <div className='imgDesktopApoiador'>
+                            <Image
+                                src={detailBottonDesktop}
+                                alt='detalhes'
+                                className='show-dark'
+                                width={248}
+                                height={248}
+                            />
+                            <Image
+                                src={detailBottonDesktopLight}
+                                alt='detalhes'
+                                className='show-light'
+                                width={248}
+                                height={248}
+                            />
+                        </div>
+                    </AdaptiveImageWrapper>
+
                     <div className='cardApoiador'>
                         <div className ='title'>
-                            <Image
-                                src={logoSupporter}
-                                alt='logo'
-                                width={19}
-                                height={21}
-                                className = 'logoApoiador'
-                            />
+                            <AdaptiveImageWrapper>
+                                <Image
+                                    src={logoSupporter}
+                                    alt='logo'
+                                    width={19}
+                                    height={21}
+                                    className = 'logoApoiador show-dark'
+                                />
+                                <Image
+                                    src={logoSupporterLight}
+                                    alt='logo'
+                                    width={19}
+                                    height={21}
+                                    className = 'logoApoiador show-light'
+                                />
+                            </AdaptiveImageWrapper>
                             <h4>Apoiador</h4>
                         </div>
                         <div className='info-text'>
@@ -218,7 +288,7 @@ const partnerships = () => {
                 <div className='our-numbers-icons'>
                     <div className='icon-group'>
                         <picture>
-                            <source srcSet={logoInstagram} media='(prefers-color-scheme: dark)' />
+                            <source srcSet={logoInstagramLight} media='(prefers-color-scheme: light)' />
                             <Image
                                 src={logoInstagram}
                                 alt="Icone do instagram"
@@ -280,7 +350,7 @@ const partnerships = () => {
 
                     <div className='icon-group'>
                         <picture>
-                            <source srcSet={logoLinkedin} media='(prefers-color-scheme: dark)' />
+                            <source srcSet={logoLinkedinLight} media='(prefers-color-scheme: light)' />
                             <Image
                                 src={logoLinkedin}
                                 alt="Icone do Linkedin"
@@ -343,7 +413,7 @@ const partnerships = () => {
 
                     <div className='icon-group'>
                         <picture>
-                            <source srcSet={logoInPerson} media='(prefers-color-scheme: dark)' />
+                            <source srcSet={logoInPersonLight} media='(prefers-color-scheme: light)' />
                             <Image
                                 src={logoInPerson}
                                 alt="Icone do instagram"
@@ -457,6 +527,8 @@ const LandingSection = styled.section`
 
     margin-top: -5rem;
     padding: 10rem 1rem 5rem 1rem;
+
+    color: var(--content-neutrals-fixed-white);
     
     .landingSection { 
         display: flex;
@@ -469,7 +541,6 @@ const LandingSection = styled.section`
             font-size: 2rem; 
             line-height: 2.5rem;
             text-align: center;
-            
         }
 
         .landingSectionText {
@@ -545,7 +616,7 @@ const MotivationSection = styled.section`
         h4 {
             font-weight: 400;
             strong{
-                background: linear-gradient(90deg, #4A148C 0%, #310C61 100%);
+                background: var(--brand-purple-900);
                 padding: 1px 4px; 
             }
         }
@@ -633,9 +704,6 @@ const PlansSection = styled.section`
         flex-direction: column;
         gap: 1.5rem;
 
-        .imgDesktop{
-            display: none;
-        }
 
         .cardParceiro {
             display: flex;
@@ -679,15 +747,13 @@ const PlansSection = styled.section`
         }    
     }
 
+    
+
     .apoiador {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 1.5rem;
-
-        .imgDesktopApoiador {
-            display: none;
-        }
 
         .cardApoiador{
             display: flex;
@@ -735,14 +801,6 @@ const PlansSection = styled.section`
             justify-content: space-between;
             padding: 1.5rem;
 
-            .imgMobile {
-                display: none;
-            }
-
-            .imgDesktop{
-                display: block;
-            }
-
             .cardParceiro{
                 padding: 2.25rem;
                 width: 49.25rem;
@@ -751,10 +809,6 @@ const PlansSection = styled.section`
 
                 .title{
                     gap: 1.5rem;
-                    .logoParceiro{
-                        width: 2.5rem;
-                        height: 2.75rem;
-                    }
                 }
 
                 .info-text {
@@ -764,8 +818,6 @@ const PlansSection = styled.section`
                     }
                 }
             }
-
-
         }
 
         .apoiador {
@@ -781,10 +833,6 @@ const PlansSection = styled.section`
 
                 .title {
                     gap: 1.5rem;
-                    .logoApoiador{
-                        width: 2.43569rem;
-                        height: 2.75rem;
-                    }
                 }
 
                 .info-text {
@@ -794,18 +842,85 @@ const PlansSection = styled.section`
                     }
                 }
             }
-
-            .imgDesktopApoiador{
-                display: block;
-            }
-
-            .imgMobileApoiador {
-                display: none;
-            }
         }
     }
 
 `
+
+/* Esse wrapper serve para selecionar as Image que aparecerá para o usuário, dependendo do tema*/
+const AdaptiveImageWrapper = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .show-light {
+        display: block; /* Padrão: Modo Claro exibe Light */
+    }
+    .show-dark {
+        display: none;  /* Padrão: Modo Claro esconde Dark */
+    }
+
+
+    /* Media responsável pela escolha de cores */
+    @media (prefers-color-scheme: dark) {
+        .show-light {
+            display: none;  /* Modo Escuro esconde Light */
+        }
+        .show-dark {
+            display: block; /* Modo Escuro exibe Dark */
+        }
+    }
+
+    /* Esse wrapper serve para selecionar as Image que aparecerá para o usuário*/
+    
+    .imgMobile {
+        display: block;
+    }
+    
+    .imgDesktop {
+        display: none;
+        
+    }
+    
+    .imgDesktopApoiador{
+        display: none;
+    }
+    
+    .imgMobileApoiador {
+        display: block;
+    }
+
+    /* Media responsavel por alterar as imagens visíveis*/ 
+    @media (min-width: 1100px) {
+        .imgMobile {
+            display: none;
+        }
+            
+        .imgDesktop {
+            display: block;
+        }
+
+        .imgDesktopApoiador{
+            display: block;
+        }
+
+        .imgMobileApoiador {
+            display: none;
+        }
+
+        /* Ajuste de tamanho das logos para telas maiores */
+        
+        .logoApoiador{
+            width: 2.43569rem;
+            height: 2.75rem;
+        }
+            
+        .logoParceiro{
+            width: 2.5rem;
+            height: 2.75rem;
+        }
+    }
+`;
 
 const OurNumbersSection = styled.section`
     background: var(--background-neutrals-secondary, #333);
@@ -818,6 +933,7 @@ const OurNumbersSection = styled.section`
     gap: 1.5rem;
     
     .our-numbers-title{
+        color: var(--content-neutrals-fixed-white);
         background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
         display: flex;
         width: fit-content;
@@ -931,6 +1047,7 @@ const ExperienceSection = styled.section`
     }
 
     .experienceTitle {
+        color: var(--content-neutrals-fixed-white);
         display: flex;
         padding: 0.75rem 1.5rem;
         justify-content: center;
