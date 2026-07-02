@@ -67,7 +67,7 @@ const ScheduleWrapper = styled.div`
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        padding: 1.5rem 0;
+        padding-top: 1.5rem;
 
         li {
             display: flex;
@@ -137,40 +137,18 @@ const ScheduleWrapper = styled.div`
     }
 
     @media (min-width:560px) {
-        gap: 3rem;
-
-        .event {
-            justify-content: flex-start;
-
-            p {
-                font: 400 1rem/1.5rem 'AT Aero Bold';
+        /* .event {
+            h6 {
+                font: 700 1rem/2rem 'AT Aero Bold';
             }
-        }
+            
+            p {
+                font: 700 1rem/2rem 'AT Aero Bold';
+            }
+        } */
     }
 
     @media (min-width:1024px) {
 
-        > ul li {
-            flex-direction: row;
-            padding-block: 2rem;
-
-            h5 {
-                opacity: 1;
-                font: 700 1rem/1.5rem 'AT Aero Bold';
-                width: 6.5rem;
-            }
-
-            .vertical-time {
-                opacity: 0.2;
-                font: 700 4rem/4.5rem 'AT Aero Bold';
-                writing-mode: vertical-rl;
-                transform: rotate(180deg);
-                text-align: end;
-            }
-        }
-
-        .event {
-            padding: 0.75rem 3.5rem;
-        }
     }
 `

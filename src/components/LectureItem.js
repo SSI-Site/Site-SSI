@@ -91,25 +91,23 @@ const LectureWrapper = styled.article`
     gap: 1rem;
     padding: 1rem;
     width: 100%;
-    max-width: 1224px;
     margin: auto;
     border-radius: 1.5rem;
     border: 1px solid var(--outline-neutrals-secondary, #999);
 
-    @media screen and (min-width:801px) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
     .lecture-description {
         width: 100%;
-        max-width: 704px;
+        /* max-width: 704px; */
 
         p {
             font: 400 0.875rem / 1.5rem 'At Aero';
         }
+    }
 
-        @media screen and (min-width:801px) {
+    @media screen and (min-width:801px) {
+        padding: 2rem 2rem 1rem 2rem;
+
+        .lecture-description {
             p {
                 font: 400 1rem / 1.5rem 'At Aero';
             }
@@ -125,8 +123,8 @@ const ImgDetail = styled.div`
     position: relative;
 
     @media screen and (min-width: 801px) {
-        width: 25%;
-        height: auto;
+        /* width: 25%;
+        height: auto; */
     }
 
     img {
@@ -136,8 +134,8 @@ const ImgDetail = styled.div`
         object-position: left;
 
         @media screen and (min-width:801px) {
-            position: absolute;
-            object-position: top;
+            /* position: absolute;
+            object-position: top; */
         }
     }
 `;
@@ -150,7 +148,7 @@ const LectureContent = styled.div`
     box-sizing: border-box;
 
     @media screen and (min-width:1024px) {
-        padding: 3.5rem;
+        /* padding: 3.5rem; */
     }
 `
 
@@ -179,10 +177,6 @@ const LectureHeader = styled.header`
     label {
         font-family: 'At Aero Bold';
         font-size: 0.875rem;
-
-        @media screen and (min-width:801px) {
-            font: 700 1.125rem / 1.5rem 'At Aero Bold';
-        }
     }
 
     .badge-wrapper {
@@ -212,13 +206,29 @@ const LectureHeader = styled.header`
             outline: 2px solid var(--brand-primary);
         }
     }
+
+    @media screen and (min-width:801px) {
+        gap: 1rem;
+
+        .lecture-header-info {
+            gap: 1rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+
+        label {
+            font-size: 1.5rem;
+        }
+    }
 `
 
 const SpeakersWrapper = styled.footer`
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
-    max-width: 850px;
 
     @media screen and (min-width:801px) {
         flex-direction: row;
