@@ -5,7 +5,10 @@ import { formatTime } from '../../utils/format-time'
 // components
 import LectureItem from './LectureItem'
 
-import DotsDarkImage from '../../public/images/schedule/details/bolinhas (mobile dark).svg'
+import DotsDarkImage from '../../public/images/schedule/details/bolinhas_(mobile_dark).svg'
+import DotsLightImage from '../../public/images/schedule/details/bolinhas_(mobile_light).svg'
+import DotsDarkImageDesktop from '../../public/images/schedule/details/bolinhas_(desktop_dark).svg'
+import DotsLightImageDesktop from '../../public/images/schedule/details/bolinhas_(desktop_light).svg'
 
 const ScheduleItems = ({ schedule }) => {
     let reverseTimeItem = true;
@@ -27,7 +30,11 @@ const ScheduleItems = ({ schedule }) => {
                             <li key={finalKey}>
                                 <div className={`lecture-time-container ${reverseTimeItem ? 'reverse' : ''}`}>
                                     <h5>{formatTime(talk.start_time)}</h5>
-                                    <Image src={DotsDarkImage} alt="Bolinhas Detalhe" width={215} height={28}/>
+                                    <picture>
+                                        <source srcSet={DotsDarkImageDesktop} media='(min-width: 600px)'/>
+                                        <Image src={DotsDarkImage} alt="Bolinhas Decoração" width={215} height={28}/>
+                                    </picture>
+                                    <h5>{formatTime(talk.start_time)}</h5>
                                 </div>
                                 {breakEvent ?
                                     <div className={`event ${openingClosingEvent ? 'special-event' : ''}`}>
@@ -89,8 +96,18 @@ const ScheduleWrapper = styled.div`
                     font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
 
+                /* Segundo texto de horário, mostrando apenas em versão para computador */
+                h5:last-child {
+                    display: none;
+                }
+
+                picture {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+
                 img {
-                    width: 100%;
                     height: 100%;
                     max-height: 1.75rem;
                     object-fit: contain;
@@ -136,16 +153,45 @@ const ScheduleWrapper = styled.div`
         }
     }
 
-    @media (min-width:560px) {
-        /* .event {
-            h6 {
-                font: 700 1rem/2rem 'AT Aero Bold';
+    @media (min-width:600px) {
+        > ul {
+            li {
+                .lecture-time-container {
+                    justify-content: space-between;
+                    gap: 0.5rem;
+
+                    h5:first-child {
+                        color: var(--content-brand-primary-light, #D0ACFF);
+                    }
+
+                    /* Segundo texto de horário, mostrando apenas em versão para computador */
+                    h5:last-child {
+                        /* color: var(--content-badge-brand-purple-400, #A85FFF); */
+                        display: block;
+                    }
+
+                    picture {
+                        width: 100%;
+                        margin-top: 0.125rem;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    img {
+                        width: 100%;
+                        object-position: center;
+                    }
+                }
+                /* Reescrevendo/desabilitando reversão da informação de horário */
+                .reverse {
+                    flex-direction: row;
+
+                    img {
+                        transform: rotate(0deg);
+                    }
+                }
             }
-            
-            p {
-                font: 700 1rem/2rem 'AT Aero Bold';
-            }
-        } */
+        }
     }
 
     @media (min-width:1024px) {
