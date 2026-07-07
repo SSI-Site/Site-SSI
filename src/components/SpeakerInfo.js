@@ -227,6 +227,7 @@ const SpeakerContainer = styled.div`
 	@media(min-width:801px) {
 		flex-direction: column;
         width: 14.5rem;
+        border-radius: 0;
 
         .side-card {
             max-width: min(48rem, 60%);
@@ -235,6 +236,7 @@ const SpeakerContainer = styled.div`
         .speaker-image-container {
             width: 100%;
             height: 12.5rem;
+            border-radius: 0.75rem;
         }
 
         .speaker-info-container {
@@ -242,6 +244,10 @@ const SpeakerContainer = styled.div`
 			flex-direction: column;
 			width: 100%;
             gap: 0.25rem;
+
+            &::before {
+                display: none;
+            }
             
             .speaker-info {
                 padding-inline: 0.25rem;

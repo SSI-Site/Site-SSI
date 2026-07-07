@@ -97,7 +97,6 @@ const LectureWrapper = styled.article`
 
     .lecture-description {
         width: 100%;
-        /* max-width: 704px; */
 
         p {
             font: 400 0.875rem / 1.5rem 'At Aero';

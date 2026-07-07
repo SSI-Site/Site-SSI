@@ -64,7 +64,6 @@ const ScheduleWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
     width: 100%;
 
     > ul {
@@ -194,7 +193,38 @@ const ScheduleWrapper = styled.div`
         }
     }
 
-    @media (min-width:1024px) {
+    @media (min-width:800px) {
+        > ul {
+            gap: 2rem;
+            
+            li {
+                gap: 2rem;
 
+                .lecture-time-container {
+                    h5 {
+                        font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                    }
+                }
+            }
+        }
+        .event {
+            padding: 0.75rem 1.25rem;
+
+            h6 {
+                font: 700 1.5rem/1.5rem 'AT Aero Bold';
+            }
+
+            p {
+                font: 700 1.5rem/1.5rem 'AT Aero Bold';
+            }
+        }
+
+        .special-event {
+            background: var(--background-neutrals-inverse);
+
+            h6, p {
+                color: var(--content-neutrals-inverse);
+            }
+        }
     }
 `
