@@ -103,9 +103,10 @@ const LectureWrapper = styled.article`
         }
     }
 
-    @media screen and (min-width:801px) {
-        padding: 2rem 2rem 1rem 2rem;
-        border: 3px solid transparent;
+    @media screen and (min-width:800px) {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        border: 2px solid transparent;
+        border-radius: 2rem;
         background: 
                 linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
                 linear-gradient(135deg, #f8efff 15%, #9638FF) border-box;
@@ -116,32 +117,37 @@ const LectureWrapper = styled.article`
             }
         }
     }
+
+    @media screen and (min-width: 1200px) {
+        padding: 2rem 2rem 1rem 2rem;
+        border: 3px solid transparent;
+    }
 `
 
-const ImgDetail = styled.div`
-    width: inherit;
-    height: 6rem;
-    user-select: none;
-    overflow: hidden;
-    position: relative;
+// const ImgDetail = styled.div`
+//     width: inherit;
+//     height: 6rem;
+//     user-select: none;
+//     overflow: hidden;
+//     position: relative;
 
-    @media screen and (min-width: 801px) {
-        /* width: 25%;
-        height: auto; */
-    }
+//     @media screen and (min-width: 800px) {
+//         width: 25%;
+//         height: auto;
+//     }
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: left;
+//     img {
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         object-position: left;
 
-        @media screen and (min-width:801px) {
-            /* position: absolute;
-            object-position: top; */
-        }
-    }
-`;
+//         @media screen and (min-width:800px) {
+//             position: absolute;
+//             object-position: top;
+//         }
+//     }
+// `;
 
 const LectureContent = styled.div`
     width: 100%;
@@ -206,13 +212,24 @@ const LectureHeader = styled.header`
         }
     }
 
-    @media screen and (min-width:801px) {
+    @media screen and (min-width:800px) {
         gap: 1rem;
 
         .lecture-header-info {
             gap: 1rem;
         }
 
+        h3 {
+            font-size: 1.75rem;
+            line-height: 2rem;
+        }
+
+        label {
+            font-size: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
         h3 {
             font-size: 2rem;
             line-height: 2.5rem;
@@ -229,8 +246,14 @@ const SpeakersWrapper = styled.footer`
     flex-direction: column;
     gap: 0.625rem;
 
-    @media screen and (min-width:801px) {
+    @media screen and (min-width:800px) {
         flex-direction: row;
         width: 100%;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+
+    @media screen and (min-width: 1200px) {
+        gap: 2rem;
     }
 `

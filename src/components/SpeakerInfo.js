@@ -224,7 +224,7 @@ const SpeakerContainer = styled.div`
         }
 	}
 
-	@media(min-width:801px) {
+	@media (min-width:800px) {
 		flex-direction: column;
         width: 14.5rem;
         border-radius: 0;
@@ -252,7 +252,9 @@ const SpeakerContainer = styled.div`
             .speaker-info {
                 padding-inline: 0.25rem;
                 cursor: pointer;
-    
+                background-position: right -1px center;
+                height: auto;
+
                 p {
                     font: 700 1.125rem/1.5rem 'AT Aero Bold';
                 }

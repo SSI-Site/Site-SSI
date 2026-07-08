@@ -210,18 +210,18 @@ const ScheduleWrapper = styled.div`
         }
 
         .event {
-            padding: 0.75rem 1.25rem;
-            border: 3px solid transparent;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
             background: 
                 linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
                 linear-gradient(90deg, #f8efff 15%, #9638FF) border-box;
 
             h6 {
-                font: 700 1.5rem/1.5rem 'AT Aero Bold';
+                font: 700 1.375rem/1.5rem 'AT Aero Bold';
             }
 
             p {
-                font: 700 1.5rem/1.5rem 'AT Aero Bold';
+                font: 700 1.375rem/1.5rem 'AT Aero Bold';
             }
         }
 
@@ -230,6 +230,21 @@ const ScheduleWrapper = styled.div`
 
             h6, p {
                 color: var(--content-neutrals-inverse);
+            }
+        }
+    }
+
+    @media (min-width:1200px) {
+        .event {
+            padding: 0.875rem 2rem;
+            border: 3px solid transparent;
+
+            h6 {
+                font: 700 1.5rem/1.5rem 'AT Aero Bold';
+            }
+
+            p {
+                font: 700 1.5rem/1.5rem 'AT Aero Bold';
             }
         }
     }
