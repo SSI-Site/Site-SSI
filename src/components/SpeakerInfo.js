@@ -5,6 +5,8 @@ import Image from 'next/image';
 
 // saphira
 import saphira from '../../services/saphira';
+
+// assets
 import speakersImages from '../../data/speakers';
 import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
 
@@ -37,7 +39,7 @@ const SpeakerInfo = ({ speakerId }) => {
             document.body.style.paddingRight = `${scrollBarWidth}px`;
         } else {
             document.body.style.overflow = 'unset';
-            document.body.style.paddingRight = 'urnset';
+            document.body.style.paddingRight = 'unset';
         }
     }, [isOpen]);
 
@@ -83,9 +85,9 @@ const SpeakerContainer = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    /* padding-right: 0.25rem; */
     overflow: hidden;
     border-radius: 0.75rem;
+    align-items: stretch;
 
     .click-outside {
         position: fixed;
@@ -94,7 +96,6 @@ const SpeakerContainer = styled.div`
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        
         z-index: 14;
     }
 
@@ -129,10 +130,10 @@ const SpeakerContainer = styled.div`
 
 	.speaker-image-container {
         width: 5rem;
-        height: 5rem;
+        height: auto;
         overflow: hidden;
         flex-shrink: 0;
-        background-color: var(--background-neutrals-secondary);
+        background-color: #1c1c1cbb;
         z-index: 10;
 
         img {
@@ -140,6 +141,8 @@ const SpeakerContainer = styled.div`
             height: 100%;
             object-fit: cover;
             object-position: center;
+            display: block;
+            aspect-ratio: 1;
         }
 	}
 
@@ -147,10 +150,11 @@ const SpeakerContainer = styled.div`
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        position: relative;
-        height: 5rem;
+        min-height: 5rem;
         justify-content: center;
-        
+        position: relative;
+
+        // Background do card de palestrante versão celular
         &::before {
             content: "";
             position: absolute;
@@ -163,7 +167,7 @@ const SpeakerContainer = styled.div`
             opacity: 0.5;
             z-index: 1;
         }
-    
+
         .speaker-info {
             display: flex;
             justify-content: space-between;
@@ -176,7 +180,7 @@ const SpeakerContainer = styled.div`
             background-position: right -2px center;
             background-size: 202% 100%;
             transition: 0.15s all ease-out;
-            padding: 0 0.25rem 0 0.75rem;
+            padding: 0.25rem 0.25rem 0.25rem 0.75rem;
             z-index: 10;
 
             p {
@@ -243,12 +247,16 @@ const SpeakerContainer = styled.div`
 			display: flex;
 			flex-direction: column;
 			width: 100%;
+            min-height: 0;
             gap: 0.25rem;
+            justify-content: flex-start;
+            padding-top: 0.25rem;
+            padding-bottom: 1rem;
 
             &::before {
                 display: none;
             }
-            
+
             .speaker-info {
                 padding-inline: 0.25rem;
                 cursor: pointer;
