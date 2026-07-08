@@ -29,20 +29,30 @@ const ScheduleItems = ({ schedule }) => {
                         return (
                             <li key={finalKey}>
                                 <div className={`lecture-time-container ${reverseTimeItem ? 'reverse' : ''}`}>
-                                    <h5>{formatTime(talk.start_time)}</h5>
-                                    <picture>
+                                    <h3>
+                                        <time dateTime={talk.start_time}>{formatTime(talk.start_time)}</time>
+                                    </h3>
+                                    <picture aria-hidden="true">
                                         <source srcSet={DotsDarkImageDesktop} media='(min-width: 600px)'/>
-                                        <Image src={DotsDarkImage} alt="Bolinhas Decoração" width={215} height={28}/>
+                                        <Image src={DotsDarkImage} width={215} height={28}/>
                                     </picture>
-                                    <h5>{formatTime(talk.start_time)}</h5>
+                                    <h3 aria-hidden="true">
+                                        <time dateTime={talk.start_time}>{formatTime(talk.start_time)}</time>
+                                    </h3>
                                 </div>
                                 {breakEvent ?
-                                    <div className={`event ${openingClosingEvent ? 'special-event' : ''}`}>
-                                        <h6>{talk.title}</h6>
+                                    <div className={`event${openingClosingEvent ? ' special-event' : ''}`}>
+                                        <h4>{talk.title}</h4>
                                         {talk.end_time ?
-                                            <p>{formatTime(talk.start_time)} - {formatTime(talk.end_time)}</p>
+                                            <p>
+                                                <time dateTime={talk.start_time}>{formatTime(talk.start_time)}</time>
+                                                {" - "}
+                                                <time dateTime={talk.end_time}>{formatTime(talk.end_time)}</time>
+                                            </p>
                                             :
-                                            <p>{formatTime(talk.start_time)}</p>
+                                            <p>
+                                                <time dateTime={talk.start_time}>{formatTime(talk.start_time)}</time>
+                                            </p>
                                         }
                                     </div>
                                 :
@@ -90,13 +100,13 @@ const ScheduleWrapper = styled.div`
                 gap: 0.625rem;
                 align-self: stretch;
 
-                h5 {
+                h3 {
                     color: var(--content-badge-brand-purple-700, #9638FF);
                     font: 700 1.5rem/1.75rem 'AT Aero Bold';
                 }
 
                 /* Segundo texto de horário, mostrando apenas em versão para computador */
-                h5:last-child {
+                h3:last-child {
                     display: none;
                 }
 
@@ -135,7 +145,7 @@ const ScheduleWrapper = styled.div`
         border-radius: 2rem;
         border: 1px solid var(--outline-neutrals-secondary, #999);
 
-        h6 {
+        h4 {
             font: 700 1rem/1.5rem 'AT Aero Bold';
         }
 
@@ -147,7 +157,7 @@ const ScheduleWrapper = styled.div`
     .special-event {
         background: var(--background-neutrals-inverse);
 
-        h6, p {
+        h4, p {
             color: var(--content-neutrals-inverse);
         }
     }
@@ -159,12 +169,12 @@ const ScheduleWrapper = styled.div`
                     justify-content: space-between;
                     gap: 0.5rem;
 
-                    h5:first-child {
+                    h3:first-child {
                         color: var(--content-brand-primary-light, #D0ACFF);
                     }
 
                     /* Segundo texto de horário, mostrando apenas em versão para computador */
-                    h5:last-child {
+                    h3:last-child {
                         color: var(--content-badge-brand-purple-400, #A85FFF);
                         display: block;
                     }
@@ -202,7 +212,7 @@ const ScheduleWrapper = styled.div`
                 gap: 2rem;
 
                 .lecture-time-container {
-                    h5 {
+                    h3 {
                         font: 700 1.5rem/1.75rem 'AT Aero Bold';
                     }
                 }
@@ -216,7 +226,7 @@ const ScheduleWrapper = styled.div`
                 linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
                 linear-gradient(90deg, #f8efff 15%, #9638FF) border-box;
 
-            h6 {
+            h4 {
                 font: 700 1.375rem/1.5rem 'AT Aero Bold';
             }
 
@@ -228,7 +238,7 @@ const ScheduleWrapper = styled.div`
         .special-event {
             background: var(--background-neutrals-inverse);
 
-            h6, p {
+            h4, p {
                 color: var(--content-neutrals-inverse);
             }
         }
@@ -239,7 +249,7 @@ const ScheduleWrapper = styled.div`
             padding: 0.875rem 2rem;
             border: 3px solid transparent;
 
-            h6 {
+            h4 {
                 font: 700 1.5rem/1.5rem 'AT Aero Bold';
             }
 

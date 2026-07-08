@@ -14,17 +14,24 @@ import LectureRight from '../../public/images/background_imgs/desktopDetail.png'
 import LectureBottom from '../../public/images/background_imgs/detail.png';
 
 const LectureItem = ({ time, event }) => {
-
+    console.log(time)
     return (
         <LectureWrapper>
             <LectureContent>
                 <LectureHeader>
                     <h3>{event.title}</h3>
                     <div className='lecture-header-info'>
-                        {event.end_time?
-                            <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
+                        {event.end_time ?
+                            <p className='lecture-header-time'>
+                                <time dateTime={time}>{formatTime(time)}</time>
+                                {" - "}
+                                <time dateTime={event.end_time}>{formatTime(event.end_time)}</time>
+                                
+                            </p>
                         :
-                            <label>{formatTime(time)}</label>
+                            <p className='lecture-header-time'>
+                                <time dateTime={time}>{formatTime(time)}</time>
+                            </p>
                         }
 
                         <div className='badge-wrapper'>
@@ -44,7 +51,7 @@ const LectureItem = ({ time, event }) => {
                         </div>
                     </div>
                     {event.sponsor &&
-                        <a href={event.sponsor.url} alt="" className='sponsor-logo'>
+                        <a href={event.sponsor.url} className='sponsor-logo'>
                             <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
                             width={64} height={52}/>
                         </a>
@@ -160,12 +167,6 @@ const LectureHeader = styled.header`
         "info sponsor";
     gap: 0.625rem;
 
-    .lecture-header-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
     .lecture-header-info {
         grid-area: info;
         display: flex;
@@ -173,13 +174,12 @@ const LectureHeader = styled.header`
         gap: 0.625rem;
     }
 
-
     h3 {
         grid-area: title;
         font-size: 1.125rem;
     }
 
-    label {
+    .lecture-header-time {
         font-family: 'At Aero Bold';
         font-size: 0.875rem;
     }
@@ -229,7 +229,7 @@ const LectureHeader = styled.header`
             line-height: 2rem;
         }
 
-        label {
+        .lecture-header-time {
             font-size: 1rem;
         }
 
@@ -250,7 +250,7 @@ const LectureHeader = styled.header`
             line-height: 2.5rem;
         }
 
-        label {
+        .lecture-header-time {
             font-size: 1.25rem;
         }
 
