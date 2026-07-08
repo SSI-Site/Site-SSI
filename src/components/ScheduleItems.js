@@ -5,10 +5,10 @@ import { formatTime } from '../../utils/format-time'
 // components
 import LectureItem from './LectureItem'
 
-import DotsDarkImage from '../../public/images/schedule/details/bolinhas_(mobile_dark).svg'
-import DotsLightImage from '../../public/images/schedule/details/bolinhas_(mobile_light).svg'
-import DotsDarkImageDesktop from '../../public/images/schedule/details/bolinhas_(desktop_dark).svg'
-import DotsLightImageDesktop from '../../public/images/schedule/details/bolinhas_(desktop_light).svg'
+import DotsDarkImage from '../../public/images/schedule/details/bolinhas_mobile_dark.svg'
+import DotsLightImage from '../../public/images/schedule/details/bolinhas_mobile_light.svg'
+import DotsDarkImageDesktop from '../../public/images/schedule/details/bolinhas_desktop_dark.svg'
+import DotsLightImageDesktop from '../../public/images/schedule/details/bolinhas_desktop_light.svg'
 
 const ScheduleItems = ({ schedule }) => {
     let reverseTimeItem = true;
