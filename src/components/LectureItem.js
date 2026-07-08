@@ -105,6 +105,10 @@ const LectureWrapper = styled.article`
 
     @media screen and (min-width:801px) {
         padding: 2rem 2rem 1rem 2rem;
+        border: 3px solid transparent;
+        background: 
+                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+                linear-gradient(135deg, #f8efff 15%, #9638FF) border-box;
 
         .lecture-description {
             p {
@@ -145,10 +149,6 @@ const LectureContent = styled.div`
     flex-direction: column;
     gap: 1rem;
     box-sizing: border-box;
-
-    @media screen and (min-width:1024px) {
-        /* padding: 3.5rem; */
-    }
 `
 
 const LectureHeader = styled.header`
@@ -219,7 +219,7 @@ const LectureHeader = styled.header`
         }
 
         label {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
     }
 `

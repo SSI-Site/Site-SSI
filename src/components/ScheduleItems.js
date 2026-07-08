@@ -132,7 +132,7 @@ const ScheduleWrapper = styled.div`
         align-items: center;
         align-self: stretch;
         padding: 0.5rem 1.25rem;
-        border-radius: 1.5rem;
+        border-radius: 2rem;
         border: 1px solid var(--outline-neutrals-secondary, #999);
 
         h6 {
@@ -165,7 +165,7 @@ const ScheduleWrapper = styled.div`
 
                     /* Segundo texto de horário, mostrando apenas em versão para computador */
                     h5:last-child {
-                        /* color: var(--content-badge-brand-purple-400, #A85FFF); */
+                        color: var(--content-badge-brand-purple-400, #A85FFF);
                         display: block;
                     }
 
@@ -196,6 +196,7 @@ const ScheduleWrapper = styled.div`
     @media (min-width:800px) {
         > ul {
             gap: 2rem;
+            padding-top: 2rem;
             
             li {
                 gap: 2rem;
@@ -207,8 +208,13 @@ const ScheduleWrapper = styled.div`
                 }
             }
         }
+
         .event {
             padding: 0.75rem 1.25rem;
+            border: 3px solid transparent;
+            background: 
+                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+                linear-gradient(90deg, #f8efff 15%, #9638FF) border-box;
 
             h6 {
                 font: 700 1.5rem/1.5rem 'AT Aero Bold';
