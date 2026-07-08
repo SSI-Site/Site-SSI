@@ -14,12 +14,10 @@ const DateStamp = ({ dayIndex, weekDay, dateStr, isActive }) => {
 
   return (
     <DateWrapper $isActive={isActive}>
-      <div className='day-emoji'>
-        <h6 className='day'> {weekDay}</h6>
-      </div>
-      {/* Texto exibido no bloco de forma totalmente dinâmica */}
-      <div className='day-emoji'>
-        <h6 className='week-day'>{dateStr}</h6>
+      <div className='text'>
+          <div className='day'>
+            <h6> {weekDay} <br/> {dateStr}</h6>
+          </div>
       </div>
     </DateWrapper>
   )
@@ -67,7 +65,7 @@ const DateWrapper = styled.div`
         outline-offset: 4px;
     }
 
-    .day-emoji {
+    .day {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -78,7 +76,6 @@ const DateWrapper = styled.div`
     }
 
     /* Visualização Desktop - Alinhado com o Novo Figma */
-    /* Visualização Desktop - Alinhado com o Novo Figma */
     @media (min-width: 840px) {
         width: 15.625rem;
         height: 7.6875rem;
@@ -86,69 +83,66 @@ const DateWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.625rem; /* Mantém o gap do figma */
-        border-radius: 0.83331rem; /* Mantém o arredondamento do figma */
-        border: 2.5px solid #FFF; /* Mantém a borda branca */
-        transition: 0.15s all ease;
+        gap: 1rem; 
+        border-radius: 0.83331rem; 
+        border: ${props => props.$isActive ? 'unset' : '2.5px solid var(--content-neutrals-primary)'}; 
+        /* 2.5px solid var(--content-neutrals-primary) */
+        transition: 0.2s ease-in-out; 
         
-        /* 1. Definição do Fundo Base do Card */
-        background-image: ${props => props.$isActive ?
-    'linear-gradient(98deg, var(--background-brand-primary, #9638FF) 0.52%, #5A2299 97.73%)' :
-    'linear-gradient(to right, var(--background-neutrals-secondary) 50%, var(--content-neutrals-fixed-white) 50%)'};
+        /* efeito de slide quando passa o mouse */
+        background-image: ${props => props.$isActive 
+            ? 'linear-gradient(to right, var(--brand-primary, #9638FF) 50%, var(--content-neutrals-primary) 50%)' 
+            : 'linear-gradient(to right, var(--background-neutrals-secondary) 50%, var(--content-neutrals-primary) 50%)'};
         background-size: 200%;
-        background-position-x: 200%;
+        background-position-x: 200%; /* Esconde a metade branca em repouso */
 
-        /* 2. Configuração Base dos Containers de Texto */
-        .day-emoji {
+        .day {
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: unset !important;
-            background-clip: unset !important;
-            -webkit-background-clip: unset !important;
-            -webkit-text-fill-color: unset !important;
+            justify-content: flex-start;
         }
 
-        /* 3. LÓGICA DO CARD SELECIONADO (ATIVO) */
-        ${props => props.$isActive && css`
-            h6 {
-                color: #FFF !important; /* Texto sempre branco no fundo roxo */
-                background: unset !important;
-                -webkit-text-fill-color: unset !important;
-            }
+        /* Estado de Repouso dos Textos (Sem Hover) */
+        h6 {
+            font-size: var(--Typograph-Heading-H6-size, 1.5rem);
+            line-height: var(--Typograph-Heading-H6-height, 2rem);
+            font-style: normal;
+            font-weight: 700;
+
+            transition: 0.2s ease-in-out;
+            /* Se ativo: fundo limpo. Se inativo: aplica o gradiente lilás do Figma */
+            background: ${props => props.$isActive 
+            ? 'unset' 
+            : `linear-gradient(
+                180deg, 
+                light-dark(var(--purple-purple, #6206BF), var(--backup-neutral-50, #FFF)) 0%, 
+                light-dark(var(--backup-primary-800, #6618BB), var(--backup-primary-50, #FDEEFF)) 40%, 
+                light-dark(var(--purple-dark-purple, #2B054D), var(--purple-light-purple, #D0ACFF)) 100%
+            )`}; /* background que varia entre tema claro e escuro */
+
+            background-clip: ${props => props.$isActive ? 'unset' : 'text'};
+            -webkit-background-clip: ${props => props.$isActive ? 'unset' : 'text'};
             
-            &:hover {
-                background-position-x: 200%; /* Mantém o fundo roxo travado sem mover */
-                h6 {
-                    color: #FFF !important;
-                }
-            }
-        `}
+            /* Se ativo: texto branco sólido. Se inativo: transparente para revelar o gradiente */
+            -webkit-text-fill-color: ${props => props.$isActive ? '#FFF' : 'transparent'};
+            color: ${props => props.$isActive ? '#FFF' : 'unset'};
+        }
 
-        /* 4. LÓGICA DO CARD NÃO SELECIONADO (INATIVO) */
-        ${props => !props.$isActive && css`
-            /* Aplica o gradiente colorido DIRETAMENTE nas tags h6 */
+        /* Estado de Hover */
+        &:hover, &:focus-visible {
+            cursor: pointer;
+            background-position-x: 100%; /* desliza e revelam o fundo branco */
+            
             h6 {
-                background: var(--brand-gradient-purple-bg-primary-foreground, linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 40%, var(--purple-light-purple, #D0ACFF) 100%)) !important;            
-                background-clip: text !important;
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent !important; /* Faz o texto exibir o gradiente */
-                transition: 0.15s all ease;
-            }
-
-            /* Quando passar o mouse (Com Hover) */
-            &:hover {
-                background-position-x: 100%; 
+                background: unset; 
+                background-clip: unset;
+                -webkit-background-clip: unset;
                 
-                h6 {
-                    background: unset !important; 
-                    background-clip: unset !important;
-                    -webkit-background-clip: unset !important;
-                    -webkit-text-fill-color: unset !important;
-                    color: #000000 !important; /* Força o texto a ficar PRETO sobre o slide branco */
-                }
+                
+                -webkit-text-fill-color: light-dark(#FFFFFF, #000000); 
+                color: light-dark(#FFFFFF, #000000);
             }
-        `}
+        }
     }
 }
 `
