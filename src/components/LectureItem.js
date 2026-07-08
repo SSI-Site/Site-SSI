@@ -20,39 +20,35 @@ const LectureItem = ({ time, event }) => {
             <LectureContent>
                 <LectureHeader>
                     <h3>{event.title}</h3>
-                    <div className='lecture-header-wrapper'>
-                        <div className='lecture-header-info'>
-                            {event.end_time?
-                                <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
-                            :
-                                <label>{formatTime(time)}</label>
-                            }
+                    <div className='lecture-header-info'>
+                        {event.end_time?
+                            <label>{formatTime(time)} - {formatTime(event.end_time)}</label>
+                        :
+                            <label>{formatTime(time)}</label>
+                        }
 
-                            <div className='badge-wrapper'>
+                        <div className='badge-wrapper'>
+                            <BadgeCO
+                                text={event.mode === 'IP'? 'Presencial': 'Online'}
+                                themeIndex={event.mode === 'IP' ? 5 : 9}
+                                rounded={true}
+                            />
+
+                            {event.activity_type &&
                                 <BadgeCO
-                                    text={event.mode === 'IP'? 'Presencial': 'Online'}
-                                    themeIndex={event.mode === 'IP' ? 5 : 9}
+                                    text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
+                                    themeIndex={event.activity_type === 'PR'? 1 : 2}
                                     rounded={true}
                                 />
-
-                                {event.activity_type &&
-                                    <BadgeCO
-                                        text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
-                                        themeIndex={event.activity_type === 'PR'? 1 : 2}
-                                        rounded={true}
-                                    />
-                                }
-                            </div>
-                        </div>
-                        <div className='lecture-header-sponsor'>
-                            {event.sponsor &&
-                                <a href={event.sponsor.url} alt="" className='sponsor-logo'>
-                                    <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
-                                    width={64} height={52}/>
-                                </a>
                             }
                         </div>
                     </div>
+                    {event.sponsor &&
+                        <a href={event.sponsor.url} alt="" className='sponsor-logo'>
+                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
+                            width={64} height={52}/>
+                        </a>
+                    }
                 </LectureHeader>
 
                 <div className = "lecture-description">
@@ -158,8 +154,10 @@ const LectureContent = styled.div`
 `
 
 const LectureHeader = styled.header`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "info sponsor";
     gap: 0.625rem;
 
     .lecture-header-wrapper {
@@ -169,6 +167,7 @@ const LectureHeader = styled.header`
     }
 
     .lecture-header-info {
+        grid-area: info;
         display: flex;
         flex-direction: column;
         gap: 0.625rem;
@@ -176,6 +175,7 @@ const LectureHeader = styled.header`
 
 
     h3 {
+        grid-area: title;
         font-size: 1.125rem;
     }
 
@@ -191,6 +191,8 @@ const LectureHeader = styled.header`
     }
 
     .sponsor-logo {
+        grid-area: sponsor;
+        justify-self: end;
         width: 4.55rem;
         height: 3.375rem;
         display: flex;
@@ -214,6 +216,9 @@ const LectureHeader = styled.header`
 
     @media screen and (min-width:800px) {
         gap: 1rem;
+        grid-template-areas:
+            "title sponsor"
+            "info sponsor";
 
         .lecture-header-info {
             gap: 1rem;
@@ -227,6 +232,16 @@ const LectureHeader = styled.header`
         label {
             font-size: 1rem;
         }
+
+        .sponsor-logo {
+            width: 7.5rem;
+            height: 5.5rem;
+            border-radius: 1rem 2rem;
+            border: 2px solid transparent;
+            background: 
+                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+                linear-gradient(135deg, #cb9cff 15%, #a759ff) border-box;
+        }
     }
 
     @media screen and (min-width: 1200px) {
@@ -237,6 +252,12 @@ const LectureHeader = styled.header`
 
         label {
             font-size: 1.25rem;
+        }
+
+        .sponsor-logo {
+            width: 8.625rem;
+            height: 6.375rem;
+            border: 3px solid transparent;
         }
     }
 `
