@@ -98,12 +98,13 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 export default SpeakerCard
 
 const SpeakerWrapper = styled.div`
-    width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: var(--background-neutrals-primary);
     padding: 1rem;
     z-index: 20;
     position: fixed;
+    inset: 0;
+    overflow-y: auto;
     top: 0;
     left: 0;
     display: flex;
@@ -137,8 +138,7 @@ const SpeakerWrapper = styled.div`
 `
 
 const SpeakerContent = styled.div`
-    width: 100%;
-    height: 100%;
+    flex: 1;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -266,7 +266,6 @@ const SpeakerDesc = styled.div`
     flex-direction: column;
     gap: 0.625rem;
     width: 100%;
-    max-height: 23.5rem;
 
     h6 {
         font: 700 0.875rem/1.5rem 'AT Aero Bold';
@@ -291,9 +290,6 @@ const SpeakerDesc = styled.div`
     }
     
     @media screen and (min-width:1024px) {
-        flex-direction: row;
-        justify-content: space-between;
-        
         div:nth-child(2) {
             width: 72%; // imgWidth = 30%, então 70% + algoAí deixa alinhado.
         }
@@ -308,9 +304,8 @@ const SocialMedia = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    bottom: 3%;
     gap: 1rem;
+    margin-top: auto;
 
     > div {
         display: flex;
