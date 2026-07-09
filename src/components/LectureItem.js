@@ -165,6 +165,7 @@ const LectureHeader = styled.header`
     grid-template-areas:
         "title title"
         "info sponsor";
+    grid-template-columns: auto min-content;
     gap: 0.625rem;
 
     .lecture-header-info {

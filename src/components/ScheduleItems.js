@@ -166,7 +166,6 @@ const ScheduleWrapper = styled.div`
             li {
                 .lecture-time-container {
                     justify-content: space-between;
-                    gap: 0.5rem;
 
                     h3:first-child {
                         color: var(--content-brand-primary-light, #D0ACFF);
@@ -243,6 +242,16 @@ const ScheduleWrapper = styled.div`
     }
 
     @media (min-width:1200px) {
+        > ul {
+            li {
+                .lecture-time-container {
+                    h3 {
+                        font: 700 1.75rem/1.75rem 'AT Aero Bold';
+                    }
+                }
+            }
+        }
+
         .event {
             padding: 0.875rem 2rem;
             border: 3px solid transparent;

@@ -262,17 +262,20 @@ const SpeakerContainer = styled.div`
                 cursor: pointer;
                 background-position: right -1px center;
                 height: auto;
+                align-items: flex-start;
 
                 p {
                     font: 700 1.125rem/1.5rem 'AT Aero Bold';
                 }
-            }
 
-            .speaker-info-cargo {
-                padding-inline: 0.25rem;
+                .speaker-info-text {
+                    p:last-child {
+                        font: 400 0.875rem/1rem 'AT Aero';
+                    }
+                }
 
-                p {
-                    font: 700 0.875rem/1.5rem 'AT Aero';
+                > svg {
+                    transform: scale(110%);
                 }
             }
         }
