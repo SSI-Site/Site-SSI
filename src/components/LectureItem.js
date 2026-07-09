@@ -51,7 +51,7 @@ const LectureItem = ({ time, event }) => {
                         </div>
                     </div>
                     {event.sponsor &&
-                        <a href={event.sponsor.url} className='sponsor-logo'>
+                        <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
                             <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
                             fill/>
                         </a>

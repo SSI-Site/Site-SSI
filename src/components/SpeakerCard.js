@@ -13,15 +13,15 @@ import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
 const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
     return (
-        <SpeakerWrapper>
+        <SpeakerWrapper role="dialog" aria-modal="true" aria-labelledby="speaker-title">
             <SpeakerContent>
                 <SpeakerHead>
-                    <h6>Informações do Palestrante</h6>    
-                    <div className="close" onClick={() => { setIsOpen(false); }}>
+                    <h4 id="speaker-title">Informações do Palestrante</h4>
+                    <button type="button" onClick={() => setIsOpen(false)} aria-label="Fechar">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="currentColor"/>
                         </svg>
-                    </div>
+                    </button>
                 </SpeakerHead>
 
                 <SpeakerInfo>
@@ -32,12 +32,12 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
                     <div className='headTextWrapper'>
                         <div>
-                            <h6>{speaker['name']}</h6>
+                            <h5>{speaker['name']}</h5>
                             <p>{speaker['pronouns']}</p>
                         </div>
 
                         <div>
-                            <label>{speaker['role']}</label>
+                            <p className="speaker-role">{speaker['role']}</p>
                         </div>
                     </div>
                 </SpeakerInfo>
@@ -49,7 +49,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
                 <SocialMedia>
                     <h6>Redes Sociais</h6>
-                    <div>
+                    <div className="speaker-socials">
                         {speaker['linkedin_link'] && speaker['linkedin_link'] !== '' && 
                             <a href={speaker['linkedin_link']} target="_blank" aria-label={`Linkedin de ${speaker['name']}`}>
                                 {/*Linkedin Logo*/}
@@ -136,6 +136,7 @@ const SpeakerWrapper = styled.div`
         }
     } */
 
+    // Removendo o fundo na versão desktop
     @media screen and (min-width:800px) {
         background-color: transparent;
     }
@@ -155,11 +156,30 @@ const SpeakerContent = styled.div`
     padding: 1rem;
     gap: 1.25rem;
 
+    // Título da seção Sobre e Redes Sociais
+    h6 {
+        font: 700 0.875rem/1.5rem 'AT Aero Bold';
+        width: fit-content;
+        padding: 0 0.375rem;
+        border-radius: 0.375rem;
+        background: var(--background-badge-brand-purple-700, #7305E6);
+    }
+
+    @media screen and (min-width:800px) {
+        h6 {
+            font: 700 1rem/1.5rem 'AT Aero Bold';
+        }
+    }
+
     @media screen and (min-width:1024px) {
         padding: 1.5rem;
         background: 
             linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
             linear-gradient(135deg, #f8efff 15%, #9638FF) border-box;
+
+        h6 {
+            background: var(--background-brand-primary, #9638FF);
+        }
     }
 `
 
@@ -170,35 +190,35 @@ const SpeakerHead = styled.div`
     width: 100%;
     z-index: 16;
 
-    h6 {
+    h4 {
         font: 700 1rem/1.5rem 'AT Aero Bold';
     }
 
-    div {
+    button {
         padding: 0.5rem 0.75rem;
-        background: linear-gradient(to right, var(--background-neutrals-primary) 50%, transparent 50%);
-        background-position: right;
-        background-size: 202% 100%;
+        background-color: transparent;
+        border: 0;
         transition: 0.15s all ease-out;
         cursor: pointer;
     }
 
-    div:hover {
+    button:hover {
         background-position: left;
 
+        // Mudando cor do botão de fechar no hover
         svg path {
             fill: var(--background-neutrals-tertiary);
         }
     }
     
     @media screen and (min-width:600px) {
-        h6 {
+        h4 {
             font: 700 1.25rem/1.5rem 'AT Aero Bold';
         }
     }
 
     @media screen and (min-width:1024px) {
-        h6 {
+        h4 {
             font: 700 1.5rem/1.5rem 'AT Aero Bold';
         }
     }
@@ -218,7 +238,7 @@ const SpeakerInfo = styled.div`
         gap: 0.5rem;
         z-index: 10;
 
-        h6 {
+        h5 {
             font: 700 1rem/1.5rem 'AT Aero Bold';
         }
 
@@ -226,7 +246,7 @@ const SpeakerInfo = styled.div`
             font: 400 0.75rem/1.125rem 'AT Aero';
         }
 
-        label {
+        .speaker-role {
             font: 700 0.875rem/1rem 'AT Aero Bold';
             background: var(--brand-gradient-purple-bg-primary-foreground, linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 40%, var(--purple-light-purple, #D0ACFF) 100%));
             background-clip: text;
@@ -258,7 +278,7 @@ const SpeakerInfo = styled.div`
 
     @media screen and (min-width:800px) {
         .headTextWrapper {
-            h6 {
+            h5 {
                 font: 700 1.125rem/1.5rem 'AT Aero Bold';
             }
 
@@ -266,7 +286,7 @@ const SpeakerInfo = styled.div`
                 font: 400 0.875rem/1.125rem 'AT Aero';
             }
 
-            label {
+            .speaker-role {
                 font: 700 1rem/1rem 'AT Aero Bold';
             }
         }
@@ -302,7 +322,7 @@ const SpeakerInfo = styled.div`
         .headTextWrapper {
             gap: 1.5rem;
 
-            h6 {
+            h5 {
                 font: 700 1.5rem/2rem 'AT Aero Bold';
             }
 
@@ -310,7 +330,7 @@ const SpeakerInfo = styled.div`
                 font: 400 1rem/1.5rem 'AT Aero';
             }
 
-            label {
+            .speaker-role {
                 font: 700 1.125rem/1.5rem 'AT Aero Bold';
             }
         }
@@ -323,26 +343,12 @@ const SpeakerDesc = styled.div`
     gap: 0.625rem;
     width: 100%;
 
-    h6 {
-        font: 700 0.875rem/1.5rem 'AT Aero Bold';
-        width: fit-content;
-        padding: 0 0.375rem;
-        border-radius: 0.375rem;
-        background: var(--background-badge-brand-purple-700, #7305E6);
-    }
-
     p {
         width: 100%;
         height: 100%;
         font-family: 'AT Aero';
         font-weight: 400;
         white-space: pre-line;
-    }
-
-    @media screen and (min-width:800px) {
-        h6 {
-            font: 700 1rem/1.5rem 'AT Aero Bold';
-        }
     }
     
     @media screen and (min-width:1024px) {
@@ -351,10 +357,6 @@ const SpeakerDesc = styled.div`
         background: 
             linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
             linear-gradient(90deg, #f8efff 15%, #9638FF) border-box;
-
-        h6 {
-            background: var(--background-brand-primary, #9638FF);
-        }
     }
 `
 
@@ -365,17 +367,9 @@ const SocialMedia = styled.div`
     gap: 1rem;
     margin-top: auto;
 
-    > div {
+    .speaker-socials {
         display: flex;
         gap: 1rem;
-    }
-
-    h6 {
-        font: 700 0.875rem/1.5rem 'AT Aero Bold';
-        width: fit-content;
-        padding: 0 0.375rem;
-        border-radius: 0.375rem;
-        background: var(--background-badge-brand-purple-700, #7305E6);
     }
 
     a {
@@ -403,16 +397,7 @@ const SocialMedia = styled.div`
         outline-offset: 2px;
     }
 
-    @media screen and (min-width:800px) {
-        h6 {
-            font: 700 1rem/1.5rem 'AT Aero Bold';
-        }
-    }
-
     @media screen and (min-width:1024px) {
         padding: 0rem 0.5rem;
-        h6 {
-            background: var(--background-brand-primary, #9638FF);
-        }
     }
 `

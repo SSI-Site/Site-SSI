@@ -62,9 +62,9 @@ const SpeakerInfo = ({ speakerId }) => {
             <figcaption className='speaker-info-container'>
                 <div className='speaker-info' tabIndex="0" onClick={()=> setIsOpen(!isOpen)}>
                     <div className='speaker-info-text'>
-                        <p>{speaker['name']}</p> 
+                        <p className='speaker-name'>{speaker['name']}</p> 
                         {speaker['role'] &&
-                            <p>{speaker['role']}</p>
+                            <p className='speaker-role'>{speaker['role']}</p>
                         }
                     </div>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,11 +182,6 @@ const SpeakerContainer = styled.div`
             transition: 0.15s all ease-out;
             padding: 0.25rem 0.25rem 0.25rem 0.75rem;
             z-index: 10;
-
-            p {
-                font: 700 1rem/1rem 'AT Aero Bold';
-                flex-grow: 1;
-            }
             
             .speaker-info-text{
                 display: flex;
@@ -194,7 +189,11 @@ const SpeakerContainer = styled.div`
                 justify-content: center;
                 gap: 0.25rem;
 
-                p:last-child {
+                .speaker-name {
+                    font: 700 1rem/1.125rem 'AT Aero Bold';
+                }
+
+                .speaker-role {
                     font: 400 0.75rem/1rem 'AT Aero';
                 }
             }
@@ -264,13 +263,14 @@ const SpeakerContainer = styled.div`
                 height: auto;
                 align-items: flex-start;
 
-                p {
-                    font: 700 1.125rem/1.5rem 'AT Aero Bold';
-                }
-
                 .speaker-info-text {
-                    p:last-child {
-                        font: 400 0.875rem/1rem 'AT Aero';
+
+                    .speaker-name {
+                        font: 700 1.125rem/1.5rem 'AT Aero Bold';
+                    }
+
+                    .speaker-role {
+                        font: 400 0.875rem/1.25rem 'AT Aero';
                     }
                 }
 
