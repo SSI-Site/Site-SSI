@@ -34,7 +34,7 @@ const ScheduleItems = ({ schedule }) => {
                                     </h3>
                                     <picture aria-hidden="true">
                                         <source srcSet={DotsDarkImageDesktop} media='(min-width: 600px)'/>
-                                        <Image src={DotsDarkImage} width={215} height={28}/>
+                                        <Image src={DotsDarkImage} fill alt="Decoração"/>
                                     </picture>
                                     <h3 aria-hidden="true">
                                         <time dateTime={talk.start_time}>{formatTime(talk.start_time)}</time>
@@ -111,14 +111,13 @@ const ScheduleWrapper = styled.div`
                 }
 
                 picture {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 1.75rem;
                 }
 
                 img {
-                    height: 100%;
-                    max-height: 1.75rem;
                     object-fit: contain;
                     object-position: left center;
                 }
@@ -187,7 +186,6 @@ const ScheduleWrapper = styled.div`
                     }
 
                     img {
-                        width: 100%;
                         object-position: center;
                     }
                 }

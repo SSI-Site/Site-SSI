@@ -14,7 +14,7 @@ import LectureRight from '../../public/images/background_imgs/desktopDetail.png'
 import LectureBottom from '../../public/images/background_imgs/detail.png';
 
 const LectureItem = ({ time, event }) => {
-    console.log(time)
+
     return (
         <LectureWrapper>
             <LectureContent>
@@ -53,7 +53,7 @@ const LectureItem = ({ time, event }) => {
                     {event.sponsor &&
                         <a href={event.sponsor.url} className='sponsor-logo'>
                             <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
-                            width={64} height={52}/>
+                            fill/>
                         </a>
                     }
                 </LectureHeader>
@@ -202,9 +202,10 @@ const LectureHeader = styled.header`
         transition: all 0.2s ease-in-out;
         border-radius: 0.375rem 1rem;
         border: 1px solid var(--outline-neutrals-secondary, #999);
+        position: relative;
 
         img {
-            width: 100%;
+            width: auto;
             height: 100%;
             object-fit: contain;
         }
