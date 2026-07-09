@@ -97,6 +97,7 @@ const SpeakerContainer = styled.div`
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 14;
+        backdrop-filter: blur(1px);
     }
 
     .click-outside-hidden {
@@ -115,7 +116,6 @@ const SpeakerContainer = styled.div`
         z-index: 15;
         top: 0;
         right: 0;
-        background-color: var(--background-neutrals-secondary);
         transition: transform 300ms ease-in-out;
         transform: translateX(100%);
     }
@@ -163,7 +163,7 @@ const SpeakerContainer = styled.div`
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            filter: blur(0.8px);
+            filter: blur(0.8px) brightness(0.8);
             opacity: 0.5;
             z-index: 1;
         }

@@ -4,6 +4,11 @@ import styled from "styled-components";
 // assets
 import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png';
 import Image from "next/image";
+import LogoLinkedInDark from '../../public/images/partnerships/icons/logo_linkedin_dark.svg';
+import LogoLinkedInLight from '../../public/images/partnerships/icons/logo_linkedin_light.svg';
+import LogoInstagramDark from '../../public/images/partnerships/icons/logo_instagram_dark.svg';
+import LogoInstagramLight from '../../public/images/partnerships/icons/logo_instagram_light.svg';
+import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
 
 const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
@@ -21,7 +26,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
                 <SpeakerInfo>
                     <div className='imgDiv'>
-                        <Image src={speakerImage} alt={`Foto de ${speaker['image']}`}
+                        <Image src={speakerImage} alt={`Foto de ${speaker['name']}`}
                         width={100} height={100}/>
                     </div>
 
@@ -131,9 +136,8 @@ const SpeakerWrapper = styled.div`
         }
     } */
 
-    @media screen and (min-width:1024px) {
-        right: 0;
-        left: unset;
+    @media screen and (min-width:800px) {
+        background-color: transparent;
     }
 `
 
@@ -144,9 +148,19 @@ const SpeakerContent = styled.div`
     flex-direction: column;
     z-index: 15;
     border-radius: 1.5rem;
-    border: 2px solid #D0ACFF;
+    border: 2px solid transparent;
+    background: 
+        linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+        linear-gradient(135deg, #d0acff 15%, #9638FF) border-box;
     padding: 1rem;
     gap: 1.25rem;
+
+    @media screen and (min-width:1024px) {
+        padding: 1.5rem;
+        background: 
+            linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+            linear-gradient(135deg, #f8efff 15%, #9638FF) border-box;
+    }
 `
 
 const SpeakerHead = styled.div`
@@ -173,18 +187,19 @@ const SpeakerHead = styled.div`
         background-position: left;
 
         svg path {
-            fill: var(--background-neutrals-primary);
+            fill: var(--background-neutrals-tertiary);
         }
     }
     
-    @media screen and (min-width:1024px) {
-        position: absolute;
-        top: 0;
-        justify-content: flex-end;
-        padding: 1.75rem;
-
+    @media screen and (min-width:600px) {
         h6 {
-            display: none;
+            font: 700 1.25rem/1.5rem 'AT Aero Bold';
+        }
+    }
+
+    @media screen and (min-width:1024px) {
+        h6 {
+            font: 700 1.5rem/1.5rem 'AT Aero Bold';
         }
     }
 `
@@ -195,11 +210,13 @@ const SpeakerInfo = styled.div`
     align-items: center;
     gap: 0.625rem;
     z-index: 15;
+    position: relative;
 
     .headTextWrapper {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        z-index: 10;
 
         h6 {
             font: 700 1rem/1.5rem 'AT Aero Bold';
@@ -224,40 +241,79 @@ const SpeakerInfo = styled.div`
         max-width: 14rem;
         aspect-ratio: 1 / 1;
         position: relative;
+        z-index: 10;
 
         img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 0.5rem;
+            display: block;
         }
     }
 
-    @media screen and (min-width:1024px) {
-        justify-content: flex-start;
-        gap: 4rem;
-        background-color: var(--brand-primary);
-        padding: 0rem;
-        color: var(--content-neutrals-fixed-white);
+    @media screen and (min-width:600px) {
+        gap: 1.5rem;
+    }
 
-        .imgDiv {
-            max-width: 25%;
-        }
-
+    @media screen and (min-width:800px) {
         .headTextWrapper {
-            gap: 1rem;
+            h6 {
+                font: 700 1.125rem/1.5rem 'AT Aero Bold';
+            }
+
+            p {
+                font: 400 0.875rem/1.125rem 'AT Aero';
+            }
 
             label {
-                font-size: 1.2rem;
+                font: 700 1rem/1rem 'AT Aero Bold';
             }
         }
     }
 
-    @media screen and (min-width:1440px) {
-        margin-bottom: 0;
+    @media screen and (min-width:1024px) {
+        gap: 2rem;
+        border-radius: 1rem;
+        overflow: hidden;
+
+        // Background do card de palestrante
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url(${lectureImage});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(0.8px) brightness(0.8);
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .imgDiv {
+            width: 12rem;
+
+            img {
+                border-radius: 0;
+            }
+        }
+
+        .headTextWrapper {
+            gap: 1.5rem;
+
+            h6 {
+                font: 700 1.5rem/2rem 'AT Aero Bold';
+            }
+
+            p {
+                font: 400 1rem/1.5rem 'AT Aero';
+            }
+
+            label {
+                font: 700 1.125rem/1.5rem 'AT Aero Bold';
+            }
+        }
     }
 `
 
@@ -283,20 +339,22 @@ const SpeakerDesc = styled.div`
         white-space: pre-line;
     }
 
-    @media screen and (min-width:801px) {
+    @media screen and (min-width:800px) {
         h6 {
-            font: 700 1.125rem/1.5rem 'AT Aero Bold';
+            font: 700 1rem/1.5rem 'AT Aero Bold';
         }
     }
     
     @media screen and (min-width:1024px) {
-        div:nth-child(2) {
-            width: 72%; // imgWidth = 30%, então 70% + algoAí deixa alinhado.
-        }
-    }
+        padding: 1.25rem 0.5rem 0rem 0.5rem;
+        border-top: 2px solid transparent;
+        background: 
+            linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+            linear-gradient(90deg, #f8efff 15%, #9638FF) border-box;
 
-    @media screen and (min-width:1440px) {
-        padding: 4rem;
+        h6 {
+            background: var(--background-brand-primary, #9638FF);
+        }
     }
 `
 
@@ -344,8 +402,17 @@ const SocialMedia = styled.div`
         outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
     }
-    
-    @media screen and (min-width:1440px) {
-        padding-left: 4rem;
+
+    @media screen and (min-width:800px) {
+        h6 {
+            font: 700 1rem/1.5rem 'AT Aero Bold';
+        }
+    }
+
+    @media screen and (min-width:1024px) {
+        padding: 0rem 0.5rem;
+        h6 {
+            background: var(--background-brand-primary, #9638FF);
+        }
     }
 `
