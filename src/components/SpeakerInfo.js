@@ -271,12 +271,11 @@ const SpeakerContainer = styled.div`
             .speaker-info {
                 padding-inline: 0.25rem;
                 cursor: pointer;
-                background-position: right -1px center;
                 height: auto;
                 align-items: flex-start;
                 // Garantindo cor correta para light mode na versão computador
                 background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
-                background-position: right -2px center;
+                background-position: right -1px center;
                 background-size: 202% 100%;
 
                 .speaker-info-text {
