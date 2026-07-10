@@ -75,6 +75,22 @@ export default createGlobalStyle`
             --state-layers-neutrals-tertiary-008: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B14,);
             --state-layers-neutrals-tertiary-012: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B1F,);
 
+        // CUSTOM GRADIENT BORDER
+        // Para usar: border: 2px solid transparent; background: var(--border-gradient-primary-dark);
+        --border-gradient-primary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+        --border-gradient-primary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(90deg, #f8efff 15%, var(--brand-primary)) border-box;
+        --border-gradient-secondary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+        --border-gradient-secondary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, #f8efff 15%, var(--brand-primary)) border-box;
+        --border-gradient-tertiary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, #cb9cff 15%, #a759ff) border-box;
+        --border-gradient-tertiary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, #cb9cff 15%, #a759ff) border-box;
+    
+        // CUSTOM GRADIENT TEXT COLOR
+        // Para usar: background: var(--text-gradient-primary-dark); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        --text-gradient-primary-light: linear-gradient(180deg, var(--brand-primary, #6206BF) 0%, var(--backup-primary-800, #6618BB) 40%, var(--brand-primary-dark, #2B054D) 100%);
+        --text-gradient-primary-dark: linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 40%, var(--brand-purple-200, #D0ACFF) 100%);
+        --text-gradient-secondary-light: linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 83.65%, var(--purple-light-purple, #D0ACFF) 100%);
+        --text-gradient-secondary-dark: linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 83.65%, var(--purple-light-purple, #D0ACFF) 100%);
+
         /* 16 pixels (100% = 16 pixels) */
         font-size: 100%;
     }

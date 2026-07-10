@@ -11,6 +11,7 @@ import DotsDarkImageDesktop from '../../public/images/schedule/details/bolinhas_
 import DotsLightImageDesktop from '../../public/images/schedule/details/bolinhas_desktop_light.svg'
 
 const ScheduleItems = ({ schedule }) => {
+    // Variável para ficar alternando o lado das bolinhas e texto de horário na versão para celular
     let reverseTimeItem = true;
 
     return (
@@ -28,7 +29,7 @@ const ScheduleItems = ({ schedule }) => {
 
                         return (
                             <li key={finalKey}>
-                                <div className={`lecture-time-container ${reverseTimeItem ? 'reverse' : ''}`}>
+                                <div className={`lecture-time-container${reverseTimeItem ? ' reverse' : ''}`}>
                                     <h3>
                                         <time dateTime={talk.start_time}>{formatTime(talk.start_time)}</time>
                                     </h3>
@@ -111,7 +112,7 @@ const ScheduleWrapper = styled.div`
                     }
                 }
 
-                /* Segundo texto de horário, mostrando apenas em versão para computador */
+                /* Segundo texto de horário, mostrado apenas em versão para computador */
                 h3:last-child {
                     display: none;
                 }
@@ -129,6 +130,7 @@ const ScheduleWrapper = styled.div`
                 }
             }
 
+            // Invertendo bolinhas e texto de horário
             .reverse {
                 flex-direction: row-reverse;
 
@@ -173,6 +175,7 @@ const ScheduleWrapper = styled.div`
                 .lecture-time-container {
                     justify-content: space-between;
 
+                    // Alterando cores dos textos de horários das bolinhas
                     h3:first-child {
                         color: var(--brand-purple-200, #D0ACFF);
 
@@ -181,7 +184,7 @@ const ScheduleWrapper = styled.div`
                         }
                     }
 
-                    /* Segundo texto de horário, mostrando apenas em versão para computador */
+                    /* Segundo texto de horário, mostrado apenas em versão para computador */
                     h3:last-child {
                         color: var(--brand-purple-400, #A85FFF);
                         display: block;
@@ -202,7 +205,7 @@ const ScheduleWrapper = styled.div`
                         object-position: center;
                     }
                 }
-                /* Reescrevendo/desabilitando reversão da informação de horário */
+                /* Desabilitando a inversão dos textos de horário para essa versão (600px) */
                 .reverse {
                     flex-direction: row;
 
@@ -233,14 +236,10 @@ const ScheduleWrapper = styled.div`
         .event {
             padding: 0.75rem 1.5rem;
             border: 2px solid transparent;
-            background: 
-                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-                linear-gradient(90deg, #f8efff 15%, var(--brand-primary)) border-box;
+            background: var(--border-gradient-primary-dark);
 
             @media (prefers-color-scheme: light) {
-                background: 
-                    linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-                    linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+                background: var(--border-gradient-primary-light);
             }
 
             h4 {

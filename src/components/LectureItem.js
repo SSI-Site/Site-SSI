@@ -110,14 +110,10 @@ const LectureWrapper = styled.article`
         padding: 1.5rem 1.5rem 1rem 1.5rem;
         border: 2px solid transparent;
         border-radius: 2rem;
-        background: 
-            linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-            linear-gradient(135deg, #f8efff 15%, var(--brand-primary)) border-box;
+        background: var(--border-gradient-secondary-dark);
 
         @media (prefers-color-scheme: light) {
-            background: 
-                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-                linear-gradient(135deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+            background: var(--border-gradient-secondary-light);
         }
 
         .lecture-description {
@@ -167,6 +163,7 @@ const LectureContent = styled.div`
 `
 
 const LectureHeader = styled.header`
+    // Usando grid para controlar a posição do sponsor
     display: grid;
     grid-template-areas:
         "title title"
@@ -174,27 +171,16 @@ const LectureHeader = styled.header`
     grid-template-columns: auto min-content;
     gap: 0.625rem;
 
-    .lecture-header-info {
-        grid-area: info;
-        display: flex;
-        flex-direction: column;
-        gap: 0.625rem;
-    }
-
     h3 {
         grid-area: title;
         font-size: 1.125rem;
     }
 
-    .lecture-header-time {
-        font-family: 'At Aero Bold';
-        font-size: 0.875rem;
-    }
-
-    .badge-wrapper {
+    .lecture-header-info {
+        grid-area: info;
         display: flex;
-        width: fit-content;
-        gap: 1rem;
+        flex-direction: column;
+        gap: 0.625rem;
     }
 
     .sponsor-logo {
@@ -226,6 +212,17 @@ const LectureHeader = styled.header`
         }
     }
 
+    .lecture-header-time {
+        font-family: 'At Aero Bold';
+        font-size: 0.875rem;
+    }
+
+    .badge-wrapper {
+        display: flex;
+        width: fit-content;
+        gap: 1rem;
+    }
+
     @media screen and (min-width:800px) {
         gap: 1rem;
         grid-template-areas:
@@ -250,9 +247,7 @@ const LectureHeader = styled.header`
             height: 5.5rem;
             border-radius: 1rem 2rem;
             border: 2px solid transparent;
-            background: 
-                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-                linear-gradient(135deg, #cb9cff 15%, #a759ff) border-box;
+            background: var(--border-gradient-tertiary-dark);
 
             @media (prefers-color-scheme: light) {
                 background: var(--backup-neutral-700, #252525);

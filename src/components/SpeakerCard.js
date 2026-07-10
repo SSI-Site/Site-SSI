@@ -12,10 +12,6 @@ import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
 
 const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
-    // const speakerNameParts = speaker.name ? speaker.name.split(' ') : [''];
-    // const speakerLastName = speakerNameParts.pop();
-    // const speakerFirstName = speakerNameParts.join(' ');
-
     return (
         <SpeakerWrapper role="dialog" aria-modal="true" aria-labelledby="speaker-title">
             <SpeakerContent>
@@ -64,6 +60,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                                     <source srcSet={LogoLinkedInLight} media='(prefers-color-scheme: light)'/>
                                     <Image src={LogoLinkedInDark} alt="Logo do LinkedIn" width={32} height={32}/>
                                 </picture>
+
                                 {/* Método antigo, manipulando svg para animação customizada do hover */}
                                 {/* <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn da Semana de Sistemas de Informação">
                                     <mask id="mask0_2776_492" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
@@ -88,6 +85,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                                     <source srcSet={LogoInstagramLight} media='(prefers-color-scheme: light)'/>
                                     <Image src={LogoInstagramDark} alt="Logo do Instagram" width={32} height={32}/>
                                 </picture>
+
                                 {/* Método antigo, manipulando svg para animação customizada do hover */}
                                 {/* <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="Instagram da Semana de Sistemas de Informação">
                                     <mask id="mask0_2776_488" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
@@ -167,9 +165,7 @@ const SpeakerContent = styled.div`
     z-index: 15;
     border-radius: 1.5rem;
     border: 2px solid transparent;
-    background: 
-        linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-        linear-gradient(135deg, #d0acff 15%, #9638FF) border-box;
+    background: var(--border-gradient-tertiary-dark);
     padding: 1rem;
     gap: 1.25rem;
 
@@ -191,10 +187,9 @@ const SpeakerContent = styled.div`
     }
 
     @media screen and (min-width:1024px) {
+        border: 3px solid transparent;
         padding: 1.5rem;
-        background: 
-            linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-            linear-gradient(135deg, #f8efff 15%, var(--brand-primary)) border-box;
+        background: var(--border-gradient-secondary-dark);
 
         h6 {
             background: var(--brand-purple-500, #9638FF);
@@ -259,13 +254,13 @@ const SpeakerInfo = styled.div`
 
         // Cor gradiente do nome e cargo
         h5, .speaker-role {
-            background: linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 40%, var(--brand-purple-200, #D0ACFF) 100%);
+            background: var(--text-gradient-primary-dark);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
 
             @media (prefers-color-scheme: light) {
-                background: linear-gradient(180deg, var(--brand-primary, #6206BF) 0%, var(--backup-primary-800, #6618BB) 40%, var(--brand-primary-dark, #2B054D) 100%);
+                background: var(--text-gradient-primary-light);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -278,8 +273,6 @@ const SpeakerInfo = styled.div`
 
         p {
             font: 400 0.75rem/1.125rem 'AT Aero';
-            // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode a cor continua igual
-            color: #FFFFFF;
         }
 
         .speaker-role {
@@ -313,22 +306,6 @@ const SpeakerInfo = styled.div`
 
         .headTextWrapper {
             gap: 1rem;
-        }
-    }
-
-    @media screen and (min-width:800px) {
-        align-items: center;
-
-        .headTextWrapper {
-            @media (prefers-color-scheme: light) {
-                // Cor gradiente do nome e cargo
-                h5, .speaker-role {
-                    background: linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 83.65%, var(--purple-light-purple, #D0ACFF) 100%);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                }
-            }
 
             h5 {
                 font: 700 1.125rem/1.5rem 'AT Aero Bold';
@@ -342,6 +319,10 @@ const SpeakerInfo = styled.div`
                 font: 700 1rem/1rem 'AT Aero Bold';
             }
         }
+    }
+
+    @media screen and (min-width:800px) {
+        align-items: center;
     }
 
     @media screen and (min-width:1024px) {
@@ -379,12 +360,24 @@ const SpeakerInfo = styled.div`
             gap: 1.5rem;
             margin-right: 1rem;
 
+            @media (prefers-color-scheme: light) {
+                // Cor gradiente do nome e cargo
+                h5, .speaker-role {
+                    background: var(--text-gradient-secondary-light);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+
             h5 {
                 font: 700 1.5rem/2rem 'AT Aero Bold';
             }
 
             p {
-                font: 400 1rem/1.5rem 'AT Aero';
+                font: 400 1rem/1.5rem 'AT Aero';    
+                // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode a cor continua igual
+                color: #FFFFFF;
             }
 
             .speaker-role {
@@ -411,14 +404,10 @@ const SpeakerDesc = styled.div`
     @media screen and (min-width:1024px) {
         padding: 1.25rem 0.5rem 0rem 0.5rem;
         border-top: 2px solid transparent;
-        background: 
-            linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-            linear-gradient(90deg, #f8efff 15%, var(--brand-primary)) border-box;
+        background: var(--border-gradient-primary-dark);
 
         @media (prefers-color-scheme: light) {
-            background: 
-                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-                linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+            background: var(--border-gradient-primary-light);
         }
     }
 `
@@ -441,23 +430,26 @@ const SocialMedia = styled.div`
         justify-content: center;
     }
 
-    .fillAnimation {
+    /* Método antigo, manipulando svg para animação customizada do hover */
+    /* .fillAnimation {
         transform: translateX(-100%);
         transition: all 0.15s ease-out;
     }
 
-    .animation:hover, a:focus-visible {
+    .animation:hover {
         cursor: pointer;
         transition: all 0.15s ease-out;
 
         .fillAnimation {
             transform: translateX(0);
         }
-    }
+    } */
 
     a:focus-visible {
         outline: 2px solid var(--brand-primary);
         outline-offset: 2px;
+        cursor: pointer;
+        transition: all 0.15s ease-out;
     }
 
     img {
@@ -468,10 +460,10 @@ const SocialMedia = styled.div`
     }
 
     img:hover, img:focus-visible {
-        // Filtro para mudar a logo branca para roxo (#6206BF)
+        // Filtro para mudar a logo branca/preta para roxo (#6206BF)
         filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6169%) hue-rotate(272deg) brightness(73%) contrast(112%);
 
-        // Filtro para mudar a logo branca para roxo (#A85FFF)
+        // Filtro para mudar a logo branca/preta para roxo (#A85FFF)
         @media (prefers-color-scheme: light) {
             filter: brightness(0) saturate(100%) invert(44%) sepia(38%) saturate(1312%) hue-rotate(228deg) brightness(99%) contrast(107%);
         }
