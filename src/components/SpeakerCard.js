@@ -58,7 +58,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                                 {/*Linkedin Logo*/}
                                 <picture>
                                     <source srcSet={LogoLinkedInLight} media='(prefers-color-scheme: light)'/>
-                                    <Image src={LogoLinkedInDark} alt="Logo do LinkedIn" width={32} height={32}/>
+                                    <Image src={LogoLinkedInDark} alt="Logo do LinkedIn" width={32} height={32} className="social-icon"/>
                                 </picture>
 
                                 {/* Método antigo, manipulando svg para animação customizada do hover */}
@@ -83,7 +83,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                                 {/*Instagram Logo*/}
                                 <picture>
                                     <source srcSet={LogoInstagramLight} media='(prefers-color-scheme: light)'/>
-                                    <Image src={LogoInstagramDark} alt="Logo do Instagram" width={32} height={32}/>
+                                    <Image src={LogoInstagramDark} alt="Logo do Instagram" width={32} height={32} className="social-icon"/>
                                 </picture>
 
                                 {/* Método antigo, manipulando svg para animação customizada do hover */}
@@ -422,50 +422,50 @@ const SocialMedia = styled.div`
     .speaker-socials {
         display: flex;
         gap: 1rem;
-    }
 
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Método antigo, manipulando svg para animação customizada do hover */
-    /* .fillAnimation {
-        transform: translateX(-100%);
-        transition: all 0.15s ease-out;
-    }
-
-    .animation:hover {
-        cursor: pointer;
-        transition: all 0.15s ease-out;
-
-        .fillAnimation {
-            transform: translateX(0);
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-    } */
 
-    a:focus-visible {
-        outline: 2px solid var(--brand-primary);
-        outline-offset: 2px;
-        cursor: pointer;
-        transition: all 0.15s ease-out;
-    }
+        /* Método antigo, manipulando svg para animação customizada do hover */
+        /* .fillAnimation {
+            transform: translateX(-100%);
+            transition: all 0.15s ease-out;
+        }
 
-    img {
-        width: 2rem;
-        height: 2rem;
-        object-fit: contain;
-        object-position: center;
-    }
+        .animation:hover {
+            cursor: pointer;
+            transition: all 0.15s ease-out;
 
-    img:hover, img:focus-visible {
-        // Filtro para mudar a logo branca/preta para roxo (#6206BF)
-        filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6169%) hue-rotate(272deg) brightness(73%) contrast(112%);
+            .fillAnimation {
+                transform: translateX(0);
+            }
+        } */
 
-        // Filtro para mudar a logo branca/preta para roxo (#A85FFF)
-        @media (prefers-color-scheme: light) {
-            filter: brightness(0) saturate(100%) invert(44%) sepia(38%) saturate(1312%) hue-rotate(228deg) brightness(99%) contrast(107%);
+        a:focus-visible {
+            outline: 2px solid var(--brand-primary);
+            outline-offset: 2px;
+            cursor: pointer;
+            transition: all 0.15s ease-out;
+        }
+
+        .social-icon {
+            width: 2rem;
+            height: 2rem;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .social-icon:hover, .social-icon:focus-visible {
+            // Filtro para mudar a logo branca/preta para roxo (#6206BF)
+            filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6169%) hue-rotate(272deg) brightness(73%) contrast(112%);
+
+            // Filtro para mudar a logo branca/preta para roxo (#A85FFF)
+            @media (prefers-color-scheme: light) {
+                filter: brightness(0) saturate(100%) invert(44%) sepia(38%) saturate(1312%) hue-rotate(228deg) brightness(99%) contrast(107%);
+            }
         }
     }
 
