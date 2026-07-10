@@ -133,7 +133,6 @@ const SpeakerContainer = styled.div`
         height: auto;
         overflow: hidden;
         flex-shrink: 0;
-        background-color: #1c1c1cbb;
         z-index: 10;
 
         img {
@@ -166,6 +165,10 @@ const SpeakerContainer = styled.div`
             filter: blur(0.8px) brightness(0.8);
             opacity: 0.5;
             z-index: 1;
+
+            @media (prefers-color-scheme: light) {
+                opacity: 0.8;
+            }
         }
 
         .speaker-info {
@@ -176,12 +179,13 @@ const SpeakerContainer = styled.div`
             height: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
-            background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
+            padding: 0.25rem 0.25rem 0.25rem 0.75rem;
+            z-index: 10;
+            // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+            background: linear-gradient(to right, #FFFFFF 50%, transparent 50%);
             background-position: right -2px center;
             background-size: 202% 100%;
             transition: 0.15s all ease-out;
-            padding: 0.25rem 0.25rem 0.25rem 0.75rem;
-            z-index: 10;
             
             .speaker-info-text{
                 display: flex;
@@ -196,13 +200,19 @@ const SpeakerContainer = styled.div`
                 .speaker-role {
                     font: 400 0.75rem/1rem 'AT Aero';
                 }
+
+                p {
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    color: #FFFFFF;
+                }
             }
     
-            svg {
+            > svg {
                 flex-shrink: 0;
 
                 path {
-                    fill: var(--content-neutrals-primary);
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    fill: #FFFFFF;
                 }
             }
     
@@ -211,11 +221,13 @@ const SpeakerContainer = styled.div`
                 cursor: pointer;
 
                 p {
-                    color: var(--content-neutrals-inverse);
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    color: #1A1A1A;
                 }
 
-                svg path {
-                    fill: var(--background-neutrals-primary);
+                > svg path {
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    fill: #1A1A1A;
                     transition: fill 0.15s ease;
                 }
             }
@@ -262,6 +274,10 @@ const SpeakerContainer = styled.div`
                 background-position: right -1px center;
                 height: auto;
                 align-items: flex-start;
+                // Garantindo cor correta para light mode na versão computador
+                background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
+                background-position: right -2px center;
+                background-size: 202% 100%;
 
                 .speaker-info-text {
 
@@ -272,10 +288,32 @@ const SpeakerContainer = styled.div`
                     .speaker-role {
                         font: 400 0.875rem/1.25rem 'AT Aero';
                     }
+
+                    p {
+                        // Garantindo cor correta para light mode na versão computador
+                        color: var(--content-neutrals-primary);
+                    }
                 }
 
                 > svg {
                     transform: scale(110%);
+
+                    path {
+                        // Garantindo cor correta para light mode na versão computador
+                        fill: var(--content-neutrals-primary);
+                    }
+                }
+
+                &:hover, &:focus-visible {
+                    p {
+                        // Garantindo cor correta para light mode na versão computador
+                        color: var(--content-neutrals-inverse);
+                    }
+
+                    > svg path {
+                        // Garantindo cor correta para light mode na versão computador
+                        fill: var(--background-neutrals-primary);
+                    }
                 }
             }
         }

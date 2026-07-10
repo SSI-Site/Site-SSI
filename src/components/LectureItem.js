@@ -111,8 +111,14 @@ const LectureWrapper = styled.article`
         border: 2px solid transparent;
         border-radius: 2rem;
         background: 
+            linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+            linear-gradient(135deg, #f8efff 15%, var(--brand-primary)) border-box;
+
+        @media (prefers-color-scheme: light) {
+            background: 
                 linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-                linear-gradient(135deg, #f8efff 15%, #9638FF) border-box;
+                linear-gradient(135deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+        }
 
         .lecture-description {
             p {
@@ -205,6 +211,10 @@ const LectureHeader = styled.header`
         border: 1px solid var(--outline-neutrals-secondary, #999);
         position: relative;
 
+        @media (prefers-color-scheme: light) {
+            background: var(--backup-neutral-700, #252525);
+        }
+
         img {
             width: auto;
             height: 100%;
@@ -243,6 +253,10 @@ const LectureHeader = styled.header`
             background: 
                 linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
                 linear-gradient(135deg, #cb9cff 15%, #a759ff) border-box;
+
+            @media (prefers-color-scheme: light) {
+                background: var(--backup-neutral-700, #252525);
+            }
         }
     }
 

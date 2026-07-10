@@ -60,7 +60,10 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                         {speaker['linkedin_link'] && 
                             <a href={speaker['linkedin_link']} target="_blank" aria-label={`Linkedin de ${speaker['name']}`}>
                                 {/*Linkedin Logo*/}
-                                <Image src={LogoLinkedInDark} alt="Logo do LinkedIn" width={32} height={32}/>
+                                <picture>
+                                    <source srcSet={LogoLinkedInLight} media='(prefers-color-scheme: light)'/>
+                                    <Image src={LogoLinkedInDark} alt="Logo do LinkedIn" width={32} height={32}/>
+                                </picture>
                                 {/* Método antigo, manipulando svg para animação customizada do hover */}
                                 {/* <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn da Semana de Sistemas de Informação">
                                     <mask id="mask0_2776_492" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
@@ -81,7 +84,10 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                         {speaker['instagram_link'] &&
                             <a href={speaker['instagram_link']} target="_blank" aria-label={`Instagram de ${speaker['name']}`}>
                                 {/*Instagram Logo*/}
-                                <Image src={LogoInstagramDark} alt="Logo do Instagram" width={32} height={32}/>
+                                <picture>
+                                    <source srcSet={LogoInstagramLight} media='(prefers-color-scheme: light)'/>
+                                    <Image src={LogoInstagramDark} alt="Logo do Instagram" width={32} height={32}/>
+                                </picture>
                                 {/* Método antigo, manipulando svg para animação customizada do hover */}
                                 {/* <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="Instagram da Semana de Sistemas de Informação">
                                     <mask id="mask0_2776_488" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
@@ -173,7 +179,9 @@ const SpeakerContent = styled.div`
         width: fit-content;
         padding: 0 0.375rem;
         border-radius: 0.375rem;
-        background: var(--background-badge-brand-purple-700, #7305E6);
+        background: var(--brand-purple-700, #7305E6);
+        // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode a cor continua igual
+        color: #FFFFFF;
     }
 
     @media screen and (min-width:800px) {
@@ -186,10 +194,10 @@ const SpeakerContent = styled.div`
         padding: 1.5rem;
         background: 
             linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-            linear-gradient(135deg, #f8efff 15%, #9638FF) border-box;
+            linear-gradient(135deg, #f8efff 15%, var(--brand-primary)) border-box;
 
         h6 {
-            background: var(--background-brand-primary, #9638FF);
+            background: var(--brand-purple-500, #9638FF);
         }
     }
 `
@@ -238,7 +246,7 @@ const SpeakerHead = styled.div`
 const SpeakerInfo = styled.div` 
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.625rem;
     z-index: 15;
     position: relative;
@@ -249,20 +257,33 @@ const SpeakerInfo = styled.div`
         gap: 0.5rem;
         z-index: 10;
 
+        // Cor gradiente do nome e cargo
+        h5, .speaker-role {
+            background: linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 40%, var(--brand-purple-200, #D0ACFF) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            @media (prefers-color-scheme: light) {
+                background: linear-gradient(180deg, var(--brand-primary, #6206BF) 0%, var(--backup-primary-800, #6618BB) 40%, var(--brand-primary-dark, #2B054D) 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
         h5 {
             font: 700 1rem/1.5rem 'AT Aero Bold';
         }
 
         p {
             font: 400 0.75rem/1.125rem 'AT Aero';
+            // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode a cor continua igual
+            color: #FFFFFF;
         }
 
         .speaker-role {
             font: 700 0.875rem/1rem 'AT Aero Bold';
-            background: var(--brand-gradient-purple-bg-primary-foreground, linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 40%, var(--purple-light-purple, #D0ACFF) 100%));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
     }
 
@@ -289,11 +310,25 @@ const SpeakerInfo = styled.div`
 
     @media screen and (min-width:600px) {
         gap: 1.5rem;
+
+        .headTextWrapper {
+            gap: 1rem;
+        }
     }
 
     @media screen and (min-width:800px) {
+        align-items: center;
+
         .headTextWrapper {
-            gap: 1rem;
+            @media (prefers-color-scheme: light) {
+                // Cor gradiente do nome e cargo
+                h5, .speaker-role {
+                    background: linear-gradient(180deg, var(--backup-neutral-50, #FFF) 0%, var(--backup-primary-50, #FDEEFF) 83.65%, var(--purple-light-purple, #D0ACFF) 100%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
 
             h5 {
                 font: 700 1.125rem/1.5rem 'AT Aero Bold';
@@ -326,6 +361,10 @@ const SpeakerInfo = styled.div`
             filter: blur(0.8px) brightness(0.8);
             opacity: 0.5;
             z-index: 1;
+            
+            @media (prefers-color-scheme: light) {
+                opacity: 0.8;
+            }
         }
 
         .imgDiv {
@@ -374,7 +413,13 @@ const SpeakerDesc = styled.div`
         border-top: 2px solid transparent;
         background: 
             linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-            linear-gradient(90deg, #f8efff 15%, #9638FF) border-box;
+            linear-gradient(90deg, #f8efff 15%, var(--brand-primary)) border-box;
+
+        @media (prefers-color-scheme: light) {
+            background: 
+                linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+                linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+        }
     }
 `
 
@@ -425,6 +470,11 @@ const SocialMedia = styled.div`
     img:hover, img:focus-visible {
         // Filtro para mudar a logo branca para roxo (#6206BF)
         filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6169%) hue-rotate(272deg) brightness(73%) contrast(112%);
+
+        // Filtro para mudar a logo branca para roxo (#A85FFF)
+        @media (prefers-color-scheme: light) {
+            filter: brightness(0) saturate(100%) invert(44%) sepia(38%) saturate(1312%) hue-rotate(228deg) brightness(99%) contrast(107%);
+        }
     }
 
     @media screen and (min-width:1024px) {

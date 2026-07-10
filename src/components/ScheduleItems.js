@@ -33,7 +33,9 @@ const ScheduleItems = ({ schedule }) => {
                                         <time dateTime={talk.start_time}>{formatTime(talk.start_time)}</time>
                                     </h3>
                                     <picture aria-hidden="true">
-                                        <source srcSet={DotsDarkImageDesktop} media='(min-width: 600px)'/>
+                                        <source srcSet={DotsLightImageDesktop} media='(min-width: 600px) and (prefers-color-scheme: light)'/>
+                                        <source srcSet={DotsDarkImageDesktop} media='(min-width: 600px) and (prefers-color-scheme: dark)'/>
+                                        <source srcSet={DotsLightImage} media='(prefers-color-scheme: light)'/>
                                         <Image src={DotsDarkImage} fill alt="Decoração"/>
                                     </picture>
                                     <h3 aria-hidden="true">
@@ -101,8 +103,12 @@ const ScheduleWrapper = styled.div`
                 align-self: stretch;
 
                 h3 {
-                    color: var(--content-badge-brand-purple-700, #9638FF);
+                    color: var(--brand-purple-500, #9638FF);
                     font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                    
+                    @media (prefers-color-scheme: light) {
+                        color: var(--brand-purple-200, #3E0672);
+                    }
                 }
 
                 /* Segundo texto de horário, mostrando apenas em versão para computador */
@@ -168,13 +174,21 @@ const ScheduleWrapper = styled.div`
                     justify-content: space-between;
 
                     h3:first-child {
-                        color: var(--content-brand-primary-light, #D0ACFF);
+                        color: var(--brand-purple-200, #D0ACFF);
+
+                        @media (prefers-color-scheme: light) {
+                            color: var(--brand-purple-700, #9638FF);
+                        }
                     }
 
                     /* Segundo texto de horário, mostrando apenas em versão para computador */
                     h3:last-child {
-                        color: var(--content-badge-brand-purple-400, #A85FFF);
+                        color: var(--brand-purple-400, #A85FFF);
                         display: block;
+
+                        @media (prefers-color-scheme: light) {
+                            color: var(--brand-purple-300, #510698);
+                        }
                     }
 
                     picture {
@@ -221,7 +235,13 @@ const ScheduleWrapper = styled.div`
             border: 2px solid transparent;
             background: 
                 linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
-                linear-gradient(90deg, #f8efff 15%, #9638FF) border-box;
+                linear-gradient(90deg, #f8efff 15%, var(--brand-primary)) border-box;
+
+            @media (prefers-color-scheme: light) {
+                background: 
+                    linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, 
+                    linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
+            }
 
             h4 {
                 font: 700 1.375rem/1.5rem 'AT Aero Bold';
