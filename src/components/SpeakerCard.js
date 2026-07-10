@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 
 // assets
@@ -11,6 +11,27 @@ import LogoInstagramLight from '../../public/images/partnerships/icons/logo_inst
 import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
 
 const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
+
+    const socialMediaRef = useRef(null);
+
+    // Essa função tem como objetivo deixar a div de redes sociais no final da página (margin: auto), caso a página for pequena
+    // ou a deixar logo em baixo da descrição do palestrante, caso a página for grande (celulares com telas grandes)
+    // Esse código só é rodado no recebimento dos dados da api, portanto não responde a mudanças de tamanho da tela repentinas
+    useEffect(() => {
+        // Verifica se os dados foram recebidos
+        if (Object.keys(speaker).length === 0) return;
+        
+        // Pega o margin top renderizado da div Social Media
+        const computedStyle = window.getComputedStyle(socialMediaRef.current);
+        const computedMarginTop = parseFloat(computedStyle.marginTop);
+        
+        if (computedMarginTop > 180) {
+            console.log(speaker["name"], computedMarginTop)
+            socialMediaRef.current.style.marginTop = '0';
+        } else {
+            socialMediaRef.current.style.marginTop = 'auto';
+        }
+    }, [speaker]);
 
     return (
         <SpeakerWrapper role="dialog" aria-modal="true" aria-labelledby="speaker-title">
@@ -47,8 +68,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                     }
                     <p>{speaker['description']}</p>
                 </SpeakerDesc>
-
-                <SocialMedia>
+                <SocialMedia ref={socialMediaRef}>
                     {(speaker['linkedin_link'] || speaker['instagram_link']) && 
                         <h6>Redes Sociais</h6>
                     }
@@ -349,7 +369,7 @@ const SpeakerInfo = styled.div`
         }
 
         .imgDiv {
-            width: 12rem;
+            width: 9rem;
 
             img {
                 border-radius: 0;
@@ -385,6 +405,12 @@ const SpeakerInfo = styled.div`
             }
         }
     }
+
+    @media screen and (min-width:1200px) {
+        .imgDiv {
+            width: 11rem;
+        }
+    }
 `
 
 const SpeakerDesc = styled.div`
@@ -400,14 +426,28 @@ const SpeakerDesc = styled.div`
         font-weight: 400;
         white-space: pre-line;
     }
-    
-    @media screen and (min-width:1024px) {
-        padding: 1.25rem 0.5rem 0rem 0.5rem;
-        border-top: 2px solid transparent;
-        background: var(--border-gradient-primary-dark);
 
-        @media (prefers-color-scheme: light) {
-            background: var(--border-gradient-primary-light);
+    @media screen and (min-width:1024px) {
+        border-top: 2px solid transparent;
+
+        &:before {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #f8efff 15%, var(--brand-primary));
+            display: block;
+
+            @media (prefers-color-scheme: light) {
+                background: linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary));
+            }
+        }
+
+        h6 {
+            margin: 1rem 0.5rem 0rem 0.5rem;
+        }
+
+        p {
+            padding: 0rem 0.5rem;
         }
     }
 `
@@ -417,6 +457,7 @@ const SocialMedia = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    // Deixa a div no final da página
     margin-top: auto;
 
     .speaker-socials {
