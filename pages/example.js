@@ -5,8 +5,8 @@ import saphira from '../services/saphira';
 import Meta from '../src/infra/seo/Meta';
 
 // components
-import Example from '../src/components/Example';
-import Working from '../src/components/Working';
+import Example from '../src/components/features/example/Example';
+import Working from '../src/components/features/example/Working';
 
 const ExamplePage = () => {
 
@@ -14,7 +14,7 @@ const ExamplePage = () => {
 
     async function fetchExample() {
         const res = await saphira.getActivity();
-        setExample(res.activity);
+        setExample(res);
     }
 
     useEffect(() => {
