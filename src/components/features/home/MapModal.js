@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 
 // components
-import SecondaryButton from './ui/SecondaryButton';
+import SecondaryButton from '../../ui/SecondaryButton';
 
 // assets
-import IconeFechar from '../../public/images/icons/close.svg';
-import Mapa from '../../public/images/background_imgs/mapa_campus.png';
+import IconeFechar from '../../../../public/images/icons/close.svg';
+import Mapa from '../../../../public/images/background_imgs/mapa_campus.png';
 
 const MapModal = ({ onClose }) => {
 

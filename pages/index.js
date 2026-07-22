@@ -15,13 +15,13 @@ import Image from 'next/image'
 import imgCo from '../public/images/about/co.jpg';
 
 // components
-import AuthModal from '../src/components/features/auth/AuthModal';
 import Button from '../src/components/ui/Button';
-import MapModal from '../src/components/MapModal';
-import PartnerCard from '../src/components/features/partners/PartnerCard';
 import SecondaryButton from '../src/components/ui/SecondaryButton';
-import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
-import CountdownSection from '../src/components/CountdownSection';
+import AuthModal from '../src/components/features/auth/AuthModal';
+import MapModal from '../src/components/features/home/MapModal';
+import CountdownSection from '../src/components/features/home/CountdownSection';
+import YoutubeWatchNow from '../src/components/features/home/YoutubeWatchNow';
+import PartnerCard from '../src/components/features/partners/PartnerCard';
 import ScheduleSection from '../src/components/features/schedule/ScheduleSection';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
