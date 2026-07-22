@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import Button from './Button';
+import Button from '../../ui/Button';
 import ScheduleShift from './ScheduleItems';
-import saphira from '../../services/saphira';
-import filterTalks from '../../utils/filterTalks';
-import { eventDetails } from '../../data/eventDetails';
+import saphira from '../../../../services/saphira';
+import filterTalks from '../../../../utils/filterTalks';
+import { eventDetails } from '../../../../data/eventDetails';
 
 const ScheduleSection = () => {
     const router = useRouter();

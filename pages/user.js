@@ -6,14 +6,13 @@ import Image from 'next/image';
 
 import useAuth from '../hooks/useAuth';
 import saphira from '../services/saphira';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 
 // components
-import Button from '../src/components/Button';
-import SecondaryButton from '../src/components/SecondaryButton';
-import TokenModal from '../src/components/TokenModal';
-import UserGiftCard from '../src/components/UserGiftCard';
-import UserWatchedLecturesList from '../src/components/UserWatchedLecturesList';
+import Button from '../src/components/ui/Button';
+import SecondaryButton from '../src/components/ui/SecondaryButton';
+import UserGiftCard from '../src/components/features/gifts/UserGiftCard';
+import UserWatchedLecturesList from '../src/components/features/user/UserWatchedLecturesList';
 
 // assets
 import gifts from '../data/gifts';

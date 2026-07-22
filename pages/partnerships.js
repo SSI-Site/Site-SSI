@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 import styled from 'styled-components';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import Image from 'next/image';
 import CountUp from 'react-countup';
 
@@ -40,8 +40,8 @@ import detailBottonDesktopLight from '../public/images/partnerships/details/deta
 import detailUpDesktopLight from '../public/images/partnerships/details/detail_up_desktop_light.svg';
 
 // components
-import Button from '../src/components/Button';
-import PartnerCarousel from '../src/components/PartnerCarousel';
+import Button from '../src/components/ui/Button';
+import PartnerCarousel from '../src/components/features/partners/PartnerCarousel';
 
 // Data
 import { socials } from '../data/socials';

@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 
 import { eventDetails } from '../data/eventDetails';
 
 // components
-import DepartmentStamp from '../src/components/DepartmentStamp';
-import MemberCard from '../src/components/MemberCard';
+import DepartmentStamp from '../src/components/features/co/DepartmentStamp';
+import MemberCard from '../src/components/features/co/MemberCard';
 
 //Importe Image do Next
 import Image from 'next/image'

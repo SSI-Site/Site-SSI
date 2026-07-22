@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import schedule from '../data/schedule';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import semana from '../utils/semana';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
 
 // components
-import DateStamp from '../src/components/DateStamp';
-import ScheduleItems from '../src/components/ScheduleItems';
+import DateStamp from '../src/components/features/schedule/DateStamp';
+import ScheduleItems from '../src/components/features/schedule/ScheduleItems';
 import saphira from '../services/saphira';
 
 import { eventDetails } from '../data/eventDetails';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // assets
-import giftBox from '../../public/images/gifts/gift-box.png';
+import giftBox from '../../../../public/images/gifts/gift-box.png';
 
 const GiftCard = ({ index, name, image, minPresence }) => {
 	return (
