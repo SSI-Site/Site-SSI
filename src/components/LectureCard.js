@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BadgeCO from './BadgeCO'
+import BadgeCO from './ui/BadgeCO'
 
 const LectureCard = ({ dataPalestra, tituloPalestra, metadata }) => {
     return (

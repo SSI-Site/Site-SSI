@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // components
-import BadgeCO from './BadgeCO';
+import BadgeCO from './ui/BadgeCO';
 import Image from 'next/image';
 
 const colorSchemes = [

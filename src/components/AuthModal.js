@@ -5,7 +5,7 @@ import styled from "styled-components";
 import useAuth from '../../hooks/useAuth';
 
 // components
-import SecondaryButton from './SecondaryButton';
+import SecondaryButton from './ui/SecondaryButton';
 
 // assets
 import IconeFechar from '../../public/images/icons/close.svg';

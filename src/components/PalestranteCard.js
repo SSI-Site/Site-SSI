@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import ArrowUpIcon from "../../public/images/icons/arrow-up.svg";
-import { InstagramLogo, LinkedInLogo } from "./SocialMediaLogos";
+import { InstagramLogo, LinkedInLogo } from "./ui/SocialMediaLogos";
 
 //IMAGES
 import speakersImages from "../../data/speakers";

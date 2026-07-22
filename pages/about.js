@@ -12,8 +12,8 @@ import { socials } from '../data/socials';
 // components
 import Button from '../src/components/ui/Button';
 import GiftCard from '../src/components/GiftCard';
-import SecondaryButton from '../src/components/SecondaryButton';
-import Accordion from '../src/components/Accordion';
+import SecondaryButton from '../src/components/ui/SecondaryButton';
+import Accordion from '../src/components/ui/Accordion';
 
 //Importe Imagem do Next
 import Image from 'next/image';

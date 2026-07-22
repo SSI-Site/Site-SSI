@@ -5,7 +5,7 @@ import { formatTime } from '../../utils/format-time';
 import Image from 'next/image';
 
 // components
-import BadgeCO from './BadgeCO';
+import BadgeCO from './ui/BadgeCO';
 import SpeakerInfo from './SpeakerInfo';
 import sponsorImages from '../../data/sponsors';
 
