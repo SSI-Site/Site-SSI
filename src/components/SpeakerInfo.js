@@ -5,7 +5,10 @@ import Image from 'next/image';
 
 // saphira
 import saphira from '../../services/saphira';
+
+// assets
 import speakersImages from '../../data/speakers';
+import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
 
 const SpeakerInfo = ({ speakerId }) => {
 
@@ -36,7 +39,7 @@ const SpeakerInfo = ({ speakerId }) => {
             document.body.style.paddingRight = `${scrollBarWidth}px`;
         } else {
             document.body.style.overflow = 'unset';
-            document.body.style.paddingRight = 'urnset';
+            document.body.style.paddingRight = 'unset';
         }
     }, [isOpen]);
 
@@ -50,24 +53,24 @@ const SpeakerInfo = ({ speakerId }) => {
             <figure className='speaker-image-container'>
                 <Image
                     src={speakersImages[speakerId.slice(0,3).toUpperCase()]} 
-                    width={500}
-                    height={500}
+                    width={80}
+                    height={80}
                     alt={`Foto do palestrante ${speaker['name']}`} 
                 />
             </figure>
 
             <figcaption className='speaker-info-container'>
                 <div className='speaker-info' tabIndex="0" onClick={()=> setIsOpen(!isOpen)}>
-                    <p>{speaker['name']}</p> 
+                    <div className='speaker-info-text'>
+                        <p className='speaker-name'>{speaker['name']}</p> 
+                        {speaker['role'] &&
+                            <p className='speaker-role'>{speaker['role']}</p>
+                        }
+                    </div>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.9999 7.05C17.9999 6.78478 17.8946 6.53043 17.707 6.34289C17.5195 6.15536 17.2652 6.05 16.9999 6.05L8.99994 6C8.73472 6 8.48037 6.10536 8.29283 6.29289C8.1053 6.48043 7.99994 6.73478 7.99994 7C7.99994 7.26522 8.1053 7.51957 8.29283 7.70711C8.48037 7.89464 8.73472 8 8.99994 8H14.5599L6.28994 16.29C6.19621 16.383 6.12182 16.4936 6.07105 16.6154C6.02028 16.7373 5.99414 16.868 5.99414 17C5.99414 17.132 6.02028 17.2627 6.07105 17.3846C6.12182 17.5064 6.19621 17.617 6.28994 17.71C6.3829 17.8037 6.4935 17.8781 6.61536 17.9289C6.73722 17.9797 6.86793 18.0058 6.99994 18.0058C7.13195 18.0058 7.26266 17.9797 7.38452 17.9289C7.50638 17.8781 7.61698 17.8037 7.70994 17.71L15.9999 9.42V15C15.9999 15.2652 16.1053 15.5196 16.2928 15.7071C16.4804 15.8946 16.7347 16 16.9999 16C17.2652 16 17.5195 15.8946 17.707 15.7071C17.8946 15.5196 17.9999 15.2652 17.9999 15V7.05Z" fill="#F3F3F3"/>
                     </svg>
                 </div>
-                {speaker['role'] &&
-                    <div className='speaker-info-cargo'>
-                        <p>{speaker['role']}</p>
-                    </div>
-                }
             </figcaption>
         </SpeakerContainer >
     )
@@ -82,9 +85,9 @@ const SpeakerContainer = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
-    /* padding-right: 0.25rem; */
     overflow: hidden;
+    border-radius: 0.75rem;
+    align-items: stretch;
 
     .click-outside {
         position: fixed;
@@ -93,8 +96,8 @@ const SpeakerContainer = styled.div`
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        
         z-index: 14;
+        backdrop-filter: blur(1px);
     }
 
     .click-outside-hidden {
@@ -113,7 +116,6 @@ const SpeakerContainer = styled.div`
         z-index: 15;
         top: 0;
         right: 0;
-        background-color: var(--background-neutrals-secondary);
         transition: transform 300ms ease-in-out;
         transform: translateX(100%);
     }
@@ -128,16 +130,18 @@ const SpeakerContainer = styled.div`
 
 	.speaker-image-container {
         width: 5rem;
-        height: 5rem;
+        height: auto;
         overflow: hidden;
         flex-shrink: 0;
-        background-color: var(--background-neutrals-secondary);
+        z-index: 10;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
+            display: block;
+            aspect-ratio: 1;
         }
 	}
 
@@ -145,42 +149,85 @@ const SpeakerContainer = styled.div`
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-    
+        min-height: 5rem;
+        justify-content: center;
+        position: relative;
+
+        // Background do card de palestrante versão celular
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url(${lectureImage});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(0.8px) brightness(0.8);
+            opacity: 0.5;
+            z-index: 1;
+
+            @media (prefers-color-scheme: light) {
+                opacity: 0.8;
+            }
+        }
+
         .speaker-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            height: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
-            background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
-            background-position: right;
+            padding: 0.25rem 0.25rem 0.25rem 0.75rem;
+            z-index: 10;
+            // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+            background: linear-gradient(to right, #FFFFFF 50%, transparent 50%);
+            background-position: right -2px center;
             background-size: 202% 100%;
             transition: 0.15s all ease-out;
+            
+            .speaker-info-text{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 0.25rem;
 
-            p {
-                font: 700 1rem/1.5rem 'AT Aero Bold';
-                flex-grow: 1;
-                line-height: 1.25rem;
+                .speaker-name {
+                    font: 700 1rem/1.125rem 'AT Aero Bold';
+                }
+
+                .speaker-role {
+                    font: 400 0.75rem/1rem 'AT Aero';
+                }
+
+                p {
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    color: #FFFFFF;
+                }
             }
     
-            svg {
+            > svg {
                 flex-shrink: 0;
 
                 path {
-                    fill: var(--content-neutrals-primary);
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    fill: #FFFFFF;
                 }
             }
     
             &:hover, &:focus-visible {
                 background-position: left;
+                cursor: pointer;
 
                 p {
-                    color: var(--content-neutrals-inverse);
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    color: #1A1A1A;
                 }
 
-                svg path {
-                    fill: var(--background-neutrals-primary);
+                > svg path {
+                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
+                    fill: #1A1A1A;
                     transition: fill 0.15s ease;
                 }
             }
@@ -190,15 +237,12 @@ const SpeakerContainer = styled.div`
                 outline-offset: 2px;
             }
         }
-        
-        .speaker-info-cargo p {
-            font: 700 0.75rem/1.25rem 'AT Aero';
-        }
 	}
 
-	@media(min-width:801px) {
+	@media (min-width:800px) {
 		flex-direction: column;
         width: 14.5rem;
+        border-radius: 0;
 
         .side-card {
             max-width: min(48rem, 60%);
@@ -207,28 +251,68 @@ const SpeakerContainer = styled.div`
         .speaker-image-container {
             width: 100%;
             height: 12.5rem;
+            border-radius: 0.75rem;
         }
 
         .speaker-info-container {
 			display: flex;
 			flex-direction: column;
 			width: 100%;
+            min-height: 0;
             gap: 0.25rem;
-            
+            justify-content: flex-start;
+            padding-top: 0.25rem;
+            padding-bottom: 1rem;
+
+            &::before {
+                display: none;
+            }
+
             .speaker-info {
                 padding-inline: 0.25rem;
                 cursor: pointer;
-    
-                p {
-                    font: 700 1.125rem/1.5rem 'AT Aero Bold';
+                height: auto;
+                align-items: flex-start;
+                // Garantindo cor correta para light mode na versão computador
+                background: linear-gradient(to right, var(--background-neutrals-inverse) 50%, transparent 50%);
+                background-position: right -1px center;
+                background-size: 202% 100%;
+
+                .speaker-info-text {
+
+                    .speaker-name {
+                        font: 700 1.125rem/1.5rem 'AT Aero Bold';
+                    }
+
+                    .speaker-role {
+                        font: 400 0.875rem/1.25rem 'AT Aero';
+                    }
+
+                    p {
+                        // Garantindo cor correta para light mode na versão computador
+                        color: var(--content-neutrals-primary);
+                    }
                 }
-            }
 
-            .speaker-info-cargo {
-                padding-inline: 0.25rem;
+                > svg {
+                    transform: scale(110%);
 
-                p {
-                    font: 700 0.875rem/1.5rem 'AT Aero';
+                    path {
+                        // Garantindo cor correta para light mode na versão computador
+                        fill: var(--content-neutrals-primary);
+                    }
+                }
+
+                &:hover, &:focus-visible {
+                    p {
+                        // Garantindo cor correta para light mode na versão computador
+                        color: var(--content-neutrals-inverse);
+                    }
+
+                    > svg path {
+                        // Garantindo cor correta para light mode na versão computador
+                        fill: var(--background-neutrals-primary);
+                    }
                 }
             }
         }
