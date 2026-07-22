@@ -7,7 +7,7 @@ import Code from '../../../public/images/icons/code.svg'
 import Coffee from '../../../public/images/icons/coffee.svg'
 import LogoPrincipalLight from '../../../public/images/logos/logo_principal-light.svg'
 import LogoPrincipalDark from '../../../public/images/logos/logo_principal-dark.svg'
-import { InstagramLogo, LinkedInLogo, YouTubeLogo } from '../../components/ui/SocialMediaLogos'
+import { InstagramLogo, LinkedInLogo, YouTubeLogo } from '../ui/SocialMediaLogos'
 
 import Image from 'next/image';
 
