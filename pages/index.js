@@ -15,7 +15,7 @@ import Image from 'next/image'
 import imgCo from '../public/images/about/co.jpg';
 
 // components
-import AuthModal from '../src/components/AuthModal';
+import AuthModal from '../src/components/features/auth/AuthModal';
 import Button from '../src/components/ui/Button';
 import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/features/partners/PartnerCard';

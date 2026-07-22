@@ -2,16 +2,17 @@ import { useEffect, useRef, useState } from 'react';
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
-import useAuth from '../../hooks/useAuth';
+import Image from 'next/image';
+
+import useAuth from '../../../../hooks/useAuth';
 
 // components
-import SecondaryButton from './ui/SecondaryButton';
+import SecondaryButton from '../../ui/SecondaryButton';
 
 // assets
-import IconeFechar from '../../public/images/icons/close.svg';
-import LogoCircularDark from '../../public/images/logos/logo_circular_dark.svg'
-import LogoCircularLight from '../../public/images/logos/logo_circular_light.svg';
-import Image from 'next/image';
+import IconeFechar from '../../../../public/images/icons/close.svg';
+import LogoCircularDark from '../../../../public/images/logos/logo_circular_dark.svg'
+import LogoCircularLight from '../../../../public/images/logos/logo_circular_light.svg';
 
 const AuthModal = ({ onClose }) => {
 

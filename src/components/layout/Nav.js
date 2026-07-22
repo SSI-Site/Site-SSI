@@ -7,7 +7,7 @@ import Image from 'next/image';
 import useAuth from '../../../hooks/useAuth';
 
 // components
-import AuthModal from '../AuthModal';
+import AuthModal from '../features/auth/AuthModal';
 import Button from '../ui/Button';
 
 // assets
