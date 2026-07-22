@@ -41,7 +41,7 @@ import detailUpDesktopLight from '../public/images/partnerships/details/detail_u
 
 // components
 import Button from '../src/components/ui/Button';
-import PartnerCarousel from '../src/components/PartnerCarousel';
+import PartnerCarousel from '../src/components/features/partners/PartnerCarousel';
 
 // Data
 import { socials } from '../data/socials';
