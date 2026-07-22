@@ -9,8 +9,8 @@ import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
 
 // components
-import DateStamp from '../src/components/DateStamp';
-import ScheduleItems from '../src/components/ScheduleItems';
+import DateStamp from '../src/components/features/schedule/DateStamp';
+import ScheduleItems from '../src/components/features/schedule/ScheduleItems';
 import saphira from '../services/saphira';
 
 import { eventDetails } from '../data/eventDetails';

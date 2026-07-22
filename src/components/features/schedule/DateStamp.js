@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import semana from '../../utils/semana';
-import { eventDetails } from '../../data/eventDetails'; 
+import semana from '../../../../utils/semana';
+import { eventDetails } from '../../../../data/eventDetails'; 
 
 const DateStamp = ({ dayIndex, weekDay, dateStr, isActive }) => {
  

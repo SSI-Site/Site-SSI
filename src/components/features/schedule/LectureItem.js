@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { formatTime } from '../../utils/format-time';
+import { formatTime } from '../../../../utils/format-time';
 import Image from 'next/image';
 
 // components
-import BadgeCO from './ui/BadgeCO';
-import SpeakerInfo from './SpeakerInfo';
-import sponsorImages from '../../data/sponsors';
+import BadgeCO from '../../ui/BadgeCO';
+import SpeakerInfo from '../../SpeakerInfo';
+import sponsorImages from '../../../../data/sponsors';
 
 // assets
-import LectureRight from '../../public/images/background_imgs/desktopDetail.png';
-import LectureBottom from '../../public/images/background_imgs/detail.png';
+import LectureRight from '../../../../public/images/background_imgs/desktopDetail.png';
+import LectureBottom from '../../../../public/images/background_imgs/detail.png';
 
 const LectureItem = ({ time, event }) => {
 

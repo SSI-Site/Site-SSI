@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
-import { formatTime } from '../../utils/format-time'
+import { formatTime } from '../../../../utils/format-time'
 // components
 import LectureItem from './LectureItem'
 
-import DotsDarkImage from '../../public/images/schedule/details/bolinhas_mobile_dark.svg'
-import DotsLightImage from '../../public/images/schedule/details/bolinhas_mobile_light.svg'
-import DotsDarkImageDesktop from '../../public/images/schedule/details/bolinhas_desktop_dark.svg'
-import DotsLightImageDesktop from '../../public/images/schedule/details/bolinhas_desktop_light.svg'
+import DotsDarkImage from '../../../../public/images/schedule/details/bolinhas_mobile_dark.svg'
+import DotsLightImage from '../../../../public/images/schedule/details/bolinhas_mobile_light.svg'
+import DotsDarkImageDesktop from '../../../../public/images/schedule/details/bolinhas_desktop_dark.svg'
+import DotsLightImageDesktop from '../../../../public/images/schedule/details/bolinhas_desktop_light.svg'
 
 const ScheduleItems = ({ schedule }) => {
     // Variável para ficar alternando o lado das bolinhas e texto de horário na versão para celular

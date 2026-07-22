@@ -22,7 +22,7 @@ import PartnerCard from '../src/components/PartnerCard';
 import SecondaryButton from '../src/components/ui/SecondaryButton';
 import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
 import CountdownSection from '../src/components/CountdownSection';
-import ScheduleSection from '../src/components/ScheduleSection';
+import ScheduleSection from '../src/components/features/schedule/ScheduleSection';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
