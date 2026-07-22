@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-// components
-import BadgeCO from './ui/BadgeCO';
 import Image from 'next/image';
+
+// components
+import BadgeCO from '../../ui/BadgeCO';
 
 const colorSchemes = [
     {
