@@ -1,10 +1,10 @@
 // inicialização básica
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import styled from 'styled-components';
 
 // componentes da página
 import Image from "next/image";
-import Button from '../src/components/ui/Button';
+import Button from '../src/components/Button';
 
 const Error = () => {
     return (

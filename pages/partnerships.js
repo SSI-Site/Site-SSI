@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 import styled from 'styled-components';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import Image from 'next/image';
 import CountUp from 'react-countup';
 

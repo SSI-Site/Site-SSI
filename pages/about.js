@@ -3,7 +3,7 @@ import CountUp from 'react-countup';
 import styled from 'styled-components';
 
 import useAuth from '../hooks/useAuth';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import gifts from '../data/gifts';
 
 import { eventDetails } from '../data/eventDetails';

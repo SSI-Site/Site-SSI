@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import useAuth from '../hooks/useAuth';
 import saphira from '../services/saphira';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 
 // components
 import Button from '../src/components/ui/Button';

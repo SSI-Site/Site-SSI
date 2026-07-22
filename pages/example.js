@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import saphira from '../services/saphira';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 
 // components
 import Example from '../src/components/Example';

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import schedule from '../data/schedule';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import semana from '../utils/semana';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';

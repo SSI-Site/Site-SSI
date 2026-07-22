@@ -1,4 +1,4 @@
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 

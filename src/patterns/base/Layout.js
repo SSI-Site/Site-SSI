@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Meta from '../../infra/Meta';
+import Meta from '../../infra/seo/Meta';
 import GlobalStyle from '../../../styles/global';
 
 import NavBar from '../../components/layout/Nav';

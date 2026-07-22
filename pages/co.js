@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 
 import { eventDetails } from '../data/eventDetails';
 
