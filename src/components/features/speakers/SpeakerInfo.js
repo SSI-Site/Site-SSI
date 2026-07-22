@@ -4,11 +4,11 @@ import SpeakerCard from './SpeakerCard';
 import Image from 'next/image';
 
 // saphira
-import saphira from '../../services/saphira';
+import saphira from '../../../../services/saphira';
 
 // assets
-import speakersImages from '../../data/speakers';
-import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
+import speakersImages from '../../../../data/speakers';
+import lectureImage from '../../../../public/images/schedule/lecture-backgound.jpg';
 
 const SpeakerInfo = ({ speakerId }) => {
 

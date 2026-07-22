@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 // components
 import BadgeCO from '../../ui/BadgeCO';
-import SpeakerInfo from '../../SpeakerInfo';
+import SpeakerInfo from '../speakers/SpeakerInfo';
 import sponsorImages from '../../../../data/sponsors';
 
 // assets

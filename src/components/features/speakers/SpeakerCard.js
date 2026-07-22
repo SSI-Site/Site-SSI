@@ -1,14 +1,15 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 
-// assets
-import SpeakerBottomDesktop from '../../public/images/background_imgs/detail.png';
 import Image from "next/image";
-import LogoLinkedInDark from '../../public/images/partnerships/icons/logo_linkedin_dark.svg';
-import LogoLinkedInLight from '../../public/images/partnerships/icons/logo_linkedin_light.svg';
-import LogoInstagramDark from '../../public/images/partnerships/icons/logo_instagram_dark.svg';
-import LogoInstagramLight from '../../public/images/partnerships/icons/logo_instagram_light.svg';
-import lectureImage from '../../public/images/schedule/lecture-backgound.jpg';
+
+// assets
+import SpeakerBottomDesktop from '../../../../public/images/background_imgs/detail.png';
+import LogoLinkedInDark from '../../../../public/images/partnerships/icons/logo_linkedin_dark.svg';
+import LogoLinkedInLight from '../../../../public/images/partnerships/icons/logo_linkedin_light.svg';
+import LogoInstagramDark from '../../../../public/images/partnerships/icons/logo_instagram_dark.svg';
+import LogoInstagramLight from '../../../../public/images/partnerships/icons/logo_instagram_light.svg';
+import lectureImage from '../../../../public/images/schedule/lecture-backgound.jpg';
 
 const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 

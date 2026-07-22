@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
 // Components
-import PalestranteCard from '../src/components/PalestranteCard';
+import PalestranteCard from '../src/components/features/speakers/PalestranteCard';
 import LoadingSvg from '../public/loading.svg'
 
 //saphira

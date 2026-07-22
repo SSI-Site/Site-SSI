@@ -1,10 +1,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
-import ArrowUpIcon from "../../public/images/icons/arrow-up.svg";
-import { InstagramLogo, LinkedInLogo } from "./ui/SocialMediaLogos";
 
 //IMAGES
-import speakersImages from "../../data/speakers";
+import speakersImages from "../../../../data/speakers";
+import ArrowUpIcon from "../../../../public/images/icons/arrow-up.svg";
+import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaLogos";
 
 // Componente principal que exibe o card do palestrante
 const PalestranteCard = ({palestrante}) => {
