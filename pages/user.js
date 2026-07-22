@@ -13,7 +13,7 @@ import Button from '../src/components/ui/Button';
 import SecondaryButton from '../src/components/ui/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import UserGiftCard from '../src/components/features/gifts/UserGiftCard';
-import UserWatchedLecturesList from '../src/components/UserWatchedLecturesList';
+import UserWatchedLecturesList from '../src/components/features/user/UserWatchedLecturesList';
 
 // assets
 import gifts from '../data/gifts';
