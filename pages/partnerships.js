@@ -40,7 +40,7 @@ import detailBottonDesktopLight from '../public/images/partnerships/details/deta
 import detailUpDesktopLight from '../public/images/partnerships/details/detail_up_desktop_light.svg';
 
 // components
-import Button from '../src/components/Button';
+import Button from '../src/components/ui/Button';
 import PartnerCarousel from '../src/components/PartnerCarousel';
 
 // Data

@@ -16,7 +16,7 @@ import imgCo from '../public/images/about/co.jpg';
 
 // components
 import AuthModal from '../src/components/AuthModal';
-import Button from '../src/components/Button';
+import Button from '../src/components/ui/Button';
 import MapModal from '../src/components/MapModal';
 import PartnerCard from '../src/components/PartnerCard';
 import SecondaryButton from '../src/components/SecondaryButton';

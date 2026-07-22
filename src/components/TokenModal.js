@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import saphira from '../../services/saphira';
 
 // components
-import Button from './Button';
+import Button from './ui/Button';
 
 const TOKEN_LENGTH = 5;
 

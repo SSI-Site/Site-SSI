@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 // componentes da página
 import Image from "next/image";
-import Button from '../src/components/Button';
+import Button from '../src/components/ui/Button';
 
 const Error = () => {
     return (

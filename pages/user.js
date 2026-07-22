@@ -9,7 +9,7 @@ import saphira from '../services/saphira';
 import Meta from '../src/infra/Meta';
 
 // components
-import Button from '../src/components/Button';
+import Button from '../src/components/ui/Button';
 import SecondaryButton from '../src/components/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
 import UserGiftCard from '../src/components/UserGiftCard';

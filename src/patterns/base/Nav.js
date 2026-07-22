@@ -8,7 +8,7 @@ import useAuth from '../../../hooks/useAuth';
 
 // components
 import AuthModal from '../../components/AuthModal';
-import Button from '../../components/Button';
+import Button from '../../components/ui/Button';
 
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';

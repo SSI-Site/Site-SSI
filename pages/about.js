@@ -10,7 +10,7 @@ import { eventDetails } from '../data/eventDetails';
 import { socials } from '../data/socials';
 
 // components
-import Button from '../src/components/Button';
+import Button from '../src/components/ui/Button';
 import GiftCard from '../src/components/GiftCard';
 import SecondaryButton from '../src/components/SecondaryButton';
 import Accordion from '../src/components/Accordion';
