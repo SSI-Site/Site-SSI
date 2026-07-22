@@ -12,7 +12,7 @@ import Meta from '../src/infra/Meta';
 import Button from '../src/components/ui/Button';
 import SecondaryButton from '../src/components/ui/SecondaryButton';
 import TokenModal from '../src/components/TokenModal';
-import UserGiftCard from '../src/components/UserGiftCard';
+import UserGiftCard from '../src/components/features/gifts/UserGiftCard';
 import UserWatchedLecturesList from '../src/components/UserWatchedLecturesList';
 
 // assets

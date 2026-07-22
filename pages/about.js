@@ -11,7 +11,7 @@ import { socials } from '../data/socials';
 
 // components
 import Button from '../src/components/ui/Button';
-import GiftCard from '../src/components/GiftCard';
+import GiftCard from '../src/components/features/gifts/GiftCard';
 import SecondaryButton from '../src/components/ui/SecondaryButton';
 import Accordion from '../src/components/ui/Accordion';
 
