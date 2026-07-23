@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // assets
-import working from '../../../../public/images/working.gif';
+import working from '../../../../public/images/example/working.gif';
 
 const Working = () => {
 

@@ -1,10 +1,11 @@
 // inicialização básica
-import Meta from '../src/infra/seo/Meta';
 import styled from 'styled-components';
+import Link from 'next/link';
+import Image from "next/image";
 
 // componentes da página
-import Image from "next/image";
-import Button from '../src/components/Button';
+import Meta from '../src/infra/seo/Meta';
+import Button from '../src/components/ui/Button';
 
 const Error = () => {
     return (
@@ -13,7 +14,7 @@ const Error = () => {
 
             <Container_background>
                 <Image
-                    src="/images/background_imgs/error404 1.png"
+                    src="/images/404/error404.png"
                     alt="Plano de fundo para página de erro"
                     width={6328}
                     height={2340}
@@ -22,9 +23,9 @@ const Error = () => {
                 />
                 
                 <Container_button>
-                    <a href="/">
+                    <Link href="/" passHref>
                         <Button style={{width:'auto'}}>Ir para Home</Button>
-                    </a>
+                    </Link>
                 </Container_button>
             </Container_background>
 
