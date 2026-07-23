@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 // Components
 import PalestranteCard from '../src/components/features/speakers/PalestranteCard';
-import LoadingSvg from '../public/loading.svg'
+import LoadingSvg from '../public/images/ui/loading.svg'
 
 //saphira
 import saphira from '../services/saphira';

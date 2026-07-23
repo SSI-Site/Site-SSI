@@ -155,7 +155,7 @@ const User = () => {
             {isLoading &&
                 <Loading>
                     <Image 
-                    src='./loading.svg' 
+                    src='./images/ui/loading.svg' 
                     width = {500}
                     height = {500}
                     alt={`SSI ${eventDetails.year} - Loading`} />
