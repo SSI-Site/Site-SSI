@@ -84,7 +84,7 @@ const CO = () => {
                     </div>
                     <div className='image-container'>
                         <Image 
-                            src='/images/about/co.jpg' 
+                            src='/images/co/co.jpg' 
                             alt='Foto Palestra'
                             width={500}
                             height={500} 

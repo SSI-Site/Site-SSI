@@ -12,7 +12,7 @@ import { eventDetails } from '../data/eventDetails';
 import Image from 'next/image'
 
 // images
-import imgCo from '../public/images/about/co.jpg';
+import imgCo from '../public/images/co/co.jpg';
 
 // components
 import Button from '../src/components/ui/Button';
