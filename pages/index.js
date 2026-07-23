@@ -645,13 +645,13 @@ const EventInfoSection = styled.section`
     background-color: var(--background-neutrals-primary);
     background-color: var(--background-neutrals-primary);
 
-    background-image: url('/images/background_imgs/bg-sobre-mobile-dark.png');
+    background-image: url('/images/home/bg-sobre-mobile-dark.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     @media (prefers-color-scheme: light) {
-        background-image: url('/images/background_imgs/bg-sobre-mobile-light.png');
+        background-image: url('/images/home/bg-sobre-mobile-light.png');
     }
 
     .info {
@@ -702,12 +702,12 @@ const EventInfoSection = styled.section`
 
     @media screen and (min-width:801px) {
         padding: 4rem 18.5rem 1.5rem 18.5rem;
-        background-image: url('/images/background_imgs/bg-sobre-desktop-dark.png');
+        background-image: url('/images/home/bg-sobre-desktop-dark.png');
         background-size: cover;
         background-position: center;
 
         @media (prefers-color-scheme: light) {
-        background-image: url('/images/background_imgs/bg-sobre-desktop-light.png');
+        background-image: url('/images/home/bg-sobre-desktop-light.png');
         }
 
 
