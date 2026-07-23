@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Image from "next/image";
 
 // assets
-import SpeakerBottomDesktop from '../../../../public/images/background_imgs/detail.png';
 import LogoLinkedInDark from '../../../../public/images/partnerships/icons/logo_linkedin_dark.svg';
 import LogoLinkedInLight from '../../../../public/images/partnerships/icons/logo_linkedin_light.svg';
 import LogoInstagramDark from '../../../../public/images/partnerships/icons/logo_instagram_dark.svg';
@@ -129,9 +128,6 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                 </SocialMedia>
             </SpeakerContent>
 
-            {/* <div className='bottomImg'>
-                <img src={SpeakerBottomDesktop} />
-            </div> */}
         </SpeakerWrapper>
     )
 }
@@ -158,19 +154,6 @@ const SpeakerWrapper = styled.div`
         0% {transform: translateX(100%);}
         100% {transform: translateX(0%);}   
     }
-
-    /* .bottomImg {
-        width: 100%;
-        height: 10%;
-        z-index: inherit;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: left;
-        }
-    } */
 
     // Removendo o fundo na versão desktop
     @media screen and (min-width:800px) {

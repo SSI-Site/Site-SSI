@@ -9,10 +9,6 @@ import BadgeCO from '../../ui/BadgeCO';
 import SpeakerInfo from '../speakers/SpeakerInfo';
 import sponsorImages from '../../../../data/sponsors';
 
-// assets
-import LectureRight from '../../../../public/images/background_imgs/desktopDetail.png';
-import LectureBottom from '../../../../public/images/background_imgs/detail.png';
-
 const LectureItem = ({ time, event }) => {
 
     return (
@@ -72,15 +68,6 @@ const LectureItem = ({ time, event }) => {
 
             </LectureContent>
 
-            {/* <ImgDetail>
-                <picture>
-                    <source media="(max-width: 800px)" srcSet={LectureBottom}/>
-                    <source media="(min-width: 801px)" srcSet={LectureRight}/>
-                    <Image src={LectureBottom} alt="Imagem de Detalhe"
-                    width={500} height={500}/>
-                </picture>
-                
-            </ImgDetail> */}
         </LectureWrapper>
     )
 }
@@ -128,31 +115,6 @@ const LectureWrapper = styled.article`
         border: 3px solid transparent;
     }
 `
-
-// const ImgDetail = styled.div`
-//     width: inherit;
-//     height: 6rem;
-//     user-select: none;
-//     overflow: hidden;
-//     position: relative;
-
-//     @media screen and (min-width: 800px) {
-//         width: 25%;
-//         height: auto;
-//     }
-
-//     img {
-//         width: 100%;
-//         height: 100%;
-//         object-fit: cover;
-//         object-position: left;
-
-//         @media screen and (min-width:800px) {
-//             position: absolute;
-//             object-position: top;
-//         }
-//     }
-// `;
 
 const LectureContent = styled.div`
     width: 100%;
