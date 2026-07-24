@@ -32,18 +32,10 @@ const LectureItem = ({ time, event }) => {
 
                         <div className='badge-wrapper'>
                             <BadgeCO
-                                text={event.mode === 'IP'? 'Presencial': 'Online'}
-                                themeIndex={event.mode === 'IP' ? 5 : 9}
+                                text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
+                                themeIndex={event.activity_type === 'PR'? 5 : 7}
                                 rounded={true}
                             />
-
-                            {event.activity_type &&
-                                <BadgeCO
-                                    text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
-                                    themeIndex={event.activity_type === 'PR'? 1 : 2}
-                                    rounded={true}
-                                />
-                            }
                         </div>
                     </div>
                     {event.sponsor &&
