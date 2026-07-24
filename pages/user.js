@@ -16,7 +16,7 @@ import UserWatchedLecturesList from '../src/components/features/user/UserWatched
 
 // assets
 import gifts from '../data/gifts';
-import eventDetails from '../data/eventDetails';
+import { eventDetails } from '../data/eventDetails';
 
 const User = () => {
 
