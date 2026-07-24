@@ -1,10 +1,10 @@
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
 // Components
-import PalestranteCard from '../src/components/PalestranteCard';
-import LoadingSvg from '../public/loading.svg'
+import PalestranteCard from '../src/components/features/speakers/PalestranteCard';
+import LoadingSvg from '../public/images/ui/loading.svg'
 
 //saphira
 import saphira from '../services/saphira';
@@ -37,8 +37,8 @@ const Palestrantes = () => {
     return (
         <PalestrantesContainer>
           <Meta title='Palestrantes | Semana de Sistemas de Informação' 
-          description = 'Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.'
-          keywords='palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI'
+          description = {`Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.`}
+          keywords={`palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI`}
           />
           <PalestrantesWrapper>
             <h1>Palestrantes</h1>

@@ -6,18 +6,17 @@ import Image from 'next/image';
 
 import useAuth from '../hooks/useAuth';
 import saphira from '../services/saphira';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 
 // components
-import Button from '../src/components/Button';
-import SecondaryButton from '../src/components/SecondaryButton';
-import TokenModal from '../src/components/TokenModal';
-import UserGiftCard from '../src/components/UserGiftCard';
-import UserWatchedLecturesList from '../src/components/UserWatchedLecturesList';
+import Button from '../src/components/ui/Button';
+import SecondaryButton from '../src/components/ui/SecondaryButton';
+import UserGiftCard from '../src/components/features/gifts/UserGiftCard';
+import UserWatchedLecturesList from '../src/components/features/user/UserWatchedLecturesList';
 
 // assets
 import gifts from '../data/gifts';
-import eventDetails from '../data/eventDetails';
+import { eventDetails } from '../data/eventDetails';
 
 const User = () => {
 
@@ -151,12 +150,12 @@ const User = () => {
             />
         }
 
-            <Meta title='Meu Perfil | Semana de Sistemas de Informação ${eventDetails.year}' />
+            <Meta title={`Meu Perfil | Semana de Sistemas de Informação ${eventDetails.year}`} />
 
             {isLoading &&
                 <Loading>
                     <Image 
-                    src='./loading.svg' 
+                    src='./images/ui/loading.svg' 
                     width = {500}
                     height = {500}
                     alt={`SSI ${eventDetails.year} - Loading`} />

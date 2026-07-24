@@ -3,17 +3,17 @@ import CountUp from 'react-countup';
 import styled from 'styled-components';
 
 import useAuth from '../hooks/useAuth';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import gifts from '../data/gifts';
 
 import { eventDetails } from '../data/eventDetails';
 import { socials } from '../data/socials';
 
 // components
-import Button from '../src/components/Button';
-import GiftCard from '../src/components/GiftCard';
-import SecondaryButton from '../src/components/SecondaryButton';
-import Accordion from '../src/components/Accordion';
+import Button from '../src/components/ui/Button';
+import GiftCard from '../src/components/features/gifts/GiftCard';
+import SecondaryButton from '../src/components/ui/SecondaryButton';
+import Accordion from '../src/components/ui/Accordion';
 
 //Importe Imagem do Next
 import Image from 'next/image';
