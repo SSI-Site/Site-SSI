@@ -26,7 +26,6 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
         const computedMarginTop = parseFloat(computedStyle.marginTop);
         
         if (computedMarginTop > 180) {
-            console.log(speaker["name"], computedMarginTop)
             socialMediaRef.current.style.marginTop = '0';
         } else {
             socialMediaRef.current.style.marginTop = 'auto';
@@ -75,51 +74,48 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                     <div className="speaker-socials">
                         {speaker['linkedin_link'] && 
                             <a href={speaker['linkedin_link']} target="_blank" aria-label={`Linkedin de ${speaker['name']}`}>
-                                {/*Linkedin Logo*/}
-                                <picture>
-                                    <source srcSet={LogoLinkedInLight} media='(prefers-color-scheme: light)'/>
-                                    <Image src={LogoLinkedInDark} alt="Logo do LinkedIn" width={32} height={32} className="social-icon"/>
-                                </picture>
-
-                                {/* Método antigo, manipulando svg para animação customizada do hover */}
-                                {/* <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn da Semana de Sistemas de Informação">
-                                    <mask id="mask0_2776_492" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
-                                        <path fillRule="evenodd" d="M36.34 6.70333V32.6267V36.33H32.6356H6.70444H3V32.6267V6.70333V3H6.70444H32.6356H36.34V6.70333ZM31.7094 21.887V31.7008H26.5417V22.5721C26.5417 21.8846 26.2685 21.2252 25.7822 20.7391C25.2959 20.2529 24.6364 19.9798 23.9486 19.9798C22.5224 19.9798 21.374 21.1463 21.374 22.5721V31.7008H16.2063V16.2024H21.374V18.2577C22.2631 16.8134 24.0968 15.8506 25.6712 15.8506C27.2726 15.8506 28.8085 16.4865 29.9409 17.6186C31.0733 18.7506 31.7094 20.286 31.7094 21.887ZM12.387 12.3841C11.8034 12.9675 11.0119 13.2953 10.1866 13.2953C8.46406 13.2953 7.05637 11.9065 7.05637 10.1845C7.05637 9.35452 7.38616 8.55857 7.9732 7.97171C8.56023 7.38484 9.35643 7.05515 10.1866 7.05515C11.9092 7.05515 13.2984 8.46242 13.2984 10.1845C13.2984 11.0095 12.9705 11.8007 12.387 12.3841ZM12.7612 16.2024V31.7008H7.63056V16.2024H12.7612Z" fill="white" />
-                                    </mask>
-                                    <g mask="url(#mask0_2776_492)">
-                                        <rect width="40" height="40" fill="white" />
+                                {/* Linkedin Logo*/}
+                                <svg className="animation" width="35" height="35" viewBox="0 0 35 35" fill='none' xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <clipPath id="linkedinClip">
+                                            <path d="M 9.507812 12.714844 C 10.386719 12.714844 11.097656 13.429688 11.097656 14.304688 L 11.097656 27.011719 C 11.097656 27.886719 10.386719 28.597656 9.507812 28.597656 L 7.917969 28.597656 C 7.039062 28.597656 6.328125 27.886719 6.328125 27.011719 L 6.328125 14.304688 C 6.328125 13.429688 7.039062 12.714844 7.917969 12.714844 Z M 9.507812 12.714844"/>
+                                            <path d="M 17.472656 12.714844 C 18.347656 12.714844 19.058594 13.429688 19.058594 14.304688 L 19.058594 15.097656 C 19.058594 15.097656 19.855469 12.714844 23.035156 12.714844 C 26.214844 12.714844 28.597656 14.304688 28.597656 17.480469 L 28.597656 27.011719 C 28.597656 27.886719 27.886719 28.597656 27.007812 28.597656 L 25.417969 28.597656 C 24.539062 28.597656 23.828125 27.886719 23.828125 27.011719 L 23.828125 19.070312 C 23.828125 15.894531 19.0625 17.480469 19.058594 19.863281 L 19.058594 27.011719 C 19.058594 27.886719 18.347656 28.597656 17.472656 28.597656 L 15.882812 28.597656 C 15.003906 28.597656 14.292969 27.886719 14.292969 27.011719 L 14.292969 14.304688 C 14.292969 13.429688 15.003906 12.714844 15.882812 12.714844 Z M 17.472656 12.714844"/>
+                                            <path d="M 8.714844 6.328125 C 10.03125 6.328125 11.097656 7.398438 11.097656 8.714844 C 11.097656 10.03125 10.03125 11.097656 8.714844 11.097656 C 7.398438 11.097656 6.328125 10.03125 6.328125 8.714844 C 6.328125 7.398438 7.398438 6.328125 8.714844 6.328125 Z M 8.714844 6.328125"/>
+                                            <path d="M 30.210938 -0.015625 C 32.847656 -0.015625 34.984375 2.121094 34.984375 4.757812 L 34.984375 30.210938 C 34.984375 32.847656 32.847656 34.984375 30.210938 34.984375 L 4.757812 34.984375 C 2.121094 34.984375 -0.015625 32.847656 -0.015625 30.210938 L -0.015625 4.757812 C -0.015625 2.121094 2.121094 -0.015625 4.757812 -0.015625 Z M 4.757812 3.167969 C 3.878906 3.167969 3.167969 3.878906 3.167969 4.757812 L 3.167969 30.210938 C 3.167969 31.089844 3.878906 31.804688 4.757812 31.804688 L 30.210938 31.804688 C 31.089844 31.804688 31.804688 31.089844 31.804688 30.210938 L 31.804688 4.757812 C 31.804688 3.878906 31.089844 3.167969 30.210938 3.167969 Z M 4.757812 3.167969"/>
+                                        </clipPath>
+                                    </defs>
+                                    {/* Ícone branco */}
+                                    <g clipPath="url(#linkedinClip)">
+                                        <rect className="backAnimation" width="35" height="35"/>
                                     </g>
-
-                                    Mask utilizada para realizar a animação
-                                    <g mask="url(#mask0_2776_492)">
-                                        <rect className="fillAnimation" fill="#9638FF" width="40" height="50" />
+                                    {/* Cor que desliza */}
+                                    <g clipPath="url(#linkedinClip)">
+                                        <rect className="fillAnimation" width="35" height="35"/>
                                     </g>
-                                </svg> */}
+                                </svg>
                             </a>
                         }
 
                         {speaker['instagram_link'] &&
                             <a href={speaker['instagram_link']} target="_blank" aria-label={`Instagram de ${speaker['name']}`}>
                                 {/*Instagram Logo*/}
-                                <picture>
-                                    <source srcSet={LogoInstagramLight} media='(prefers-color-scheme: light)'/>
-                                    <Image src={LogoInstagramDark} alt="Logo do Instagram" width={32} height={32} className="social-icon"/>
-                                </picture>
-
-                                {/* Método antigo, manipulando svg para animação customizada do hover */}
-                                {/* <svg className="animation" width="40" height="40" viewBox="0 0 40 40" fill='none' xmlns="http://www.w3.org/2000/svg" aria-label="Instagram da Semana de Sistemas de Informação">
-                                    <mask id="mask0_2776_488" maskUnits="userSpaceOnUse" x="3" y="3" width="34" height="34">
-                                        <path d="M3.33105 3.33008V36.6634H36.6644V3.33008H3.33105ZM16.7727 12.2652C17.7973 11.8535 18.8936 11.6495 19.9977 11.6651C22.2079 11.6651 24.3275 12.5414 25.8903 14.1042C27.4531 15.667 28.3311 17.7866 28.3311 19.9967C28.3311 22.2069 27.4531 24.3265 25.8903 25.8893C24.3275 27.4521 22.2079 28.3301 19.9977 28.3301C18.8936 28.3457 17.7973 28.1417 16.7727 27.73C15.748 27.3182 14.8155 26.7069 14.0291 25.9317C13.2428 25.1564 12.6184 24.2325 12.1922 23.2138C11.766 22.1951 11.5465 21.1018 11.5465 19.9976C11.5465 18.8933 11.766 17.8001 12.1922 16.7813C12.6184 15.7626 13.2428 14.8388 14.0291 14.0635C14.8155 13.2882 15.748 12.6769 16.7727 12.2652ZM27.3287 9.80336C27.7015 9.41533 28.21 9.1866 28.7477 9.16508V9.16174C29.3003 9.16174 29.8302 9.38124 30.2209 9.77194C30.6116 10.1626 30.8311 10.6925 30.8311 11.2451C30.8311 11.7976 30.6116 12.3275 30.2209 12.7182C29.8302 13.1089 29.3003 13.3284 28.7477 13.3284C28.21 13.3069 27.7015 13.0782 27.3287 12.6901C26.9559 12.3021 26.7477 11.7849 26.7477 11.2467C26.7477 10.7086 26.9559 10.1914 27.3287 9.80336Z" fill="white" />
-                                        <path d="M19.9977 14.9984C20.6619 14.9862 21.3219 15.1064 21.939 15.3521C22.5562 15.5978 23.1183 15.964 23.5924 16.4293C24.0664 16.8947 24.443 17.4498 24.7001 18.0623C24.9572 18.6748 25.0897 19.3324 25.0898 19.9967C25.0899 20.661 24.9577 21.3187 24.7008 21.9313C24.4439 22.5439 24.0675 23.0991 23.5935 23.5646C23.1196 24.0301 22.5577 24.3965 21.9406 24.6424C21.3235 24.8883 20.6636 25.0088 19.9994 24.9967C18.6733 24.9967 17.4015 24.47 16.4639 23.5323C15.5262 22.5946 14.9994 21.3228 14.9994 19.9967C14.9994 18.6707 15.5262 17.3989 16.4639 16.4612C17.4015 15.5235 18.6733 14.9967 19.9994 14.9967L19.9977 14.9984Z" fill="white" />
-                                    </mask>
-                                    <g mask="url(#mask0_2776_488)">
-                                        <rect x="0.330078" y="0.330078" width="40" height="40" fill="white" />
+                                <svg className="animation" width="35" height="35" viewBox="0 0 35 35" fill='none' xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <clipPath id="instagramClip">
+                                            <path d="M 26.796875 6.441406 C 25.625 6.441406 24.746094 7.320312 24.746094 8.492188 C 24.746094 9.664062 25.625 10.542969 26.796875 10.542969 C 27.96875 10.542969 28.847656 9.664062 28.847656 8.492188 C 28.847656 7.320312 27.96875 6.441406 26.796875 6.441406 Z M 26.796875 6.441406"/>
+                                            <path d="M 17.570312 9.078125 C 12.738281 9.078125 8.933594 13.03125 8.933594 17.71875 C 8.933594 22.402344 12.886719 26.359375 17.570312 26.359375 C 22.257812 26.359375 26.210938 22.402344 26.210938 17.71875 C 26.210938 13.03125 22.402344 9.078125 17.570312 9.078125 Z M 17.570312 23.28125 C 14.496094 23.28125 12.007812 20.792969 12.007812 17.71875 C 12.007812 14.644531 14.496094 12.152344 17.570312 12.152344 C 20.648438 12.152344 23.136719 14.644531 23.136719 17.71875 C 23.136719 20.792969 20.648438 23.28125 17.570312 23.28125 Z M 17.570312 23.28125"/>
+                                            <path d="M 24.601562 0 L 10.6875 0 C 4.6875 0 0 4.6875 0 10.542969 L 0 24.453125 C 0 30.3125 4.6875 34.996094 10.542969 34.996094 L 24.453125 34.996094 C 30.3125 34.996094 34.996094 30.3125 34.996094 24.453125 L 34.996094 10.542969 C 35.144531 4.6875 30.457031 0 24.601562 0 Z M 31.773438 24.601562 C 31.773438 28.554688 28.554688 31.921875 24.453125 31.921875 L 10.542969 31.921875 C 6.589844 31.921875 3.222656 28.699219 3.222656 24.601562 L 3.222656 10.691406 C 3.222656 6.734375 6.441406 3.367188 10.542969 3.367188 L 24.453125 3.367188 C 28.40625 3.367188 31.773438 6.589844 31.773438 10.691406 Z M 31.773438 24.601562"/>
+                                        </clipPath>
+                                    </defs>
+                                    {/* Ícone branco */}
+                                    <g clipPath="url(#instagramClip)">
+                                        <rect className="backAnimation" width="35" height="35"/>
                                     </g>
-                                    Mask utilizada para realizar a animação
-                                    <g mask="url(#mask0_2776_488)">
-                                        <rect className="fillAnimation" fill="#9638FF" width="40" height="40" />
+                                    {/* Cor que desliza */}
+                                    <g clipPath="url(#instagramClip)">
+                                        <rect className="fillAnimation" width="35" height="35"/>
                                     </g>
-                                </svg> */}
+                                </svg>
                             </a>
                         }
 
@@ -455,7 +451,12 @@ const SocialMedia = styled.div`
         }
 
         /* Método antigo, manipulando svg para animação customizada do hover */
-        /* .fillAnimation {
+        .backAnimation {
+            fill: var(--content-neutrals-secondary);
+        }
+
+        .fillAnimation {
+            fill: var(--brand-purple-500);
             transform: translateX(-100%);
             transition: all 0.15s ease-out;
         }
@@ -467,30 +468,12 @@ const SocialMedia = styled.div`
             .fillAnimation {
                 transform: translateX(0);
             }
-        } */
+        }
 
         a:focus-visible {
             outline: 2px solid var(--brand-primary);
             outline-offset: 2px;
             cursor: pointer;
-            transition: all 0.15s ease-out;
-        }
-
-        .social-icon {
-            width: 2rem;
-            height: 2rem;
-            object-fit: contain;
-            object-position: center;
-        }
-
-        .social-icon:hover, .social-icon:focus-visible {
-            // Filtro para mudar a logo branca/preta para roxo (#6206BF)
-            filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6169%) hue-rotate(272deg) brightness(73%) contrast(112%);
-
-            // Filtro para mudar a logo branca/preta para roxo (#A85FFF)
-            @media (prefers-color-scheme: light) {
-                filter: brightness(0) saturate(100%) invert(44%) sepia(38%) saturate(1312%) hue-rotate(228deg) brightness(99%) contrast(107%);
-            }
         }
     }
 
