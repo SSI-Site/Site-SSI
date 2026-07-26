@@ -43,27 +43,26 @@ const colorSchemes = [
     },
 ]
 
-const BadgeCO = ({ text, themeIndex, rounded }) => {
+const BadgeLecture = ({ text, themeIndex}) => {
     return (
-        <BadgeWrapper $themeIndex = {themeIndex} $rounded = {rounded}>
+        <BadgeWrapper $themeIndex = {themeIndex}>
             <p>{text}</p>
         </BadgeWrapper>
     )
 }
 
-export default BadgeCO;
+export default BadgeLecture;
 
 
 const BadgeWrapper = styled.div`
     width: fit-content;
     padding: 0rem 0.25rem;
-    //max-width: 170px;
     background-color: ${props => colorSchemes[props.$themeIndex].badgeColor};
     display: inline-block;
-    border-radius: ${props => props.$rounded ? '0.375rem' : '0'};
+    border-radius: 0.375rem;
 
     p {
-        font-size: ${props => props.$rounded ? '0.75rem' : '0.875rem'};
+        font-size: 0.75rem;
         font-weight: 400;
         color: ${props => colorSchemes[props.$themeIndex].textColor};
     }

@@ -5,9 +5,12 @@ import { formatTime } from '../../../../utils/format-time';
 import Image from 'next/image';
 
 // components
-import BadgeCO from '../../ui/BadgeCO';
+import BadgeLecture from '../../features/schedule/BadgeLecture';
 import SpeakerInfo from '../speakers/SpeakerInfo';
 import sponsorImages from '../../../../data/sponsors';
+
+// Variável para controlar a exibição do badge de modo "Presencial"/"Online"
+const exibirBadgePresencial = false;
 
 const LectureItem = ({ time, event }) => {
 
@@ -31,11 +34,17 @@ const LectureItem = ({ time, event }) => {
                         }
 
                         <div className='badge-wrapper'>
-                            <BadgeCO
-                                text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
-                                themeIndex={event.activity_type === 'PR'? 5 : 7}
-                                rounded={true}
+                            <BadgeLecture
+                                text={event.activity_type === 'WS' ? "Workshop" : "Palestra"}
+                                themeIndex={event.activity_type === 'WS' ? 4 : 5}
                             />
+
+                            {exibirBadgePresencial &&
+                                <BadgeLecture
+                                    text={event.mode === 'ON' ? 'Online' : 'Presencial'}
+                                    themeIndex={event.mode === 'ON' ? 9 : 1}
+                                />
+                            }
                         </div>
                     </div>
                     {event.sponsor &&
