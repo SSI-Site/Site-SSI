@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 
 // components
-import BadgeCO from './BadgeCO';
+import BadgeCO from '../../ui/BadgeCO';
 
 const colorSchemes = [
     {
