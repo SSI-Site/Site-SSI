@@ -1,73 +1,59 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import Meta from '../src/infra/seo/Meta';
-
 import { eventDetails } from '../data/eventDetails';
 
 // components
 import DepartmentStamp from '../src/components/features/co/DepartmentStamp';
 import MemberCard from '../src/components/features/co/MemberCard';
 
-//Importe Image do Next
+// Importe Image do Next
 import Image from 'next/image'
 
 // assets
 import members from '../data/members';
 
+/**
+ * Array de configuração dos filtros (setores).
+ * Centralizar esses dados facilita a adição ou remoção de setores no futuro
+ * sem precisar duplicar dezenas de linhas de HTML.
+ */
+const DEPARTMENTS = [
+    { name: 'Palestrantes', color: 'var(--content-neutrals-primary)' },
+    { name: 'Parcerias', color: 'var(--brand-primary)' },
+    { name: 'Sites', color: 'var(--brand-primary-light)' },
+    { name: 'Todos', color: 'var(--brand-primary)' },
+    { name: 'Comercial e Financeiro', color: 'var(--brand-primary-light)' },
+    { name: 'Criação e Comunicação', color: 'var(--content-neutrals-primary)' },
+    { name: 'Diretoria', color: 'var(--brand-primary)' },
+    { name: 'Infraestrutura', color: 'var(--brand-primary-light)' }
+];
+
 const CO = () => {
 
-    const [activeItem, setActiveItem] = useState('Todos')
+    const [activeItem, setActiveItem] = useState('Todos');
 
-    function renderActiveItem() {
-        if (activeItem === 'Todos') {
-            return (
-                members.map(function(member, key) {
-                    return (
-                        <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={key} />
-                        </div>
-                    );
-                })
-
-            )
-        } else {
-            const sectorMembers = members.filter(member => member.departments.includes(activeItem))
-            return (
-                sectorMembers.map(function(member, key) {
-                    return (
-                        <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={(key)} />
-                        </div>
-                    );
-                })
-            )
-        }
-    }
-
-    // centralize activeItem
+    /**
+     * Efeito de centralização automática (Scroll suave).
+     * Quando o 'activeItem' muda, o contêiner calcula a posição do botão clicado
+     * e rola a tela horizontalmente para deixá-lo no centro da visão do usuário.
+     */
     useEffect(() => {
         const container = document.querySelector('.members-container');
-        const active = container.querySelector(`[name="${activeItem}"]`);
+        // Usamos optional chaining (?.) para evitar erros caso o elemento ainda não exista
+        const active = container?.querySelector(`[name="${activeItem}"]`);
+        
         if (container && active) {
-            container.scrollLeft = active.offsetLeft + active.offsetWidth / 2 - window.innerWidth / 2;      // active center position
+            container.scrollLeft = active.offsetLeft + (active.offsetWidth / 2) - (window.innerWidth / 2);
         }
-    });
+    }, [activeItem]); // A dependência garante que só rode quando a aba mudar (Performance ++)
 
-    // text wrap resize on mobile
-    useEffect(() => {
-        const stamps = document.querySelectorAll('.members-container > * > *');
-        if (stamps) {
-            stamps.forEach(stamp => {
-                const stampText = stamp.querySelector('p');
-                if (stampText.offsetHeight > 48 && window.innerWidth < 1021) {    // 48px = 3rem (one text line)
-                    stamp.style.maxWidth = '14rem';
-                    stampText.style.font = '400 2rem/2rem "AT Aero Bold"';
-                }
-            });
-        }
-    }, []);
+    // Lógica enxuta de filtragem: 
+    // Se for 'Todos', pega o array original. Se não, usa o .filter() nos setores.
+    const displayedMembers = activeItem === 'Todos' 
+        ? members 
+        : members.filter(member => member.departments.includes(activeItem));
 
     return (
         <>
@@ -97,35 +83,37 @@ const CO = () => {
             <COMembersSection>
                 <COFilterContainer>
                     <div className='members-container'>
-                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
-                            <DepartmentStamp name='Palestrantes' $itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Palestrantes'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
-                            <DepartmentStamp name='Parcerias' $itemColor="var(--brand-primary)" $active={activeItem === 'Parcerias'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
-                            <DepartmentStamp name='Sites' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Sites'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
-                            <DepartmentStamp name='Todos' $itemColor="var(--brand-primary)" $active={activeItem === 'Todos'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
-                            <DepartmentStamp name='Comercial e Financeiro' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Comercial e Financeiro'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
-                            <DepartmentStamp name='Criação e Comunicação' $itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Criação e Comunicação'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
-                            <DepartmentStamp name='Diretoria' $itemColor="var(--brand-primary)" $active={activeItem === 'Diretoria'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
-                            <DepartmentStamp name='Infraestrutura' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Infraestrutura'} />
-                        </NavItem>
+                        {/* Geração dinâmica dos botões de filtro a partir do array DEPARTMENTS */}
+                        {DEPARTMENTS.map((dept) => (
+                            <NavItem 
+                                key={dept.name} 
+                                name={dept.name} // Importante para o querySelector do Scroll encontrar o elemento
+                                onClick={() => setActiveItem(dept.name)}
+                            >
+                                <DepartmentStamp 
+                                    name={dept.name} 
+                                    $itemColor={dept.color} 
+                                    $active={activeItem === dept.name} 
+                                />
+                            </NavItem>
+                        ))}
                     </div>
                 </COFilterContainer> 
 
                 <MemberCardsWrapper id="members">
-                    {renderActiveItem()}
+                    {/* Renderização limpa dos cartões baseada na lista filtrada */}
+                    {displayedMembers.map((member, index) => (
+                        <div className="card-container" key={index}>
+                            <MemberCard 
+                                name={member.name} 
+                                image={member.image} 
+                                departments={member.departments} 
+                                linkedin={member.linkedin} 
+                                phrase={member.phrase} 
+                                colorScheme={index} 
+                            />
+                        </div>
+                    ))}
                 </MemberCardsWrapper>
                     
             </COMembersSection>
@@ -134,7 +122,6 @@ const CO = () => {
 }
 
 export default CO;
-
 
 const COExhibitionSection = styled.section`
     border-bottom: 1px solid var(--outline-neutrals-secondary);
@@ -148,7 +135,6 @@ const COExhibitionSection = styled.section`
         align-items: center;
 
         .title-text {
-            color: var(--content-neutrals-primary, #FFF);
             color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
@@ -184,10 +170,8 @@ const COExhibitionSection = styled.section`
         .exhibition-container {
             flex-direction: row;
             background: var(--background-neutrals-primary, #1A1A1A);
-            background: var(--background-neutrals-primary, #1A1A1A);
             
             .title-text {
-                color: var(--content-neutrals-primary, #FFF);
                 color: var(--content-neutrals-primary, #FFF);
                 height: calc(100vh - 8rem);
                 max-height: 41.875rem;
