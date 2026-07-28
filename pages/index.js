@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 import styled from 'styled-components';
 
 import useAuth from '../hooks/useAuth';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import '../utils/slugify';
 import { eventDetails } from '../data/eventDetails';
 
@@ -12,17 +12,17 @@ import { eventDetails } from '../data/eventDetails';
 import Image from 'next/image'
 
 // images
-import imgCo from '../public/images/about/co.jpg';
+import imgCo from '../public/images/co/co.jpg';
 
 // components
-import AuthModal from '../src/components/AuthModal';
-import Button from '../src/components/Button';
-import MapModal from '../src/components/MapModal';
-import PartnerCard from '../src/components/PartnerCard';
-import SecondaryButton from '../src/components/SecondaryButton';
-import YoutubeWatchNow from '../src/components/YoutubeWatchNow';
-import CountdownSection from '../src/components/CountdownSection';
-import ScheduleSection from '../src/components/ScheduleSection';
+import Button from '../src/components/ui/Button';
+import SecondaryButton from '../src/components/ui/SecondaryButton';
+import AuthModal from '../src/components/features/auth/AuthModal';
+import MapModal from '../src/components/features/home/MapModal';
+import CountdownSection from '../src/components/features/home/CountdownSection';
+import YoutubeWatchNow from '../src/components/features/home/YoutubeWatchNow';
+import PartnerCard from '../src/components/features/partners/PartnerCard';
+import ScheduleSection from '../src/components/features/schedule/ScheduleSection';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
@@ -645,13 +645,13 @@ const EventInfoSection = styled.section`
     background-color: var(--background-neutrals-primary);
     background-color: var(--background-neutrals-primary);
 
-    background-image: url('/images/background_imgs/bg-sobre-mobile-dark.png');
+    background-image: url('/images/home/bg-sobre-mobile-dark.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     @media (prefers-color-scheme: light) {
-        background-image: url('/images/background_imgs/bg-sobre-mobile-light.png');
+        background-image: url('/images/home/bg-sobre-mobile-light.png');
     }
 
     .info {
@@ -702,12 +702,12 @@ const EventInfoSection = styled.section`
 
     @media screen and (min-width:801px) {
         padding: 4rem 18.5rem 1.5rem 18.5rem;
-        background-image: url('/images/background_imgs/bg-sobre-desktop-dark.png');
+        background-image: url('/images/home/bg-sobre-desktop-dark.png');
         background-size: cover;
         background-position: center;
 
         @media (prefers-color-scheme: light) {
-        background-image: url('/images/background_imgs/bg-sobre-desktop-light.png');
+        background-image: url('/images/home/bg-sobre-desktop-light.png');
         }
 
 

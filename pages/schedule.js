@@ -2,15 +2,14 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import schedule from '../data/schedule';
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import semana from '../utils/semana';
 import '../utils/slugify';
 import filterTalks from '../utils/filterTalks';
 
 // components
-import DateStamp from '../src/components/DateStamp';
-import ScheduleItems from '../src/components/ScheduleItems';
+import DateStamp from '../src/components/features/schedule/DateStamp';
+import ScheduleItems from '../src/components/features/schedule/ScheduleItems';
 import saphira from '../services/saphira';
 
 import { eventDetails } from '../data/eventDetails';
@@ -35,8 +34,9 @@ const Schedule = () => {
         setDayNumber(dayFull.indexOf(selectedDate))
     }
 
+    // Verifica se uma data específica faz parte dos dias em que o evento vai estar acontecendo.
     const isDuringEvent = (date) => {
-        return Object.keys(schedule).includes(date)
+        return dayFull.includes(date)
     }
 
     function renderActiveItem() {
@@ -71,13 +71,17 @@ const Schedule = () => {
         getTalks()
     }, [])
 
+    // Fallback de segurança:
+    // Este useEffect previne que a página fique vazia caso o usuário acesse o 
+    // site antes ou depois da semana do evento. Se a data atual (activeItem) 
+    // não for um dos dias oficiais do evento, ele força a exibição do primeiro dia.
     useEffect(() => {
     if (talks.length > 0 && !isDuringEvent(activeItem)) {
         const firstDay = dayFull[0]; 
         setActiveItem(firstDay);
         setDayNumber(0); 
     }
-}, [talks, activeItem]);
+}, [talks, activeItem, dayFull]);
 
     return (
         <>

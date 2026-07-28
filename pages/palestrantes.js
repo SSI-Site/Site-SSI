@@ -1,10 +1,10 @@
-import Meta from '../src/infra/Meta';
+import Meta from '../src/infra/seo/Meta';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
 // Components
-import PalestranteCard from '../src/components/PalestranteCard';
-import LoadingSvg from '../public/loading.svg'
+import PalestranteCard from '../src/components/features/speakers/PalestranteCard';
+import LoadingSvg from '../public/images/ui/loading.svg'
 
 //saphira
 import saphira from '../services/saphira';
