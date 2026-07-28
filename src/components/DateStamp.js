@@ -2,15 +2,7 @@ import styled, { css } from 'styled-components';
 import semana from '../../utils/semana';
 import { eventDetails } from '../../data/eventDetails';
 
-const DateStamp = ({ dayIndex, weekDay, dateStr, isActive }) => {
-
-  const current = new Date();
-  const currentYear = current.getFullYear();
-  const currentMonth = current.getMonth() + 1;
-  const currentDay = current.getDate();
-  const todayStr = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-${currentDay.toString().padStart(2, '0')}`;
-  const thisBlockDate = eventDetails.logic.dayFull[dayIndex - 1];
-
+const DateStamp = ({ weekDay, dateStr, isActive }) => {
 
   return (
     <DateWrapper $isActive={isActive}>
@@ -39,10 +31,6 @@ const DateWrapper = styled.div`
     background-size: 200%;
     background-position-x: 200%;
 
-    svg path {
-            fill: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--content-neutrals-primary)'};
-    }
-
     h6 {
         color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--background-neutrals-inverse)'};
     }
@@ -52,10 +40,6 @@ const DateWrapper = styled.div`
 
         h6 {
             color: var(--brand-primary);
-        }
-
-        svg path {
-            fill: var(--brand-primary);
         }
         
     }
@@ -69,10 +53,6 @@ const DateWrapper = styled.div`
         display: flex;
         flex-direction: row;
         align-items: center;
-    }
-
-    p {
-        font-family: 'AT Aero Bold'; 
     }
 
     /* Visualização Desktop - Alinhado com o Novo Figma */
@@ -140,9 +120,10 @@ const DateWrapper = styled.div`
                 
                 
                 -webkit-text-fill-color: light-dark(#FFFFFF, #000000); 
-                color: light-dark(#FFFFFF, #000000);
+                color: light-dark(#FFFFFF, #000000); 
+                // por algum motivo, essa parte tem que ser as cores puras, as variáveis
+                // var(--content-neutrals-fixed-white) e var(--background-neutrals-inverse) não dão certo
             }
         }
     }
-}
 `
