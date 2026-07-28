@@ -16,34 +16,28 @@ const TOLERANCIA_REDES_SOCIAIS = 260;
 const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
 
     const socialMediaRef = useRef(null);
-    const [computedHeight, setComputedHeight] = useState(0);
 
-    // Essa função tem como objetivo deixar a div de redes sociais no final da página (margin: auto), caso a página for pequena
-    // ou a deixar logo em baixo da descrição do palestrante, caso a página for grande (celulares com telas grandes)
-    // Esse código só é rodado no recebimento dos dados da api, portanto não responde a mudanças de tamanho da tela repentinas
+    // Essa função tem como objetivo deixar a div de redes sociais no final da página caso a página for pequena
+    // ou a deixar logo em baixo da descrição do palestrante caso a página for grande (celulares com telas grandes)
+    // Esse código é rodado no recebimento dos dados da api e implementa um observer para detectar mudanças no tamanho
     useEffect(() => {
         // Verifica se os dados foram recebidos
         if (Object.keys(speaker).length === 0) return;
 
         const socialMedia = socialMediaRef.current
 
-        if (!socialMedia) {
-            return
-        }
-
-        const updateMarginTop = (value) => {
-            socialMediaRef.current.style.justifyContent = value;
-        }
-
+        // Observer para detectar mudanças no tamanho da div de redes sociais
         const resizeObserver = new ResizeObserver(([entry]) => {
-            const computedHeight = entry.contentRect.height;
+            if(!entry) return;
 
+            const computedHeight = entry.contentRect.height;
             if (computedHeight > TOLERANCIA_REDES_SOCIAIS) {
-                updateMarginTop('flex-start');
+                // Logo abaixo da descrição
+                entry.target.style.justifyContent = 'flex-start';
             } else {
-                updateMarginTop('flex-end');
+                // No final da tela
+                entry.target.style.justifyContent = 'flex-end';
             }
-            setComputedHeight(computedHeight);
         })
         
         resizeObserver.observe(socialMedia);
