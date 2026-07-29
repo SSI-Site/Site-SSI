@@ -17,6 +17,20 @@ import UserWatchedLecturesList from '../src/components/features/user/UserWatched
 // assets
 import gifts from '../data/gifts';
 import { eventDetails } from '../data/eventDetails';
+import coisinho1 from '../public/images/user/coisinho1.svg';
+import coisinho2 from '../public/images/user/coisinho4.svg';
+
+import presenteIcon from '../public/images/user/dark/presente-icon.svg';
+import userAvatar from '../public/images/user/dark/user-avatar.png';
+import medalCompleted from '../public/images/user/dark/medal/completado.png';
+import medalIncomplete from '../public/images/user/dark/medal/incompleto.png';
+import medalCollected from '../public/images/user/dark/medal/resgatado.png';
+
+import presenteIcon_light from '../public/images/user/light/presente-icon.svg';
+import userAvatar_light from '../public/images/user/light/user-avatar.png';
+import medalCompleted_light from '../public/images/user/light/medal/completado.png';
+import medalIncomplete_light from '../public/images/user/light/medal/incompleto.png';
+import medalCollected_light from '../public/images/user/light/medal/resgatado.png';
 
 const User = () => {
 
@@ -234,8 +248,6 @@ const User = () => {
                 <>
                     <UserInfoSection>
                         <div>
-                            <h2>Meu perfil</h2>
-
                             <UserInfoWrapper>
                                 <PhotoTextWrapper>
                                     <Image 
@@ -341,7 +353,7 @@ const Loading = styled.figure`
 `
 
 const UserInfoSection = styled.section`
-    padding: 1.5rem;
+    padding: 1rem;
     max-width: 1328px;
     width: 100%;
     margin: 0 auto;
