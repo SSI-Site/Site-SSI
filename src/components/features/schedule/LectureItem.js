@@ -9,10 +9,15 @@ import BadgeLecture from '../../features/schedule/BadgeLecture';
 import SpeakerInfo from '../speakers/SpeakerInfo';
 import sponsorImages from '../../../../data/sponsors';
 
+// Componente de uma palestra da programação do evento
+
 // Variável para controlar a exibição do badge de modo "Presencial"/"Online"
 const exibirBadgePresencial = false;
 
-const LectureItem = ({ time, event }) => {
+const LectureItem = ({ event }) => {
+
+    const startTime = event.start_time;
+    const endTime = event.end_time;
 
     return (
         <LectureWrapper>
@@ -20,18 +25,15 @@ const LectureItem = ({ time, event }) => {
                 <LectureHeader>
                     <h3>{event.title}</h3>
                     <div className='lecture-header-info'>
-                        {event.end_time ?
-                            <p className='lecture-header-time'>
-                                <time dateTime={time}>{formatTime(time)}</time>
-                                {" - "}
-                                <time dateTime={event.end_time}>{formatTime(event.end_time)}</time>
-                                
-                            </p>
-                        :
-                            <p className='lecture-header-time'>
-                                <time dateTime={time}>{formatTime(time)}</time>
-                            </p>
-                        }
+                        <p className='lecture-header-time'>
+                            <time dateTime={startTime}>{formatTime(startTime)}</time>
+                            {endTime && 
+                                <>
+                                    {" - "}
+                                    <time dateTime={endTime}>{formatTime(endTime)}</time>
+                                </>
+                            }
+                        </p>
 
                         <div className='badge-wrapper'>
                             <BadgeLecture
@@ -49,8 +51,7 @@ const LectureItem = ({ time, event }) => {
                     </div>
                     {event.sponsor &&
                         <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
-                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
-                            fill/>
+                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`} fill/>
                         </a>
                     }
                 </LectureHeader>
@@ -76,7 +77,7 @@ const LectureItem = ({ time, event }) => {
 export default LectureItem;
 
 const LectureWrapper = styled.article`
-    background: var(--background-neutrals-primary, #1A1A1A);
+    background: var(--background-neutrals-primary);
     display: flex;   
     flex-direction: column;
     gap: 1rem;
@@ -84,7 +85,7 @@ const LectureWrapper = styled.article`
     width: 100%;
     margin: auto;
     border-radius: 1.5rem;
-    border: 1px solid var(--outline-neutrals-secondary, #999);
+    border: 1px solid var(--outline-neutrals-secondary);
 
     .lecture-description {
         width: 100%;
@@ -96,6 +97,7 @@ const LectureWrapper = styled.article`
 
     @media screen and (min-width:800px) {
         padding: 1.5rem 1.5rem 1rem 1.5rem;
+        // Código para fazer a borda com gradiente
         border: 2px solid transparent;
         border-radius: 2rem;
         background: var(--border-gradient-secondary-dark);
@@ -157,11 +159,12 @@ const LectureHeader = styled.header`
         outline: 2px solid transparent;
         transition: all 0.2s ease-in-out;
         border-radius: 0.375rem 1rem;
-        border: 1px solid var(--outline-neutrals-secondary, #999);
+        border: 1px solid var(--outline-neutrals-secondary);
         position: relative;
 
+        // No modo light o fundo do sponsor continua escuro
         @media (prefers-color-scheme: light) {
-            background: var(--backup-neutral-700, #252525);
+            background: var(--content-neutrals-secondary);
         }
 
         img {
@@ -208,12 +211,14 @@ const LectureHeader = styled.header`
         .sponsor-logo {
             width: 7.5rem;
             height: 5.5rem;
-            border-radius: 1rem 2rem;
+            // Código para fazer a borda com gradiente
             border: 2px solid transparent;
+            border-radius: 1rem 2rem;
             background: var(--border-gradient-tertiary-dark);
 
+            // No modo light o fundo do sponsor continua escuro
             @media (prefers-color-scheme: light) {
-                background: var(--backup-neutral-700, #252525);
+                background: var(--content-neutrals-secondary);
             }
         }
     }

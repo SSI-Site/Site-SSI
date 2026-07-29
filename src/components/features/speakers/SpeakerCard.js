@@ -10,7 +10,9 @@ import LogoInstagramDark from '../../../../public/images/partnerships/icons/logo
 import LogoInstagramLight from '../../../../public/images/partnerships/icons/logo_instagram_light.svg';
 import lectureImage from '../../../../public/images/schedule/lecture-backgound.jpg';
 
-import { InstagramLogo, LinkedInLogo, YouTubeLogo } from "../../ui/SocialMediaOutlinedLogos";
+import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaOutlinedLogos";
+
+// Componente do card/modal/tela_flutuante do palestrante
 
 // Tolerância de altura da div de redes sociais para decidir se ela fica no final da página ou logo abaixo da descrição do palestrante
 const TOLERANCIA_REDES_SOCIAIS = 260;
@@ -53,6 +55,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
             <SpeakerContent>
                 <SpeakerHead>
                     <h4 id="speaker-title">Informações do Palestrante</h4>
+                    {/* Botão X de fechar */}
                     <button type="button" onClick={() => setIsOpen(false)} aria-label="Fechar">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="currentColor"/>
@@ -71,9 +74,7 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                             <p>{speaker['pronouns']}</p>
                         </div>
 
-                        <div>
-                            <p className="speaker-role">{speaker['role']}</p>
-                        </div>
+                        <p className="speaker-role">{speaker['role']}</p>
                     </div>
                 </SpeakerInfo>
 
@@ -98,12 +99,6 @@ const SpeakerCard = ({ speaker, setIsOpen, speakerImage }) => {
                             {speaker['instagram_link'] &&
                                 <a href={speaker['instagram_link']} target="_blank" aria-label={`Instagram de ${speaker['name']}`}>
                                     <InstagramLogo/>
-                                </a>
-                            }
-
-                            {speaker['youtube_link'] &&
-                                <a href={speaker['youtube_link']} target="_blank" aria-label={`YouTube de ${speaker['name']}`}>
-                                    <YouTubeLogo/>
                                 </a>
                             }
 
@@ -145,11 +140,12 @@ const SpeakerContent = styled.div`
     display: flex;
     flex-direction: column;
     z-index: 15;
+    padding: 1rem;
+    gap: 1.25rem;
+    // Código para fazer a borda com gradiente
     border-radius: 1.5rem;
     border: 2px solid transparent;
     background: var(--border-gradient-tertiary-dark);
-    padding: 1rem;
-    gap: 1.25rem;
 
     // Título da seção Sobre e Redes Sociais
     h6 {
@@ -157,9 +153,8 @@ const SpeakerContent = styled.div`
         width: fit-content;
         padding: 0 0.375rem;
         border-radius: 0.375rem;
-        background: var(--brand-purple-700, #7305E6);
-        // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode a cor continua igual
-        color: #FFFFFF;
+        background: var(--brand-purple-700);
+        color: var(--content-neutrals-fixed-white);
     }
 
     @media screen and (min-width:800px) {
@@ -174,7 +169,7 @@ const SpeakerContent = styled.div`
         background: var(--border-gradient-secondary-dark);
 
         h6 {
-            background: var(--brand-purple-500, #9638FF);
+            background: var(--brand-purple-500);
         }
     }
 `
@@ -262,6 +257,7 @@ const SpeakerInfo = styled.div`
         }
     }
 
+    // A imagem fica 1:1 (quadrada), mas se houver muito texto, a imagem vai se reajustando
     .imgDiv {
         width: 7.5rem;
         height: auto;
@@ -312,7 +308,7 @@ const SpeakerInfo = styled.div`
         border-radius: 1rem;
         overflow: hidden;
 
-        // Background do card de palestrante
+        // Background do card de palestrante (foto roxa de fundo)
         &::before {
             content: "";
             position: absolute;
@@ -358,8 +354,7 @@ const SpeakerInfo = styled.div`
 
             p {
                 font: 400 1rem/1.5rem 'AT Aero';    
-                // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode a cor continua igual
-                color: #FFFFFF;
+                color: var(--content-neutrals-fixed-white)
             }
 
             .speaker-role {
@@ -392,14 +387,17 @@ const SpeakerDesc = styled.div`
     @media screen and (min-width:1024px) {
         border-top: 2px solid transparent;
 
+        // Linha horizontal com gradiente
         &:before {
             content: "";
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, #f8efff 15%, var(--brand-primary));
+            // Branco para roxo
+            background: linear-gradient(90deg, var(--content-neutrals-secondary) 15%, var(--brand-primary));
             display: block;
 
             @media (prefers-color-scheme: light) {
+                // Roxo claro para roxo escuro
                 background: linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary));
             }
         }

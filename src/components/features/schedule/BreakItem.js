@@ -2,23 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { formatTime } from '../../../../utils/format-time'
 
+// Componente de um intervalo da programação do evento
+
 const BreakItem = ({title, startTime, endTime}) => {
-    const openingClosingEvent = title == "Abertura" || title == "Encerramento";
+    const isOpeningClosingEvent = title == "Abertura" || title == "Encerramento";
 
     return (
-        <BreakItemWrapper className={`${openingClosingEvent ? 'special-event' : ''}`}>
+        <BreakItemWrapper className={`${isOpeningClosingEvent ? 'special-event' : ''}`}>
             <h4>{title}</h4>
-            {endTime ?
                 <p>
                     <time dateTime={startTime}>{formatTime(startTime)}</time>
-                    {" - "}
-                    <time dateTime={endTime}>{formatTime(endTime)}</time>
+                    {endTime && 
+                        <>
+                            {" - "}
+                            <time dateTime={endTime}>{formatTime(endTime)}</time>
+                        </>
+                    }
                 </p>
-                :
-                <p>
-                    <time dateTime={startTime}>{formatTime(startTime)}</time>
-                </p>
-            }
         </BreakItemWrapper>
     )
 }
@@ -34,7 +34,7 @@ const BreakItemWrapper = styled.div`
     align-self: stretch;
     padding: 0.5rem 1.25rem;
     border-radius: 2rem;
-    border: 1px solid var(--outline-neutrals-secondary, #999);
+    border: 1px solid var(--outline-neutrals-secondary);
 
     h4 {
         font: 700 1rem/1.5rem 'AT Aero Bold';
@@ -44,6 +44,7 @@ const BreakItemWrapper = styled.div`
         font: 400 0.875rem/1.5rem 'AT Aero Bold';
     }
 
+    // Mudando a cor dos eventos de abertura e encerramento
     &.special-event {
         background: var(--background-neutrals-inverse);
 
@@ -54,6 +55,7 @@ const BreakItemWrapper = styled.div`
 
     @media (min-width:800px) {
         padding: 0.75rem 1.5rem;
+        // Código para fazer a borda com gradiente
         border: 2px solid transparent;
         background: var(--border-gradient-primary-dark);
 
@@ -67,14 +69,6 @@ const BreakItemWrapper = styled.div`
 
         p {
             font: 700 1.375rem/1.5rem 'AT Aero Bold';
-        }
-
-        &.special-event {
-            background: var(--background-neutrals-inverse);
-
-            h4, p {
-                color: var(--content-neutrals-inverse);
-            }
         }
     }
 

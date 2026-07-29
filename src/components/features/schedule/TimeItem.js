@@ -3,29 +3,28 @@ import styled from 'styled-components'
 
 import { formatTime } from '../../../../utils/format-time'
 
-// Esse componente contém a lógica para criar as bolinhas do detalhe do horário 
-// manipulando SVG
+// Componente do horário entre dois eventos, contém a lógica para criar as bolinhas do detalhe do horário manipulando SVG
 
 // Tamanho das bolinhas
 const DOT_SIZE = 8.5
+const DOT_RADIUS = DOT_SIZE / 2
 // Espaçamento lateral entre as bolinhas
 const DOT_GAP = 18
-// Margin Top e Margin Bottom das bolinhas
+// Posições das linhas de bolinhas
 const TOP_ROW_CENTER_Y = DOT_SIZE / 2
 const BOTTOM_ROW_CENTER_Y = TOP_ROW_CENTER_Y + DOT_GAP
 // Altura total do SVG
 const SVG_HEIGHT = BOTTOM_ROW_CENTER_Y + TOP_ROW_CENTER_Y
 
 const TimeItem = ({ startTime, endTime, reverseItem }) => {
-    // Ref pra div com o SVG das bolinhas
+    // Ref para div com o SVG das bolinhas
     const dotsWrapperRef = useRef(null)
     // ID pro SVG
     const gradientId = `time-item-dots-gradient-${useId().replace(/:/g, '')}`
 
     const [availableWidth, setAvailableWidth] = useState(0)
-    const dotRadius = DOT_SIZE / 2
 
-    // Rodando após renderizar o componente
+    // Roda após renderizar o componente
     useEffect(() => {
         const dotsWrapper = dotsWrapperRef.current
 
@@ -33,11 +32,11 @@ const TimeItem = ({ startTime, endTime, reverseItem }) => {
             return
         }
 
-        // Pegando o width disponível (renderizado)
+        // Pegando o width disponível (já renderizado)
         setAvailableWidth(dotsWrapper.getBoundingClientRect().width)
         
         // Observer para detectar mudanças no width do componente, como um listener
-        // E atualiza o availableWidth
+        // E atualiza o availableWidth com o width atualizado
         const resizeObserver = new ResizeObserver(([entry]) => {
             setAvailableWidth(entry.contentRect.width)
         })
@@ -50,20 +49,20 @@ const TimeItem = ({ startTime, endTime, reverseItem }) => {
 
     // Calculando a quantidade de bolinhas que cabem no width disponível
     // Roda apenas quando availableWidth muda
-    // dots é um objeto com as colunas de bolinhas e o width do SVG
+    // dots é um objeto contendo as posições das colunas de bolinhas e o width do SVG
     const dots = useMemo(() => {
         // Calculando a largura utilizável, quantas colunas de bolinhas cabem, largura do SVG
         // e as posições das colunas das bolinhas (columns)
         const usableWidth = Math.max(availableWidth, DOT_SIZE)
         const columnCount = Math.max(1, Math.floor((usableWidth - DOT_SIZE) / DOT_GAP) + 1)
         const svgWidth = DOT_SIZE + (columnCount - 1) * DOT_GAP
-        const columns = Array.from({ length: columnCount }, (_, index) => dotRadius + index * DOT_GAP)
+        const columns = Array.from({ length: columnCount }, (_, index) => DOT_RADIUS + index * DOT_GAP)
 
         return {
             columns,
             svgWidth,
         }
-    }, [availableWidth, dotRadius])
+    }, [availableWidth])
 
     return (
         <TimeItemWrapper className={`${reverseItem ? 'reverse' : ''}`}>
@@ -97,8 +96,8 @@ const TimeItem = ({ startTime, endTime, reverseItem }) => {
                     {/* Desenhando as bolinhas. Posição x é dada pelo dots, y foi definida nas variáveis globais */}
                     {dots.columns.map((x) => (
                         <React.Fragment key={x}>
-                            <circle cx={x} cy={TOP_ROW_CENTER_Y} r={dotRadius} fill={`url(#${gradientId})`} />
-                            <circle cx={x} cy={BOTTOM_ROW_CENTER_Y} r={dotRadius} fill={`url(#${gradientId})`} />
+                            <circle cx={x} cy={TOP_ROW_CENTER_Y} r={DOT_RADIUS} fill={`url(#${gradientId})`} />
+                            <circle cx={x} cy={BOTTOM_ROW_CENTER_Y} r={DOT_RADIUS} fill={`url(#${gradientId})`} />
                         </React.Fragment>
                     ))}
                 </svg>
@@ -129,7 +128,7 @@ const TimeItemWrapper = styled.div`
         }
     }
 
-    /* Segundo texto de horário, mostrado apenas em versão para computador */
+    // Segundo texto de horário, escondendo nessa versão (celular), apenas mostrado em versão para computador
     h3:last-of-type {
         display: none;
     }
@@ -146,7 +145,7 @@ const TimeItemWrapper = styled.div`
     @media (min-width:600px) {
         justify-content: space-between;
 
-        // Alterando cores dos textos de horários das bolinhas
+        // Alterando cores dos textos de horários das bolinhas para combinar com as bolihnas
         h3:first-of-type {
             color: var(--brand-purple-200);
 
@@ -155,7 +154,7 @@ const TimeItemWrapper = styled.div`
             }
         }
 
-        /* Segundo texto de horário, mostrado apenas em versão para computador */
+        // Mostrando Segundo texto de horário
         h3:last-of-type {
             color: var(--brand-purple-400);
             display: block;
@@ -165,7 +164,7 @@ const TimeItemWrapper = styled.div`
             }
         }
 
-        /* Desabilitando a inversão dos textos de horário para essa versão (min 600px) */
+        // Desabilitando a inversão dos textos de horário para essa versão (min 600px)
         &.reverse {
             flex-direction: row;
 
@@ -207,23 +206,24 @@ const DotsWrapper = styled.div`
     }
 
     .gradient-stop-1 {
-        stop-color: #390078;
+        stop-color: var(--brand-primary-dark);
     }
 
     .gradient-stop-2 {
-        stop-color: #9638FF;
+        stop-color: var(--brand-primary);
     }
 
     @media (prefers-color-scheme: light) {
         .gradient-stop-1 {
-            stop-color: #6206BF;
+            stop-color: var(--brand-primary);
         }
 
         .gradient-stop-2 {
-            stop-color: #390078;
+            stop-color: var(--brand-purple-200);
         }
     }
 
+    // 600px é o ponto de quebra para mudança das bolinhas
     @media (min-width:600px) {
         width: 100%;
         margin-top: 0.125rem;
@@ -231,20 +231,20 @@ const DotsWrapper = styled.div`
         justify-content: center;
 
         .gradient-stop-1 {
-            stop-color: #9638FF;
+            stop-color: var(--brand-primary);
         }
 
         .gradient-stop-2 {
-            stop-color: #D0ACFF;
+            stop-color: var(--brand-purple-200);
         }
 
         @media (prefers-color-scheme: light) {
             .gradient-stop-1 {
-                stop-color: #6618BB;
+                stop-color: var(--brand-primary);
             }
 
             .gradient-stop-2 {
-                stop-color: #9638FF;
+                stop-color: var(--brand-purple-700);
             }
         }
     }
