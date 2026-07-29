@@ -155,7 +155,7 @@ const SpeakerContainer = styled.div`
         justify-content: center;
         position: relative;
 
-        // Background do card de palestrante versão celular
+        // Background do card de palestrante versão celular (foto roxa de fundo)
         &::before {
             content: "";
             position: absolute;

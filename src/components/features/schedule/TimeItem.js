@@ -197,6 +197,7 @@ const DotsWrapper = styled.div`
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
+    padding-right: 0.5rem;
 
     svg {
         display: block;
@@ -229,6 +230,7 @@ const DotsWrapper = styled.div`
         margin-top: 0.125rem;
         align-items: center;
         justify-content: center;
+        padding-right: 0;
 
         .gradient-stop-1 {
             stop-color: var(--brand-primary);
