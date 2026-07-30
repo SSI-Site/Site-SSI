@@ -13,12 +13,14 @@ import Button from '../src/components/ui/Button';
 import SecondaryButton from '../src/components/ui/SecondaryButton';
 import UserGiftCard from '../src/components/features/gifts/UserGiftCard';
 import UserWatchedLecturesList from '../src/components/features/user/UserWatchedLecturesList';
+import QRCodeModal from '../src/components/features/user/QRCodeModal';
 
 // assets
 import gifts from '../data/gifts';
 import { eventDetails } from '../data/eventDetails';
 import coisinho1 from '../public/images/user/coisinho1.svg';
 import coisinho2 from '../public/images/user/coisinho4.svg';
+import qrcodeIcon from '../public/images/user/qrcode-icon.svg';
 
 import presenteIcon from '../public/images/user/dark/presente-icon.svg';
 import userAvatar from '../public/images/user/dark/user-avatar.png';
@@ -35,6 +37,9 @@ import medalCollected_light from '../public/images/user/light/medal/resgatado.pn
 const User = () => {
 
     const { user, disableAuth, signOut } = useAuth();
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [showCodeModal, setShowCodeModal] = useState(false);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [studentInfo, setStudentInfo] = useState({});
@@ -194,6 +199,25 @@ const User = () => {
         }
     }, [user]);
 
+    const handleShowCodeModal = () => {
+        setIsOpen(false);
+        setShowCodeModal(true);
+    }
+
+    useEffect(() => {
+        if (showCodeModal) {
+            // Calcula a largura da barra de rolagem
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Adiciona o padding-right para compensar a largura da barra de rolagem
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollBarWidth}px`;
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = 'unset';
+        }
+    }, [showCodeModal]);
+
     const { asPath } = useRouter('/user');
 
     useEffect(() => {
@@ -220,6 +244,16 @@ const User = () => {
     
     return (
         <>
+
+        {/* QR Code */}
+        {showCodeModal &&
+        <QRCodeModal
+            code={studentInfo.code}
+            onClose={() => setShowCodeModal(false)}
+            show={showCodeModal}
+        />
+        }
+                    
         {
             <script
                 dangerouslySetInnerHTML={{
@@ -247,40 +281,65 @@ const User = () => {
             {!isLoading && !disableAuth && user &&
                 <>
                     <UserInfoSection>
-                        <div>
+                        <UserInfoContainer>
                             <UserInfoWrapper>
-                                <PhotoTextWrapper>
-                                    <Image 
-                                    className='user-pic' 
-                                    width = {500}
-                                    height = {500}
-                                    src={user.photoUrl} alt="user picture" />
-                                </PhotoTextWrapper>
+                                <UserInfo>
+                                    <PhotoTextWrapper>
+                                        <Image 
+                                            className='user-pic'
+                                            width={640}
+                                            height={640}
+                                            src={userAvatar} alt="user picture" 
+                                        />
 
-                                <InfoUser>
-                                    <div className='text-info'>
-                                        {user.name ?
-                                            <h4>{user.name}</h4>
-                                        :
-                                            <h4>{studentInfo.name}</h4>
-                                        }
-                                        <div className='user-info'>
+                                        <UserText>
+                                            {user.name ?
+                                                <h4>{user.name}</h4>
+                                            :
+                                                <h4>{studentInfo.name}</h4>
+                                            }
                                             <p>Email: {user.email}</p>
-                                        </div>
-                                    </div>
-                                    <div className='btn-wrapper'>
-                                        <SecondaryButton onClick={signOut}>Sair</SecondaryButton>
-                                    </div>
-                                </InfoUser>
+                                        
+                                        </UserText>
+                                    </PhotoTextWrapper>
+                                    
+                                    {/* Implementar botão para adicionar o Número USP */}
+                                    <NuspContainer>
+                                        <label>Adicionar Número USP</label>
+                                        <label>+</label> {/* incluir ícone */}
+                                    </NuspContainer>
+                                    
+                                </UserInfo>
 
-                                <div className="section-info">
-                                    <p>Código SSI:</p>
-                                    <div className='unique-code'>
-                                        <h6>{studentInfo.code}</h6>
-                                    </div>
-                                </div>
+                                <UserCode>
+                                    <CodeText>
+                                        <div className='user-code-label'>
+                                            <label>Seu código SSI:</label>
+                                            <h3 className='code-value'>{studentInfo.code}</h3>
+                                        </div>
+
+                                        <label className='user-code-instruction-mobile'>
+                                            Use o QRcode para registrar suas presenças e resgatar brindes!
+                                        </label>
+                                        <label className='user-code-instruction-desktop'>
+                                            Faça login pelo celular e use o QRcode para registrar suas presenças e resgatar brindes!
+                                        </label>
+
+                                    </CodeText>
+
+                                    <button
+                                    className='qrcode-button'
+                                    onClick={handleShowCodeModal} 
+                                    >
+                                        <Image 
+                                        width={64} height={64}
+                                        src={qrcodeIcon} alt="QRCode" />
+                                    </button>
+                                </UserCode>
                             </UserInfoWrapper>
-                        </div>
+
+                            <SignOutButton onClick={signOut}>Sair</SignOutButton>
+                        </UserInfoContainer>
                     </UserInfoSection>
 
                     <UserWatchedLecturesListSection>
@@ -354,156 +413,197 @@ const Loading = styled.figure`
 
 const UserInfoSection = styled.section`
     padding: 1rem;
-    max-width: 1328px;
     width: 100%;
-    margin: 0 auto;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
-    > div {
-        display: flex;
-        flex-direction: column;
+    @media (min-width:1024px) {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+`
+
+const UserInfoContainer = styled.div`
+    width: 100%;
+    max-width: 1328px;
+    display: flex;
+    flex-direction: column;
+    
+    padding: 1.25rem 1rem;
+    gap: 1.5rem;
+    border-radius: 1rem;
+
+    background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
+    backdrop-filter: blur(6px);
+
+    @media (min-width:1021px) {
+        align-items: end;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+`
+const UserInfoWrapper = styled.div`
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem;
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        gap: 2rem;
+    }
+`
+
+const UserInfo = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 1024px) {
+        gap: 1.5rem;
+    }
+`
+const PhotoTextWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    
+    @media (min-width: 1024px) {
         gap: 1.5rem;
     }
 
-    @media (min-width:1024px) {
-        padding: 2rem 1.5rem;
-        gap: 3.5rem;
-        border-inline: 1px solid var(--outline-neutrals-secondary);
-    }
-`
-
-const UserInfoWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
-    background-color: var(--background-neutrals-secondary);
-    padding: 1rem;
-    gap: 1.25rem;
-
-    @media (min-width:1021px) {
-        width: 100%;
-        gap: 3rem;
-        justify-content: space-between;
-        flex-direction: row;
-        padding: 2rem 7rem;
-    }
-
-    .section-info {
-        width: 100%;
-        min-width: 16rem;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-
-        p {
-            font: 700 0.875rem/1.5rem 'AT Aero Bold';
-        }
-
-        button {
-            padding-inline: 0.75rem;
-        }
-
-        .contained-width-btn {
-            width: fit-content;
-        }
-
-        .defined-nusp {
-            font: 700 1rem/1.5rem 'AT Aero Bold';
-
-            @media (min-width:801px) {
-                font: 700 1.5rem/2rem 'AT Aero Bold';
-            }
-        }
-
-        @media (min-width:1021px) {
-            width: unset;
-        }
-    }
-    
-    .unique-code {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5rem 0.25rem;
-        background-color: var(--brand-primary);
-    }
-    
-    .number-usp {
-        display: flex;
-        gap: 0.5rem;
-        width: 100%;
-
-        form {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-
-            @media (min-width:801px) {
-                max-width: 16rem;
-            }
-        }
-        
-        input {
-            width: 100%;
-        }
-
-        @media (min-width:1021px) {
-            max-width: 16rem;
-        }
-    }
-`
-
-const ErrorMessage = styled.span`
-    color: var(--color-invalid);
-    text-decoration: underline;
-    position: absolute;
-    bottom: -1.1rem;
-`
-
-const PhotoTextWrapper = styled.div`
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    img {
-        width: 100%;
-        height: 100%;
+    .user-pic {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 0.75rem;
+        border: 2px solid var(--brand-primary-light);
         object-fit: cover;
-    }
 
-    @media (min-width:520px) {
-        max-width: 9.375rem;
-    }
-
-    @media (min-width:801px) {
-        gap: 2rem;
-        flex-direction: row;
+        @media (min-width: 1024px) {
+            width: 8rem;
+            height: 8rem;
+        }
     }
 `
-const InfoUser = styled.div`
-    width: 100%;
+const UserText = styled.div`
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+        width: 100%;
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
     
-    h6 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
+    @media (min-width: 1024px) {
+        justify-content: start;
+        gap: 0.75rem;
 
-    .user-info {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    @media (min-width:1021px) {
-        button {
-            width: fit-content;
+        h4 {
+            line-height: 2.75rem;
         }
+    }
+`
+const NuspContainer = styled.div`
+    width: 100%;
+    min-height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    gap: 1rem;
+
+    border-radius: 0.75rem;
+    background-color: var(--background-neutrals-secondary);
+    border: 2px solid rgba(128, 128, 128, 0.25);
+
+    @media (min-width: 1024px) {
+        max-width: 18.5rem;
+    }
+`
+
+const UserCode = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    .qrcode-button {
+        padding: 0.45rem 0.55rem;
+        border-radius: 0.75rem;
+        border: 0;
+        background-color: var(--brand-primary);
+
+        @media (min-width: 1024px) {
+            display: none;
+        }
+    }
+`
+
+const CodeText = styled.div`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    @media (min-width: 1024px) {
+        justify-content: start;
+    }
+
+    .user-code-label {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 0.5rem;
+
+        @media (min-width: 1024px) {
+            gap: 1rem;
+
+            label {
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    .code-value {
+        background: var(--text-gradient-primary-dark); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    
+    .user-code-instruction-mobile {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--content-neutrals-tertiary);
+
+        @media (min-width: 1024px) {
+            display: none;
+        }
+    }
+
+    .user-code-instruction-desktop {
+        width: 18.5rem;
+        display: none;
+        font-size: 0.95rem;
+        line-height: 1.5rem;
+        color: var(--content-neutrals-tertiary);
+
+        @media (min-width: 1024px) {
+            display: block;
+        }
+    }
+`
+
+const SignOutButton = styled(SecondaryButton)`
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        max-width: 18.5rem;
     }
 `
 
