@@ -343,52 +343,38 @@ const User = () => {
                     </UserInfoSection>
 
                     <UserWatchedLecturesListSection>
-                        <div className='lectures-info-wrapper'>
-                            <h5>Palestras assistidas</h5>
-                            <p>Filtre por dia:</p>
-                            <div className='info-content'>
-                                
-                                <UserWatchedLecturesList lectures={lectures} />
+                        <UserWatchedLecturesListContainer>
+                            <PresenceStatus>
+                                <div className='status-header'>
+                                    <h5>Participação Total</h5>
+                                </div>
 
-                                <div className="statusPres">
-                                    <div className='display-pres b0 '>
-                                        <p>Total de registros</p>
-                                        <h4>{lectures.length}</h4>
+                                <div className='status-content'>
+                                    <div className='status-display-main'>
+                                        <h2>{lectures.length}</h2>
+                                        <label>Presenças</label>
                                     </div>
-                                    <div className='display-pres b1'>
-                                        <p>Brindes completados:</p>
-                                        <h4>{userGifts.length}</h4>
+                                    <div className='status-display'>
+                                        <h2>{userGifts.length}</h2>
+                                        <label>Brindes Conquistados</label>
                                     </div>
 
-                                    <div className='display-pres b1'>
-                                        <p>Brindes resgatados:</p>
-                                        <h4>{userGifts.filter(item => item.receveid == true).length}</h4>
+                                    <div className='status-display'>
+                                        <h2>{userGifts.filter(item => item.receveid == true).length}</h2>
+                                        <label>Brindes Resgatados</label>
                                     </div>
                                 </div>
+                            </PresenceStatus>
+                                
+                            
+                            <div className='lectures-list-wrapper'>
+                                <h5>Minhas Presenças</h5>
+                                <UserWatchedLecturesList lectures={lectures} />                            
                             </div>
-
-                        </div>
+                        </UserWatchedLecturesListContainer>
                     </UserWatchedLecturesListSection>
 
-                    {/*
-                    <GiftsProgressSection id='meus-brindes'>
-                        <h5>Progresso dos brindes</h5>
-
-                        <div className='user-gifts-wrapper'>
-                            {Object.entries(gifts).map(([key, gift]) => {
-                                return (
-                                    <UserGiftCard 
-                                        key={key}
-                                        index={key}
-                                        gift={gift}
-                                        totalPres={lectures.length}
-                                        presentialPres={presentialLecturesCount()}
-                                    />
-                                )
-                            })}
-                        </div>
-                    </GiftsProgressSection>
-                    */}
+                    
                 </>
             }
         </>
@@ -608,129 +594,100 @@ const SignOutButton = styled(SecondaryButton)`
 `
 
 const UserWatchedLecturesListSection = styled.section`
-    //border-block: 1px solid var(--outline-neutrals-secondary);
-    border-top: 1px solid var(--outline-neutrals-secondary);
-
-    .lectures-info-wrapper {
-        padding-block:1.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        width: 100%;
-
-		.statusPres {
-			width: 100%;
-			display: flex;
-            flex-direction: column;
-			gap: 1rem;
-            background-color: var(--background-neutrals-secondary);
-            margin-block: 1.5rem;
-            padding: 1.25rem;
-
-			.display-pres {
-				width: 100%;
-				display: flex;
-                flex-direction: column;
-				padding: 0.75rem;
-                gap: 0.5rem;
-
-				span {
-					font: 700 2rem/2.5rem 'AT Aero Bold';
-				}
-
-				p {
-					text-align: left;
-					font: 400 1rem/1.5rem 'AT Aero Bold';
-				}
-			}
-
-			.b0 {
-				background-color: var(--brand-primary);
-				
-				p, h4 {
-					color: var(--content-neutrals-primary);
-				}
-			}
-
-			.b1 {
-				background-color: var(--background-neutrals-inverse);
-
-				p, h4 {
-					color: var(--content-neutrals-inverse);
-				}
-			}
-
-		}
-
-        button {
-            width: fit-content;
-        }
-    }
-
-    @media (min-width:520px) {
-
-        .lectures-info-wrapper {
-            align-items: center;
-            justify-content: flex-start;
-
-            .b0, .b1 {
-                max-width: 18.5rem;
-            }
-        }
-    }
-
-    @media (min-width:801px) {
-       
-        .lectures-info-wrapper {
-            gap: 2rem;
-            max-width: 1328px;
-            padding: 2rem 1.5rem;
-            border-inline: 1px solid var(--outline-neutrals-secondary);
-            width: 100%;
-
-            h4, p {
-                width: 100%;
-                text-align: left;
-            }
-
-            .info-content{
-                display: flex;
-                align-items: flex-start;
-                justify-content: flex-start;
-                width: 100%;
-                
-            }
-
-            .statusPres{
-                width: fit-content;
-                margin-block: unset;
-            }
-        }
-    }
-`
-
-const GiftsProgressSection = styled.section`
-    padding-block: 2rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+`
 
-    .user-gifts-wrapper {
+const UserWatchedLecturesListContainer = styled.section`
+    width: 100%;
+    max-width: 1328px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0;
+    gap: 2.5rem;
+
+    @media (min-width: 1024px) {
+        flex-direction: row-reverse;
+        gap: 1rem;
+    }
+
+    .lectures-list-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         gap: 1rem;
-        padding-inline: 1rem;
+`
+const PresenceStatus = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 1rem;
+    overflow: hidden;
 
-        @media (min-width:800px) {
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            padding-inline: 0;
+    background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
+    backdrop-filter: blur(6px);
+
+    @media (min-width: 1024px) {
+        min-height: 100%;
+        align-self: stretch;
+        max-width: 20rem;
+    }
+
+    .status-header {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-primary-light) 100%);
+
+        @media (min-width: 1024px) {
+            h5 {
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+            }
+        }
+    }
+
+    .status-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        gap: 0.5rem;
+        
+        label {
+            font-size: 0.75rem;
+        }
+
+        @media (min-width: 1024px) {
+            h2 {
+                font-size: 2.25rem;
+                line-height: 3.25rem;
+            }
+
+            label {
+                font-size: 1rem;
+            }
+        }
+
+        .status-display-main {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: var(--content-neutrals-inverse);
+            background: linear-gradient(90deg, var(--background-neutrals-inverse) 0%, var(--brand-primary-light) 100%);
+        }
+
+        .status-display {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: var(--content-neutrals-primary);
+            background: color-mix(in srgb, var(--background-neutrals-primary) 50%, transparent);
         }
     }
 `
+
