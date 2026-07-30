@@ -4,7 +4,10 @@ import styled, { css } from "styled-components";
 //IMAGES
 import speakersImages from "../../../../data/speakers";
 import ArrowUpIcon from "../../../../public/images/icons/arrow-up.svg";
-import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaLogos";
+import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaOutlinedLogos";
+import BackgroundPicture from "../../../../public/images/partnerships/photos/bg_desktop.png";
+import DividerMobile from "../../../../public/images/ui/divider-speakers-mobile.svg";
+import DividerDesktop from "../../../../public/images/ui/divider-speakers-desktop.svg";
 
 // Componente principal que exibe o card do palestrante
 const PalestranteCard = ({palestrante}) => {
@@ -48,28 +51,26 @@ const PalestranteCard = ({palestrante}) => {
     return (
         <PalestranteContainer>
             {/* Cabeçalho do card, ao clicar alterna entre aberto e fechado */}
-            <PalestranteHeader onClick={() => setOpen(!open)}>
+            <PalestranteHeader onClick={() => setOpen(!open)} $active = {open}>
                 <PalestranteImageWrapper>
                     <PalestranteImage src={speakersImages[palestrante.id.slice(0,3).toUpperCase()]} alt={palestrante.name} />
                 </PalestranteImageWrapper>
                 <PalestranteInfo>
-                    <PalestranteName>
+                    <PalestranteName $active = {open}>
                         {palestrante.name}
                         <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" className="arrow" $active = {open}/>   
                     </PalestranteName>
-                    <PalestranteRole>{palestrante.role}</PalestranteRole>
+                    <PalestranteRole $active={open}>{palestrante.role}</PalestranteRole>
                 </PalestranteInfo>
             </PalestranteHeader>
             {/* Wrapper do corpo do card, controla a altura para animação de abrir/fechar */}
-            <PalestranteWrapper style={{
-                height: open ? `${bodyHeight}px` : "0px",
-            }}>
+            <PalestranteWrapper $active={open} $height={bodyHeight}>
                 {/* Corpo do card, contém informações detalhadas */}
                 <PalestranteBody ref={bodyRef}>
                     <PalestranteLeftBody>
                         <PalestrantePronome>
                             {
-                                palestrante.pronouns
+                                palestrante.pronouns ? palestrante.pronouns.toLowerCase() : palestrante.pronouns
                             }
                         </PalestrantePronome>
                     </PalestranteLeftBody>
@@ -135,22 +136,32 @@ export default PalestranteCard;
 const PalestranteArrowUp = styled.img`
     width: 100%;
     max-width: 2rem;
+    max-height: 2rem;
     cursor: pointer;
     transition: all 300ms ease-in-out;
     transform: rotate(180deg);
     display: none;
+    aspect-ratio: 1/1;
 
-    ${props => props.$active && ({
-        display: "initial",
-        transform: "rotate(360deg)"
-    })}
-
-    @media screen and (max-width:1024px){
+    ${props => props.$active && `
         display: initial;
+        transform: rotate(360deg);
+    `}
+
+    @media (prefers-color-scheme: light) {
+        filter: invert(1);
+
+        ${props => props.$active && `
+            filter: invert(0);
+        `}
     }
 
     @media screen and (min-width: 801px){
-        max-width: fit-content
+        /* max-width: fit-content */
+    }
+
+    @media screen and (max-width:1024px){
+        display: initial;
     }
 `;
 
@@ -158,19 +169,37 @@ const PalestranteContainer = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
     position: relative;
+
+    // Linha horizontal com bolinhas
+    /* desktop 110/1 */
+    &:after {
+        content: "";
+        width: 100%;
+        aspect-ratio: 40 / 1;
+        background: url(${DividerMobile});
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: block;
+        max-height: 0.8rem;
+        /* margin-top: 0.5rem; */
+    }
 `;
 
 const PalestranteInfo = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    gap: 1.5rem;
+    min-height: 100%;
+    align-self: stretch;
+    justify-content: space-between;
+    z-index: 5;
 
     @media (min-width:801px) {
         flex-direction: row;
-        padding: 1.5rem;
+        align-items: flex-end;
+        /* padding: 1.5rem; */
     }
 `;
 
@@ -178,13 +207,35 @@ const PalestranteHeader = styled.div`
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    padding-block: 1rem;
+    padding: 1rem 0.5rem 1rem 0.625rem;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     flex-wrap: nowrap;
+    z-index: 5;
+    position: relative;
+
+    // Background do card de palestrante (foto roxa de fundo), mostrando quando o card está aberto
+    ${props => props.$active && `
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url(${BackgroundPicture});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(0.8px) saturate(0.8);
+            opacity: 0.8;
+            z-index: 1;
+            
+            @media (prefers-color-scheme: light) {
+                opacity: 0.8;
+            }
+        }
+    `}
 
     &:hover{
-        background-color: var(--background-neutrals-secondary);
+        /* background-color: var(--background-neutrals-secondary); */
 
         .arrow {
             display: initial;
@@ -192,20 +243,36 @@ const PalestranteHeader = styled.div`
     }
 
     @media (min-width:801px) {
-        padding: 1.5rem;
+        /* padding: 1.5rem;
         gap: 1.5rem;
-        align-items: flex-end;
+        align-items: flex-end; */
     }
 `;
 
 const PalestranteRole = styled.span`
-    font-weight: 500;
+    margin-top: 0.5rem;
+    color: var(--brand-primary-light);
+    font: 400 1rem/1.25rem 'AT Aero';
+
+
+    @media (prefers-color-scheme: light) {
+        color: var(--brand-purple-200);
+
+        ${props => props.$active && `
+            color: var(--content-neutrals-fixed-white);
+        `}
+    }
+
+    ${props => props.$active && `
+        color: var(--content-neutrals-fixed-white);
+    `}
 
     @media (min-width:1024px) {
         display: flex;
         align-items: flex-end;
         width: 30%;
     }
+
 `;
 
 const PalestranteImageWrapper = styled.div`
@@ -213,6 +280,7 @@ const PalestranteImageWrapper = styled.div`
     width: 5rem;
     height: 5rem;
     display: flex;
+    z-index: 5;
 
     @media (min-width: 1024px){
         width: 100%;
@@ -231,13 +299,31 @@ const PalestranteImage = styled.img`
 const PalestranteName = styled.h3`
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    font: 700 1.5rem/1.75rem 'AT Aero Bold';
+
+    ${props => props.$active && `
+        color: var(--content-neutrals-fixed-white);
+    `}
+
+    @media (min-width: 801px) {
+        width: auto;
+        align-items: flex-end;
+    }
+
+    @media (min-width: 1024px) {
+        font: 700 2.5rem/3rem 'AT Aero Bold';
+    }
 `;
 
 const PalestranteWrapper = styled.div`
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     will-change: height;
+    height: 0px;
+
+    ${props => props.$active && `
+        height: ${props.$height}px;
+    `}
 `;
 
 const PalestranteBody = styled.div`
@@ -269,16 +355,17 @@ const PalestranteMiddleBody = styled.div`
 `;
 
 const PalestranteRightBody = styled.div`
-    width: 30%;
+    /* width: 30%; */
 `;
 
 const PalestrantePronome = styled.span`
-    font-weight: 400;
     border: 1px solid var(--outline-neutrals-primary);
     width: fit-content;
-    padding: 0.25rem 0.5rem;
-    line-height: 1.5rem;
-    // already existis
+    padding: 0.15rem 0.375rem;
+    font: 400 0.8rem/1.125rem 'AT Aero';
+    border-radius: 0.5rem;
+    background: var(--content-neutrals-primary);
+    color: var(--content-neutrals-inverse);
 `;
 
 const PalestranteDescription = styled.p`
@@ -293,10 +380,14 @@ const PalestranteSocialContainer = styled.div`
 `;
 
 const PalestranteSocialHeader = styled.p`
-    font-weight: 500;
+    font: 400 1rem/1.5rem 'AT Aero';
 `;
 
 const PalestranteSocialMedia = styled.div`
     display: flex;
     gap: 1rem;
+
+    a {
+        line-height: 0;
+    }
 `;
