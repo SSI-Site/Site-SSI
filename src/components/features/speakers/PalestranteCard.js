@@ -1,5 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
+import Image from "next/image";
+import PalestranteBolinhas from "./SpeakerDots";
 
 //IMAGES
 import speakersImages from "../../../../data/speakers";
@@ -53,7 +55,7 @@ const PalestranteCard = ({palestrante}) => {
             {/* Cabeçalho do card, ao clicar alterna entre aberto e fechado */}
             <PalestranteHeader onClick={() => setOpen(!open)} $active = {open}>
                 <PalestranteImageWrapper>
-                    <PalestranteImage src={speakersImages[palestrante.id.slice(0,3).toUpperCase()]} alt={palestrante.name} />
+                    <Image src={speakersImages[palestrante.id.slice(0,3).toUpperCase()]} alt={palestrante.name} width={80} height={80} />
                 </PalestranteImageWrapper>
                 <PalestranteInfo>
                     <PalestranteName $active = {open}>
@@ -117,7 +119,7 @@ const PalestranteCard = ({palestrante}) => {
                 </PalestranteBody>
                 
             </PalestranteWrapper>
-
+            <PalestranteBolinhas />
         </PalestranteContainer >
     )
 }
@@ -170,21 +172,6 @@ const PalestranteContainer = styled.div`
     flex-direction: column;
     flex: 1;
     position: relative;
-
-    // Linha horizontal com bolinhas
-    /* desktop 110/1 */
-    &:after {
-        content: "";
-        width: 100%;
-        aspect-ratio: 40 / 1;
-        background: url(${DividerMobile});
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        display: block;
-        max-height: 0.8rem;
-        /* margin-top: 0.5rem; */
-    }
 `;
 
 const PalestranteInfo = styled.div`
@@ -282,19 +269,18 @@ const PalestranteImageWrapper = styled.div`
     display: flex;
     z-index: 5;
 
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     @media (min-width: 1024px){
         width: 100%;
         width: 8rem;
         height: 8rem;
     }
-    
 `
-
-const PalestranteImage = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-`;
 
 const PalestranteName = styled.h3`
     width: 100%;
