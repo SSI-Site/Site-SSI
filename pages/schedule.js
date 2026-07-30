@@ -124,8 +124,7 @@ const Schedule = () => {
                                     setDayNumber(index)
                                 }}
                             >
-                                <DateStamp
-                                    dayIndex={index + 1}             
+                                <DateStamp        
                                     weekDay={weekDays[index]}             
                                     dateStr={dayOfSSI[index]}             
                                     isActive={activeItem === date}
@@ -417,7 +416,7 @@ const DesktopSelectionContainer = styled.div`
     background-color: var(--background-neutrals-primary);
     border-color: var(--outline-neutrals-secondary);
     color: var(--content-neutrals-primary);
-    @media (min-width:600px) {
+    @media (min-width:840px) {
         display: flex;
         flex-direction: column;
         align-items: center;
