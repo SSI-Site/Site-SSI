@@ -65,7 +65,7 @@ const BadgeWrapper = styled.div`
     border: 2px solid ${props => props.$borderColor};
 
     p {
-        font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "AT Aero Bold", sans-serif);
+        font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "At Hauss Aero", sans-serif);
         font-size: 0.875rem;
         font-weight: 700;
         line-height: 1.5rem; 
