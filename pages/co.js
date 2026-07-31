@@ -66,16 +66,35 @@ const CO = () => {
                 <div className='exhibition-container'>
                     <div className='title-text'>
                         <h1>Comissão Organizadora</h1>
-                        <p>Conheça a Comissão Organizadora da Semana de Sistemas de Informação, o time que trabalha para fazer esse evento acontecer.</p>
+                        <p>Venha conhecer a Comissão Organizadora que trabalha para fazer a Semana de Sistemas de Informação acontecer!</p>
                     </div>
                     <div className='image-container'>
-                        <Image 
-                            src='/images/co/co.jpg' 
-                            alt='Foto Palestra'
-                            width={500}
-                            height={500} 
-                            priority
-                        />
+                        <div className='image-wrapper'>
+                            {/* Triângulo de Cima preso no canto superior esquerdo da foto */}
+                            <img 
+                                src='/images/co/triangulo-cima.svg' 
+                                alt='' 
+                                className='triangle triangle-top' 
+                                aria-hidden="true" 
+                            />
+                            
+                            <Image 
+                                src='/images/co/co.jpg' 
+                                alt='Foto da Comissão Organizadora'
+                                width={608}
+                                height={416} 
+                                priority
+                                className='main-image'
+                            />
+
+                            {/* Triângulo de Baixo preso no canto inferior direito da foto */}
+                            <img 
+                                src='/images/co/triangulo-baixo.svg' 
+                                alt='' 
+                                className='triangle triangle-bottom' 
+                                aria-hidden="true" 
+                            />
+                        </div>
                     </div>
                 </div>
             </COExhibitionSection>
@@ -122,81 +141,171 @@ const CO = () => {
 }
 
 export default CO;
-
 const COExhibitionSection = styled.section`
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
     background: var(--background-neutrals-primary, #1A1A1A);
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 1.5rem;
 
     .exhibition-container {
-        border-inline: 1px solid var(--outline-neutrals-secondary);
         width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 6.8rem; 
+        position: relative;
+        z-index: 2;
 
         .title-text {
+            position: relative;
             color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
-            align-items: start;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--outline-neutrals-secondary);
+            align-items: flex-start; 
+            text-align: left;
+            gap: 1rem;
+            width: 100%;
+            z-index: 2;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 18rem;      
+                height: 18.5rem;   
+                
+                top: -3.5rem;      
+                left: -1.5rem;     
+                z-index: -1; 
+                
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                opacity: 0.5; 
+
+                background-image: light-dark(
+                    url('/images/co/detalhe-fundo-light.svg'), 
+                    url('/images/co/detalhe-fundo-dark.svg')
+                );
+
+                @media (prefers-color-scheme: light) {
+                    background-image: url('/images/co/detalhe-fundo-light.svg');
+                }
+            }
+            h1 {
+                font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "At Hauss Aero", sans-serif);
+                font-size: 2.2rem;
+                line-height: 2.5rem;
+            }
 
             p {
-                font: 400 1rem/1.5rem 'AT Aero';   
+                font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "At Hauss Aero", sans-serif);
+                font-weight: 400;
+                font-size: 0.95rem;
+                line-height: 1.4rem;
             }
         }
 
         .image-container {
             width: 100%;
-            max-width: 25rem;
-            padding: 1.5rem 1.5rem 1.5rem 1rem;
-            position: relative;
-            z-index: 1;
-            
-            img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .image-wrapper {
+                position: relative; 
+                width: fit-content;
+                max-width: 100%;
+                display: flex;
+
+                .triangle-top {
+                    position: absolute;
+                    width: 2.8rem;   
+                    height: 3.1rem;  
+                    top: -1rem;      
+                    left: -1rem;     
+                    z-index: 3;
+                }
+
+                .triangle-bottom {
+                    position: absolute;
+                    width: 2.2rem;   
+                    height: 2.2rem;  
+                    bottom: -1rem;   
+                    right: -1rem;    
+                    z-index: 3;
+                }
+            }
+
+            .main-image {
                 width: 100%;
                 height: auto;
+                aspect-ratio: 608 / 416;
                 object-fit: cover;
-                border: 0.25rem solid white;
-                box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
+                border-radius: 0.625rem; 
+                position: relative;
+                z-index: 2;
             }
         }
     }
 
-    @media (min-width:1021px) {
+    /* ====== DESKTOP LAYOUT  ====== */
+    @media (min-width: 1021px) {
+        padding: 6rem 3rem;
+
         .exhibition-container {
-            flex-direction: row;
-            background: var(--background-neutrals-primary, #1A1A1A);
-            
+            flex-direction: row; 
+            justify-content: center; 
+            gap: 4rem; 
+
             .title-text {
-                color: var(--content-neutrals-primary, #FFF);
-                height: calc(100vh - 8rem);
-                max-height: 41.875rem;
-                width: 50%;
-                border-bottom: 0;
-                border-right: 1px solid var(--outline-neutrals-secondary);
-                padding-block: 0;
+                width: 55%;
+                
+                &::before {
+                    width: 24.375rem;  
+                    height: 25rem;     
+                    top: 50%;
+                    left: 0; 
+                    transform: translate(-10%, -55%); 
+                    opacity: 0.5; 
+                }
+
+                h1 {
+                    font-size: 4rem;
+                    line-height: 4.5rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
             }
 
             .image-container {
-                display: flex;
+                width: 53%;
                 justify-content: center;
-                max-width: 50rem;
-                width: 50%;
-                padding: 0 1.5rem 0rem 1rem;
+                
+                .image-wrapper {
 
-                img {
-                    max-width: 38rem;
-                    border: 0.5rem solid white;
-                    box-shadow: 0.5rem 0.5rem 0 var(--brand-primary);
+                    .triangle-top {
+                        width: 6.6694rem; 
+                        height: 7.4047rem; 
+                        top: -3.5rem;
+                        left: -2.5rem;
+                    }
+
+                    .triangle-bottom {
+                        width: 4.875rem; 
+                        height: 4.8125rem; 
+                        bottom: -2.5rem;
+                        right: -2.5rem;
+                    }
                 }
             }
         }
     }
-`
+`;
 
 const COMembersSection = styled.section`
     overflow-x: hidden;
