@@ -62,8 +62,10 @@ const PalestranteCard = ({palestrante}) => {
                         {palestrante.name}
                         <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" className="arrow" $active = {open}/>   
                     </PalestranteName>
-                    <PalestranteRole $active={open}>{palestrante.role}</PalestranteRole>
                 </PalestranteInfo>
+                <PalestranteOcuppation>
+                    <PalestranteRole $active={open}>{palestrante.role}</PalestranteRole>
+                </PalestranteOcuppation>
             </PalestranteHeader>
             {/* Wrapper do corpo do card, controla a altura para animação de abrir/fechar */}
             <PalestranteWrapper $active={open} $height={bodyHeight}>
@@ -165,6 +167,11 @@ const PalestranteArrowUp = styled.img`
     @media screen and (max-width:1024px){
         display: initial;
     }
+
+    @media (min-width: 1024px){
+        max-width: 2.5rem;
+        max-height: 2.5rem;
+    }
 `;
 
 const PalestranteContainer = styled.div`
@@ -175,6 +182,7 @@ const PalestranteContainer = styled.div`
 `;
 
 const PalestranteInfo = styled.div`
+    grid-area: info;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -186,13 +194,16 @@ const PalestranteInfo = styled.div`
     @media (min-width:801px) {
         flex-direction: row;
         align-items: flex-end;
-        /* padding: 1.5rem; */
     }
 `;
 
 const PalestranteHeader = styled.div`
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    grid-template-areas: 
+        "image info"
+        "image occupation";
+    grid-template-columns: min-content auto;
+    column-gap: 1rem;
     align-items: flex-start;
     padding: 1rem 0.5rem 1rem 0.625rem;
     transition: all 0.2s ease-in-out;
@@ -222,7 +233,7 @@ const PalestranteHeader = styled.div`
     `}
 
     &:hover{
-        /* background-color: var(--background-neutrals-secondary); */
+        background-color: var(--background-neutrals-secondary);
 
         .arrow {
             display: initial;
@@ -230,11 +241,30 @@ const PalestranteHeader = styled.div`
     }
 
     @media (min-width:801px) {
-        /* padding: 1.5rem;
+        grid-template-areas: "image info occupation";
+        grid-template-columns: min-content auto 25%;
+    }
+
+    @media (min-width:1024px) {
+        padding: 1.5rem;
         gap: 1.5rem;
-        align-items: flex-end; */
     }
 `;
+
+const PalestranteOcuppation = styled.div`
+    grid-area: occupation;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    align-self: stretch;
+    justify-content: space-between;
+    z-index: 5;
+
+    @media (min-width:801px) {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+`
 
 const PalestranteRole = styled.span`
     margin-top: 0.5rem;
@@ -254,15 +284,19 @@ const PalestranteRole = styled.span`
         color: var(--content-neutrals-fixed-white);
     `}
 
+    @media (min-width: 801px) {
+        
+    }
+
     @media (min-width:1024px) {
         display: flex;
         align-items: flex-end;
-        width: 30%;
+        font: 400 1.125rem/1.5rem 'AT Aero';
     }
-
 `;
 
 const PalestranteImageWrapper = styled.div`
+    grid-area: image;
     width: 100%;
     width: 5rem;
     height: 5rem;
@@ -275,8 +309,12 @@ const PalestranteImageWrapper = styled.div`
         object-fit: cover;
     }
 
+    @media (min-width: 801px){
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+
     @media (min-width: 1024px){
-        width: 100%;
         width: 8rem;
         height: 8rem;
     }
@@ -292,6 +330,7 @@ const PalestranteName = styled.h3`
     `}
 
     @media (min-width: 801px) {
+        font: 700 2rem/2.25rem 'AT Aero Bold';
         width: auto;
         align-items: flex-end;
     }
@@ -320,10 +359,9 @@ const PalestranteBody = styled.div`
     flex: 1;
 
     @media (min-width:1024px) {
-        & {
-            flex-direction: row;
-            padding-inline: 1.5rem;
-        }
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1.5rem;
     }
 `;
 
@@ -332,16 +370,19 @@ const PalestranteLeftBody = styled.div`
     flex-direction: column;
 
     @media (min-width: 1024px){
-        width: 15%;
+        min-width: 8rem;
+        width: 8rem;
     }
 `;
 
 const PalestranteMiddleBody = styled.div`
-    width: 100%;
+    flex: 1;
 `;
 
 const PalestranteRightBody = styled.div`
-    /* width: 30%; */
+    @media (min-width: 1024px){
+        width: 25%;
+    }
 `;
 
 const PalestrantePronome = styled.span`
@@ -352,6 +393,10 @@ const PalestrantePronome = styled.span`
     border-radius: 0.5rem;
     background: var(--content-neutrals-primary);
     color: var(--content-neutrals-inverse);
+
+    @media (min-width: 1024px){
+        font: 400 0.875rem/1.25rem 'AT Aero';
+    }
 `;
 
 const PalestranteDescription = styled.p`
