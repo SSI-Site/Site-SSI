@@ -61,7 +61,6 @@ const User = () => {
         }
     })
 
-    /*
     const getStudentInfo = async() => {
         if (!user) return;
 
@@ -122,73 +121,6 @@ const User = () => {
         saphira.listStudentPresences()
             .then((res) => {
                 setLectures([...res.data]);
-            })
-            .catch(() => {
-                setLectures([]);
-            })
-    }
-    */
-  
-    const getStudentInfo = async() => {
-        if (!user) return;
-
-        setIsLoading(true);
-
-        try{
-            const data = await saphira.getStudent()
-            if (data) setStudentInfo({ ...saphiraUserDataToFormFormat(data) });
-            
-        }
-        catch(err){
-            console.log("Houve um erro GRAVE no usuário", err)
-        }
-        finally{
-            setIsLoading(false)
-        }
-    }
-
-    const saphiraUserDataToFormFormat = (userData) => {
-        const nameElements = getFullNameComponents(userData.name);
-
-        const data = {
-            name: nameElements.name,
-            last_name: nameElements.lastName,
-            usp_number: userData.usp_number,
-            code: userData.code,
-        }
-
-        return data;
-    }
-
-    const getFullNameComponents = (fullName) => {
-        const fullNameParts = fullName.split(" ");
-        const name = fullNameParts[0];
-        let lastName = "";
-
-        for (let i = 1; i < fullNameParts.length; i++) {
-            lastName += ` ${fullNameParts[i]}`;
-        }
-
-        return {
-            name,
-            lastName
-        }
-    }
-
-    const getStudentGifts = async() => {
-        try{
-            const data = await saphira.getStudentGifts()
-            if (data) setUsersGifts(data)
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
-
-    const getPresences = () => {
-        saphira.listStudentPresences()
-            .then((res) => {
-                setLectures([...res]);
             })
             .catch(() => {
                 setLectures([]);
