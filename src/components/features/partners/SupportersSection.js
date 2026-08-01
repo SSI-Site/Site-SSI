@@ -1,10 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
 
 import PartnerCard from './PartnerCard';
 
-const SupportersSection = ({ title, subtitle, data = [], showDivider = false, showSymbol = false}) => {
+const SupportersSection = ({ title, subtitle, data = [], showDivider = false, showSymbol = false }) => {
     return (
-        <Section $showDivider={showDivider} $showSymbol={showSymbol}>
+        <Section $showDivider={showDivider}>
             <div className='supporters-container'>
                 <div className='supporters-title'>
                     <h3>{title}</h3>
@@ -13,13 +14,21 @@ const SupportersSection = ({ title, subtitle, data = [], showDivider = false, sh
 
                 <div className='supporters-cards'>
                     {data.map((item) => (
-                        <PartnerCard
-                            key={item.name}
-                            name={item.name}
-                            imageDark={item.imageDark}
-                            imageLight={item.imageLight}
-                            link={item.url}
-                        />
+                        <React.Fragment key={item.name}>
+                            <PartnerCard
+                                name={item.name}
+                                imageDark={item.imageDark}
+                                imageLight={item.imageLight}
+                                link={item.url}
+                            />
+                            
+                            {showSymbol && (
+                                <div className="partner-symbol">
+                                    <img src="/images/home/simbolo-ssi-dark.svg" alt="Símbolo SSI" className="symbol-dark" />
+                                    <img src="/images/home/simbolo-ssi-light.svg" alt="Símbolo SSI" className="symbol-light" />
+                                </div>
+                            )}
+                        </React.Fragment>
                     ))}
                 </div>
             </div>
@@ -95,6 +104,7 @@ const Section = styled.section`
             width: 100%;
             max-width: 1328px;
             justify-items: center;
+            align-items: center;
 
             @media (min-width: 800px) {
                 grid-template-columns: repeat(2, 1fr);
@@ -102,50 +112,30 @@ const Section = styled.section`
 
             @media (min-width: 1100px) {
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            /* Estilização escalável do símbolo */
+            .partner-symbol {
+                /* Esconde no mobile por padrão */
+                display: none;
                 
-                // so aplica a prop de layout customizado com a logo da ssi para parcerias e se tiver 3 itens de cards
-                > :nth-child(1):nth-last-child(3) { 
-                    grid-column: 1 !important; 
+                /* Aparece apenas nos breakpoints de tablet/desktop */
+                @media (min-width: 1100px) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 6rem;
+                    height: 6rem;
                 }
-                > :nth-child(2):nth-last-child(2) { 
-                    grid-column: 3 !important; 
-                }
-                > :nth-child(3):nth-last-child(1) { 
-                    grid-column: 2 !important; 
+
+                .symbol-light { display: none; }
+                .symbol-dark { display: block; width: 100%; height: 100%; }
+
+                @media (prefers-color-scheme: light) {
+                    .symbol-light { display: block; width: 100%; height: 100%; }
+                    .symbol-dark { display: none; }
                 }
             }
-            
-            ${({ $showSymbol }) => $showSymbol && `
-                position: relative;
-                isolation: isolate; 
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    inset: 0; 
-                    z-index: -1; 
-                    
-                    background-image: 
-                        url('/images/home/simbolo-ssi-dark.svg'),
-                        url('/images/home/simbolo-ssi-dark.svg'),
-                        url('/images/home/simbolo-ssi-dark.svg');
-                    
-                    background-position: 
-                        top 4rem center, 
-                        bottom 4rem left 16.6%, 
-                        bottom 4rem right 16.6%;
-                    
-                    background-repeat: no-repeat;
-                    background-size: 6rem; 
-                    
-                    @media (prefers-color-scheme: light) {
-                        background-image: 
-                            url('/images/home/simbolo-ssi-light.svg'),
-                            url('/images/home/simbolo-ssi-light.svg'),
-                            url('/images/home/simbolo-ssi-light.svg');
-                    }
-                }
-            `}
         }
     }
 
