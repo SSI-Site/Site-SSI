@@ -3,7 +3,7 @@ import meses from "./meses";
 import semana from "./semana";
 
 // Função que recebe os dateTime de início e fim e retorna a string no formato 'Sexta-feira, 22 de Agosto, 11h00-11h50'
-const formatActivityDateTime = ({ start_time, end_time }) => {
+const formatActivityDateTime = (start_time, end_time) => {
     const startDate = new Date(start_time);
 
     const weekDay = semana[startDate.getDay()];

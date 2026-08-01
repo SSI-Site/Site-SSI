@@ -129,7 +129,7 @@ const PalestranteCard = ({palestrante}) => {
                             // Alterar essa parte como for preciso
                             <PalestranteLecture key={index}>
                                 <PalestranteLectureHeader>
-                                        {formatActivityDateTime(event)}
+                                        {formatActivityDateTime(event.start_time, event.end_time)}
                                 </PalestranteLectureHeader>
                                 <PalestranteLectureTitle>
                                         {event.title}
@@ -173,7 +173,7 @@ const PalestranteArrowUp = styled.img`
     max-width: 2rem;
     max-height: 2rem;
     cursor: pointer;
-    transition: all 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
     transform: rotate(180deg);
     display: none;
     aspect-ratio: 1/1;
@@ -191,11 +191,7 @@ const PalestranteArrowUp = styled.img`
         `}
     }
 
-    @media screen and (min-width: 801px){
-        /* max-width: fit-content */
-    }
-
-    @media screen and (max-width:1024px){
+    @media (max-width:1024px){
         display: initial;
     }
 
@@ -244,24 +240,20 @@ const PalestranteHeader = styled.div`
     position: relative;
 
     // Background do card de palestrante (foto roxa de fundo), mostrando quando o card está aberto
-    ${props => props.$active && `
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: url(${BackgroundPicture});
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(0.8px) saturate(0.8);
-            opacity: 0.8;
-            z-index: 1;
-            
-            @media (prefers-color-scheme: light) {
-                opacity: 0.8;
-            }
-        }
-    `}
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url(${BackgroundPicture});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(0.8px) saturate(0.8);
+        opacity: ${props => props.$active ? 0.8 : 0};
+        transition: opacity 0.3s ease-in-out;
+        z-index: 1;
+        pointer-events: none;
+    }
 
     &:hover{
         background-color: var(--background-neutrals-secondary);
