@@ -1,17 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// components
 import PartnerCard from './PartnerCard';
 
+/**
+ * Componente que renderiza uma seção de apoiadores ou parceiros.
+ * Exibe um título, subtítulo e um grid de cartões (PartnerCard). 
+ * Permite opcionalmente intercalar um símbolo visual entre os cartões e adicionar um divisor de fundo.
+ * 
+ * @param {Object} props
+ * @param {string} props.title - Título principal da seção (ex: "Patrocinadores").
+ * @param {string} props.subtitle - Subtítulo descritivo da seção.
+ * @param {Array} props.data - Array de objetos contendo as informações dos parceiros (name, imageDark, imageLight, url).
+ * @param {boolean} [props.showDivider=false] - Se true, exibe um background-image no topo servindo como divisor visual.
+ * @param {boolean} [props.showSymbol=false] - Se true, intercala o símbolo da SSI entre os cards (visível apenas em telas maiores).
+ */
 const SupportersSection = ({ title, subtitle, data = [], showDivider = false, showSymbol = false }) => {
     return (
         <Section $showDivider={showDivider}>
             <div className='supporters-container'>
+                
+                {/* ====== CABEÇALHO DA SEÇÃO ====== */}
                 <div className='supporters-title'>
                     <h3>{title}</h3>
                     <h6>{subtitle}</h6>
                 </div>
 
+                {/* ====== GRID DE PARCEIROS ====== */}
                 <div className='supporters-cards'>
                     {data.map((item) => (
                         <React.Fragment key={item.name}>
@@ -56,6 +72,7 @@ const Section = styled.section`
         }
     `}
 
+    /* ====== CONTAINER PRINCIPAL ====== */
     .supporters-container {
         position: relative;
         z-index: 1;
@@ -63,9 +80,12 @@ const Section = styled.section`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
         margin-top: ${({ $showDivider }) => $showDivider ? '2.5rem' : '0'};
         gap: 3rem;
 
+
+        /* ====== TÍTULOS ====== */
         .supporters-title {
             display: flex;
             flex-direction: column;
@@ -77,7 +97,6 @@ const Section = styled.section`
             h3 {
                 color: var(--content-neutrals-fixed-white, #FFF);
                 text-align: center;
-                font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "At Hauss Aero", sans-serif);
                 font-size: var(--Typograph-Heading-H3-size, 48px);
                 font-weight: 700;
                 line-height: var(--Typograph-Heading-H3-height, 56px);
@@ -97,6 +116,7 @@ const Section = styled.section`
             }
         }
 
+        /* ====== GRID DE CARTÕES ====== */
         .supporters-cards {
             display: grid;
             grid-template-columns: 1fr;
@@ -106,20 +126,22 @@ const Section = styled.section`
             justify-items: center;
             align-items: center;
 
+            /* Transição para 2 colunas em tablets */
             @media (min-width: 800px) {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            /* Transição para 3 colunas em desktops */
             @media (min-width: 1100px) {
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            /* Estilização escalável do símbolo */
+            /* ====== SÍMBOLO INTERCALADO ====== */
             .partner-symbol {
-                /* Esconde no mobile por padrão */
+                /* Esconde no mobile por padrão para economizar espaço e evitar quebra de layout */
                 display: none;
                 
-                /* Aparece apenas nos breakpoints de tablet/desktop */
+                /* Aparece apenas nos breakpoints de desktop */
                 @media (min-width: 1100px) {
                     display: flex;
                     justify-content: center;
@@ -137,9 +159,5 @@ const Section = styled.section`
                 }
             }
         }
-    }
-
-    @media (min-width: 1000px) {
-        padding-block: 4.5rem;
     }
 `;
