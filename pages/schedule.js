@@ -10,6 +10,7 @@ import filterTalks from '../utils/filterTalks';
 // components
 import DateStamp from '../src/components/features/schedule/DateStamp';
 import ScheduleItems from '../src/components/features/schedule/ScheduleItems';
+import EtecItinerary from '../src/components/features/schedule/EtecItinerary';
 import saphira from '../services/saphira';
 
 import { eventDetails } from '../data/eventDetails';
@@ -178,6 +179,8 @@ const Schedule = () => {
 						</ButtonFilter>
 					</div>
 				</DesktopBarFilterContainer>
+
+                <EtecItinerary /> {/* teste para debugg*/}
 
                 <DayScheduleWrapper id="schedule">
                     {renderActiveItem()}
