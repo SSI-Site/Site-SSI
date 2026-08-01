@@ -13,32 +13,22 @@ const colorSchemes = [
     {
         'background' : 'var(--background-neutrals-inverse)',
         'textColor' : 'var(--content-neutrals-inverse)',
-        'directorBadge' : 1,
-        'badgeSequence' : [3, 9, 6, 8, 5, 4]
     },
     {
         'background' : 'var(--background-neutrals-secondary)',
         'textColor' : 'var(--content-neutrals-secondary)',
-        'directorBadge' : 1,
-        'badgeSequence' : [3, 9, 6, 8, 5, 4]
     },
     {
         'background' : 'var(--brand-primary)',
         'textColor' : 'var(--content-neutrals-fixed-white)',
-        'directorBadge' : 1,
-        'badgeSequence' : [3, 9, 8, 4]
     },
     {
         'background' : 'var(--brand-primary-light)',
         'textColor' : 'var(--content-neutrals-fixed-black)',
-        'directorBadge' : 1,
-        'badgeSequence' : [5, 6, 7, 4]
     },   
     {
         'background' : 'var(--brand-primary-dark)',
         'textColor' : 'var(--content-neutrals-fixed-white)',
-        'directorBadge' : 1,
-        'badgeSequence' : [9, 5, 4]
     },
 ]
 
@@ -128,13 +118,9 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     <p className='department-title'>Setores</p>
                     
                     <div className='member-department'>
-                        {sortDepartments(departments).map((department, index) => {
-                            let badges = currentTheme.badgeSequence;
-                            if(department === 'Diretoria')
-                                return <BadgeCO key={index} text={department} themeIndex={currentTheme.directorBadge}/>
-                            
-                            return <BadgeCO key={index} text={department} themeIndex={badges[index % badges.length]}/>
-                        })}
+                        {sortDepartments(departments).map((department, index) => (
+                            <BadgeCO key={index} text={department} />
+                        ))}
                     </div>
                 </div>
             </div>
