@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import PartnerCard from './PartnerCard';
 
-const SupportersSection = ({ title, subtitle, data = [], showDivider = false, showSymbol = false }) => {
+const SupportersSection = ({ title, subtitle, data = [], showDivider = false, showSymbol = false}) => {
     return (
         <Section $showDivider={showDivider} $showSymbol={showSymbol}>
             <div className='supporters-container'>
@@ -103,14 +103,15 @@ const Section = styled.section`
             @media (min-width: 1100px) {
                 grid-template-columns: repeat(3, 1fr);
                 
+                // so aplica a prop de layout customizado com a logo da ssi para parcerias e se tiver 3 itens de cards
                 > :nth-child(1):nth-last-child(3) { 
-                    grid-column: 1; 
+                    grid-column: 1 !important; 
                 }
                 > :nth-child(2):nth-last-child(2) { 
-                    grid-column: 3; 
+                    grid-column: 3 !important; 
                 }
                 > :nth-child(3):nth-last-child(1) { 
-                    grid-column: 2; 
+                    grid-column: 2 !important; 
                 }
             }
             

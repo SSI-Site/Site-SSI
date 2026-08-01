@@ -309,7 +309,7 @@ const Home = () => {
                 </div>
             </DirectionsSection>
 
-            <SupportersSection
+            <SupportersSection 
                 title="Parcerias"
                 subtitle="Marcas e organizações que estão conosco para tornar este evento um sucesso!"
                 data={partnerships}
@@ -317,12 +317,11 @@ const Home = () => {
                 showSymbol
             />
 
-            <SupportersSection
+            <SupportersSection 
                 title="Apoiadores"
                 subtitle="Marcas e organizações que acreditam no evento e tornam sua realização possível!"
                 data={supporters}
                 showDivider
-                showSymbol
             />
         </>
     )
