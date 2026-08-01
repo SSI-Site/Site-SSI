@@ -145,7 +145,7 @@ const COExhibitionSection = styled.section`
     background: var(--background-neutrals-primary, #1A1A1A);
     position: relative;
     overflow: hidden;
-    padding: 3rem 1.5rem;
+    padding: 4rem 1.5rem 1.5rem 1.5rem;
 
     .exhibition-container {
         width: 100%;
@@ -154,7 +154,7 @@ const COExhibitionSection = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 6.8rem; 
+        gap: 7.8rem; 
         position: relative;
         z-index: 2;
 
@@ -167,6 +167,7 @@ const COExhibitionSection = styled.section`
             text-align: left;
             gap: 1rem;
             width: 100%;
+            max-width: 30rem;
             z-index: 2;
 
             &::before {
@@ -175,8 +176,8 @@ const COExhibitionSection = styled.section`
                 width: 18rem;      
                 height: 18.5rem;   
                 
-                top: -3.5rem;      
-                left: -1.5rem;     
+                top: -2.8rem;      
+                left: 0rem;     
                 z-index: -1; 
                 
                 background-repeat: no-repeat;
@@ -194,16 +195,14 @@ const COExhibitionSection = styled.section`
                 }
             }
             h1 {
-                font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "At Hauss Aero", sans-serif);
-                font-size: 2.2rem;
-                line-height: 2.5rem;
+                font-size: 2.5;
+                line-height: 3rem;
             }
 
             p {
-                font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "At Hauss Aero", sans-serif);
                 font-weight: 400;
-                font-size: 0.95rem;
-                line-height: 1.4rem;
+                font-size: 1rem;
+                line-height: 1.5rem;
             }
         }
 
@@ -267,7 +266,7 @@ const COExhibitionSection = styled.section`
                     height: 25rem;     
                     top: 50%;
                     left: 0; 
-                    transform: translate(-10%, -55%); 
+                    transform: translate(0, -50%); 
                     opacity: 0.5; 
                 }
 
@@ -310,6 +309,8 @@ const COExhibitionSection = styled.section`
 const COMembersSection = styled.section`
     overflow-x: hidden;
     align-items: center;
+
+    border-top: 1px solid var(--outline-neutrals-secondary);
 `
 
 const COFilterContainer = styled.div `
