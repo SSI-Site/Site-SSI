@@ -14,6 +14,7 @@ import SecondaryButton from '../src/components/ui/SecondaryButton';
 import UserGiftCard from '../src/components/features/gifts/UserGiftCard';
 import UserWatchedLecturesList from '../src/components/features/user/UserWatchedLecturesList';
 import QRCodeModal from '../src/components/features/user/QRCodeModal';
+import GiftCard from '../src/components/features/user/GiftCard';
 
 // assets
 import gifts from '../data/gifts';
@@ -45,7 +46,20 @@ const User = () => {
     const [studentInfo, setStudentInfo] = useState({});
     const [lectures, setLectures] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [userGifts, setUsersGifts] = useState([])
+    const [userGifts, setUsersGifts] = useState([]);
+    const minGiftPresences = Math.min(...Object.values(gifts).map(gift => gift.minPresence));
+    const maxGiftPresences = Math.max(...Object.values(gifts).map(gift => gift.minPresence));
+    const medal = { completed: medalCompleted, incomplete: medalIncomplete, collected: medalCollected}
+    
+    // Lista de todos os brindes com dois novos campos: completed e collected, que indicam a situação do usuário em relação a cada brinde
+    const giftsWithStatus = Object.values(gifts).map((gift) => {
+        const userGift = userGifts.find((userGift) => userGift.gift.name === gift.name);
+        return {
+            ...gift,
+            completed: userGift ? true : false,
+            collected: userGift ? userGift.received : false
+        }
+    })
 
     /*
     const getStudentInfo = async() => {
@@ -360,7 +374,7 @@ const User = () => {
                                     </div>
 
                                     <div className='status-display'>
-                                        <h2>{userGifts.filter(item => item.receveid == true).length}</h2>
+                                        <h2>{userGifts.filter(item => item.received == true).length}</h2>
                                         <label>Brindes Resgatados</label>
                                     </div>
                                 </div>
@@ -374,7 +388,52 @@ const User = () => {
                         </UserWatchedLecturesListContainer>
                     </UserWatchedLecturesListSection>
 
-                    
+                    <UserProgressSection>
+                        <UserProgressContainer>
+                            <h5>Meus Brindes</h5>
+
+                            <div className='gifts-progress-wrapper'>
+                                <GiftCardWrapper className='left'>
+                                    {giftsWithStatus.map((gift, index) => (
+                                        index % 2 === 0 && (
+                                            <GiftCard key={index} gift={gift} presenceCount={presentialLecturesCount()} />
+                                        )
+                                    ))}
+                                </GiftCardWrapper>
+                                
+                                <GiftProgressBar>
+                                    {giftsWithStatus.map((gift, index) => (
+                                        <img 
+                                        key={index}
+                                        className='medal'
+                                        src={gift.collected ? medal.collected : (gift.completed ? medal.completed : medal.incomplete)}
+                                        />
+                                    ))}
+
+                                    <div className='progress-bar'>
+                                        <div className='progress-fill' style={{ height: `${Math.max(0, Math.min(100, (giftsWithStatus.filter(gift => gift.completed === true).length - 1) / (giftsWithStatus.length - 1) * 100))}%` }}>
+                                            <div className='progress-collected' style={{ height: `${Math.max(0, Math.min(100, (giftsWithStatus.filter(gift => gift.collected === true).length - 1) / (giftsWithStatus.filter(gift => gift.completed === true).length - 1) * 100))}%` }}>
+                                                {/* Sim, a barra de progresso são só um monte de divs vazias dentro uma da outra. Agora toma esse caractere invisível: */} &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </GiftProgressBar>
+
+                                <GiftCardWrapper className='right'>
+                                    {giftsWithStatus.map((gift, index) => (
+                                        index % 2 === 1 && (
+                                            <GiftCard key={index} gift={gift} presenceCount={presentialLecturesCount()} />
+                                        )
+                                    ))}
+                                </GiftCardWrapper>
+                            </div>
+                            
+                            <img src={coisinho2} className='bg-decoration coisinho2' style={{ top: 0, right: 0}} />
+                            <img src={coisinho1} className='bg-decoration coisinho1' style={{ top: '24rem', left: 0}} />
+                            <img src={coisinho1} className='bg-decoration coisinho1' style={{ top: '36rem', left: 0}} />
+                            <img src={coisinho1} className='bg-decoration coisinho1' style={{ bottom: 0, right: 0}} />
+                        </UserProgressContainer>
+                    </UserProgressSection>
                 </>
             }
         </>
@@ -620,6 +679,7 @@ const UserWatchedLecturesListContainer = styled.section`
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
 `
 const PresenceStatus = styled.div`
     display: flex;
@@ -691,3 +751,96 @@ const PresenceStatus = styled.div`
     }
 `
 
+const UserProgressSection = styled.section`
+    width: 100%;
+    justify-content: center;
+    margin: 4rem 0;
+`
+
+const UserProgressContainer = styled.div`
+    position: relative;
+    width: 100%;
+    max-width: 1328px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+
+    .bg-decoration {
+        display: none;
+        position: absolute;
+        z-index: -1;
+
+        @media (min-width: 1024px) {
+            display: block;
+
+            &.coisinho1 {
+                height: 12rem;
+            }
+
+            &.coisinho2 {
+                height: 6rem;
+            }
+        }
+    }
+
+    .gifts-progress-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+`
+const GiftProgressBar = styled.div`
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2.5rem 0;
+
+    @media (min-width: 1024px) {
+        margin: 3.25rem 2rem;
+    }
+    
+    .progress-bar {
+        position: absolute;
+        top: 2.5rem;
+        left: calc(50% - 0.4rem);
+        width: 0.8rem;
+        height: calc(100% - 5rem);
+        border-radius: 10rem;
+        background: var(--background-neutrals-tertiary);
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        background: var(--brand-primary);
+        border-radius: 10rem;
+    }
+
+    .progress-collected {
+        background: var(--background-neutrals-inverse);
+        border-radius: 10rem;
+    }
+
+    .medal {
+        height: 5rem;
+        width: 5rem;
+        z-index: 1;
+    }
+`
+
+const GiftCardWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    
+    &.right {
+        margin-top: 9rem;
+
+        @media (min-width: 1024px) {
+            margin-top: 10rem;
+        }
+    };
+`
