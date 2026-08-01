@@ -8,8 +8,12 @@ import speakersImages from "../../../../data/speakers";
 import ArrowUpIcon from "../../../../public/images/icons/arrow-up.svg";
 import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaOutlinedLogos";
 import BackgroundPicture from "../../../../public/images/partnerships/photos/bg_desktop.png";
-import DividerMobile from "../../../../public/images/ui/divider-speakers-mobile.svg";
-import DividerDesktop from "../../../../public/images/ui/divider-speakers-desktop.svg";
+
+import BadgeLecture from "../schedule/BadgeLecture";
+import formatActivityDateTime from "../../../../utils/formatActivityDateTime";
+
+// Variável para controlar a exibição do badge de modo "Presencial"/"Online"
+const exibirBadgePresencial = false; 
 
 // Componente principal que exibe o card do palestrante
 const PalestranteCard = ({palestrante}) => {
@@ -49,7 +53,7 @@ const PalestranteCard = ({palestrante}) => {
             handleBodyHeight(bodyRef.current);
         }
     }, [bodyRef]);
-    
+
     return (
         <PalestranteContainer>
             {/* Cabeçalho do card, ao clicar alterna entre aberto e fechado */}
@@ -71,55 +75,82 @@ const PalestranteCard = ({palestrante}) => {
             <PalestranteWrapper $active={open} $height={bodyHeight}>
                 {/* Corpo do card, contém informações detalhadas */}
                 <PalestranteBody ref={bodyRef}>
-                    <PalestranteLeftBody>
-                        <PalestrantePronome>
-                            {
-                                palestrante.pronouns ? palestrante.pronouns.toLowerCase() : palestrante.pronouns
-                            }
-                        </PalestrantePronome>
-                    </PalestranteLeftBody>
-                    <PalestranteMiddleBody>
-                        <PalestranteDescription>
-                            {
-                                palestrante.description
-                            }
-                        </PalestranteDescription>
-                    </PalestranteMiddleBody>
-                    <PalestranteRightBody>
-                        {/* Seção de redes sociais */}
-                        <PalestranteSocialContainer>
-                            <PalestranteSocialHeader>
-                                Redes Sociais
-                            </PalestranteSocialHeader>
-                            <PalestranteSocialMedia>
+                    <PalestranteTopWrapperBody>
+                        <PalestranteLeftBody>
+                            <PalestrantePronome>
                                 {
-                                    palestrante.linkedin_link && (
-                                        <PalestranteSocialMediaItem
-                                            icon={
-                                                <LinkedInLogo />
-                                            }
-                                            link={palestrante.linkedin_link}
-                                            alt="LinkedIn"
-                                        />
-                                    )
+                                    palestrante.pronouns ? palestrante.pronouns.toLowerCase() : palestrante.pronouns
                                 }
+                            </PalestrantePronome>
+                        </PalestranteLeftBody>
+                        <PalestranteMiddleBody>
+                            <PalestranteDescription>
+                                {
+                                    palestrante.description
+                                }
+                            </PalestranteDescription>
+                        </PalestranteMiddleBody>
+                        <PalestranteRightBody>
+                            {/* Seção de redes sociais */}
+                            <PalestranteSocialContainer>
+                                <PalestranteSocialHeader>
+                                    Redes Sociais
+                                </PalestranteSocialHeader>
+                                <PalestranteSocialMedia>
+                                    {
+                                        palestrante.linkedin_link && (
+                                            <PalestranteSocialMediaItem
+                                                icon={
+                                                    <LinkedInLogo />
+                                                }
+                                                link={palestrante.linkedin_link}
+                                                alt="LinkedIn"
+                                            />
+                                        )
+                                    }
 
-                                {
-                                    palestrante.instagram_link && (
-                                        <PalestranteSocialMediaItem
-                                            icon={
-                                                <InstagramLogo />
-                                            }
-                                            link={palestrante.instagram_link}
-                                            alt="Instagram"
+                                    {
+                                        palestrante.instagram_link && (
+                                            <PalestranteSocialMediaItem
+                                                icon={
+                                                    <InstagramLogo />
+                                                }
+                                                link={palestrante.instagram_link}
+                                                alt="Instagram"
+                                            />
+                                        )
+                                    }
+                                </PalestranteSocialMedia>
+                            </PalestranteSocialContainer>
+                        </PalestranteRightBody>
+                    </PalestranteTopWrapperBody>
+                    <PalestranteLectureBody>
+                        {palestrante.events && palestrante.events.map((event, index) => (
+                            // Alterar essa parte como for preciso
+                            <PalestranteLecture key={index}>
+                                <PalestranteLectureHeader>
+                                        {formatActivityDateTime(event)}
+                                </PalestranteLectureHeader>
+                                <PalestranteLectureTitle>
+                                        {event.title}
+                                </PalestranteLectureTitle>
+                                <PalestranteLectureBadge>
+                                        <BadgeLecture
+                                            text={event.activity_type === 'WS' ? "Workshop" : "Palestra"}
+                                            themeIndex={event.activity_type === 'WS' ? 4 : 5}
                                         />
-                                    )
-                                }
-                            </PalestranteSocialMedia>
-                        </PalestranteSocialContainer>
-                    </PalestranteRightBody>
+
+                                        {exibirBadgePresencial &&
+                                            <BadgeLecture
+                                                text={event.mode === 'ON' ? 'Online' : 'Presencial'}
+                                                themeIndex={event.mode === 'ON' ? 9 : 1}
+                                            />
+                                        }
+                                </PalestranteLectureBadge>
+                            </PalestranteLecture>
+                        ))}
+                    </PalestranteLectureBody>
                 </PalestranteBody>
-                
             </PalestranteWrapper>
             <PalestranteBolinhas />
         </PalestranteContainer >
@@ -242,12 +273,17 @@ const PalestranteHeader = styled.div`
 
     @media (min-width:801px) {
         grid-template-areas: "image info occupation";
-        grid-template-columns: min-content auto 25%;
+        grid-template-columns: min-content auto 20%;
     }
 
     @media (min-width:1024px) {
         padding: 1.5rem;
         gap: 1.5rem;
+    }
+
+    @media (min-width:1200px) {
+        grid-template-areas: "image info occupation";
+        grid-template-columns: min-content auto 25%;
     }
 `;
 
@@ -283,10 +319,6 @@ const PalestranteRole = styled.span`
     ${props => props.$active && `
         color: var(--content-neutrals-fixed-white);
     `}
-
-    @media (min-width: 801px) {
-        
-    }
 
     @media (min-width:1024px) {
         display: flex;
@@ -353,6 +385,13 @@ const PalestranteWrapper = styled.div`
 
 const PalestranteBody = styled.div`
     display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-start;
+`;
+
+const PalestranteTopWrapperBody = styled.div`
+    display: flex;
     gap: 1.5rem;
     flex-direction: column;
     padding-block: 1.5rem;
@@ -381,6 +420,10 @@ const PalestranteMiddleBody = styled.div`
 
 const PalestranteRightBody = styled.div`
     @media (min-width: 1024px){
+        width: 20%;
+    }
+
+    @media (min-width: 1200px){
         width: 25%;
     }
 `;
@@ -421,4 +464,65 @@ const PalestranteSocialMedia = styled.div`
     a {
         line-height: 0;
     }
+`;
+
+const PalestranteLectureBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    
+    @media (min-width: 1024px){
+        padding-left: 11rem;
+        max-width: calc(75% - 3rem);
+    }
+`;
+
+const PalestranteLecture = styled.div`
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex: 1 0 0;
+    border-radius: 1.5rem;
+    border: 1px solid transparent; 
+    background: var(--border-gradient-tertiary-dark);
+    margin-bottom: 1.5rem;
+
+    @media (prefers-color-scheme: light) {
+        background: var(--border-gradient-secondary-light);
+    }
+`;
+
+const PalestranteLectureHeader = styled.h5`
+    font: 400 1rem/1.5rem 'AT Aero';
+
+    @media (min-width: 801px) {
+        font: 400 1rem/1.75rem 'AT Aero';
+    }
+
+    @media (min-width: 1024px) {
+        font: 400 1.125rem/1.75rem 'AT Aero';
+    }
+`;
+
+const PalestranteLectureTitle = styled.h4`
+    font: 700 1.125rem/1.5rem 'AT Aero Bold';
+
+    @media (min-width: 801px) {
+        font: 700 1.25rem/1.75rem 'AT Aero Bold';
+    }
+
+    @media (min-width: 1024px) {
+        font: 700 1.75rem/2.25rem 'AT Aero Bold';
+    }
+
+    @media (min-width: 1200px) {
+        font: 700 2.25rem/2.5rem 'AT Aero Bold';
+    }
+`;
+
+const PalestranteLectureBadge = styled.span`
+    display: flex;
+    width: fit-content;
+    gap: 1rem;
 `;
