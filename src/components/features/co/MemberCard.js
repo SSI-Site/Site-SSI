@@ -2,35 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
+import DividerBolinhasDark from '../../../../public/images/co/divider-bolinhas-dark.svg';
+import DividerBolinhasLight from '../../../../public/images/co/divider-bolinhas-light.svg';
+
 // components
 import BadgeCO from '../../ui/BadgeCO';
-
-/**
- * Paleta de cores e temas disponíveis para os cartões.
- * O componente circula ciclicamente entre esses temas baseado na prop 'colorScheme'.
- */
-const colorSchemes = [
-    {
-        'background' : 'var(--background-neutrals-inverse)',
-        'textColor' : 'var(--content-neutrals-inverse)',
-    },
-    {
-        'background' : 'var(--background-neutrals-secondary)',
-        'textColor' : 'var(--content-neutrals-secondary)',
-    },
-    {
-        'background' : 'var(--brand-primary)',
-        'textColor' : 'var(--content-neutrals-fixed-white)',
-    },
-    {
-        'background' : 'var(--brand-primary-light)',
-        'textColor' : 'var(--content-neutrals-fixed-black)',
-    },   
-    {
-        'background' : 'var(--brand-primary-dark)',
-        'textColor' : 'var(--content-neutrals-fixed-white)',
-    },
-]
 
 /**
  * Componente que renderiza o cartão de um membro da Comissão Organizadora.
@@ -54,9 +30,6 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
     const cardRef = useRef(null);
     const [animating, setAnimating] = useState(false);
     const isMobile = useIsMobile();
-    
-    // Determina o tema de cor atual usando o operador módulo (%) para criar um ciclo de 5 posições
-    const currentTheme = colorSchemes[colorScheme % 5];
 
     /**
      * Função para lidar com a acessibilidade (navegação por teclado/Tab).
@@ -81,12 +54,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
 
     return (
         // As props prefixadas com '$' injetam as cores dinamicamente no Styled Component
-        <MemberWrapper 
-            onFocus={handleFocus} 
-            ref={cardRef}
-            $bgColor={currentTheme.background}
-            $textColor={currentTheme.textColor}
-        >
+        <MemberWrapper onFocus={handleFocus} ref={cardRef}>
             <div className="image-container">
                 <figure className='member-image'>
                     <Image src={image} alt={`Foto de ${name}`} className="responsive-image"
@@ -114,6 +82,10 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                 {phrase &&
                     <p className='phrase'>"{phrase}"</p>
                 }
+                <picture className="divider-picture" aria-hidden="true">
+                    <source srcSet={DividerBolinhasLight} media="(prefers-color-scheme: light)" />
+                    <Image src={DividerBolinhasDark} alt="Decoração bolinhas" width="230" height="20" />
+                </picture>
                 <div>
                     <p className='department-title'>Setores</p>
                     
@@ -172,14 +144,26 @@ const useIsMobile = () => {
 export default MemberCard;
 
 
-const MemberWrapper = styled.div`
+const MemberWrapper = styled.div`        
+    --border-gradient-quartenary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-900), var(--brand-purple-800)) border-box;
+    --border-gradient-quartenary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-200), var(--brand-purple-400)) border-box;
+    --button-gradient-primary-light: linear-gradient(135deg, #A85FFF 13.33%, #8414FD 100%);
+    --button-gradient-primary-dark: linear-gradient(135deg, #A85FFF 13.33%, #8414FD 100%);
+
     position: relative;
-    width: 20.5rem;
-    height: 27.3rem;
+    width: 100%;
+    max-width: 20.5rem;
+    aspect-ratio: 3/4;
     gap: 1rem;
     overflow-y: hidden;
     display: flex;
-    background-color: var(--background-neutrals-primary);
+    border-radius: 0.9375rem;
+    border: 5px solid transparent; 
+    background: var(--border-gradient-quartenary-dark);
+
+    @media (prefers-color-scheme: light) {
+        background: var(--border-gradient-quartenary-light);
+    }
 
     /* ====== BOTÃO MOBILE ====== */
     .info-button {
@@ -193,15 +177,9 @@ const MemberWrapper = styled.div`
         justify-content: center;
         border: 0;
         transition: all 0.15s ease-in-out;
-        
-        /* O fundo agora é gerado dinamicamente pelas props injetadas (sem precisar de .i0, .i1...) */
-        background: linear-gradient(
-            to bottom,
-            var(--brand-primary) 50%,
-            ${props => props.$textColor} 50%
-        );
-        background-size: 100% 200%;
-        background-position: top;
+
+        border-radius: 0.3125rem;
+        background: var(--button-gradient-primary-dark);
 
         svg {
             transition: 0.15s;
@@ -213,7 +191,7 @@ const MemberWrapper = styled.div`
             svg {
                 transform: rotate(-180deg);
                 path {
-                    fill: ${props => props.$bgColor};
+                    /* fill: ${props => props.$bgColor}; */
                 }
             }
         }
@@ -225,14 +203,14 @@ const MemberWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 27.3rem;
-        width: 20.5rem;
+        height: 100%;
+        width: 100%;
 
         .member-image {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: var(--background-neutrals-primary-800);
+            background-color: var(--brand-purple-800);
             display: flex;
             overflow: hidden;
 
@@ -250,27 +228,25 @@ const MemberWrapper = styled.div`
         display: flex;
         flex-direction: column;
         padding: 1.5rem;
-        width: 20.5rem;
-        height: 27.3rem;
+        width: 100%;
+        height: 100%;
         gap: 1rem;
+        background-color: var(--background-neutrals-secondary);
         
-        /* Cores base injetadas via prop dinamicamente */
-        background-color: ${props => props.$bgColor};
-    
         .member-name {
             position: relative;
             padding: 0.2rem 0.25rem;
             display: flex;
 
-            background-image: linear-gradient(${props => props.$textColor}, ${props => props.$textColor});
+            background-image: linear-gradient(var(--content-neutrals-primary), var(--content-neutrals-primary));
             background-size: 200%;
             background-position-x: 200%;
             background-repeat: no-repeat;
 
             h6 {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                font: 700 1.25rem/1.75rem 'AT Aero Bold';
                 transition: 0.15s ease-in-out;
-                color: ${props => props.$textColor};
+                color: var(--content-neutrals-primary);
             }
         }
 
@@ -286,7 +262,7 @@ const MemberWrapper = styled.div`
 
                 svg path {
                     transition: all 0.15s;
-                    fill: ${props => props.$textColor};
+                    fill: var(--content-neutrals-primary);
                 }
                 svg {
                     width: 2.5rem;
@@ -297,30 +273,39 @@ const MemberWrapper = styled.div`
                 background-position-x: 0%;
 
                 h6 {
-                    color: ${props => props.$bgColor};
+                    color: var(--content-neutrals-inverse);
                 }
 
                 a svg path {
-                    fill: ${props => props.$bgColor};
+                    fill: var(--content-neutrals-inverse);
                 }
             }
 
             &:focus-visible {
-                outline: 2px solid ${props => props.$textColor};
+                outline: 2px solid var(--content-neutrals-primary);
                 outline-offset: 2px;
             }
         }
 
         .phrase {
-            color: ${props => props.$textColor};
             font: 400 1rem/1.5rem 'AT Aero';
+        }
+
+        .divider-picture {
+            width: 100%;
+            height: fit-content;
+            
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
         }
 
         .department-title {
             margin-bottom: 0.5rem;
             text-align: left;
-            font: 700 1.25rem/1.5rem 'AT Aero Bold';
-            color: ${props => props.$textColor};
+            font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
 
         .member-department {
@@ -347,7 +332,7 @@ const MemberWrapper = styled.div`
         }
 
         &:focus-visible {
-            outline: 2px solid ${props => props.$textColor};
+            /* outline: 2px solid ${props => props.$textColor}; */
             outline-offset: 2px;
         }
 
@@ -360,11 +345,6 @@ const MemberWrapper = styled.div`
     @media (min-width: 1024px) {
         width: 18.4rem;
         height: 24.625rem;
-
-        .image-container, .card-back {
-            width: 18.4rem;
-            height: 24.625rem;
-        }
 
         /* Esconde o botão de abrir o card, pois a interação é por hover */
         .info-button {

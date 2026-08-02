@@ -122,16 +122,15 @@ const CO = () => {
                 <MemberCardsWrapper id="members">
                     {/* Renderização limpa dos cartões baseada na lista filtrada */}
                     {displayedMembers.map((member, index) => (
-                        <div className="card-container" key={index}>
-                            <MemberCard 
-                                name={member.name} 
-                                image={member.image} 
-                                departments={member.departments} 
-                                linkedin={member.linkedin} 
-                                phrase={member.phrase} 
-                                colorScheme={index} 
-                            />
-                        </div>
+                        <MemberCard 
+                            name={member.name} 
+                            image={member.image} 
+                            departments={member.departments} 
+                            linkedin={member.linkedin} 
+                            phrase={member.phrase} 
+                            colorScheme={index} 
+                            key={index}
+                        />
                     ))}
                 </MemberCardsWrapper>
                     
@@ -352,6 +351,7 @@ const MemberCardsWrapper = styled.div`
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    padding-inline: 1rem;
 
     @media (min-width:1021px) {
         margin-top: 2rem;

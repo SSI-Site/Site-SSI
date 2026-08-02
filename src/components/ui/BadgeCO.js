@@ -18,15 +18,15 @@ const badgeColorsMap = {
         borderColor: 'var(--brand-purple-500)' 
     },
     'Comercial e Financeiro': { 
-        color: 'var(--brand-purple-500)', 
-        borderColor: 'var(--brand-purple-200)' 
+        color: 'var(--content-neutrals-primary)', 
+        borderColor: 'var(--content-neutrals-primary)' 
     },
     'Infraestrutura': { 
-        color: 'var(--brand-purple-500)', 
+        color: 'var(--brand-purple-200)', 
         borderColor: 'var(--brand-purple-200)' 
     },
     'Sites': { 
-        color: 'var(--brand-purple-500)', 
+        color: 'var(--brand-purple-200)', 
         borderColor: 'var(--brand-purple-200)' 
     }
 };
@@ -62,10 +62,9 @@ const BadgeWrapper = styled.div`
     padding: 0.3125rem 0.625rem; 
     border-radius: 0.1875rem; 
     background-color: transparent;
-    border: 2px solid ${props => props.$borderColor};
+    border: 3px solid ${props => props.$borderColor};
 
     p {
-        font-family: var(--Typograph-Main-Font-Family-At-Hauss-Aero, "At Hauss Aero", sans-serif); 
         font-size: 0.875rem;                                                                            
         font-weight: 700;
         line-height: 1.5rem; 
