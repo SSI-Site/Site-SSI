@@ -19,17 +19,17 @@ const EtecItinerary = () => {
         <EtecDetails $isOpen={isOpen}>
             <div className="etecSchedule">
                 <div className="etecChronogram">
-                    <h4>Cronograma Especial</h4>
-
-                    <picture>
+                    <picture className="etecLogo">
                         <source srcSet={logoEtecLight} media="(prefers-color-scheme: light)" />
                         <Image
                             src={logoEtecDark}
                             alt="logo Etec"
-                            width={200}
-                            height={200}
+                            width={270}
+                            height={120}
                         />
                     </picture>
+
+                    <h4>Cronograma Especial</h4>
 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +79,7 @@ const EtecItinerary = () => {
                                 height={200}
                             />
                         </picture>
-                        <div className="lunchPause">
+                        <div className="etecLunchPause">
                             <h5>Pausa para o almoço</h5>
                             <h5>10:40 - 12:00h</h5>
                         </div>
@@ -141,7 +141,17 @@ const EtecItinerary = () => {
 export default EtecItinerary;
 
 const EtecDetails = styled.article`
+    .etecSchedule{}
+
+    .etecChronogram{}
+
+    .etecLogo{}
+
     .etecDetails {
         display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
     }
+
+    .etecLecture{}
+
+    .etecLunchPause{}
 `
