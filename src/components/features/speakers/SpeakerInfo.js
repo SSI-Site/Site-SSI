@@ -10,6 +10,8 @@ import saphira from '../../../../services/saphira';
 import speakersImages from '../../../../data/speakers';
 import lectureImage from '../../../../public/images/schedule/lecture-backgound.jpg';
 
+// Componente do palestrante de uma palestra
+
 const SpeakerInfo = ({ speakerId }) => {
 
     const [isOpen, setIsOpen] = useState(false)
@@ -153,7 +155,7 @@ const SpeakerContainer = styled.div`
         justify-content: center;
         position: relative;
 
-        // Background do card de palestrante versão celular
+        // Background do card de palestrante versão celular (foto roxa de fundo)
         &::before {
             content: "";
             position: absolute;
@@ -177,12 +179,12 @@ const SpeakerContainer = styled.div`
             align-items: center;
             width: 100%;
             height: 100%;
+            min-height: 1.5rem;
             overflow-wrap: break-word;
             word-wrap: break-word;
             padding: 0.25rem 0.25rem 0.25rem 0.75rem;
             z-index: 10;
-            // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
-            background: linear-gradient(to right, #FFFFFF 50%, transparent 50%);
+            background: linear-gradient(to right, var(--content-neutrals-fixed-white) 50%, transparent 50%);
             background-position: right -2px center;
             background-size: 202% 100%;
             transition: 0.15s all ease-out;
@@ -202,8 +204,7 @@ const SpeakerContainer = styled.div`
                 }
 
                 p {
-                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
-                    color: #FFFFFF;
+                    color: var(--content-neutrals-fixed-white);
                 }
             }
     
@@ -211,8 +212,7 @@ const SpeakerContainer = styled.div`
                 flex-shrink: 0;
 
                 path {
-                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
-                    fill: #FFFFFF;
+                    fill: var(--content-neutrals-fixed-white);
                 }
             }
     
@@ -221,13 +221,11 @@ const SpeakerContainer = styled.div`
                 cursor: pointer;
 
                 p {
-                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
-                    color: #1A1A1A;
+                    color: var(--content-neutrals-fixed-black);
                 }
 
                 > svg path {
-                    // Usando cor fixa hexadecimal, em vez de var(), pois no dark mode quanto light mode versão celular a cor continua igual
-                    fill: #1A1A1A;
+                    fill: var(--content-neutrals-fixed-black);
                     transition: fill 0.15s ease;
                 }
             }
