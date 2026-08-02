@@ -17,10 +17,10 @@ import BadgeCO from '../../ui/BadgeCO';
  * @param {string} props.image - Caminho da imagem/foto do membro.
  * @param {Array} props.departments - Array de strings com os setores do membro.
  * @param {string} props.linkedin - URL do LinkedIn do membro.
- * @param {number} props.colorScheme - Posição/índice do membro no array (usado para IDs únicos e ciclar o tema de cores).
+ * @param {number} props.index - Índice do membro no array (usado para IDs únicos).
  * @param {string} props.phrase - Frase marcante do membro (opcional).
  */
-const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase }) => {
+const MemberCard = ({ name, image, departments, linkedin, index, phrase }) => {
     
     // Organiza os departamentos em ordem alfabética
     const sortDepartments = (departments) => {
@@ -63,8 +63,8 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                 </figure>
             </div>
             
-            {/* O ID aqui usa o colorScheme para ser único por membro */}
-            <div className='card-back' id={'back b' + colorScheme}>
+            {/* O ID aqui usa o index para ser único por membro */}
+            <div className='card-back' id={'back b' + index}>
                 <div className={`member-name ${linkedin ? 'animate' : ''}`}>
                     {linkedin ?
                         <>
@@ -98,7 +98,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
             </div>
             
             {/* Botão visível apenas em telas menores (Mobile) para revelar o verso do card */}
-            <button id={'c' + colorScheme} className={'info-button'} onClick={() => flip(colorScheme)}>
+            <button id={'c' + index} className={'info-button'} onClick={() => flip(index)}>
                 <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white" />
                     <rect id="arrow" width="100" height="100%" />
@@ -127,7 +127,7 @@ const useIsMobile = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.matchMedia("(max-width: 800px)").matches);
+            setIsMobile(window.matchMedia("(max-width: 1023px)").matches);
         };
 
         handleResize(); // Configura o estado inicial assim que monta (seguro para SSR no Next.js)
@@ -144,15 +144,14 @@ const useIsMobile = () => {
 export default MemberCard;
 
 
-const MemberWrapper = styled.div`        
-    --border-gradient-quartenary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-900), var(--brand-purple-800)) border-box;
-    --border-gradient-quartenary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-200), var(--brand-purple-400)) border-box;
-    --button-gradient-primary-light: linear-gradient(135deg, #A85FFF 13.33%, #8414FD 100%);
-    --button-gradient-primary-dark: linear-gradient(135deg, #A85FFF 13.33%, #8414FD 100%);
-
+const MemberWrapper = styled.div`
+    // Gradiente do botão de alternar card
+    --button-gradient-primary-light: linear-gradient(135deg, var(--brand-purple-800) 15%, var(--brand-purple-600) 100%);
+    --button-gradient-primary-dark: linear-gradient(135deg, var(--brand-purple-400) 15%, var(--brand-purple-600) 100%);
+    
     position: relative;
     width: 100%;
-    max-width: 20.5rem;
+    max-width: 18.4rem;
     aspect-ratio: 3/4;
     gap: 1rem;
     overflow-y: hidden;
@@ -181,8 +180,18 @@ const MemberWrapper = styled.div`
         border-radius: 0.3125rem;
         background: var(--button-gradient-primary-dark);
 
+        @media (prefers-color-scheme: light) {
+            background: var(--button-gradient-primary-light);
+        }
+
         svg {
             transition: 0.15s;
+
+            @media (prefers-color-scheme: light) {
+                path {
+                    fill: var(--content-neutrals-primary);
+                }
+            }
         }
 
         /* Classe aplicada via JS ao clicar (Flip) */
@@ -190,9 +199,6 @@ const MemberWrapper = styled.div`
             background-position: bottom;
             svg {
                 transform: rotate(-180deg);
-                path {
-                    /* fill: ${props => props.$bgColor}; */
-                }
             }
         }
     }
@@ -321,30 +327,20 @@ const MemberWrapper = styled.div`
         translate: 0 0;
     }
 
+     /* ====== RESPONSIVIDADE (Desktop) ====== */
 
-    /* ====== RESPONSIVIDADE (Desktop) ====== */
-    @media (min-width: 800px) {
-
+    @media (min-width: 1024px) {
+        /* No desktop, sobe o verso apenas no hover/focus */
         &:hover, &:focus-within, &:focus-visible {
             .card-back {
-                translate: 0 0; /* No desktop, sobe o verso apenas no hover/focus */
+                translate: 0 0;
             }
         }
-
-        &:focus-visible {
-            /* outline: 2px solid ${props => props.$textColor}; */
-            outline-offset: 2px;
-        }
-
+    
         /* Se o usuário deu click em mobile, desfaz a classe no desktop */
         .info-show {
             translate: 0 101%;
         }
-    }
-
-    @media (min-width: 1024px) {
-        width: 18.4rem;
-        height: 24.625rem;
 
         /* Esconde o botão de abrir o card, pois a interação é por hover */
         .info-button {

@@ -128,7 +128,7 @@ const CO = () => {
                             departments={member.departments} 
                             linkedin={member.linkedin} 
                             phrase={member.phrase} 
-                            colorScheme={index} 
+                            index={index} 
                             key={index}
                         />
                     ))}

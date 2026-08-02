@@ -84,6 +84,10 @@ export default createGlobalStyle`
         --border-gradient-tertiary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, #cb9cff 15%, #a759ff) border-box;
         --border-gradient-tertiary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, #cb9cff 15%, #a759ff) border-box;
     
+
+        --border-gradient-quartenary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-900), var(--brand-purple-800)) border-box;
+        --border-gradient-quartenary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-200), var(--brand-purple-400)) border-box;
+
         // CUSTOM GRADIENT TEXT COLOR
         // Para usar: background: var(--text-gradient-primary-dark); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         --text-gradient-primary-light: linear-gradient(180deg, var(--brand-primary, #6206BF) 0%, var(--backup-primary-800, #6618BB) 40%, var(--brand-primary-dark, #2B054D) 100%);
