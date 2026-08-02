@@ -22,9 +22,15 @@ import BadgeCO from '../../ui/BadgeCO';
  */
 const MemberCard = ({ name, image, departments, linkedin, index, phrase }) => {
     
-    // Organiza os departamentos em ordem alfabética
+    // Organiza os departamentos por tamanho da palavra, menor para maior (para tentar fazer com que eles se agrupem mais facilmente no layout)
     const sortDepartments = (departments) => {
-        return departments.sort((a, b) => a.localeCompare(b));
+        return departments.sort((a, b) => {
+            if (a.length !== b.length) {
+                return a.length - b.length;
+            }
+
+            return a.localeCompare(b);
+        });
     };
 
     const cardRef = useRef(null);
@@ -52,9 +58,13 @@ const MemberCard = ({ name, image, departments, linkedin, index, phrase }) => {
         }
     }
 
+    // Variáveis para verificar se o conteúdo do verso é longo, para diminiuir seus tamanhos e tentar fazer com que caibam no card
+    const longPhrase = phrase && phrase.length > 175;
+    const longDepartments = departments && departments.length > 3;
+
     return (
         // As props prefixadas com '$' injetam as cores dinamicamente no Styled Component
-        <MemberWrapper onFocus={handleFocus} ref={cardRef}>
+        <MemberWrapper onFocus={handleFocus} ref={cardRef} $longPhrase={longPhrase} $longDepartments={longDepartments}>
             <div className="image-container">
                 <figure className='member-image'>
                     <Image src={image} alt={`Foto de ${name}`} className="responsive-image"
@@ -347,4 +357,40 @@ const MemberWrapper = styled.div`
             display: none;
         }
     }
+
+    // Estilos condicionais para quando o conteúdo do verso ou departamentos é longo 
+    // (para tentar fazer com que caibam no card)
+    ${props => props.$longPhrase && `
+        .card-back {
+            gap: 0.625rem;
+
+            .phrase {
+                font: 400 0.875rem/1.125rem 'AT Aero';
+            }
+        }
+    `}
+
+    ${props => props.$longDepartments && `
+        .card-back {
+            // BadgeCO
+            .member-department div {
+                padding: 0.3rem 0.5rem; 
+
+                p {
+                    font-size: 0.825rem;                                                                            
+                    font-weight: 700;
+                    line-height: 1.125rem; 
+                }
+            }
+        }
+    `}
+
+    ${props => (props.$longPhrase && props.$longDepartments) && `
+        // Removendo as bolinhas
+        .card-back {
+            .divider-picture {
+                display: none;    
+            }
+        }
+    `}
 `
