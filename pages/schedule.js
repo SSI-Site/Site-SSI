@@ -23,7 +23,7 @@ const Schedule = () => {
     const defaultDayIndex = initialDayIndex !== -1 ? initialDayIndex : 0;   
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false);
-    const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
+    const [dayNumber, setDayNumber] = useState(defaultDayIndex)
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -83,6 +83,9 @@ const Schedule = () => {
         setDayNumber(0); 
     }
 }, [talks, activeItem, dayFull]);
+
+    const selectedWeekDay = weekDays[dayNumber] || weekDays[0];
+    const shouldRenderEtecItinerary = selectedWeekDay === 'Segunda-feira' || selectedWeekDay === 'Terça-feira';
 
     return (
         <>
@@ -180,7 +183,7 @@ const Schedule = () => {
 					</div>
 				</DesktopBarFilterContainer>
 
-                <EtecItinerary /> {/* teste para debugg*/}
+                {shouldRenderEtecItinerary && <EtecItinerary />}
 
                 <DayScheduleWrapper id="schedule">
                     {renderActiveItem()}
