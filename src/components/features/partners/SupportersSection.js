@@ -7,18 +7,50 @@ import PartnerCard from './PartnerCard';
 /**
  * Componente que renderiza uma seção de apoiadores ou parceiros.
  * Exibe um título, subtítulo e um grid de cartões (PartnerCard). 
- * Permite opcionalmente intercalar um símbolo visual entre os cartões e adicionar um divisor de fundo.
+ * Permite opcionalmente intercalar um símbolo visual entre os cartões e adicionar um divisor de topo.
  * 
  * @param {Object} props
  * @param {string} props.title - Título principal da seção (ex: "Patrocinadores").
  * @param {string} props.subtitle - Subtítulo descritivo da seção.
  * @param {Array} props.data - Array de objetos contendo as informações dos parceiros (name, imageDark, imageLight, url).
- * @param {boolean} [props.showDivider=false] - Se true, exibe um background-image no topo servindo como divisor visual.
+ * @param {boolean} [props.showDivider=false] - Se true, renderiza um elemento de imagem no topo servindo como divisor visual.
  * @param {boolean} [props.showSymbol=false] - Se true, intercala o símbolo da SSI entre os cards (visível apenas em telas maiores).
  */
 const SupportersSection = ({ title, subtitle, data = [], showDivider = false, showSymbol = false }) => {
     return (
-        <Section $showDivider={showDivider}>
+        <Section>
+            {/* ====== DIVISOR VISUAL ====== */}
+            {showDivider && (
+                <div className="section-divider">
+                    <picture>
+                        {/* 1. Desktop + Tema Claro */}
+                        <source 
+                            media="(min-width: 800px) and (prefers-color-scheme: light)" 
+                            srcSet="/images/home/divider-desktop-light.svg" 
+                        />
+                        
+                        {/* 2. Desktop + Tema Escuro */}
+                        <source 
+                            media="(min-width: 800px)" 
+                            srcSet="/images/home/divider-desktop-dark.svg" 
+                        />
+                        
+                        {/* 3. Mobile + Tema Claro */}
+                        <source 
+                            media="(prefers-color-scheme: light)" 
+                            srcSet="/images/home/divider-mobile-light.svg" 
+                        />
+                        
+                        {/* 4. Padrão: Mobile + Tema Escuro (se nenhuma regra acima for atendida) */}
+                        <img 
+                            src="/images/home/divider-mobile-dark.svg" 
+                            alt="Divisor de seção" 
+                            aria-hidden="true" 
+                        />
+                    </picture>
+                </div>
+            )}
+
             <div className='supporters-container'>
                 
                 {/* ====== CABEÇALHO DA SEÇÃO ====== */}
@@ -38,6 +70,7 @@ const SupportersSection = ({ title, subtitle, data = [], showDivider = false, sh
                                 link={item.url}
                             />
                             
+                            {/* Símbolo intercalado */}
                             {showSymbol && (
                                 <div className="partner-symbol">
                                     <img src="/images/home/simbolo-ssi-dark.svg" alt="Símbolo SSI" className="symbol-dark" />
@@ -56,21 +89,34 @@ export default SupportersSection;
 
 const Section = styled.section`
     position: relative;
-    padding: 3rem 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     background-color: var(--background-neutrals-primary);
     color: var(--content-neutrals-primary);
     overflow: hidden;
 
-    ${({ $showDivider }) => $showDivider && `
-        background-image: url('/images/home/divider-mobile-dark.svg');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: min(calc(100% - 1rem), 1584px) auto; 
+    
 
-        @media (min-width: 1000px) {
-            background-image: url('/images/home/divider-desktop-dark.svg');
+    /* ====== ESTILOS DO DIVISOR VISUAL ====== */
+    .section-divider {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
-    `}
+    }
+
+    @media (min-width: 800px) {
+        padding: 0rem 1rem 4rem 1rem; 
+        
+        .section-divider {
+            margin-bottom: 4rem;
+        }
+    }
 
     /* ====== CONTAINER PRINCIPAL ====== */
     .supporters-container {
@@ -80,10 +126,7 @@ const Section = styled.section`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
-        margin-top: ${({ $showDivider }) => $showDivider ? '2.5rem' : '0'};
         gap: 3rem;
-
 
         /* ====== TÍTULOS ====== */
         .supporters-title {
@@ -97,14 +140,10 @@ const Section = styled.section`
             h3 {
                 color: var(--content-neutrals-fixed-white, #FFF);
                 text-align: center;
-                font-size: var(--Typograph-Heading-H3-size, 48px);
-                font-weight: 700;
-                line-height: var(--Typograph-Heading-H3-height, 56px);
-                
+                font-weight: 700;                
                 padding: 12px 24px;
                 background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
                 width: fit-content;
-                border-radius: 8px; 
                 margin: 0;
             }
 
