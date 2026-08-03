@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import CountUp from 'react-countup';
 import styled from 'styled-components';
 
 import useAuth from '../hooks/useAuth';
@@ -7,19 +6,17 @@ import Meta from '../src/infra/seo/Meta';
 import gifts from '../data/gifts';
 
 import { eventDetails } from '../data/eventDetails';
-import { socials } from '../data/socials';
 
 // components
 import Button from '../src/components/ui/Button';
 import GiftCard from '../src/components/features/gifts/GiftCard';
-import SecondaryButton from '../src/components/ui/SecondaryButton';
 import Accordion from '../src/components/ui/Accordion';
 
 //Importe Imagem do Next
 import Image from 'next/image';
 
 // assets
-import LogoCircularDark from '../public/images/logos/logo_circular_dark.svg';
+import LogoCircularDark from '../public/images/logos/logo_circular_purple.svg';
 import LogoCircularLight from '../public/images/logos/logo_circular_light.svg'
 
 const About = () => {
@@ -34,179 +31,116 @@ const About = () => {
                 keywords='o que é a SSI, história do evento, sobre a SSI, semana acadêmica tecnologia, evento de sistemas de informação, missão SSI, objetivos semana de tecnologia, contexto SSI'
             />
 
-            <LogoTextSection>
-                <div className='logo-text'>
-                    <div className='text'>
-                        <h1>Sobre o Evento</h1>
-                        <p>A Semana de Sistemas de Informação é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
-                        <a href={eventDetails.regulationLink} target="_blank">
-                            <Button>
-                                Conferir regulamento
-                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.5 16L7.5 11L8.9 9.55L11.5 12.15V4H13.5V12.15L16.1 9.55L17.5 11L12.5 16ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="white"/>
-                                </svg>
-                            </Button>
-                        </a>
+            <Background>
+                <LogoTextSection>
+                    <div className='logo-text-container'>
+                        <div className='text'>
+                            <h1>Sobre o Evento</h1>
+                            <p>A <strong>Semana de Sistemas de Informação</strong> é um evento anual organizado por alunas e alunos do curso de Sistemas de Informação da Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH - USP).</p>
+                            <a href={eventDetails.regulationLink} target="_blank" rel="noreferrer">
+                                <Button>
+                                    Conferir regulamento
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" fill="none">
+                                        <path d="M2 20C1.45 20 0.979167 19.8042 0.5875 19.4125C0.195833 19.0208 0 18.55 0 18V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H10L16 6V18C16 18.55 15.8042 19.0208 15.4125 19.4125C15.0208 19.8042 14.55 20 14 20H2ZM9 7V2H2V18H14V7H9Z" fill="white"/>
+                                    </svg>
+                                </Button>
+                            </a>
+                        </div>
+                        <div className='logo'>
+                            <picture>
+                                <source srcSet={LogoCircularLight} media='(prefers-color-scheme: light)'/>
+                                <Image
+                                    src={LogoCircularDark}
+                                    alt={`Gif SSI ${eventDetails.year}`}
+                                    width={500}
+                                    height={500}
+                                    className='image'
+                                />
+                            </picture>
+                        </div>
                     </div>
-                    <div className='logo'>
-                        <picture>
-                            <source srcSet = {LogoCircularLight} media='(prefers-color-scheme: light)'/>
-                            <Image
-                                src={LogoCircularDark}
-                                alt={`Gif SSI ${eventDetails.year}`} 
-                                width={500}
-                                height={500}
-                                className='image'
-                            />
+                </LogoTextSection>
 
-                        </picture>
-                        
+                <BaitSection>
+                    <div className='bait-in-columns'>
+                        <BaitContent>
+                            <div className='bait-header'>
+                                <h5>Palestras</h5>
+                                <p>A Semana de Sistemas de Informação {eventDetails.year} contará com diversas palestras de empresas e profissionais da <strong>área da tecnologia</strong>.</p>
+                            </div>
+                            <div className='bait-itens in-columns'>
+                                <Accordion title="Temas">
+                                    <p>
+                                        Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Liderança, UX Design, Segurança de Software, Desenvolvimento Cloud Native e muito mais.
+                                    </p>
+                                </Accordion>
+                                <Accordion title="Empresas de Organizações">
+                                    <p>
+                                        Os nossos palestrantes fazem parte de empresas e organizações que estão presente em diferentes áreas do mercado de trabalho, como a BT Company, Itaú, Festo, DSec, TOTVS, 99, Fundação Estudar, Rocketseat, P&G, Ade Sampa, Hype e a Síntese Jr.
+                                    </p>
+                                </Accordion>
+                            </div>
+                        </BaitContent>
+
+                        <BaitContent>
+                            <div className='bait-header'>
+                                <h5>Workshops</h5>
+                                <p>Durante a Semana de Sistemas de Informação, alunos e profissionais oferecerão workshops interativos!</p>
+                            </div>
+                            <div className='bait-itens in-columns'>
+                                <Accordion title="Atividades">
+                                    <p>
+                                        Participe de workshops que visam impulsionar as suas habilidades de programação, compreensão de ferramentas modernas e construção de aplicações embarcadas, Web e Desktop.
+                                    </p>
+                                </Accordion>
+                            </div>
+                        </BaitContent>
                     </div>
-                </div>
-            </LogoTextSection>
 
-            <BaitSection>
-                <div className='bait-container'>
                     <BaitContent>
-                        <div className='bait-sample justify-right'>
-                            <div className='bait-image'>
-                                <div className='image-container'>
-                                    <Image
-                                        src="/images/about/palestras.jpg" alt="Foto Palestras"
-                                        width={500}
-                                        height={500}
-                                        className="responsive-image"
-                                    />
-                                </div>
-                            </div>
-                            <div className='bait-sample-description'>
-                                <div className='bait-sample-title'>
-                                    <h5>Palestras</h5>
-                                    <p>A Semana de Sistemas de Informação {eventDetails.year} contará com diversas palestras da área da tecnologia.</p>
-                                </div>
+                        <div className='bait-header'>
+                            <h5>Networking</h5>
+                            <p>Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.</p>
+                        </div>
 
-                                <div className='bait-sample-subtitles'>
-                                    <Accordion title="Diversos temas">
-                                        <p>
-                                            Teremos apresentações que contemplam diversos temas, como Inteligência Artificial, Ciência de Dados, Diversidade em TI e mais...
-                                        </p>
-                                    </Accordion>
-                                    <Accordion title="Empresas de diferentes áreas">
-                                        <p>
-                                            Os nossos palestrantes fazem parte de empresas que estão presente em diferentes áreas de negócio do mercado de trabalho.
-                                        </p>
-                                    </Accordion>
-
-                                </div>
-                            </div>
+                        <div className='bait-itens'>
+                            <Accordion title="Alunos da EACH">
+                                <p>
+                                    Tenha contato com uma rede de pessoas interessadas em diversas áreas, não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
+                                </p>
+                            </Accordion>
+                            <Accordion title="Palestrantes Experientes">
+                                <p>
+                                    Conecte-se com os palestrantes que possuem expertise em diversas áreas. Lembre-se de acioná-los no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
+                                </p>
+                            </Accordion>
                         </div>
                     </BaitContent>
-                    <BaitContent>
-                        <div className='bait-sample justify-left'>
-                            <div className='bait-image'>
-                                <div className='image-container'>
-                                    <Image
-                                        src="/images/about/workshops.jpg" alt="Foto Workshops"
-                                        width={500}
-                                        height={500}
-                                        className="responsive-image" />
-                                </div>
-                            </div>
-                            <div className='bait-sample-description'>
-                                <div className='bait-sample-title'>
-                                    <h5>Workshops</h5>
-                                    <p>Que tal colocar em prática o que você aprende nas palestras?</p>
-                                </div>
 
-                                <div className='bait-sample-subtitles'>
-                                    <Accordion title="Parcerias">
-                                        <p>
-                                            Teremos apresentações sobre diversos temas, como Inteligência Artificial, Ciência de Dados e Diversidade em TI. Durante a Semana de Sistemas de Informação, empresas parceiras oferecerão workshops interativos e muito mais!
-                                        </p>
-                                    </Accordion>
-                                    <Accordion title="Aprenda na prática">
-                                        <p>
-                                            Você terá a oportunidade de não apenas conhecer o conteúdo, mas também de aplicar e dominar conceitos na prática!
-                                        </p>
-                                    </Accordion>
-                                </div>
-                            </div>
+                    <BaitContent>
+                        <div className='bait-header'>
+                            <h5>Prêmios e Brindes</h5>
+                            <p>Não perca a oportunidade de ganhar prêmios e brindes incríveis ao participar das nossas atividades e palestras!</p>
+                        </div>
+
+                        <div className='bait-itens'>
+                            <Accordion title="Sorteios">
+                                <p>
+                                    Participe das palestras e tenha a chance de ganhar gift cards de diversas lojas e brindes de diversas empresas.
+                                </p>
+                            </Accordion>
+                            <Accordion title="Brindes por Presença">
+                                <p>
+                                    Assista as palestras e participe nos workshops para ganhar diversos prêmios exclusivos da SSI.
+                                </p>
+                            </Accordion>
                         </div>
                     </BaitContent>
-                    <BaitContent>
-                        <div className='bait-sample justify-right'>
-                            <div className='bait-image'>
-                                <div className='image-container'>
-                                    <Image
-                                        src="/images/about/networking.jpg" alt="Foto Networking"
-                                        width={500}
-                                        height={500}
-                                        className="responsive-image" />
-                                </div>
-                            </div>
-
-                            <div className='bait-sample-description'>
-                                <div className='bait-sample-title'>
-                                    <h5>Networking</h5>
-                                    <p>Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.</p>
-                                </div>
-
-                                <div className='bait-sample-subtitles'>
-                                    <Accordion title="Alunos da EACH">
-                                        <p>
-                                            Tenha contato com uma rede de pessoas interessadas em diversos temas de TI. Não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
-                                        </p>
-                                    </Accordion>
-                                    <Accordion title="Palestrantes experientes">
-                                        <p>
-                                            Conecte-se com os palestrantes que possuem expertise em diversas áreas. Lembre-se de acioná-los no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
-                                        </p>
-                                    </Accordion>
-                                </div>
-                            </div>
-                        </div>
-                    </BaitContent>
-                </div>
-            </BaitSection>
+                </BaitSection>
+            </Background>
 
             <GiftsSection>
                 <div className='gifts-container'>
-                    <div className='gifts-bait'>
-                        <div className='gifts-title'>
-                            <h3>Prêmios</h3>
-                            <h6>Não perca a oportunidade de ganhar prêmios incríveis ao participar das nossas atividades e palestras!</h6>
-                        </div>
-
-                        <div className='bait-sample justify-left'>
-                            <div className='bait-image'>
-                                <div className='image-container'>
-                                    <Image
-                                        src="/images/about/premios.jpg"
-                                        alt="Foto Prêmios"
-                                        width={500}
-                                        height={500}
-                                        className="responsive-image" />
-                                </div>
-                            </div>
-                            <div className='bait-sample-description'>
-                                <div className='bait-sample-title'>
-                                    <h5>Brindes Exclusivos</h5>
-                                    <p>
-                                        Teremos uma semana cheia de premiações para os participantes, contando com o sorteio de gift cards e prêmios por presença.
-                                    </p>
-                                </div>
-
-                                <div className='bait-sample-subtitles'>
-                                    <Accordion title="Gift Cards">
-                                        <p>
-                                            Participe das palestras e concorra a gift cards de diversas lojas, como iFood, Playstation e outros...
-                                        </p>
-                                    </Accordion>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div className='gifts-cards'>
                         {Object.entries(gifts).map(([key, gift]) => {
                                 return (
@@ -218,419 +152,211 @@ const About = () => {
                     {!disableAuth && user &&
                         <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
                     }
-
-                    <p className='gifts-cards-obs'>
-                        Teremos distribuição de brindes exclusivos para os participantes da SSI {eventDetails.year}. Basta registrar as suas presenças e verificar a contagem no seu perfil.
-                    </p>
                 </div>
             </GiftsSection>
-
-            <LastYearSection>
-                <div className='lastyear-container'>
-                    <div className='lastyear-text'>
-                        <div className='lastyear-title'>
-                            <h3>Veja como foi em {eventDetails.lastYear}</h3>
-                        </div>
-                        <h6>
-                            Confira o que rolou no evento do ano passado e sinta a energia que tomou conta do nosso público!
-                        </h6>
-                    </div>
-
-                    <div className='lastyear-content'>
-                        <div className='lastyear-video'>
-                            <iframe
-                                src={socials.aftermovieEmbed}
-                                title="YouTube video player"
-                                allow="fullscreen">
-                            </iframe>
-                        </div>
-                        <EventNumbersBanner>
-                            <CountUp
-                                start={0}
-                                end={eventDetails.lastYearStats.viewers}
-                                delay={0}
-                                decimals={1}
-                                suffix="k+"
-                                enableScrollSpy
-                            >
-                                {({ countUpRef }) => (
-                                    <div className='event-info-container'>
-                                        <h5 ref={countUpRef} />
-                                        <h5>espectadores</h5>
-                                    </div>
-                                )}
-                            </CountUp>
-
-                            <CountUp
-                                start={0}
-                                end={eventDetails.lastYearStats.subscribers}
-                                delay={0}
-                                suffix="+"
-                                enableScrollSpy
-                            >
-                                {({ countUpRef }) => (
-                                    <div className='event-info-container'>
-                                        <h5 ref={countUpRef} />
-                                        <h5>inscritos</h5>
-                                    </div>
-                                )}
-                            </CountUp>
-
-                            <CountUp
-                                start={0}
-                                end={eventDetails.lastYearStats.contentHours}
-                                delay={0}
-                                suffix="h"
-                                enableScrollSpy
-                            >
-                                {({ countUpRef }) => (
-                                    <div className='event-info-container'>
-                                        <h5 ref={countUpRef} />
-                                        <h5>conteúdo</h5>
-                                    </div>
-                                )}
-                            </CountUp>
-                        </EventNumbersBanner>
-
-                        <a href={socials.youtube} target='_blank'>
-                            <SecondaryButton $noSvgColorChange>
-                                Acesse nosso canal
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 56 56" fill="none">
-                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003ZM50.3065 16.7303C50.6098 17.827 50.8198 19.297 50.9598 21.1637C51.1232 23.0303 51.1932 24.6403 51.1932 26.0403L51.3332 28.0003C51.3332 33.1103 50.9598 36.867 50.3065 39.2703C49.7232 41.3703 48.3698 42.7237 46.2698 43.307C45.1732 43.6103 43.1665 43.8203 40.0865 43.9603C37.0532 44.1237 34.2765 44.1937 31.7098 44.1937L27.9998 44.3337C18.2232 44.3337 12.1332 43.9603 9.72984 43.307C7.62984 42.7237 6.2765 41.3703 5.69317 39.2703C5.38984 38.1737 5.17984 36.7037 5.03984 34.837C4.8765 32.9703 4.8065 31.3603 4.8065 29.9603L4.6665 28.0003C4.6665 22.8903 5.03984 19.1337 5.69317 16.7303C6.2765 14.6303 7.62984 13.277 9.72984 12.6937C10.8265 12.3903 12.8332 12.1803 15.9132 12.0403C18.9465 11.877 21.7232 11.807 24.2898 11.807L27.9998 11.667C37.7765 11.667 43.8665 12.0403 46.2698 12.6937C48.3698 13.277 49.7232 14.6303 50.3065 16.7303Z" fill="#FF0000" />
-                                    <path d="M23.3332 35.0003L35.4432 28.0003L23.3332 21.0003V35.0003Z" fill="white" />
-                                </svg>
-                            </SecondaryButton>
-                        </a>
-                    </div>
-                </div>
-            </LastYearSection>
         </>
     )
 }
 
 export default About;
 
+const Background = styled.div`
+    @media (min-width: 800px) {
+        background-image: url('/images/about/bg-desktop.svg');
+        background-repeat: no-repeat;
+        background-position: top center; 
+        background-size: 1250px;
+    }
+`
 
 const LogoTextSection = styled.section`
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
-
-    .logo-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+    .logo-text-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem 0rem;
+        max-width: 68.5rem;
     }
 
     .text, .logo {
         display: flex;
         flex-direction: column;
-        padding: 1.5rem 1rem;
         align-self: stretch;
-        width: 100%;
-        flex: 1 1 100%;
     }
 
     .text {
-        gap: 1rem;
-        border: 1px solid var(--outline-neutrals-secondary);
-        border-top: none;
+        gap: 1.5rem;
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 3rem;
+        }
 
         p {
+            font-size: 0.875rem;
             font-weight: 400;
+        }
+
+        strong {
+            font-size: 1rem;
+            color: var(--backup-primary-300, #D98DFF);
+        }
+
+        button {
+            width: 100%;
         }
     }
 
     .logo {
         align-items: center; 
         justify-content: center;
-        border-left: 1px solid var(--outline-neutrals-secondary);
-        border-right: 1px solid var(--outline-neutrals-secondary);
     
         .image {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-            }
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
     }
 
     @media (min-width:801px) {   
-
-        .logo-text {
-            flex-direction: row;
+        .logo-text-container {
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
-
+    
         .logo, .text {
-            width: 40%;
-            padding: 4.5rem 1rem;
-            flex: 1; 
+            padding: 3.5rem 1rem;
         }
 
         .logo {
             align-items: center;
             justify-content: center;
-            border-left: none;
         }
 
         .text {
             justify-content: center;
             align-items: flex-start;
-            border-bottom: none;
             padding: 4.5rem 1.5rem;
 
+            h1 { 
+                font-size: 3.5rem;
+            }
             p {
                 font: 400 1rem/1.5rem 'AT Aero';
-            }
-        }
-    }
-
-    @media screen and (min-width: 1024px){
-        .logo{
-            padding-block: 10rem;
-
-            .image {
-                max-width: 25rem;
             }
         }
     }
 `
 
 const BaitSection = styled.section`
-    background-color: var(--background-neutrals-primary);
+    width: 100%;
     padding-inline: 0;
 
-    .bait-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: none;
+    .bait-in-columns {
+        max-width: 68.5rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 800px) {
+        .bait-in-columns {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 `
 
 const BaitContent = styled.div`
-    --border: 1px solid var(--outline-neutrals-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-inline: 1rem;
-    border-bottom: var(--border);
+    gap: 1.5rem;
 
-    .bait-sample {
+    padding: 1rem;
+    
+    p {
+        font-weight: 400;
+    }
+
+    .bait-header {
+        max-width: 32rem;
         display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 1328px;
-        padding: 1.5rem 1rem;
-        border-left: var(--border);
-        border-right: var(--border);
-        gap: 2rem;
-        transition: background-color 0.2s ease-in-out;
-        
-        .bait-sample-description {
-            max-width: 39.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1rem;  
+        flex-direction: column;
+        gap: 0.75rem;
 
-            .bait-sample-title { 
-                width: 100%;
-                padding-bottom: 1.5rem;
-                border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
+        h5 {
+            width: fit-content;
+            padding: 0.3125rem 0.625rem;
+            border-radius: 0.625rem;
+            color: var(--content-neutrals-fixed-white);
+            background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
+        }
+
+        p {
+            font-size: 0.875rem;
+        }
+
+        strong {
+            color: var(--backup-primary-300);
+            font-size: 1rem;
+        }
+    }
+
+    .bait-itens {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+
+        @media (max-width: 801px) {
+            background-image: url('/images/about/bg-mobile-white.svg');
+            background-repeat: no-repeat;
+            background-position: top center; 
+        }
+    }
+
+    @media (min-width: 801px) {
+        .bait-header {
+            align-items: center;
+            gap: 1rem;
+
+            h5 {
+                padding: 0.1875rem 1rem;
+                border-radius: 1rem;
             }
 
             p {
-                font: 400 1rem/1.5rem 'AT Aero';
-                margin-top: 0.5rem;
+                text-align: center;
+                font-size: 1rem;
             }
 
-            .bait-sample-subtitles {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-
-                .accordion-item {
-                    padding-bottom: 1rem;
-                    border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
-
-                    .accordion-icon {
-                        font: 400 1.5rem 'AT Aero';
-                        margin-right: 0.5rem;
-                    }
-                }
+            strong {
+                color: var(--backup-primary-300);
+                font-size: 1.125rem;
             }
+        }
+        
+        .bait-itens {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .in-columns {
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
     }
 
-    .bait-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 39rem;
-        aspect-ratio: 185 / 140;
-        height: auto;
-        border: 1px solid var(--outline-neutrals-secondary, #FFF);
-        position: relative;
-
-        .responsive-image, .image-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-            
-        .responsive-image {
-            object-fit: cover;
-        }
-    }
-
-    @media (min-width:1024px) {
-
-        .bait-sample {
-            flex-direction: row-reverse;
-            justify-content: space-between;
-            width: 100%;
-            padding: 4.5rem 1.5rem;
-
-            .bait-sample-description {
-                align-items: flex-start;
-                max-width: 38rem;
-
-                p {
-                    font: 400 1.125rem/1.75rem 'AT Aero';
-                }
-            }
-        }
-
-        .justify-left {
-            flex-direction: row;
-        }
-    }
 `
 
 const GiftsSection = styled.section`
-    --border: 1px solid var(--outline-neutrals-secondary);
-    
     .gifts-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
-        
-        padding: 1.5rem 1rem;
-
-        border-left: var(--border);
-        border-right: var(--border);
-
-        .gifts-bait {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            gap: 2.5rem;
-
-            .gifts-title {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 1rem;
-
-                h3 {
-                    text-align: center;
-                    background-color: var(--brand-primary);
-                    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
-                    color: var(--content-neutrals-fixed-white);
-                }
-
-                h6 {
-                    text-align: center;
-                }
-            }
-
-            .bait-sample {
-                display: flex;
-                flex-direction: column-reverse;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                max-width: 1328px;
-                gap: 2.5rem;
-                
-                .bait-sample-description {
-                    max-width: 39.5rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: 1rem;  
-
-                    .bait-sample-title { 
-                        width: 100%;
-                        padding-bottom: 1.5rem;
-                        border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
-                    }
-
-                    p {
-                        font: 400 1rem/1.5rem 'AT Aero';
-                        margin-top: 0.5rem;
-                    }
-
-                    .bait-sample-subtitles {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 1rem;
-
-                        .accordion-item {
-                            padding-bottom: 1rem;
-                            border-bottom: 0.063rem solid var(--outline-neutrals-secondary);
-
-                            .accordion-icon {
-                                font: 400 1.5rem 'AT Aero';
-                                margin-right: 0.5rem;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .bait-image {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                max-width: 39rem;
-                aspect-ratio: 185 / 140;
-                height: auto;
-                border: 1px solid var(--outline-neutrals-primary, #FFF);
-                position: relative;
-
-                .responsive-image, .image-container {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-                    
-                .responsive-image {
-                    object-fit: cover;
-                }
-            }
-        }
+        padding: 1.5rem 0rem;
 
         .gifts-cards {
             display: grid;
@@ -641,8 +367,6 @@ const GiftsSection = styled.section`
             width: 100%;
             margin: 0 auto;
         }
-
-        
     }
 
     @media (min-width:1000px) {
@@ -652,195 +376,14 @@ const GiftsSection = styled.section`
 
             .gifts-cards {
                 gap: 1rem;
-                grid-template-areas: 
-                "gift1 gift1 gift2 gift2 gift3 gift3"
-                "gift4 gift4 gift4 gift5 gift5 gift5";
+                grid-template-columns: 1fr 1fr 1fr 1fr;
                 max-width: 1328px;
-            }
-
-            #giftContainer1 {
-            grid-area: gift1;
-            }
-
-            #giftContainer2 {
-                grid-area: gift2;
-            }
-
-            #giftContainer3 {
-                grid-area: gift3;
-            }
-
-            #giftContainer4 {
-                grid-area: gift4;
-            }
-
-            #giftContainer5 {
-                grid-area: gift5;
-            }
-
-            .gifts-cards-obs {
-                text-align: center;
             }
 
             button {
                 width: fit-content;
                 margin-top: 0.5rem;
             }
-
-            .gifts-bait {
-                .bait-sample {
-                    flex-direction: row-reverse;
-                    justify-content: space-between;
-                    width: 100%;
-                    padding-bottom: 3rem;
-
-                    .bait-sample-description {
-                        align-items: flex-start;
-                        max-width: 38rem;
-
-                        p {
-                            font: 400 1.125rem/1.75rem 'AT Aero';
-                        }
-                    }
-                }
-
-                .justify-left {
-                    flex-direction: row;
-                }
-            }
-        }
-    }
-`
-
-const LastYearSection = styled.section`
-    --border: 1px solid var(--outline-neutrals-secondary);
-    border-top: var(--border);
-
-    .lastyear-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        width: 100%;
-        padding: 1.5rem 1rem;
-
-        border-left: var(--border);
-        border-right: var(--border);
-        
-        .lastyear-text {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            text-align: center;
-            
-            .lastyear-title {
-                background-color: var(--brand-primary);
-                width: fit-content;
-                padding: 0.75rem 1.5rem;
-
-                h3 {
-                    color: var(--content-neutrals-fixed-white);
-                }
-            }
-
-            p {
-                font: 400 1rem/1.5rem 'AT Aero';
-            }
-        }
-
-        .lastyear-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            width: 100%;
-
-            .lastyear-video {
-                position: relative;
-                overflow: hidden;
-                width: 100%;
-
-                &::after {
-                    display: block;
-                    content: "";
-                    padding-top: 56.25%;
-                }
-
-                iframe {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    border: 0;
-                }
-            }
-        }
-    }
-
-    @media (min-width:1045px) {
-        .lastyear-container {
-            padding: 4.5rem 1.5rem;
-            gap: 2.5rem;
-
-            .lastyear-content {
-                a {
-                    width: fit-content;
-                    margin: 0 auto;
-                }
-            }
-
-            .lastyear-video {
-                max-width: 100%;
-                flex: 1;
-            }
-        }
-    }
-`
-
-const EventNumbersBanner = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    max-width: 100%;
-
-    .event-info-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        padding: 1.5rem;
-        background-color: white;
-        color: var(--brand-primary);
-
-        h5 {
-            color: var(--brand-primary);
-        }
-    }
-
-    @media (min-width:880px) {
-        width: 100%;
-        flex-direction: row;
-
-        .event-info-container {
-            align-items: start;
-            gap: 0;
-            padding: 1.5rem;
-        }
-    }
-
-    @media (min-width:1000px) {
-        gap: 1rem;
-        
-        .event-info-container {
-            align-items: flex-start;
-            width: 100%;
-            height: 100%;
         }
     }
 `

@@ -35,12 +35,12 @@ export const eventDetails = {
     ],
     // variaveis centralizadas para a pagina de programacao de 2026:
     // DATAS DA EDICAO ATUAL (2026)
-    // dayOfSSI: ["24 Ago", "25 Ago", "26 Ago", "27 Ago", "28 Ago"],
+    // dayOfSSI: ["24 - Agosto", "25 - Agosto", "26 - Agosto", "27 - Agosto", "28 - Agosto"],
     // dayFull: ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
     // weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
     
     // DESCOMENTE AQUI E COMENTE ACIMA APENAS PARA TESTES LOCAIS (DADOS DO MOCK/API EM 2025)
-    dayOfSSI: ["18 Ago", "19 Ago", "20 Ago", "21 Ago", "22 Ago"],
+    dayOfSSI: ["18 - Agosto", "19 - Agosto", "20 - Agosto", "21 - Agosto", "22 - Agosto"],
     dayFull: ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"],
     weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
   },

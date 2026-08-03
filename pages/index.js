@@ -21,8 +21,11 @@ import AuthModal from '../src/components/features/auth/AuthModal';
 import MapModal from '../src/components/features/home/MapModal';
 import CountdownSection from '../src/components/features/home/CountdownSection';
 import YoutubeWatchNow from '../src/components/features/home/YoutubeWatchNow';
-import PartnerCard from '../src/components/features/partners/PartnerCard';
 import ScheduleSection from '../src/components/features/schedule/ScheduleSection';
+import SupportersSection from '../src/components/features/partners/SupportersSection';
+
+// TEMPORÁRIO
+import { LinkedInLogo, InstagramLogo, YouTubeLogo } from '../src/components/ui/SocialMediaLogos';
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
 
@@ -32,17 +35,15 @@ const partnerships = [
     { name: 'Neologica', imageDark: '/images/partners/neologica-light.png', imageLight: '/images/partners/neologica-dark.png', url: 'https://www.nelogica.com.br/'},
 ];
 
-// Desabilitado pois essa logica foi movida para o componente PartnerCarousel
-// const supporters = [
-//     { name: 'EACH', imageDark: '/images/partners/each-dark.svg', imageLight: '/images/partners/each-light.svg', url: 'https://www5.each.usp.br/' },
-//     { name: 'Alura', imageDark: '/images/partners/alura-dark.svg', imageLight: '/images/partners/alura-light.png', url: 'https://www.alura.com.br/' },
-//     { name: 'TOTVS', imageDark: '/images/partners/totvs-dark.svg', imageLight: '/images/partners/totvs-light.png', url: 'https://www.totvs.com/' },
-//     { name: 'PET-SI', imageDark: '/images/partners/pet-dark.png', imageLight: '/images/partners/pet-light.png', url: 'https://www.instagram.com/petsieach/' },
-//     { name: 'R2ventures', imageDark: '/images/partners/r2-ventures-dark.png', imageLight: '/images/partners/r2-ventures-light.png', url: 'https://r2ventures.com.br/' },
-//     {name: 'Rocketseat', imageDark: '/images/partners/rocketseat-light.png',  imageLight: '/images/partners/rocketseat-dark.png', url: 'https://www.rocketseat.com.br/'},
-//     {name: 'Bravium', imageDark: '/images/partners/bravium-light.png', imageLight: '/images/partners/bravium-dark.png',  url: 'https://www.bravium.com.br/'},
-//     // ].sort((a, b) => a.name > b.name ? 1 : -1);
-// ];
+const supporters = [
+    { name: 'EACH', imageDark: '/images/partners/each-dark.svg', imageLight: '/images/partners/each-light.svg', url: 'https://www5.each.usp.br/' },
+    { name: 'Alura', imageDark: '/images/partners/alura-dark.svg', imageLight: '/images/partners/alura-light.png', url: 'https://www.alura.com.br/' },
+    { name: 'TOTVS', imageDark: '/images/partners/totvs-dark.svg', imageLight: '/images/partners/totvs-light.png', url: 'https://www.totvs.com/' },
+    { name: 'PET-SI', imageDark: '/images/partners/pet-dark.png', imageLight: '/images/partners/pet-light.png', url: 'https://www.instagram.com/petsieach/' },
+    { name: 'R2ventures', imageDark: '/images/partners/r2-ventures-dark.png', imageLight: '/images/partners/r2-ventures-light.png', url: 'https://r2ventures.com.br/' },
+    { name: 'Rocketseat', imageDark: '/images/partners/rocketseat-light.png', imageLight: '/images/partners/rocketseat-dark.png', url: 'https://www.rocketseat.com.br/' },
+    { name: 'Bravium', imageDark: '/images/partners/bravium-light.png', imageLight: '/images/partners/bravium-dark.png', url: 'https://www.bravium.com.br/' },
+].sort((a, b) => a.name > b.name ? 1 : -1);
 
 const LocationButton = styled(SecondaryButton)`
     /* estilo especifico apenas para o segundo "Saiba Mais" na Home */
@@ -311,40 +312,58 @@ const Home = () => {
                 </div>
             </DirectionsSection>
 
-{/* OCULTADO POR ENQUANTO
-
-            <SupportersSection>
-                <div className='supporters-container'>
-                    <div className='supporters-title'>
-                        <h3>Parcerias</h3>
-                        <h6>Marcas e organizações que estão conosco para tornar este evento um sucesso!</h6>
-                    </div>
-                    <div className='supporters-cards'>
-                        {Object.entries(partnerships).map(([key, supporter]) => {
-                            return (
-                                <PartnerCard key={key} name={supporter.name} imageDark={supporter.imageDark} imageLight={supporter.imageLight} link={supporter.url} />
-                            )
-                        })}
-                    </div>
-                </div>
-            </SupportersSection>
-
-            <SupportersSection>
-                <div className='supporters-container'>
-                    <div className='supporters-title'>
-                        <h3>Apoiadores</h3>
-                        <h6>Marcas e organizações que acreditam no evento e tornam sua realização possível!</h6>
-                    </div>
-                    <div className='supporters-cards'>
-                        {Object.entries(supporters).map(([key, supporter]) => {
-                            return (
-                                <PartnerCard key={key} name={supporter.name} imageDark={supporter.imageDark} imageLight={supporter.imageLight} link={supporter.url} />
-                            )
-                        })}
-                    </div>
-                </div>
-            </SupportersSection>
+            {/*
+                =====================================================================================
+                CONTEÚDO TEMPORÁRIO. BASTA DELETAR ESSA SECTION ABAIXO E DESCOMENTAR A SEÇÃO SEGUINTE
+                =====================================================================================
             */}
+            <section style={{padding: '5rem 0', textAlign: 'center', gap: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                <h4>Em breve você poderá conferir nossos apoiadores e parceiros</h4>
+                <p>Acompanhe nossas redes sociais para receber as atualizações em primeira mão.<br/>Não perca nenhuma novidade!</p>
+                <div style={{display: 'flex', gap: '1rem', transform: 'scale(1.5)', alignItems: 'center', justifyContent: 'center', marginTop: '1rem'}}>
+                    <a
+                        href="https://www.instagram.com/semanadesi/"
+                        target="_blank"
+                        aria-label="Instagram da Semana de Sistemas de Informação"
+                    >
+                        {/*Instagram Logo*/}
+                        <InstagramLogo />
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/company/comissão-organizadora-da-semana-de-sistemas-de-informação"
+                        target="_blank"
+                        aria-label="Linkedin da Semana de Sistemas de Informação"
+                    >
+                        {/*Linkedin Logo*/}
+                        <LinkedInLogo />
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/@semanadesi"
+                        target="_blank"
+                        aria-label="YouTube da Semana de Sistemas de Informação"
+                    >
+                        {/* YouTube Logo */}
+                        <YouTubeLogo />
+                    </a>
+                </div>
+            </section>
+            {/*
+            <SupportersSection 
+                title="Parcerias"
+                subtitle="Marcas e organizações que estão conosco para tornar este evento um sucesso!"
+                data={partnerships}
+                showDivider
+                showSymbol
+            />
+
+            <SupportersSection 
+                title="Apoiadores"
+                subtitle="Marcas e organizações que acreditam no evento e tornam sua realização possível!"
+                data={supporters}
+                showDivider
+            />*/}
         </>
     )
 }
@@ -857,67 +876,6 @@ const DirectionsSection = styled.section`
                 iframe {
                     height: 32rem;
                 }
-            }
-        }
-    }
-`
-
-const SupportersSection = styled.section`
-    padding: 2rem 1rem;
-    background-color: var(--background-neutrals-primary);
-    color: var(--content-neutrals-primary);
-
-    .supporters-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-
-        .supporters-title {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            max-width: 63.5rem;
-
-            h3 {
-                text-align: center;
-				background-color: var(--brand-primary);
-				padding: 0.75rem 1.5rem 0.75rem 1.5rem;
-                color: var(--content-neutrals-fixed-white);
-            }
-
-            h6 {
-                text-align: center;
-            }
-        }
-
-        .supporters-cards {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            gap: 1rem;
-            justify-content: center;
-
-            > div {
-                flex-grow: 0;
-
-                @media (min-width: 800px) {
-                    flex-basis: calc(33.333% - 1rem);
-                }
-            }
-        }
-    }
-
-    @media (min-width:1000px) {
-        padding-block: 4.5rem;
-
-        .supporters-container {
-
-            .supporters-cards {
-                max-width: 1328px;
             }
         }
     }

@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
+
+import presentIcon from '../../../../public/images/user/dark/presente-icon.svg';
 
 const UserWatchedLecture = ({ title, start_time, end_time }) => {
     
@@ -23,23 +26,23 @@ const UserWatchedLecture = ({ title, start_time, end_time }) => {
 
     return (
         <WatchedLectureContainer>
-            <div 
+            <div className='lecture-content'>
+                <div 
                 className={`lecture-title-container ${isTruncated && 'change-cursor'}`}
                 tabIndex={0}
                 aria-label={title}  
-            >
-                <p 
-                    className='lecture-title'
-                    ref={titleRef}
                 >
-                    {title}
-                </p>
-                {isTruncated && <span className='tooltiptext'>{title}</span>}
+                    <p className='lecture-title' ref={titleRef}>
+                        {title}
+                    </p>
+                    {isTruncated && <span className='tooltiptext'>{title}</span>}
+                </div>
+                <div className = "timesWrapper">
+                    <p className='lecture-time'>{formatTime(start_time)} - {formatTime(end_time)}</p>
+                </div>
             </div>
-            <div className = "timesWrapper">
-                <p className='lecture-time'>{formatTime(start_time)} - {formatTime(end_time)}</p>
-            </div>
-        
+
+            <Image height={54} width={64} src={presentIcon} alt="Ícone de presença"/>
         </WatchedLectureContainer>
     )
 }
@@ -48,20 +51,34 @@ export default UserWatchedLecture;
 
 
 const WatchedLectureContainer = styled.div`
-	width: 100%;
-    padding: 0.75rem 1.5rem;
-	display: flex;
-    flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-    position: relative;
-    background-color: var(--background-neutrals-tertiary);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
 
-    @media screen and (min-width: 801px){
-        margin-right: 3rem;
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    position: relative;
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--background-neutrals-tertiary) 50%, transparent);
+
+    img {
+        width: 48px;
+        height: 40px;
+
+        @media (min-width: 1024px){
+            width: 56px;
+            height: 52px;
+        }
+    }
+
+    .lecture-content {
         width: 100%;
-        max-width: 1320px;
-    }   
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
     .lecture-title-container {
         position: relative;
@@ -70,8 +87,9 @@ const WatchedLectureContainer = styled.div`
     }
 
     .lecture-title {
-        font: 700 1.125rem/1.5rem 'AT Aero Bold';
-        max-width: 15rem;
+        font: 700 1.125rem/1.75rem 'AT Aero Bold';
+        width: 100%;
+        max-width: 12rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -79,10 +97,10 @@ const WatchedLectureContainer = styled.div`
         display: inline-block;
 
         @media screen and (min-width: 801px){
-            max-width: unset;
+            font-size: 1.25rem;
+            line-height: 2rem;
+            max-width: 95%;
         }
-
-        
     }
 
     .change-cursor {
@@ -90,7 +108,14 @@ const WatchedLectureContainer = styled.div`
     }
 
     .lecture-time {
-        font: 400 0.875rem/1.5rem 'AT Aero';
+        width: 100%;
+        font: 400 0.875rem/1rem 'AT Aero';
+        margin-bottom: 0.25rem;
+
+        @media (min-width: 1024px){
+            font-size: 1rem;
+            margin-bottom: 0.45rem;
+        }
     }
 
     .lecture-mode {
