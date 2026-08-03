@@ -147,6 +147,8 @@ const COExhibitionSection = styled.section`
     overflow: hidden;
     padding: 4rem 1.5rem 1.5rem 1.5rem;
 
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
+
     .exhibition-container {
         width: 100%;
         max-width: 1200px;
@@ -218,21 +220,25 @@ const COExhibitionSection = styled.section`
                 max-width: 100%;
                 display: flex;
 
-                .triangle-top {
+                .triangle {
                     position: absolute;
+                    object-fit: contain;
+                    height: auto;
+                    shape-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                }
+
+                .triangle-top {
                     width: 2.8rem;   
-                    height: 3.1rem;  
-                    top: -1rem;      
-                    left: -1rem;     
+                    top: -1.25rem;      
+                    left: -1.25rem;     
                     z-index: 3;
                 }
 
                 .triangle-bottom {
-                    position: absolute;
-                    width: 2.2rem;   
-                    height: 2.2rem;  
-                    bottom: -1rem;   
-                    right: -1rem;    
+                    width: 2.8rem;   
+                    bottom: -1.25rem;   
+                    right: -1.25rem;    
                     z-index: 3;
                 }
             }
@@ -252,6 +258,7 @@ const COExhibitionSection = styled.section`
     /* ====== DESKTOP LAYOUT  ====== */
     @media (min-width: 1021px) {
         padding: 6rem 3rem;
+        border-bottom: 0px;
 
         .exhibition-container {
             flex-direction: row; 
@@ -288,15 +295,13 @@ const COExhibitionSection = styled.section`
                 .image-wrapper {
 
                     .triangle-top {
-                        width: 6.6694rem; 
-                        height: 7.4047rem; 
-                        top: -3.5rem;
+                        width: 5rem; 
+                        top: -2.5rem;
                         left: -2.5rem;
                     }
 
                     .triangle-bottom {
-                        width: 4.875rem; 
-                        height: 4.8125rem; 
+                        width: 5rem; 
                         bottom: -2.5rem;
                         right: -2.5rem;
                     }
@@ -309,8 +314,6 @@ const COExhibitionSection = styled.section`
 const COMembersSection = styled.section`
     overflow-x: hidden;
     align-items: center;
-
-    border-top: 1px solid var(--outline-neutrals-secondary);
 `
 
 const COFilterContainer = styled.div `
