@@ -11,7 +11,7 @@ import saphira from '../services/saphira';
 import Image from 'next/image';
 
 import { eventDetails } from '../data/eventDetails'; 
-import useDotsGeneration from '../hooks/useDotsGeneration';
+import useAvailableWidth from '../hooks/useAvailableWidth';
 
 const Palestrantes = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -36,7 +36,7 @@ const Palestrantes = () => {
     }, [])
 
     // Hook customizado para obter o width disponível do componente das bolinhas
-    const { componentRef, availableWidth } = useDotsGeneration(speakers);
+    const { componentRef, availableWidth } = useAvailableWidth(speakers, '.dots-wrapper');
 
     return (
         <PalestrantesContainer>

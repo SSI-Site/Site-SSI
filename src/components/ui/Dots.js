@@ -1,6 +1,7 @@
 import React, { memo, useId, useMemo } from 'react'
 import styled from 'styled-components'
 
+// Stops padrão do gradiente das bolinhas, linear da esquerda para a direita, com duas cores (inicial e final)
 const gradientStopsFixed = (
     <>
         <stop className="gradient-stop-1" />
@@ -8,8 +9,48 @@ const gradientStopsFixed = (
     </>
 )
 
-// Componente das bolinhas
-const HomeDots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops = gradientStopsFixed }) => {
+/**
+ * Componente das bolinhas.
+ * Desenha um SVG com duas linhas de bolinhas, com tamanho das bolinhas e gradiente customizáveis.
+ * 
+ * @param {Object} props
+ * @param {Number} props.dotSize - Tamanho das bolinhas.
+ * @param {Number} props.dotGap - Espaçamento lateral entre as bolinhas.
+ * @param {Number} props.availableWidth - Largura disponível para renderizar as bolinhas, deve ser calculada pelo hook useAvailableWidth.
+ * @param {JSX.Element} props.gradientStops - Stops do gradiente das bolinhas, por padrão são dois stops (gradiente esquerda para a direita).
+ */
+
+/* 
+    Para saber como usar, por favor, consultar também o hook useAvailableWidth da pasta hooks, responsável por calcular o width disponível.
+    avaliableWidth deve ser calculado pelo hook useAvailableWidth e então passado para esse componente.
+    gradientStops permite definir os pontos do gradiente. Para ter um com três cores, por exemplo, você pode declarar:
+
+    const gradientStops = (
+        <>
+            <stop className="gradient-stop-1" />
+            <stop className="gradient-stop-2" offset="0.5" />   
+            <stop className="gradient-stop-3" offset="1" />
+        </>
+    )
+
+    e então passar essa variável como parâmetro.
+    Para definir as cores, isso deve ser feito no CSS da própria página aonde você está usando esse componente.
+    defina um stop-color para cada .gradient-stop-# dessa maneira: 
+
+    .gradient-stop-1 {
+        stop-color: var(--brand-purple-200);
+    }
+
+    .gradient-stop-2 {
+        stop-color: var(--brand-purple-700);
+    }
+
+    e se quiser mudar as cores de acordo com light mode ou dark mode, aplique as medias query.
+*/
+
+// Obs: o motivo de se usar useAvailableWidth em vez desse próprio componente calcular seu width é reduzir o número de cálculos e renders.
+
+const Dots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops = gradientStopsFixed }) => {
     // Tamanho das bolinhas
     const DOT_SIZE = dotSize
     const DOT_RADIUS = DOT_SIZE / 2
@@ -53,8 +94,7 @@ const HomeDots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops 
                 focusable="false"
             >
                 <defs>
-                    {/* Definição do gradiente para as bolinhas, direita para esquerda
-                        e dois pontos (cor inicial e cor final) */}
+                    {/* Definição do gradiente para as bolinhas */}
                     <linearGradient
                         id={gradientId}
                         x1={"0"}
@@ -66,7 +106,7 @@ const HomeDots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops 
                         {gradientStops}
                     </linearGradient>
                 </defs>
-                {/* Desenhando as bolinhas. Posição x é dada pelo dots, y foi definida nas variáveis globais */}
+                {/* Desenhando as bolinhas. Posição x é dada pelo dots, y foi definida nas variáveis globais desse arquivo */}
                 {dots.columns.map((x) => (
                     <React.Fragment key={x}>
                         <circle cx={x} cy={TOP_ROW_CENTER_Y} r={DOT_RADIUS} fill={`url(#${gradientId})`} />
@@ -78,7 +118,7 @@ const HomeDots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops 
     )
 }
 
-export default memo(HomeDots)
+export default memo(Dots)
 
 const DotsWrapper = styled.div`
     position: relative;

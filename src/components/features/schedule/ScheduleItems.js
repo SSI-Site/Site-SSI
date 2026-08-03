@@ -6,7 +6,7 @@ import Image from 'next/image'
 import TimeItem from './TimeItem'
 import BreakItem from './BreakItem'
 import LectureItem from './LectureItem'
-import useDotsGeneration from '../../../../hooks/useDotsGeneration'
+import useAvailableWidth from '../../../../hooks/useAvailableWidth'
 
 // Componente que itera sobre os dados da programação do evento e renderiza cada item de acordo com o tipo de evento (palestra, intervalo, abertura, encerramento, horário, etc)
 
@@ -16,7 +16,7 @@ const ScheduleItems = ({ schedule }) => {
     let reverseTimeItem = true;
     
     // Hook customizado para obter o width disponível do componente das bolinhas
-    const { componentRef, availableWidth } = useDotsGeneration(schedule);
+    const { componentRef, availableWidth } = useAvailableWidth(schedule, '.dots-wrapper');
 
     return (
         <>
