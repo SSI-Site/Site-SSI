@@ -111,7 +111,7 @@ const partnerships = () => {
                 <section className='partnerCarousel'>
                     {/* Uso do componente PartnerCarousel */}
                     {/* <PartnerCarousel /> */}
-                    <h6 style={{textAlign: 'center'}}>Em breve você poderá conferir nossos apoiadores e parceiros aqui!</h6>
+                    <h6 style={{ width: '100%', textAlign: 'center'}}>Em breve você poderá conferir nossos apoiadores e parceiros aqui!</h6>
                 </section>
             </SponsorsSection>
 

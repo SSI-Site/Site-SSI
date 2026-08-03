@@ -92,14 +92,15 @@ const Schedule = () => {
         ===================================================== 
     */}
     return (
-        <section style={{padding: '15rem 0', textAlign: 'center', gap: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+        <section style={{ width: '100%', padding: '15rem 0', textAlign: 'center', gap: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
             <h3>Em breve você poderá conferir a programação</h3>
             <p>Acompanhe nossas redes sociais para receber as atualizações em primeira mão.<br/>Não perca nenhuma novidade!</p>
-            <div style={{display: 'flex', gap: '1rem', transform: 'scale(1.5)', alignItems: 'center', justifyContent: 'center', marginTop: '1rem'}}>
+            <div style={{ width: '100%', display: 'flex', gap: '3rem', alignItems: 'center', justifyContent: 'center', marginTop: '1rem'}}>
                 <a
                     href="https://www.instagram.com/semanadesi/"
                     target="_blank"
                     aria-label="Instagram da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
                 >
                     {/*Instagram Logo*/}
                     <InstagramLogo />
@@ -109,6 +110,7 @@ const Schedule = () => {
                     href="https://www.linkedin.com/company/comissão-organizadora-da-semana-de-sistemas-de-informação"
                     target="_blank"
                     aria-label="Linkedin da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
                 >
                     {/*Linkedin Logo*/}
                     <LinkedInLogo />
@@ -118,6 +120,7 @@ const Schedule = () => {
                     href="https://www.youtube.com/@semanadesi"
                     target="_blank"
                     aria-label="YouTube da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
                 >
                     {/* YouTube Logo */}
                     <YouTubeLogo />
