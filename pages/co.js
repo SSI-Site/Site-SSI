@@ -1,73 +1,59 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import Meta from '../src/infra/seo/Meta';
-
 import { eventDetails } from '../data/eventDetails';
 
 // components
 import DepartmentStamp from '../src/components/features/co/DepartmentStamp';
 import MemberCard from '../src/components/features/co/MemberCard';
 
-//Importe Image do Next
+// Importe Image do Next
 import Image from 'next/image'
 
 // assets
 import members from '../data/members';
 
+/**
+ * Array de configuração dos filtros (setores).
+ * Centralizar esses dados facilita a adição ou remoção de setores no futuro
+ * sem precisar duplicar dezenas de linhas de HTML.
+ */
+const DEPARTMENTS = [
+    { name: 'Palestrantes', color: 'var(--content-neutrals-primary)' },
+    { name: 'Parcerias', color: 'var(--brand-primary)' },
+    { name: 'Sites', color: 'var(--brand-primary-light)' },
+    { name: 'Todos', color: 'var(--brand-primary)' },
+    { name: 'Comercial e Financeiro', color: 'var(--brand-primary-light)' },
+    { name: 'Criação e Comunicação', color: 'var(--content-neutrals-primary)' },
+    { name: 'Diretoria', color: 'var(--brand-primary)' },
+    { name: 'Infraestrutura', color: 'var(--brand-primary-light)' }
+];
+
 const CO = () => {
 
-    const [activeItem, setActiveItem] = useState('Todos')
+    const [activeItem, setActiveItem] = useState('Todos');
 
-    function renderActiveItem() {
-        if (activeItem === 'Todos') {
-            return (
-                members.map(function(member, key) {
-                    return (
-                        <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={key} />
-                        </div>
-                    );
-                })
-
-            )
-        } else {
-            const sectorMembers = members.filter(member => member.departments.includes(activeItem))
-            return (
-                sectorMembers.map(function(member, key) {
-                    return (
-                        <div className="card-container" key={key}>
-                            <MemberCard name={member.name} image={member.image} departments={member.departments} linkedin={member.linkedin} phrase={member.phrase} colorScheme={(key)} />
-                        </div>
-                    );
-                })
-            )
-        }
-    }
-
-    // centralize activeItem
+    /**
+     * Efeito de centralização automática (Scroll suave).
+     * Quando o 'activeItem' muda, o contêiner calcula a posição do botão clicado
+     * e rola a tela horizontalmente para deixá-lo no centro da visão do usuário.
+     */
     useEffect(() => {
         const container = document.querySelector('.members-container');
-        const active = container.querySelector(`[name="${activeItem}"]`);
+        // Usamos optional chaining (?.) para evitar erros caso o elemento ainda não exista
+        const active = container?.querySelector(`[name="${activeItem}"]`);
+        
         if (container && active) {
-            container.scrollLeft = active.offsetLeft + active.offsetWidth / 2 - window.innerWidth / 2;      // active center position
+            container.scrollLeft = active.offsetLeft + (active.offsetWidth / 2) - (window.innerWidth / 2);
         }
-    });
+    }, [activeItem]); // A dependência garante que só rode quando a aba mudar (Performance ++)
 
-    // text wrap resize on mobile
-    useEffect(() => {
-        const stamps = document.querySelectorAll('.members-container > * > *');
-        if (stamps) {
-            stamps.forEach(stamp => {
-                const stampText = stamp.querySelector('p');
-                if (stampText.offsetHeight > 48 && window.innerWidth < 1021) {    // 48px = 3rem (one text line)
-                    stamp.style.maxWidth = '14rem';
-                    stampText.style.font = '400 2rem/2rem "AT Aero Bold"';
-                }
-            });
-        }
-    }, []);
+    // Lógica enxuta de filtragem: 
+    // Se for 'Todos', pega o array original. Se não, usa o .filter() nos setores.
+    const displayedMembers = activeItem === 'Todos' 
+        ? members 
+        : members.filter(member => member.departments.includes(activeItem));
 
     return (
         <>
@@ -80,16 +66,35 @@ const CO = () => {
                 <div className='exhibition-container'>
                     <div className='title-text'>
                         <h1>Comissão Organizadora</h1>
-                        <p>Conheça a Comissão Organizadora da Semana de Sistemas de Informação, o time que trabalha para fazer esse evento acontecer.</p>
+                        <p>Venha conhecer a Comissão Organizadora que trabalha para fazer a Semana de Sistemas de Informação acontecer!</p>
                     </div>
                     <div className='image-container'>
-                        <Image 
-                            src='/images/co/co.jpg' 
-                            alt='Foto Palestra'
-                            width={500}
-                            height={500} 
-                            priority
-                        />
+                        <div className='image-wrapper'>
+                            {/* Triângulo de Cima preso no canto superior esquerdo da foto */}
+                            <img 
+                                src='/images/co/triangulo-cima.svg' 
+                                alt='' 
+                                className='triangle triangle-top' 
+                                aria-hidden="true" 
+                            />
+                            
+                            <Image 
+                                src='/images/co/co.jpg' 
+                                alt='Foto da Comissão Organizadora'
+                                width={608}
+                                height={416} 
+                                priority
+                                className='main-image'
+                            />
+
+                            {/* Triângulo de Baixo preso no canto inferior direito da foto */}
+                            <img 
+                                src='/images/co/triangulo-baixo.svg' 
+                                alt='' 
+                                className='triangle triangle-bottom' 
+                                aria-hidden="true" 
+                            />
+                        </div>
                     </div>
                 </div>
             </COExhibitionSection>
@@ -97,35 +102,36 @@ const CO = () => {
             <COMembersSection>
                 <COFilterContainer>
                     <div className='members-container'>
-                        <NavItem $active={activeItem === 'Palestrantes'} onClick={() => setActiveItem('Palestrantes')}>
-                            <DepartmentStamp name='Palestrantes' $itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Palestrantes'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Parcerias'} onClick={() => setActiveItem('Parcerias')}>
-                            <DepartmentStamp name='Parcerias' $itemColor="var(--brand-primary)" $active={activeItem === 'Parcerias'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Sites'} onClick={() => setActiveItem('Sites')}>
-                            <DepartmentStamp name='Sites' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Sites'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Todos'} onClick={() => setActiveItem('Todos')}>
-                            <DepartmentStamp name='Todos' $itemColor="var(--brand-primary)" $active={activeItem === 'Todos'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Comercial e Financeiro'} onClick={() => setActiveItem('Comercial e Financeiro')}>
-                            <DepartmentStamp name='Comercial e Financeiro' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Comercial e Financeiro'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Criação e Comunicação'} onClick={() => setActiveItem('Criação e Comunicação')}>
-                            <DepartmentStamp name='Criação e Comunicação' $itemColor="var(--content-neutrals-primary)" $active={activeItem === 'Criação e Comunicação'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Diretoria'} onClick={() => setActiveItem('Diretoria')}>
-                            <DepartmentStamp name='Diretoria' $itemColor="var(--brand-primary)" $active={activeItem === 'Diretoria'} />
-                        </NavItem>
-                        <NavItem $active={activeItem === 'Infraestrutura'} onClick={() => setActiveItem('Infraestrutura')}>
-                            <DepartmentStamp name='Infraestrutura' $itemColor="var(--brand-primary-light)" $active={activeItem === 'Infraestrutura'} />
-                        </NavItem>
+                        {/* Geração dinâmica dos botões de filtro a partir do array DEPARTMENTS */}
+                        {DEPARTMENTS.map((dept) => (
+                            <NavItem 
+                                key={dept.name} 
+                                name={dept.name} // Importante para o querySelector do Scroll encontrar o elemento
+                                onClick={() => setActiveItem(dept.name)}
+                            >
+                                <DepartmentStamp 
+                                    name={dept.name} 
+                                    $itemColor={dept.color} 
+                                    $active={activeItem === dept.name} 
+                                />
+                            </NavItem>
+                        ))}
                     </div>
                 </COFilterContainer> 
 
                 <MemberCardsWrapper id="members">
-                    {renderActiveItem()}
+                    {/* Renderização limpa dos cartões baseada na lista filtrada */}
+                    {displayedMembers.map((member, index) => (
+                        <MemberCard 
+                            name={member.name} 
+                            image={member.image} 
+                            departments={member.departments} 
+                            linkedin={member.linkedin} 
+                            phrase={member.phrase} 
+                            index={index} 
+                            key={index}
+                        />
+                    ))}
                 </MemberCardsWrapper>
                     
             </COMembersSection>
@@ -134,85 +140,175 @@ const CO = () => {
 }
 
 export default CO;
-
-
 const COExhibitionSection = styled.section`
-    border-bottom: 1px solid var(--outline-neutrals-secondary);
     background: var(--background-neutrals-primary, #1A1A1A);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 1.5rem 1.5rem 1.5rem;
+
+    border-bottom: 1px solid var(--outline-neutrals-secondary);
 
     .exhibition-container {
-        border-inline: 1px solid var(--outline-neutrals-secondary);
         width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 7.8rem; 
+        position: relative;
+        z-index: 2;
 
         .title-text {
-            color: var(--content-neutrals-primary, #FFF);
+            position: relative;
             color: var(--content-neutrals-primary, #FFF);
             display: flex;
             flex-direction: column;
-            align-items: start;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--outline-neutrals-secondary);
+            align-items: flex-start; 
+            text-align: left;
+            gap: 1rem;
+            width: 100%;
+            max-width: 30rem;
+            z-index: 2;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 18rem;      
+                height: 18.5rem;   
+                
+                top: -2.8rem;      
+                left: 0rem;     
+                z-index: -1; 
+                
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                opacity: 0.5; 
+
+                background-image: light-dark(
+                    url('/images/co/detalhe-fundo-light.svg'), 
+                    url('/images/co/detalhe-fundo-dark.svg')
+                );
+
+                @media (prefers-color-scheme: light) {
+                    background-image: url('/images/co/detalhe-fundo-light.svg');
+                }
+            }
+            h1 {
+                font-size: 2.5;
+                line-height: 3rem;
+            }
 
             p {
-                font: 400 1rem/1.5rem 'AT Aero';   
+                font-weight: 400;
+                font-size: 1rem;
+                line-height: 1.5rem;
             }
         }
 
         .image-container {
             width: 100%;
-            max-width: 25rem;
-            padding: 1.5rem 1.5rem 1.5rem 1rem;
-            position: relative;
-            z-index: 1;
-            
-            img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .image-wrapper {
+                position: relative; 
+                width: fit-content;
+                max-width: 100%;
+                display: flex;
+
+                .triangle {
+                    position: absolute;
+                    object-fit: contain;
+                    height: auto;
+                    shape-rendering: geometricPrecision;
+                    image-rendering: optimizeQuality;
+                }
+
+                .triangle-top {
+                    width: 2.8rem;   
+                    top: -1.25rem;      
+                    left: -1.25rem;     
+                    z-index: 3;
+                }
+
+                .triangle-bottom {
+                    width: 2.8rem;   
+                    bottom: -1.25rem;   
+                    right: -1.25rem;    
+                    z-index: 3;
+                }
+            }
+
+            .main-image {
                 width: 100%;
                 height: auto;
+                aspect-ratio: 608 / 416;
                 object-fit: cover;
-                border: 0.25rem solid white;
-                box-shadow: 0.25rem 0.25rem 0 var(--brand-primary);
+                border-radius: 0.625rem; 
+                position: relative;
+                z-index: 2;
             }
         }
     }
 
-    @media (min-width:1021px) {
+    /* ====== DESKTOP LAYOUT  ====== */
+    @media (min-width: 1021px) {
+        padding: 6rem 3rem;
+        border-bottom: 0px;
+
         .exhibition-container {
-            flex-direction: row;
-            background: var(--background-neutrals-primary, #1A1A1A);
-            background: var(--background-neutrals-primary, #1A1A1A);
-            
+            flex-direction: row; 
+            justify-content: center; 
+            gap: 4rem; 
+
             .title-text {
-                color: var(--content-neutrals-primary, #FFF);
-                color: var(--content-neutrals-primary, #FFF);
-                height: calc(100vh - 8rem);
-                max-height: 41.875rem;
-                width: 50%;
-                border-bottom: 0;
-                border-right: 1px solid var(--outline-neutrals-secondary);
-                padding-block: 0;
+                width: 55%;
+                
+                &::before {
+                    width: 24.375rem;  
+                    height: 25rem;     
+                    top: 50%;
+                    left: 0; 
+                    transform: translate(0, -50%); 
+                    opacity: 0.5; 
+                }
+
+                h1 {
+                    font-size: 4rem;
+                    line-height: 4.5rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
             }
 
             .image-container {
-                display: flex;
+                width: 53%;
                 justify-content: center;
-                max-width: 50rem;
-                width: 50%;
-                padding: 0 1.5rem 0rem 1rem;
+                
+                .image-wrapper {
 
-                img {
-                    max-width: 38rem;
-                    border: 0.5rem solid white;
-                    box-shadow: 0.5rem 0.5rem 0 var(--brand-primary);
+                    .triangle-top {
+                        width: 5rem; 
+                        top: -2.5rem;
+                        left: -2.5rem;
+                    }
+
+                    .triangle-bottom {
+                        width: 5rem; 
+                        bottom: -2.5rem;
+                        right: -2.5rem;
+                    }
                 }
             }
         }
     }
-`
+`;
 
 const COMembersSection = styled.section`
     overflow-x: hidden;
@@ -258,6 +354,7 @@ const MemberCardsWrapper = styled.div`
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    padding-inline: 1rem;
 
     @media (min-width:1021px) {
         margin-top: 2rem;
