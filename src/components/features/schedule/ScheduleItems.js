@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 
@@ -6,6 +6,7 @@ import Image from 'next/image'
 import TimeItem from './TimeItem'
 import BreakItem from './BreakItem'
 import LectureItem from './LectureItem'
+import useDotsGeneration from '../../../../hooks/useDotsGeneration'
 
 // Componente que itera sobre os dados da programação do evento e renderiza cada item de acordo com o tipo de evento (palestra, intervalo, abertura, encerramento, horário, etc)
 
@@ -13,39 +14,13 @@ const ScheduleItems = ({ schedule }) => {
     // Variável para ficar alternando o lado das bolinhas e texto de horário na versão para celular
     // Na versão de computador, apenas modificamos o css para desabilitar
     let reverseTimeItem = true;
-    // Ref e state para controlar o width disponível do componente das bolinhas
-    const scheduleRef = useRef(null)
-    const [availableWidth, setAvailableWidth] = useState(0)
-
-    // Roda após receber os dados
-    useEffect(() => {
-        const scheduleComponent = scheduleRef.current
-
-        if (!scheduleComponent) return;
-
-        // Função que pega o width disponível do componente das bolinhas
-        const updateAvailableWidth = () => {
-            const dotsWrapper = scheduleComponent.querySelector('.dots-wrapper');
-            if (!dotsWrapper) return;
-            
-            // Pega o width e atualiza o availableWidth se for diferente do valor atual
-            const nextWidth = dotsWrapper.getBoundingClientRect().width;
-            setAvailableWidth((currentWidth) => (currentWidth === nextWidth ? currentWidth : nextWidth));
-        }
-
-        updateAvailableWidth();
-        
-        // Listener para detectar mudanças no tamanho da tela
-        // E atualiza o availableWidth com o width disponível do componente das bolinhas
-        window.addEventListener('resize', updateAvailableWidth)
-
-        // Matando o listener quando o componente for desmontado
-        return () => window.removeEventListener('resize', updateAvailableWidth)
-    }, [schedule])
+    
+    // Hook customizado para obter o width disponível do componente das bolinhas
+    const { componentRef, availableWidth } = useDotsGeneration(schedule);
 
     return (
         <>
-            <ScheduleWrapper ref={scheduleRef}>
+            <ScheduleWrapper ref={componentRef}>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
                     {schedule.map((talk, index) => {
