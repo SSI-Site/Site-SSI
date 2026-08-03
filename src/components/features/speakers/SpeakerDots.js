@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
+import React, { memo, useMemo } from 'react'
 import styled from 'styled-components'
 
 // Componente do horário entre dois eventos, contém a lógica para criar as bolinhas do detalhe do horário manipulando SVG
@@ -14,37 +14,7 @@ const BOTTOM_ROW_CENTER_Y = TOP_ROW_CENTER_Y + DOT_GAP
 // Altura total do SVG
 const SVG_HEIGHT = BOTTOM_ROW_CENTER_Y + TOP_ROW_CENTER_Y + 1
 
-const SpeakerDots = () => {
-    // Ref para div com o SVG das bolinhas
-    const dotsWrapperRef = useRef(null)
-    // ID pro SVG
-    const gradientId = `time-item-dots-gradient-${useId().replace(/:/g, '')}`
-
-    const [availableWidth, setAvailableWidth] = useState(0)
-
-    // Roda após renderizar o componente
-    useEffect(() => {
-        const dotsWrapper = dotsWrapperRef.current
-
-        if (!dotsWrapper) {
-            return
-        }
-
-        // Pegando o width disponível (já renderizado)
-        setAvailableWidth(dotsWrapper.getBoundingClientRect().width)
-        
-        // Observer para detectar mudanças no width do componente, como um listener
-        // E atualiza o availableWidth com o width atualizado
-        const resizeObserver = new ResizeObserver(([entry]) => {
-            setAvailableWidth(entry.contentRect.width)
-        })
-
-        resizeObserver.observe(dotsWrapper)
-
-        // Matando o observer quando o componente for desmontado
-        return () => resizeObserver.disconnect()
-    }, [])
-
+const SpeakerDots = ({ availableWidth = 0 }) => {
     // Calculando a quantidade de bolinhas que cabem no width disponível
     // Roda apenas quando availableWidth muda
     // dots é um objeto contendo as posições das colunas de bolinhas e o width do SVG
@@ -64,7 +34,7 @@ const SpeakerDots = () => {
 
     return (
         <>
-            <DotsWrapper ref={dotsWrapperRef} className={'dots-wrapper'} aria-hidden="true">
+            <DotsWrapper className={'dots-wrapper'} aria-hidden="true">
                 <svg
                     width={dots.svgWidth}
                     height={SVG_HEIGHT}
@@ -86,7 +56,7 @@ const SpeakerDots = () => {
     )
 }
 
-export default SpeakerDots
+export default memo(SpeakerDots)
 
 const DotsWrapper = styled.div`
     position: relative;

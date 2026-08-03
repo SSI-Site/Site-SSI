@@ -16,7 +16,7 @@ import formatActivityDateTime from "../../../../utils/formatActivityDateTime";
 const exibirBadgePresencial = false; 
 
 // Componente principal que exibe o card do palestrante
-const PalestranteCard = ({palestrante}) => {
+const PalestranteCard = ({palestrante, availableWidth}) => {
     // Estado para controlar se o card está aberto ou fechado (expandido)
     const [open, setOpen] = useState(false);
     // Estado para armazenar a altura do corpo do card (usado para animação)
@@ -152,7 +152,7 @@ const PalestranteCard = ({palestrante}) => {
                     </PalestranteLectureBody>
                 </PalestranteBody>
             </PalestranteWrapper>
-            <PalestranteBolinhas />
+            <PalestranteBolinhas availableWidth={availableWidth}/>
         </PalestranteContainer >
     )
 }

@@ -1,4 +1,4 @@
-import React, { useId, useMemo } from 'react'
+import React, { memo, useId, useMemo } from 'react'
 import styled from 'styled-components'
 
 import { formatTime } from '../../../../utils/format-time'
@@ -18,7 +18,8 @@ const SVG_HEIGHT = BOTTOM_ROW_CENTER_Y + TOP_ROW_CENTER_Y
 
 const TimeItem = ({ startTime, endTime, reverseItem, availableWidth = 0 }) => {
     // ID pro SVG
-    const gradientId = `time-item-dots-gradient-${useId().replace(/:/g, '')}`
+    const reactId = useId()
+    const gradientId = `time-item-dots-gradient-${reactId.replace(/:/g, '')}`
 
     // Calculando a quantidade de bolinhas que cabem no width disponível
     // Roda apenas quando availableWidth muda
@@ -82,7 +83,7 @@ const TimeItem = ({ startTime, endTime, reverseItem, availableWidth = 0 }) => {
     )
 }
 
-export default TimeItem
+export default memo(TimeItem)
 
 const TimeItemWrapper = styled.div`
     display: flex;

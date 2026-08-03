@@ -1,6 +1,6 @@
 import Meta from '../src/infra/seo/Meta';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Components
 import PalestranteCard from '../src/components/features/speakers/PalestranteCard';
@@ -15,24 +15,53 @@ import { eventDetails } from '../data/eventDetails';
 const Palestrantes = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [speakers, setSpeakers] = useState([])
+    // Ref e state para controlar o width disponível do componente das bolinhas
+    const speakerRef = useRef(null)
+    const [availableWidth, setAvailableWidth] = useState(0)
 
     const getSpeakers = async() => {
-      setIsLoading(true)
-      try{
-        const { data } = await saphira.getSpeakers()
-        if (data) setSpeakers(data)
-      }
-      catch(err){
-        console.log("Houve um erro na hora de obter os dados dos palestrantes:", err)
-      }
-      finally{
-        setIsLoading(false)
-      }
+        setIsLoading(true)
+        try{
+            const { data } = await saphira.getSpeakers()
+            if (data) setSpeakers(data)
+        }
+        catch(err){
+            console.log("Houve um erro na hora de obter os dados dos palestrantes:", err)
+        }
+        finally{
+            setIsLoading(false)
+        }
     }
 
     useEffect(() => {
-      getSpeakers()
+        getSpeakers()
     }, [])
+
+    // Roda após receber os dados
+    useEffect(() => {
+        const scheduleComponent = speakerRef.current
+
+        if (!scheduleComponent) return;
+
+        // Função que pega o width disponível do componente das bolinhas
+        const updateAvailableWidth = () => {
+            const dotsWrapper = scheduleComponent.querySelector('.dots-wrapper');
+            if (!dotsWrapper) return;
+            
+            // Pega o width e atualiza o availableWidth se for diferente do valor atual
+            const nextWidth = dotsWrapper.getBoundingClientRect().width;
+            setAvailableWidth((currentWidth) => (currentWidth === nextWidth ? currentWidth : nextWidth));
+        }
+
+        updateAvailableWidth();
+        
+        // Listener para detectar mudanças no tamanho da tela
+        // E atualiza o availableWidth com o width disponível do componente das bolinhas
+        window.addEventListener('resize', updateAvailableWidth)
+
+        // Matando o listener quando o componente for desmontado
+        return () => window.removeEventListener('resize', updateAvailableWidth)
+    }, [speakers])
 
     return (
         <PalestrantesContainer>
@@ -40,13 +69,13 @@ const Palestrantes = () => {
           description = {`Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.`}
           keywords={`palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI`}
           />
-          <PalestrantesWrapper>
+          <PalestrantesWrapper ref={speakerRef}>
             <h1>Palestrantes</h1>
 
           {
             !isLoading && speakers.sort((a, b) => a.name.localeCompare(b.name)).map((speaker) => {
               return(
-                <PalestranteCard key = {speaker.id} palestrante={speaker}/>
+                <PalestranteCard key = {speaker.id} palestrante={speaker} availableWidth={availableWidth}/>
               )
             })
           }

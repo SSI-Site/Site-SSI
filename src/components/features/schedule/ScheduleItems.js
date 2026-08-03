@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 
@@ -13,7 +13,7 @@ const ScheduleItems = ({ schedule }) => {
     // Variável para ficar alternando o lado das bolinhas e texto de horário na versão para celular
     // Na versão de computador, apenas modificamos o css para desabilitar
     let reverseTimeItem = true;
-    
+    // Ref e state para controlar o width disponível do componente das bolinhas
     const scheduleRef = useRef(null)
     const [availableWidth, setAvailableWidth] = useState(0)
 
@@ -27,7 +27,10 @@ const ScheduleItems = ({ schedule }) => {
         const updateAvailableWidth = () => {
             const dotsWrapper = scheduleComponent.querySelector('.dots-wrapper');
             if (!dotsWrapper) return;
-            setAvailableWidth(dotsWrapper.getBoundingClientRect().width);
+            
+            // Pega o width e atualiza o availableWidth se for diferente do valor atual
+            const nextWidth = dotsWrapper.getBoundingClientRect().width;
+            setAvailableWidth((currentWidth) => (currentWidth === nextWidth ? currentWidth : nextWidth));
         }
 
         updateAvailableWidth();
