@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatTime } from '../../../../utils/format-time'
+import { borderGradient } from '../../../../styles/global'
 
 // Componente de um intervalo da programação do evento
 
@@ -55,12 +56,10 @@ const BreakItemWrapper = styled.div`
 
     @media (min-width:800px) {
         padding: 0.75rem 1.5rem;
-        // Código para fazer a borda com gradiente
-        border: 2px solid transparent;
-        background: var(--border-gradient-primary-dark);
+        ${borderGradient('2px', '--border-gradient-primary-dark', '90deg')};
 
         @media (prefers-color-scheme: light) {
-            background: var(--border-gradient-primary-light);
+            ${borderGradient('2px', '--border-gradient-primary-light', '90deg')};
         }
 
         h4 {

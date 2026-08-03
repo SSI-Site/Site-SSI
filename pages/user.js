@@ -136,13 +136,13 @@ const User = () => {
     }
 
     useEffect(() => {
-        if (disableAuth || !user) {
-            Router.push('/');
-        } else {
+        // if (disableAuth || !user) {
+        //     Router.push('/');
+        // } else {
             getStudentInfo();
             getPresences();
             getStudentGifts();
-        }
+        // }
     }, [user]);
 
     const handleShowCodeModal = () => {
@@ -551,6 +551,10 @@ const CodeText = styled.div`
 
     .code-value {
         background: var(--text-gradient-primary-dark); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    
+        @media (prefers-color-scheme: light) {
+            background: var(--text-gradient-primary-light); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
     }
     
     .user-code-instruction-mobile {
