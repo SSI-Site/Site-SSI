@@ -2,35 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
+import DividerBolinhasDark from '../../../../public/images/co/divider-bolinhas-dark.svg';
+import DividerBolinhasLight from '../../../../public/images/co/divider-bolinhas-light.svg';
+
 // components
 import BadgeCO from '../../ui/BadgeCO';
-
-/**
- * Paleta de cores e temas disponíveis para os cartões.
- * O componente circula ciclicamente entre esses temas baseado na prop 'colorScheme'.
- */
-const colorSchemes = [
-    {
-        'background' : 'var(--background-neutrals-inverse)',
-        'textColor' : 'var(--content-neutrals-inverse)',
-    },
-    {
-        'background' : 'var(--background-neutrals-secondary)',
-        'textColor' : 'var(--content-neutrals-secondary)',
-    },
-    {
-        'background' : 'var(--brand-primary)',
-        'textColor' : 'var(--content-neutrals-fixed-white)',
-    },
-    {
-        'background' : 'var(--brand-primary-light)',
-        'textColor' : 'var(--content-neutrals-fixed-black)',
-    },   
-    {
-        'background' : 'var(--brand-primary-dark)',
-        'textColor' : 'var(--content-neutrals-fixed-white)',
-    },
-]
 
 /**
  * Componente que renderiza o cartão de um membro da Comissão Organizadora.
@@ -41,22 +17,25 @@ const colorSchemes = [
  * @param {string} props.image - Caminho da imagem/foto do membro.
  * @param {Array} props.departments - Array de strings com os setores do membro.
  * @param {string} props.linkedin - URL do LinkedIn do membro.
- * @param {number} props.colorScheme - Posição/índice do membro no array (usado para IDs únicos e ciclar o tema de cores).
+ * @param {number} props.index - Índice do membro no array (usado para IDs únicos).
  * @param {string} props.phrase - Frase marcante do membro (opcional).
  */
-const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase }) => {
+const MemberCard = ({ name, image, departments, linkedin, index, phrase }) => {
     
-    // Organiza os departamentos em ordem alfabética
+    // Organiza os departamentos por tamanho da palavra, menor para maior (para tentar fazer com que eles se agrupem mais facilmente no layout)
     const sortDepartments = (departments) => {
-        return departments.sort((a, b) => a.localeCompare(b));
+        return departments.sort((a, b) => {
+            if (a.length !== b.length) {
+                return a.length - b.length;
+            }
+
+            return a.localeCompare(b);
+        });
     };
 
     const cardRef = useRef(null);
     const [animating, setAnimating] = useState(false);
     const isMobile = useIsMobile();
-    
-    // Determina o tema de cor atual usando o operador módulo (%) para criar um ciclo de 5 posições
-    const currentTheme = colorSchemes[colorScheme % 5];
 
     /**
      * Função para lidar com a acessibilidade (navegação por teclado/Tab).
@@ -79,14 +58,13 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
         }
     }
 
+    // Variáveis para verificar se o conteúdo do verso é longo, para diminiuir seus tamanhos e tentar fazer com que caibam no card
+    const longPhrase = phrase && phrase.length > 175;
+    const longDepartments = departments && departments.length > 3;
+
     return (
         // As props prefixadas com '$' injetam as cores dinamicamente no Styled Component
-        <MemberWrapper 
-            onFocus={handleFocus} 
-            ref={cardRef}
-            $bgColor={currentTheme.background}
-            $textColor={currentTheme.textColor}
-        >
+        <MemberWrapper onFocus={handleFocus} ref={cardRef} $longPhrase={longPhrase} $longDepartments={longDepartments}>
             <div className="image-container">
                 <figure className='member-image'>
                     <Image src={image} alt={`Foto de ${name}`} className="responsive-image"
@@ -95,8 +73,8 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                 </figure>
             </div>
             
-            {/* O ID aqui usa o colorScheme para ser único por membro */}
-            <div className='card-back' id={'back b' + colorScheme}>
+            {/* O ID aqui usa o index para ser único por membro */}
+            <div className='card-back' id={'back b' + index}>
                 <div className={`member-name ${linkedin ? 'animate' : ''}`}>
                     {linkedin ?
                         <>
@@ -114,6 +92,10 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                 {phrase &&
                     <p className='phrase'>"{phrase}"</p>
                 }
+                <picture className="divider-picture" aria-hidden="true">
+                    <source srcSet={DividerBolinhasLight} media="(prefers-color-scheme: light)" />
+                    <Image src={DividerBolinhasDark} alt="Decoração bolinhas" width="230" height="20" />
+                </picture>
                 <div>
                     <p className='department-title'>Setores</p>
                     
@@ -126,7 +108,7 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
             </div>
             
             {/* Botão visível apenas em telas menores (Mobile) para revelar o verso do card */}
-            <button id={'c' + colorScheme} className={'info-button'} onClick={() => flip(colorScheme)}>
+            <button id={'c' + index} className={'info-button'} onClick={() => flip(index)}>
                 <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white" />
                     <rect id="arrow" width="100" height="100%" />
@@ -155,7 +137,7 @@ const useIsMobile = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.matchMedia("(max-width: 800px)").matches);
+            setIsMobile(window.matchMedia("(max-width: 1023px)").matches);
         };
 
         handleResize(); // Configura o estado inicial assim que monta (seguro para SSR no Next.js)
@@ -173,13 +155,24 @@ export default MemberCard;
 
 
 const MemberWrapper = styled.div`
+    // Gradiente do botão de alternar card
+    --button-gradient-primary-light: linear-gradient(135deg, var(--brand-purple-800) 15%, var(--brand-purple-600) 100%);
+    --button-gradient-primary-dark: linear-gradient(135deg, var(--brand-purple-400) 15%, var(--brand-purple-600) 100%);
+    
     position: relative;
-    width: 20.5rem;
-    height: 27.3rem;
+    width: 100%;
+    max-width: 18.4rem;
+    aspect-ratio: 3/4;
     gap: 1rem;
     overflow-y: hidden;
     display: flex;
-    background-color: var(--background-neutrals-primary);
+    border-radius: 0.9375rem;
+    border: 5px solid transparent; 
+    background: var(--border-gradient-quartenary-dark);
+
+    @media (prefers-color-scheme: light) {
+        background: var(--border-gradient-quartenary-light);
+    }
 
     /* ====== BOTÃO MOBILE ====== */
     .info-button {
@@ -193,18 +186,22 @@ const MemberWrapper = styled.div`
         justify-content: center;
         border: 0;
         transition: all 0.15s ease-in-out;
-        
-        /* O fundo agora é gerado dinamicamente pelas props injetadas (sem precisar de .i0, .i1...) */
-        background: linear-gradient(
-            to bottom,
-            var(--brand-primary) 50%,
-            ${props => props.$textColor} 50%
-        );
-        background-size: 100% 200%;
-        background-position: top;
+
+        border-radius: 0.3125rem;
+        background: var(--button-gradient-primary-dark);
+
+        @media (prefers-color-scheme: light) {
+            background: var(--button-gradient-primary-light);
+        }
 
         svg {
             transition: 0.15s;
+
+            @media (prefers-color-scheme: light) {
+                path {
+                    fill: var(--content-neutrals-primary);
+                }
+            }
         }
 
         /* Classe aplicada via JS ao clicar (Flip) */
@@ -212,9 +209,6 @@ const MemberWrapper = styled.div`
             background-position: bottom;
             svg {
                 transform: rotate(-180deg);
-                path {
-                    fill: ${props => props.$bgColor};
-                }
             }
         }
     }
@@ -225,14 +219,14 @@ const MemberWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 27.3rem;
-        width: 20.5rem;
+        height: 100%;
+        width: 100%;
 
         .member-image {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: var(--background-neutrals-primary-800);
+            background-color: var(--brand-purple-800);
             display: flex;
             overflow: hidden;
 
@@ -250,27 +244,25 @@ const MemberWrapper = styled.div`
         display: flex;
         flex-direction: column;
         padding: 1.5rem;
-        width: 20.5rem;
-        height: 27.3rem;
+        width: 100%;
+        height: 100%;
         gap: 1rem;
+        background-color: var(--background-neutrals-secondary);
         
-        /* Cores base injetadas via prop dinamicamente */
-        background-color: ${props => props.$bgColor};
-    
         .member-name {
             position: relative;
             padding: 0.2rem 0.25rem;
             display: flex;
 
-            background-image: linear-gradient(${props => props.$textColor}, ${props => props.$textColor});
+            background-image: linear-gradient(var(--content-neutrals-primary), var(--content-neutrals-primary));
             background-size: 200%;
             background-position-x: 200%;
             background-repeat: no-repeat;
 
             h6 {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                font: 700 1.25rem/1.75rem 'AT Aero Bold';
                 transition: 0.15s ease-in-out;
-                color: ${props => props.$textColor};
+                color: var(--content-neutrals-primary);
             }
         }
 
@@ -286,7 +278,7 @@ const MemberWrapper = styled.div`
 
                 svg path {
                     transition: all 0.15s;
-                    fill: ${props => props.$textColor};
+                    fill: var(--content-neutrals-primary);
                 }
                 svg {
                     width: 2.5rem;
@@ -297,30 +289,39 @@ const MemberWrapper = styled.div`
                 background-position-x: 0%;
 
                 h6 {
-                    color: ${props => props.$bgColor};
+                    color: var(--content-neutrals-inverse);
                 }
 
                 a svg path {
-                    fill: ${props => props.$bgColor};
+                    fill: var(--content-neutrals-inverse);
                 }
             }
 
             &:focus-visible {
-                outline: 2px solid ${props => props.$textColor};
+                outline: 2px solid var(--content-neutrals-primary);
                 outline-offset: 2px;
             }
         }
 
         .phrase {
-            color: ${props => props.$textColor};
             font: 400 1rem/1.5rem 'AT Aero';
+        }
+
+        .divider-picture {
+            width: 100%;
+            height: fit-content;
+            
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
         }
 
         .department-title {
             margin-bottom: 0.5rem;
             text-align: left;
-            font: 700 1.25rem/1.5rem 'AT Aero Bold';
-            color: ${props => props.$textColor};
+            font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
 
         .member-department {
@@ -336,34 +337,19 @@ const MemberWrapper = styled.div`
         translate: 0 0;
     }
 
+     /* ====== RESPONSIVIDADE (Desktop) ====== */
 
-    /* ====== RESPONSIVIDADE (Desktop) ====== */
-    @media (min-width: 800px) {
-
+    @media (min-width: 1024px) {
+        /* No desktop, sobe o verso apenas no hover/focus */
         &:hover, &:focus-within, &:focus-visible {
             .card-back {
-                translate: 0 0; /* No desktop, sobe o verso apenas no hover/focus */
+                translate: 0 0;
             }
         }
-
-        &:focus-visible {
-            outline: 2px solid ${props => props.$textColor};
-            outline-offset: 2px;
-        }
-
+    
         /* Se o usuário deu click em mobile, desfaz a classe no desktop */
         .info-show {
             translate: 0 101%;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        width: 18.4rem;
-        height: 24.625rem;
-
-        .image-container, .card-back {
-            width: 18.4rem;
-            height: 24.625rem;
         }
 
         /* Esconde o botão de abrir o card, pois a interação é por hover */
@@ -371,4 +357,40 @@ const MemberWrapper = styled.div`
             display: none;
         }
     }
+
+    // Estilos condicionais para quando o conteúdo do verso ou departamentos é longo 
+    // (para tentar fazer com que caibam no card)
+    ${props => props.$longPhrase && `
+        .card-back {
+            gap: 0.625rem;
+
+            .phrase {
+                font: 400 0.875rem/1.125rem 'AT Aero';
+            }
+        }
+    `}
+
+    ${props => props.$longDepartments && `
+        .card-back {
+            // BadgeCO
+            .member-department div {
+                padding: 0.3rem 0.5rem; 
+
+                p {
+                    font-size: 0.825rem;                                                                            
+                    font-weight: 700;
+                    line-height: 1.125rem; 
+                }
+            }
+        }
+    `}
+
+    ${props => (props.$longPhrase && props.$longDepartments) && `
+        // Removendo as bolinhas
+        .card-back {
+            .divider-picture {
+                display: none;    
+            }
+        }
+    `}
 `
