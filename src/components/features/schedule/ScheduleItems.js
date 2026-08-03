@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 
@@ -13,10 +13,36 @@ const ScheduleItems = ({ schedule }) => {
     // Variável para ficar alternando o lado das bolinhas e texto de horário na versão para celular
     // Na versão de computador, apenas modificamos o css para desabilitar
     let reverseTimeItem = true;
+    
+    const scheduleRef = useRef(null)
+    const [availableWidth, setAvailableWidth] = useState(0)
+
+    // Roda após receber os dados
+    useEffect(() => {
+        const scheduleComponent = scheduleRef.current
+
+        if (!scheduleComponent) return;
+
+        // Função que pega o width disponível do componente das bolinhas
+        const updateAvailableWidth = () => {
+            const dotsWrapper = scheduleComponent.querySelector('.dots-wrapper');
+            if (!dotsWrapper) return;
+            setAvailableWidth(dotsWrapper.getBoundingClientRect().width);
+        }
+
+        updateAvailableWidth();
+        
+        // Listener para detectar mudanças no tamanho da tela
+        // E atualiza o availableWidth com o width disponível do componente das bolinhas
+        window.addEventListener('resize', updateAvailableWidth)
+
+        // Matando o listener quando o componente for desmontado
+        return () => window.removeEventListener('resize', updateAvailableWidth)
+    }, [schedule])
 
     return (
         <>
-            <ScheduleWrapper>
+            <ScheduleWrapper ref={scheduleRef}>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
                     {schedule.map((talk, index) => {
@@ -27,7 +53,7 @@ const ScheduleItems = ({ schedule }) => {
 
                         return (
                             <li key={finalKey}>
-                                <TimeItem startTime={talk.start_time} endTime={talk.end_time} reverseItem={reverseTimeItem}/>
+                                <TimeItem startTime={talk.start_time} endTime={talk.end_time} reverseItem={reverseTimeItem} availableWidth={availableWidth}/>
                                 {isBreakEvent ?
                                     <BreakItem title={talk.title} startTime={talk.start_time} endTime={talk.end_time} />
                                 :

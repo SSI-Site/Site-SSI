@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
+import React, { useId, useMemo } from 'react'
 import styled from 'styled-components'
 
 import { formatTime } from '../../../../utils/format-time'
@@ -16,36 +16,9 @@ const BOTTOM_ROW_CENTER_Y = TOP_ROW_CENTER_Y + DOT_GAP
 // Altura total do SVG
 const SVG_HEIGHT = BOTTOM_ROW_CENTER_Y + TOP_ROW_CENTER_Y
 
-const TimeItem = ({ startTime, endTime, reverseItem }) => {
-    // Ref para div com o SVG das bolinhas
-    const dotsWrapperRef = useRef(null)
+const TimeItem = ({ startTime, endTime, reverseItem, availableWidth = 0 }) => {
     // ID pro SVG
     const gradientId = `time-item-dots-gradient-${useId().replace(/:/g, '')}`
-
-    const [availableWidth, setAvailableWidth] = useState(0)
-
-    // Roda após renderizar o componente
-    useEffect(() => {
-        const dotsWrapper = dotsWrapperRef.current
-
-        if (!dotsWrapper) {
-            return
-        }
-
-        // Pegando o width disponível (já renderizado)
-        setAvailableWidth(dotsWrapper.getBoundingClientRect().width)
-        
-        // Observer para detectar mudanças no width do componente, como um listener
-        // E atualiza o availableWidth com o width atualizado
-        const resizeObserver = new ResizeObserver(([entry]) => {
-            setAvailableWidth(entry.contentRect.width)
-        })
-
-        resizeObserver.observe(dotsWrapper)
-
-        // Matando o observer quando o componente for desmontado
-        return () => resizeObserver.disconnect()
-    }, [])
 
     // Calculando a quantidade de bolinhas que cabem no width disponível
     // Roda apenas quando availableWidth muda
@@ -69,7 +42,7 @@ const TimeItem = ({ startTime, endTime, reverseItem }) => {
             <h3>
                 <time dateTime={startTime}>{formatTime(startTime)}</time>
             </h3>
-            <DotsWrapper ref={dotsWrapperRef} className={'dots-wrapper'} aria-hidden="true">
+            <DotsWrapper className={'dots-wrapper'} aria-hidden="true">
                 <svg
                     width={dots.svgWidth}
                     height={SVG_HEIGHT}
