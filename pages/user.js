@@ -136,13 +136,13 @@ const User = () => {
     }
 
     useEffect(() => {
-        // if (disableAuth || !user) {
-        //     Router.push('/');
-        // } else {
+        if (disableAuth || !user) {
+            Router.push('/');
+        } else {
             getStudentInfo();
             getPresences();
             getStudentGifts();
-        // }
+        }
     }, [user]);
 
     const handleShowCodeModal = () => {
