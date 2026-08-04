@@ -61,13 +61,13 @@ const SCHEDULE_DATA = [
 
 // Subcomponente para os divisores
 const Divider = () => (
-    <picture>
+    <picture className="etecDivider">
         <source srcSet={dividerMobileLight.src} media="(prefers-color-scheme: light)" />
         <Image
             src={dividerMobileDark}
             alt="Linha divisória"
-            width={200}
-            height={200} // Cuidado: verifique se esse height não distorce o SVG
+            width={296}
+            height={2} // Cuidado: verifique se esse height não distorce o SVG
         />
     </picture>
 );
@@ -89,7 +89,7 @@ const EtecItinerary = () => {
                         />
                     </picture>
 
-                    <h4>Cronograma Especial</h4>
+                    <h6>Cronograma Especial</h6>
 
                     <button
                         className="toggleButton"
@@ -115,8 +115,10 @@ const EtecItinerary = () => {
                         {SCHEDULE_DATA.map((item, index) => (
                             <React.Fragment key={item.id}>
                                 <div className={item.type === "lunch" ? "etecLunchPause" : "etecLecture"}>
-                                    <h5>{item.title}</h5>
-                                    <h5>{item.time}</h5>
+                                    <div className="etecLectureTitle">
+                                        <h6>{item.title}</h6>
+                                        <label>{item.time}</label>
+                                    </div>
                                     {item.desc && <p>{item.desc}</p>}
                                 </div>
 
@@ -136,7 +138,12 @@ export default EtecItinerary;
 const EtecDetails = styled.article`
 
     .etecSchedule{
+        width: 100%;
+        max-width: 20.5rem;
+        margin: 1rem 0 1rem 0;
+        overflow: hidden;
         border: 1px solid var(--purple-light-purple, #D0ACFF);
+        border-radius: 1.70rem;
     }
 
     .etecChronogram{
@@ -145,38 +152,38 @@ const EtecDetails = styled.article`
         padding: 1rem;
         justify-content: space-between;
         align-items: center;
+        gap: 0.5rem;
 
-        border-bottom: 1px solid var(--purple-light-purple, #D0ACFF);
+        border-bottom: ${({ $isOpen }) => $isOpen ? "1px solid var(--purple-light-purple, #D0ACFF)" : "none"};
         background: linear-gradient(90deg, var(--background-brand-primary, rgba(150, 56, 255, 0.25)) 0%, rgba(150, 56, 255, 0.00) 100%), var(--background-neutrals-primary, #1A1A1A);
     }
 
     .angleUp{
-        cursor: pointer;
         transition: transform 0.2s ease;
         transform: ${({ $isOpen }) => ($isOpen ? "rotate(180deg)" : "rotate(0deg)")};
     }
 
     .toggleButton {
+        margin-left: auto;
         background: none;
         border: none;
         cursor: pointer;
         color: white;
-        /* padding: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center; */
     }
-    
+
+    .etecLogo {
+        display: contents;
+    }
+
     .etecLogo img {
         width: 3.375rem;
+        height: auto;
         align-self: stretch;
         aspect-ratio: 9/4;
-        height: auto;
     }
 
     .etecDetails {
-        display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
-
+        display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
         padding: 1rem;
         flex-direction: column;
         align-items: flex-start;
@@ -184,7 +191,79 @@ const EtecDetails = styled.article`
         align-self: stretch;
     }
 
-    .etecLecture{}
+    .etecLecture {
+        display: flex;
+        padding: 1rem 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        align-self: stretch;
+    }
 
-    .etecLunchPause{}
+    .etecLectureTitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-self: stretch;
+    }
+
+    .etecLectureTitle h6 {
+        flex: 1;
+    };
+
+    .etecLectureTitle label {
+        white-space: nowrap;
+    };
+
+    .etecDivider {
+        display: contents;
+    }
+
+    .etecDivider img{
+        width: 100%;
+        height: 0.125rem;
+        opacity: 0.5;
+        margin: 0.5rem 0 0.5rem 0;
+    }
+
+    .etecLunchPause {
+        display: flex;
+        padding: 1rem 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        align-self: stretch;
+    }
+
+    .etecLunchPause h6 {
+        color: var(--content-brand-primary-light, #D0ACFF);
+    }
+
+    h6 {
+        color: var(--content-neutrals-primary, #FFF);
+
+        font-size: var(--Typograph-Heading-H6-size, 1rem);
+        font-style: normal;
+        font-weight: 700;
+        line-height: var(--Typograph-Heading-H6-height, 1.5rem); /* 150% */
+    }
+
+    label {
+        color: var(--content-brand-primary-light, #D0ACFF);
+        text-align: right;
+
+        font-size: var(--Typograph-Label-Medium-size, 0.875rem);
+        font-style: normal;
+        font-weight: 700;
+        line-height: var(--Typograph-Label-Medium-height, 1.5rem); /* 171.429% */
+    }
+
+    p {
+        color: var(--content-neutrals-primary, #FFF);
+
+        font-size: var(--Typograph-Paragraph-Medium-size, 0.875rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: var(--Typograph-Paragraph-Medium-height, 1.5rem); /* 171.429% */
+    }
 `
