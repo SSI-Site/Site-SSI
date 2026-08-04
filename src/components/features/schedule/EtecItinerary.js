@@ -110,24 +110,22 @@ const EtecItinerary = () => {
                     </button>
                 </div>
 
-                {isOpen && (
-                    <div className="etecDetails">
-                        {SCHEDULE_DATA.map((item, index) => (
-                            <React.Fragment key={item.id}>
-                                <div className={item.type === "lunch" ? "etecLunchPause" : "etecLecture"}>
-                                    <div className="etecLectureTitle">
-                                        <h6>{item.title}</h6>
-                                        <label>{item.time}</label>
-                                    </div>
-                                    {item.desc && <p>{item.desc}</p>}
+                <div className="etecDetails" aria-hidden={!isOpen}>
+                    {SCHEDULE_DATA.map((item, index) => (
+                        <React.Fragment key={item.id}>
+                            <div className={item.type === "lunch" ? "etecLunchPause" : "etecLecture"}>
+                                <div className="etecLectureTitle">
+                                    <h6>{item.title}</h6>
+                                    <label>{item.time}</label>
                                 </div>
+                                {item.desc && <p>{item.desc}</p>}
+                            </div>
 
-                                {/* Adciona os divisores corretamente */}
-                                {index !== SCHEDULE_DATA.length - 1 && <Divider />}
-                            </React.Fragment>
-                        ))}
-                    </div>
-                )}
+                            {/* Adciona os divisores corretamente */}
+                            {index !== SCHEDULE_DATA.length - 1 && <Divider />}
+                        </React.Fragment>
+                    ))}
+                </div>
             </div>
         </EtecDetails>
     )
@@ -183,12 +181,17 @@ const EtecDetails = styled.article`
     }
 
     .etecDetails {
-        display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
-        padding: 1rem;
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
         align-self: stretch;
+        overflow: hidden;
+        max-height: ${({ $isOpen }) => ($isOpen ? "1500px" : "0")};
+        opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
+        padding-inline: 1rem;
+        padding-block: ${({ $isOpen }) => ($isOpen ? "1rem" : "0")};
+        transition: max-height 240ms ease, opacity 240ms ease, padding-block 240ms ease;
     }
 
     .etecLecture {
