@@ -10,6 +10,7 @@ import filterTalks from '../utils/filterTalks';
 // components
 import DateStamp from '../src/components/features/schedule/DateStamp';
 import ScheduleItems from '../src/components/features/schedule/ScheduleItems';
+import EtecItinerary from '../src/components/features/schedule/EtecItinerary';
 import saphira from '../services/saphira';
 
 // TEMPORÁRIO
@@ -25,7 +26,7 @@ const Schedule = () => {
     const defaultDayIndex = initialDayIndex !== -1 ? initialDayIndex : 0;   
     const [activeItem, setActiveItem] = useState(currentDate);
     const [isSelected, setIsSelected] = useState(false);
-    const [dayNumber, setDayNumber] = useState(dayFull.indexOf(currentDate))
+    const [dayNumber, setDayNumber] = useState(defaultDayIndex)
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -86,6 +87,8 @@ const Schedule = () => {
     }
 }, [talks, activeItem, dayFull]);
 
+    const selectedWeekDay = weekDays[dayNumber] || weekDays[0];
+    const shouldRenderEtecItinerary = selectedWeekDay === 'Segunda-feira' || selectedWeekDay === 'Terça-feira';
     {/* 
         =====================================================
         CONTEÚDO TEMPORÁRIO. BASTA DELETAR ESSE RETURN ABAIXO
@@ -223,6 +226,8 @@ const Schedule = () => {
 						</ButtonFilter>
 					</div>
 				</DesktopBarFilterContainer>
+
+                {shouldRenderEtecItinerary && <EtecItinerary />}
 
                 <DayScheduleWrapper id="schedule">
                     {renderActiveItem()}
