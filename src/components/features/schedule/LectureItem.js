@@ -8,6 +8,7 @@ import Image from 'next/image';
 import BadgeLecture from '../../features/schedule/BadgeLecture';
 import SpeakerInfo from '../speakers/SpeakerInfo';
 import sponsorImages from '../../../../data/sponsors';
+import { borderGradient } from '../../../../styles/global';
 
 // Componente de uma palestra da programação do evento
 
@@ -97,13 +98,11 @@ const LectureWrapper = styled.article`
 
     @media screen and (min-width:800px) {
         padding: 1.5rem 1.5rem 1rem 1.5rem;
-        // Código para fazer a borda com gradiente
-        border: 2px solid transparent;
         border-radius: 2rem;
-        background: var(--border-gradient-secondary-dark);
+        ${borderGradient('2px', '--border-gradient-primary-dark', '135deg')};
 
         @media (prefers-color-scheme: light) {
-            background: var(--border-gradient-secondary-light);
+            ${borderGradient('2px', '--border-gradient-primary-light', '135deg')};
         }
 
         .lecture-description {
@@ -211,10 +210,8 @@ const LectureHeader = styled.header`
         .sponsor-logo {
             width: 7.5rem;
             height: 5.5rem;
-            // Código para fazer a borda com gradiente
-            border: 2px solid transparent;
             border-radius: 1rem 2rem;
-            background: var(--border-gradient-tertiary-dark);
+            ${borderGradient('2px', '--border-gradient-secondary-dark', '135deg')};
 
             // No modo light o fundo do sponsor continua escuro
             @media (prefers-color-scheme: light) {

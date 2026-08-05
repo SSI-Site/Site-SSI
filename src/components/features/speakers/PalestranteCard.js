@@ -10,6 +10,7 @@ import BackgroundPicture from "../../../../public/images/partnerships/photos/bg_
 
 import BadgeLecture from "../schedule/BadgeLecture";
 import formatActivityDateTime from "../../../../utils/formatActivityDateTime";
+import { borderGradient } from "../../../../styles/global";
 import Dots from "../../ui/Dots";
 
 // Variável para controlar a exibição do badge de modo "Presencial"/"Online"
@@ -485,12 +486,11 @@ const PalestranteLecture = styled.div`
     gap: 1.5rem;
     flex: 1 0 0;
     border-radius: 1.5rem;
-    border: 1px solid transparent; 
-    background: var(--border-gradient-tertiary-dark);
+    ${borderGradient('1px', '--border-gradient-secondary-dark', '90deg')};
     margin-bottom: 1.5rem;
 
     @media (prefers-color-scheme: light) {
-        background: var(--border-gradient-secondary-light);
+        ${borderGradient('1px', '--border-gradient-secondary-light', '90deg')};
     }
 `;
 
