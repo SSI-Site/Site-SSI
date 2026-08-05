@@ -11,28 +11,78 @@ import saphira from '../services/saphira';
 import Image from 'next/image';
 
 import { eventDetails } from '../data/eventDetails'; 
+import useAvailableWidth from '../hooks/useAvailableWidth';
+
+// TEMPORÁRIO
+import { LinkedInLogo, InstagramLogo, YouTubeLogo } from '../src/components/ui/SocialMediaLogos';
 
 const Palestrantes = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [speakers, setSpeakers] = useState([])
 
     const getSpeakers = async() => {
-      setIsLoading(true)
-      try{
-        const { data } = await saphira.getSpeakers()
-        if (data) setSpeakers(data)
-      }
-      catch(err){
-        console.log("Houve um erro na hora de obter os dados dos palestrantes:", err)
-      }
-      finally{
-        setIsLoading(false)
-      }
+        setIsLoading(true)
+        try{
+            const { data } = await saphira.getSpeakers()
+            if (data) setSpeakers(data)
+        }
+        catch(err){
+            console.log("Houve um erro na hora de obter os dados dos palestrantes:", err)
+        }
+        finally{
+            setIsLoading(false)
+        }
     }
 
     useEffect(() => {
-      getSpeakers()
+        getSpeakers()
     }, [])
+
+    // Hook customizado para obter o width disponível do componente das bolinhas
+    const { componentRef, availableWidth } = useAvailableWidth(speakers, '.dots-wrapper');
+
+    {/* 
+        =====================================================
+        CONTEÚDO TEMPORÁRIO. BASTA DELETAR ESSE RETURN ABAIXO
+        ===================================================== 
+    */}
+    return (
+        <section style={{ width: '100%', padding: '15rem 0', textAlign: 'center', gap: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+            <h3>Em breve você poderá conferir os palestrantes</h3>
+            <p>Acompanhe nossas redes sociais para receber as atualizações em primeira mão.<br/>Não perca nenhuma novidade!</p>
+            <div style={{ width: '100%', display: 'flex', gap: '3rem', alignItems: 'center', justifyContent: 'center', marginTop: '1rem'}}>
+                <a
+                    href="https://www.instagram.com/semanadesi/"
+                    target="_blank"
+                    aria-label="Instagram da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
+                >
+                    {/*Instagram Logo*/}
+                    <InstagramLogo />
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/company/comissão-organizadora-da-semana-de-sistemas-de-informação"
+                    target="_blank"
+                    aria-label="Linkedin da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
+                >
+                    {/*Linkedin Logo*/}
+                    <LinkedInLogo />
+                </a>
+
+                <a
+                    href="https://www.youtube.com/@semanadesi"
+                    target="_blank"
+                    aria-label="YouTube da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
+                >
+                    {/* YouTube Logo */}
+                    <YouTubeLogo />
+                </a>
+            </div>
+        </section>
+    )
 
     return (
         <PalestrantesContainer>
@@ -40,13 +90,13 @@ const Palestrantes = () => {
           description = {`Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.`}
           keywords={`palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI`}
           />
-          <PalestrantesWrapper>
+          <PalestrantesWrapper ref={componentRef}>
             <h1>Palestrantes</h1>
 
           {
             !isLoading && speakers.sort((a, b) => a.name.localeCompare(b.name)).map((speaker) => {
               return(
-                <PalestranteCard key = {speaker.id} palestrante={speaker}/>
+                <PalestranteCard key = {speaker.id} palestrante={speaker} availableWidth={availableWidth}/>
               )
             })
           }
