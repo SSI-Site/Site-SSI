@@ -74,8 +74,8 @@ export default createGlobalStyle`
             --state-layers-neutrals-primary-012: light-dark( rgba(0, 0, 0, 0.12), #FFFFFF1F);
         
         // STATE LAYERS NEUTRALS TERTIARY
-            --state-layers-neutrals-tertiary-008: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B14,);
-            --state-layers-neutrals-tertiary-012: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B1F,);
+            --state-layers-neutrals-tertiary-008: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B14);
+            --state-layers-neutrals-tertiary-012: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B1F);
 
         // CUSTOM GRADIENT BORDER
         // Para usar, colar diretamente no CSS: ${borderGradient('2px', '--border-gradient-primary-dark', '90deg')};
@@ -168,7 +168,7 @@ export default createGlobalStyle`
     }
 
     body, p, span, a {
-        font: 700 0.875rem/1.5rem 'AT Aero';
+        font: 400 0.875rem/1.5rem 'AT Aero';
     }
 
     a {
@@ -181,7 +181,7 @@ export default createGlobalStyle`
     }
 
     label {
-        font: 700 1rem/1.25rem 'AT Aero';
+        font: 400 1rem/1.25rem 'AT Aero';
     }
     
     input[type=text], select, option {
@@ -257,11 +257,11 @@ export default createGlobalStyle`
         }
 
         body, p, span, a {
-            font: 700 1rem/1.5rem 'AT Aero';
+            font: 400 1rem/1.5rem 'AT Aero';
         }
 
         label {
-            font: 700 1rem/1.25rem 'AT Aero';
+            font: 400 1rem/1.25rem 'AT Aero';
         }
 
         input[type=text] {
