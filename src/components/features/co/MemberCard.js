@@ -1,73 +1,71 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-
 import Image from 'next/image';
+
+import DividerBolinhasDark from '../../../../public/images/co/divider-bolinhas-dark.svg';
+import DividerBolinhasLight from '../../../../public/images/co/divider-bolinhas-light.svg';
 
 // components
 import BadgeCO from '../../ui/BadgeCO';
+import { borderGradient } from '../../../../styles/global';
 
-const colorSchemes = [
-    {
-        'background' : 'var(--background-neutrals-inverse)',
-        'textColor' : 'var(--content-neutrals-inverse)',
-        'directorBadge' : 1,
-        'badgeSequence' : [3, 9, 6, 8, 5, 4]
-    },
-    {
-        'background' : 'var(--background-neutrals-secondary)',
-        'textColor' : 'var(--content-neutrals-secondary)',
-        'directorBadge' : 1,
-        'badgeSequence' : [3, 9, 6, 8, 5, 4]
-    },
-    {
-        'background' : 'var(--brand-primary)',
-        'textColor' : 'var(--content-neutrals-fixed-white)',
-        'directorBadge' : 1,
-        'badgeSequence' : [3, 9, 8, 4]
-    },
-    {
-        'background' : 'var(--brand-primary-light)',
-        'textColor' : 'var(--content-neutrals-fixed-black)',
-        'directorBadge' : 1,
-        'badgeSequence' : [5, 6, 7, 4]
-    },   
-    {
-        'background' : 'var(--brand-primary-dark)',
-        'textColor' : 'var(--content-neutrals-fixed-white)',
-        'directorBadge' : 1,
-        'badgeSequence' : [9, 5, 4]
-    },
-]
-
-const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase }) => {
-    // 'colorScheme' é um inteiro usado pra determinar as cores usadas pelo componente
-
+/**
+ * Componente que renderiza o cartão de um membro da Comissão Organizadora.
+ * Apresenta a foto na frente e desliza informações (nome, linkedin, setores) por cima.
+ * 
+ * @param {Object} props
+ * @param {string} props.name - Nome do membro.
+ * @param {string} props.image - Caminho da imagem/foto do membro.
+ * @param {Array} props.departments - Array de strings com os setores do membro.
+ * @param {string} props.linkedin - URL do LinkedIn do membro.
+ * @param {number} props.index - Índice do membro no array (usado para IDs únicos).
+ * @param {string} props.phrase - Frase marcante do membro (opcional).
+ */
+const MemberCard = ({ name, image, departments, linkedin, index, phrase }) => {
+    
+    // Organiza os departamentos por tamanho da palavra, menor para maior (para tentar fazer com que eles se agrupem mais facilmente no layout)
     const sortDepartments = (departments) => {
-        return departments.sort((a, b) => a.localeCompare(b));
+        return departments.sort((a, b) => {
+            if (a.length !== b.length) {
+                return a.length - b.length;
+            }
+
+            return a.localeCompare(b);
+        });
     };
 
-	// Movimentacoes por Tab ativam a animacao e colocam o foco no link/titulo do card-back
-	const cardRef = useRef(null);
-	const [animating, setAnimating] = useState(false);
-	const isMobile = useIsMobile();
-	const handleFocus = () => {
-		// Espera a animacao de um card terminar antes de comecar outra (muito glitches sem isso)
-		if (!animating && !isMobile) { // Nao executa em width menor que 800px (trocar de abas buga a animcao do card)
-			setAnimating(true);
-			setTimeout(() => {
-				// Seleciona o link ou nome do membro
-				const backlink = cardRef.current.querySelector(".card-back .member-name a") || cardRef.current.querySelector(".card-back .member-name h6");
+    const cardRef = useRef(null);
+    const [animating, setAnimating] = useState(false);
+    const isMobile = useIsMobile();
 
-				if (backlink) {
-					backlink.focus();
-				}
-				setAnimating(false);
-			}, 200) // Deixa a mudanca de foco mais suave
-		}
-	}
+    /**
+     * Função para lidar com a acessibilidade (navegação por teclado/Tab).
+     * Quando o usuário foca no card pelo teclado, aguarda a animação e redireciona 
+     * o foco diretamente para o conteúdo do verso (LinkedIn ou Nome).
+     */
+    const handleFocus = () => {
+        // Não executa em telas móveis para evitar glitches ao trocar de abas
+        if (!animating && !isMobile) { 
+            setAnimating(true);
+            setTimeout(() => {
+                // Procura o link do LinkedIn ou o título h6
+                const backlink = cardRef.current.querySelector(".card-back .member-name a") || cardRef.current.querySelector(".card-back .member-name h6");
+
+                if (backlink) {
+                    backlink.focus();
+                }
+                setAnimating(false);
+            }, 200) // Timeout garante que o card "suba" antes de focar
+        }
+    }
+
+    // Variáveis para verificar se o conteúdo do verso é longo, para diminiuir seus tamanhos e tentar fazer com que caibam no card
+    const longPhrase = phrase && phrase.length > 175;
+    const longDepartments = departments && departments.length > 3;
 
     return (
-        <MemberWrapper onFocus={handleFocus} ref={cardRef}>
+        // As props prefixadas com '$' injetam as cores dinamicamente no Styled Component
+        <MemberWrapper onFocus={handleFocus} ref={cardRef} $longPhrase={longPhrase} $longDepartments={longDepartments}>
             <div className="image-container">
                 <figure className='member-image'>
                     <Image src={image} alt={`Foto de ${name}`} className="responsive-image"
@@ -75,7 +73,9 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                     sizes="(min-width: 1024px) 18.4rem, 20.5rem"/>
                 </figure>
             </div>
-            <div className={'card-back b' + (colorScheme%5)} id={'back b' + (colorScheme)}>
+            
+            {/* O ID aqui usa o index para ser único por membro */}
+            <div className='card-back' id={'back b' + index}>
                 <div className={`member-name ${linkedin ? 'animate' : ''}`}>
                     {linkedin ?
                         <>
@@ -93,32 +93,25 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
                 {phrase &&
                     <p className='phrase'>"{phrase}"</p>
                 }
+                <picture className="divider-picture" aria-hidden="true">
+                    <source srcSet={DividerBolinhasLight} media="(prefers-color-scheme: light)" />
+                    <Image src={DividerBolinhasDark} alt="Decoração bolinhas" width="230" height="20" />
+                </picture>
                 <div>
                     <p className='department-title'>Setores</p>
                     
                     <div className='member-department'>
-                        {sortDepartments(departments).map((department, index) => {
-                            let badges = colorSchemes[colorScheme%5].badgeSequence;
-                            if(department === 'Diretoria')
-                                return <BadgeCO key={index} text={department} themeIndex={colorSchemes[colorScheme%5].directorBadge}/>
-                            return <BadgeCO key={index} text={department} themeIndex={badges[index % badges.length]}/>
-                        })}
+                        {sortDepartments(departments).map((department, index) => (
+                            <BadgeCO key={index} text={department} />
+                        ))}
                     </div>
                 </div>
             </div>
-            <button id={'c' + colorScheme} className={'info-button i'+colorScheme%5} onClick={() => flip(colorScheme)}>
-                <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z"
-                        fill="white"
-                    />
-
+            
+            {/* Botão visível apenas em telas menores (Mobile) para revelar o verso do card */}
+            <button id={'c' + index} className={'info-button'} onClick={() => flip(index)}>
+                <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35.314 17.924L32.478 20.746L25.968 14.206L25.942 41.416L21.942 41.412L21.968 14.276L15.508 20.706L12.688 17.872L24.028 6.58398L35.314 17.924Z" fill="white" />
                     <rect id="arrow" width="100" height="100%" />
                 </svg>
             </button>
@@ -126,6 +119,10 @@ const MemberCard = ({ name, image, departments, linkedin, colorScheme, phrase })
     )
 }
 
+/**
+ * Controla a ação de exibir/ocultar o verso do card no mobile via manipulação direta do DOM.
+ * Utiliza o index do membro para localizar os IDs únicos no HTML.
+ */
 const flip = (index) => {
     let card = document.getElementById('back b' + index)
     let button = document.getElementById('c' + index)
@@ -133,38 +130,51 @@ const flip = (index) => {
     button.classList.toggle('button-flip')
 }
 
-// hook que confere se as dimensoes sao menores que 800px (mobile)
+/**
+ * Hook customizado para detectar se a largura da tela corresponde a um dispositivo móvel.
+ */
 const useIsMobile = () => {
-	const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-	useEffect(() => {
-		const handleResize = () => {
-			setIsMobile(window.matchMedia("(max-width: 800px)").matches);
-		};
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.matchMedia("(max-width: 1023px)").matches);
+        };
 
-		handleResize(); // Set initial state
-		window.addEventListener('resize', handleResize);
+        handleResize(); // Configura o estado inicial assim que monta (seguro para SSR no Next.js)
+        window.addEventListener('resize', handleResize);
 
-		return () => {
-			window.removeEventListener('resize', handleResize); // Clean up on unmount
-		};
-	}, []);
+        return () => {
+            window.removeEventListener('resize', handleResize); 
+        };
+    }, []);
 
-	return isMobile;
+    return isMobile;
 };
 
 export default MemberCard;
 
 
 const MemberWrapper = styled.div`
+    // Gradiente do botão de alternar card
+    --button-gradient-primary-light: linear-gradient(135deg, var(--brand-purple-800) 15%, var(--brand-purple-600) 100%);
+    --button-gradient-primary-dark: linear-gradient(135deg, var(--brand-purple-400) 15%, var(--brand-purple-600) 100%);
+    
     position: relative;
-    width: 20.5rem;
-    height: 27.3rem;
+    width: 100%;
+    max-width: 18.4rem;
+    aspect-ratio: 3/4;
     gap: 1rem;
     overflow-y: hidden;
     display: flex;
-    background-color: var(--background-neutrals-primary);
+    border-radius: 0.9375rem;
+        ${borderGradient('4px', '--border-gradient-secondary-dark', '180deg')};
 
+    @media (prefers-color-scheme: light) {
+        ${borderGradient('4px', '--border-gradient-secondary-light', '180deg')};
+    }
+
+    /* ====== BOTÃO MOBILE ====== */
     .info-button {
         position: absolute;
         bottom: 1rem;
@@ -177,149 +187,86 @@ const MemberWrapper = styled.div`
         border: 0;
         transition: all 0.15s ease-in-out;
 
+        border-radius: 0.3125rem;
+        background: var(--button-gradient-primary-dark);
+
+        @media (prefers-color-scheme: light) {
+            background: var(--button-gradient-primary-light);
+        }
+
         svg {
             transition: 0.15s;
+
+            @media (prefers-color-scheme: light) {
+                path {
+                    fill: var(--content-neutrals-primary);
+                }
+            }
         }
 
-        .responsive-image {
+        /* Classe aplicada via JS ao clicar (Flip) */
+        &.button-flip {
+            background-position: bottom;
+            svg {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    /* ====== CONTAINER DA IMAGEM ====== */
+    .image-container {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+        .member-image {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
+            background-color: var(--brand-purple-800);
+            display: flex;
+            overflow: hidden;
 
-    .i0 {
-        background: linear-gradient(
-            to bottom,
-            var(--brand-primary) 50%,
-            ${colorSchemes[0].textColor} 50%
-        );
-        background-size: 100% 200%;
-        background-position: top;
-
-        &.button-flip {
-            background-position: bottom;
-            
-            svg {
-                path {
-                    fill: ${colorSchemes[0].background};
-                }
+            .responsive-image {
+                object-fit: cover;
+                object-position: center;
             }
         }
     }
 
-    .i1 {
-        background: linear-gradient(
-            to bottom,
-            var(--brand-primary) 50%,
-            ${colorSchemes[1].textColor} 50%
-        );
-        background-size: 100% 200%;
-        background-position: top;
-
-        &.button-flip {
-            background-position: bottom;
-            
-            svg {
-                path {
-                    fill: ${colorSchemes[1].background};
-                }
-            }
-        }
-    }
-
-    .i2 {
-        background: linear-gradient(
-            to bottom,
-            var(--brand-primary) 50%,
-            ${colorSchemes[2].textColor} 50%
-        );
-        background-size: 100% 200%;
-        background-position: top;
-
-        &.button-flip {
-            background-position: bottom;
-            
-            svg {
-                path {
-                    fill: ${colorSchemes[2].background};
-                }
-            }
-        }
-    }
-
-    .i3 {
-        background: linear-gradient(
-            to bottom,
-            var(--brand-primary) 50%,
-            ${colorSchemes[3].textColor} 50%
-        );
-        background-size: 100% 200%;
-        background-position: top;
-
-        &.button-flip {
-            background-position: bottom;
-            
-            svg {
-                path {
-                    fill: ${colorSchemes[3].background};
-                }
-            }
-        }
-    }
-
-    .i4 {
-        background: linear-gradient(
-            to bottom,
-            var(--brand-primary) 50%,
-            ${colorSchemes[4].textColor} 50%
-        );
-        background-size: 100% 200%;
-        background-position: top;
-
-        &.button-flip {
-            background-position: bottom;
-            
-            svg {
-                path {
-                    fill: ${colorSchemes[4].background};
-                }
-            }
-        }
-    }
-
+    /* ====== VERSO DO CARTÃO (Informações) ====== */
     .card-back {
         transition: all 0.15s ease-in-out;
-        translate: 0 101%;
+        translate: 0 101%; /* Fica escondido abaixo do card por padrão */
         display: flex;
         flex-direction: column;
         padding: 1.5rem;
-        background-color: ${colorSchemes[1].background};
-        width: 20.5rem;
-        height: 27.3rem;
+        width: 100%;
+        height: 100%;
         gap: 1rem;
-    
+        background-color: var(--background-neutrals-secondary);
+        
         .member-name {
             position: relative;
             padding: 0.2rem 0.25rem;
             display: flex;
 
-            background-image: linear-gradient(${colorSchemes[1].textColor}, ${colorSchemes[1].textColor});
+            background-image: linear-gradient(var(--content-neutrals-primary), var(--content-neutrals-primary));
             background-size: 200%;
             background-position-x: 200%;
             background-repeat: no-repeat;
 
             h6 {
-                font: 700 1.5rem/1.75rem 'AT Aero Bold';
+                font: 700 1.25rem/1.75rem 'AT Aero Bold';
                 transition: 0.15s ease-in-out;
-                color: ${colorSchemes[1].textColor}
+                color: var(--content-neutrals-primary);
             }
         }
 
+        /* Animação e estilos caso o membro tenha LinkedIn (Vira um link) */
         .animate {
             transition: background-position 0.15s ease-in-out;
 
@@ -331,9 +278,8 @@ const MemberWrapper = styled.div`
 
                 svg path {
                     transition: all 0.15s;
-                    fill: ${colorSchemes[1].textColor};
+                    fill: var(--content-neutrals-primary);
                 }
-
                 svg {
                     width: 2.5rem;
                 }
@@ -343,32 +289,39 @@ const MemberWrapper = styled.div`
                 background-position-x: 0%;
 
                 h6 {
-                    color: ${colorSchemes[1].background};
+                    color: var(--content-neutrals-inverse);
                 }
 
-                a {
-                    svg path {
-                        fill: ${colorSchemes[1].background};
-                    }
+                a svg path {
+                    fill: var(--content-neutrals-inverse);
                 }
             }
 
             &:focus-visible {
-                outline: 2px solid ${colorSchemes[1].textColor};
+                outline: 2px solid var(--content-neutrals-primary);
                 outline-offset: 2px;
             }
         }
 
         .phrase {
-            color: ${colorSchemes[1].textColor};
             font: 400 1rem/1.5rem 'AT Aero';
+        }
+
+        .divider-picture {
+            width: 100%;
+            height: fit-content;
+            
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
         }
 
         .department-title {
             margin-bottom: 0.5rem;
             text-align: left;
-            font: 700 1.25rem/1.5rem 'AT Aero Bold';
-            color: ${colorSchemes[1].textColor};
+            font: 700 1.125rem/1.5rem 'AT Aero Bold';
         }
 
         .member-department {
@@ -377,308 +330,67 @@ const MemberWrapper = styled.div`
             flex-flow: wrap;
             gap: 0.5rem;
         }
-    
     }
 
+    /* Classe aplicada via JS ao clicar (Traz o verso do card para a tela) */
     .info-show {
         translate: 0 0;
     }
 
-    .button-flip {
-        svg {
-            transform: rotate(-180deg);
-        }
-    }
+     /* ====== RESPONSIVIDADE (Desktop) ====== */
 
-    .b0 {
-        background-color: ${colorSchemes[0].background};
-
-        .member-name {
-            background-image: linear-gradient(${colorSchemes[0].textColor}, ${colorSchemes[0].textColor});
-
-            h6 {
-                color: ${colorSchemes[0].textColor};
-            }
-        }
-
-        .animate {
-            a {
-                svg path {
-                    fill: ${colorSchemes[0].textColor};
-                }
-            }
-
-            &:hover, &:focus-visible {
-                h6 {
-                    color: ${colorSchemes[0].background};
-                }
-
-                a {
-                    svg path {
-                        fill: ${colorSchemes[0].background};
-                    }
-                }
-            }
-
-            &:focus-visible {
-                outline: 2px solid ${colorSchemes[0].textColor};
-                outline-offset: 2px;
-            }
-        }
-
-        .phrase {
-            color: ${colorSchemes[0].textColor};
-        }
-
-        .department-title {
-            color: ${colorSchemes[0].textColor};
-        }
-    }
-
-    .b1 {
-        background-color: ${colorSchemes[1].background};
-
-        .member-name {
-            background-image: linear-gradient(${colorSchemes[1].textColor}, ${colorSchemes[1].textColor});
-
-            h6 {
-                color: ${colorSchemes[1].textColor};
-            }
-        }
-
-        .animate {
-            a {
-                svg path {
-                    fill: ${colorSchemes[1].textColor};
-                }
-            }
-
-            &:hover, &:focus-visible {
-                h6 {
-                    color: ${colorSchemes[1].background};
-                }
-
-                a {
-                    svg path {
-                        fill: ${colorSchemes[1].background};
-                    }
-                }
-            }
-
-            &:focus-visible {
-                outline: 2px solid ${colorSchemes[1].textColor};
-                outline-offset: 2px;
-            }
-        }
-
-        .phrase {
-            color: ${colorSchemes[1].textColor};
-        }
-
-        .department-title {
-            color: ${colorSchemes[1].textColor};
-        }
-    }
-
-    .b2 {
-        background-color: ${colorSchemes[2].background};
-
-        .member-name {
-            background-image: linear-gradient(${colorSchemes[2].textColor}, ${colorSchemes[2].textColor});
-
-            h6 {
-                color: ${colorSchemes[2].textColor};
-            }
-        }
-
-        .animate {
-            a {
-                svg path {
-                    fill: ${colorSchemes[2].textColor};
-                }
-            }
-
-            &:hover, &:focus-visible {
-
-                h6 {
-                    color: ${colorSchemes[2].background};
-                }
-
-                a {
-                    svg path {
-                        fill: ${colorSchemes[2].background};
-                    }
-                }
-            }
-
-            &:focus-visible {
-                outline: 2px solid ${colorSchemes[2].textColor};
-                outline-offset: 2px;
-            }
-        }
-
-        .phrase {
-            color: ${colorSchemes[2].textColor};
-        }
-
-        .department-title {
-            color: ${colorSchemes[2].textColor};
-        }
-    }
-
-    .b3 {
-        background-color: ${colorSchemes[3].background};
-
-        .member-name {
-            background-image: linear-gradient(${colorSchemes[3].textColor}, ${colorSchemes[3].textColor});
-
-            h6 {
-                color: ${colorSchemes[3].textColor};
-            }
-        }
-
-        .animate {
-            a {
-                svg path {
-                    fill: ${colorSchemes[3].textColor};
-                }
-            }
-
-            &:hover, &:focus-visible {
-                h6 {
-                    color: ${colorSchemes[3].background};
-                }
-
-                a {
-                    svg path {
-                        fill: ${colorSchemes[3].background};
-                    }
-                }
-            }
-
-            &:focus-visible {
-                outline: 2px solid ${colorSchemes[3].textColor};
-                outline-offset: 2px;
-            }
-        }
-
-        .phrase {
-            color: ${colorSchemes[3].textColor};
-        }
-
-        .department-title {
-            color: ${colorSchemes[3].textColor};
-        }
-    }
-
-    .b4 {
-        background-color: ${colorSchemes[4].background};
-
-        .member-name {
-            background-image: linear-gradient(${colorSchemes[4].textColor}, ${colorSchemes[4].textColor});
-
-            h6 {
-                color: ${colorSchemes[4].textColor};
-            }
-        }
-
-        .animate {
-            a {
-                svg path {
-                    fill: ${colorSchemes[4].textColor};
-                }
-            }
-
-            &:hover, &:focus-visible {
-                h6 {
-                    color: ${colorSchemes[4].background};
-                }
-
-                a {
-                    svg path {
-                        fill: ${colorSchemes[4].background};
-                    }
-                }
-            }
-
-            &:focus-visible {
-                outline: 2px solid ${colorSchemes[4].textColor};
-                outline-offset: 2px;
-            }
-        }
-
-        .phrase {
-            color: ${colorSchemes[4].textColor};
-        }
-
-        .department-title {
-            color: ${colorSchemes[4].textColor};
-        }
-    }
-
-    .image-container {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 27.3rem;
-        width: 20.5rem;
-
-        .member-image {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: var(--background-neutrals-primary-800);
-            display: flex;
-            overflow: hidden;
-
-            .responsive-image {
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-    }
-
-    figcaption {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        text-align: center;
-        max-width: 280px;
-    }
-
-
-    @media (min-width:800px) {
-
+    @media (min-width: 1024px) {
+        /* No desktop, sobe o verso apenas no hover/focus */
         &:hover, &:focus-within, &:focus-visible {
             .card-back {
                 translate: 0 0;
             }
         }
-
-        &:focus-visible {
-            outline: 2px solid ${colorSchemes[1].textColor};
-            outline-offset: 2px;
-        }
-
+    
+        /* Se o usuário deu click em mobile, desfaz a classe no desktop */
         .info-show {
             translate: 0 101%;
         }
-    }
 
-    @media (min-width:1024px) {
-        width: 18.4rem;
-        height: 24.625rem;
-
-        .image-container, .card-back {
-            width: 18.4rem;
-            height: 24.625rem;
-        }
-
+        /* Esconde o botão de abrir o card, pois a interação é por hover */
         .info-button {
             display: none;
         }
     }
+
+    // Estilos condicionais para quando o conteúdo do verso ou departamentos é longo 
+    // (para tentar fazer com que caibam no card)
+    ${props => props.$longPhrase && `
+        .card-back {
+            gap: 0.625rem;
+
+            .phrase {
+                font: 400 0.875rem/1.125rem 'AT Aero';
+            }
+        }
+    `}
+
+    ${props => props.$longDepartments && `
+        .card-back {
+            // BadgeCO
+            .member-department div {
+                padding: 0.3rem 0.5rem; 
+
+                p {
+                    font-size: 0.825rem;                                                                            
+                    font-weight: 700;
+                    line-height: 1.125rem; 
+                }
+            }
+        }
+    `}
+
+    ${props => (props.$longPhrase && props.$longDepartments) && `
+        // Removendo as bolinhas
+        .card-back {
+            .divider-picture {
+                display: none;    
+            }
+        }
+    `}
 `

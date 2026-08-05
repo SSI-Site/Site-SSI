@@ -13,6 +13,9 @@ import ScheduleItems from '../src/components/features/schedule/ScheduleItems';
 import EtecItinerary from '../src/components/features/schedule/EtecItinerary';
 import saphira from '../services/saphira';
 
+// TEMPORÁRIO
+import { LinkedInLogo, InstagramLogo, YouTubeLogo } from '../src/components/ui/SocialMediaLogos';
+
 import { eventDetails } from '../data/eventDetails';
 
 const Schedule = () => {
@@ -86,6 +89,48 @@ const Schedule = () => {
 
     const selectedWeekDay = weekDays[dayNumber] || weekDays[0];
     const shouldRenderEtecItinerary = selectedWeekDay === 'Segunda-feira' || selectedWeekDay === 'Terça-feira';
+    {/* 
+        =====================================================
+        CONTEÚDO TEMPORÁRIO. BASTA DELETAR ESSE RETURN ABAIXO
+        ===================================================== 
+    */}
+    return (
+        <section style={{ width: '100%', padding: '15rem 0', textAlign: 'center', gap: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+            <h3>Em breve você poderá conferir a programação</h3>
+            <p>Acompanhe nossas redes sociais para receber as atualizações em primeira mão.<br/>Não perca nenhuma novidade!</p>
+            <div style={{ width: '100%', display: 'flex', gap: '3rem', alignItems: 'center', justifyContent: 'center', marginTop: '1rem'}}>
+                <a
+                    href="https://www.instagram.com/semanadesi/"
+                    target="_blank"
+                    aria-label="Instagram da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
+                >
+                    {/*Instagram Logo*/}
+                    <InstagramLogo />
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/company/comissão-organizadora-da-semana-de-sistemas-de-informação"
+                    target="_blank"
+                    aria-label="Linkedin da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
+                >
+                    {/*Linkedin Logo*/}
+                    <LinkedInLogo />
+                </a>
+
+                <a
+                    href="https://www.youtube.com/@semanadesi"
+                    target="_blank"
+                    aria-label="YouTube da Semana de Sistemas de Informação"
+                    style={{ transform: 'scale(1.5)' }}
+                >
+                    {/* YouTube Logo */}
+                    <YouTubeLogo />
+                </a>
+            </div>
+        </section>
+    )
 
     return (
         <>
@@ -128,8 +173,7 @@ const Schedule = () => {
                                     setDayNumber(index)
                                 }}
                             >
-                                <DateStamp
-                                    dayIndex={index + 1}             
+                                <DateStamp        
                                     weekDay={weekDays[index]}             
                                     dateStr={dayOfSSI[index]}             
                                     isActive={activeItem === date}
@@ -423,7 +467,7 @@ const DesktopSelectionContainer = styled.div`
     background-color: var(--background-neutrals-primary);
     border-color: var(--outline-neutrals-secondary);
     color: var(--content-neutrals-primary);
-    @media (min-width:600px) {
+    @media (min-width:840px) {
         display: flex;
         flex-direction: column;
         align-items: center;

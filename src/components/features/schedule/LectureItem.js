@@ -5,11 +5,20 @@ import { formatTime } from '../../../../utils/format-time';
 import Image from 'next/image';
 
 // components
-import BadgeCO from '../../ui/BadgeCO';
+import BadgeLecture from '../../features/schedule/BadgeLecture';
 import SpeakerInfo from '../speakers/SpeakerInfo';
 import sponsorImages from '../../../../data/sponsors';
+import { borderGradient } from '../../../../styles/global';
 
-const LectureItem = ({ time, event }) => {
+// Componente de uma palestra da programação do evento
+
+// Variável para controlar a exibição do badge de modo "Presencial"/"Online"
+const exibirBadgePresencial = false;
+
+const LectureItem = ({ event }) => {
+
+    const startTime = event.start_time;
+    const endTime = event.end_time;
 
     return (
         <LectureWrapper>
@@ -17,39 +26,33 @@ const LectureItem = ({ time, event }) => {
                 <LectureHeader>
                     <h3>{event.title}</h3>
                     <div className='lecture-header-info'>
-                        {event.end_time ?
-                            <p className='lecture-header-time'>
-                                <time dateTime={time}>{formatTime(time)}</time>
-                                {" - "}
-                                <time dateTime={event.end_time}>{formatTime(event.end_time)}</time>
-                                
-                            </p>
-                        :
-                            <p className='lecture-header-time'>
-                                <time dateTime={time}>{formatTime(time)}</time>
-                            </p>
-                        }
+                        <p className='lecture-header-time'>
+                            <time dateTime={startTime}>{formatTime(startTime)}</time>
+                            {endTime && 
+                                <>
+                                    {" - "}
+                                    <time dateTime={endTime}>{formatTime(endTime)}</time>
+                                </>
+                            }
+                        </p>
 
                         <div className='badge-wrapper'>
-                            <BadgeCO
-                                text={event.mode === 'IP'? 'Presencial': 'Online'}
-                                themeIndex={event.mode === 'IP' ? 5 : 9}
-                                rounded={true}
+                            <BadgeLecture
+                                text={event.activity_type === 'WS' ? "Workshop" : "Palestra"}
+                                themeIndex={event.activity_type === 'WS' ? 4 : 5}
                             />
 
-                            {event.activity_type &&
-                                <BadgeCO
-                                    text={event.activity_type === 'WS'? "Workshop" : "Palestra"}
-                                    themeIndex={event.activity_type === 'PR'? 1 : 2}
-                                    rounded={true}
+                            {exibirBadgePresencial &&
+                                <BadgeLecture
+                                    text={event.mode === 'ON' ? 'Online' : 'Presencial'}
+                                    themeIndex={event.mode === 'ON' ? 9 : 1}
                                 />
                             }
                         </div>
                     </div>
                     {event.sponsor &&
                         <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
-                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`}
-                            fill/>
+                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`} fill/>
                         </a>
                     }
                 </LectureHeader>
@@ -75,7 +78,7 @@ const LectureItem = ({ time, event }) => {
 export default LectureItem;
 
 const LectureWrapper = styled.article`
-    background: var(--background-neutrals-primary, #1A1A1A);
+    background: var(--background-neutrals-primary);
     display: flex;   
     flex-direction: column;
     gap: 1rem;
@@ -83,7 +86,7 @@ const LectureWrapper = styled.article`
     width: 100%;
     margin: auto;
     border-radius: 1.5rem;
-    border: 1px solid var(--outline-neutrals-secondary, #999);
+    border: 1px solid var(--outline-neutrals-secondary);
 
     .lecture-description {
         width: 100%;
@@ -95,12 +98,11 @@ const LectureWrapper = styled.article`
 
     @media screen and (min-width:800px) {
         padding: 1.5rem 1.5rem 1rem 1.5rem;
-        border: 2px solid transparent;
         border-radius: 2rem;
-        background: var(--border-gradient-secondary-dark);
+        ${borderGradient('2px', '--border-gradient-primary-dark', '135deg')};
 
         @media (prefers-color-scheme: light) {
-            background: var(--border-gradient-secondary-light);
+            ${borderGradient('2px', '--border-gradient-primary-light', '135deg')};
         }
 
         .lecture-description {
@@ -156,11 +158,12 @@ const LectureHeader = styled.header`
         outline: 2px solid transparent;
         transition: all 0.2s ease-in-out;
         border-radius: 0.375rem 1rem;
-        border: 1px solid var(--outline-neutrals-secondary, #999);
+        border: 1px solid var(--outline-neutrals-secondary);
         position: relative;
 
+        // No modo light o fundo do sponsor continua escuro
         @media (prefers-color-scheme: light) {
-            background: var(--backup-neutral-700, #252525);
+            background: var(--content-neutrals-secondary);
         }
 
         img {
@@ -208,11 +211,11 @@ const LectureHeader = styled.header`
             width: 7.5rem;
             height: 5.5rem;
             border-radius: 1rem 2rem;
-            border: 2px solid transparent;
-            background: var(--border-gradient-tertiary-dark);
+            ${borderGradient('2px', '--border-gradient-secondary-dark', '135deg')};
 
+            // No modo light o fundo do sponsor continua escuro
             @media (prefers-color-scheme: light) {
-                background: var(--backup-neutral-700, #252525);
+                background: var(--content-neutrals-secondary);
             }
         }
     }

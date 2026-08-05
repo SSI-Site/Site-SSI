@@ -1,104 +1,107 @@
-import styled, { css } from 'styled-components';
-import semana from '../../../../utils/semana';
-import { eventDetails } from '../../../../data/eventDetails'; 
+import styled from 'styled-components'; 
 
-const DateStamp = ({ dayIndex, weekDay, dateStr, isActive }) => {
- 
-    const current = new Date();
-    const currentYear = current.getFullYear();
-    const currentMonth = current.getMonth() + 1;
-    const currentDay = current.getDate();
-    const todayStr = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-${currentDay.toString().padStart(2, '0')}`;
-    const thisBlockDate = eventDetails.logic.dayFull[dayIndex - 1];
-
-    return (
-        <DateWrapper $isActive={isActive}>
-            <div className='day-emoji'>
-                <h5 className='day'>Dia {dayIndex}</h5>
-                
-                {/* CheckIcon: Aparece se o dia do bloco já passou */}
-                {(todayStr > thisBlockDate) &&
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M33.3333 5H6.66667H5V6.66667V33.3333V35H6.66667H33.3333H35V33.3333V6.66667V5H33.3333ZM11.2667 19.595L18.3383 26.6667L30.1233 14.8817L27.7667 12.525L18.3383 21.9533L13.6233 17.2383L11.2667 19.595Z" fill="white"/>
-                    </svg>
-                }
-                
-                {/* HourglassIcon: Aparece se hoje for exatamente o dia do bloco */}
-                {(todayStr === thisBlockDate) &&
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <path d="M10 3.33337H30V13.3334L23.3333 20L30 26.6667V36.6667H10V26.6667L16.6667 20L10 13.3334V3.33337ZM26.6667 27.5L20 20.8334L13.3333 27.5V33.3334H26.6667V27.5ZM20 19.1667L26.6667 12.5V6.66671H13.3333V12.5L20 19.1667ZM16.6667 10H23.3333V11.25L20 14.5834L16.6667 11.25V10Z" fill="white"/>
-                    </svg>
-                }
-            </div>
-            {/* Texto exibido no bloco de forma totalmente dinâmica */}
-            <p className='week-day'>{dateStr} - {weekDay}</p>
-        </DateWrapper>
-    )
+/**
+ * Componente que renderiza um selo de data interativo (Desktop Only).
+ * Exibe o dia da semana e a data, apresentando um efeito visual de preenchimento (slide) 
+ * ao passar o mouse ou focar pelo teclado.
+ * 
+ * @TODO Acessibilidade: Este componente possui estados interativos que não são totalmente acessíveis.
+ * 
+ * @param {Object} props
+ * @param {string} props.weekDay - Dia da semana a ser exibido (ex: "Sexta").
+ * @param {string} props.dateStr - Data formatada a ser exibida (ex: "12/08").
+ * @param {boolean} props.isActive - Define se o selo está no estado ativo/selecionado.
+ */
+const DateStamp = ({ weekDay, dateStr, isActive }) => {
+  return (
+    <DateWrapper $isActive={isActive}>
+        <h6>{weekDay} <br /> {dateStr}</h6>
+    </DateWrapper>
+  )
 }
 
 export default DateStamp;
 
-
 const DateWrapper = styled.div`
-    width: 15rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    
+    /* Dimensões e espaçamentos fixos de Desktop */
+    width: 15.625rem;
+    height: 7.6875rem;
     padding: 0.75rem 1.5rem;
-    gap: 0.5rem;
-    transition: 0.15s all ease;
-    background-image: ${props => props.$isActive ? 'linear-gradient(to right, var(--brand-primary) 50%, var(--content-neutrals-fixed-white) 50%)' : 'linear-gradient(to right, var(--background-neutrals-secondary) 50%, var(--content-neutrals-fixed-white) 50%)'};
-    background-size: 200%;
-    background-position-x: 200%;
+    gap: 1rem; 
+    border-radius: 0.83331rem; 
+    
+    /* Borda transparente se ativo, sólida se inativo */
+    border: ${props => props.$isActive ? 'unset' : '2.5px solid var(--content-neutrals-primary)'}; 
+    
+    /* 
+       Trick de animação: o background tem o dobro do tamanho.
+       A metade da ESQUERDA (0% a 50%) é Branca.
+       A metade da DIREITA (50% a 100%) tem as cores do Figma (98deg) quando ativa.
+    */
+    background-image: ${props => props.$isActive
+        ? 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--brand-primary, #9638FF) 50%, #5A2299 100%)'
+        : 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--background-neutrals-secondary) 50%, var(--background-neutrals-secondary) 100%)'
+    };
+    
+    background-size: 200% 100%;
+    
+    /* Posição inicial: mostra a metade da DIREITA (colorida/neutra) */
+    background-position-x: 100%;
+    transition: all 0.2s ease-in-out; 
 
-    svg path {
-            fill: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--content-neutrals-primary)'};
-    }
+    /* --- Textos no Estado de Repouso --- */
+    h6 {
+        margin: 0;
+        text-align: center;
+        font-size: var(--Typograph-Heading-H6-size, 1.5rem);
+        line-height: var(--Typograph-Heading-H6-height, 2rem);
+        font-style: normal;
+        font-weight: 700;
+        transition: 0.2s ease-in-out;
 
-    h5, p {
-        color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'var(--background-neutrals-inverse)'};
-    }
+        /* Fundo limpo se ativo. Gradiente se inativo. */
+        background: ${props => props.$isActive 
+            ? 'unset' 
+            : `linear-gradient(
+                180deg, 
+                light-dark(var(--purple-purple, #6206BF), var(--backup-neutral-50, #FFF)) 0%, 
+                light-dark(var(--backup-primary-800, #6618BB), var(--backup-primary-50, #FDEEFF)) 40%, 
+                light-dark(var(--purple-dark-purple, #2B054D), var(--purple-light-purple, #D0ACFF)) 100%
+            )`}; 
 
-    &:hover, &:focus-visible {
-        background-position-x: 100%;
-
-        h5, p {
-            color: var(--brand-primary);
-        }
-
-        svg path {
-            fill: var(--brand-primary);
-        }
+        -webkit-background-clip: ${props => props.$isActive ? 'unset' : 'text'};
+        background-clip: ${props => props.$isActive ? 'unset' : 'text'}; 
         
+        -webkit-text-fill-color: ${props => props.$isActive ? '#FFF' : 'transparent'};
+        color: ${props => props.$isActive ? '#FFF' : 'unset'};
+    }
+
+    /* --- Estados de Interação (Hover / Focus) --- */
+    &:hover, 
+    &:focus-visible {
+        cursor: pointer;
+        
+        /* Desliza o background para 0%, revelando a metade ESQUERDA (Branca) */
+        background-position-x: 0%;
+        
+        h6 {
+            background: unset; 
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            
+            /* Como o fundo fica branco, a cor da fonte assume esse valor: */
+            color: light-dark(#ffffff, #000000); 
+            -webkit-text-fill-color: currentColor; 
+        }
     }
 
     &:focus-visible {
         outline: 2px solid var(--brand-primary);
         outline-offset: 4px;
-    }
-
-    .day-emoji {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-
-        img {
-            height: 1.5rem;
-        }
-    }
-
-    p {
-        font-family: 'AT Aero Bold'; 
-    }
-
-    @media (min-width:840px) {
-        width: 25rem;
-
-        .day-emoji img {
-            height: 2rem;
-        }
     }
 `
