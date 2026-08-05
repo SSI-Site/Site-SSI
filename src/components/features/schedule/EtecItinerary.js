@@ -161,6 +161,11 @@ const EtecDetails = styled.article`
     }
 
     .angleUp{
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+
         transition: transform 0.2s ease;
         transform: ${({ $isOpen }) => ($isOpen ? "rotate(180deg)" : "rotate(0deg)")};
         fill: white;
@@ -272,6 +277,17 @@ const EtecDetails = styled.article`
     @media (min-width: 768px) {
         .etecChronogram {
             padding: 2rem;
+            border-bottom: ${({ $isOpen }) => $isOpen ? "3px solid var(--purple-light-purple, #D0ACFF)" : "none"};
+        }
+
+        .etecSchedule {
+            border: 3px solid var(--purple-light-purple, #D0ACFF);
+        }
+
+        .angleUp{
+            width: 2rem;
+            height: 2rem;
+            aspect-ratio: 1/1;
         }
 
         .etecLogo img{
@@ -324,11 +340,11 @@ const EtecDetails = styled.article`
     @media (prefers-color-scheme: light){
         
         .etecSchedule {
-            border: 1px solid var(--purple-light-purple, #2B054D);
+            border: 3px solid var(--purple-light-purple, #2B054D);
         }
 
         .etecChronogram {
-            border-bottom: ${({ $isOpen }) => $isOpen ? "1px solid var(--purple-dark-purple, #2B054D)" : "none"};
+            border-bottom: ${({ $isOpen }) => $isOpen ? "3px solid var(--purple-dark-purple, #2B054D)" : "none"};
             background: linear-gradient(90deg, rgba(150, 56, 255, 0.00) 0%, var(--background-brand-primary, rgba(98, 6, 191, 0.25)) 100%), var(--background-neutrals-primary, #E6E6E6);
         }
 
