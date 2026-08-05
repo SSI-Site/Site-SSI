@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 // components
 import PartnerCard from './PartnerCard';
+import useAvailableWidth from '../../../../hooks/useAvailableWidth';
+import Dots from '../../ui/Dots';
+
+// Customizando os stops do gradiente das bolinhas para ter três pontos
+const gradientStops = (
+    <>
+        <stop className="gradient-stop-1" />
+        <stop className="gradient-stop-2" offset="0.5" />
+        <stop className="gradient-stop-3" offset="1" />
+    </>
+);
 
 /**
  * Componente que renderiza uma seção de apoiadores ou parceiros.
@@ -17,37 +28,16 @@ import PartnerCard from './PartnerCard';
  * @param {boolean} [props.showSymbol=false] - Se true, intercala o símbolo da SSI entre os cards (visível apenas em telas maiores).
  */
 const SupportersSection = ({ title, subtitle, data = [], showDivider = false, showSymbol = false }) => {
+
+    // Hook customizado para obter o width disponível do componente das bolinhas
+    const { componentRef, availableWidth } = useAvailableWidth(null, '.dots-wrapper');
+    
     return (
-        <Section>
+        <Section ref={componentRef}>
             {/* ====== DIVISOR VISUAL ====== */}
             {showDivider && (
                 <div className="section-divider">
-                    <picture>
-                        {/* 1. Desktop + Tema Claro */}
-                        <source 
-                            media="(min-width: 800px) and (prefers-color-scheme: light)" 
-                            srcSet="/images/home/divider-desktop-light.svg" 
-                        />
-                        
-                        {/* 2. Desktop + Tema Escuro */}
-                        <source 
-                            media="(min-width: 800px)" 
-                            srcSet="/images/home/divider-desktop-dark.svg" 
-                        />
-                        
-                        {/* 3. Mobile + Tema Claro */}
-                        <source 
-                            media="(prefers-color-scheme: light)" 
-                            srcSet="/images/home/divider-mobile-light.svg" 
-                        />
-                        
-                        {/* 4. Padrão: Mobile + Tema Escuro (se nenhuma regra acima for atendida) */}
-                        <img 
-                            src="/images/home/divider-mobile-dark.svg" 
-                            alt="Divisor de seção" 
-                            aria-hidden="true" 
-                        />
-                    </picture>
+                    <Dots dotSize={5} dotGap={10} availableWidth={availableWidth} gradientStops={gradientStops}/>
                 </div>
             )}
 
@@ -103,10 +93,30 @@ const Section = styled.section`
         justify-content: center;
         margin-bottom: 3rem;
 
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .gradient-stop-1 {
+            stop-color: var(--brand-purple-200);
+        }
+
+        .gradient-stop-2 {
+            stop-color: var(--brand-purple-500);
+        }
+
+        .gradient-stop-3 {
+            stop-color: var(--brand-purple-200);
+        }
+
+        @media (prefers-color-scheme: light) {
+            .gradient-stop-1 {
+                stop-color: var(--brand-purple-700);
+            }
+
+            .gradient-stop-2 {
+                stop-color: var(--brand-purple-200);
+            }
+
+            .gradient-stop-3 {
+                stop-color: var(--brand-purple-700);
+            }
         }
     }
 
