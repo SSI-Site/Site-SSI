@@ -11,6 +11,7 @@ import saphira from '../services/saphira';
 import Image from 'next/image';
 
 import { eventDetails } from '../data/eventDetails'; 
+import useAvailableWidth from '../hooks/useAvailableWidth';
 
 // TEMPORÁRIO
 import { LinkedInLogo, InstagramLogo, YouTubeLogo } from '../src/components/ui/SocialMediaLogos';
@@ -20,23 +21,25 @@ const Palestrantes = () => {
     const [speakers, setSpeakers] = useState([])
 
     const getSpeakers = async() => {
-      setIsLoading(true)
-      try{
-        const { data } = await saphira.getSpeakers()
-        if (data) setSpeakers(data)
-      }
-      catch(err){
-        console.log("Houve um erro na hora de obter os dados dos palestrantes:", err)
-      }
-      finally{
-        setIsLoading(false)
-      }
+        setIsLoading(true)
+        try{
+            const { data } = await saphira.getSpeakers()
+            if (data) setSpeakers(data)
+        }
+        catch(err){
+            console.log("Houve um erro na hora de obter os dados dos palestrantes:", err)
+        }
+        finally{
+            setIsLoading(false)
+        }
     }
 
     useEffect(() => {
-      getSpeakers()
+        getSpeakers()
     }, [])
 
+    // Hook customizado para obter o width disponível do componente das bolinhas
+    const { componentRef, availableWidth } = useAvailableWidth(speakers, '.dots-wrapper');
 
     {/* 
         =====================================================
@@ -87,13 +90,13 @@ const Palestrantes = () => {
           description = {`Conheça os palestrantes da SSI ${eventDetails.year}! Referências em tecnologia, inovação e mercado de TI que compartilharão suas experiências com o público.`}
           keywords={`palestrantes SSI, especialistas em TI, convidados SSI ${eventDetails.year}, nomes da tecnologia, profissionais da tecnologia, lideranças em TI, conferencistas SSI, oradores evento TI`}
           />
-          <PalestrantesWrapper>
+          <PalestrantesWrapper ref={componentRef}>
             <h1>Palestrantes</h1>
 
           {
             !isLoading && speakers.sort((a, b) => a.name.localeCompare(b.name)).map((speaker) => {
               return(
-                <PalestranteCard key = {speaker.id} palestrante={speaker}/>
+                <PalestranteCard key = {speaker.id} palestrante={speaker} availableWidth={availableWidth}/>
               )
             })
           }

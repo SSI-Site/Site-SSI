@@ -6,6 +6,7 @@ import Image from 'next/image'
 import TimeItem from './TimeItem'
 import BreakItem from './BreakItem'
 import LectureItem from './LectureItem'
+import useAvailableWidth from '../../../../hooks/useAvailableWidth'
 
 // Componente que itera sobre os dados da programação do evento e renderiza cada item de acordo com o tipo de evento (palestra, intervalo, abertura, encerramento, horário, etc)
 
@@ -13,10 +14,13 @@ const ScheduleItems = ({ schedule }) => {
     // Variável para ficar alternando o lado das bolinhas e texto de horário na versão para celular
     // Na versão de computador, apenas modificamos o css para desabilitar
     let reverseTimeItem = true;
+    
+    // Hook customizado para obter o width disponível do componente das bolinhas
+    const { componentRef, availableWidth } = useAvailableWidth(schedule, '.dots-wrapper');
 
     return (
         <>
-            <ScheduleWrapper>
+            <ScheduleWrapper ref={componentRef}>
                 <ul>
                     {/* Itera para cada registro dentro do turno especificado e coloca na página um elemento de acordo */}
                     {schedule.map((talk, index) => {
@@ -27,7 +31,7 @@ const ScheduleItems = ({ schedule }) => {
 
                         return (
                             <li key={finalKey}>
-                                <TimeItem startTime={talk.start_time} endTime={talk.end_time} reverseItem={reverseTimeItem}/>
+                                <TimeItem startTime={talk.start_time} endTime={talk.end_time} reverseItem={reverseTimeItem} availableWidth={availableWidth}/>
                                 {isBreakEvent ?
                                     <BreakItem title={talk.title} startTime={talk.start_time} endTime={talk.end_time} />
                                 :
