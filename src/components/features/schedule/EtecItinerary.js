@@ -139,17 +139,18 @@ const EtecItinerary = () => {
 export default EtecItinerary;
 
 const EtecDetails = styled.article`
+    width: 100%; /* Garante que vai ocupar 100% d0 elemento raiz */
 
-    .etecSchedule{
+    .etecSchedule {
         width: 100%;
-        max-width: 67rem;
+        max-width: 83.25rem;
         margin: 1rem auto;
         overflow: hidden;
         border: 1px solid var(--purple-light-purple, #D0ACFF);
-        border-radius: 1.70rem;
+        border-radius: 1.5rem;
     }
 
-    .etecChronogram{
+    .etecChronogram {
         display: flex;
         width: 100%;
         padding: 1rem;
@@ -160,18 +161,23 @@ const EtecDetails = styled.article`
         background: linear-gradient(90deg, var(--background-brand-primary, rgba(150, 56, 255, 0.25)) 0%, rgba(150, 56, 255, 0.00) 100%), var(--background-neutrals-primary, #1A1A1A);
     }
 
-    .angleUp{
-        width: 1.5rem;
-        height: 1.5rem;
+    .angleUp {
+        width: 1rem;
+        height: auto;
         flex-shrink: 0;
         aspect-ratio: 1/1;
-
         transition: transform 0.2s ease;
+        transform-origin: center;
         transform: ${({ $isOpen }) => ($isOpen ? "rotate(180deg)" : "rotate(0deg)")};
         fill: white;
     }
 
     .toggleButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: auto;
         margin-left: auto;
         background: none;
         border: none;
@@ -282,11 +288,11 @@ const EtecDetails = styled.article`
 
         .etecSchedule {
             border: 3px solid var(--purple-light-purple, #D0ACFF);
+            border-radius: 2rem;
         }
 
         .angleUp{
             width: 2rem;
-            height: 2rem;
             aspect-ratio: 1/1;
         }
 
