@@ -54,7 +54,7 @@ const SCHEDULE_DATA = [
         id: 6,
         title: "Painel das nossas organizações estudantis",
         time: "14:40 - 15:30h",
-        desc: "Traremos representantes dos grupos estudantis do curso de Sistemas de Informação para esclarecer todas as suas dúvidas!", // Erro corrigido
+        desc: "Traremos representantes dos grupos estudantis do curso de Sistemas de Informação para esclarecer todas as suas dúvidas!",
         type: "lecture"
     }
 ];
