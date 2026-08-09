@@ -88,7 +88,7 @@ const Schedule = () => {
 }, [talks, activeItem, dayFull]);
 
     const selectedWeekDay = weekDays[dayNumber] || weekDays[0];
-    const shouldRenderEtecItinerary = selectedWeekDay === 'Segunda-feira' || selectedWeekDay === 'Terça-feira';
+    const shouldRenderEtecItinerary = selectedWeekDay === 'Terça-feira' || selectedWeekDay === 'Quinta-feira';
 
     return (
         <>
@@ -185,7 +185,7 @@ const Schedule = () => {
 					</div>
 				</DesktopBarFilterContainer>
 
-                {shouldRenderEtecItinerary && <EtecItinerary />}
+                {shouldRenderEtecItinerary && <EtecItinerary weekDay={selectedWeekDay} />}
 
                 <DayScheduleWrapper id="schedule">
                     {renderActiveItem()}
