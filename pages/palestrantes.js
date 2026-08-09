@@ -41,49 +41,6 @@ const Palestrantes = () => {
     // Hook customizado para obter o width disponível do componente das bolinhas
     const { componentRef, availableWidth } = useAvailableWidth(speakers, '.dots-wrapper');
 
-    {/* 
-        =====================================================
-        CONTEÚDO TEMPORÁRIO. BASTA DELETAR ESSE RETURN ABAIXO
-        ===================================================== 
-    */}
-    return (
-        <section style={{ width: '100%', padding: '15rem 0', textAlign: 'center', gap: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-            <h3>Em breve você poderá conferir os palestrantes</h3>
-            <p>Acompanhe nossas redes sociais para receber as atualizações em primeira mão.<br/>Não perca nenhuma novidade!</p>
-            <div style={{ width: '100%', display: 'flex', gap: '3rem', alignItems: 'center', justifyContent: 'center', marginTop: '1rem'}}>
-                <a
-                    href="https://www.instagram.com/semanadesi/"
-                    target="_blank"
-                    aria-label="Instagram da Semana de Sistemas de Informação"
-                    style={{ transform: 'scale(1.5)' }}
-                >
-                    {/*Instagram Logo*/}
-                    <InstagramLogo />
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/company/comissão-organizadora-da-semana-de-sistemas-de-informação"
-                    target="_blank"
-                    aria-label="Linkedin da Semana de Sistemas de Informação"
-                    style={{ transform: 'scale(1.5)' }}
-                >
-                    {/*Linkedin Logo*/}
-                    <LinkedInLogo />
-                </a>
-
-                <a
-                    href="https://www.youtube.com/@semanadesi"
-                    target="_blank"
-                    aria-label="YouTube da Semana de Sistemas de Informação"
-                    style={{ transform: 'scale(1.5)' }}
-                >
-                    {/* YouTube Logo */}
-                    <YouTubeLogo />
-                </a>
-            </div>
-        </section>
-    )
-
     return (
         <PalestrantesContainer>
           <Meta title='Palestrantes | Semana de Sistemas de Informação' 
