@@ -25,18 +25,10 @@ const Schedule = () => {
     const initialDayIndex = dayFull.indexOf(currentDate);
     const defaultDayIndex = initialDayIndex !== -1 ? initialDayIndex : 0;   
     const [activeItem, setActiveItem] = useState(currentDate);
-    const [isSelected, setIsSelected] = useState(false);
     const [dayNumber, setDayNumber] = useState(defaultDayIndex)
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-
-    const handleMobileSelectChange = (e) => {
-        const selectedDate = e.target.value
-        setActiveItem(selectedDate)
-        setIsSelected(true)
-        setDayNumber(dayFull.indexOf(selectedDate))
-    }
 
     // Verifica se uma data específica faz parte dos dias em que o evento vai estar acontecendo.
     const isDuringEvent = (date) => {
@@ -100,25 +92,6 @@ const Schedule = () => {
             <ScheduleSection>
                 <h1>Programação</h1>
 
-                {/* Filtro Mobile */}
-                <MobileScheduleFilterContainer>
-                    <p>Filtre por dia:</p>
-                    <div className={`select-wrapper ${isSelected ? 'selected' : ''}`}>
-                        <select
-                            aria-label="Filtre por dia"
-                            value={dayFull[dayNumber]}
-                            onChange={handleMobileSelectChange}
-                        >
-                            {dayFull.map((date, index) => (
-                                <option key={date} value={date}>Dia {index + 1}</option>
-                            ))}
-                        </select>
-                        <svg className='icon' xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                            <path d="M18.3188 7L12.5 12.8187L6.68125 7L4.5 9.18125L12.5 17.1813L20.5 9.18125L18.3188 7Z" fill="white"/>
-                        </svg>
-                    </div>
-                </MobileScheduleFilterContainer> 
-
                 {/* Filtro Desktop */}
                 <DesktopSelectionContainer>
                     <div className='schedule-container'>
@@ -161,30 +134,6 @@ const Schedule = () => {
 					</div>
 				</MobileBarFilterContainer>
 
-				{/* Barra de filtro Desktop */}
-				<DesktopBarFilterContainer>
-					<div className='filter-label'>
-						<p>Horário</p>
-						<p>Atividade</p>
-					</div>
-					<div className='filter-day-info'>
-						<p>{dayOfSSI[dayNumber] || dayOfSSI[0]} - {weekDays[dayNumber] || weekDays[0]}</p>
-					</div>
-					<div className='filter-button-container'>
-						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
-							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
-							</svg>
-						</ButtonFilter>
-
-						<ButtonFilter disabled={dayNumber == dayFull.length - 1} className='right' onClick={() => moveDayNumber(1)}>
-							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
-							</svg>
-						</ButtonFilter>
-					</div>
-				</DesktopBarFilterContainer>
-
                 {shouldRenderEtecItinerary && <EtecItinerary />}
 
                 <DayScheduleWrapper id="schedule">
@@ -204,13 +153,14 @@ const ScheduleSection = styled.section`
     background-color: var(--background-neutrals-primary);
     border-color: var(--outline-neutrals-secondary);
     color: var(--content-neutrals-primary);
-    @media (min-width:600px) {
-        padding-block: 7.5rem 2rem;
 
-        h1 {
-            width: 100%;
-            max-width: 1328px; 
-        }
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    @media (min-width:600px) {
+        padding-block: 3rem 2rem;
     }
 `
 
@@ -221,6 +171,7 @@ const MobileBarFilterContainer = styled.div`
 	background-color: var(--background-neutrals-primary);
     border-color: var(--outline-neutrals-secondary);
     color: var(--content-neutrals-primary);
+
 	.filter-container {
 		height: 5rem;
 		display: flex;
@@ -238,43 +189,8 @@ const MobileBarFilterContainer = styled.div`
 	}
 	
 
-	@media(min-width:1024px) {
+	@media(min-width:801px) {
 		display: none;
-	}
-`
-const DesktopBarFilterContainer = styled.div`
-	display: none;
-    background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
-
-	@media(min-width:1024px) {
-		height: 5rem;
-		display: flex;
-		position: sticky;
-		top: 0;
-		z-index: 12;
-		justify-content: space-between;
-		align-items: center;
-        background-color: var(--background-neutrals-primary);
-		box-shadow: 0 -0.0625rem 0 0 var(--outline-neutrals-secondary);
-		border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
-
-		div {
-			display: flex;
-
-			p {
-				font: 700 1rem/1.25rem 'AT Aero Bold';
-			}
-		}
-
-		.filter-label {
-			gap: 6.31rem;
-		}
-
-		.filter-button-container {
-			gap: 1rem;
-		}
 	}
 `
 
@@ -357,81 +273,17 @@ const ButtonFilter = styled.button`
 	}
 `
 
-const MobileScheduleFilterContainer = styled.div`
-    background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
-    color: var(--content-neutrals-primary);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-block: 2rem 2.5rem;
-
-    p {
-        font: 700 0.875rem/1.5rem 'AT Aero Bold';
-        width: 100%;
-    }
-
-    .select-wrapper {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        background-color: var(--brand-primary);
-        border-color: var(--outline-neutrals-secondary);
-        color: var(--content-neutrals-primary);
-
-        select {
-            position: relative;
-            width: 100%;
-            min-height: 2.75rem; 
-            color: var(--content-brand-inverse);
-            background-color: var(--brand-primary);
-            appearance: none;
-            font-size: 0.875rem;
-            text-align: center;
-            padding: 0.5rem 1rem;
-
-            &::-ms-expand {
-                display: none;
-            }
-        }
-
-        .icon {
-            position: absolute;
-            pointer-events: none;
-            right: 7.5%;
-        }
-    }
-
-    .selected select {
-        background-color: var(--brand-primary);
-    }
-
-    option {
-        font-size: 0.875rem;
-    }
-
-    @media (min-width:600px) {
-        display: none;
-    }
-`
-
 const DesktopSelectionContainer = styled.div`
     display: none;
     background-color: var(--background-neutrals-primary);
     border-color: var(--outline-neutrals-secondary);
     color: var(--content-neutrals-primary);
-    @media (min-width:840px) {
+    @media (min-width:801px) {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding-block: 2rem 4rem;
 
         .schedule-container {
             gap: 1rem;
