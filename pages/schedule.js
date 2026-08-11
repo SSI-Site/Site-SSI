@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 import Meta from '../src/infra/seo/Meta';
 import semana from '../utils/semana';
@@ -17,6 +18,7 @@ import saphira from '../services/saphira';
 import { LinkedInLogo, InstagramLogo, YouTubeLogo } from '../src/components/ui/SocialMediaLogos';
 
 import { eventDetails } from '../data/eventDetails';
+import CalendarIcon from '../public/images/icons/calendar.svg';
 
 const Schedule = () => {
     
@@ -133,6 +135,13 @@ const Schedule = () => {
 						</ButtonFilter>
 					</div>
 				</MobileBarFilterContainer>
+
+                <GoogleCalendarContainer>
+                    <a href={eventDetails.links.googleCalendarUrl} target="_blank" rel="noopener noreferrer">
+                        <p>Salvar no Google Agenda</p>
+                        <Image src={CalendarIcon} alt="Ícone do Google Agenda" width={24} height={24} />
+                    </a>
+                </GoogleCalendarContainer>
 
                 {shouldRenderEtecItinerary && <EtecItinerary />}
 
@@ -310,3 +319,43 @@ const DayScheduleWrapper = styled.div`
         gap: 3.6rem;
     }
 `
+
+const GoogleCalendarContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    a {
+        display: flex;
+        padding: 1rem 1.5rem;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-radius: 1rem;
+        background: linear-gradient(90deg, var(--brand-purple-300), var(--brand-purple-400));
+        margin: 1.5rem 0;
+        border: none;
+        color: inherit;
+        text-decoration: none;
+
+        p {
+            font: 700 0.875rem/1.5rem 'AT Aero Bold';
+            text-align: left;
+        }
+    }
+
+    @media (min-width:801px) {
+        justify-content: flex-start;
+
+        a {
+            width: 15.625rem;
+            gap: 3rem;
+            margin: 1.5rem 0 1.5rem 0.438rem;
+
+            p {
+                font: 700 1rem/1.5rem 'AT Aero Bold';
+            }
+        }
+    }
+`;
