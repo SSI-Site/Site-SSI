@@ -178,7 +178,6 @@ const MobileBarFilterContainer = styled.div`
 	top: 0;
 	z-index: 12;
 	background-color: var(--background-neutrals-primary);
-    border-color: var(--outline-neutrals-secondary);
     color: var(--content-neutrals-primary);
 
 	.filter-container {
@@ -186,17 +185,25 @@ const MobileBarFilterContainer = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-        box-shadow: 0 -0.0625rem 0 0 var(--outline-neutrals-secondary);
-		border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
+        border-radius: 0.75rem;
+        border: 1px solid var(--outline-neutrals-secondary);
+        padding: 1rem;
 	}
 
 	.filter-day-info {
 		p {
-			font: 700 1rem/1.25rem 'AT Aero Bold';
+			font: 700 1rem/1.5rem 'AT Aero Bold';
 			text-align: center;
 		}
 	}
-	
+
+    @media (min-width:600px) {
+        .filter-day-info {
+            p {
+                font: 700 1.125rem/1.5rem 'AT Aero Bold';
+            }
+        }
+    }
 
 	@media(min-width:801px) {
 		display: none;
@@ -241,7 +248,8 @@ const ButtonFilter = styled.button`
 			var(--background-neutrals-inverse) 50%,
 			var(--brand-primary) 50%
 			);
-		background-position: right;
+		background-position: right -1px center;
+        border-radius: 0.375rem 0.75rem 0.75rem 0.375rem;
 
 		&:hover, &:focus-visible {
 			background-position: left;
@@ -258,7 +266,8 @@ const ButtonFilter = styled.button`
 			var(--background-neutrals-inverse) 50%,
 			var(--brand-primary) 50%
 			);
-		background-position: left;
+		background-position: left 0px center;
+        border-radius: 0.75rem 0.375rem 0.375rem 0.75rem;
 
 		&:hover, &:focus-visible {
 			background-position: right;

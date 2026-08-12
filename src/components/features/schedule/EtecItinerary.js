@@ -6,12 +6,7 @@ import useAvailableWidth from "../../../../hooks/useAvailableWidth";
 //images
 import logoEtecDark from "../../../../public/images/schedule/logo-etec-dark.png";
 import logoEtecLight from "../../../../public/images/schedule/logo-etec-light.png";
-import dividerMobileLight from "../../../../public/images/schedule/details/divider-mobile-light.svg";
-import dividerDesktopLight from "../../../../public/images/schedule/details/divider-desktop-light.svg";
-import dividerMobileDark from "../../../../public/images/schedule/details/divider-mobile-dark.svg";
-import dividerDesktopDark from "../../../../public/images/schedule/details/divider-desktop-dark.svg";
 import Dots from "../../ui/Dots";
-
 
 // Dados da apresentação para as Etecs
 const SCHEDULE_DATA = [
@@ -59,32 +54,24 @@ const SCHEDULE_DATA = [
     }
 ];
 
-// Subcomponente para os divisores
-const Divider = () => (
-    <picture className="etecDivider">
-        {/* Tela Desktop */}
-        <source srcSet={dividerDesktopLight} media="(prefers-color-scheme: light) and (min-width: 786px)" />
-        <source srcSet={dividerDesktopDark} media="(prefers-color-scheme: dark) and (min-width: 786px)" />
-
-        {/* Tela Mobile */}
-        <source srcSet={dividerMobileLight} media="(prefers-color-scheme: light)" />
-        <Image
-            src={dividerMobileDark}
-            alt="Linha divisória"
-            width={296}
-            height={2}
-        />
-    </picture>
-);
-
 const EtecItinerary = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { componentRef, availableWidth } = useAvailableWidth(SCHEDULE_DATA, '.dots-wrapper');
 
+    // Clique da div inteira para mostrar o conteúdo (habilitado apenas para mobile)
+    const handleChronogramClick = (event) => {
+        if (
+            window.innerWidth < 800 &&
+            !event.target.closest(".toggleButton")
+        ) {
+            setIsOpen((prev) => !prev)
+        }
+    }
+
     return (
         <EtecDetails $isOpen={isOpen} ref={componentRef}>
             <div className="etecSchedule">
-                <div className="etecChronogram">
+                <div className="etecChronogram" onClick={handleChronogramClick}>
                     <picture className="etecLogo">
                         <source srcSet={logoEtecLight} media="(prefers-color-scheme: light)" />
                         <Image
@@ -149,7 +136,7 @@ const EtecDetails = styled.article`
         max-width: 83.25rem;
         margin: 1rem auto;
         overflow: hidden;
-        border: 1px solid var(--purple-light-purple, #D0ACFF);
+        border: 1px solid var(--brand-purple-200);
         border-radius: 1.5rem;
     }
 
@@ -160,8 +147,8 @@ const EtecDetails = styled.article`
         justify-content: space-between;
         align-items: center;
 
-        border-bottom: ${({ $isOpen }) => $isOpen ? "1px solid var(--purple-light-purple, #D0ACFF)" : "none"};
-        background: linear-gradient(90deg, var(--background-brand-primary, rgba(150, 56, 255, 0.25)) 0%, rgba(150, 56, 255, 0.00) 100%), var(--background-neutrals-primary, #1A1A1A);
+        border-bottom: ${({ $isOpen }) => $isOpen ? "1px solid var(--brand-purple-200)" : "none"};
+        background: linear-gradient(90deg, var(--background-brand-primary, rgba(150, 56, 255, 0.25)) 0%, transparent 100%), var(--content-neutrals-inverse);
     }
 
     .angleUp {
@@ -252,18 +239,6 @@ const EtecDetails = styled.article`
         white-space: nowrap;
     };
 
-    .etecDivider {
-        display: contents;
-    }
-
-    .etecDivider img{
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        opacity: 0.5;
-        margin: 0.5rem 0;
-    }
-
     .etecLunchPause {
         display: flex;
         padding: 1rem 0;
@@ -274,39 +249,39 @@ const EtecDetails = styled.article`
     }
 
     .etecLunchPause h6 {
-        color: var(--content-brand-primary-light, #D0ACFF);
+        color: var(--brand-purple-200);
     }
 
     h6 {
-        color: var(--content-neutrals-primary, #FFF);
+        color: var(--content-neutrals-primary);
 
-        font-size: var(--Typograph-Heading-H6-size, 1rem);
-        line-height: var(--Typograph-Heading-H6-height, 1.5rem); /* 150% */
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
 
     label {
-        color: var(--content-brand-primary-light, #D0ACFF);
+        color: var(--brand-primary-light);
         text-align: right;
 
-        font-size: var(--Typograph-Label-Medium-size, 0.875rem);
-        line-height: var(--Typograph-Label-Medium-height, 1.5rem); /* 171.429% */
+        font-size: 0.875rem;
+        line-height: 1.5rem;
     }
 
     p {
-        color: var(--content-neutrals-primary, #FFF);
+        color: var(--content-neutrals-primary);
 
-        font-size: var(--Typograph-Paragraph-Medium-size, 0.875rem);
-        line-height: var(--Typograph-Paragraph-Medium-height, 1.5rem); /* 171.429% */
+        font-size: 0.875rem;
+        line-height: 1.5rem; 
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 801px) {
         .etecChronogram {
             padding: 2rem;
-            border-bottom: ${({ $isOpen }) => $isOpen ? "3px solid var(--purple-light-purple, #D0ACFF)" : "none"};
+            border-bottom: ${({ $isOpen }) => $isOpen ? "3px solid var(--brand-purple-200)" : "none"};
         }
 
         .etecSchedule {
-            border: 3px solid var(--purple-light-purple, #D0ACFF);
+            border: 3px solid var(--brand-purple-200);
             border-radius: 2rem;
         }
 
@@ -324,12 +299,6 @@ const EtecDetails = styled.article`
             padding-block: ${({ $isOpen }) => ($isOpen ? "1rem" : "0")};
         }
 
-        .etecDivider {
-            width: 100%;
-            height: 0.375rem;
-            opacity: 0.5;
-        }
-
         .etecLecture, .etecLunchPause {
             display: flex;
             padding: 1.33125rem 0;
@@ -340,37 +309,31 @@ const EtecDetails = styled.article`
         }
 
         h6 {
-            color: var(--content-neutrals-primary, #FFF);
+            color: var(--content-neutrals-primary);
 
-            font-size: var(--Typograph-Heading-H5-size, 2rem);
-            line-height: var(--Typograph-Heading-H5-height, 2.5rem);
+            font-size: 2rem;
+            line-height: 2.5rem;
         }
 
         label {
-            color: var(--content-brand-primary-light, #D0ACFF);
+            color: var(--brand-primary-light);
             text-align: right;
 
-            font-size: var(--Typograph-Label-Large-size, 1.125rem);
-            line-height: var(--Typograph-Label-Large-height, 1.5rem); /* 133.333% */
+            font-size: 1.125rem;
+            line-height: 1.5rem;
         }
 
         p {
-            color: var(--content-neutrals-primary, #FFF);
+            color: var(--content-neutrals-primary);
 
-            font-size: var(--Typograph-Paragraph-Medium-size, 1rem);
-            line-height: var(--Typograph-Paragraph-Medium-height, 1.5rem); /* 150% */
+            font-size: 1rem;
+            line-height: 1.5rem;
         }
     }
 
     @media (prefers-color-scheme: light){
-        
-        .etecSchedule {
-            border: 3px solid var(--purple-light-purple, #2B054D);
-        }
-
         .etecChronogram {
-            border-bottom: ${({ $isOpen }) => $isOpen ? "3px solid var(--purple-dark-purple, #2B054D)" : "none"};
-            background: linear-gradient(90deg, rgba(150, 56, 255, 0.00) 0%, var(--background-brand-primary, rgba(98, 6, 191, 0.25)) 100%), var(--background-neutrals-primary, #E6E6E6);
+            background: linear-gradient(90deg, transparent 0%, var(--background-brand-primary, rgba(98, 6, 191, 0.25)) 100%), var(--content-neutrals-inverse);
         }
 
         .angleUp {
@@ -378,11 +341,11 @@ const EtecDetails = styled.article`
         }
 
         label {
-            color: var(--content-brand-primary-dark, #2B054D);
+            color: var(--brand-primary-dark);
         }
 
         .etecLunchPause h6 {
-            color: var(--content-brand-primary-light, #2B054D);
+            color: var(--brand-primary-dark);
         }
     }
 `
