@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-
-import { useState } from "react";
+import useAvailableWidth from "../../../../hooks/useAvailableWidth";
 
 //images
 import logoEtecDark from "../../../../public/images/schedule/logo-etec-dark.png";
@@ -11,6 +10,7 @@ import dividerMobileLight from "../../../../public/images/schedule/details/divid
 import dividerDesktopLight from "../../../../public/images/schedule/details/divider-desktop-light.svg";
 import dividerMobileDark from "../../../../public/images/schedule/details/divider-mobile-dark.svg";
 import dividerDesktopDark from "../../../../public/images/schedule/details/divider-desktop-dark.svg";
+import Dots from "../../ui/Dots";
 
 
 // Dados da apresentação para as Etecs
@@ -79,9 +79,10 @@ const Divider = () => (
 
 const EtecItinerary = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { componentRef, availableWidth } = useAvailableWidth(SCHEDULE_DATA, '.dots-wrapper');
 
     return (
-        <EtecDetails $isOpen={isOpen}>
+        <EtecDetails $isOpen={isOpen} ref={componentRef}>
             <div className="etecSchedule">
                 <div className="etecChronogram">
                     <picture className="etecLogo">
@@ -126,8 +127,10 @@ const EtecItinerary = () => {
                                 {item.desc && <p>{item.desc}</p>}
                             </div>
 
-                            {/* Adciona os divisores corretamente */}
-                            {index !== SCHEDULE_DATA.length - 1 && <Divider />}
+                            {/* Adiciona os divisores corretamente */}
+                            {index !== SCHEDULE_DATA.length - 1 && 
+                                <Dots dotSize={8} dotGap={18.18} availableWidth={availableWidth} numberLines={1}/>
+                            }
                         </React.Fragment>
                     ))}
                 </div>
@@ -207,6 +210,22 @@ const EtecDetails = styled.article`
         padding-inline: 1rem;
         padding-block: ${({ $isOpen }) => ($isOpen ? "1rem" : "0")};
         transition: max-height 240ms ease, opacity 240ms ease, padding-block 240ms ease;
+
+        .gradient-stop-1 {
+            stop-color: #75638c;
+        }
+
+        .gradient-stop-2 {
+            stop-color: #75638c;
+        }
+
+        .dots {
+            transform: scale(0.5);       
+
+            @media (min-width: 801px) {
+                transform: scale(1);
+            }
+        }
     }
 
     .etecLecture {
