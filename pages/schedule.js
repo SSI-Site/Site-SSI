@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 import Meta from '../src/infra/seo/Meta';
 import semana from '../utils/semana';
@@ -82,7 +81,7 @@ const Schedule = () => {
 }, [talks, activeItem, dayFull]);
 
     const selectedWeekDay = weekDays[dayNumber] || weekDays[0];
-    const shouldRenderEtecItinerary = selectedWeekDay === 'Segunda-feira' || selectedWeekDay === 'Terça-feira';
+    const shouldRenderEtecItinerary = selectedWeekDay === 'Terça-feira' || selectedWeekDay === 'Quinta-feira';
 
     return (
         <>
@@ -139,11 +138,13 @@ const Schedule = () => {
                 <GoogleCalendarContainer>
                     <a href={eventDetails.links.googleCalendarUrl} target="_blank" rel="noopener noreferrer">
                         <p>Salvar no Google Agenda</p>
-                        <Image src={CalendarIcon} alt="Ícone do Google Agenda" width={24} height={24} />
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 4H16V2H18V4H19C19.55 4 20.0204 4.19622 20.4121 4.58789C20.8038 4.97956 21 5.45 21 6V20C21 20.55 20.8038 21.0204 20.4121 21.4121C20.0204 21.8038 19.55 22 19 22H5C4.45 22 3.97956 21.8038 3.58789 21.4121C3.19622 21.0204 3 20.55 3 20V6C3 5.45 3.19622 4.97956 3.58789 4.58789C3.97956 4.19622 4.45 4 5 4H6V2H8V4ZM5 20H19V10H5V20ZM8 16C8.28333 16 8.52122 16.0954 8.71289 16.2871C8.90456 16.4788 9 16.7167 9 17C9 17.2833 8.90456 17.5212 8.71289 17.7129C8.52122 17.9046 8.28333 18 8 18C7.71667 18 7.47878 17.9046 7.28711 17.7129C7.09544 17.5212 7 17.2833 7 17C7 16.7167 7.09544 16.4788 7.28711 16.2871C7.47878 16.0954 7.71667 16 8 16ZM12 16C12.2833 16 12.5212 16.0954 12.7129 16.2871C12.9046 16.4788 13 16.7167 13 17C13 17.2833 12.9046 17.5212 12.7129 17.7129C12.5212 17.9046 12.2833 18 12 18C11.7167 18 11.4788 17.9046 11.2871 17.7129C11.0954 17.5212 11 17.2833 11 17C11 16.7167 11.0954 16.4788 11.2871 16.2871C11.4788 16.0954 11.7167 16 12 16ZM16 16C16.2833 16 16.5212 16.0954 16.7129 16.2871C16.9046 16.4788 17 16.7167 17 17C17 17.2833 16.9046 17.5212 16.7129 17.7129C16.5212 17.9046 16.2833 18 16 18C15.7167 18 15.4788 17.9046 15.2871 17.7129C15.0954 17.5212 15 17.2833 15 17C15 16.7167 15.0954 16.4788 15.2871 16.2871C15.4788 16.0954 15.7167 16 16 16ZM8 12C8.28333 12 8.52122 12.0954 8.71289 12.2871C8.90456 12.4788 9 12.7167 9 13C9 13.2833 8.90456 13.5212 8.71289 13.7129C8.52122 13.9046 8.28333 14 8 14C7.71667 14 7.47878 13.9046 7.28711 13.7129C7.09544 13.5212 7 13.2833 7 13C7 12.7167 7.09544 12.4788 7.28711 12.2871C7.47878 12.0954 7.71667 12 8 12ZM12 12C12.2833 12 12.5212 12.0954 12.7129 12.2871C12.9046 12.4788 13 12.7167 13 13C13 13.2833 12.9046 13.5212 12.7129 13.7129C12.5212 13.9046 12.2833 14 12 14C11.7167 14 11.4788 13.9046 11.2871 13.7129C11.0954 13.5212 11 13.2833 11 13C11 12.7167 11.0954 12.4788 11.2871 12.2871C11.4788 12.0954 11.7167 12 12 12ZM16 12C16.2833 12 16.5212 12.0954 16.7129 12.2871C16.9046 12.4788 17 12.7167 17 13C17 13.2833 16.9046 13.5212 16.7129 13.7129C16.5212 13.9046 16.2833 14 16 14C15.7167 14 15.4788 13.9046 15.2871 13.7129C15.0954 13.5212 15 13.2833 15 13C15 12.7167 15.0954 12.4788 15.2871 12.2871C15.4788 12.0954 15.7167 12 16 12Z"/>
+                        </svg>
                     </a>
                 </GoogleCalendarContainer>
 
-                {shouldRenderEtecItinerary && <EtecItinerary />}
+                {shouldRenderEtecItinerary && <EtecItinerary weekDay={selectedWeekDay} />}
 
                 <DayScheduleWrapper id="schedule">
                     {renderActiveItem()}
@@ -165,7 +166,7 @@ const ScheduleSection = styled.section`
 
     h1 {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     @media (min-width:600px) {
@@ -177,8 +178,10 @@ const MobileBarFilterContainer = styled.div`
 	position: sticky;
 	top: 0;
 	z-index: 12;
-	background-color: var(--background-neutrals-primary);
     color: var(--content-neutrals-primary);
+    background-color: var(--background-neutrals-primary);
+    padding-top: 0.5rem;
+    border-radius: 0 0 0.75rem 0.75rem;
 
 	.filter-container {
 		height: 5rem;
@@ -334,6 +337,7 @@ const GoogleCalendarContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin: 1rem 0;
 
     a {
         display: flex;
@@ -343,7 +347,6 @@ const GoogleCalendarContainer = styled.div`
         width: 100%;
         border-radius: 1rem;
         background: linear-gradient(90deg, var(--brand-purple-300), var(--brand-purple-400));
-        margin: 1.5rem 0;
         border: none;
         color: inherit;
         text-decoration: none;
@@ -351,6 +354,10 @@ const GoogleCalendarContainer = styled.div`
         p {
             font: 700 0.875rem/1.5rem 'AT Aero Bold';
             text-align: left;
+        }
+
+        path {
+            fill: var(--content-neutrals-primary);
         }
     }
 
@@ -365,6 +372,12 @@ const GoogleCalendarContainer = styled.div`
             p {
                 font: 700 1rem/1.5rem 'AT Aero Bold';
             }
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        a {
+            background: linear-gradient(90deg, var(--brand-purple-900), var(--brand-purple-800));
         }
     }
 `;

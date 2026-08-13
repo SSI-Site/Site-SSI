@@ -9,7 +9,7 @@ import logoEtecLight from "../../../../public/images/schedule/logo-etec-light.pn
 import Dots from "../../ui/Dots";
 
 // Dados da apresentação para as Etecs
-const SCHEDULE_DATA = [
+const SCHEDULE_THURSDAY = [
     {
         id: 1,
         title: "O que é a USP?",
@@ -48,14 +48,67 @@ const SCHEDULE_DATA = [
     {
         id: 6,
         title: "Painel das nossas organizações estudantis",
-        time: "14:40 - 15:30h",
+        time: "14:40 - 15:40h",
         desc: "Traremos representantes dos grupos estudantis do curso de Sistemas de Informação para esclarecer todas as suas dúvidas!",
         type: "lecture"
     }
 ];
 
-const EtecItinerary = () => {
+const SCHEDULE_TUESDAY = [
+    {
+        id: 1,
+        title: "Almoço",
+        time: "11:40 - 12:10h",
+        desc: null,
+        type: "lunch"
+    },
+    {
+        id: 2,
+        title: "O que é a USP?",
+        time: "12:10 - 12:50h",
+        desc: "Venha saber sobre a maior universidade da América Latina pelos próprios professores e estudantes.",
+        type: "lecture"
+    },
+    {
+        id: 3,
+        title: "Tour pelo Campus!",
+        time: "13:00 - 13:40h",
+        desc: "Já que só palavras não bastam, também veja com os seus próprios olhos o campus da USP Leste.",
+        type: "lecture"
+    },
+    {
+        id: 4,
+        title: "Panorama sobre a Área da Tecnologia",
+        time: "14:00 - 14:40h",
+        desc: "Quais carreiras posso seguir na área tech? Quais são as diferenças entre os cursos? Venha descobrir!",
+        type: "lecture"
+    },
+    {
+        id: 5,
+        title: "Vida universitária",
+        time: "14:50 - 15:30h",
+        desc: "Viver a universidade é aprender, evoluir e descobrir caminhos que vão muito além da sala de aula.",
+        type: "lecture"
+    },
+    {
+        id: 6,
+        title: "Oportunidades da USP e Dicas pro Vestibular",
+        time: "15:40 - 16:20h",
+        desc: "Abordaremos as oportunidades que só a USP proporciona, e também dicas para arrasar no vestibular.",
+        type: "lecture"
+    },
+    {
+        id: 7,
+        title: "Painel das Organizações Estudantis",
+        time: "16:30 - 17:20h",
+        desc: "Tratemos representantes dos grupos estudantis do curso de Sistemas de informação para esclarecer todas as suas dúvidas!",
+        type: "lecture"
+    }
+];
+
+const EtecItinerary = ({ weekDay }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const SCHEDULE_DATA = weekDay === 'Quinta-feira' ? SCHEDULE_THURSDAY : SCHEDULE_TUESDAY;
     const { componentRef, availableWidth } = useAvailableWidth(SCHEDULE_DATA, '.dots-wrapper');
 
     // Clique da div inteira para mostrar o conteúdo (habilitado apenas para mobile)
@@ -158,7 +211,7 @@ const EtecDetails = styled.article`
         aspect-ratio: 1/1;
         transition: transform 0.2s ease;
         transform-origin: center;
-        transform: ${({ $isOpen }) => ($isOpen ? "rotate(180deg)" : "rotate(0deg)")};
+        transform: ${({ $isOpen }) => ($isOpen ? "rotate(0deg)" : "rotate(180deg)")};
         fill: white;
     }
 
@@ -206,6 +259,7 @@ const EtecDetails = styled.article`
             stop-color: #75638c;
         }
 
+        // Modificando o tamanho das bolinhas
         .dots {
             transform: scale(0.5);       
 
