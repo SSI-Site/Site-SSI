@@ -42,11 +42,11 @@ const DateWrapper = styled.div`
     /* 
        Trick de animação: o background tem o dobro do tamanho.
        A metade da ESQUERDA (0% a 50%) é Branca.
-       A metade da DIREITA (50% a 100%) tem as cores do Figma (90deg) quando ativa.
+       A metade da DIREITA (50% a 100%) tem as cores do Figma (98deg) quando ativa.
     */
     background-image: ${props => props.$isActive
-        ? 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--brand-primary) 50%, #5A2299 100%)'
-        : 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--background-neutrals-secondary) 50%, var(--background-neutrals-secondary) 100%)'
+        ? 'linear-gradient(90deg, var(--content-neutrals-primary) 0%, var(--content-neutrals-primary) 50%, var(--brand-primary) 50%, light-dark(var(--brand-purple-300), var(--brand-purple-900)) 100%)'
+        : 'linear-gradient(90deg, var(--content-neutrals-primary) 0%, var(--content-neutrals-primary) 50%, var(--background-neutrals-secondary) 50%, var(--background-neutrals-secondary) 100%)'
     };
     
     background-size: 200% 100%;
@@ -70,16 +70,16 @@ const DateWrapper = styled.div`
             ? 'unset' 
             : `linear-gradient(
                 180deg, 
-                light-dark(var(--purple-purple, #6206BF), var(--backup-neutral-50, #FFF)) 0%, 
-                light-dark(var(--backup-primary-800, #6618BB), var(--backup-primary-50, #FDEEFF)) 40%, 
-                light-dark(var(--purple-dark-purple, #2B054D), var(--purple-light-purple, #D0ACFF)) 100%
+                light-dark(var(--brand-purple-400), var(--content-neutrals-fixed-white)) 0%, 
+                light-dark(var(--brand-purple-400), var(--content-neutrals-secondary)) 40%, 
+                light-dark(var(--brand-purple-200), var(--brand-purple-200)) 100%
             )`}; 
 
         -webkit-background-clip: ${props => props.$isActive ? 'unset' : 'text'};
         background-clip: ${props => props.$isActive ? 'unset' : 'text'}; 
         
-        -webkit-text-fill-color: ${props => props.$isActive ? '#FFF' : 'transparent'};
-        color: ${props => props.$isActive ? '#FFF' : 'unset'};
+        -webkit-text-fill-color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'transparent'};
+        color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'unset'};
     }
 
     /* --- Estados de Interação (Hover / Focus) --- */
@@ -96,7 +96,7 @@ const DateWrapper = styled.div`
             background-clip: unset;
             
             /* Como o fundo fica branco, a cor da fonte assume esse valor: */
-            color: light-dark(#ffffff, #000000); 
+            color: var(--content-neutrals-inverse); 
             -webkit-text-fill-color: currentColor; 
         }
     }

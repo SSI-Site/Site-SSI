@@ -296,10 +296,6 @@ const EtecDetails = styled.article`
         flex: 1;
     };
 
-    .etecLectureTime {
-        white-space: nowrap;
-    };
-
     .etecLunchPause {
         display: flex;
         padding: 1rem 0;
@@ -323,6 +319,7 @@ const EtecDetails = styled.article`
     .etecLectureTime {
         color: var(--brand-primary-light);
         text-align: right;
+        white-space: nowrap;
 
         font-weight: 700;
         font-size: 0.875rem;
@@ -358,7 +355,7 @@ const EtecDetails = styled.article`
             border-radius: 2rem;
         }
 
-        .angleUp{
+        .angleUp {
             width: 2rem;
             aspect-ratio: 1/1;
         }
@@ -387,9 +384,6 @@ const EtecDetails = styled.article`
         }
 
         .etecLectureTime {
-            color: var(--brand-primary-light);
-            text-align: right;
-
             font-size: 1.125rem;
             line-height: 1.5rem;
             margin-top: 0.25rem;

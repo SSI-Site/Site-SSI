@@ -332,6 +332,7 @@ const DesktopSelectionContainer = styled.div`
     background-color: var(--background-neutrals-primary);
     border-color: var(--outline-neutrals-secondary);
     color: var(--content-neutrals-primary);
+    margin-top: 1rem;
 
     @media (min-width:801px) {
         display: flex;
@@ -382,6 +383,8 @@ const GoogleCalendarContainer = styled.div`
         border: none;
         color: inherit;
         text-decoration: none;
+        box-shadow: 0 0 0px 1px transparent;
+        transition: 0.5s all ease;
         // Determina o espaço (quantos itens) vai ocupar
         grid-column: span 5;
 
@@ -399,11 +402,14 @@ const GoogleCalendarContainer = styled.div`
         }
     }
 
+    a:hover, a:focus-visible {
+        box-shadow: 0 0 0px 1px var(--brand-purple-200);
+    }
+
     @media (min-width: 801px) {
         justify-content: flex-start;
 
         a {
-            /* gap: 3rem; */
             margin: 0.5rem 0 1rem 0rem;
             // Determina o espaço (quantos itens) vai ocupar
             grid-column: span 2;
