@@ -85,10 +85,9 @@ const PalestrantesWrapper = styled.div`
     flex-direction: column;
     max-width: 1328px; // MATCH WEBSITE PATTERN
     gap: 1.5rem;
-    /* gap: 0.5rem; */
 
     h1 {
-        font: 700 2rem/2.25rem 'AT Aero Bold';
+        font: 700 3rem/3.5rem 'AT Aero Bold';
     }
 `
 
