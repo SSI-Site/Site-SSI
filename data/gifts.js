@@ -18,37 +18,37 @@ const gifts = {
     2: {
         name: 'Adesivo Metalizado',
         image: StickerMetalizado,
-        minPresence: 5
+        minPresence: 6
     },
     3: {
-        name: 'Chaveiro',
-        image: Chaveiro,
-        minPresence: 8
-    },
-    4: {
-        name: 'EcoBag',
-        image: EcoBag,
-        minPresence: 11
-    },
-    5: {
         name: 'Marca Página',
         image: MarcaPagina,
-        minPresence: 15
+        minPresence: 7
+    },
+    4: {
+        name: 'Caneta com Touch',
+        image: Caneta,
+        minPresence: 8
+    },
+    5: {
+        name: 'Chaveiro',
+        image: Chaveiro,
+        minPresence: 11
     },
     6: {
         name: 'Copo Bucks',
         image: CopoBucks,
-        minPresence: 18
+        minPresence: 15
     },
     7: {
-        name: 'Caneta com Touch',
-        image: Caneta,
-        minPresence: 22
+        name: 'EcoBag',
+        image: EcoBag,
+        minPresence: 18
     },
     8: {
         name: 'Garrafa Squeeze',
         image: Garrafa,
-        minPresence: 25
+        minPresence: 22
     }
 }
 
