@@ -68,7 +68,7 @@ const AuthModal = ({ onClose }) => {
                             alt="Logo SSI 2026" />
                         </picture>
 
-                        <p>Faça login para conseguir registrar suas presenças e garantir brindes!</p>
+                        <p>Faça login para conseguir registrar suas presenças e garantir os seus brindes:</p>
 
                         <SecondaryButton onClick={handleGoogleSignIn}>
                             {/* Logo da Google */}
@@ -115,10 +115,14 @@ const ModalWrapper = styled.div`
 `
 
 const StyledModal = styled.div`
-    background-color: var(--background-neutrals-secondary);
+    /* efeito glassmorphism */
+    background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
+    backdrop-filter: blur(12px);
     height: 100%;
     width: 100%;
     padding: 1rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 1.5rem;
 `
 
 const ModalHeader = styled.header`
@@ -145,7 +149,7 @@ const ModalHeader = styled.header`
             width: 30%;
             height: 30%;
             transition: filter 0.15s ease-out;
-        }
+        } 
 
         &:hover, &:focus-visible {
             background-position-x: 100%;
@@ -176,7 +180,7 @@ const ModalBody = styled.div`
     
     div {
         width: 100%;
-        height: 1px;
+        height: 0px;
         background-color: var(--background-neutrals-tertiary);
         margin-block: 0.75rem;
     }
@@ -193,5 +197,6 @@ const ModalBody = styled.div`
     p {
         font-weight: 400;
         margin-bottom: 0.5rem;
+        text-align: center;
     }
 `
