@@ -13,7 +13,7 @@ import Button from '../ui/Button';
 // assets
 import CloseBtn from '../../../public/images/icons/close.svg';
 import LogoHorizontalDark from '../../../public/images/logos/logo_horizontal_dark.svg';
-import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg'
+import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg';
 
 const Nav = () => {
 
@@ -23,11 +23,10 @@ const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
 
-
     const handleShowAuthModal = () => {
         setIsOpen(false);
         setShowAuthModal(true);
-    }
+    };
 
     useEffect(() => {
         if (showAuthModal) {
@@ -49,11 +48,11 @@ const Nav = () => {
                 <div>
                     {/* Logo que redireciona para a home */}
                     <Link href="/">
-
                         <picture>
-                            <source srcSet = {LogoHorizontalLight} 
-                            media = "(prefers-color-scheme: light)"/>
-
+                            <source 
+                                srcSet={LogoHorizontalLight} 
+                                media="(prefers-color-scheme: light)"
+                            />
                             <Image
                                 src={LogoHorizontalDark}
                                 width={180}
@@ -61,7 +60,6 @@ const Nav = () => {
                                 alt='Semana de Sistemas de Informação 2026'
                             />
                         </picture>
-
                     </Link>
 
                     {/* Caixa de autenticação/login */}
@@ -74,7 +72,6 @@ const Nav = () => {
 
                     {/* Navbar para Mobile */}
                     <NavMobile $isOpen={isOpen}>
-
                         <div className='hamburguer-wrapper'>
                             <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -82,86 +79,59 @@ const Nav = () => {
                                 </svg>
                             </button>
                         </div>
-
                     </NavMobile>
 
                     {/* Navbar para Desktop */}
                     <NavDesktop>
                         <NavigationList>
-                            <li className = {router.pathname == '/' ? 'active': ''}>
-                                <Link href="/">
-                                    Home
-                                </Link>           
+                            <li className={router.pathname == '/' ? 'active': ''}>
+                                <Link href="/">Home</Link>
                             </li>
-
-                            <li className = {router.pathname == '/schedule' ? 'active': ''}>
-                                <Link href="/schedule">
-                                    Programação
-                                </Link>
+                            <li className={router.pathname == '/schedule' ? 'active': ''}>
+                                <Link href="/schedule">Programação</Link>
                             </li>
-
-                            <li className = {router.pathname == '/about' ? 'active': ''}>
-                                <Link href="/about">
-                                    Evento
-                                </Link>
+                            <li className={router.pathname == '/about' ? 'active': ''}>
+                                <Link href="/about">Evento</Link>
                             </li>
-
-                            <li className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link href="/palestrantes">
-                                    Palestrantes
-                                </Link>
+                            <li className={router.pathname == '/palestrantes' ? 'active': ''}>
+                                <Link href="/palestrantes">Palestrantes</Link>
                             </li>
-
-                            <li className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link href="/co">
-                                    Organização
-                                </Link>
+                            <li className={router.pathname == '/co' ? 'active': ''}>
+                                <Link href="/co">Comissão Organizadora</Link>
                             </li>
-
-                            <li className = {router.pathname == '/partnerships' ? 'active': ''}>
-                                <Link href="/partnerships">
-                                    Para Empresas
-                                </Link>                                
+                            <li className={router.pathname == '/partnerships' ? 'active': ''}>
+                                <Link href="/partnerships">Para Empresas</Link>
                             </li>
-
-                            {/* <li>
-                                <a href="https://ctf.intheshell.page/" target='_blank' >
-                                    CTF
-                                </a>
-                            </li> */}
 
                             {!disableAuth && user ? (
                                 <li className='profile-container'>
-                                    <Link href= "/user" className='profile-content'>
-
+                                    <Link href="/user" className='profile-content'>
                                         <div className='user-pic-container'>
                                             <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
                                         </div>
                                         <p>{user.name.split(" ")[0]}</p>
-
                                     </Link>
                                 </li>
                             ) : (
                                 <li>
                                     <Button
-                                    onClick={handleShowAuthModal} 
-                                    disabled={disableAuth}>Login</Button>
+                                        onClick={handleShowAuthModal} 
+                                        disabled={disableAuth}>Login</Button>
                                 </li>
-                            )
-                            }
+                            )}
                         </NavigationList>
                     </NavDesktop>
-
                 </div>
             </NavWrapper>
+
             <Sidepanel>
                 <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                 </div>
-                <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-                    <div className = "sidepanel-wrapper">
-                        <div className = 'header-nav'>
+                <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
+                    <div className="sidepanel-wrapper">
+                        <div className='header-nav'>
                             <h6>Navegação rápida</h6>
-                            <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
+                            <div className='close' onClick={() => setIsOpen(!isOpen)}>
                                 <svg width="18" height="18" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="white"/>
                                 </svg>
@@ -169,87 +139,56 @@ const Nav = () => {
                         </div>
 
                         <NavigationList>
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                <Link href="/">
-                                    Home
-                                </Link>
+                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/' ? 'active': ''}>
+                                <Link href="/">Home</Link>
                             </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                <Link href="/schedule">
-                                    Programação
-                                </Link>                                
+                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/schedule' ? 'active': ''}>
+                                <Link href="/schedule">Programação</Link>
                             </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                <Link href="/about">
-                                    Evento
-                                </Link>
+                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/about' ? 'active': ''}>
+                                <Link href="/about">Evento</Link>
                             </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link href="/palestrantes">
-                                    Palestrantes
-                                </Link>                                
+                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/palestrantes' ? 'active': ''}>
+                                <Link href="/palestrantes">Palestrantes</Link>
                             </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link href="/co">
-                                    Organização
-                                </Link>                                
+                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/co' ? 'active': ''}>
+                                <Link href="/co">Comissão Organizadora</Link>
                             </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/partnerships' ? 'active': ''}>
-                                <Link href="/partnerships">
-                                    Para Empresas
-                                </Link>                                
+                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/partnerships' ? 'active': ''}>
+                                <Link href="/partnerships">Para Empresas</Link>
                             </li>
-
-                            {/* <li onClick={() => setIsOpen(false)}>
-                                <a href="https://ctf.intheshell.page/" target='_blank'>
-                                    CTF
-                                </a>
-                            </li> */}
                         </NavigationList>
                     </div>
 
-                    {/* Editar esta div para o usuário logado*/}
                     {!disableAuth && user ?
-                        <>
-                            <NavigationList>
-                                <li onClick={() => setIsOpen(false)} className="profile-side-bar">
-                                    <Link href="/user">
-
-                                        <div className='profile-content'>
-                                            <div className='user-pic-container'>
-                                                <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                            </div>
-                                            <p>{user.name.split(" ")[0]}</p>
+                        <NavigationList>
+                            <li onClick={() => setIsOpen(false)} className="profile-side-bar">
+                                <Link href="/user">
+                                    <div className='profile-content'>
+                                        <div className='user-pic-container'>
+                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
                                         </div>
-                                        <div className='see-profile'>
-                                            <p>Ver Perfil</p>
-                                            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
-
-                                                <rect id = "arrow" width = "100" height = "100%"/>
-                                                        
-                                            </svg>
-                                        </div>
-
-                                    </Link>
-                                </li>
-                            </NavigationList>
-                        </> 
+                                        <p>{user.name.split(" ")[0]}</p>
+                                    </div>
+                                    <div className='see-profile'>
+                                        <p>Ver Perfil</p>
+                                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+                                            <rect id="arrow" width="100" height="100%"/>
+                                        </svg>
+                                    </div>
+                                </Link>
+                            </li>
+                        </NavigationList>
                     :
                         <Button 
-                        onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
+                            onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
                     }
-                    
                 </div>
             </Sidepanel>
         </>
     );
-}
+};
 
 export default Nav;
 
@@ -265,14 +204,13 @@ const NavWrapper = styled.div`
     align-items: center;
     width: calc(100% - 2rem); 
     max-width: 1328px;
-    padding: 0.5rem 1rem; /* era 8px 16px */
-    border-radius: 1.5rem; /* era 24px */
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
     
-    /* aqui a gente faz as cores e o efeito glassmorphism da navbar */
+    /* glassmorphism */
     background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
-    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
-    backdrop-filter: blur(6px);
-
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(18px);
 
     > div {
         display: flex;
@@ -299,12 +237,11 @@ const NavWrapper = styled.div`
         }
     }
 
-    /* DESKTOP */
     @media (min-width: 995px) {
-        padding: 1rem 1.5rem; /* era 16px 24px */
+        padding: 1rem 1.5rem;
         justify-content: center;
     }
-`
+`;
 
 const NavMobile = styled.nav`
     width: 3rem;
@@ -345,7 +282,7 @@ const NavMobile = styled.nav`
     @media (min-width:995px) {
         display: none;
     }
-`
+`;
 
 const NavigationList = styled.ul`
     display: flex;
@@ -378,7 +315,6 @@ const NavigationList = styled.ul`
             outline: 2px solid var(--content-neutrals-fixed-white);
             outline-offset: 2px;
         }
-            
     }
 
     .active {            
@@ -397,16 +333,15 @@ const NavigationList = styled.ul`
         }
     }
 
-    .disabled{
+    .disabled {
         pointer-events: none;
-        a{
+        a {
             opacity: 0.5;
         }
     }
-`
+`;
 
 const Sidepanel = styled.div`
-    /* position: fixed; */
     top: 0;
     width: 100%;
     height: 100%;
@@ -429,7 +364,7 @@ const Sidepanel = styled.div`
         padding: 1rem;
         cursor: pointer;   
 
-        svg path{
+        svg path {
             fill: var(--content-neutrals-primary)
         }
     }
@@ -441,7 +376,6 @@ const Sidepanel = styled.div`
         left: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.5);
-        
         z-index: 17;
     }
 
@@ -453,7 +387,7 @@ const Sidepanel = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-between;
         overflow-y: scroll;
         height: 100%;
         width: 100%;
@@ -461,9 +395,14 @@ const Sidepanel = styled.div`
         z-index: 17;
         top: 0;
         right: 0;
-        background-color: var(--background-neutrals-secondary);
+
+        /* efeito glassmorphism */
+        background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
+        box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(18px);
+
         transition: all ease-out 0.15s;
-        padding: 1.5rem 1rem;
+        padding: 0 1rem 3.5rem 1rem;
         gap: 1.5rem;
         color: var(--content-neutrals-primary);
 
@@ -504,7 +443,7 @@ const Sidepanel = styled.div`
                 }
             }
     
-            .profile-content{
+            .profile-content {
                 width: fit-content;
                 height: 2.75rem;
                 padding: 0;
@@ -566,7 +505,7 @@ const Sidepanel = styled.div`
     @media (min-width:995px) {
         display: none;
     }
-`
+`;
 
 const NavDesktop = styled.nav`
     display: none;
@@ -615,4 +554,4 @@ const NavDesktop = styled.nav`
             }
         }        
     }
-`
+`;
