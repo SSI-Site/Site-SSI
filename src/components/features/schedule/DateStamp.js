@@ -27,11 +27,12 @@ const DateWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
     
     /* Dimensões e espaçamentos fixos de Desktop */
-    width: 15.625rem;
+    max-width: 15.625rem;
     height: 7.6875rem;
-    padding: 0.75rem 1.5rem;
     gap: 1rem; 
     border-radius: 0.83331rem; 
     
@@ -41,10 +42,10 @@ const DateWrapper = styled.div`
     /* 
        Trick de animação: o background tem o dobro do tamanho.
        A metade da ESQUERDA (0% a 50%) é Branca.
-       A metade da DIREITA (50% a 100%) tem as cores do Figma (98deg) quando ativa.
+       A metade da DIREITA (50% a 100%) tem as cores do Figma (90deg) quando ativa.
     */
     background-image: ${props => props.$isActive
-        ? 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--brand-primary, #9638FF) 50%, #5A2299 100%)'
+        ? 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--brand-primary) 50%, #5A2299 100%)'
         : 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--background-neutrals-secondary) 50%, var(--background-neutrals-secondary) 100%)'
     };
     
@@ -58,8 +59,8 @@ const DateWrapper = styled.div`
     h6 {
         margin: 0;
         text-align: center;
-        font-size: var(--Typograph-Heading-H6-size, 1.5rem);
-        line-height: var(--Typograph-Heading-H6-height, 2rem);
+        font-size: 1.125rem;
+        line-height: 1.5rem;
         font-style: normal;
         font-weight: 700;
         transition: 0.2s ease-in-out;
@@ -103,5 +104,19 @@ const DateWrapper = styled.div`
     &:focus-visible {
         outline: 2px solid var(--brand-primary);
         outline-offset: 4px;
+    }
+
+    @media (min-width: 1024px) {
+        h6 {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        h6 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
     }
 `

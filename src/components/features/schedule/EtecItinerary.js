@@ -157,22 +157,29 @@ const EtecItinerary = ({ weekDay }) => {
                 </div>
 
                 <div className="etecDetails" aria-hidden={!isOpen}>
-                    {SCHEDULE_DATA.map((item, index) => (
-                        <React.Fragment key={item.id}>
-                            <div className={item.type === "lunch" ? "etecLunchPause" : "etecLecture"}>
-                                <div className="etecLectureTitle">
-                                    <h6>{item.title}</h6>
-                                    <label>{item.time}</label>
+                    {SCHEDULE_DATA.map((item, index) => {
+                        const timeParts = item.time.split(' - ');
+                        return (
+                            <React.Fragment key={item.id}>
+                                <div className={item.type === "lunch" ? "etecLunchPause" : "etecLecture"}>
+                                    <div className="etecLectureTitle">
+                                        <h6>{item.title}</h6>
+                                        <p className="etecLectureTime">
+                                            <time dateTime={timeParts[0].replace('h', '')}>{timeParts[0]}</time>
+                                            {" - "}
+                                            <time dateTime={timeParts[1].replace('h', '')}>{timeParts[1]}</time>
+                                        </p>
+                                    </div>
+                                    {item.desc && <p>{item.desc}</p>}
                                 </div>
-                                {item.desc && <p>{item.desc}</p>}
-                            </div>
 
-                            {/* Adiciona os divisores corretamente */}
-                            {index !== SCHEDULE_DATA.length - 1 && 
-                                <Dots dotSize={8} dotGap={18.18} availableWidth={availableWidth} numberLines={1}/>
-                            }
-                        </React.Fragment>
-                    ))}
+                                {/* Adiciona os divisores corretamente */}
+                                {index !== SCHEDULE_DATA.length - 1 && 
+                                    <Dots dotSize={6} dotGap={18.2} availableWidth={availableWidth} numberLines={1}/>
+                                }
+                            </React.Fragment>
+                        )
+                    })}
                 </div>
             </div>
         </EtecDetails>
@@ -261,7 +268,7 @@ const EtecDetails = styled.article`
 
         // Modificando o tamanho das bolinhas
         .dots {
-            transform: scale(0.5);       
+            transform: scale(0.75);       
 
             @media (min-width: 801px) {
                 transform: scale(1);
@@ -289,7 +296,7 @@ const EtecDetails = styled.article`
         flex: 1;
     };
 
-    .etecLectureTitle label {
+    .etecLectureTime {
         white-space: nowrap;
     };
 
@@ -313,10 +320,11 @@ const EtecDetails = styled.article`
         line-height: 1.5rem;
     }
 
-    label {
+    .etecLectureTime {
         color: var(--brand-primary-light);
         text-align: right;
 
+        font-weight: 700;
         font-size: 0.875rem;
         line-height: 1.5rem;
     }
@@ -328,10 +336,21 @@ const EtecDetails = styled.article`
         line-height: 1.5rem; 
     }
 
+    @media (max-width: 360px) {
+        h6 {
+            font-size: 0.925rem;
+            line-height: 1.5rem;
+        }
+    }
+
     @media (min-width: 801px) {
         .etecChronogram {
             padding: 2rem;
             border-bottom: ${({ $isOpen }) => $isOpen ? "3px solid var(--brand-purple-200)" : "none"};
+        }
+
+        .etecLectureTitle {
+            gap: 0.5rem;
         }
 
         .etecSchedule {
@@ -363,18 +382,17 @@ const EtecDetails = styled.article`
         }
 
         h6 {
-            color: var(--content-neutrals-primary);
-
-            font-size: 2rem;
-            line-height: 2.5rem;
+            font-size: 1.75rem;
+            line-height: 2rem;
         }
 
-        label {
+        .etecLectureTime {
             color: var(--brand-primary-light);
             text-align: right;
 
             font-size: 1.125rem;
             line-height: 1.5rem;
+            margin-top: 0.25rem;
         }
 
         p {
@@ -382,6 +400,13 @@ const EtecDetails = styled.article`
 
             font-size: 1rem;
             line-height: 1.5rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        h6 {
+            font-size: 2rem;
+            line-height: 2.5rem;
         }
     }
 
@@ -394,7 +419,7 @@ const EtecDetails = styled.article`
             fill: black;
         }
 
-        label {
+        .etecLectureTime {
             color: var(--brand-primary-dark);
         }
 
