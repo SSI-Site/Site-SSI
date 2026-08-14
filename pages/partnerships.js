@@ -49,10 +49,11 @@ import { socials } from '../data/socials';
 
 
 const partnerships = () => {
-    <Meta title='Para Empresas | Semana de Sistemas de Informação'
-        description=''
-        keywords=''
-    /> // TODO: preencher descrição e keywords
+    <Meta 
+        title='Para Empresas | Semana de Sistemas de Informação'
+        description='Conecte sua empresa aos talentos de tecnologia da USP. Conheça nossos planos de patrocínio e apoio na Semana de Sistemas de Informação.'
+        keywords='patrocínio ssi, parcerias tecnologia usp, recrutamento tech, semana de sistemas de informação, talentos ti, estágio tecnologia usp, branding universitário'
+    />
 
     return (
         <>
@@ -472,7 +473,6 @@ const partnerships = () => {
                         <p>Público interessado e participativo, interações frequentes</p>
                     </div>
                 </div>
-                {/* TODO: Aplicar efeito de numeros crecendo igual na home esse efeito já existe */}
             </OurNumbersSection>
 
             {/* Seção que descreve como acontece a SSI, dias, periodos, temas abordados, etc */}
