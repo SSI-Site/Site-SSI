@@ -28,12 +28,6 @@ const ScheduleSection = () => {
         getSchedule()
     }, [])
 
-    
-    // MOCK DE DATA PARA TESTES LOCAIS:
-    //const firstEventDay = new Date(2025, 7, 18);
-    //const lastEventDay = new Date(2025, 7, 22);
-    //const current = new Date(2025, 7, 18); 
-
     const current = new Date();
     const firstEventDay = eventDetails.logic.startJS; 
     // criei uma copia do endJS (new Date) para que o setHours 
