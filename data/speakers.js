@@ -1,95 +1,89 @@
-import JoaoGabrielBruni from '../public/images/speakers/0EE.jpg'
-import CassiaSampaio from '../public/images/speakers/1AD.jpeg'
-import MonicaHillman from '../public/images/speakers/1F2.jpeg'
-import AnaRaquel from '../public/images/speakers/1F5.jpg'
-import Stephanto from '../public/images/speakers/1FE.png'
-import ChristianAranha from '../public/images/speakers/3D8.jpg'
-import MarcosRyoiti from '../public/images/speakers/4F6.jpg'
-import YuriVanSteen from '../public/images/speakers/7ED.jpeg'
-import DemetriusRafael from '../public/images/speakers/8E2.jpg'
-import RayssaBuarque from '../public/images/speakers/9E8.jpg'
-import CaioBernardo from '../public/images/speakers/011.jpg'
-import AndreOliveira from '../public/images/speakers/29A.jpg'
-import EduardoAraujo from '../public/images/speakers/48A.jpg'
-import AlestanAlves from '../public/images/speakers/059.jpg'
-import LucasNeves from '../public/images/speakers/61D.jpg'
-import EmilioFrancesquini from '../public/images/speakers/264.png'
-import PedroCarrijo from '../public/images/speakers/364.jpg'
-import ThiagoAyub from '../public/images/speakers/417.jpeg'
-import KerllyBarbara from '../public/images/speakers/482.jpg'
-import LiaFuziy from '../public/images/speakers/823.jpg'
-import GabrielMonteiro from '../public/images/speakers/867.jpeg'
-import FranciscoIsidro from '../public/images/speakers/A19.jpg'
-import GuilhermeHiyuki from '../public/images/speakers/AAA.jpg'
-import AlexandreFarias from '../public/images/speakers/AB1.jpg'
-import JoseEvair from '../public/images/speakers/C21.jpg'
-import SilviaCoelho from '../public/images/speakers/C80.jpg'
-import MayumiShingaki from '../public/images/speakers/CA0.jpg'
-import YagoRusef from '../public/images/speakers/D7D.png'
-import ThalesIamamura from '../public/images/speakers/DB8.jpg'
-import GustavoJun from '../public/images/speakers/E75.jpg'
-import WesleyAraujo from '../public/images/speakers/EE7.jpeg'
-import AlvaroCamilo from '../public/images/speakers/F0A.jpg'
-import BrendaXavier from '../public/images/speakers/FEC.png'
-import AndreYukio from '../public/images/speakers/2F6.png'
-import VitorCominato from '../public/images/speakers/CE4.jpg'
-import RenanGirotto from '../public/images/speakers/6CE.png'
-import AnaMarques from '../public/images/speakers/4AD.png'
-import JoaoPedroFreitas from '../public/images/speakers/8F6.jpg'
-import MuriloSopi from '../public/images/speakers/368.jpg'
-import JoaoFantini from '../public/images/speakers/F7A.png'
-import DiogoLeonel from '../public/images/speakers/685.jpeg'
-import GabrielSoares from '../public/images/speakers/A17.jpg'
-import EduardoRangel from '../public/images/speakers/877.jpg'
-import LucasLeao from '../public/images/speakers/776.jpeg'
-import MonicaCarvalho from '../public/images/speakers/667.png'
+import AndreaLongarini from '../public/images/speakers/C9A.jpg'
+import ElaineBernardo from '../public/images/speakers/A1B.jpg'
+import KlayvemGuimaraes from '../public/images/speakers/708.jpg'
+import IsabellaOliveira from '../public/images/speakers/906.jpg'
+import CaiqueSidrao from '../public/images/speakers/7C3.jpg'
+import FernandoToba from '../public/images/speakers/4C3.jpg'
+import LiaFuziy from '../public/images/speakers/2F8.jpg'
+import VioletaSun from '../public/images/speakers/6A3.jpg'
+import BiancaLetti from '../public/images/speakers/5FB.jpg'
+import DeboraAtanes from '../public/images/speakers/A6F.jpg'
+import LarissaVale from '../public/images/speakers/AD1.jpg'
+import KerllySantos from '../public/images/speakers/65B.jpg'
+import AylaSantos from '../public/images/speakers/FAF.jpg'
+import CassiaSampaio from '../public/images/speakers/299.jpg'
+import JoaoGabrielBruni from '../public/images/speakers/5E0.jpg'
+import MariannaSaltarelli from '../public/images/speakers/352.jpg'
+import RenatoSilvaFerreira from '../public/images/speakers/370.jpg'
+import PatriciaCamolesi from '../public/images/speakers/9D1.jpg'
+import RodrigoMendonca from '../public/images/speakers/B91.jpg'
+import VladimirCamelo from '../public/images/speakers/911.jpg'
+import FranciscoWallison from '../public/images/speakers/8D4.jpg'
+import AlyfMendonca from '../public/images/speakers/72C.jpg'
+import DianaFournier from '../public/images/speakers/A51.jpg'
+import ZozielFreire from '../public/images/speakers/09F.jpg'
+import AlvaroCamillo from '../public/images/speakers/257.jpg'
+import AndreBalestrin from '../public/images/speakers/B15.jpg'
+import GustavoHabib from '../public/images/speakers/FEF.jpg'
+import JefersonFernando from '../public/images/speakers/DE1.jpg'
+import DanielaSoares from '../public/images/speakers/99F.jpg'
+import GlauciaLemos from '../public/images/speakers/774.jpg'
+import PedroCarrijo from '../public/images/speakers/FAA.jpg'
+import LucasLeao from '../public/images/speakers/33A.jpg'
+import LucianoDigiampietri from '../public/images/speakers/DB9.jpg'
+import NortonTrevisan from '../public/images/speakers/01D.jpg'
+import ValdineiFreire from '../public/images/speakers/D65.jpg'
+import SarajanePeres from '../public/images/speakers/041.jpg'
+import EdneySouza from '../public/images/speakers/6D8.jpg'
+import NataliaAmancio from '../public/images/speakers/805.jpg'
+import EvertonSantos from '../public/images/speakers/E33.jpg'
+import AmandaMaria from '../public/images/speakers/A72.jpg'
+import LuisFelipePinheiro from '../public/images/speakers/44F.jpg'
+import CaiqueAlves from '../public/images/speakers/CB5.jpg'
 
 const speakersImages = {
-    '0EE': JoaoGabrielBruni,
-    '1AD': CassiaSampaio,
-    '1F2': MonicaHillman,
-    '1F5': AnaRaquel,
-    '1FE': Stephanto,
-    '3D8': ChristianAranha,
-    '4F6': MarcosRyoiti,
-    '7ED': YuriVanSteen,
-    '8E2': DemetriusRafael,
-    '9E8': RayssaBuarque,
-    '011': CaioBernardo,
-    '29A': AndreOliveira,
-    '48A': EduardoAraujo,
-    '059': AlestanAlves,
-    '61D': LucasNeves,
-    '264': EmilioFrancesquini,
-    '364': PedroCarrijo,
-    '417': ThiagoAyub,
-    '482': KerllyBarbara,
-    '823': LiaFuziy,
-    '867': GabrielMonteiro,
-    'A19': FranciscoIsidro,
-    'AAA': GuilhermeHiyuki,
-    'AB1': AlexandreFarias,
-    'C21': JoseEvair,
-    'C80': SilviaCoelho,
-    'CA0': MayumiShingaki,
-    'D7D': YagoRusef,
-    'DB8': ThalesIamamura,
-    'E75': GustavoJun,
-    'EE7': WesleyAraujo,
-    'F0A': AlvaroCamilo,
-    'FEC': BrendaXavier,
-    '2F6': AndreYukio,
-    'CE4': VitorCominato,
-    '6CE': RenanGirotto,
-    '4AD': AnaMarques,
-    '8F6': JoaoPedroFreitas,
-    '368': MuriloSopi,
-    '685': DiogoLeonel,
-    'F7A': JoaoFantini,
-    'A17': GabrielSoares,
-    '877': EduardoRangel,
-    '776': LucasLeao,
-    '667': MonicaCarvalho
+  'C9A': AndreaLongarini,
+  'A1B': ElaineBernardo,
+  '708': KlayvemGuimaraes,
+  '906': IsabellaOliveira,
+  '7C3': CaiqueSidrao,
+  '4C3': FernandoToba,
+  '2F8': LiaFuziy,
+  '6A3': VioletaSun,
+  '5FB': BiancaLetti,
+  'A6F': DeboraAtanes,
+  'AD1': LarissaVale,
+  '65B': KerllySantos,
+  'FAF': AylaSantos,
+  '299': CassiaSampaio,
+  '5E0': JoaoGabrielBruni,
+  '352': MariannaSaltarelli,
+  '370': RenatoSilvaFerreira,
+  '9D1': PatriciaCamolesi,
+  'B91': RodrigoMendonca,
+  '911': VladimirCamelo,
+  '8D4': FranciscoWallison,
+  '72C': AlyfMendonca,
+  'A51': DianaFournier,
+  '09F': ZozielFreire,
+  '257': AlvaroCamillo,
+  'B15': AndreBalestrin,
+  'FEF': GustavoHabib,
+  'DE1': JefersonFernando,
+  '99F': DanielaSoares,
+  '774': GlauciaLemos,
+  'FAA': PedroCarrijo,
+  '33A': LucasLeao,
+  'DB9': LucianoDigiampietri,
+  '01D': NortonTrevisan,
+  'D65': ValdineiFreire,
+  '041': SarajanePeres,
+  '6D8': EdneySouza,
+  '805': NataliaAmancio,
+  'E33': EvertonSantos,
+  'A72': AmandaMaria,
+  '44F': LuisFelipePinheiro,
+  'CB5': CaiqueAlves
 }
 
 export default speakersImages
