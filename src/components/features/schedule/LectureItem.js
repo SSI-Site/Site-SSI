@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 import { formatTime } from '../../../../utils/format-time';
-import Image from 'next/image';
 
 // components
 import BadgeLecture from '../../features/schedule/BadgeLecture';
 import SpeakerInfo from '../speakers/SpeakerInfo';
-import sponsorImages from '../../../../data/sponsors';
 import { borderGradient } from '../../../../styles/global';
 
-// Componente de uma palestra da programação do evento
+// Dados
+import { getSponsorImage } from '../../../../data/partners';
 
 // Variável para controlar a exibição do badge de modo "Presencial"/"Online"
 const exibirBadgePresencial = false;
@@ -52,7 +52,7 @@ const LectureItem = ({ event }) => {
                     </div>
                     {event.sponsor &&
                         <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
-                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`} fill/>
+                            <Image src={getSponsorImage(event.sponsor.name)} alt={`Logo ${event.sponsor.name}`} fill/>
                         </a>
                     }
                 </LectureHeader>
