@@ -160,6 +160,7 @@ const LectureHeader = styled.header`
         border-radius: 0.375rem 1rem;
         border: 1px solid var(--outline-neutrals-secondary);
         position: relative;
+        overflow: hidden;
 
         // No modo light o fundo do sponsor continua escuro
         @media (prefers-color-scheme: light) {
@@ -167,9 +168,13 @@ const LectureHeader = styled.header`
         }
 
         img {
-            width: auto;
-            height: 100%;
-            object-fit: contain;
+            /* Estilização para colocar "padding" na logo já que a prop 'fill' do Next usa position: absolute. */
+            width: 80% !important; /* Cria respiro nas laterais */
+            height: 80% !important; /* Cria respiro no topo/base */
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%); /* Centraliza a imagem encolhida */
+            object-fit: contain; /* Mantém a proporção da logo */
         }
 
         &:hover {
