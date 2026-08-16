@@ -74,6 +74,7 @@ const PartnerWrapper = styled.div`
         width: 100%;
         height: 100%;
         padding: 1.5rem 2rem; 
+        box-sizing: border-box;
     }
 
     .partner-image {
@@ -82,13 +83,22 @@ const PartnerWrapper = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
+        height: 100%;
         max-width: 23rem; 
-        aspect-ratio: 368 / 272; 
+        aspect-ratio: 368 / 272;
+        overflow: hidden; 
 
-        picture, img {
+        picture {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            max-width: 100%; 
+            max-height: 100%;
             width: 100%;
             height: 100%;
             object-fit: contain;
