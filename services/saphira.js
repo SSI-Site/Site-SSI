@@ -68,14 +68,14 @@ const saphira = {
     // Requisição autenticada: Atualizar estudante
     updateStudent: async (usp_number) => {
         const accessToken = await saphira.getAccessToken();
-        const studentId = localStorage.getItem(STUDENT_ID);
-        const requestUrl = `${API_BASE_URL}/student/${studentId}`;
+        const studentId = localStorage.getItem("student_id");
+        const requestUrl = `/student/${studentId}`;
 
         const params = {
             usp_number
         };
 
-        return axios.put(requestUrl, params, {
+        return axios.patch(requestUrl, params, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
