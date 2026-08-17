@@ -166,6 +166,10 @@ const ModalBody = styled.div`
 
     h1 {
         background: var(--text-gradient-primary-dark); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    
+        @media (prefers-color-scheme: light) {
+            background: var(--text-gradient-primary-light); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
     }
 
     p {

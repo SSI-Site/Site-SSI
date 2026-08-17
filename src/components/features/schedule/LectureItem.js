@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 import { formatTime } from '../../../../utils/format-time';
-import Image from 'next/image';
 
 // components
 import BadgeLecture from '../../features/schedule/BadgeLecture';
 import SpeakerInfo from '../speakers/SpeakerInfo';
-import sponsorImages from '../../../../data/sponsors';
+import { borderGradient } from '../../../../styles/global';
 
-// Componente de uma palestra da programação do evento
+// Dados
+import { getSponsorImage } from '../../../../data/partners';
 
 // Variável para controlar a exibição do badge de modo "Presencial"/"Online"
 const exibirBadgePresencial = false;
@@ -18,6 +19,27 @@ const LectureItem = ({ event }) => {
 
     const startTime = event.start_time;
     const endTime = event.end_time;
+
+    // Função para verificar se o sponsor deve ser exibido ou não
+    const checkSponsorVisibility = (sponsor) => {
+        if (!sponsor) return false;
+
+        const isSAP = sponsor.name.toLowerCase() === 'sap'; 
+        
+        // Data limite: 30 de Agosto de 2026, até às 23:59:59 no horário de Brasília (-03:00)
+        const limitDate = new Date('2026-08-30T23:59:59-03:00'); 
+        const currentDate = new Date();
+
+        // Se for a SAP e o dia de hoje for maior que a data limite, oculta a logo
+        if (isSAP && currentDate > limitDate) {
+            return false;
+        }
+
+        // Para todas as outras empresas (ou se for a SAP antes do prazo), exibe normalmente
+        return true;
+    };
+
+    const showSponsor = checkSponsorVisibility(event.sponsor);
 
     return (
         <LectureWrapper>
@@ -49,9 +71,9 @@ const LectureItem = ({ event }) => {
                             }
                         </div>
                     </div>
-                    {event.sponsor &&
+                    {showSponsor &&
                         <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
-                            <Image src={sponsorImages[event.sponsor.name.toLowerCase()]} alt={`Logo ${event.sponsor.name}`} fill/>
+                            <Image src={getSponsorImage(event.sponsor.name)} alt={`Logo ${event.sponsor.name}`} fill/>
                         </a>
                     }
                 </LectureHeader>
@@ -97,13 +119,11 @@ const LectureWrapper = styled.article`
 
     @media screen and (min-width:800px) {
         padding: 1.5rem 1.5rem 1rem 1.5rem;
-        // Código para fazer a borda com gradiente
-        border: 2px solid transparent;
         border-radius: 2rem;
-        background: var(--border-gradient-secondary-dark);
+        ${borderGradient('2px', '--border-gradient-primary-dark', '135deg')};
 
         @media (prefers-color-scheme: light) {
-            background: var(--border-gradient-secondary-light);
+            ${borderGradient('2px', '--border-gradient-primary-light', '135deg')};
         }
 
         .lecture-description {
@@ -161,6 +181,7 @@ const LectureHeader = styled.header`
         border-radius: 0.375rem 1rem;
         border: 1px solid var(--outline-neutrals-secondary);
         position: relative;
+        overflow: hidden;
 
         // No modo light o fundo do sponsor continua escuro
         @media (prefers-color-scheme: light) {
@@ -168,9 +189,13 @@ const LectureHeader = styled.header`
         }
 
         img {
-            width: auto;
-            height: 100%;
-            object-fit: contain;
+            /* Estilização para colocar "padding" na logo já que a prop 'fill' do Next usa position: absolute. */
+            width: 80% !important; /* Cria respiro nas laterais */
+            height: 80% !important; /* Cria respiro no topo/base */
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%); /* Centraliza a imagem encolhida */
+            object-fit: contain; /* Mantém a proporção da logo */
         }
 
         &:hover {
@@ -211,10 +236,8 @@ const LectureHeader = styled.header`
         .sponsor-logo {
             width: 7.5rem;
             height: 5.5rem;
-            // Código para fazer a borda com gradiente
-            border: 2px solid transparent;
             border-radius: 1rem 2rem;
-            background: var(--border-gradient-tertiary-dark);
+            ${borderGradient('2px', '--border-gradient-secondary-dark', '135deg')};
 
             // No modo light o fundo do sponsor continua escuro
             @media (prefers-color-scheme: light) {

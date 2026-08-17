@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 /**
  * Componente de cartão para exibir logotipos de parceiros/patrocinadores.
@@ -11,15 +11,16 @@ import styled from 'styled-components';
  * @param {string} props.imageLight - URL da imagem que será exibida no tema claro.
  * @param {string} props.name - Nome do parceiro (utilizado para acessibilidade na tag alt).
  * @param {string} props.link - Link de destino para o qual o usuário será redirecionado ao clicar.
+ * @param {'default' | 'carousel'} props.variant - Define o estilo do card com base no contexto onde é renderizado.
  */
-const PartnerCard = ({ imageDark, imageLight, name, link }) => {
+const PartnerCard = ({ imageDark, imageLight, name, link, variant = 'default' }) => {
     return (
-        <PartnerWrapper>
+        <PartnerWrapper $variant={variant}>
             <a href={link} target="_blank" rel="noreferrer">
                 <div className='partner-image'>
                     <picture>
                         <source srcSet={imageLight} media="(prefers-color-scheme: light)" />
-                        <img src={imageDark} alt={`Logo ${name}`}/>
+                        <img src={imageDark} alt={`Logo ${name}`} />
                     </picture>
                 </div>
             </a>
@@ -30,33 +31,31 @@ const PartnerCard = ({ imageDark, imageLight, name, link }) => {
 export default PartnerCard;
 
 const PartnerWrapper = styled.div`
+    /* ====== ESTILOS GERAIS (Aplicados em todos os cards) ====== */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 27rem;
-    height: 12.75rem;
     transition: all 0.2s ease-in-out;
     z-index: 2;
     border-radius: 1rem;
-
+    box-sizing: border-box;
     border: 3px solid transparent;
 
     /* ====== TEMA DARK (Padrão) ====== */
     background: 
-        /* 1. Fundo do card */
+        /* Fundo do card */
         linear-gradient(var(--background-neutrals-secondary, #333), var(--background-neutrals-secondary, #333)) padding-box,
-        /* 2. Fundo da borda gradiente */
+        /* Fundo da borda gradiente */
         linear-gradient(180deg, var(--purple-light-purple, #D0ACFF) 0%, var(--backup-primary-500, #AF52FF) 40.38%, var(--purple-purple, #9638FF) 100%) border-box; 
-
 
     /* ====== TEMA LIGHT ====== */
     @media (prefers-color-scheme: light) {
         background: 
-            /* 1. Fundo do card light */
+            /* Fundo do card light */
             linear-gradient(var(--background-neutrals-secondary, #CCC), var(--background-neutrals-secondary, #CCC)) padding-box,
-            /* 2. Borda gradiente light */
+            /* Borda gradiente light */
             linear-gradient(180deg, var(--purple-purple, #9638FF) 0%, var(--backup-primary-800, #6618BB) 40.38%, var(--purple-dark-purple, #3E0672) 100%) border-box;
     }
 
@@ -75,6 +74,7 @@ const PartnerWrapper = styled.div`
         width: 100%;
         height: 100%;
         padding: 1.5rem 2rem; 
+        box-sizing: border-box;
     }
 
     .partner-image {
@@ -83,8 +83,10 @@ const PartnerWrapper = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
+        height: 100%;
         max-width: 23rem; 
-        aspect-ratio: 368 / 272; 
+        aspect-ratio: 368 / 272;
+        overflow: hidden; 
 
         picture {
             display: flex;
@@ -95,6 +97,8 @@ const PartnerWrapper = styled.div`
         }
 
         img {
+            max-width: 100%; 
+            max-height: 100%;
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -102,7 +106,32 @@ const PartnerWrapper = styled.div`
         }
     }
 
-    @media (min-width: 800px) {
-        height: auto;   
-    }
+    /* ====== VARIAÇÕES DE CONTEXTO ====== */
+    
+    /* Comportamento Padrão (Usado no Index) */
+    ${({ $variant }) => $variant === 'default' && css`
+        max-width: 27rem;
+        height: 12.75rem;
+
+        @media (min-width: 800px) {
+            height: auto;   
+        }
+    `}
+
+    /* Comportamento no Carrossel */
+    ${({ $variant }) => $variant === 'carousel' && css`
+        height: 100%;
+        max-width: none;
+
+        border: 1px solid var(--outline-neutrals-secondary);
+        
+        &:hover {
+            transform: none;
+            border-color: var(--brand-primary);
+        }
+
+        a {
+            padding: 0.75rem 1rem;
+        }
+    `}
 `;

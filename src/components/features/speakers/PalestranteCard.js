@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import Image from "next/image";
-import PalestranteBolinhas from "./SpeakerDots";
 
 //IMAGES
 import speakersImages from "../../../../data/speakers";
@@ -11,12 +10,14 @@ import BackgroundPicture from "../../../../public/images/partnerships/photos/bg_
 
 import BadgeLecture from "../schedule/BadgeLecture";
 import formatActivityDateTime from "../../../../utils/formatActivityDateTime";
+import { borderGradient } from "../../../../styles/global";
+import Dots from "../../ui/Dots";
 
 // Variável para controlar a exibição do badge de modo "Presencial"/"Online"
 const exibirBadgePresencial = false; 
 
 // Componente principal que exibe o card do palestrante
-const PalestranteCard = ({palestrante}) => {
+const PalestranteCard = ({palestrante, availableWidth}) => {
     // Estado para controlar se o card está aberto ou fechado (expandido)
     const [open, setOpen] = useState(false);
     // Estado para armazenar a altura do corpo do card (usado para animação)
@@ -152,7 +153,7 @@ const PalestranteCard = ({palestrante}) => {
                     </PalestranteLectureBody>
                 </PalestranteBody>
             </PalestranteWrapper>
-            <PalestranteBolinhas />
+            <Dots dotSize={4} dotGap={10} availableWidth={availableWidth}/>
         </PalestranteContainer >
     )
 }
@@ -206,6 +207,15 @@ const PalestranteContainer = styled.div`
     flex-direction: column;
     flex: 1;
     position: relative;
+
+    // Cores do gradiente das bolinhas (Tem a mesma cor no dark e light mode)
+    .gradient-stop-1 {
+        stop-color: #666666;
+    }
+
+    .gradient-stop-2 {
+        stop-color: #666666;
+    }
 `;
 
 const PalestranteInfo = styled.div`
@@ -476,12 +486,11 @@ const PalestranteLecture = styled.div`
     gap: 1.5rem;
     flex: 1 0 0;
     border-radius: 1.5rem;
-    border: 1px solid transparent; 
-    background: var(--border-gradient-tertiary-dark);
+    ${borderGradient('1px', '--border-gradient-secondary-dark', '90deg')};
     margin-bottom: 1.5rem;
 
     @media (prefers-color-scheme: light) {
-        background: var(--border-gradient-secondary-light);
+        ${borderGradient('1px', '--border-gradient-secondary-light', '90deg')};
     }
 `;
 

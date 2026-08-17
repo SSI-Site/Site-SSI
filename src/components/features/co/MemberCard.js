@@ -7,6 +7,7 @@ import DividerBolinhasLight from '../../../../public/images/co/divider-bolinhas-
 
 // components
 import BadgeCO from '../../ui/BadgeCO';
+import { borderGradient } from '../../../../styles/global';
 
 /**
  * Componente que renderiza o cartão de um membro da Comissão Organizadora.
@@ -167,11 +168,10 @@ const MemberWrapper = styled.div`
     overflow-y: hidden;
     display: flex;
     border-radius: 0.9375rem;
-    border: 5px solid transparent; 
-    background: var(--border-gradient-quartenary-dark);
+        ${borderGradient('4px', '--border-gradient-secondary-dark', '180deg')};
 
     @media (prefers-color-scheme: light) {
-        background: var(--border-gradient-quartenary-light);
+        ${borderGradient('4px', '--border-gradient-secondary-light', '180deg')};
     }
 
     /* ====== BOTÃO MOBILE ====== */

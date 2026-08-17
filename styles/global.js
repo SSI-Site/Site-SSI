@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export default createGlobalStyle`
 
@@ -74,28 +74,22 @@ export default createGlobalStyle`
             --state-layers-neutrals-primary-012: light-dark( rgba(0, 0, 0, 0.12), #FFFFFF1F);
         
         // STATE LAYERS NEUTRALS TERTIARY
-            --state-layers-neutrals-tertiary-008: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B14,);
-            --state-layers-neutrals-tertiary-012: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B1F,);
+            --state-layers-neutrals-tertiary-008: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B14);
+            --state-layers-neutrals-tertiary-012: light-dark(rgba(26, 26, 26, 0.08),  #4B4B4B1F);
 
         // CUSTOM GRADIENT BORDER
-        // Para usar: border: 2px solid transparent; background: var(--border-gradient-primary-dark);
-        --border-gradient-primary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
-        --border-gradient-primary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(90deg, var(--content-neutrals-secondary) 15%, var(--brand-primary)) border-box;
-        --border-gradient-secondary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, var(--brand-primary-light) 15%, var(--brand-primary)) border-box;
-        --border-gradient-secondary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, var(--content-neutrals-secondary) 15%, var(--brand-primary)) border-box;
-        --border-gradient-tertiary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, var(--brand-purple-900), var(--brand-purple-800)) border-box;
-        --border-gradient-tertiary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(135deg, var(--brand-purple-200), var(--brand-purple-400)) border-box;
-    
-
-        --border-gradient-quartenary-light: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-900), var(--brand-purple-800)) border-box;
-        --border-gradient-quartenary-dark: linear-gradient( var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box, linear-gradient(180deg, var(--brand-purple-200), var(--brand-purple-400)) border-box;
+        // Para usar, colar diretamente no CSS: ${borderGradient('2px', '--border-gradient-primary-dark', '90deg')};
+        --border-gradient-primary-light: var(--brand-primary-light) 15%, var(--brand-primary);
+        --border-gradient-primary-dark: var(--content-neutrals-secondary) 15%, var(--brand-primary);
+        --border-gradient-secondary-light: var(--brand-purple-800), var(--brand-purple-600);
+        --border-gradient-secondary-dark: var(--brand-purple-200), var(--brand-purple-400);
 
         // CUSTOM GRADIENT TEXT COLOR
         // Para usar: background: var(--text-gradient-primary-dark); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         --text-gradient-primary-light: linear-gradient(180deg, var(--brand-primary) 0%, var(--brand-purple-400) 40%, var(--brand-primary-dark) 100%);
         --text-gradient-primary-dark: linear-gradient(180deg, var(--content-neutrals-fixed-white) 0%, var(--brand-primary-light) 100%);
         --text-gradient-secondary-light: linear-gradient(180deg, var(--content-neutrals-fixed-white) 50%, var(--brand-primary-light) 100%);
-        --text-gradient-secondary-dark: linear-gradient(180deg, var(--content-neutrals-fixed-white) 50%, var(--brand-primary-light) 100%);
+        --text-gradient-secondary-dark: linear-gradient(180deg, var(--content-neutrals-fixed-white) 25%, var(--brand-primary-light) 100%);
 
         /* 16 pixels (100% = 16 pixels) */
         font-size: 100%;
@@ -174,7 +168,7 @@ export default createGlobalStyle`
     }
 
     body, p, span, a {
-        font: 700 0.875rem/1.5rem 'AT Aero';
+        font: 400 0.875rem/1.5rem 'AT Aero';
     }
 
     a {
@@ -187,7 +181,7 @@ export default createGlobalStyle`
     }
 
     label {
-        font: 700 1rem/1.25rem 'AT Aero';
+        font: 400 1rem/1.25rem 'AT Aero';
     }
     
     input[type=text], select, option {
@@ -263,11 +257,11 @@ export default createGlobalStyle`
         }
 
         body, p, span, a {
-            font: 700 1rem/1.5rem 'AT Aero';
+            font: 400 1rem/1.5rem 'AT Aero';
         }
 
         label {
-            font: 700 1rem/1.25rem 'AT Aero';
+            font: 400 1rem/1.25rem 'AT Aero';
         }
 
         input[type=text] {
@@ -299,3 +293,15 @@ export default createGlobalStyle`
 
     }
 `
+
+// Função de CSS para criar bordas com gradiente, para usar colar diretamente no CSS: 
+// ${borderGradient('2px', '--border-gradient-primary-dark', '90deg')};
+export const borderGradient = (size = '2px', colors = '--border-gradient-primary-dark', angle = '90deg', backgroundColor = 'var(--background-neutrals-primary)') => css`
+    border: ${size} solid transparent;
+    background:
+        linear-gradient(
+            ${backgroundColor},
+            ${backgroundColor}
+        ) padding-box,
+        linear-gradient(${angle}, ${'var(' + colors + ')'}) border-box;
+`;

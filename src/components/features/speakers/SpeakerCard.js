@@ -11,6 +11,7 @@ import LogoInstagramLight from '../../../../public/images/partnerships/icons/log
 import lectureImage from '../../../../public/images/schedule/lecture-backgound.jpg';
 
 import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaOutlinedLogos";
+import { borderGradient } from "../../../../styles/global";
 
 // Componente do card/modal/tela_flutuante do palestrante
 
@@ -142,10 +143,12 @@ const SpeakerContent = styled.div`
     z-index: 15;
     padding: 1rem;
     gap: 1.25rem;
-    // Código para fazer a borda com gradiente
     border-radius: 1.5rem;
-    border: 2px solid transparent;
-    background: var(--border-gradient-tertiary-dark);
+    ${borderGradient('2px', '--border-gradient-secondary-dark', '135deg')};
+
+    @media (prefers-color-scheme: light) { 
+        ${borderGradient('2px', '--border-gradient-secondary-light', '135deg')};   
+    }  
 
     // Título da seção Sobre e Redes Sociais
     h6 {
@@ -158,6 +161,12 @@ const SpeakerContent = styled.div`
     }
 
     @media screen and (min-width:800px) {
+        ${borderGradient('2px', '--border-gradient-primary-dark', '135deg')};
+
+        @media (prefers-color-scheme: light) {
+            ${borderGradient('2px', '--border-gradient-primary-light', '135deg')};
+        }
+
         h6 {
             font: 700 1rem/1.5rem 'AT Aero Bold';
         }
@@ -166,7 +175,6 @@ const SpeakerContent = styled.div`
     @media screen and (min-width:1024px) {
         border: 3px solid transparent;
         padding: 1.5rem;
-        background: var(--border-gradient-secondary-dark);
 
         h6 {
             background: var(--brand-purple-500);
@@ -338,6 +346,14 @@ const SpeakerInfo = styled.div`
             gap: 1.5rem;
             margin-right: 1rem;
 
+            // Cor gradiente do nome e cargo
+            h5, .speaker-role {
+                background: var(--text-gradient-secondary-dark);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
             @media (prefers-color-scheme: light) {
                 // Cor gradiente do nome e cargo
                 h5, .speaker-role {
@@ -393,12 +409,12 @@ const SpeakerDesc = styled.div`
             width: 100%;
             height: 2px;
             // Branco para roxo
-            background: linear-gradient(90deg, var(--content-neutrals-secondary) 15%, var(--brand-primary));
+            background: linear-gradient(90deg, var(--border-gradient-primary-dark));
             display: block;
 
             @media (prefers-color-scheme: light) {
                 // Roxo claro para roxo escuro
-                background: linear-gradient(90deg, var(--brand-primary-light) 15%, var(--brand-primary));
+                background: linear-gradient(90deg, var(--border-gradient-primary-light));
             }
         }
 

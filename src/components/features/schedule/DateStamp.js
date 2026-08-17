@@ -27,11 +27,12 @@ const DateWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
     
     /* Dimensões e espaçamentos fixos de Desktop */
-    width: 15.625rem;
+    max-width: 15.625rem;
     height: 7.6875rem;
-    padding: 0.75rem 1.5rem;
     gap: 1rem; 
     border-radius: 0.83331rem; 
     
@@ -44,8 +45,8 @@ const DateWrapper = styled.div`
        A metade da DIREITA (50% a 100%) tem as cores do Figma (98deg) quando ativa.
     */
     background-image: ${props => props.$isActive
-        ? 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--brand-primary, #9638FF) 50%, #5A2299 100%)'
-        : 'linear-gradient(90deg, var(--content-neutrals-fixed-white) 0%, var(--content-neutrals-fixed-white) 50%, var(--background-neutrals-secondary) 50%, var(--background-neutrals-secondary) 100%)'
+        ? 'linear-gradient(90deg, var(--content-neutrals-primary) 0%, var(--content-neutrals-primary) 50%, var(--brand-primary) 50%, light-dark(var(--brand-purple-300), var(--brand-purple-900)) 100%)'
+        : 'linear-gradient(90deg, var(--content-neutrals-primary) 0%, var(--content-neutrals-primary) 50%, var(--background-neutrals-secondary) 50%, var(--background-neutrals-secondary) 100%)'
     };
     
     background-size: 200% 100%;
@@ -58,8 +59,8 @@ const DateWrapper = styled.div`
     h6 {
         margin: 0;
         text-align: center;
-        font-size: var(--Typograph-Heading-H6-size, 1.5rem);
-        line-height: var(--Typograph-Heading-H6-height, 2rem);
+        font-size: 1.125rem;
+        line-height: 1.5rem;
         font-style: normal;
         font-weight: 700;
         transition: 0.2s ease-in-out;
@@ -69,16 +70,16 @@ const DateWrapper = styled.div`
             ? 'unset' 
             : `linear-gradient(
                 180deg, 
-                light-dark(var(--purple-purple, #6206BF), var(--backup-neutral-50, #FFF)) 0%, 
-                light-dark(var(--backup-primary-800, #6618BB), var(--backup-primary-50, #FDEEFF)) 40%, 
-                light-dark(var(--purple-dark-purple, #2B054D), var(--purple-light-purple, #D0ACFF)) 100%
+                light-dark(var(--brand-purple-400), var(--content-neutrals-fixed-white)) 0%, 
+                light-dark(var(--brand-purple-400), var(--content-neutrals-secondary)) 40%, 
+                light-dark(var(--brand-purple-200), var(--brand-purple-200)) 100%
             )`}; 
 
         -webkit-background-clip: ${props => props.$isActive ? 'unset' : 'text'};
         background-clip: ${props => props.$isActive ? 'unset' : 'text'}; 
         
-        -webkit-text-fill-color: ${props => props.$isActive ? '#FFF' : 'transparent'};
-        color: ${props => props.$isActive ? '#FFF' : 'unset'};
+        -webkit-text-fill-color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'transparent'};
+        color: ${props => props.$isActive ? 'var(--content-neutrals-fixed-white)' : 'unset'};
     }
 
     /* --- Estados de Interação (Hover / Focus) --- */
@@ -94,14 +95,26 @@ const DateWrapper = styled.div`
             -webkit-background-clip: unset;
             background-clip: unset;
             
-            /* Como o fundo fica branco, a cor da fonte assume esse valor: */
-            color: light-dark(#ffffff, #000000); 
-            -webkit-text-fill-color: currentColor; 
+            -webkit-text-fill-color: var(--content-neutrals-fixed-black); 
         }
     }
 
     &:focus-visible {
         outline: 2px solid var(--brand-primary);
         outline-offset: 4px;
+    }
+
+    @media (min-width: 1024px) {
+        h6 {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        h6 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
     }
 `

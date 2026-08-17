@@ -4,8 +4,6 @@ import Image from 'next/image'
 function GiftCard({ gift, presenceCount }) {
     if (!gift) return
 
-    console.log(gift)
-
     if (gift.collected === true) {
         return (
             <GiftCardElement>

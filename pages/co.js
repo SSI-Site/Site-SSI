@@ -24,8 +24,8 @@ const DEPARTMENTS = [
     { name: 'Parcerias', color: 'var(--brand-primary)' },
     { name: 'Sites', color: 'var(--brand-primary-light)' },
     { name: 'Todos', color: 'var(--brand-primary)' },
-    { name: 'Comercial e Financeiro', color: 'var(--brand-primary-light)' },
-    { name: 'Criação e Comunicação', color: 'var(--content-neutrals-primary)' },
+    { name: 'Comercial & Financeiro', color: 'var(--brand-primary-light)' },
+    { name: 'Criação & Comunicação', color: 'var(--content-neutrals-primary)' },
     { name: 'Diretoria', color: 'var(--brand-primary)' },
     { name: 'Infraestrutura', color: 'var(--brand-primary-light)' }
 ];
