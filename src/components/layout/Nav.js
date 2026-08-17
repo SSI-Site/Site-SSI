@@ -6,47 +6,111 @@ import Image from 'next/image';
 
 import useAuth from '../../../hooks/useAuth';
 
-// components
+// Componentes
 import AuthModal from '../features/auth/AuthModal';
 import Button from '../ui/Button';
 
-// assets
+// Assets
 import CloseBtn from '../../../public/images/icons/close.svg';
 import LogoHorizontalDark from '../../../public/images/logos/logo_horizontal_dark.svg';
 import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg';
 
-const Nav = () => {
+// Constante que armazena as rotas e rótulos da navegação. 
+const NAV_LINKS = [
+    { path: '/', label: 'Home' },
+    { path: '/schedule', label: 'Programação' },
+    { path: '/about', label: 'Evento' },
+    { path: '/palestrantes', label: 'Palestrantes' },
+    { path: '/co', label: 'Comissão Organizadora' },
+    { path: '/partnerships', label: 'Para Empresas' },
+];
 
+const Nav = () => {
+    // Hooks de roteamento e autenticação
     const { user, disableAuth } = useAuth();
     const router = useRouter();
 
+    // Estados locais para controlar a abertura dos menus e modais
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
 
+    // Função que garante o fechamento do menu mobile ao abrir o modal de login
     const handleShowAuthModal = () => {
         setIsOpen(false);
         setShowAuthModal(true);
     };
 
+    // Efeito colateral que bloqueia a rolagem da página quando o modal de login está aberto
     useEffect(() => {
         if (showAuthModal) {
-            // Calcula a largura da barra de rolagem
+            // Calcula a largura da barra de rolagem do navegador
             const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
             
             // Adiciona o padding-right para compensar a largura da barra de rolagem
+            // e evitar que a tela "pule" quando o overflow for escondido
             document.body.style.overflow = 'hidden';
             document.body.style.paddingRight = `${scrollBarWidth}px`;
         } else {
+            // Restaura o comportamento padrão quando o modal é fechado
             document.body.style.overflow = 'unset';
             document.body.style.paddingRight = 'unset';
         }
     }, [showAuthModal]);
 
+    // Função auxiliar responsável por renderizar a seção de autenticação (botão de login ou perfil do usuário).
+    // Recebe um parâmetro booleano (isMobile) para adaptar as classes e estruturas entre as versões mobile e desktop.
+    const renderAuthSection = (isMobile = false) => {
+        // Renderiza o perfil do usuário caso ele esteja autenticado
+        if (!disableAuth && user) {
+            return (
+                <li onClick={() => isMobile && setIsOpen(false)} className={isMobile ? "profile-side-bar" : "profile-container"}>
+                    <Link href="/user" className={isMobile ? "" : "profile-content"}>
+                        {isMobile && (
+                            <div className='profile-content'>
+                                <div className='user-pic-container'>
+                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                </div>
+                                <p>{user.name.split(" ")[0]}</p>
+                            </div>
+                        )}
+                        
+                        {!isMobile && (
+                            <>
+                                <div className='user-pic-container'>
+                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                </div>
+                                <p>{user.name.split(" ")[0]}</p>
+                            </>
+                        )}
+
+                        {isMobile && (
+                            <div className='see-profile'>
+                                <p>Ver Perfil</p>
+                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+                                </svg>
+                            </div>
+                        )}
+                    </Link>
+                </li>
+            );
+        }
+
+        // Renderiza o botão de Login caso o usuário não esteja logado
+        return isMobile ? (
+            <Button onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
+        ) : (
+            <li>
+                <Button onClick={handleShowAuthModal} disabled={disableAuth}>Login</Button>
+            </li>
+        );
+    };
+
     return (
         <>
             <NavWrapper>
                 <div>
-                    {/* Logo que redireciona para a home */}
+                    {/* Logo da aplicação que redireciona para a página inicial */}
                     <Link href="/">
                         <picture>
                             <source 
@@ -62,7 +126,7 @@ const Nav = () => {
                         </picture>
                     </Link>
 
-                    {/* Caixa de autenticação/login */}
+                    {/* Modal de autenticação/login do usuário */}
                     {showAuthModal &&
                         <AuthModal
                             onClose={() => setShowAuthModal(false)}
@@ -70,7 +134,7 @@ const Nav = () => {
                         />
                     }
 
-                    {/* Navbar para Mobile */}
+                    {/* Menu de navegação superior para dispositivos móveis (Mobile) */}
                     <NavMobile $isOpen={isOpen}>
                         <div className='hamburguer-wrapper'>
                             <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
@@ -81,49 +145,24 @@ const Nav = () => {
                         </div>
                     </NavMobile>
 
-                    {/* Navbar para Desktop */}
+                    {/* Menu de navegação principal para telas maiores (Desktop) */}
                     <NavDesktop>
                         <NavigationList>
-                            <li className={router.pathname == '/' ? 'active': ''}>
-                                <Link href="/">Home</Link>
-                            </li>
-                            <li className={router.pathname == '/schedule' ? 'active': ''}>
-                                <Link href="/schedule">Programação</Link>
-                            </li>
-                            <li className={router.pathname == '/about' ? 'active': ''}>
-                                <Link href="/about">Evento</Link>
-                            </li>
-                            <li className={router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link href="/palestrantes">Palestrantes</Link>
-                            </li>
-                            <li className={router.pathname == '/co' ? 'active': ''}>
-                                <Link href="/co">Comissão Organizadora</Link>
-                            </li>
-                            <li className={router.pathname == '/partnerships' ? 'active': ''}>
-                                <Link href="/partnerships">Para Empresas</Link>
-                            </li>
-
-                            {!disableAuth && user ? (
-                                <li className='profile-container'>
-                                    <Link href="/user" className='profile-content'>
-                                        <div className='user-pic-container'>
-                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                        </div>
-                                        <p>{user.name.split(" ")[0]}</p>
-                                    </Link>
+                            {/* Renderiza dinamicamente os links de navegação com base no array NAV_LINKS */}
+                            {NAV_LINKS.map((link) => (
+                                <li key={link.path} className={router.pathname === link.path ? 'active' : ''}>
+                                    <Link href={link.path}>{link.label}</Link>
                                 </li>
-                            ) : (
-                                <li>
-                                    <Button
-                                        onClick={handleShowAuthModal} 
-                                        disabled={disableAuth}>Login</Button>
-                                </li>
-                            )}
+                            ))}
+                            
+                            {/* Renderiza a seção de autenticação adaptada para o desktop */}
+                            {renderAuthSection(false)}
                         </NavigationList>
                     </NavDesktop>
                 </div>
             </NavWrapper>
 
+            {/* Menu lateral expansível utilizado na versão Mobile (Sidepanel) */}
             <Sidepanel>
                 <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                 </div>
@@ -139,51 +178,22 @@ const Nav = () => {
                         </div>
 
                         <NavigationList>
-                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/' ? 'active': ''}>
-                                <Link href="/">Home</Link>
-                            </li>
-                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/schedule' ? 'active': ''}>
-                                <Link href="/schedule">Programação</Link>
-                            </li>
-                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/about' ? 'active': ''}>
-                                <Link href="/about">Evento</Link>
-                            </li>
-                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link href="/palestrantes">Palestrantes</Link>
-                            </li>
-                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/co' ? 'active': ''}>
-                                <Link href="/co">Comissão Organizadora</Link>
-                            </li>
-                            <li onClick={() => setIsOpen(false)} className={router.pathname == '/partnerships' ? 'active': ''}>
-                                <Link href="/partnerships">Para Empresas</Link>
-                            </li>
+                            {/* Renderiza dinamicamente os links de navegação dentro do painel mobile */}
+                            {NAV_LINKS.map((link) => (
+                                <li key={`mobile-${link.path}`} onClick={() => setIsOpen(false)} className={router.pathname === link.path ? 'active' : ''}>
+                                    <Link href={link.path}>{link.label}</Link>
+                                </li>
+                            ))}
                         </NavigationList>
                     </div>
 
-                    {!disableAuth && user ?
+                    {/* Renderiza a seção de autenticação adaptada para o painel mobile */}
+                    {!disableAuth && user ? (
                         <NavigationList>
-                            <li onClick={() => setIsOpen(false)} className="profile-side-bar">
-                                <Link href="/user">
-                                    <div className='profile-content'>
-                                        <div className='user-pic-container'>
-                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                        </div>
-                                        <p>{user.name.split(" ")[0]}</p>
-                                    </div>
-                                    <div className='see-profile'>
-                                        <p>Ver Perfil</p>
-                                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
-                                            <rect id="arrow" width="100" height="100%"/>
-                                        </svg>
-                                    </div>
-                                </Link>
-                            </li>
+                            {renderAuthSection(true)}
                         </NavigationList>
-                    :
-                        <Button 
-                            onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
-                    }
+                    ) : renderAuthSection(true)}
+                    
                 </div>
             </Sidepanel>
         </>

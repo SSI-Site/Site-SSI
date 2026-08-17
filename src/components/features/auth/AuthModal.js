@@ -10,7 +10,6 @@ import useAuth from '../../../../hooks/useAuth';
 import SecondaryButton from '../../ui/SecondaryButton';
 
 // assets
-import IconeFechar from '../../../../public/images/icons/close.svg';
 import LogoCircularDark from '../../../../public/images/logos/logo_circular_dark.svg'
 import LogoCircularLight from '../../../../public/images/logos/logo_circular_light.svg';
 
