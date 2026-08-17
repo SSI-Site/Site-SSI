@@ -28,7 +28,7 @@ import GustavoHabib from '../public/images/speakers/FEF.jpg'
 import JefersonFernando from '../public/images/speakers/DE1.jpg'
 import DanielaSoares from '../public/images/speakers/99F.jpg'
 import GlauciaLemos from '../public/images/speakers/774.jpg'
-import PedroCarrijo from '../public/images/speakers/FAA.jpg'
+import PedroCarrijo from '../public/images/speakers/FAA.png'
 import LucasLeao from '../public/images/speakers/33A.jpg'
 import LucianoDigiampietri from '../public/images/speakers/DB9.jpg'
 import NortonTrevisan from '../public/images/speakers/01D.jpg'
@@ -40,6 +40,10 @@ import EvertonSantos from '../public/images/speakers/E33.jpg'
 import AmandaMaria from '../public/images/speakers/A72.jpg'
 import LuisFelipePinheiro from '../public/images/speakers/44F.jpg'
 import CaiqueAlves from '../public/images/speakers/CB5.jpg'
+import COSSI from '../public/images/speakers/058.png'
+import JoaoVitor from '../public/images/speakers/ABF.jpg'
+import LucasQuinteiro from '../public/images/speakers/4F1.png'
+import SergioHerculano from '../public/images/speakers/E64.jpeg'
 
 const speakersImages = {
   'C9A': AndreaLongarini,
@@ -83,7 +87,11 @@ const speakersImages = {
   'E33': EvertonSantos,
   'A72': AmandaMaria,
   '44F': LuisFelipePinheiro,
-  'CB5': CaiqueAlves
+  'CB5': CaiqueAlves,
+  '058': COSSI,
+  'ABF': JoaoVitor,
+  '4F1': LucasQuinteiro,
+  'E64': SergioHerculano 
 }
 
 export default speakersImages
