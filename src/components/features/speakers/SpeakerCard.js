@@ -235,7 +235,7 @@ const SpeakerInfo = styled.div`
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        z-index: 10;
+        z-index: 15;
 
         // Cor gradiente do nome e cargo
         h5, .speaker-role {
