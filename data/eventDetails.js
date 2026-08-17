@@ -4,7 +4,6 @@ export const eventDetails = {
   dateText: "24 a 28 de agosto", 
   startDate: "2026-08-24T09:40:00-03:00",
   endDate: "2026-08-28T23:59:59-03:00", 
-  regulationLink: "https://docs.google.com/document/d/1ROLkjMU-hxvPW5BlVpEm1wnzZN1z32YsQc5u69u1pSk/edit?usp=sharing",
   isSubscriptionOpen: false, // Inscrição para a COSSI
 
   hero: {
@@ -45,6 +44,8 @@ export const eventDetails = {
   },
 
   links: {
-    coRegistration: "https://forms.gle/cole-o-link-aqui-meu-fan-de-jojo" 
+    coRegistration: "https://forms.gle/cole-o-link-aqui-meu-fan-de-jojo",
+    regulationLink: "https://docs.google.com/document/d/1ROLkjMU-hxvPW5BlVpEm1wnzZN1z32YsQc5u69u1pSk/edit?usp=sharing",
+    googleCalendarUrl: "https://calendar.google.com/calendar?cid=Y185N2YzNzE0ZmRiZmQ5ZjEyOTBjZDgzNTUwMTVhOTI1NzgzNDllODAyN2M0NmRiMGRlOTEwNDZlOTU0ZWViNjZjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
   } 
 }; 

@@ -18,6 +18,7 @@ const gradientStopsFixed = (
  * @param {Number} props.dotGap - Espaçamento lateral entre as bolinhas.
  * @param {Number} props.availableWidth - Largura disponível para renderizar as bolinhas, deve ser calculada pelo hook useAvailableWidth.
  * @param {JSX.Element} props.gradientStops - Stops do gradiente das bolinhas, por padrão são dois stops (gradiente esquerda para a direita).
+ * @param {Number} props.numberLines - Quantidade de linhas de bolinhas, por padrão são duas linhas.
  */
 
 /* 
@@ -50,17 +51,19 @@ const gradientStopsFixed = (
 
 // Obs: o motivo de se usar useAvailableWidth em vez desse próprio componente calcular seu width é reduzir o número de cálculos e renders.
 
-const Dots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops = gradientStopsFixed }) => {
+const Dots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops = gradientStopsFixed, numberLines = 2 }) => {
     // Tamanho das bolinhas
     const DOT_SIZE = dotSize
     const DOT_RADIUS = DOT_SIZE / 2
     // Espaçamento lateral entre as bolinhas
     const DOT_GAP = dotGap
     // Posições das linhas de bolinhas
-    const TOP_ROW_CENTER_Y = DOT_SIZE / 2
-    const BOTTOM_ROW_CENTER_Y = TOP_ROW_CENTER_Y + DOT_GAP
+    const ROWS_Y = []
+    for (let i = 0; i < numberLines; i++) {
+        ROWS_Y[i] = DOT_RADIUS + i * (DOT_GAP)
+    }
     // Altura total do SVG
-    const SVG_HEIGHT = BOTTOM_ROW_CENTER_Y + TOP_ROW_CENTER_Y + 1
+    const SVG_HEIGHT = DOT_SIZE + (numberLines - 1) * DOT_GAP
 
     // ID pro SVG
     const reactId = useId()
@@ -81,7 +84,7 @@ const Dots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops = gr
             columns,
             svgWidth,
         }
-    }, [availableWidth])
+    }, [availableWidth, dotSize, dotGap])
 
     return (
         <DotsWrapper className={'dots-wrapper'} aria-hidden="true" $SVG_HEIGHT={SVG_HEIGHT}>
@@ -109,8 +112,9 @@ const Dots = ({ dotSize = 5, dotGap = 10, availableWidth = 0, gradientStops = gr
                 {/* Desenhando as bolinhas. Posição x é dada pelo dots, y foi definida nas variáveis globais desse arquivo */}
                 {dots.columns.map((x) => (
                     <React.Fragment key={x}>
-                        <circle cx={x} cy={TOP_ROW_CENTER_Y} r={DOT_RADIUS} fill={`url(#${gradientId})`} />
-                        <circle cx={x} cy={BOTTOM_ROW_CENTER_Y} r={DOT_RADIUS} fill={`url(#${gradientId})`} />
+                        {ROWS_Y.map((y) => (
+                            <circle className="dots" key={y} cx={x} cy={y} r={DOT_RADIUS} fill={`url(#${gradientId})`} />
+                        ))}
                     </React.Fragment>
                 ))}
             </svg>
@@ -136,5 +140,10 @@ const DotsWrapper = styled.div`
         flex: 0 0 auto;
         max-width: 100%;
         height: ${props => props.$SVG_HEIGHT}px;
+    }
+
+    circle {
+        transform-box: fill-box;
+        transform-origin: center;
     }
 `

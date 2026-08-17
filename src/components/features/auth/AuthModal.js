@@ -10,7 +10,6 @@ import useAuth from '../../../../hooks/useAuth';
 import SecondaryButton from '../../ui/SecondaryButton';
 
 // assets
-import IconeFechar from '../../../../public/images/icons/close.svg';
 import LogoCircularDark from '../../../../public/images/logos/logo_circular_dark.svg'
 import LogoCircularLight from '../../../../public/images/logos/logo_circular_light.svg';
 
@@ -51,7 +50,9 @@ const AuthModal = ({ onClose }) => {
                     <ModalHeader>
                         <h6>Fazer login</h6>
                         <button className="close-icon-container" onClick={onClose}>
-                            <img className='close-icon' src={IconeFechar}  alt="Ícone de fechar"></img>
+                            <svg className="close-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" />
+                            </svg>
                         </button>
                     </ModalHeader>
                     <ModalBody>
@@ -68,7 +69,7 @@ const AuthModal = ({ onClose }) => {
                             alt="Logo SSI 2026" />
                         </picture>
 
-                        <p>Faça login para conseguir registrar suas presenças e garantir brindes!</p>
+                        <p>Faça login para conseguir registrar suas presenças e garantir os seus brindes:</p>
 
                         <SecondaryButton onClick={handleGoogleSignIn}>
                             {/* Logo da Google */}
@@ -115,10 +116,14 @@ const ModalWrapper = styled.div`
 `
 
 const StyledModal = styled.div`
-    background-color: var(--background-neutrals-secondary);
+    /* efeito glassmorphism */
+    background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
+    backdrop-filter: blur(12px);
     height: 100%;
     width: 100%;
     padding: 1rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 1.5rem;
 `
 
 const ModalHeader = styled.header`
@@ -144,14 +149,17 @@ const ModalHeader = styled.header`
         .close-icon {
             width: 30%;
             height: 30%;
-            transition: filter 0.15s ease-out;
-        }
+            path {
+                fill: var(--content-neutrals-primary);
+                transition: fill 0.15s ease-out;
+            }
+        } 
 
         &:hover, &:focus-visible {
             background-position-x: 100%;
 
-            .close-icon {
-                filter: brightness(0);
+            .close-icon path {
+                fill: var(--content-neutrals-inverse);
             }
         }
 
@@ -176,7 +184,7 @@ const ModalBody = styled.div`
     
     div {
         width: 100%;
-        height: 1px;
+        height: 0px;
         background-color: var(--background-neutrals-tertiary);
         margin-block: 0.75rem;
     }
@@ -193,5 +201,6 @@ const ModalBody = styled.div`
     p {
         font-weight: 400;
         margin-bottom: 0.5rem;
+        text-align: center;
     }
 `
