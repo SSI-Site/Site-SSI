@@ -51,7 +51,9 @@ const AuthModal = ({ onClose }) => {
                     <ModalHeader>
                         <h6>Fazer login</h6>
                         <button className="close-icon-container" onClick={onClose}>
-                            <img className='close-icon' src={IconeFechar}  alt="Ícone de fechar"></img>
+                            <svg className="close-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" />
+                            </svg>
                         </button>
                     </ModalHeader>
                     <ModalBody>
@@ -148,14 +150,17 @@ const ModalHeader = styled.header`
         .close-icon {
             width: 30%;
             height: 30%;
-            transition: filter 0.15s ease-out;
+            path {
+                fill: var(--content-neutrals-primary);
+                transition: fill 0.15s ease-out;
+            }
         } 
 
         &:hover, &:focus-visible {
             background-position-x: 100%;
 
-            .close-icon {
-                filter: brightness(0);
+            .close-icon path {
+                fill: var(--content-neutrals-inverse);
             }
         }
 
