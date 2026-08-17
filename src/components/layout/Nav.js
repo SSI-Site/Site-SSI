@@ -6,54 +6,118 @@ import Image from 'next/image';
 
 import useAuth from '../../../hooks/useAuth';
 
-// components
+// Componentes
 import AuthModal from '../features/auth/AuthModal';
 import Button from '../ui/Button';
 
-// assets
+// Assets
 import CloseBtn from '../../../public/images/icons/close.svg';
 import LogoHorizontalDark from '../../../public/images/logos/logo_horizontal_dark.svg';
-import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg'
+import LogoHorizontalLight from '../../../public/images/logos/logo_horizontal_light.svg';
+
+// Constante que armazena as rotas e rótulos da navegação. 
+const NAV_LINKS = [
+    { path: '/', label: 'Home' },
+    { path: '/schedule', label: 'Programação' },
+    { path: '/about', label: 'Evento' },
+    { path: '/palestrantes', label: 'Palestrantes' },
+    { path: '/co', label: 'Comissão Organizadora' },
+    { path: '/partnerships', label: 'Para Empresas' },
+    // { path: 'https://intheshell.each.usp.br/', label: 'CTF', isExternal: true },
+];
 
 const Nav = () => {
-
+    // Hooks de roteamento e autenticação
     const { user, disableAuth } = useAuth();
     const router = useRouter();
 
+    // Estados locais para controlar a abertura dos menus e modais
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
 
-
+    // Função que garante o fechamento do menu mobile ao abrir o modal de login
     const handleShowAuthModal = () => {
         setIsOpen(false);
         setShowAuthModal(true);
-    }
+    };
 
+    // Efeito colateral que bloqueia a rolagem da página quando o modal de login está aberto
     useEffect(() => {
         if (showAuthModal) {
-            // Calcula a largura da barra de rolagem
+            // Calcula a largura da barra de rolagem do navegador
             const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
             
             // Adiciona o padding-right para compensar a largura da barra de rolagem
+            // e evitar que a tela "pule" quando o overflow for escondido
             document.body.style.overflow = 'hidden';
             document.body.style.paddingRight = `${scrollBarWidth}px`;
         } else {
+            // Restaura o comportamento padrão quando o modal é fechado
             document.body.style.overflow = 'unset';
             document.body.style.paddingRight = 'unset';
         }
     }, [showAuthModal]);
 
+    // Função auxiliar responsável por renderizar a seção de autenticação (botão de login ou perfil do usuário).
+    // Recebe um parâmetro booleano (isMobile) para adaptar as classes e estruturas entre as versões mobile e desktop.
+    const renderAuthSection = (isMobile = false) => {
+        // Renderiza o perfil do usuário caso ele esteja autenticado
+        if (!disableAuth && user) {
+            return (
+                <li onClick={() => isMobile && setIsOpen(false)} className={isMobile ? "profile-side-bar" : "profile-container"}>
+                    <Link href="/user" className={isMobile ? "" : "profile-content"}>
+                        {isMobile && (
+                            <div className='profile-content'>
+                                <div className='user-pic-container'>
+                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                </div>
+                                <p>{user.name.split(" ")[0]}</p>
+                            </div>
+                        )}
+                        
+                        {!isMobile && (
+                            <>
+                                <div className='user-pic-container'>
+                                    <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
+                                </div>
+                                <p>{user.name.split(" ")[0]}</p>
+                            </>
+                        )}
+
+                        {isMobile && (
+                            <div className='see-profile'>
+                                <p>Ver Perfil</p>
+                                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
+                                </svg>
+                            </div>
+                        )}
+                    </Link>
+                </li>
+            );
+        }
+
+        // Renderiza o botão de Login caso o usuário não esteja logado
+        return isMobile ? (
+            <Button onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
+        ) : (
+            <li>
+                <Button onClick={handleShowAuthModal} disabled={disableAuth}>Login</Button>
+            </li>
+        );
+    };
+
     return (
         <>
             <NavWrapper>
                 <div>
-                    {/* Logo que redireciona para a home */}
+                    {/* Logo da aplicação que redireciona para a página inicial */}
                     <Link href="/">
-
                         <picture>
-                            <source srcSet = {LogoHorizontalLight} 
-                            media = "(prefers-color-scheme: light)"/>
-
+                            <source 
+                                srcSet={LogoHorizontalLight} 
+                                media="(prefers-color-scheme: light)"
+                            />
                             <Image
                                 src={LogoHorizontalDark}
                                 width={180}
@@ -61,10 +125,9 @@ const Nav = () => {
                                 alt='Semana de Sistemas de Informação 2026'
                             />
                         </picture>
-
                     </Link>
 
-                    {/* Caixa de autenticação/login */}
+                    {/* Modal de autenticação/login do usuário */}
                     {showAuthModal &&
                         <AuthModal
                             onClose={() => setShowAuthModal(false)}
@@ -72,9 +135,8 @@ const Nav = () => {
                         />
                     }
 
-                    {/* Navbar para Mobile */}
+                    {/* Menu de navegação superior para dispositivos móveis (Mobile) */}
                     <NavMobile $isOpen={isOpen}>
-
                         <div className='hamburguer-wrapper'>
                             <button className='hamburguer-menu' type="button" aria-label='Menu' onClick={() => setIsOpen(!isOpen)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -82,86 +144,44 @@ const Nav = () => {
                                 </svg>
                             </button>
                         </div>
-
                     </NavMobile>
 
-                    {/* Navbar para Desktop */}
+                    {/* Menu de navegação principal para telas maiores (Desktop) */}
                     <NavDesktop>
                         <NavigationList>
-                            <li className = {router.pathname == '/' ? 'active': ''}>
-                                <Link href="/">
-                                    Home
-                                </Link>           
-                            </li>
-
-                            <li className = {router.pathname == '/schedule' ? 'active': ''}>
-                                <Link href="/schedule">
-                                    Programação
-                                </Link>
-                            </li>
-
-                            <li className = {router.pathname == '/about' ? 'active': ''}>
-                                <Link href="/about">
-                                    Evento
-                                </Link>
-                            </li>
-
-                            <li className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link href="/palestrantes">
-                                    Palestrantes
-                                </Link>
-                            </li>
-
-                            <li className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link href="/co">
-                                    Organização
-                                </Link>
-                            </li>
-
-                            <li className = {router.pathname == '/partnerships' ? 'active': ''}>
-                                <Link href="/partnerships">
-                                    Para Empresas
-                                </Link>                                
-                            </li>
-
-                            {/* <li>
-                                <a href="https://ctf.intheshell.page/" target='_blank' >
-                                    CTF
-                                </a>
-                            </li> */}
-
-                            {!disableAuth && user ? (
-                                <li className='profile-container'>
-                                    <Link href= "/user" className='profile-content'>
-
-                                        <div className='user-pic-container'>
-                                            <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                        </div>
-                                        <p>{user.name.split(" ")[0]}</p>
-
-                                    </Link>
+                            {/* Renderiza dinamicamente os links de navegação com base no array NAV_LINKS */}
+                            {NAV_LINKS.map((link) => (
+                                <li key={link.path} className={router.pathname === link.path ? 'active' : ''}>
+                                    {link.isExternal ? (
+                                        // Se for externo, usa a tag <a> com target="_blank"
+                                        <a href={link.path} target="_blank" rel="noopener noreferrer">
+                                            {link.label}
+                                        </a>
+                                    ) : (
+                                        // Se for interno, continua usando o Link do Next.js
+                                        <Link href={link.path}>
+                                            {link.label}
+                                        </Link>
+                                    )}
                                 </li>
-                            ) : (
-                                <li>
-                                    <Button
-                                    onClick={handleShowAuthModal} 
-                                    disabled={disableAuth}>Login</Button>
-                                </li>
-                            )
-                            }
+                            ))}
+                            
+                            {/* Renderiza a seção de autenticação adaptada para o desktop */}
+                            {renderAuthSection(false)}
                         </NavigationList>
                     </NavDesktop>
-
                 </div>
             </NavWrapper>
+
+            {/* Menu lateral expansível utilizado na versão Mobile (Sidepanel) */}
             <Sidepanel>
                 <div className={isOpen ? 'click-out' : "click-out click-out-hidden"} onClick={() => setIsOpen(false)}>
                 </div>
-                <div className = {isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
-                    <div className = "sidepanel-wrapper">
-                        <div className = 'header-nav'>
-                            <h6>Navegação rápida</h6>
-                            <div className = 'close' onClick={() => setIsOpen(!isOpen)}>
+                <div className={isOpen ? "sidepanel" : "sidepanel sidepanel-hidden"}>
+                    <div className="sidepanel-wrapper">
+                        <div className='header-nav'>
+                            <h5>Navegação rápida</h5>
+                            <div className='close' onClick={() => setIsOpen(!isOpen)}>
                                 <svg width="18" height="18" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="white"/>
                                 </svg>
@@ -169,87 +189,35 @@ const Nav = () => {
                         </div>
 
                         <NavigationList>
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/' ? 'active': ''}>
-                                <Link href="/">
-                                    Home
-                                </Link>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/schedule' ? 'active': ''}>
-                                <Link href="/schedule">
-                                    Programação
-                                </Link>                                
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/about' ? 'active': ''}>
-                                <Link href="/about">
-                                    Evento
-                                </Link>
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/palestrantes' ? 'active': ''}>
-                                <Link href="/palestrantes">
-                                    Palestrantes
-                                </Link>                                
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/co' ? 'active': ''}>
-                                <Link href="/co">
-                                    Organização
-                                </Link>                                
-                            </li>
-
-                            <li onClick={() => setIsOpen(false)} className = {router.pathname == '/partnerships' ? 'active': ''}>
-                                <Link href="/partnerships">
-                                    Para Empresas
-                                </Link>                                
-                            </li>
-
-                            {/* <li onClick={() => setIsOpen(false)}>
-                                <a href="https://ctf.intheshell.page/" target='_blank'>
-                                    CTF
-                                </a>
-                            </li> */}
+                            {/* Renderiza dinamicamente os links de navegação dentro do painel mobile */}
+                            {NAV_LINKS.map((link) => (
+                                <li key={`mobile-${link.path}`} onClick={() => setIsOpen(false)} className={router.pathname === link.path ? 'active' : ''}>
+                                    {link.isExternal ? (
+                                        <a href={link.path} target="_blank" rel="noopener noreferrer">
+                                            {link.label}
+                                        </a>
+                                    ) : (
+                                        <Link href={link.path}>
+                                            {link.label}
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
                         </NavigationList>
                     </div>
 
-                    {/* Editar esta div para o usuário logado*/}
-                    {!disableAuth && user ?
-                        <>
-                            <NavigationList>
-                                <li onClick={() => setIsOpen(false)} className="profile-side-bar">
-                                    <Link href="/user">
-
-                                        <div className='profile-content'>
-                                            <div className='user-pic-container'>
-                                                <img src={user.photoUrl} alt='user pic' referrerPolicy='no-referrer'/>
-                                            </div>
-                                            <p>{user.name.split(" ")[0]}</p>
-                                        </div>
-                                        <div className='see-profile'>
-                                            <p>Ver Perfil</p>
-                                            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12.0385 11.6565L10.6275 10.2385L13.8975 6.98351L0.292496 6.97051L0.294497 4.97051L13.8625 4.98351L10.6475 1.75351L12.0645 0.343506L17.7085 6.01351L12.0385 11.6565Z" fill="white"/>
-
-                                                <rect id = "arrow" width = "100" height = "100%"/>
-                                                        
-                                            </svg>
-                                        </div>
-
-                                    </Link>
-                                </li>
-                            </NavigationList>
-                        </> 
-                    :
-                        <Button 
-                        onClick={handleShowAuthModal} className='user-button' disabled={disableAuth}>Login</Button>
-                    }
+                    {/* Renderiza a seção de autenticação adaptada para o painel mobile */}
+                    {!disableAuth && user ? (
+                        <NavigationList>
+                            {renderAuthSection(true)}
+                        </NavigationList>
+                    ) : renderAuthSection(true)}
                     
                 </div>
             </Sidepanel>
         </>
     );
-}
+};
 
 export default Nav;
 
@@ -265,14 +233,13 @@ const NavWrapper = styled.div`
     align-items: center;
     width: calc(100% - 2rem); 
     max-width: 1328px;
-    padding: 0.5rem 1rem; /* era 8px 16px */
-    border-radius: 1.5rem; /* era 24px */
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
     
-    /* aqui a gente faz as cores e o efeito glassmorphism da navbar */
+    /* glassmorphism */
     background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
-    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* era 2px e 4px para rem */
-    backdrop-filter: blur(6px);
-
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(18px);
 
     > div {
         display: flex;
@@ -299,12 +266,11 @@ const NavWrapper = styled.div`
         }
     }
 
-    /* DESKTOP */
-    @media (min-width: 995px) {
-        padding: 1rem 1.5rem; /* era 16px 24px */
+    @media (min-width: 1200px) {
+        padding: 1rem 1.5rem;
         justify-content: center;
     }
-`
+`;
 
 const NavMobile = styled.nav`
     width: 3rem;
@@ -342,10 +308,10 @@ const NavMobile = styled.nav`
         gap: .25rem;
     }
 
-    @media (min-width:995px) {
+    @media (min-width:1200px) {
         display: none;
     }
-`
+`;
 
 const NavigationList = styled.ul`
     display: flex;
@@ -378,7 +344,6 @@ const NavigationList = styled.ul`
             outline: 2px solid var(--content-neutrals-fixed-white);
             outline-offset: 2px;
         }
-            
     }
 
     .active {            
@@ -397,16 +362,15 @@ const NavigationList = styled.ul`
         }
     }
 
-    .disabled{
+    .disabled {
         pointer-events: none;
-        a{
+        a {
             opacity: 0.5;
         }
     }
-`
+`;
 
 const Sidepanel = styled.div`
-    /* position: fixed; */
     top: 0;
     width: 100%;
     height: 100%;
@@ -426,10 +390,11 @@ const Sidepanel = styled.div`
     }
     
     .close {
-        padding: 1rem;
+        display: flex;
+        padding: 0.75rem;
         cursor: pointer;   
 
-        svg path{
+        svg path {
             fill: var(--content-neutrals-primary)
         }
     }
@@ -441,7 +406,6 @@ const Sidepanel = styled.div`
         left: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.5);
-        
         z-index: 17;
     }
 
@@ -453,7 +417,7 @@ const Sidepanel = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-between;
         overflow-y: scroll;
         height: 100%;
         width: 100%;
@@ -461,9 +425,14 @@ const Sidepanel = styled.div`
         z-index: 17;
         top: 0;
         right: 0;
-        background-color: var(--background-neutrals-secondary);
+
+        /* efeito glassmorphism */
+        background: color-mix(in srgb, var(--background-neutrals-nav) 75%, transparent);
+        box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(18px);
+
         transition: all ease-out 0.15s;
-        padding: 1.5rem 1rem;
+        padding: 1rem 1rem 3.5rem 1rem;
         gap: 1.5rem;
         color: var(--content-neutrals-primary);
 
@@ -504,7 +473,7 @@ const Sidepanel = styled.div`
                 }
             }
     
-            .profile-content{
+            .profile-content {
                 width: fit-content;
                 height: 2.75rem;
                 padding: 0;
@@ -563,16 +532,16 @@ const Sidepanel = styled.div`
         right: -999px;
     }
 
-    @media (min-width:995px) {
+    @media (min-width:1200px) {
         display: none;
     }
-`
+`;
 
 const NavDesktop = styled.nav`
     display: none;
     margin-left: auto;
 
-    @media (min-width:995px) {
+    @media (min-width:1200px) {
         display: flex;
         
         ul {
@@ -615,4 +584,4 @@ const NavDesktop = styled.nav`
             }
         }        
     }
-`
+`;
