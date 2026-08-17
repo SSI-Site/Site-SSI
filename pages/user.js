@@ -50,6 +50,26 @@ const User = () => {
     const minGiftPresences = Math.min(...Object.values(gifts).map(gift => gift.minPresence));
     const maxGiftPresences = Math.max(...Object.values(gifts).map(gift => gift.minPresence));
     const medal = { completed: medalCompleted, incomplete: medalIncomplete, collected: medalCollected}
+
+    const [isEditingNusp, setIsEditingNusp] = useState(false);
+    const [nuspInput, setNuspInput] = useState('');
+    const [isUpdatingNusp, setIsUpdatingNusp] = useState(false);
+
+    const handleUpdateNusp = async () => {
+        if (!nuspInput) return;
+        setIsUpdatingNusp(true);
+
+        try {
+            await saphira.updateStudent(nuspInput);
+            setStudentInfo(prev => ({ ...prev, usp_number: nuspInput }));
+            setIsEditingNusp(false);
+        } catch (err) {
+            console.log("Erro ao atualizar Número USP", err);
+            alert("Houve um erro ao salvar o Número USP.");
+        } finally {
+            setIsUpdatingNusp(false);
+        }
+    };
     
     // Lista de todos os brindes com dois novos campos: completed e collected, que indicam a situação do usuário em relação a cada brinde
     const giftsWithStatus = Object.values(gifts).map((gift) => {
@@ -251,8 +271,48 @@ const User = () => {
                                     
                                     {/* Implementar botão para adicionar o Número USP */}
                                     <NuspContainer>
-                                        <label>Adicionar Número USP</label>
-                                        <label>+</label> {/* incluir ícone */}
+                                        {isEditingNusp ? (
+                                            <div style={{ display: 'flex', width: '100%', gap: '0.5rem', alignItems: 'center' }}>
+                                                <input 
+                                                    type="text" 
+                                                    value={nuspInput}
+                                                    onChange={(e) => setNuspInput(e.target.value)}
+                                                    placeholder="Seu Nº USP"
+                                                    disabled={isUpdatingNusp}
+                                                    style={{ flex: 1, padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                                                />
+                                                <button 
+                                                    onClick={handleUpdateNusp} 
+                                                    disabled={isUpdatingNusp}
+                                                    style={{ padding: '0.25rem 0.5rem', cursor: 'pointer' }}
+                                                >
+                                                    {isUpdatingNusp ? '...' : 'Salvar'}
+                                                </button>
+                                                <button 
+                                                    onClick={() => setIsEditingNusp(false)} 
+                                                    disabled={isUpdatingNusp}
+                                                    style={{ padding: '0.25rem 0.5rem', cursor: 'pointer' }}
+                                                >
+                                                    X
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <label>
+                                                    {studentInfo.usp_number ? `Nº USP: ${studentInfo.usp_number}` : 'Adicionar Número USP'}
+                                                </label>
+                                                <button 
+                                                    onClick={() => {
+                                                        setNuspInput(studentInfo.usp_number || '');
+                                                        setIsEditingNusp(true);
+                                                    }}
+                                                    style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', fontSize: '1.2rem' }}
+                                                    title="Editar Número USP"
+                                                >
+                                                    {studentInfo.usp_number ? '✎' : '+'}
+                                                </button>
+                                            </>
+                                        )}
                                     </NuspContainer>
                                     
                                 </UserInfo>
