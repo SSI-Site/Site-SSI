@@ -75,7 +75,7 @@ const saphira = {
             usp_number
         };
 
-        return axios.patch(requestUrl, params, {
+        return axios.put(requestUrl, params, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }

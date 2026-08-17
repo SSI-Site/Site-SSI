@@ -1,7 +1,7 @@
 import Router, { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useForm } from "react-hook-form";
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 
 import useAuth from '../hooks/useAuth';
@@ -54,7 +54,32 @@ const User = () => {
     const [isEditingNusp, setIsEditingNusp] = useState(false);
     const [nuspInput, setNuspInput] = useState('');
     const [isUpdatingNusp, setIsUpdatingNusp] = useState(false);
+    
+    // Referência para o container, usada para saber se o usuário clicou fora
+    const nuspRef = useRef(null);
 
+    // Efeito para detectar o clique fora do componente
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // Se o clique não foi dentro do container nuspRef, cancela a edição
+            if (nuspRef.current && !nuspRef.current.contains(event.target)) {
+                setIsEditingNusp(false);
+                // Restaura o input para o valor original salvo
+                setNuspInput(studentInfo.usp_number || '');
+            }
+        };
+
+        // Adiciona o "espião" de cliques se estiver editando
+        if (isEditingNusp) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+        
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isEditingNusp, studentInfo.usp_number]);
+
+    // Função de salvar (mesma da resposta anterior)
     const handleUpdateNusp = async () => {
         if (!nuspInput) return;
         setIsUpdatingNusp(true);
@@ -269,49 +294,44 @@ const User = () => {
                                         </UserText>
                                     </PhotoTextWrapper>
                                     
-                                    {/* Implementar botão para adicionar o Número USP */}
-                                    <NuspContainer>
+                                    <NuspContainer ref={nuspRef}>
                                         {isEditingNusp ? (
-                                            <div style={{ display: 'flex', width: '100%', gap: '0.5rem', alignItems: 'center' }}>
+                                            /* ESTADO 2: Input ligado e botão de salvar */
+                                            <NuspEditWrapper>
                                                 <input 
                                                     type="text" 
                                                     value={nuspInput}
                                                     onChange={(e) => setNuspInput(e.target.value)}
                                                     placeholder="Seu Nº USP"
                                                     disabled={isUpdatingNusp}
-                                                    style={{ flex: 1, padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                                                    autoFocus 
                                                 />
-                                                <button 
-                                                    onClick={handleUpdateNusp} 
-                                                    disabled={isUpdatingNusp}
-                                                    style={{ padding: '0.25rem 0.5rem', cursor: 'pointer' }}
-                                                >
+                                                <NuspSaveButton onClick={handleUpdateNusp} disabled={isUpdatingNusp}>
                                                     {isUpdatingNusp ? '...' : 'Salvar'}
+                                                </NuspSaveButton>
+                                            </NuspEditWrapper>
+                                        ) : studentInfo.usp_number ? (
+                                            /* ESTADO 3: Número já preenchido */
+                                            <NuspDisplayWrapper>
+                                                <div className="nusp-info">
+                                                    <span className="label">Nº USP:</span>
+                                                    <strong>{studentInfo.usp_number}</strong>
+                                                </div>
+                                                <button className="edit-btn" title="Editar" onClick={() => { setNuspInput(studentInfo.usp_number); setIsEditingNusp(true);}}>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M3 21V16.75L17.625 2.17505L21.8 6.45005L7.25 21H3ZM17.6 7.80005L19 6.40005L17.6 5.00005L16.2 6.40005L17.6 7.80005Z" fill="currentColor"/>
+                                                    </svg>
                                                 </button>
-                                                <button 
-                                                    onClick={() => setIsEditingNusp(false)} 
-                                                    disabled={isUpdatingNusp}
-                                                    style={{ padding: '0.25rem 0.5rem', cursor: 'pointer' }}
-                                                >
-                                                    X
-                                                </button>
-                                            </div>
+                                            </NuspDisplayWrapper>
                                         ) : (
-                                            <>
-                                                <label>
-                                                    {studentInfo.usp_number ? `Nº USP: ${studentInfo.usp_number}` : 'Adicionar Número USP'}
-                                                </label>
-                                                <button 
-                                                    onClick={() => {
-                                                        setNuspInput(studentInfo.usp_number || '');
-                                                        setIsEditingNusp(true);
-                                                    }}
-                                                    style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', fontSize: '1.2rem' }}
-                                                    title="Editar Número USP"
-                                                >
-                                                    {studentInfo.usp_number ? '✎' : '+'}
-                                                </button>
-                                            </>
+                                            /* ESTADO 1: Antes de tudo (Vazio) */
+                                            <NuspAddWrapper onClick={() => {
+                                                setNuspInput('');
+                                                setIsEditingNusp(true);
+                                            }}>
+                                                <span>Adicionar Número USP</span>
+                                                <div className="icon">+</div>
+                                            </NuspAddWrapper>
                                         )}
                                     </NuspContainer>
                                     
@@ -548,21 +568,123 @@ const UserText = styled.div`
         }
     }
 `
+
+// Animação de fade-in
+const fadeIn = keyframes`
+    from { opacity: 0; }
+    to { opacity: 1; }
+`;
+
 const NuspContainer = styled.div`
+    width: 100%;
+    max-width: 18.5rem;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+`
+
+const NuspAddWrapper = styled.div`
     width: 100%;
     min-height: 3rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.75rem 1.5rem;
-    gap: 1rem;
-
+    align-items: center;
+    justify-content: space-around;
     border-radius: 0.75rem;
     background-color: var(--background-neutrals-secondary);
     border: 2px solid rgba(128, 128, 128, 0.25);
+    overflow: hidden;
+    cursor: pointer;
+    animation: ${fadeIn} 0.3s ease-in-out;
 
-    @media (min-width: 1024px) {
-        max-width: 18.5rem;
+    button {
+        background: none;
+        border: none;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    &.empty label {
+        color: var(--content-neutrals-tertiary);
+    }
+`
+
+const NuspEditWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    animation: ${fadeIn} 0.3s ease-in-out;
+
+    input {
+        flex: 1;
+        min-width: 0;
+        height: 3rem;
+        padding: 0.5rem;
+        border-radius: 0.75rem;
+        background-color: var(--background-neutrals-secondary);
+        border: 2px solid rgba(128, 128, 128, 0.25);
+        color: var(--content-neutrals-primary);
+        font-size: 1rem;
+        outline: none;
+    }
+
+    input::placeholder {
+        color: var(--content-neutrals-tertiary);
+    }
+`
+
+const NuspSaveButton = styled.button`
+    flex-shrink: 0;
+    height: 3rem;
+    padding: 0 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--brand-primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+`
+
+const NuspDisplayWrapper = styled.div`
+    width: 100%;
+    padding: 0.5rem 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--brand-purple-200);
+    animation: ${fadeIn} 0.3s ease-in-out;
+
+    label {
+        font-size: 1rem;
+        color: var(--content-neutrals-primary);
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: 0.75rem;
+        border: 2px solid rgba(128, 128, 128, 0.25);
+        background: var(--background-neutrals-secondary);
+        transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+        background-color: var(--background-neutrals-terceary);
     }
 `
 
