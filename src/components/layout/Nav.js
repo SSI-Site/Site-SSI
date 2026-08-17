@@ -23,6 +23,7 @@ const NAV_LINKS = [
     { path: '/palestrantes', label: 'Palestrantes' },
     { path: '/co', label: 'Comissão Organizadora' },
     { path: '/partnerships', label: 'Para Empresas' },
+    // { path: 'https://intheshell.each.usp.br/', label: 'CTF', isExternal: true },
 ];
 
 const Nav = () => {
@@ -151,7 +152,17 @@ const Nav = () => {
                             {/* Renderiza dinamicamente os links de navegação com base no array NAV_LINKS */}
                             {NAV_LINKS.map((link) => (
                                 <li key={link.path} className={router.pathname === link.path ? 'active' : ''}>
-                                    <Link href={link.path}>{link.label}</Link>
+                                    {link.isExternal ? (
+                                        // Se for externo, usa a tag <a> com target="_blank"
+                                        <a href={link.path} target="_blank" rel="noopener noreferrer">
+                                            {link.label}
+                                        </a>
+                                    ) : (
+                                        // Se for interno, continua usando o Link do Next.js
+                                        <Link href={link.path}>
+                                            {link.label}
+                                        </Link>
+                                    )}
                                 </li>
                             ))}
                             
@@ -181,7 +192,15 @@ const Nav = () => {
                             {/* Renderiza dinamicamente os links de navegação dentro do painel mobile */}
                             {NAV_LINKS.map((link) => (
                                 <li key={`mobile-${link.path}`} onClick={() => setIsOpen(false)} className={router.pathname === link.path ? 'active' : ''}>
-                                    <Link href={link.path}>{link.label}</Link>
+                                    {link.isExternal ? (
+                                        <a href={link.path} target="_blank" rel="noopener noreferrer">
+                                            {link.label}
+                                        </a>
+                                    ) : (
+                                        <Link href={link.path}>
+                                            {link.label}
+                                        </Link>
+                                    )}
                                 </li>
                             ))}
                         </NavigationList>
@@ -247,7 +266,7 @@ const NavWrapper = styled.div`
         }
     }
 
-    @media (min-width: 995px) {
+    @media (min-width: 1200px) {
         padding: 1rem 1.5rem;
         justify-content: center;
     }
@@ -289,7 +308,7 @@ const NavMobile = styled.nav`
         gap: .25rem;
     }
 
-    @media (min-width:995px) {
+    @media (min-width:1200px) {
         display: none;
     }
 `;
@@ -513,7 +532,7 @@ const Sidepanel = styled.div`
         right: -999px;
     }
 
-    @media (min-width:995px) {
+    @media (min-width:1200px) {
         display: none;
     }
 `;
@@ -522,7 +541,7 @@ const NavDesktop = styled.nav`
     display: none;
     margin-left: auto;
 
-    @media (min-width:995px) {
+    @media (min-width:1200px) {
         display: flex;
         
         ul {
