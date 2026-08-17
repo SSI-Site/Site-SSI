@@ -95,9 +95,7 @@ const DateWrapper = styled.div`
             -webkit-background-clip: unset;
             background-clip: unset;
             
-            /* Como o fundo fica branco, a cor da fonte assume esse valor: */
-            color: var(--content-neutrals-inverse); 
-            -webkit-text-fill-color: currentColor; 
+            -webkit-text-fill-color: var(--content-neutrals-fixed-black); 
         }
     }
 

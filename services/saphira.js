@@ -96,23 +96,6 @@ const saphira = {
         });
     },
 
-    // Requisição autenticada: Registrar presença online
-    registerOnlinePresence: async (token_code) => {
-        const accessToken = await saphira.getAccessToken();
-        const studentId = localStorage.getItem(STUDENT_ID);
-        const requestUrl = `${API_BASE_URL}/student/${studentId}/presence`;
-
-        const params = {
-            token_code
-        };
-
-        return axios.post(requestUrl, params, {
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
-        });
-    },
-
     // Requisição autenticada: Listar presenças do estudante
     listStudentPresences: async () => {
         const accessToken = await saphira.getAccessToken();

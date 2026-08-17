@@ -1,6 +1,5 @@
 export const eventDetails = {
   year: "2026",
-  lastYear: String(2026 - 1),
   edition: "17",
   dateText: "24 a 28 de agosto", 
   startDate: "2026-08-24T09:40:00-03:00",
@@ -10,12 +9,6 @@ export const eventDetails = {
   hero: {
     shortDate: "24-28",
     monthYear: "Ago 2026"
-  },
-
-  lastYearStats: { // estatísticas da transmissão no youtube do evento do ano anterior
-    viewers: 2,       
-    subscribers: 600,
-    contentHours: 43  
   },
 
   logic: {
@@ -34,14 +27,14 @@ export const eventDetails = {
     ],
     // variaveis centralizadas para a pagina de programacao de 2026:
     // DATAS DA EDICAO ATUAL (2026)
-    // dayOfSSI: ["24 - Agosto", "25 - Agosto", "26 - Agosto", "27 - Agosto", "28 - Agosto"],
-    // dayFull: ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
-    // weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
+    dayOfSSI: ["24 - Agosto", "25 - Agosto", "26 - Agosto", "27 - Agosto", "28 - Agosto"],
+    dayFull: ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"],
+    weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
     
     // DESCOMENTE AQUI E COMENTE ACIMA APENAS PARA TESTES LOCAIS (DADOS DO MOCK/API EM 2025)
-    dayOfSSI: ["18 - Agosto", "19 - Agosto", "20 - Agosto", "21 - Agosto", "22 - Agosto"],
-    dayFull: ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"],
-    weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
+    // dayOfSSI: ["18 - Agosto", "19 - Agosto", "20 - Agosto", "21 - Agosto", "22 - Agosto"],
+    // dayFull: ["2025-08-18", "2025-08-19", "2025-08-20", "2025-08-21", "2025-08-22"],
+    // weekDays: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"]
   },
 
   stats: {

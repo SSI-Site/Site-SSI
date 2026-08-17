@@ -34,8 +34,7 @@ const GiftCard = ({ name, image, minPresence }) => {
                         Para resgatar esse brinde você deve participar de um total de:
                     </p>
                     <div className='card-back-text highlight'>
-                        {/* <p>{minPresence}</p> */}
-                        <p>?</p>
+                        <p>{minPresence}</p>
                     </div>
                     
                     <p className='card-back-text'>Palestras ou Workshops</p>

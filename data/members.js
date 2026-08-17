@@ -8,383 +8,583 @@ const members = [
 		phrase: "Allons-Y!"
 	}
 	*/
-	{
-        "name": "Adan Cunha",
-        "image": "/images/co/members/AdanCunha.jpg",
-        "departments": ["Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/adan-cunha",
-        "phrase": "\"Já vencidos, vencemos.\" - Plauto"
+    {
+        "name": "Alex Santana",
+        "image": "/images/co/members/alex-santana.jpg",
+        "departments": [
+            "Criação & Comunicação",
+            "Comercial & Financeiro"
+        ],
+        "linkedin": "https://www.linkedin.com/in/alex-jsz/",
+        "phrase": "Não é porque as coisas são difíceis que não ousamos; é porque não ousamos que elas são difíceis."
     },
     {
-        "name": "Alan Moura",
-        "image": "/images/co/members/AlanMoura.png",
-        "departments": ["Criação e Comunicação"],
-        "linkedin": "https://www.linkedin.com/in/alan-moura-silva/",
-        "phrase": "No fim do dia, tudo vira Assembly"
+        "name": "Alexandre Massaki",
+        "image": "/images/co/members/alexandre-massaki.jpeg",
+        "departments": [
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/alexandre-rodrigues-massaki",
+        "phrase": "I'm a new soul, I came to this strange world hoping I could learn a bit how to give and take"
     },
     {
-        "name": "Alisson Silva",
-        "image": "/images/co/members/AlissonSilva.jpeg",
-        "departments": ["Comercial e Financeiro"],
-        "linkedin": "https://www.linkedin.com/in/alissonss/",
-        "phrase": "Somos mais fantasmas do que pessoas - Arthur Morgan"
+        "name": "Amanda Maria Ferreira da Silva",
+        "image": "/images/co/members/amanda-silva.jpg",
+        "departments": [
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/amandamariafs",
+        "phrase": "O silêncio vale mais que mil palavras"
     },
     {
-        "name": "Amanda Silva",
-        "image": "/images/co/members/AmandaSilva.jpg",
-        "departments": ["Diretoria"],
-        "linkedin": "https://www.linkedin.com/in/amandamariafs/",
-        "phrase": "Faça ou não faça, tentativa não há"
+        "name": "Ana Luíza Cecílio",
+        "image": "/images/co/members/ana-luiza.jpg",
+        "departments": [
+            "Comercial & Financeiro",
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/ana-lu%C3%ADza-cec%C3%ADlio-327530362?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "phrase": "Café, gatos e o próximo capítulo…"
+    },
+    {
+        "name": "André Cerca",
+        "image": "/images/co/members/andre-cerca.jpg",
+        "departments": [
+            "Parcerias",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/andré-luiz-vieira-cerca",
+        "phrase": "amo charlie brown jr"
     },
     {
         "name": "Andrew Luigi",
-        "image": "/images/co/members/AndrewLuigi.jpg",
-        "departments": ["Criação e Comunicação", "Sites"],
+        "image": "/images/co/members/andrew-luigi.jpg",
+        "departments": [
+            "Palestrantes"
+        ],
         "linkedin": "https://www.linkedin.com/in/andrewluigiflima",
-        "phrase": "\"Não esquece o ponto e vírgula!\""
+        "phrase": "Ninguém ganha do cara paciente"
     },
     {
-        "name": "Antonio Espindula",
-        "image": "/images/co/members/AntonioEspindula.jpg",
-        "departments": ["Palestrantes", "Infraestrutura"],
-        "linkedin": "https://www.linkedin.com/in/antonio-pedro-costa-oliveira-pretti-espindula-421a40226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "phrase": "Nada é maravilhoso de mais para ser verdade, se estiver de acordo com as leis da natureza"
+        "name": "Arthur Romani",
+        "image": "/images/co/members/arthur-romani.jpg",
+        "departments": [
+            "Parcerias",
+            "Infraestrutura",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/arthur-romani",
+        "phrase": "O ontém é passado, o amanhã é mistério, o que te resta é o agora"
     },
     {
         "name": "Ayla Costa",
-        "image": "/images/co/members/AylaCosta.jpg",
-        "departments": ["Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/aylacosta",
-        "phrase": "\"O mais puro gosto do mel é apenas defeito no fel\""
+        "image": "/images/co/members/ayla-costa.jpg",
+        "departments": [
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/aylacosta/",
+        "phrase": "Losing a rock is better than never having a rock"
+    },
+    {
+        "name": "Beatriz Chao",
+        "image": "/images/co/members/beatriz-chao.jpeg",
+        "departments": [
+            "Criação & Comunicação"
+        ],
+        "linkedin": "https://www.linkedin.com/in/beatriz-chao/",
+        "phrase": "No lugar certo, você brilha diferente!"
+    },
+    {
+        "name": "Caio Barros",
+        "image": "/images/co/members/caio-barros.jpg",
+        "departments": [
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/caio-do-nascimento-barros/",
+        "phrase": "Não somos livres nas nossas atitudes porque não somos livres nos nossos desejos, não conseguimos ir contra aquilo que está dentro de nós."
     },
     {
         "name": "Caio Bernardo",
-        "image": "/images/co/members/CaioBernardo.jpg",
-        "departments": ["Diretoria", "Comercial e Financeiro", "Sites", "Infraestrutura"],
-        "linkedin": "https://www.linkedin.com/in/caioviniciusbernardo",
-        "phrase": "Desculpe senhor(a) mas o sistema do caixa caiu"
+        "image": "/images/co/members/caio-bernardo.jpg",
+        "departments": [
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/bernardo-caio",
+        "phrase": "Ser feliz sem motivo é a mais autêntica forma de felicidade.\n— Carlos Drummond de Andrade"
+    },
+    {
+        "name": "Carol Pinheiro",
+        "image": "/images/co/members/carol-pinheiro.jpg",
+        "departments": [
+            "Comercial & Financeiro"
+        ],
+        "linkedin": "https://www.linkedin.com/in/caroline-pinheiro-dos-santos",
+        "phrase": "Você pode ser o que você quiser! \n- Barbie"
     },
     {
         "name": "Carol Soares",
-        "image": "/images/co/members/CarolSoares.jpg",
-        "departments": ["Criação e Comunicação", "Infraestrutura"],
+        "image": "/images/co/members/carol-soares.jpg",
+        "departments": [
+            "Criação & Comunicação",
+            "Comercial & Financeiro"
+        ],
         "linkedin": "https://www.linkedin.com/in/maria-carolina-s",
-        "phrase": "\"Every journey begins with a choice\" - Pokemon"
+        "phrase": "Eu acho horrível e bonito que o amor não escolhe pra onde vai... ♡"
     },
     {
         "name": "Catarina Macedo",
-        "image": "/images/co/members/CatarinaMacedo.jpg",
-        "departments": ["Diretoria", "Parcerias"],
+        "image": "/images/co/members/catarina-macedo.jpg",
+        "departments": [
+            "Parcerias"
+        ],
         "linkedin": "https://www.linkedin.com/in/catarina-macedo-scabelli",
-        "phrase": "\"Esqueci o que eu ia falar\""
+        "phrase": "Meu último ano e última SSI (╥﹏╥)"
     },
     {
         "name": "Clara Campardo",
-        "image": "/images/co/members/ClaraCampardo.jpg",
-        "departments": ["Criação e Comunicação"],
-        "linkedin": "https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=clara-campardo-8a527a288",
-        "phrase": "SSI : )"
-    },
-    {
-        "name": "Daniel Coutinho",
-        "image": "/images/co/members/DanielCoutinho.jpg",
-        "departments": ["Diretoria"],
-        "linkedin": "https://www.linkedin.com/in/daniel-coutinho-ribeiro",
-        "phrase": "Frase de efeito? Prefiro ação de efeito! Ações falam mais que palavras."
+        "image": "/images/co/members/clara-campardo.jpg",
+        "departments": [
+            "Criação & Comunicação"
+        ],
+        "linkedin": "https://www.linkedin.com/in/clara-campardo-8a527a288",
+        "phrase": "SSI :)"
     },
     {
         "name": "Davi Oliveira",
-        "image": "/images/co/members/DaviOliveira.jpg",
-        "departments": ["Parcerias"],
+        "image": "/images/co/members/davi-oliveira.jpg",
+        "departments": [
+            "Parcerias"
+        ],
         "linkedin": "https://www.linkedin.com/in/davioliveira029",
-        "phrase": "nada a declarar"
+        "phrase": "Com grandes poderes, vem uma grande necessidade de tirar um cochilo..."
     },
     {
         "name": "Dérick Arriado",
-        "image": "/images/co/members/DerickArriado.jpg",
-        "departments": ["Diretoria", "Comercial e Financeiro"],
-        "linkedin": "https://www.linkedin.com/in/derickarriado",
-        "phrase": "Siga o seu coração 🤯\nPois viver a vida inteira sem fazer o que gosta é muito triste 😢"
-    },
-    {
-        "name": "Dhener Alves",
-        "image": "/images/co/members/DhenerAlves.webp",
-        "departments": ["Sites"],
-        "linkedin": "https://www.linkedin.com/in/dheneralves",
-        "phrase": "Não importa o quão devagar você vá, desde que você não pare."
+        "image": "/images/co/members/derick-arriado.jpg",
+        "departments": [
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/derickarriado/",
+        "phrase": "Siga o seu coração 🤯 Pois viver a vida inteira sem fazer o que gosta é muito triste 😢 Adorei ser da COSSI durante esses 3 anos. No fim, a vida fica muito mais bonita quando a gente escolhe vivê-la com autoria, e não no piloto automático 💜❤🔥🤘"
     },
     {
         "name": "Douglas Macedo",
-        "image": "/images/co/members/DouglasMacedo.jpg",
-        "departments": ["Sites", "Palestrantes", "Infraestrutura"],
-        "linkedin": "https://www.linkedin.com/in/douglas1412",
-        "phrase": "Tengo, lengo, tengo, lengo\nTengo, lengo, tengo\nTengo, lengo, tengo, lengo\nTengo, lengo, tengo\n— GONZAGA, Luiz."
+        "image": "/images/co/members/douglas-macedo.jpeg",
+        "departments": [
+            "Sites",
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/douglas1412/",
+        "phrase": "Os mistérios do mundo são melhores quando não estão completamente resolvidos."
     },
     {
         "name": "Eduardo Almeida",
-        "image": "/images/co/members/EduardoAlmeida.jpg",
-        "departments": ["Criação e Comunicação", "Sites"],
-        "linkedin": "https://www.linkedin.com/in/eduardo-almeida-577520273",
-        "phrase": "Aerofolio para o meu palio"
+        "image": "/images/co/members/eduardo-almeida.jpg",
+        "departments": [
+            "Sites"
+        ],
+        "linkedin": "https://www.linkedin.com/in/eduardoalmeidamelo/",
+        "phrase": "O caminho mais curto foi um desvio. Foi esse desvio que se tornou o nosso caminho mais curto."
     },
     {
-        "name": "Ellen Leal",
-        "image": "/images/co/members/EllenLeal.jpg",
-        "departments": ["Palestrantes"],
-        "linkedin": "https://www.linkedin.com/in/ellenleal",
-        "phrase": "\"A alegria de fazer o bem é a única felicidade verdadeira.\" - Tolstói"
-    },
-    {
-        "name": "Enrico Aranha",
-        "image": "/images/co/members/EnricoAranha.jpg",
-        "departments": ["Criação e Comunicação"],
-        "linkedin": "https://www.linkedin.com/in/enrico-aranha-7b72371b2/",
-        "phrase": "\"A excelência é um hábito, não um ato\" - Aristóteles"
+        "name": "Eduardo Nascimento",
+        "image": "/images/co/members/eduardo-nascimento.jpeg",
+        "departments": [
+            "Sites",
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/eduardo-nascimento-soares-35691a310",
+        "phrase": "Já dizia o ditado que nos segue desde a história ágrafa 'Uga Buga!'"
     },
     {
         "name": "Enzo Brilhante",
-        "image": "/images/co/members/EnzoBrilhante.jpg",
-        "departments": ["Comercial e Financeiro", "Parcerias"],
-        "linkedin": "https://br.linkedin.com/in/enzo-brilhante-mattos-743738350",
-        "phrase": "Chat GPT, gere uma frase de efeito motivacional."
+        "image": "/images/co/members/enzo-brilhante.jpg",
+        "departments": [
+            "Comercial & Financeiro",
+            "Parcerias",
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/enzo-brilhante-mattos-743738350",
+        "phrase": "O sentido da vida é buscar qualquer coisa que faça sentido"
     },
     {
-        "name": "Eric Chou",
-        "image": "/images/co/members/EricChou.jpg",
-        "departments": ["Criação e Comunicação"],
-        "linkedin": "https://www.linkedin.com/in/eric-isin-wang-chou-55b035359/",
-        "phrase": "Se a vida te der limões, faça uma API de limonada."
+        "name": "Fabrízio Moura",
+        "image": "/images/co/members/fabrizio-moura.jpg",
+        "departments": [
+            "Comercial & Financeiro",
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/fabriziomoura",
+        "phrase": "A vida passa muito rápido. Se você não parar e olhar ao redor de vez em quando, você pode perdê-la"
     },
     {
-        "name": "Estevon Biazussi",
-        "image": "/images/co/members/EstevonBiazussi.jpg",
-        "departments": ["Palestrantes", "Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/estevon-biazussi-bonai-b0188b302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "phrase": "A coroa que enaltece teu ego, é a mesma que pode te levar a tua ruína."
+        "name": "Felipe Guimarães Teodoro",
+        "image": "/images/co/members/felipe-teodoro.jpg",
+        "departments": [
+            "Criação & Comunicação"
+        ],
+        "linkedin": "https://www.linkedin.com/in/felipe-guimar%C3%A3es-teodoro-7591b5427",
+        "phrase": "Se me perguntassem qual é o sentido da vida, eu responderia bebendo um copo de água sem engasgar (crucial)"
     },
     {
-        "name": "Gabriel Luís",
-        "image": "/images/co/members/GabrielLuis.jpg",
-        "departments": ["Sites", "Infraestrutura"],
-        "linkedin": "https://www.linkedin.com/in/gabriel-lu%C3%ADs-da-silva-ab58441b8",
-        "phrase": "vibecoding eh o início (do fim)"
+        "name": "Fernando Silva",
+        "image": "/images/co/members/fernando-silva.jpg",
+        "departments": [
+            "Parcerias",
+            "Sites"
+        ],
+        "linkedin": "https://www.linkedin.com/in/fernando-silva-barreto/",
+        "phrase": "Há muitas razões para duvidar e uma só para crer."
     },
     {
-        "name": "Gabriel Souza",
-        "image": "/images/co/members/GabrielMonteiro.jpg",
-        "departments": ["Infraestrutura"],
-        "linkedin": "https://gabrielsouza.top/links/",
-        "phrase": "“Eu diria que todo mundo quer fazer algo que seja importante”\n― Linus Torvalds"
+        "name": "Gabriel Coutinho",
+        "image": "/images/co/members/gabriel-coutinho.jpeg",
+        "departments": [
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/gabriel-coutinho-cezar-b2b8821b7?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "phrase": "tudo que não me mata me fortalece"
+    },
+    {
+        "name": "Gabriel Luís da Silva",
+        "image": "/images/co/members/gabriel-luis.jpg",
+        "departments": [
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/gabriel-luís-da-silva-ab58441b8?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "phrase": "Jogue OMORI. melhor jogo já visto!"
     },
     {
         "name": "Gabriel Menezes",
-        "image": "/images/co/members/GabrielMenezes.jpg",
-        "departments": ["Sites"],
-        "linkedin": "https://www.linkedin.com/in/gabriel-menezes-lisboa-ferreira-a13933237",
-        "phrase": "Já dizia o ditado chinês: \"你无法改变已经发生的事情，特别是如果有一个“；”是错的，无论如何，只有一件事重要：Vai，哥林多人！\""
+        "image": "/images/co/members/gabriel-menezes.jpeg",
+        "departments": [
+            "Sites"
+        ],
+        "linkedin": "https://www.linkedin.com/in/gabriel-menezes-lisboa-ferreira-a13933237/",
+        "phrase": "Vai um over ai? ;)\n火羽焚天！"
     },
     {
-        "name": "Gabriela Alcaide",
-        "image": "/images/co/members/GabrielaAlcaide.jpg",
-        "departments": ["Palestrantes", "Comercial e Financeiro"],
-        "linkedin": "",
-        "phrase": "“O maior erro é nunca tentar rodar o programa.”"
+        "name": "Gabriel Milagres",
+        "image": "/images/co/members/gabriel-milagres.jpeg",
+        "departments": [
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/gabriel-milagres-3bb378327",
+        "phrase": "Cêpicisdivê -Associação dos Mineiros Anônimos"
     },
     {
         "name": "Giovanna Antunes",
-        "image": "/images/co/members/GiovannaAntunes.jpg",
-        "departments": ["Parcerias"],
-        "linkedin": "https://br.linkedin.com/in/giovanna-antunes-5b6188274",
-        "phrase": "Cada dia é uma nova chance"
+        "image": "/images/co/members/giovanna-antunes.jpg",
+        "departments": [
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/giovanna-antunes-5b6188274/",
+        "phrase": "Conhecimento é a única bagagem que nunca pesa, mas sempre impulsiona."
     },
     {
         "name": "Guilherme Aika",
-        "image": "/images/co/members/GuilhermeAika.jpg",
-        "departments": ["Criação e Comunicação", "Sites"],
+        "image": "/images/co/members/guilherme-aika.jpg",
+        "departments": [
+            "Criação & Comunicação",
+            "Diretoria"
+        ],
         "linkedin": "https://www.linkedin.com/in/guilherme-avarella/",
-        "phrase": "O destino é maluquinho"
+        "phrase": "Saeva enim mors amorem numquam annihilat, dum expirat sors imortallis. (Agora leia apenas as iniciais)"
     },
     {
-        "name": "Guilherme Fernandes",
-        "image": "/images/co/members/GuilhermeCosta.jpeg",
-        "departments": ["Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/guifends",
-        "phrase": "Devagar e sempre."
-    },
-    {
-        "name": "Gustavo Sá",
-        "image": "/images/co/members/GustavoSa.jpg",
-        "departments": ["Criação e Comunicação", "Diretoria"],
-        "linkedin": "https://br.linkedin.com/in/gustavohls",
-        "phrase": "Everything is design"
-    },
-    {
-        "name": "Gustavo Nascimento",
-        "image": "/images/co/members/GustavoNascimento.jpg",
-        "departments": ["Criação e Comunicação"],
-        "linkedin": "https://br.linkedin.com/in/gnascimento-ian",
-        "phrase": "\"A arte é o caos tomando forma\" - Mano Picasso"
-    },
-    {
-        "name": "Helena Furtado",
-        "image": "/images/co/members/HelenaFurtado.jpg",
-        "departments": ["Diretoria"],
-        "linkedin": "https://www.linkedin.com/in/helenacf/",
-        "phrase": "\"Caso contrário, não. Exceto quando sim.\""
+        "name": "Gustavo da Silva",
+        "image": "/images/co/members/gustavo-silva.jpg",
+        "departments": [
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/gustavo-da-silva-dev",
+        "phrase": "Tudo posso naquele que me fortalece"
     },
     {
         "name": "Higor Mauricio",
-        "image": "/images/co/members/HigorMauricio.jpeg",
-        "departments": ["Sites", "Parcerias"],
+        "image": "/images/co/members/higor-mauricio.jpeg",
+        "departments": [
+            "Parcerias",
+            "Sites"
+        ],
         "linkedin": "https://www.linkedin.com/in/higormauricio/",
-        "phrase": "Certified Coder Boy"
-    },
-    {
-        "name": "Jeffrey Zhang",
-        "image": "/images/co/members/JeffreyZhang.jpg",
-        "departments": ["Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/jeffrey-zhang-655b43365",
-        "phrase": "\"O verdadeiro herói é aquele que faz o que pode.\" - Romain Rolland"
-    },
-    {
-        "name": "João Becer",
-        "image": "/images/co/members/JoaoBecer.jpeg",
-        "departments": ["Sites"],
-        "linkedin": "https://www.linkedin.com/in/joao-b-169ba6256?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        "phrase": "é o becer"
+        "phrase": "Campeão mundial de resposta mais rápida na chamada"
     },
     {
         "name": "João Kuroki",
-        "image": "/images/co/members/JoãoKuroki.jpg",
-        "departments": ["Criação e Comunicação", "Comercial e Financeiro"],
-        "linkedin": "https://www.linkedin.com/in/jo%C3%A3o-hkc/",
-        "phrase": "A minha resolução de Ano Novo é 480p"
+        "image": "/images/co/members/joao-kuroki.jpeg",
+        "departments": [
+            "Criação & Comunicação"
+        ],
+        "linkedin": "https://www.linkedin.com/in/joão-hkc",
+        "phrase": "Batendo rochas em pedras desde 1372."
     },
     {
-        "name": "Júlio Arroio",
-        "image": "/images/co/members/JulioArroio.jpg",
-        "departments": ["Sites"],
-        "linkedin": "https://br.linkedin.com/in/j%C3%BAlio-arroio-silva-77a15b2a7",
-        "phrase": "“É difícil alcançar a perfeição, mas não é difícil aproximar-se dela” - Telê Santana"
+        "name": "Juan Gomes",
+        "image": "/images/co/members/juan-gomes.jpg",
+        "departments": [
+            "Comercial & Financeiro"
+        ],
+        "linkedin": "https://www.linkedin.com/in/juan-souza",
+        "phrase": "É só usar l'Hopital várias vezes até que uma hora você chega no limite. Continue tentando que uma hora dá certo!"
     },
     {
         "name": "Kauã Nichioka",
-        "image": "/images/co/members/KauaNichioka.jpg",
-        "departments": ["Sites"],
-        "linkedin": "https://www.linkedin.com/in/kaua-nichioka/",
-        "phrase": "\"Vivo a vida todos os dias na esperança de ter sido uma pessoa um pouco mais gentil do que fui no dia anterior.\" - Shoko Makinohara"
+        "image": "/images/co/members/kaua-nichioka.jpg",
+        "departments": [
+            "Sites"
+        ],
+        "linkedin": "https://www.linkedin.com/in/kaua-nichioka",
+        "phrase": "Vivo a vida todos os dias na esperança de ter sido uma pessoa um pouco mais gentil do que fui no dia anterior. - Makinohara Shoko"
     },
     {
         "name": "Kevin Vittorazzo",
-        "image": "/images/co/members/KevinVittorazzo.jpg",
-        "departments": ["Infraestrutura"],
-        "linkedin": "",
-        "phrase": "Se acalmem que estou COSSInhando uma frase de efeito"
+        "image": "/images/co/members/kevin-vittorazzo.jpg",
+        "departments": [
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/kevin-vittorazzo-9461692a7",
+        "phrase": "Sempre em frente!"
     },
     {
-        "name": "Lion Chen",
-        "image": "/images/co/members/LionChen.jpg",
-        "departments": ["Infraestrutura", "Diretoria"],
-        "linkedin": "https://www.linkedin.com/in/lion-chen",
-        "phrase": "SSI S2"
+        "name": "Laura Silva",
+        "image": "/images/co/members/laura-silva.jpeg",
+        "departments": [
+            "Comercial & Financeiro",
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/laura-dantas-891543242",
+        "phrase": "A verdadeira SSI são os amigos que fazemos pelo caminho"
     },
     {
-        "name": "Lucas Leão",
-        "image": "/images/co/members/LucasLeao.jpeg",
-        "departments": ["Palestrantes"],
-        "linkedin": "https://br.linkedin.com/in/lucas-le%C3%A3o-73b558309",
-        "phrase": "Ta podendo trancar ou tá cedo ainda?"
+        "name": "Lucas Holanda",
+        "image": "/images/co/members/lucas-holanda.jpg",
+        "departments": [
+            "Comercial & Financeiro",
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/lucas-holanda-3b926a230?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "phrase": "A grandeza vem de pequenos começos - Sir Francis Drake"
     },
     {
-        "name": "Luiz Silva",
-        "image": "/images/co/members/LuizSilva.jpg",
-        "departments": ["Palestrantes", "Infraestrutura", "Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/luizeduardodasilva/",
-        "phrase": "\"Journey before destination.\" ~ Brandon Sanderson, The Stormlight Archive"
+        "name": "Luiz Claudio",
+        "image": "/images/co/members/luiz-claudio.jpg",
+        "departments": [
+            "Sites"
+        ],
+        "linkedin": "https://www.linkedin.com/in/luiz-claudio-320507294/",
+        "phrase": "Sem grande solidão, nenhum trabalho sério é possível"
     },
     {
-        "name": "Marcos Chagas",
-        "image": "/images/co/members/MarcosChagas.jpeg",
-        "departments": ["Comercial e Financeiro"],
-        "linkedin": "https://www.linkedin.com/in/marcos-gabriel-chagas-rodrigues-885307284/",
-        "phrase": "\"Não deixe para depois o que pode viver agora\""
+        "name": "Luiz Eduardo da Silva",
+        "image": "/images/co/members/luiz-eduardo.jpg",
+        "departments": [
+            "Palestrantes",
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/luizeduardodasilva",
+        "phrase": "Preparamos a melhor SSI... Até a do ano que vem!!"
     },
     {
-        "name": "Mariana Borges",
-        "image": "/images/co/members/MarianaBorges.jpg",
-        "departments": ["Diretoria", "Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/mariana-borges-araujo-da-silva-73a001272/",
-        "phrase": "\"Restaurante que serve farofa não tem ventilador de teto\""
+        "name": "Marcos Gabriel",
+        "image": "/images/co/members/marcos-gabriel.jpeg",
+        "departments": [
+            "Comercial & Financeiro",
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/marcos-chgs/",
+        "phrase": "Bom dia."
     },
     {
-        "name": "Pedro Botelho",
-        "image": "/images/co/members/PedroBotelho.jpg",
-        "departments": ["Comercial e Financeiro", "Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/pedro-botelho-13509220b/",
-        "phrase": "Vamos!"
+        "name": "Mariana Flauzino",
+        "image": "/images/co/members/mariana-flauzino.jpeg",
+        "departments": [
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/mariana-barreto-flauzino-68b114402?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        "phrase": "o mundo é portátil pra quem não tem nada a esconder ;)"
     },
     {
-        "name": "Pedro Altafini",
-        "image": "/images/co/members/PedroAltafini.jpg",
-        "departments": ["Comercial e Financeiro"],
-        "linkedin": "https://www.linkedin.com/in/pedropauloaltafini",
-        "phrase": "No pressure, no diamonds."
+        "name": "Mariana Heloísa",
+        "image": "/images/co/members/mariana-heloisa.jpg",
+        "departments": [
+            "Criação & Comunicação",
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/mariana-heloisa-campanha-4b29011bb",
+        "phrase": "Oh captain my captain, Carpe Diem!!"
     },
     {
-        "name": "Pedro Andrade",
-        "image": "/images/co/members/PedroAndrade.jpg",
-        "departments": ["Parcerias"],
-        "linkedin": "https://www.linkedin.com/in/pedropandrade/",
-        "phrase": "\"Scooby dooby doo\" - scooby doo"
+        "name": "Marisa Morita",
+        "image": "/images/co/members/marisa-morita.jpg",
+        "departments": [
+            "Criação & Comunicação",
+            "Sites"
+        ],
+        "linkedin": "https://www.linkedin.com/in/marisa-mayumi-morita-ouchi-b85006295",
+        "phrase": "Amaze! Amaze! Amaze! \nSSI is incredible, statement."
     },
     {
-        "name": "Rafael Lima",
-        "image": "/images/co/members/RafaelLima.jpg",
-        "departments": ["Comercial e Financeiro", "Infraestrutura"],
-        "linkedin": "https://www.linkedin.com/in/rafael-lima-3ba82a361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "phrase": "Deixe seus erros servirem como aprendizado"
+        "name": "Matheus Soares",
+        "image": "/images/co/members/matheus-soares.jpg",
+        "departments": [
+            "Criação & Comunicação",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/matheus-soaressc/",
+        "phrase": "Katchau"
+    },
+    {
+        "name": "Murilo Patelli",
+        "image": "/images/co/members/murilo-patelli.jpg",
+        "departments": [
+            "Parcerias",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/murilopatelli",
+        "phrase": "Viva à comissão organizadora da semana surpreendentemente incrível!"
+    },
+    {
+        "name": "Nicholas Kim",
+        "image": "/images/co/members/nicholas-kim.jpg",
+        "departments": [
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/nicholas-kim07/",
+        "phrase": "Without love, it cannot be seen."
+    },
+    {
+        "name": "Nicole Rodrigues",
+        "image": "/images/co/members/nicole-rodrigues.jpeg",
+        "departments": [
+            "Parcerias",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/nicole-rodrigues-b55382371/",
+        "phrase": "Deixe me ir, preciso andar. Vou por aí a procurar - Marisa Monte"
+    },
+    {
+        "name": "Nuno Ferro Costa",
+        "image": "/images/co/members/nuno-costa.jpeg",
+        "departments": [
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/nuno-ferro-costa-ab0114408/",
+        "phrase": "sim"
+    },
+    {
+        "name": "Rafael Chagas Araujo",
+        "image": "/images/co/members/rafael-chagas.jpg",
+        "departments": [
+            "Sites",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/rafael-chagas-araujo-032395345?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "phrase": "Possível é o impossível sem disfarce de teimosia"
     },
     {
         "name": "Rafael Nunes",
-        "image": "/images/co/members/RafaelNunes.jpeg",
-        "departments": ["Infraestrutura"],
-        "linkedin": "https://www.linkedin.com/in/rafael-nunes-2760a723",
-        "phrase": "Nanos gigantum humeris insidentes"
-    },
-    {
-        "name": "Rafael Araujo",
-        "image": "/images/co/members/RafaelAraujo.jpg",
-        "departments": ["Sites"],
-        "linkedin": "https://www.linkedin.com/in/rafael-chagas-araujo-032395345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        "phrase": "O impossível é só o possível disfarçado de teimosia"
+        "image": "/images/co/members/rafael-nunes.jpg",
+        "departments": [
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/rafael-nunes-2760a723/",
+        "phrase": "Loira, o HDMI não tá funcionando..."
     },
     {
         "name": "Rafaela Milantoni",
-        "image": "/images/co/members/RafaelaMilantoni.jpg",
-        "departments": ["Criação e Comunicação"],
-        "linkedin": "https://www.linkedin.com/in/rafaela-santiago-75266b367?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        "phrase": "Nem tudo é #000000 no #FFFFFF"
+        "image": "/images/co/members/rafaela-milantoni.jpg",
+        "departments": [
+            "Criação & Comunicação",
+            "Diretoria"
+        ],
+        "linkedin": "https://www.linkedin.com/in/rafamsantiago/",
+        "phrase": "golden slumbers fill your eyes, smiles awake you when you rise =)"
     },
     {
-        "name": "Renan Uema",
-        "image": "/images/co/members/RenanUema.jpg",
-        "departments": ["Palestrantes"],
-        "linkedin": "https://www.linkedin.com/in/renan-uema-75379a227",
-        "phrase": "Daqui pra frente é só pra trás... A meta é o underflow"
+        "name": "Raphael Alves",
+        "image": "/images/co/members/raphael-alves.jpg",
+        "departments": [
+            "Parcerias"
+        ],
+        "linkedin": "https://www.linkedin.com/in/raphael-augusto-alves",
+        "phrase": "A vida é muita curta pra não tentar"
     },
     {
-        "name": "Robert Gom",
-        "image": "/images/co/members/RobertGom.jpg",
-        "departments": ["Sites"],
-        "linkedin": "https://www.linkedin.com/in/robert-gom",
-        "phrase": "Preso em um while(true) chamado \"Semestre\""
+        "name": "Renan Mochizuki",
+        "image": "/images/co/members/renan-mochizuki.jpg",
+        "departments": [
+            "Sites",
+            "Infraestrutura",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/renan-mochizuki/",
+        "phrase": "Não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria - Machado de Assis"
     },
     {
-        "name": "Rodrigo Cardoso",
-        "image": "/images/co/members/RodrigoCardoso.jpg",
-        "departments": ["Palestrantes"],
-        "linkedin": "https://www.linkedin.com/in/rodrigo-g-cardoso",
-        "phrase": "42"
-    }	
-];
+        "name": "Renato da Silva Ferreira",
+        "image": "/images/co/members/renato-ferreira.jpg",
+        "departments": [
+            "Sites",
+            "Infraestrutura"
+        ],
+        "linkedin": "",
+        "phrase": "Sonhando alto a cada dia"
+    },
+    {
+        "name": "Rikelme Sousa",
+        "image": "/images/co/members/rikelme-sousa.jpg",
+        "departments": [
+            "Sites"
+        ],
+        "linkedin": "https://www.linkedin.com/in/rikelme-sousa-de-carvalho-a8a289401",
+        "phrase": "A vida é simples: comer, dormir, trabalhar e SSI💜"
+    },
+    {
+        "name": "Ryan Oliveira",
+        "image": "/images/co/members/ryan-oliveira.jpeg",
+        "departments": [
+            "Criação & Comunicação"
+        ],
+        "linkedin": "https://www.linkedin.com/in/ryan-patrick-alves-de-oliveira-3000a9225/",
+        "phrase": "Eu acho que o Brasil ainda ganha essa copa"
+    },
+    {
+        "name": "Salin Gean Estrela",
+        "image": "/images/co/members/salin-gean.jpeg",
+        "departments": [
+            "Infraestrutura",
+            "Palestrantes"
+        ],
+        "linkedin": "https://www.linkedin.com/in/salingeanestrela",
+        "phrase": "Sempre aprendendo, sempre criando."
+    },
+    {
+        "name": "Samira M. Lins",
+        "image": "/images/co/members/samira-lins.jpg",
+        "departments": [
+            "Comercial & Financeiro"
+        ],
+        "linkedin": "https://www.linkedin.com/in/samiralins",
+        "phrase": "â-mo muito a ssi!!!"
+    },
+    {
+        "name": "sol",
+        "image": "/images/co/members/sol.jpg",
+        "departments": [
+            "Criação & Comunicação"
+        ],
+        "linkedin": "https://www.linkedin.com/in/gnascimento-ian",
+        "phrase": "Battle ends and down goes charles father"
+    },
+    {
+        "name": "Theo Gentil",
+        "image": "/images/co/members/theo-gentil.jpg",
+        "departments": [
+            "Infraestrutura"
+        ],
+        "linkedin": "https://www.linkedin.com/in/pamonha_theo",
+        "phrase": "Já encontrei o Manoel Gomes 3 vezes."
+    }
+]
 export default members;

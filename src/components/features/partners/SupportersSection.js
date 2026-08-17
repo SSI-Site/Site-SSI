@@ -51,7 +51,7 @@ const SupportersSection = ({ title, subtitle, data = [], showDivider = false, sh
 
                 {/* ====== GRID DE PARCEIROS ====== */}
                 <div className='supporters-cards'>
-                    {data.map((item) => (
+                    {data.map((item, index) => (
                         <React.Fragment key={item.name}>
                             <PartnerCard
                                 name={item.name}
@@ -60,8 +60,8 @@ const SupportersSection = ({ title, subtitle, data = [], showDivider = false, sh
                                 link={item.url}
                             />
                             
-                            {/* Símbolo intercalado */}
-                            {showSymbol && (
+                            {/* O símbolo só é renderizado de forma que fique nos cantos inferiores */}
+                            {showSymbol && (index == 2 || index == 3) && (
                                 <div className="partner-symbol">
                                     <img src="/images/home/simbolo-ssi-dark.svg" alt="Símbolo SSI" className="symbol-dark" />
                                     <img src="/images/home/simbolo-ssi-light.svg" alt="Símbolo SSI" className="symbol-light" />
