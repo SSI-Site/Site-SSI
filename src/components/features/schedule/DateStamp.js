@@ -95,7 +95,7 @@ const DateWrapper = styled.div`
             -webkit-background-clip: unset;
             background-clip: unset;
             
-            -webkit-text-fill-color: var(--content-neutrals-fixed-black); 
+            -webkit-text-fill-color: var(--background-neutrals-primary); 
         }
     }
 
