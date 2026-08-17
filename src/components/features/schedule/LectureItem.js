@@ -20,6 +20,27 @@ const LectureItem = ({ event }) => {
     const startTime = event.start_time;
     const endTime = event.end_time;
 
+    // Função para verificar se o sponsor deve ser exibido ou não
+    const checkSponsorVisibility = (sponsor) => {
+        if (!sponsor) return false;
+
+        const isSAP = sponsor.name.toLowerCase() === 'sap'; 
+        
+        // Data limite: 30 de Agosto de 2026, até às 23:59:59 no horário de Brasília (-03:00)
+        const limitDate = new Date('2026-08-30T23:59:59-03:00'); 
+        const currentDate = new Date();
+
+        // Se for a SAP e o dia de hoje for maior que a data limite, oculta a logo
+        if (isSAP && currentDate > limitDate) {
+            return false;
+        }
+
+        // Para todas as outras empresas (ou se for a SAP antes do prazo), exibe normalmente
+        return true;
+    };
+
+    const showSponsor = checkSponsorVisibility(event.sponsor);
+
     return (
         <LectureWrapper>
             <LectureContent>
@@ -50,7 +71,7 @@ const LectureItem = ({ event }) => {
                             }
                         </div>
                     </div>
-                    {event.sponsor &&
+                    {showSponsor &&
                         <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
                             <Image src={getSponsorImage(event.sponsor.name)} alt={`Logo ${event.sponsor.name}`} fill/>
                         </a>
