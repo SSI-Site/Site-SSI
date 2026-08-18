@@ -27,6 +27,7 @@ const Schedule = () => {
     const defaultDayIndex = initialDayIndex !== -1 ? initialDayIndex : 0;   
     const [activeItem, setActiveItem] = useState(currentDate);
     const [dayNumber, setDayNumber] = useState(defaultDayIndex)
+    const [desktopShow, setDesktopShow] = useState(false);
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -83,6 +84,20 @@ const Schedule = () => {
     const selectedWeekDay = weekDays[dayNumber] || weekDays[0];
     const shouldRenderEtecItinerary = selectedWeekDay === 'Terça-feira' || selectedWeekDay === 'Quinta-feira';
 
+    // Observa se o filtro de dias (desktop) está visível na tela. Se não estiver, define a variável para exibir a barra de filtro fixed.
+    useEffect(() => {
+        const elemento = document.querySelector(".desktop-selection");
+        if (!elemento) return;
+
+        const observer = new IntersectionObserver(([entry]) => {
+            setDesktopShow(!entry.isIntersecting);
+        },{ threshold: 0 });
+
+        observer.observe(elemento);
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
             <Meta title = 'Programação | Semana de Sistemas de Informação' 
@@ -94,7 +109,7 @@ const Schedule = () => {
                 <h1>Programação</h1>
 
                 {/* Filtro Desktop */}
-                <DesktopSelectionContainer>
+                <DesktopSelectionContainer className='desktop-selection'>
                     <div className='schedule-container'>
                         {dayFull.map((date, index) => (
                             <Link
@@ -117,7 +132,7 @@ const Schedule = () => {
                 </DesktopSelectionContainer>
                 {/* Barra de filtro Mobile */}
                 <StickyBackground/>
-				<MobileBarFilterContainer>
+				<MobileBarFilterContainer $desktopShow={desktopShow}>
 					<div className='filter-container'>
 						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -184,10 +199,6 @@ const StickyBackground = styled.div`
     background-color: var(--background-neutrals-primary);
     height: 1.175rem;
     width: calc(100% + 10px);
-
-    @media (min-width:801px) {
-        display: none;
-    }
 `
 
 const MobileBarFilterContainer = styled.div`
@@ -222,8 +233,19 @@ const MobileBarFilterContainer = styled.div`
         }
     }
 
-	@media(min-width:801px) {
-		display: none;
+	@media (min-width:801px) {
+        visibility: ${props => props.$desktopShow ? 'visible' : 'hidden'};
+        top: ${props => props.$desktopShow ? '0.5rem' : '-7rem'};
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        margin: auto;
+        transition: top 0.2s ease, visibility 0.3s 0s;
+
+        .filter-container {
+            height: 5.4rem;
+        }
 	}
 `
 
