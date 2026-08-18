@@ -190,20 +190,21 @@ const ScheduleSection = styled.section`
     }
 `
 
-// Cria um espaço que esconde o fundo da MobileBarFilterContainer (excluindo a navbar)
+// Cria um espaço que esconde o fundo da MobileBarFilterContainer (menos a navbar do site)
 const StickyBackground = styled.div`
     position: sticky;
-    top: 0;
+    top: -1px;
     z-index: 10;
     color: var(--content-neutrals-primary);
     background-color: var(--background-neutrals-primary);
-    height: 1rem;
+    height: 1.175rem;
+    width: calc(100% + 10px);
 `
 
 const MobileBarFilterContainer = styled.div`
 	position: sticky;
 	top: 0.5rem;
-	z-index: 15;
+	z-index: 13;
     color: var(--content-neutrals-primary);
 
 	.filter-container {

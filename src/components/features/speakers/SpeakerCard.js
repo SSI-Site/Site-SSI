@@ -235,7 +235,7 @@ const SpeakerInfo = styled.div`
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        z-index: 10;
+        z-index: 15;
 
         // Cor gradiente do nome e cargo
         h5, .speaker-role {
@@ -253,11 +253,11 @@ const SpeakerInfo = styled.div`
         }
 
         h5 {
-            font: 700 1rem/1.5rem 'AT Aero Bold';
+            font: 700 1rem/1.25rem 'AT Aero Bold';
         }
 
         p {
-            font: 400 0.75rem/1.125rem 'AT Aero';
+            font: 400 0.75rem/1.25rem 'AT Aero';
         }
 
         .speaker-role {
@@ -407,7 +407,7 @@ const SpeakerDesc = styled.div`
         &:before {
             content: "";
             width: 100%;
-            height: 2px;
+            min-height: 1px;
             // Branco para roxo
             background: linear-gradient(90deg, var(--border-gradient-primary-dark));
             display: block;
