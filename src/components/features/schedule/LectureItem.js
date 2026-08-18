@@ -41,6 +41,8 @@ const LectureItem = ({ event }) => {
 
     const showSponsor = checkSponsorVisibility(event.sponsor);
 
+    console.log(event);
+
     return (
         <LectureWrapper>
             <LectureContent>
@@ -60,13 +62,11 @@ const LectureItem = ({ event }) => {
                         <div className='badge-wrapper'>
                             <BadgeLecture
                                 text={event.activity_type === 'WS' ? "Workshop" : "Palestra"}
-                                themeIndex={event.activity_type === 'WS' ? 4 : 5}
                             />
 
                             {exibirBadgePresencial &&
                                 <BadgeLecture
                                     text={event.mode === 'ON' ? 'Online' : 'Presencial'}
-                                    themeIndex={event.mode === 'ON' ? 9 : 1}
                                 />
                             }
                         </div>

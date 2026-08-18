@@ -1,51 +1,42 @@
 import styled from "styled-components";
 
-const colorSchemes = [
-    {
-        'badgeColor' : 'var(--background-neutrals-inverse)',
-        'textColor'  : 'var(--content-neutrals-inverse)'
+// Mapeamento direto pelos textos que a aplicação envia
+const badgeThemeMap = {
+    'Workshop': {
+        badgeColor: 'var(--brand-purple-400)',
+        textColor: 'var(--content-neutrals-fixed-white)'
     },
-    {
-        'badgeColor' : 'var(--background-neutrals-primary)',
-        'textColor'  : 'var(--content-neutrals-primary)'
+    'Palestra': {
+        badgeColor: 'var(--brand-purple-fixed-500)',
+        textColor: 'var(--content-neutrals-fixed-white)'
     },
-    {
-        'badgeColor' : 'var(--brand-purple-200)',
-        'textColor'  : 'var(--content-neutrals-inverse)'
+    'Presencial': {
+        badgeColor: 'var(--background-neutrals-primary)',
+        textColor: 'var(--content-neutrals-primary)'
     },
-    {
-        'badgeColor' : 'var(--brand-purple-300)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
-    },
-    {
-        'badgeColor' : 'var(--brand-purple-400)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
-    },
-    {
-        'badgeColor' : 'var(--brand-purple-500)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
-    },
-    {
-        'badgeColor' : 'var(--brand-purple-600)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
-    },
-    {
-        'badgeColor' : 'var(--brand-purple-700)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
-    },    
-    {
-        'badgeColor' : 'var(--brand-purple-800)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
-    },    
-    {
-        'badgeColor' : 'var(--brand-purple-900)',
-        'textColor'  : 'var(--content-neutrals-fixed-white)'
-    },
-]
+    'Online': {
+        badgeColor: 'var(--brand-purple-900)',
+        textColor: 'var(--content-neutrals-fixed-white)'
+    }
+};
 
-const BadgeLecture = ({ text, themeIndex}) => {
+const defaultTheme = {
+    badgeColor: 'var(--background-neutrals-inverse)',
+    textColor: 'var(--content-neutrals-inverse)'
+};
+
+/**
+ * Componente de etiqueta (Badge) para as palestras.
+ * 
+ * @param {Object} props
+ * @param {string} props.text 
+ */
+const BadgeLecture = ({ text }) => {
+    // Busca o tema baseado no texto ou usa o default
+    const theme = badgeThemeMap[text] || defaultTheme;
+
     return (
-        <BadgeWrapper $themeIndex = {themeIndex}>
+        <BadgeWrapper $badgeColor={theme.badgeColor} $textColor={theme.textColor}>
             <p>{text}</p>
         </BadgeWrapper>
     )
@@ -53,25 +44,22 @@ const BadgeLecture = ({ text, themeIndex}) => {
 
 export default BadgeLecture;
 
-
 const BadgeWrapper = styled.div`
     width: fit-content;
-    padding: 0rem 0.25rem;
-    background-color: ${props => colorSchemes[props.$themeIndex].badgeColor};
+    padding: 0.125rem 0.25rem;
+    background-color: ${props => props.$badgeColor};
     display: inline-block;
     border-radius: 0.375rem;
 
     p {
         font-size: 0.75rem;
         font-weight: 400;
-        color: ${props => colorSchemes[props.$themeIndex].textColor};
+        color: ${props => props.$textColor};
     }
 
     @media (min-width: 800px) {
-        padding: 0.125rem 0.325rem;
-
         p {
             font-size: 0.875rem;
         }
     }
-`
+`;

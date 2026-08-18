@@ -27,6 +27,8 @@ export default createGlobalStyle`
             --brand-purple-800: light-dark( #A85FFF, #6206BF);
             --brand-purple-900: light-dark( #BB86FF, #510698);
 
+            --brand-purple-fixed-500: #9638FF; // criado para usar no BadgeLecture
+
         //  BRAND
             --brand-primary-light: light-dark( #BB86FF, #D0ACFF);
             --brand-primary: light-dark(  #6206BF, #9638FF);
