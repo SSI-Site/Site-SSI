@@ -46,7 +46,7 @@ const DateWrapper = styled.div`
     */
     background-image: ${props => props.$isActive
         ? 'linear-gradient(90deg, var(--content-neutrals-primary) 0%, var(--content-neutrals-primary) 50%, var(--brand-primary) 50%, light-dark(var(--brand-purple-300), var(--brand-purple-900)) 100%)'
-        : 'linear-gradient(90deg, var(--content-neutrals-primary) 0%, var(--content-neutrals-primary) 50%, var(--background-neutrals-secondary) 50%, var(--background-neutrals-secondary) 100%)'
+        : 'linear-gradient(90deg, var(--content-neutrals-primary) 0%, var(--content-neutrals-primary) 50%, var(--background-neutrals-primary) 50%, var(--background-neutrals-primary) 100%)'
     };
     
     background-size: 200% 100%;
