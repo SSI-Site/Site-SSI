@@ -73,7 +73,12 @@ const LectureItem = ({ event }) => {
                     </div>
                     {showSponsor &&
                         <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
-                            <Image src={getSponsorImage(event.sponsor.name)} alt={`Logo ${event.sponsor.name}`} fill/>
+                            <Image 
+                                src={getSponsorImage(event.sponsor.name)} 
+                                alt={`Logo ${event.sponsor.name}`} 
+                                fill 
+                                sizes="(max-width: 800px) 75px, 140px"
+                            />
                         </a>
                     }
                 </LectureHeader>

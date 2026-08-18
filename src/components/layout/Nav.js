@@ -123,6 +123,7 @@ const Nav = () => {
                                 width={180}
                                 height={48}
                                 alt='Semana de Sistemas de Informação 2026'
+                                priority
                             />
                         </picture>
                     </Link>
