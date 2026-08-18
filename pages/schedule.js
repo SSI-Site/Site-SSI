@@ -233,12 +233,14 @@ const MobileBarFilterContainer = styled.div`
     }
 
 	@media (min-width:801px) {
-		display: ${props => props.$desktopShow ? 'block' : 'none'};
+        visibility: ${props => props.$desktopShow ? 'visible' : 'hidden'};
+        top: ${props => props.$desktopShow ? '0.5rem' : '-7rem'};
         position: fixed;
         left: 1rem;
         right: 1rem;
         width: auto;
         margin: auto;
+        transition: top 0.2s ease, visibility 0.3s 0s;
 
         .filter-container {
             height: 5.4rem;
