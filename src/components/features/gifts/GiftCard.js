@@ -14,7 +14,7 @@ const GiftCard = ({ name, image, minPresence }) => {
     };
 
     return (
-        <GiftContainer tabIndex={0}>
+        <GiftContainer tabIndex={0} className={isFlipped ? 'is-flipped' : ''}>
             <div className='gift-card-front'>
                 <h6>{name}</h6>
                 <figure>
@@ -68,6 +68,19 @@ const GiftContainer = styled.div`
 
     border-radius: 2rem;
     border: 1px solid var(--brand-purple-200);
+    
+    &.is-flipped {
+        @media (max-width: 1020px) {
+            .gift-card-front {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .gift-card-back {
+                background-color: transparent;
+            }
+        }
+    }
 
     .gift-card-front {
         width: 100%;
@@ -80,6 +93,8 @@ const GiftContainer = styled.div`
         left: 0;
         right: 0;
         background-color: var(--background-neutrals-secondary);
+        
+        transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
 
         h6 {
             font-size: 1.125rem;
@@ -106,34 +121,51 @@ const GiftContainer = styled.div`
         transition: 0.15s;
         translate: 0 101%;
         position: relative;
-        padding: 1.5rem;
+        padding: 0 2rem;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.67rem;
         align-items: center;
         justify-content: center;
         
         background-color: var(--background-neutrals-primary);
-        background-image: 
-            url('/images/about/bg-mobile-purple.svg'),
-            linear-gradient(180deg, var(--background-neutrals-fixed-black, rgba(0, 0, 0, 0.15)) 30.29%, var(--purple-purple, rgba(150, 56, 255, 0.15)) 100%);
+        background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.15) 30.29%, rgba(150, 56, 255, 0.15) 100%);
         background-position: center, center;
         background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
 
+        @media (min-width: 1021px) {
+            background-image: 
+                url('/images/about/bg-mobile-purple-dark.svg'),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.15) 30.29%, rgba(150, 56, 255, 0.15) 100%);
+        }
+        
+        
         @media (prefers-color-scheme: light) {
             background-image: 
-                url('/images/about/bg-mobile-white.svg'),
-                linear-gradient(180deg, var(--background-neutrals-primary, rgba(230, 230, 230, 0.15)) 30%, var(--purple-purple, rgba(98, 6, 191, 0.15)) 100%);
+                linear-gradient(180deg, rgba(230, 230, 230, 0.15) 30%, rgba(98, 6, 191, 0.15) 100%);
+
+            @media (min-width: 1021px) {
+                background-image: 
+                    url('/images/about/bg-card-desktop-light.svg'),
+                    linear-gradient(180deg, rgba(230, 230, 230, 0.15) 30%, rgba(98, 6, 191, 0.15) 100%);
+            }
         }
 
         .card-back-wrapper{
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .highlight{
-            background: linear-gradient(148deg, var(--brand-primary) -0.55%, var(--backup-primary-800, #6618BB) 99.45%);
+            background: linear-gradient(148deg, var(--brand-primary) 0.55%, var(--backup-primary-800) 100.55%);
+            
+            @media (prefers-color-scheme: light) {
+                background: linear-gradient(148deg, var(--brand-purple-700) 0.55%, var(--backup-primary-900) 100.55%);
+            }
+
             padding: 0.125rem 0.75rem;
             margin: auto;
             border-radius: 0.25rem;
@@ -151,9 +183,11 @@ const GiftContainer = styled.div`
 
         .card-back-text {
             text-align: center;
+            align-self: stretch;
             color: var(--content-neutrals-primary);
             font-size: 1rem;
-
+            font-weight: 700;
+            
             span {
                 font-size: 2rem;
                 color: var(--content-neutrals-primary);
@@ -170,7 +204,7 @@ const GiftContainer = styled.div`
         height: 3rem;
         background: linear-gradient(
             to bottom,
-            var(--background-neutrals-inverse) 50%,
+            var(--content-neutrals-fixed-white) 50%,
             var(--brand-primary) 50%
         );
         background-size: 100% 200%;
@@ -185,7 +219,7 @@ const GiftContainer = styled.div`
         svg {
             transition: 0.15s;
             path {
-                fill: var(--content-neutrals-inverse);
+                fill: var(--content-neutrals-fixed-black);
             }
         }
     }

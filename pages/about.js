@@ -85,7 +85,7 @@ const About = () => {
                         <BaitContent>
                             <div className='bait-header'>
                                 <h5>Workshops</h5>
-                                <p>Durante a Semana de Sistemas de Informação, alunos e profissionais oferecerão workshops interativos!</p>
+                                <p>Durante a Semana de Sistemas de Informação, alunos e profissionais oferecerão <strong>workshops interativos</strong>!</p>
                             </div>
                             <div className='bait-itens in-columns'>
                                 <Accordion title="Atividades">
@@ -100,7 +100,7 @@ const About = () => {
                     <BaitContent>
                         <div className='bait-header'>
                             <h5>Networking</h5>
-                            <p>Não deixe de se conectar com os palestrantes e participantes, trocar ideias e aumentar a sua rede de contatos.</p>
+                            <p>Não deixe de se conectar com os palestrantes e participantes, trocar ideias e <strong>aumentar a sua rede de contatos</strong>.</p>
                         </div>
 
                         <div className='bait-itens'>
@@ -109,29 +109,9 @@ const About = () => {
                                     Tenha contato com uma rede de pessoas interessadas em diversas áreas, não só estudantes de Sistemas de Informação da EACH, mas de diversos outros cursos e unidades da USP.
                                 </p>
                             </Accordion>
-                            <Accordion title="Palestrantes Experientes">
+                            <Accordion title="Palestrantes Experientes" invertGradient>
                                 <p>
                                     Conecte-se com os palestrantes que possuem expertise em diversas áreas. Lembre-se de acioná-los no LinkedIn e anote os contatos de cada um para esclarecer eventuais dúvidas.
-                                </p>
-                            </Accordion>
-                        </div>
-                    </BaitContent>
-
-                    <BaitContent>
-                        <div className='bait-header'>
-                            <h5>Prêmios e Brindes</h5>
-                            <p>Não perca a oportunidade de ganhar prêmios e brindes incríveis ao participar das nossas atividades e palestras!</p>
-                        </div>
-
-                        <div className='bait-itens'>
-                            <Accordion title="Sorteios">
-                                <p>
-                                    Participe das palestras e tenha a chance de ganhar gift cards de diversas lojas e brindes de diversas empresas.
-                                </p>
-                            </Accordion>
-                            <Accordion title="Brindes por Presença">
-                                <p>
-                                    Assista as palestras e participe nos workshops para ganhar diversos prêmios exclusivos da SSI.
                                 </p>
                             </Accordion>
                         </div>
@@ -140,19 +120,39 @@ const About = () => {
             </Background>
 
             <GiftsSection>
-                <div className='gifts-container'>
-                    <div className='gifts-cards'>
-                        {Object.entries(gifts).map(([key, gift]) => {
-                                return (
-                                    <GiftCard key={key} index={key} name={gift.name} image={gift.image} minPresence={gift.minPresence} />
-                                )
-                        })}
+                <BaitContent>
+                    <div className='bait-header'>
+                        <h5>Prêmios e Brindes</h5>
+                        <p>Não perca a oportunidade de ganhar <strong>prêmios e brindes</strong> incríveis ao participar das nossas atividades e palestras!</p>
                     </div>
 
-                    {!disableAuth && user &&
-                        <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
-                    }
-                </div>
+                    <div className='gits-bait-bg'>
+                        <div className='bait-itens gifts-bg'>
+                            <Accordion title="Sorteios">
+                                <p>
+                                    Participe das palestras e tenha a chance de ganhar gift cards de diversas lojas e brindes de diversas empresas.
+                                </p>
+                            </Accordion>
+                            <Accordion title="Brindes por Presença" invertGradient>
+                                <p>
+                                    Assista as palestras e participe nos workshops para ganhar diversos prêmios exclusivos da SSI.
+                                </p>
+                            </Accordion>
+                        </div>
+                        <div className='gifts-container'>
+                            <div className='gifts-cards'>
+                                {Object.entries(gifts).map(([key, gift]) => {
+                                    return (
+                                        <GiftCard key={key} index={key} name={gift.name} image={gift.image} minPresence={gift.minPresence} />
+                                    )
+                                })}
+                            </div>
+                            {!disableAuth && user &&
+                                <Button onClick={() => router.push('/user#meus-brindes')}>Resgatar brindes</Button>
+                            }
+                        </div>
+                    </div>
+                </BaitContent>
             </GiftsSection>
         </>
     )
@@ -162,10 +162,14 @@ export default About;
 
 const Background = styled.div`
     @media (min-width: 800px) {
-        background-image: url('/images/about/bg-desktop.svg');
+        background-image: url('/images/about/bg-desktop-dark.svg');
         background-repeat: no-repeat;
         background-position: top center; 
         background-size: 1250px;
+
+        @media (prefers-color-scheme: light) {
+            background-image: url('/images/about/bg-desktop-light.svg');
+        }
     }
 `
 
@@ -174,7 +178,7 @@ const LogoTextSection = styled.section`
         display: grid;
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        padding: 2rem 0rem;
+        padding: 2.5rem 0rem;
         max-width: 68.5rem;
     }
 
@@ -237,7 +241,7 @@ const LogoTextSection = styled.section`
         .text {
             justify-content: center;
             align-items: flex-start;
-            padding: 4.5rem 1.5rem;
+            padding: 6rem 1.5rem;
 
             h1 { 
                 font-size: 3.5rem;
@@ -251,7 +255,6 @@ const LogoTextSection = styled.section`
 
 const BaitSection = styled.section`
     width: 100%;
-    padding-inline: 0;
 
     .bait-in-columns {
         max-width: 68.5rem;
@@ -274,6 +277,21 @@ const BaitContent = styled.div`
     gap: 1.5rem;
 
     padding: 1rem;
+
+    position: relative; 
+    z-index: 1; 
+
+    // Logica para colocar uma borda superior no mobile
+    @media (max-width: 800px) {
+        padding: 1rem 0 2rem 0;
+
+        border-top: 2px solid transparent;
+        border-image: linear-gradient(90deg, #D0ADFF, #FFFFFF) 1;
+
+        @media (prefers-color-scheme: light) {
+            border-image: linear-gradient(90deg, #6206bf, #2b054d) 1;
+        }
+    }
     
     p {
         font-weight: 400;
@@ -285,12 +303,18 @@ const BaitContent = styled.div`
         flex-direction: column;
         gap: 0.75rem;
 
+        background-color: var(--background-neutrals-primary);
+
         h5 {
             width: fit-content;
             padding: 0.3125rem 0.625rem;
             border-radius: 0.625rem;
             color: var(--content-neutrals-fixed-white);
-            background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
+            background: linear-gradient(90deg, var(--brand-primary) 0%, var(--backup-primary-800) 70%);
+
+            @media (prefers-color-scheme: light) {
+                background: linear-gradient(90deg, var(--brand-primary) 0%, var(--backup-primary-800) 54.33%, var(--brand-primary-dark) 100%);
+            }
         }
 
         p {
@@ -307,18 +331,78 @@ const BaitContent = styled.div`
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
+                
+        position: relative; 
+        z-index: 1; 
 
         @media (max-width: 801px) {
-            background-image: url('/images/about/bg-mobile-white.svg');
-            background-repeat: no-repeat;
-            background-position: top center; 
+            &::before {
+                content: '';
+                position: absolute;
+
+                top: -0.5rem; 
+                bottom: -0.5rem;
+                left: -0.5rem;
+                right: -0.5rem;
+                
+                background-image: url('/images/about/bg-mobile-white.svg');
+                background-repeat: no-repeat;
+                background-position: top center;
+                opacity: 0.6;
+                
+                background-size: cover; 
+                z-index: -1; 
+            }
+
+            &.gifts-bg {
+                &::before {
+                    background-image: unset; 
+                }
+            }
+        }
+    }
+
+    .gits-bait-bg {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        @media (max-width: 801px) {
+            position: relative; 
+            z-index: 1;
+
+            &::before {
+                content: '';
+                position: absolute;
+
+                top: -0.5rem; 
+                bottom: 10rem;
+                left: -1rem;
+                right: -1rem; 
+                
+                background-image: url('/images/about/bg-mobile-purple-dark.svg');
+                opacity: 0.5;
+
+                @media (prefers-color-scheme: light) {
+                    background-image: url('/images/about/bg-mobile-purple-light.svg');
+                }
+                
+                background-repeat: repeat;
+                background-position: top center;
+                
+                z-index: -1; 
+            }
         }
     }
 
     @media (min-width: 801px) {
+        padding: 3rem 1rem;
+        
         .bait-header {
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
 
             h5 {
                 padding: 0.1875rem 1rem;
@@ -346,7 +430,6 @@ const BaitContent = styled.div`
             gap: 2rem;
         }
     }
-
 `
 
 const GiftsSection = styled.section`
@@ -356,7 +439,7 @@ const GiftsSection = styled.section`
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
-        padding: 1.5rem 0rem;
+        /* padding: 1.5rem 0rem; */
 
         .gifts-cards {
             display: grid;
@@ -371,7 +454,6 @@ const GiftsSection = styled.section`
 
     @media (min-width:1000px) {
         .gifts-container {
-            padding: 4.5rem 1.5rem;
             gap: 1rem;
 
             .gifts-cards {

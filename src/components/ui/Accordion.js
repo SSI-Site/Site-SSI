@@ -1,7 +1,7 @@
 import React, { useState, useRef, useId, useEffect } from 'react';
 import styled from 'styled-components';
 
-const Accordion = ({ title, children }) => {
+const Accordion = ({ title, children, invertGradient = false }) => {
     const [open, setOpen] = useState(false);
     const [isDesktop, setIsDesktop] = useState(false); // Inicia como false para evitar erro no servidor (SSR)
     const contentRef = useRef(null);
@@ -37,7 +37,7 @@ const Accordion = ({ title, children }) => {
     };
 
     return (
-        <AccordionItem $isDesktop={isDesktop} $isOpen={open}>
+        <AccordionItem $isDesktop={isDesktop} $isOpen={open} $invertGradient={invertGradient}>
             <div 
                 id={buttonId} 
                 role={isDesktop ? "presentation" : "button"} 
@@ -54,7 +54,7 @@ const Accordion = ({ title, children }) => {
                     <span className="accordion-icon">
                         {/* Apenas 1 SVG. A rotação é controlada via CSS usando a classe isOpen no componente pai */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none">
-                            <path d="M13.8188 0L8 5.81875L2.18125 0L0 2.18125L8 10.1813L16 2.18125L13.8188 0Z" fill="white" />
+                            <path d="M13.8188 0L8 5.81875L2.18125 0L0 2.18125L8 10.1813L16 2.18125L13.8188 0Z" fill="currentColor" />
                         </svg>
                     </span>
                 )}
@@ -86,7 +86,13 @@ const AccordionItem = styled.div`
         /* Fundo do card (camada de cima) */
         linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box,
         /* Gradiente da borda (camada de baixo) */
-        linear-gradient(270deg, #9638FF, #D0ADFF, #FFFFFF) border-box;
+        linear-gradient(90deg, #D0ADFF, #FFFFFF) border-box;
+
+    @media (prefers-color-scheme: light) {
+        background: 
+            linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box,
+            linear-gradient(90deg, #6206bf, #2b054d) border-box;
+    }
 
     .accordion-header {
         display: flex;
@@ -123,6 +129,19 @@ const AccordionItem = styled.div`
 
     @media screen and (min-width: 800px) {
         padding: 1rem 1.25rem;
+
+        border: 2px solid transparent;
+        background: 
+            /* Fundo do card (camada de cima) */
+            linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box,
+            /* Gradiente da borda (camada de baixo) */
+            linear-gradient(${({ $invertGradient }) => $invertGradient ? '-45deg' : '135deg'}, #fdeeff 0%, #d0acff 60%, #9638ff 95%) border-box;
+        
+        @media (prefers-color-scheme: light) {
+            background: 
+                linear-gradient(var(--background-neutrals-primary), var(--background-neutrals-primary)) padding-box,
+                 linear-gradient(${({ $invertGradient }) => $invertGradient ? '-45deg' : '135deg'}, #6206BF 0%, #6618BB 40%, #2B054D 100%) border-box;
+        }
 
         .accordion-header {
             padding: 0rem 0rem 0.62rem 0rem;
