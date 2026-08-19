@@ -6,7 +6,7 @@ import Image from "next/image";
 import speakersImages from "../../../../data/speakers";
 import ArrowUpIcon from "../../../../public/images/icons/arrow-up.svg";
 import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaOutlinedLogos";
-import BackgroundPicture from "../../../../public/images/partnerships/photos/bg_desktop.png";
+import BackgroundPicture from "../../../../public/images/partnerships/photos/bg_desktop.jpg";
 
 import BadgeLecture from "../schedule/BadgeLecture";
 import formatActivityDateTime from "../../../../utils/formatActivityDateTime";

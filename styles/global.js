@@ -27,6 +27,8 @@ export default createGlobalStyle`
             --brand-purple-800: light-dark( #A85FFF, #6206BF);
             --brand-purple-900: light-dark( #BB86FF, #510698);
 
+            --brand-purple-fixed-500: #9638FF; // criado para usar no BadgeLecture e no GiftCard
+
         //  BRAND
             --brand-primary-light: light-dark( #BB86FF, #D0ACFF);
             --brand-primary: light-dark(  #6206BF, #9638FF);
@@ -60,6 +62,8 @@ export default createGlobalStyle`
             --gradient-end:   light-dark(#000000, #BB86FF);
 
             --backup-primary-300: light-dark( #7E25E1, #D98DFF);
+            --backup-primary-800: #6618BB;
+            --backup-primary-900: #390078;
 
         //OUTLINE   NEUTRALS
             --outline-neutrals-primary: light-dark( #808080, #808080);

@@ -28,7 +28,7 @@ export const partnerships = [
     imageLight: "/images/partners/btCompany.png",
     url: "https://www.btcompany.com.br/",
   }
-];
+].sort((a, b) => (a.name > b.name ? 1 : -1));;
 
 // Aparecem na Home e no carrossel de parceiros
 export const supporters = [
@@ -74,6 +74,13 @@ export const supporters = [
     imageLight: "/images/partners/sintese-light.svg",
     url: "https://www.sintesejr.com.br/",
   },
+  {
+    id: "itau",
+    name: "Itaú",
+    imageDark: "/images/partners/itau.svg",
+    imageLight: "/images/partners/itau.svg",
+    url: "https://www.itau.com.br/",
+  },
 ].sort((a, b) => (a.name > b.name ? 1 : -1));
 
 // Aparecem apenas nas palestras
@@ -113,13 +120,6 @@ export const otherSponsors = [
     imageLight: "/images/partners/eits.png",
     url: "https://intheshell.each.usp.br/",
   },
-//   {
-//     id: "itau",
-//     name: "Itaú",
-//     imageDark: "/images/partners/",
-//     imageLight: "/images/partners/",
-//     url: "https://www.itau.com.br/",
-//   },
 ];
 
 // Junta todos os parceiros e apoiadores em um único array para o carrosel da pagina Partnerships

@@ -6,7 +6,7 @@ import DividerBolinhasDark from '../../../../public/images/co/divider-bolinhas-d
 import DividerBolinhasLight from '../../../../public/images/co/divider-bolinhas-light.svg';
 
 // components
-import BadgeCO from '../../ui/BadgeCO';
+import BadgeCO from './BadgeCO';
 import { borderGradient } from '../../../../styles/global';
 
 /**

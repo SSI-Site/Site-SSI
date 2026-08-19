@@ -7,11 +7,11 @@ import Image from 'next/image';
 import CountUp from 'react-countup';
 
 // images
-import bgMobile from '../public/images/partnerships/photos/bg_mobile.png';
-import bgDesktop from '../public/images/partnerships/photos/bg_desktop.png';
-import imgMotivation from '../public/images/partnerships/photos/motivation.png';
-import imgPhotosExperience from '../public/images/partnerships/photos/experience.png';
-import imgGroupExperience from '../public/images/partnerships/photos/experience2.png';
+import bgMobile from '../public/images/partnerships/photos/bg_mobile.jpg';
+import bgDesktop from '../public/images/partnerships/photos/bg_desktop.jpg';
+import imgMotivation from '../public/images/partnerships/photos/motivation.jpg';
+import imgPhotosExperience from '../public/images/partnerships/photos/experience.jpg';
+import imgGroupExperience from '../public/images/partnerships/photos/experience2.jpg';
 
 // dark mode: icons
 import logoInstagram from '../public/images/partnerships/icons/logo_instagram_dark.svg';
