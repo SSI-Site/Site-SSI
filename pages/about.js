@@ -56,6 +56,8 @@ const About = () => {
                                     width={500}
                                     height={500}
                                     className='image'
+                                    priority
+                                    fetchPriority="high"
                                 />
                             </picture>
                         </div>

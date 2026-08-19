@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 // --- Assets ---
@@ -21,22 +22,25 @@ const GiftCard = ({ name, image, minPresence }) => {
             {/* --- FRENTE DO CARD --- */}
             <div className='gift-card-front'>
                 <h6>{name}</h6>
-                <figure>
-                    <img 
-                        className="gift-img" 
+                <div className="image-wrapper">
+                    <Image 
                         src={image} 
                         alt={`Imagem ilustrativa do brinde ${name}`} 
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 200px"
+                        className="gift-img"
                     />
-                </figure>
+                </div>
             </div>
 
             {/* --- VERSO DO CARD --- */}
             <div className='gift-card-back'>
-                <img 
+                <Image 
                     className="icon-image" 
-                    src={giftBox?.src || giftBox} 
+                    src={giftBox} 
                     alt="Ícone de Caixa de Presente" 
+                    width={60} 
+                    height={60}
                 />
 
                 <div className="card-back-wrapper">
@@ -106,7 +110,9 @@ const GiftContainer = styled.div`
             padding: 0 1rem;
         }
 
-        figure {
+        .image-wrapper {
+            position: relative;
+            width: 100%;
             height: 16rem;
             display: flex;
             align-items: center;
@@ -114,10 +120,6 @@ const GiftContainer = styled.div`
         }
 
         .gift-img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
             object-fit: contain;
         }
     }
