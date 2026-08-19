@@ -40,9 +40,9 @@ const SCHEDULE_THURSDAY = [
     },
     {
         id: 5,
-        title: "Oportunidades da USP + Dicas para o Vestibular",
+        title: "Ingresso na USP e Dicas para o Vestibular",
         time: "13:50 - 14:30h",
-        desc: "Abordaremos as oportunidades que só a USP proporciona, e também dicas para arrasar no vestibular.",
+        desc: "Abordaremos os meios de ingresso na USP, e também dicas para arrasar nos vestibulares.",
         type: "lecture"
     },
     {
@@ -92,9 +92,9 @@ const SCHEDULE_TUESDAY = [
     },
     {
         id: 6,
-        title: "Oportunidades da USP e Dicas pro Vestibular",
+        title: "Ingresso na USP e Dicas para o Vestibular",
         time: "15:40 - 16:20h",
-        desc: "Abordaremos as oportunidades que só a USP proporciona, e também dicas para arrasar no vestibular.",
+        desc: "Abordaremos os meios de ingresso na USP, e também dicas para arrasar nos vestibulares.",
         type: "lecture"
     },
     {

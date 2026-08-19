@@ -27,6 +27,7 @@ const Schedule = () => {
     const defaultDayIndex = initialDayIndex !== -1 ? initialDayIndex : 0;   
     const [activeItem, setActiveItem] = useState(currentDate);
     const [dayNumber, setDayNumber] = useState(defaultDayIndex)
+    const [desktopShow, setDesktopShow] = useState(false);
     
     const [talks, setTalks] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -83,6 +84,20 @@ const Schedule = () => {
     const selectedWeekDay = weekDays[dayNumber] || weekDays[0];
     const shouldRenderEtecItinerary = selectedWeekDay === 'Terça-feira' || selectedWeekDay === 'Quinta-feira';
 
+    // Observa se o filtro de dias (desktop) está visível na tela. Se não estiver, define a variável para exibir a barra de filtro fixed.
+    useEffect(() => {
+        const elemento = document.querySelector(".desktop-selection");
+        if (!elemento) return;
+
+        const observer = new IntersectionObserver(([entry]) => {
+            setDesktopShow(!entry.isIntersecting);
+        },{ threshold: 0 });
+
+        observer.observe(elemento);
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
             <Meta title = 'Programação | Semana de Sistemas de Informação' 
@@ -94,7 +109,7 @@ const Schedule = () => {
                 <h1>Programação</h1>
 
                 {/* Filtro Desktop */}
-                <DesktopSelectionContainer>
+                <DesktopSelectionContainer className='desktop-selection'>
                     <div className='schedule-container'>
                         {dayFull.map((date, index) => (
                             <Link
@@ -117,9 +132,9 @@ const Schedule = () => {
                 </DesktopSelectionContainer>
                 {/* Barra de filtro Mobile */}
                 <StickyBackground/>
-				<MobileBarFilterContainer>
+				<MobileBarFilterContainer $desktopShow={desktopShow}>
 					<div className='filter-container'>
-						<ButtonFilter disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
+						<ButtonFilter aria-label='Dia anterior' disabled={dayNumber == 0} className='left' onClick={() => moveDayNumber(-1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
@@ -128,7 +143,7 @@ const Schedule = () => {
 							<p>{dayOfSSI[dayNumber] || dayOfSSI[0]}</p>
 							<p>{weekDays[dayNumber] || weekDays[0]}</p>
 						</div>
-						<ButtonFilter disabled={dayNumber == dayFull.length - 1} className='right' onClick={() => moveDayNumber(1)}>
+						<ButtonFilter aria-label='Próximo dia' disabled={dayNumber == dayFull.length - 1} className='right' onClick={() => moveDayNumber(1)}>
 							<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
 							</svg>
@@ -175,24 +190,21 @@ const ScheduleSection = styled.section`
     }
 `
 
-// Cria um espaço que esconde o fundo da MobileBarFilterContainer (excluindo a navbar)
+// Cria um espaço que esconde o fundo da MobileBarFilterContainer (menos a navbar do site)
 const StickyBackground = styled.div`
     position: sticky;
-    top: 0;
+    top: -1px;
     z-index: 10;
     color: var(--content-neutrals-primary);
     background-color: var(--background-neutrals-primary);
-    height: 1rem;
-
-    @media (min-width:801px) {
-        display: none;
-    }
+    height: 1.175rem;
+    width: calc(100% + 10px);
 `
 
 const MobileBarFilterContainer = styled.div`
 	position: sticky;
 	top: 0.5rem;
-	z-index: 15;
+	z-index: 13;
     color: var(--content-neutrals-primary);
 
 	.filter-container {
@@ -221,8 +233,19 @@ const MobileBarFilterContainer = styled.div`
         }
     }
 
-	@media(min-width:801px) {
-		display: none;
+	@media (min-width:801px) {
+        visibility: ${props => props.$desktopShow ? 'visible' : 'hidden'};
+        top: ${props => props.$desktopShow ? '0.5rem' : '-7rem'};
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        margin: auto;
+        transition: top 0.2s ease, visibility 0.3s 0s;
+
+        .filter-container {
+            height: 5.4rem;
+        }
 	}
 `
 

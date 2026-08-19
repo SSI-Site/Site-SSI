@@ -49,37 +49,37 @@ const Footer = () => {
                 <FooterLinks>
                     <ul>
                         <li>
-                            <Link href="/" className={router.pathname == '/' ? 'active' : ''}>
+                            <Link href="/" prefetch={false} className={router.pathname == '/' ? 'active' : ''}>
                                 Home
                             </Link>
                         </li>
                         <li>
                             <Link
-                                href="/schedule"
+                                href="/schedule" prefetch={false}
                                 className={router.pathname == '/schedule' ? 'active' : ''}>                                
                                     Programação                               
                             </Link>
                         </li>
                         <li>
-                            <Link href="/about" className={router.pathname == '/about' ? 'active' : ''}>                                
+                            <Link href="/about" prefetch={false} className={router.pathname == '/about' ? 'active' : ''}>                                
                                     Evento                                
                             </Link>
                         </li>
                         <li>
                             <Link
-                                href="/palestrantes"
+                                href="/palestrantes" prefetch={false}
                                 className={router.pathname == '/palestrantes' ? 'active' : ''}>                                
                                     Palestrantes                                
                             </Link>
                         </li>
                         <li>
-                            <Link href="/co" className={router.pathname == '/co' ? 'active' : ''}>                                
+                            <Link href="/co" prefetch={false} className={router.pathname == '/co' ? 'active' : ''}>                                
                                     Comissão Organizadora                                
                             </Link>
                         </li>
                         <li>
                             <Link
-                                href="/partnerships"
+                                href="/partnerships" prefetch={false}
                                 className={router.pathname == '/partnerships' ? 'active' : ''}>                                
                                     Para Empresas                                
                             </Link>

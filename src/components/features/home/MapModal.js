@@ -7,7 +7,7 @@ import SecondaryButton from '../../ui/SecondaryButton';
 
 // assets
 import IconeFechar from '../../../../public/images/icons/close.svg';
-import Mapa from '../../../../public/images/home/mapa-campus.png';
+import Mapa from '../../../../public/images/home/mapa-campus.jpg';
 
 const MapModal = ({ onClose }) => {
 

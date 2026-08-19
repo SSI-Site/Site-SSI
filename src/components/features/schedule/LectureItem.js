@@ -41,6 +41,8 @@ const LectureItem = ({ event }) => {
 
     const showSponsor = checkSponsorVisibility(event.sponsor);
 
+    console.log(event);
+
     return (
         <LectureWrapper>
             <LectureContent>
@@ -60,20 +62,23 @@ const LectureItem = ({ event }) => {
                         <div className='badge-wrapper'>
                             <BadgeLecture
                                 text={event.activity_type === 'WS' ? "Workshop" : "Palestra"}
-                                themeIndex={event.activity_type === 'WS' ? 4 : 5}
                             />
 
                             {exibirBadgePresencial &&
                                 <BadgeLecture
                                     text={event.mode === 'ON' ? 'Online' : 'Presencial'}
-                                    themeIndex={event.mode === 'ON' ? 9 : 1}
                                 />
                             }
                         </div>
                     </div>
                     {showSponsor &&
                         <a href={event.sponsor.url} target="_blank" className='sponsor-logo'>
-                            <Image src={getSponsorImage(event.sponsor.name)} alt={`Logo ${event.sponsor.name}`} fill/>
+                            <Image 
+                                src={getSponsorImage(event.sponsor.name)} 
+                                alt={`Logo ${event.sponsor.name}`} 
+                                fill 
+                                sizes="(max-width: 800px) 75px, 140px"
+                            />
                         </a>
                     }
                 </LectureHeader>
