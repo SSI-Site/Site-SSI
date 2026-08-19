@@ -1,23 +1,24 @@
+import React from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import styled from 'styled-components';
 
+// --- Hooks & Contexts ---
 import useAuth from '../hooks/useAuth';
-import Meta from '../src/infra/seo/Meta';
-import gifts from '../data/gifts';
 
+// --- Data ---
+import gifts from '../data/gifts';
 import { eventDetails } from '../data/eventDetails';
 
-// components
+// --- Componentes ---
+import Meta from '../src/infra/seo/Meta';
 import Button from '../src/components/ui/Button';
 import GiftCard from '../src/components/features/gifts/GiftCard';
 import Accordion from '../src/components/ui/Accordion';
 
-//Importe Imagem do Next
-import Image from 'next/image';
-
-// assets
+// --- Assets ---
 import LogoCircularDark from '../public/images/logos/logo_circular_purple.svg';
-import LogoCircularLight from '../public/images/logos/logo_circular_light.svg'
+import LogoCircularLight from '../public/images/logos/logo_circular_light.svg';
 
 const About = () => {
 
@@ -51,7 +52,7 @@ const About = () => {
                                 <source srcSet={LogoCircularLight} media='(prefers-color-scheme: light)'/>
                                 <Image
                                     src={LogoCircularDark}
-                                    alt={`Gif SSI ${eventDetails.year}`}
+                                    alt={`Logo da SSI ${eventDetails.year}`}
                                     width={500}
                                     height={500}
                                     className='image'
@@ -143,7 +144,7 @@ const About = () => {
                             <div className='gifts-cards'>
                                 {Object.entries(gifts).map(([key, gift]) => {
                                     return (
-                                        <GiftCard key={key} index={key} name={gift.name} image={gift.image} minPresence={gift.minPresence} />
+                                        <GiftCard key={key} name={gift.name} image={gift.image} minPresence={gift.minPresence} />
                                     )
                                 })}
                             </div>
