@@ -96,6 +96,7 @@ const Loading = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 80vh;
 
   img{
     max-width: 100%;
