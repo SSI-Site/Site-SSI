@@ -24,8 +24,8 @@ export const partnerships = [
   {
     id: "bt-company",
     name: "BT Company",
-    imageDark: "/images/partners/btCompany.png",
-    imageLight: "/images/partners/btCompany.png",
+    imageDark: "/images/partners/btCompany-dark.png",
+    imageLight: "/images/partners/btCompany-light.png",
     url: "https://www.btcompany.com.br/",
   }
 ].sort((a, b) => (a.name > b.name ? 1 : -1));;
