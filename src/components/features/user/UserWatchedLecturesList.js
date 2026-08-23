@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 // components
 import UserWatchedLecture from './UserWatchedLecture';
 
-const LecturesList = ({ lectures }) => {
-    const [selectedDay, setSelectedDay] = useState(null);
-    const daysOfWeek = [
-        { label: 'Segunda-feira', value: '2026-08-24' },
-        { label: 'Terça-feira', value: '2026-08-25' },
-        { label: 'Quarta-feira', value: '2026-08-26' },
-        { label: 'Quinta-feira', value: '2026-08-27' },
-        { label: 'Sexta-feira', value: '2026-08-28' }
-    ];
+const daysOfWeek = [
+    { label: 'Segunda-feira', value: '2026-08-24' },
+    { label: 'Terça-feira', value: '2026-08-25' },
+    { label: 'Quarta-feira', value: '2026-08-26' },
+    { label: 'Quinta-feira', value: '2026-08-27' },
+    { label: 'Sexta-feira', value: '2026-08-28' }
+];
 
-    useEffect(() => {
+const LecturesList = ({ lectures = [] }) => {
+    
+    const [selectedDay, setSelectedDay] = useState(() => {
         const today = new Date();
         const formattedToday = today.toLocaleDateString('pt-BR', {
             year: 'numeric',
@@ -23,8 +23,8 @@ const LecturesList = ({ lectures }) => {
         }).split('/').reverse().join('-');
 
         const isEventDay = daysOfWeek.find(day => day.value === formattedToday);
-        setSelectedDay(isEventDay ? isEventDay.value : daysOfWeek[0].value);
-    }, []);
+        return isEventDay ? isEventDay.value : daysOfWeek[0].value;
+    });
 
     const selectedDayIndex = Math.max(daysOfWeek.findIndex(day => day.value === selectedDay), 0);
 
@@ -45,16 +45,13 @@ const LecturesList = ({ lectures }) => {
         return [...lecturesList].sort((a, b) => new Date(a.start_time) - new Date(b.start_time));
     };
 
-    const filteredLectures = selectedDay
-        ? lectures.filter(lecture => getDayFromDateTime(lecture.start_time) === selectedDay)
-        : [];
-
+    const filteredLectures = lectures.filter(lecture => getDayFromDateTime(lecture.start_time) === selectedDay);
     const sortedLectures = sortLecturesByTime(filteredLectures);
 
     return (
         <LecturesListWrapper>
             <div className='filter-container-mobile'>
-                <ButtonFilter disabled={selectedDayIndex == 0} className='left' onClick={() => moveDayNumber(-1)}>
+                <ButtonFilter disabled={selectedDayIndex === 0} className='left' onClick={() => moveDayNumber(-1)}>
                     <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
                     </svg>
@@ -62,7 +59,7 @@ const LecturesList = ({ lectures }) => {
                 <div className='filter-day-info'>
                     <p>{daysOfWeek[selectedDayIndex]?.label || daysOfWeek[0].label}</p>
                 </div>
-                <ButtonFilter disabled={selectedDayIndex == daysOfWeek.length - 1} className='right' onClick={() => moveDayNumber(1)}>
+                <ButtonFilter disabled={selectedDayIndex === daysOfWeek.length - 1} className='right' onClick={() => moveDayNumber(1)}>
                     <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.6567 5.96199L10.2388 7.37299L6.98375 4.10299L6.97075 17.708L4.97075 17.706L4.98375 4.13799L1.75375 7.35299L0.34375 5.93599L6.01375 0.291992L11.6567 5.96199Z" fill="#161616" />
                     </svg>
@@ -84,26 +81,25 @@ const LecturesList = ({ lectures }) => {
             </div>
 
             <div className='lecture-list-container'>
-                    {sortedLectures.length === 0 && (
-                        <p className="no-presences-message">
-                            Você ainda não tem nenhuma presença registrada neste dia...
-                        </p>
-                    )}
-                    {sortedLectures.map((lecture, key) => (
-                        <UserWatchedLecture
-                            key={key}
-                            title={lecture.talk_title}
-                            start_time={lecture.start_time}
-                            end_time = {lecture.end_time}
-                        />
-                    ))}
+                {sortedLectures.length === 0 && (
+                    <p className="no-presences-message">
+                        Você ainda não tem nenhuma presença registrada neste dia...
+                    </p>
+                )}
+                {sortedLectures.map((lecture, index) => (
+                    <UserWatchedLecture
+                        key={lecture.id || index}
+                        title={lecture.talk_title}
+                        start_time={lecture.start_time}
+                        end_time={lecture.end_time}
+                    />
+                ))}
             </div>
         </LecturesListWrapper>
     );
 };
 
 export default LecturesList;
-
 
 const LecturesListWrapper = styled.div`
     display: flex;
@@ -258,26 +254,21 @@ const FilterItem = styled.div`
         background-position-x: 100%;    
     }
 
-    ${props => props.$active == true && css`
+    ${props => props.$active ? css`
+        > div {
+            background-color: var(--brand-primary); 
+            background-image: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--background-neutrals-inverse) 50%);
+        }
         > div:hover, > div:focus-visible {
             color: var(--content-neutrals-inverse);
         }
-    `}
-
-    ${props => props.$active == false && css`
+    ` : css`
         > div {
             background-image: linear-gradient(var(--brand-primary), var(--brand-primary));
         }
     `}
 
-    ${props => props.$active == true && css`
-        > div {
-            background-color: var(--brand-primary); 
-            background-image: linear-gradient(to right, var(--background-neutrals-inverse) 50%, var(--background-neutrals-inverse) 50%);
-        }
-    `}
-
-    @media (min-width:840px) {
+    @media (min-width: 840px) {
         width: 12rem;
         font: 700 1rem/1.5rem 'At Aero Bold';
     }
