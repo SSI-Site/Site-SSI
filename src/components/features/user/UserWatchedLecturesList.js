@@ -7,11 +7,11 @@ import UserWatchedLecture from './UserWatchedLecture';
 const LecturesList = ({ lectures }) => {
     const [selectedDay, setSelectedDay] = useState(null);
     const daysOfWeek = [
-        { label: 'Segunda-feira', value: '2025-08-18' },
-        { label: 'Terça-feira', value: '2025-08-19' },
-        { label: 'Quarta-feira', value: '2025-08-20' },
-        { label: 'Quinta-feira', value: '2025-08-21' },
-        { label: 'Sexta-feira', value: '2025-08-22' }
+        { label: 'Segunda-feira', value: '2026-08-24' },
+        { label: 'Terça-feira', value: '2026-08-25' },
+        { label: 'Quarta-feira', value: '2026-08-26' },
+        { label: 'Quinta-feira', value: '2026-08-27' },
+        { label: 'Sexta-feira', value: '2026-08-28' }
     ];
 
     useEffect(() => {
