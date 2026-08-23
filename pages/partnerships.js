@@ -9,8 +9,8 @@ import CountUp from 'react-countup';
 // images
 import bgMobile from '../public/images/partnerships/photos/bg_mobile.jpg';
 import bgDesktop from '../public/images/partnerships/photos/bg_desktop.jpg';
-import imgMotivation from '../public/images/partnerships/photos/motivation.jpg';
-import imgPhotosExperience from '../public/images/partnerships/photos/experience.jpg';
+import imgMotivation from '../public/images/partnerships/photos/motivation.png';
+import imgPhotosExperience from '../public/images/partnerships/photos/experience.png';
 import imgGroupExperience from '../public/images/partnerships/photos/experience2.jpg';
 
 // dark mode: icons

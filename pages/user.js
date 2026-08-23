@@ -37,7 +37,7 @@ import medalCollected_light from '../public/images/user/light/medal/resgatado.pn
 
 const User = () => {
 
-    const { user, disableAuth, signOut } = useAuth();
+    const { user, disableAuth, signOut, loading } = useAuth();
 
     const [isOpen, setIsOpen] = useState(false);
     const [showCodeModal, setShowCodeModal] = useState(false);
@@ -181,6 +181,8 @@ const User = () => {
     }
 
     useEffect(() => {
+        if (loading) return; 
+
         if (disableAuth || !user) {
             Router.push('/');
         } else {
@@ -188,7 +190,7 @@ const User = () => {
             getPresences();
             getStudentGifts();
         }
-    }, [user]);
+    }, [user, loading]);
 
     const handleShowCodeModal = () => {
         setIsOpen(false);

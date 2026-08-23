@@ -1,8 +1,8 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import styled, { css } from "styled-components";
+import { useState } from "react";
+import styled from "styled-components";
 import Image from "next/image";
 
-//IMAGES
+// IMAGES
 import speakersImages from "../../../../data/speakers";
 import ArrowUpIcon from "../../../../public/images/icons/arrow-up.svg";
 import { InstagramLogo, LinkedInLogo } from "../../ui/SocialMediaOutlinedLogos";
@@ -16,152 +16,135 @@ import Dots from "../../ui/Dots";
 // Variável para controlar a exibição do badge de modo "Presencial"/"Online"
 const exibirBadgePresencial = false; 
 
-// Componente principal que exibe o card do palestrante
-const PalestranteCard = ({palestrante, availableWidth}) => {
-    // Estado para controlar se o card está aberto ou fechado (expandido)
+/**
+ * Componente principal que exibe o card do palestrante.
+ * 
+ * @param {Object} palestrante - Objeto contendo os dados do palestrante (nome, descrição, redes sociais, etc).
+ * @param {number} availableWidth - Largura disponível calculada dinamicamente para renderizar os pontinhos (Dots).
+ */
+const PalestranteCard = ({ palestrante, availableWidth }) => {
+    // Estado simples para controlar se o card (acordeão) está aberto ou fechado
     const [open, setOpen] = useState(false);
-    // Estado para armazenar a altura do corpo do card (usado para animação)
-    const [bodyHeight, setBodyHeight] = useState(0);
-    // Referência ao elemento do corpo do card
-    const bodyRef = useRef(null);
-
-    // Função para atualizar a altura do corpo do card
-    const handleBodyHeight = (e) => {
-        if (!e) return;
-        const { height } = e.getBoundingClientRect();
-        setBodyHeight(height);
-    }
-
-    // Atualiza a altura do corpo do card ao redimensionar a janela
-    useEffect(() => {
-        const onResize = () => {
-            if (bodyRef.current) {
-                handleBodyHeight(bodyRef.current);
-            }
-        }
-
-        window.addEventListener("resize", onResize);
-
-        // Remove o event listener ao desmontar o componente
-        return () => {
-            window.removeEventListener("resize", onResize);
-        }
-    }, [bodyRef])
-
-    // Atualiza a altura do corpo do card ao montar o componente ou quando bodyRef mudar
-    useLayoutEffect(() => {
-        if (bodyRef.current) {
-            handleBodyHeight(bodyRef.current);
-        }
-    }, [bodyRef]);
 
     return (
         <PalestranteContainer>
-            {/* Cabeçalho do card, ao clicar alterna entre aberto e fechado */}
-            <PalestranteHeader onClick={() => setOpen(!open)} $active = {open}>
+            {/* 
+              Cabeçalho do card: 
+              Contém foto, nome e cargo. Ao clicar em qualquer lugar do cabeçalho, a visualização se expande.
+            */}
+            <PalestranteHeader onClick={() => setOpen(!open)} $active={open}>
                 <PalestranteImageWrapper>
-                    <Image src={speakersImages[palestrante.id.slice(0,3).toUpperCase()]} alt={palestrante.name} width={80} height={80} />
+                    <Image 
+                        src={speakersImages[palestrante.id.slice(0,3).toUpperCase()]} 
+                        alt={`Foto de ${palestrante.name}`} 
+                        width={80} 
+                        height={80} 
+                    />
                 </PalestranteImageWrapper>
+                
                 <PalestranteInfo>
-                    <PalestranteName $active = {open}>
+                    <PalestranteName $active={open}>
                         {palestrante.name}
-                        <PalestranteArrowUp src={ArrowUpIcon} alt="Fechar" className="arrow" $active = {open}/>   
+                        {/* Ícone de seta que gira quando o card é aberto */}
+                        <PalestranteArrowUp src={ArrowUpIcon} alt="Expandir ou retrair card" className="arrow" $active={open}/>   
                     </PalestranteName>
                 </PalestranteInfo>
+
                 <PalestranteOcuppation>
                     <PalestranteRole $active={open}>{palestrante.role}</PalestranteRole>
                 </PalestranteOcuppation>
             </PalestranteHeader>
-            {/* Wrapper do corpo do card, controla a altura para animação de abrir/fechar */}
-            <PalestranteWrapper $active={open} $height={bodyHeight}>
-                {/* Corpo do card, contém informações detalhadas */}
-                <PalestranteBody ref={bodyRef}>
+
+            <PalestranteWrapper $active={open}>
+                {/* Corpo do card: contém pronomes, descrição, redes sociais e atividades relacionadas */}
+                <PalestranteBody>
                     <PalestranteTopWrapperBody>
+                        {/* Seção Esquerda: Pronomes */}
                         <PalestranteLeftBody>
-                            <PalestrantePronome>
-                                {
-                                    palestrante.pronouns ? palestrante.pronouns.toLowerCase() : palestrante.pronouns
-                                }
-                            </PalestrantePronome>
+                            {palestrante.pronouns && (
+                                <PalestrantePronome>
+                                    {palestrante.pronouns.toLowerCase()}
+                                </PalestrantePronome>
+                            )}
                         </PalestranteLeftBody>
+
+                        {/* Seção Central: Minibio/Descrição */}
                         <PalestranteMiddleBody>
                             <PalestranteDescription>
-                                {
-                                    palestrante.description
-                                }
+                                {palestrante.description}
                             </PalestranteDescription>
                         </PalestranteMiddleBody>
+
+                        {/* Seção Direita: Redes sociais do palestrante */}
                         <PalestranteRightBody>
-                            {/* Seção de redes sociais */}
-                            <PalestranteSocialContainer>
-                                <PalestranteSocialHeader>
-                                    Redes Sociais
-                                </PalestranteSocialHeader>
-                                <PalestranteSocialMedia>
-                                    {
-                                        palestrante.linkedin_link && (
+                            {(palestrante.linkedin_link || palestrante.instagram_link) && (
+                                <PalestranteSocialContainer>
+                                    <PalestranteSocialHeader>
+                                        Redes Sociais
+                                    </PalestranteSocialHeader>
+                                    <PalestranteSocialMedia>
+                                        {palestrante.linkedin_link && (
                                             <PalestranteSocialMediaItem
-                                                icon={
-                                                    <LinkedInLogo />
-                                                }
+                                                icon={<LinkedInLogo />}
                                                 link={palestrante.linkedin_link}
                                                 alt="LinkedIn"
                                             />
-                                        )
-                                    }
-
-                                    {
-                                        palestrante.instagram_link && (
+                                        )}
+                                        {palestrante.instagram_link && (
                                             <PalestranteSocialMediaItem
-                                                icon={
-                                                    <InstagramLogo />
-                                                }
+                                                icon={<InstagramLogo />}
                                                 link={palestrante.instagram_link}
                                                 alt="Instagram"
                                             />
-                                        )
-                                    }
-                                </PalestranteSocialMedia>
-                            </PalestranteSocialContainer>
+                                        )}
+                                    </PalestranteSocialMedia>
+                                </PalestranteSocialContainer>
+                            )}
                         </PalestranteRightBody>
                     </PalestranteTopWrapperBody>
+
+                    {/* Atividades (Palestras, Workshops, etc) vinculadas a este palestrante */}
                     <PalestranteLectureBody>
                         {palestrante.events && palestrante.events.map((event, index) => (
-                            // Alterar essa parte como for preciso
                             <PalestranteLecture key={index}>
                                 <PalestranteLectureHeader>
-                                        {formatActivityDateTime(event.start_time, event.end_time)}
+                                    {formatActivityDateTime(event.start_time, event.end_time)}
                                 </PalestranteLectureHeader>
+                                
                                 <PalestranteLectureTitle>
-                                        {event.title}
+                                    {event.title}
                                 </PalestranteLectureTitle>
+                                
                                 <PalestranteLectureBadge>
+                                    <BadgeLecture
+                                        text={event.activity_type === 'WS' ? "Workshop" : "Palestra"}
+                                        themeIndex={event.activity_type === 'WS' ? 4 : 5}
+                                    />
+                                    {exibirBadgePresencial && (
                                         <BadgeLecture
-                                            text={event.activity_type === 'WS' ? "Workshop" : "Palestra"}
-                                            themeIndex={event.activity_type === 'WS' ? 4 : 5}
+                                            text={event.mode === 'ON' ? 'Online' : 'Presencial'}
+                                            themeIndex={event.mode === 'ON' ? 9 : 1}
                                         />
-
-                                        {exibirBadgePresencial &&
-                                            <BadgeLecture
-                                                text={event.mode === 'ON' ? 'Online' : 'Presencial'}
-                                                themeIndex={event.mode === 'ON' ? 9 : 1}
-                                            />
-                                        }
+                                    )}
                                 </PalestranteLectureBadge>
                             </PalestranteLecture>
                         ))}
                     </PalestranteLectureBody>
                 </PalestranteBody>
             </PalestranteWrapper>
+            
+            {/* Efeito decorativo visual da página */}
             <Dots dotSize={4} dotGap={10} availableWidth={availableWidth}/>
         </PalestranteContainer >
     )
 }
 
-// Componente para exibir um ícone de rede social com link
+/**
+ * Componente utilitário interno para renderizar ícones de redes sociais.
+ */
 const PalestranteSocialMediaItem = ({ icon, link, alt }) => {
     return (
-        <a href={link} target="_blank" rel="noopener noreferrer nofollow">
+        <a href={link} target="_blank" rel="noopener noreferrer nofollow" aria-label={alt}>
             {icon}
         </a>
     )
@@ -254,7 +237,8 @@ const PalestranteHeader = styled.div`
         content: "";
         position: absolute;
         inset: 0;
-        background-image: url(${BackgroundPicture});
+        /* Recomenda-se pré-otimizar essa imagem de background para evitar lentidão */
+        background-image: url(${BackgroundPicture.src || BackgroundPicture});
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -331,7 +315,6 @@ const PalestranteRole = styled.span`
 
 const PalestranteImageWrapper = styled.div`
     grid-area: image;
-    width: 100%;
     width: 5rem;
     height: 5rem;
     display: flex;
@@ -374,15 +357,23 @@ const PalestranteName = styled.h3`
     }
 `;
 
+/*
+  ANIMAÇÃO OTIMIZADA COM CSS GRID:
+  A transição de grid-template-rows 0fr -> 1fr cria o efeito de acordeão
+  sem a necessidade de medir o DOM com JavaScript, poupando a linha de execução.
+*/
 const PalestranteWrapper = styled.div`
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    will-change: height;
-    height: 0px;
+    display: grid;
+    grid-template-rows: ${props => props.$active ? '1fr' : '0fr'};
+    transition: grid-template-rows 0.3s ease-in-out;
 
-    ${props => props.$active && `
-        height: ${props.$height}px;
-    `}
+    /* 
+      A div filha direta (PalestranteBody) precisa ter overflow hidden para 
+      garantir que seu conteúdo seja cortado durante a animação visual de colapso.
+    */
+    > div {
+        overflow: hidden;
+    }
 `;
 
 const PalestranteBody = styled.div`

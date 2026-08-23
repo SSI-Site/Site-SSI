@@ -44,6 +44,10 @@ import COSSI from '../public/images/speakers/058.png'
 import JoaoVitor from '../public/images/speakers/ABF.jpg'
 import LucasQuinteiro from '../public/images/speakers/4F1.png'
 import SergioHerculano from '../public/images/speakers/E64.jpeg'
+import IzabellaSilva from '../public/images/speakers/BBE.jpeg'
+import WallaceGalindo from '../public/images/speakers/216.png'
+import SergioBartolomeu from '../public/images/speakers/943.png'
+import HugoNicolau from '../public/images/speakers/80E.jpeg'
 
 const speakersImages = {
   'C9A': AndreaLongarini,
@@ -91,7 +95,11 @@ const speakersImages = {
   '058': COSSI,
   'ABF': JoaoVitor,
   '4F1': LucasQuinteiro,
-  'E64': SergioHerculano 
+  'E64': SergioHerculano,
+  'BBE': IzabellaSilva,
+  '216': WallaceGalindo,
+  '943': SergioBartolomeu,
+  '80E': HugoNicolau
 }
 
 export default speakersImages

@@ -35,11 +35,13 @@ export function AuthProvider({ children }) {
             const formatedUser = await formatUser(currentUser)
             setUser(formatedUser)
             setSession(true)
+            setLoading(false)
             return formatedUser.email
         }
 
         setUser(false)
         setSession(false)
+        setLoading(false)
         return false
     }
 
@@ -130,7 +132,7 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, handleStudent)
-        checkAuthStatus()
+        // checkAuthStatus()
         return () => unsubscribe()
     }, [])
 
