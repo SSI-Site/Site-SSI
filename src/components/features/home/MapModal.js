@@ -83,7 +83,7 @@ const ModalOverlay = styled.div`
 
 const ModalWrapper = styled.div`
     max-width: 765px;
-    height: 100%px;
+    height: fit-content;
 `
 
 const StyledModal = styled.div`
@@ -149,8 +149,17 @@ const ModalBody = styled.div`
         border-top: 1px solid var(--outline-neutrals-secondary);
     }
 
+    figure {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     img {
         width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
     }
 
     p {
