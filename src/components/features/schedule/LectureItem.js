@@ -41,8 +41,6 @@ const LectureItem = ({ event }) => {
 
     const showSponsor = checkSponsorVisibility(event.sponsor);
 
-    console.log(event);
-
     return (
         <LectureWrapper>
             <LectureContent>

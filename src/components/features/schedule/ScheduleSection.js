@@ -13,13 +13,12 @@ const ScheduleSection = () => {
     const [schedule, setSchedule] = useState([]);
 
     const getSchedule = async() => {
-        try{
+        try {
             const { data } = await saphira.getTalks()
             if (data) {
                 setSchedule(data)
             }
-        }
-        catch(err){
+        } catch(err) {
             console.log('Houve um erro na hora de obter os dados', err)
         }
     }
@@ -30,99 +29,67 @@ const ScheduleSection = () => {
 
     const current = new Date();
     const firstEventDay = eventDetails.logic.startJS; 
-    // criei uma copia do endJS (new Date) para que o setHours 
-    // nao altere a variável original lá do eventDetails globalmente
-    const lastEventDay = new Date(eventDetails.logic.endJS); 
+    const lastEventDay = eventDetails.logic.endJS; 
+    lastEventDay.setHours(23, 59, 59, 999); 
 
-    lastEventDay.setHours(23, 59, 59, 999);  // define para o final do dia (23:59:59.999)
+    // Se o evento já acabou, não renderiza a seção
+    if (current > lastEventDay) return null;
 
-    const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0')
-
-    const day = `${current.getDate()}`;
-
-    const fallbackDay = firstEventDay.getDate().toString();
-    const scheduleDay = ((current >= firstEventDay && current <= lastEventDay) ? day : fallbackDay);
     const todayDate = current.toLocaleDateString('pt-br').split('/').reverse().join('-');
-    // se a data atual estiver entre o primeiro e o ultimo dia do evento, use a data atual, caso contrario, use a data do primeiro dia do evento (fallback)
-    const formattedScheduleDate = current >= firstEventDay && current <= lastEventDay ? todayDate : eventDetails.logic.fallbackString;
+    const isEventDay = current >= firstEventDay && current <= lastEventDay;
+    const formattedScheduleDate = isEventDay ? todayDate : eventDetails.logic.fallbackString;
 
-    const filterEventDays = eventDetails.logic.filterEventDays;
-    const filterEventDaysId = scheduleDay - firstEventDay.getDate();
+    const currentTime = current.getHours().toString().padStart(2, '0') + ":" + current.getMinutes().toString().padStart(2, '0');
 
-    // transforma 00:00 em minutos depois da meia noite para fazer calculos
     const minutesAfterMidNight = (time) => {
         const [hours, minutes] = time.split(":").map(Number);
         return hours * 60 + minutes;
     }
 
-    const currentTimeMinutes = minutesAfterMidNight(currentTime); // horario atual
-    const morningEnd = minutesAfterMidNight("12:00"); 
-    const eveningEnd = minutesAfterMidNight("18:00"); 
+    const currentTimeMinutes = minutesAfterMidNight(currentTime);
 
-    let shift = "Manhã"; 
-    if (current >= firstEventDay) {
-        if (currentTimeMinutes >= morningEnd && currentTimeMinutes < eveningEnd) {
-            shift = "Tarde";
-        } else if (currentTimeMinutes >= eveningEnd) {
-            shift = "Noite";
-        }
+    // Filtra todas as palestras do dia selecionado
+    const todaysTalks = filterTalks(schedule, formattedScheduleDate);
+    // Lógica "Agora e a Seguir"
+    let nowAndNextTalks = [];
+
+    if (isEventDay) {
+        // Durante o evento: filtra pelo horário atual
+        nowAndNextTalks = todaysTalks.filter((talk) => {
+            // Pega o horário da palestra (assumindo formato contendo "T14:30:00")
+            const talkStartMinutes = minutesAfterMidNight(talk.start_time.split("T")[1]);
+            
+            // Mantém palestras que começaram nos últimos 60 minutos (estão rolando) ou no futuro
+            return talkStartMinutes >= (currentTimeMinutes - 60);
+        }).slice(0, 5); // Limita para mostrar apenas a atual e as próximas duas
+    } else {
+        // Antes do evento: mostra as 3 primeiras atividades do dia de fallback
+        nowAndNextTalks = todaysTalks.slice(0, 3);
     }
 
-    // Array intermediario com de horario e atividades
-    const filteredArray = schedule.filter((array) => {
-        const scheduleStartTimeMinutes = minutesAfterMidNight(array.start_time.split("T")[1]); // Horário de cada atividade
-        switch (shift) {
-            case "Manhã":
-                return scheduleStartTimeMinutes < morningEnd;
-            case "Tarde":
-                return scheduleStartTimeMinutes > morningEnd && scheduleStartTimeMinutes < eveningEnd;
-            case "Noite":
-                return scheduleStartTimeMinutes > eveningEnd;
-            default:
-                return false;
-        }
-    })
-
-    const filteredSchedule = filterTalks(filteredArray, formattedScheduleDate)
-
-    if (current > lastEventDay) return null;
+    // Se não houver palestras para exibir, esconde a seção inteira
+    if (nowAndNextTalks.length === 0) {
+        return null;
+    }
 
     return (
         <SectionWrapper>
             <div className='schedule-container'>
                 <h3 className='title-mobile schedule-section-title'>Próximas atividades</h3>
+                
                 <div className='title-btn-desktop'>
                     <h3 className='schedule-section-title'>Próximas atividades</h3>
-                    <Button type="button" aria-label="Ver programação completa" onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                </div>
-                <div className='filter-bar-container filter-bar-mobile'>
-                    <p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
-                    <p>{shift}</p>
-                </div>
-
-                <div className='filter-bar-container filter-bar-desktop'>
-                    <div className='subtitle'>
-                        <p>Horário</p>
-                        <p>Atividade</p>
-                    </div>
-
-                    <div>
-                        <p>Dia {filterEventDaysId + 1} - {filterEventDays[filterEventDaysId]}</p>
-                    </div>
-
-                    <div>
-                        <p>{shift}</p>
-                    </div>
                 </div>
 
                 <ScheduleShift
-                    schedule={filteredSchedule}
+                    schedule={nowAndNextTalks}
                 />
+                
                 <div className='btn-mobile'>
                     <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
                 </div>
             </div>
-            </SectionWrapper>
+        </SectionWrapper>
     );
 };
 
@@ -140,9 +107,10 @@ const SectionWrapper = styled.section`
         gap: 1rem;
 
         .schedule-section-title {
-            background-color: var(--brand-primary);
-            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+            width: fit-content;
+            padding: 0.75rem 1rem;
             color: var(--content-neutrals-fixed-white);
+            background: linear-gradient(90deg, var(--background-brand-primary, #9638FF) 0%, #5A2299 100%);
         }
 
         .title-mobile {
@@ -154,54 +122,6 @@ const SectionWrapper = styled.section`
 
         .title-btn-desktop {
             display: none;
-        }
-
-        .filter-bar-container {
-            height: fit-content;
-            padding-block: 1rem;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            box-shadow: 0 -0.0625rem 0 0 var(--background-neutrals-secondary);
-            border-bottom: 0.0625rem solid var(--outline-neutrals-secondary);
-
-            p {
-                font: 700 1rem/1.25rem 'AT Aero Bold';
-            }
-        }
-
-        .filter-bar-mobile {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: -1rem;
-
-            @media (min-width: 1024px) {
-                display: none;
-            }
-        }
-
-        .filter-bar-desktop {
-            margin-bottom: -2rem;
-
-            @media (max-width: 1023px) {
-                display: none;
-            }
-
-            justify-content: space-between;
-            
-            .subtitle {
-                display: flex;
-                gap: 6.31rem;
-            }
-        }
-
-        .date-stamp {
-            > div {
-                background-color: var(--brand-primary);
-            }
         }
 
         .btn-mobile {
@@ -224,7 +144,7 @@ const SectionWrapper = styled.section`
                 width: 100%;
                 display: flex;
                 flex-direction: row;
-                align-items: center;
+                align-items: end;
                 justify-content: space-between;
 
                 button {
