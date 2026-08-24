@@ -23,7 +23,7 @@ const NAV_LINKS = [
     { path: '/palestrantes', label: 'Palestrantes' },
     { path: '/co', label: 'Comissão Organizadora' },
     { path: '/partnerships', label: 'Para Empresas' },
-    // { path: 'https://intheshell.each.usp.br/', label: 'CTF', isExternal: true },
+    { path: 'https://ctf.eits.dpdns.org', label: 'CTF', isExternal: true },
 ];
 
 const Nav = () => {
