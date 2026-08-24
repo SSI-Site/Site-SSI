@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 import Button from '../../ui/Button';
@@ -8,11 +9,17 @@ import saphira from '../../../../services/saphira';
 import filterTalks from '../../../../utils/filterTalks';
 import { eventDetails } from '../../../../data/eventDetails';
 
+import LoadingSvg from '../../../../public/images/ui/loading.svg'; 
+
 const ScheduleSection = () => {
     const router = useRouter();
     const [schedule, setSchedule] = useState([]);
+    
+    // Estado de loading (começa como true para mostrar o spinner direto na montagem)
+    const [isLoading, setIsLoading] = useState(true);
 
     const getSchedule = async() => {
+        setIsLoading(true); // Garante que ativou o loading
         try {
             const { data } = await saphira.getTalks()
             if (data) {
@@ -20,6 +27,9 @@ const ScheduleSection = () => {
             }
         } catch(err) {
             console.log('Houve um erro na hora de obter os dados', err)
+        } finally {
+            // Desliga o loading independentemente de dar erro ou sucesso
+            setIsLoading(false); 
         }
     }
 
@@ -29,7 +39,7 @@ const ScheduleSection = () => {
 
     const current = new Date();
     const firstEventDay = eventDetails.logic.startJS; 
-    const lastEventDay = eventDetails.logic.endJS; 
+    const lastEventDay = new Date(eventDetails.logic.endJS); 
     lastEventDay.setHours(23, 59, 59, 999); 
 
     // Se o evento já acabou, não renderiza a seção
@@ -52,7 +62,6 @@ const ScheduleSection = () => {
     const todaysTalks = filterTalks(schedule, formattedScheduleDate);
     // Lógica "Agora e a Seguir"
     let nowAndNextTalks = [];
-
     if (isEventDay) {
         // Durante o evento: filtra pelo horário atual
         nowAndNextTalks = todaysTalks.filter((talk) => {
@@ -61,7 +70,7 @@ const ScheduleSection = () => {
             
             // Mantém palestras que começaram nos últimos 60 minutos (estão rolando) ou no futuro
             return talkStartMinutes >= (currentTimeMinutes - 60);
-        }).slice(0, 5); // Limita para mostrar apenas a atual e as próximas duas
+        }).slice(0, 5); // Limita para mostrar apenas a atual e as próximas
     } else {
         // Antes do evento: mostra as 3 primeiras atividades do dia de fallback
         nowAndNextTalks = todaysTalks.slice(0, 3);
@@ -81,13 +90,24 @@ const ScheduleSection = () => {
                     <h3 className='schedule-section-title'>Próximas atividades</h3>
                 </div>
 
-                <ScheduleShift
-                    schedule={nowAndNextTalks}
-                />
-                
-                <div className='btn-mobile'>
-                    <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
-                </div>
+                {/* Renderização Condicional */}
+                {isLoading ? (
+                    <Loading>
+                        <Image
+                            src={LoadingSvg}
+                            width={100}
+                            height={100}
+                            alt="Carregando atividades..."
+                        />
+                    </Loading>
+                ) : (
+                    <>
+                        <ScheduleShift schedule={nowAndNextTalks} />
+                        <div className='btn-mobile'>
+                            <Button onClick={() => router.push('/schedule')}>Ver programação completa</Button>
+                        </div>
+                    </>
+                )}
             </div>
         </SectionWrapper>
     );
@@ -157,4 +177,18 @@ const SectionWrapper = styled.section`
             }
         }
     }
+`;
+
+// 5. Adicionando o estilo do Loading no final
+const Loading = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 3rem; /* Espaço para respirar enquanto carrega */
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
