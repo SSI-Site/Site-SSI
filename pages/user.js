@@ -119,10 +119,6 @@ const User = () => {
     })
 
     const getStudentInfo = async() => {
-        if (!user) return;
-
-        setIsLoading(true);
-
         try{
             const { data } = await saphira.getStudent()
             if (data) setStudentInfo({ ...saphiraUserDataToFormFormat(data) });
@@ -193,16 +189,25 @@ const User = () => {
     }
 
     useEffect(() => {
-        if (loading) return; 
-
         if (disableAuth || !user) {
             Router.push('/');
-        } else {
-            getStudentInfo();
-            getPresences();
-            getStudentGifts();
-        }
-    }, [user, loading]);
+            return;
+        } 
+        
+        const fetchAllData = async () => {
+            setIsLoading(true);
+
+            await Promise.all([
+                getStudentInfo(),
+                getPresences(),
+                getStudentGifts()
+            ]);
+            
+            setIsLoading(false);
+        };
+
+        fetchAllData();
+    }, [user, disableAuth]);
 
     const handleShowCodeModal = () => {
         setIsOpen(false);
