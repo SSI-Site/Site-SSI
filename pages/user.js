@@ -82,20 +82,32 @@ const User = () => {
     // Função de salvar (mesma da resposta anterior)
     const handleUpdateNusp = async () => {
         if (!nuspInput) return;
+        
+        // Remove espaços em branco e qualquer letra/símbolo 
+        // que o teclado do celular possa ter inserido por acidente.
+        const cleanNusp = nuspInput.replace(/\D/g, '');
+
+        // Verifica se sobrou algo após a limpeza
+        if (!cleanNusp) {
+            alert("Por favor, insira um Número USP válido.");
+            return;
+        }
+
         setIsUpdatingNusp(true);
 
         try {
-            await saphira.updateStudent(nuspInput);
-            setStudentInfo(prev => ({ ...prev, usp_number: nuspInput }));
+            await saphira.updateStudent(cleanNusp); 
+            
+            setStudentInfo(prev => ({ ...prev, usp_number: cleanNusp }));
             setIsEditingNusp(false);
         } catch (err) {
-            console.log("Erro ao atualizar Número USP", err);
-            alert("Houve um erro ao salvar o Número USP.");
+            console.error("Erro retornado pela API ao atualizar Número USP:", err.response || err);
+            alert("Houve um erro ao salvar o Número USP. Verifique se o número está correto.");
         } finally {
             setIsUpdatingNusp(false);
         }
     };
-    
+        
     // Lista de todos os brindes com dois novos campos: completed e collected, que indicam a situação do usuário em relação a cada brinde
     const giftsWithStatus = Object.values(gifts).map((gift) => {
         const userGift = userGifts.find((userGift) => userGift.gift.name === gift.name);
@@ -107,10 +119,6 @@ const User = () => {
     })
 
     const getStudentInfo = async() => {
-        if (!user) return;
-
-        setIsLoading(true);
-
         try{
             const { data } = await saphira.getStudent()
             if (data) setStudentInfo({ ...saphiraUserDataToFormFormat(data) });
@@ -181,16 +189,25 @@ const User = () => {
     }
 
     useEffect(() => {
-        if (loading) return; 
-
         if (disableAuth || !user) {
             Router.push('/');
-        } else {
-            getStudentInfo();
-            getPresences();
-            getStudentGifts();
-        }
-    }, [user, loading]);
+            return;
+        } 
+        
+        const fetchAllData = async () => {
+            setIsLoading(true);
+
+            await Promise.all([
+                getStudentInfo(),
+                getPresences(),
+                getStudentGifts()
+            ]);
+            
+            setIsLoading(false);
+        };
+
+        fetchAllData();
+    }, [user, disableAuth]);
 
     const handleShowCodeModal = () => {
         setIsOpen(false);
@@ -302,8 +319,12 @@ const User = () => {
                                             <NuspEditWrapper>
                                                 <input 
                                                     type="text" 
+                                                    inputMode="numeric"
                                                     value={nuspInput}
-                                                    onChange={(e) => setNuspInput(e.target.value)}
+                                                    onChange={(e) => {
+                                                        const onlyNumbers = e.target.value.replace(/\D/g, '');
+                                                        setNuspInput(onlyNumbers);
+                                                    }}
                                                     placeholder="Seu Nº USP"
                                                     disabled={isUpdatingNusp}
                                                     autoFocus 
