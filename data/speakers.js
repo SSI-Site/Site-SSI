@@ -48,6 +48,7 @@ import IzabellaSilva from '../public/images/speakers/BBE.jpeg'
 import WallaceGalindo from '../public/images/speakers/216.png'
 import SergioBartolomeu from '../public/images/speakers/943.png'
 import HugoNicolau from '../public/images/speakers/80E.jpeg'
+import GuilhermeParanhos from '../public/images/speakers/AD2.jpg'
 
 const speakersImages = {
   'C9A': AndreaLongarini,
@@ -99,7 +100,8 @@ const speakersImages = {
   'BBE': IzabellaSilva,
   '216': WallaceGalindo,
   '943': SergioBartolomeu,
-  '80E': HugoNicolau
+  '80E': HugoNicolau,
+  'AD2' : GuilhermeParanhos
 }
 
 export default speakersImages
