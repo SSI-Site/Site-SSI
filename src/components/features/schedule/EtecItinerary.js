@@ -42,7 +42,7 @@ const SCHEDULE_THURSDAY = [
         id: 5,
         title: "Vida Universitária",
         time: "13:00 - 13:40h",
-        desc: null,
+        desc: "Viver a universidade é aprender, evoluir e descobrir caminhos que vão muito além da sala de aula.",
         type: "lecture"
     },
     {
