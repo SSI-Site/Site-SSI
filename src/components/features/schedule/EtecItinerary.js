@@ -13,7 +13,7 @@ const SCHEDULE_THURSDAY = [
     {
         id: 1,
         title: "O que é a USP?",
-        time: "10:00 - 10:40h",
+        time: "09:40 - 10:40h",
         desc: "Venha saber sobre a maior universidade da América Latina pelos próprios professores e estudantes.",
         type: "lecture"
     },
@@ -34,21 +34,28 @@ const SCHEDULE_THURSDAY = [
     {
         id: 4,
         title: "Panorama sobre as Áreas de Tecnologia",
-        time: "12:10 - 13:40h",
+        time: "12:10 - 12:50h",
         desc: "Quais carreiras posso seguir na área tech? Quais são as diferenças entre os cursos? Venha descobrir!",
         type: "lecture"
     },
     {
         id: 5,
+        title: "Vida Universitária",
+        time: "13:00 - 13:40h",
+        desc: "Viver a universidade é aprender, evoluir e descobrir caminhos que vão muito além da sala de aula.",
+        type: "lecture"
+    },
+    {
+        id: 6,
         title: "Ingresso na USP e Dicas para o Vestibular",
         time: "13:50 - 14:30h",
         desc: "Abordaremos os meios de ingresso na USP, e também dicas para arrasar nos vestibulares.",
         type: "lecture"
     },
     {
-        id: 6,
+        id: 7,
         title: "Painel das nossas organizações estudantis",
-        time: "14:40 - 15:40h",
+        time: "14:40 - 15:20h",
         desc: "Traremos representantes dos grupos estudantis do curso de Sistemas de Informação para esclarecer todas as suas dúvidas!",
         type: "lecture"
     }

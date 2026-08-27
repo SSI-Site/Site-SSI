@@ -51,7 +51,7 @@ export const supporters = [
     name: "DSec",
     imageDark: "/images/partners/DSec.png",
     imageLight: "/images/partners/DSec.png",
-    url: "https://desecsecurity.com/",
+    url: "https://dseclab.io/br",
   },
   {
     id: "festo",
